@@ -1,0 +1,19 @@
+﻿@using MCS.Library.Globalization
+@(
+ Html.HSRUIWF().WFToolbarMoveToWorkflow().Direction(p => p.Default()).AfterClick("movetoAfterClick").BeforeClick("movetoBeforeClick").ActionUrl(Url.Action("MoveTo", "Home"))
+                        .DialogText("您确定要流转吗？").Name("ExpenseApprove").ActionResult("流转").ProgressBar(true).IconList("glyphicon glyphicon-ok,glyphicon glyphicon-arrow-left,glyphicon glyphicon-share-alt")
+)
+@(
+ Html.HSRUIWF().WFSaveWorkflow().AfterClick("reloadPage").BeforeClick("movetoBeforeClick").ActionUrl(Url.Action("Save", "Home")).ProgressBar(true)
+                    .DialogText("您确定要保存吗？").Name("ExpenseSave")
+)
+@(
+ Html.HSRUIWF().WFWithdrawWorkflow().DialogText("您确定要撤回吗？").Name("WithdrawExpense").AfterClick("reloadPage").ProgressBar(true)
+)
+@(
+ Html.HSRUIWF().WFCancelWorkflow().DialogText("您确定要作废吗？").Name("CancelExpense").AfterClick("reloadPage").ProgressBar(true)
+)
+@(
+ Html.HSRUIWF().WFTrackWorkflow().Name("WFTrace")
+)
+<a href="@(Request.UrlReferrer != null ? Request.UrlReferrer.ToString() : "#")" id="goBack" class="btn btn-default">@(Translator.Translate("SOAWebControls", "返回"))</a>

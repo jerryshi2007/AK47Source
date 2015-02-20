@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="Designer.Views.WfContextMenu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkitinput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit">
+    <!--height和width值与\Views\DiagramPage.xaml.cs menuWidth有关,须同步修改-->
+    <toolkitinput:ContextMenu x:Name="contextMenu" VerticalAlignment="Top" Height="168">
+        <HyperlinkButton x:Name="btnRelativeLink" Style="{StaticResource menuButton}" Click="btnRelativeLink_Click"
+                    Content="相关链接..."></HyperlinkButton>
+        <HyperlinkButton x:Name="btnCancelReceivers" Style="{StaticResource menuButton}" Click="btnCancelReceivers_Click" 
+                    Content="撤销通知人..."></HyperlinkButton>
+        <HyperlinkButton x:Name="btnVariable" Click="btnVariable_Click" 
+                    Content="变量编辑..." Style="{StaticResource menuButton}" ></HyperlinkButton>
+        <HyperlinkButton x:Name="btnParameters" Click="btnParameters_Click" 
+                    Content="自动收集流程参数..." Style="{StaticResource menuButton}" ></HyperlinkButton>
+        <!--<HyperlinkButton x:Name="btnInternalUser" Click="btnInternalUser_Click" 
+                    Content="内部相关人员" Style="{StaticResource menuButton}" ></HyperlinkButton>
+        <HyperlinkButton x:Name="btnExternalUser" Click="btnExternalUser_Click" 
+                    Content="外部相关人员" Style="{StaticResource menuButton}" ></HyperlinkButton>-->
+        <HyperlinkButton x:Name="btnWfMatrix" Click="btnWfMatrix_Click"
+                    Content="权限矩阵..." Style="{StaticResource menuButton}" ></HyperlinkButton>
+    </toolkitinput:ContextMenu>
+</UserControl>

@@ -1,0 +1,23 @@
+﻿<div>
+    <input runat="server" id="applicationData" type="hidden" />
+    <input runat="server" id="roleData" type="hidden" />
+    <div style="width: 300px; margin: auto">
+        <h1 class="title">
+            选择应用和角色</h1>
+        <div class="form-group">
+            <label for="applications">
+                应用</label>
+            <select runat="server" id="applications" class="form-control">
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="roles">
+                角色 <span id="loadingTag" runat="server" style="visibility: hidden"><span id="loadingImg"
+                    runat="server" style="width: 16px; height: 16px" />正在加载... </span>
+            </label>
+            <select runat="server" id="roles" class="form-control">
+            </select>
+            <a runat="server" id="relativeLink" href="javascript:void(0);" target="_blank">相关链接...</a>
+        </div>
+    </div>
+</div>

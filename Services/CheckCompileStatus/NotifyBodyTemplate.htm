@@ -1,0 +1,105 @@
+﻿<html>
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<style type="text/css">
+		td
+		{
+			word-wrap: break-word;
+		}
+		.title
+		{
+			color: Black;
+			font-family: "微软雅黑" , "宋体" , "sans-serif";
+			font-size: 11pt;
+		}
+		.errorTitle
+		{
+			color: Red;
+			font-family: "微软雅黑" , "宋体" , "sans-serif";
+			font-size: 11pt;
+		}
+		.warningTitle
+		{
+			color: Orange;
+			font-family: "微软雅黑" , "宋体" , "sans-serif";
+			font-size: 11pt;
+		}
+		.desc
+		{
+			color: Gray;
+			font-weight: bold;
+			font-family: "微软雅黑" , "宋体" , "sans-serif";
+			font-size: 9pt;
+		}
+		.detail
+		{
+			color: Black;
+			font-family: "微软雅黑" , "宋体" , "sans-serif";
+			font-size: 9pt;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<p>
+			<span class="title">{%mailNames%}，你好</span>
+		</p>
+		<div style="margin-left: .5in">
+			<span class="title">如题，请尽快调整以下属于你的编译问题，谢谢！</span>
+			<table border="1">
+				<tr>
+					<td width="60">
+						<p align="center" style="text-align: center">
+							<span class="desc">编译位置</span>
+						</p>
+					</td>
+					<td width="500">
+						<p align="left" style="text-align: left">
+							<span class="detail">{%workspaceServerPath%}</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td width="60">
+						<p align="center" style="text-align: center">
+							<span class="desc">起始时间</span>
+						</p>
+					</td>
+					<td width="500">
+						<p align="left" style="text-align: left">
+							<span class="detail">{%startTime%}</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td width="60">
+						<p align="center" style="text-align: center">
+							<span class="desc">结束时间</span>
+						</p>
+					</td>
+					<td width="500">
+						<p align="left" style="text-align: left">
+							<span class="detail">{%endTime%}</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td width="60">
+						<p align="center" style="text-align: center">
+							<span class="desc">编译耗时</span>
+						</p>
+					</td>
+					<td width="500">
+						<p align="left" style="text-align: left">
+							<span class="detail">{%timeElapsed%}</span>
+						</p>
+					</td>
+				</tr>
+			</table>
+		</div>
+		{%errorBody%} 
+		{%warningBody%}
+	</div>
+</body>
+</html>

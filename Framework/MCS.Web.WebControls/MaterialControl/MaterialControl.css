@@ -1,0 +1,58 @@
+﻿.body
+{
+	font-size: 9pt;
+	margin: 0 0 0 0;
+	background-color: #eceff8;
+}
+
+.MaterialTableCss
+{
+	border: solid 1px black;
+	width: 200px;
+	border-collapse: COLLAPSE;
+	word-break: break-all;
+}
+
+.MaterialTableCellCss
+{
+	padding: 0 0 0 0;
+	font-size: 9pt;
+	border: solid 1px black;
+	word-wrap: break-word;
+}
+
+.Link
+{
+	font-size: 9pt;
+	cursor: hand;
+}
+
+.PopUpMaterialTableCss
+{
+	border: solid 1px black;
+	width: 100%;
+	border-collapse: COLLAPSE;
+	word-break: break-all;
+}
+
+.PopUpMaterialTableCellCss
+{
+	padding: 0 0 0 0;
+	font-size: 9pt;
+	border: solid 1px black;
+	word-wrap: break-word;
+}
+
+.PopUpMaterialTableHeadCellCss
+{
+	padding: 0 0 0 0;
+	font-size: 9pt;
+	background-color: Red;
+	border: solid 1px black;
+}
+
+.PopUpMaterialTableCellInputCss
+{
+	border: solid 1px black;
+	background-color: #C9F6C5;
+}

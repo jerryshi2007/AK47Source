@@ -1,0 +1,547 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AD6E5DF9-815C-4915-8938-DFAE016CB304}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MCS.OA.CommonPages</RootNamespace>
+    <AssemblyName>OACommonPages</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MCS.Library, Version=1.2.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Data, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.OGUPermission">
+      <HintPath>..\..\Bin\MCS.Library.OGUPermission.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Passport">
+      <HintPath>..\..\Bin\MCS.Library.Passport.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.ServiceBase">
+      <HintPath>..\..\Bin\MCS.Library.ServiceBase.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.SOA.DataObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.Web.WebControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.SOA.Web.WebControls.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Library, Version=1.2.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Web.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Library.Script.Json">
+      <HintPath>..\..\Bin\MCS.Web.Library.Script.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.WebControls, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Web.WebControls.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Build.Tasks.v4.0" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AppTrace\ApplicationBridgeForm.aspx" />
+    <Content Include="AppTrace\appTraceBridge.aspx" />
+    <Content Include="AppTrace\appTraceViewer.aspx" />
+    <Content Include="AppTrace\Category.aspx" />
+    <Content Include="AppTrace\CategoryEdit.aspx" />
+    <Content Include="AppTrace\InitWorkFlowUsersData.aspx" />
+    <Content Include="AppTrace\InvalidAssigneesNotification.aspx" />
+    <Content Include="AppTrace\ProcessAdjustment.aspx" />
+    <Content Include="AppTrace\ProcessParametersEditor.aspx" />
+    <Content Include="AppTrace\selectReplaceAssignees.aspx" />
+    <Content Include="AppTrace\TimeRange.aspx" />
+    <Content Include="App_Themes\Main\DeluxeGrid.css" />
+    <Content Include="App_Themes\Main\gridimg\activity.gif" />
+    <Content Include="App_Themes\Main\gridimg\bottom-left.png" />
+    <Content Include="App_Themes\Main\gridimg\bottom-mid.png" />
+    <Content Include="App_Themes\Main\gridimg\bottom-right.png" />
+    <Content Include="App_Themes\Main\gridimg\close-down.png" />
+    <Content Include="App_Themes\Main\gridimg\close-hover.png" />
+    <Content Include="App_Themes\Main\gridimg\close.png" />
+    <Content Include="App_Themes\Main\gridimg\first.gif" />
+    <Content Include="App_Themes\Main\gridimg\footer.gif" />
+    <Content Include="App_Themes\Main\gridimg\last.gif" />
+    <Content Include="App_Themes\Main\gridimg\left.png" />
+    <Content Include="App_Themes\Main\gridimg\next.gif" />
+    <Content Include="App_Themes\Main\gridimg\pager_bg.gif" />
+    <Content Include="App_Themes\Main\gridimg\pencil.gif" />
+    <Content Include="App_Themes\Main\gridimg\prev.gif" />
+    <Content Include="App_Themes\Main\gridimg\right.png" />
+    <Content Include="App_Themes\Main\gridimg\sprite.png" />
+    <Content Include="App_Themes\Main\gridimg\top-left.png" />
+    <Content Include="App_Themes\Main\gridimg\top-mid.png" />
+    <Content Include="App_Themes\Main\gridimg\top-right.png" />
+    <Content Include="AsyncPersist\ArchivedList.aspx" />
+    <Content Include="AsyncPersist\Default.aspx" />
+    <Content Include="AsyncPersist\Monitor.aspx" />
+    <Content Include="CSS\Ajax.css" />
+    <Content Include="CSS\Dialog.css" />
+    <Content Include="CSS\htc.css" />
+    <Content Include="CSS\ItemDetail.css" />
+    <Content Include="CSS\Login.css" />
+    <Content Include="CSS\Other.css" />
+    <Content Include="CSS\style.css" />
+    <Content Include="DelegationAuthorized\AnyOriginalDelegationEdit.aspx" />
+    <Content Include="DelegationAuthorized\OriginalDelegationEdit.aspx" />
+    <Content Include="DelegationAuthorized\OriginalDelegationEntry.htm" />
+    <Content Include="DelegationAuthorized\OriginalDelegationList.aspx" />
+    <Content Include="DelegationAuthorized\AllOriginalDelegationList.aspx" />
+    <Content Include="images\bg_logo.jpg" />
+    <Content Include="images\chakan.gif" />
+    <Content Include="images\h2_icon.gif" />
+    <Content Include="images\h2_icon2.gif" />
+    <Content Include="images\logo_left.jpg" />
+    <Content Include="images\logo_right.jpg" />
+    <Content Include="images\search.gif" />
+    <Content Include="images\Shortcut.png" />
+    <Content Include="JavaScript\Common.js" />
+    <Content Include="JavaScript\jquery-1.3.2.min.js" />
+    <Content Include="ModalDialog\UserSignatureSetting.aspx" />
+    <Content Include="ThreadStatus\ServiceThreadStatus.aspx" />
+    <Content Include="ThreadStatus\ServiceThreadStatusDetailMessage.aspx" />
+    <Content Include="UserInfoExtend\EditUserReportToInfo.aspx" />
+    <Content Include="UserInfoExtend\Left.aspx" />
+    <Content Include="UserInfoExtend\SearchContent.aspx" />
+    <Content Include="UserInfoExtend\Top.aspx" />
+    <Content Include="UserInfoExtend\UserInfoExtendEdit.aspx" />
+    <Content Include="UserInfoExtend\UserInfoExtendMain.aspx" />
+    <Content Include="UserInfoExtend\UserInfoExtendView.aspx" />
+    <Content Include="UserMapping\SetUserMappingRelation.aspx" />
+    <Content Include="UserMapping\UserMappingManager.aspx" />
+    <Content Include="UserOperationLog\logBridge.aspx" />
+    <Content Include="UserOperationLog\LogDetail.aspx" />
+    <Content Include="UserOperationLog\UploadFileLog.aspx" />
+    <Content Include="UserOperationLog\UserOperationLogView.aspx" />
+    <Content Include="UserOperationLog\UserUploadFileHistory.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="WFGroup\WFGroupEditor.aspx" />
+    <Content Include="WFGroup\WFGroupManager.aspx" />
+    <Content Include="WFPost\WFPostEditor.aspx" />
+    <Content Include="WFPost\WFPostManager.aspx" />
+    <Content Include="ZyTest.aspx" />
+    <Content Include="ZyTestMaterial.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppTrace\ApplicationBridgeForm.aspx.cs">
+      <DependentUpon>ApplicationBridgeForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppTrace\ApplicationBridgeForm.aspx.designer.cs">
+      <DependentUpon>ApplicationBridgeForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppTrace\appTraceBridge.aspx.cs">
+      <DependentUpon>appTraceBridge.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppTrace\appTraceBridge.aspx.designer.cs">
+      <DependentUpon>appTraceBridge.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppTrace\appTraceViewer.aspx.cs">
+      <DependentUpon>appTraceViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppTrace\appTraceViewer.aspx.designer.cs">
+      <DependentUpon>appTraceViewer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppTrace\CagetoryDataSource.cs" />
+    <Compile Include="AppTrace\Category.aspx.cs">
+      <DependentUpon>Category.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppTrace\Category.aspx.designer.cs">
+      <DependentUpon>Category.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppTrace\CategoryEdit.aspx.cs">
+      <DependentUpon>CategoryEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppTrace\CategoryEdit.aspx.designer.cs">
+      <DependentUpon>CategoryEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppTrace\CategorySearchSource.cs" />
+    <Compile Include="AppTrace\InitWorkFlowUsersData.aspx.cs">
+      <DependentUpon>InitWorkFlowUsersData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppTrace\InitWorkFlowUsersData.aspx.designer.cs">
+      <DependentUpon>InitWorkFlowUsersData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppTrace\InvalidAssigneesNotification.aspx.cs">
+      <DependentUpon>InvalidAssigneesNotification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppTrace\InvalidAssigneesNotification.aspx.designer.cs">
+      <DependentUpon>InvalidAssigneesNotification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppTrace\OperationDeniedException.cs" />
+    <Compile Include="AppTrace\ProcessAdjustment.aspx.cs">
+      <DependentUpon>ProcessAdjustment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppTrace\ProcessAdjustment.aspx.designer.cs">
+      <DependentUpon>ProcessAdjustment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppTrace\ProcessParametersEditor.aspx.cs">
+      <DependentUpon>ProcessParametersEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppTrace\ProcessParametersEditor.aspx.designer.cs">
+      <DependentUpon>ProcessParametersEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppTrace\ProcessQueryCondition.cs" />
+    <Compile Include="AppTrace\selectReplaceAssignees.aspx.cs">
+      <DependentUpon>selectReplaceAssignees.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppTrace\selectReplaceAssignees.aspx.designer.cs">
+      <DependentUpon>selectReplaceAssignees.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppTrace\TimeRange.aspx.cs">
+      <DependentUpon>TimeRange.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppTrace\TimeRange.aspx.designer.cs">
+      <DependentUpon>TimeRange.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppTrace\TimeRangeDataSource.cs" />
+    <Compile Include="AppTrace\WfProcessCurrentInfoDataSource.cs" />
+    <Compile Include="AsyncPersist\AchivedDataSource.cs" />
+    <Compile Include="AsyncPersist\ArchivedList.aspx.cs">
+      <DependentUpon>ArchivedList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AsyncPersist\ArchivedList.aspx.designer.cs">
+      <DependentUpon>ArchivedList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AsyncPersist\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AsyncPersist\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AsyncPersist\Monitor.aspx.cs">
+      <DependentUpon>Monitor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AsyncPersist\Monitor.aspx.designer.cs">
+      <DependentUpon>Monitor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AsyncPersist\MonitorDataSource.cs" />
+    <Compile Include="Common\Define.cs" />
+    <Compile Include="DelegationAuthorized\AnyOriginalDelegationEdit.aspx.cs">
+      <DependentUpon>AnyOriginalDelegationEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DelegationAuthorized\AnyOriginalDelegationEdit.aspx.designer.cs">
+      <DependentUpon>AnyOriginalDelegationEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DelegationAuthorized\LogUtil.cs" />
+    <Compile Include="DelegationAuthorized\OriginalDelegationEdit.aspx.cs">
+      <DependentUpon>OriginalDelegationEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DelegationAuthorized\OriginalDelegationEdit.aspx.designer.cs">
+      <DependentUpon>OriginalDelegationEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DelegationAuthorized\OriginalDelegationList.aspx.cs">
+      <DependentUpon>OriginalDelegationList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DelegationAuthorized\OriginalDelegationList.aspx.designer.cs">
+      <DependentUpon>OriginalDelegationList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DelegationAuthorized\OrigionalDelegationQuery.cs" />
+    <Compile Include="AppTrace\InvalidAssignessDataSource.cs" />
+    <Compile Include="DelegationAuthorized\AllOriginalDelegationList.aspx.cs">
+      <DependentUpon>AllOriginalDelegationList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DelegationAuthorized\AllOriginalDelegationList.aspx.designer.cs">
+      <DependentUpon>AllOriginalDelegationList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\ShowUEditorImage.ashx.cs">
+      <DependentUpon>ShowUEditorImage.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialog\UserSignatureSetting.aspx.cs">
+      <DependentUpon>UserSignatureSetting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalDialog\UserSignatureSetting.aspx.designer.cs">
+      <DependentUpon>UserSignatureSetting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThreadStatus\ServiceThreadStatus.aspx.cs">
+      <DependentUpon>ServiceThreadStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ThreadStatus\ServiceThreadStatus.aspx.designer.cs">
+      <DependentUpon>ServiceThreadStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ThreadStatus\ServiceThreadStatusDetailMessage.aspx.cs">
+      <DependentUpon>ServiceThreadStatusDetailMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ThreadStatus\ServiceThreadStatusDetailMessage.aspx.designer.cs">
+      <DependentUpon>ServiceThreadStatusDetailMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfoExtend\EditUserReportToInfo.aspx.cs">
+      <DependentUpon>EditUserReportToInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserInfoExtend\EditUserReportToInfo.aspx.designer.cs">
+      <DependentUpon>EditUserReportToInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfoExtend\Left.aspx.cs">
+      <DependentUpon>Left.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserInfoExtend\Left.aspx.designer.cs">
+      <DependentUpon>Left.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfoExtend\SearchContent.aspx.cs">
+      <DependentUpon>SearchContent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserInfoExtend\SearchContent.aspx.designer.cs">
+      <DependentUpon>SearchContent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfoExtend\SearchQuery.cs" />
+    <Compile Include="UserInfoExtend\SearchUserQueryCondition.cs" />
+    <Compile Include="UserInfoExtend\Top.aspx.cs">
+      <DependentUpon>Top.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserInfoExtend\Top.aspx.designer.cs">
+      <DependentUpon>Top.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfoExtend\UserInfoExtendEdit.aspx.cs">
+      <DependentUpon>UserInfoExtendEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserInfoExtend\UserInfoExtendEdit.aspx.designer.cs">
+      <DependentUpon>UserInfoExtendEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfoExtend\UserInfoExtendMain.aspx.cs">
+      <DependentUpon>UserInfoExtendMain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserInfoExtend\UserInfoExtendMain.aspx.designer.cs">
+      <DependentUpon>UserInfoExtendMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfoExtend\UserInfoExtendView.aspx.cs">
+      <DependentUpon>UserInfoExtendView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserInfoExtend\UserInfoExtendView.aspx.designer.cs">
+      <DependentUpon>UserInfoExtendView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserMapping\SetUserMappingRelation.aspx.cs">
+      <DependentUpon>SetUserMappingRelation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserMapping\SetUserMappingRelation.aspx.designer.cs">
+      <DependentUpon>SetUserMappingRelation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserMapping\UserMappingManager.aspx.cs">
+      <DependentUpon>UserMappingManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserMapping\UserMappingManager.aspx.designer.cs">
+      <DependentUpon>UserMappingManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserOperationLog\DownloadHandler.ashx.cs">
+      <DependentUpon>DownloadHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="UserOperationLog\logBridge.aspx.cs">
+      <DependentUpon>logBridge.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserOperationLog\logBridge.aspx.designer.cs">
+      <DependentUpon>logBridge.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserOperationLog\LogDetail.aspx.cs">
+      <DependentUpon>LogDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserOperationLog\LogDetail.aspx.designer.cs">
+      <DependentUpon>LogDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserOperationLog\LogQuery.cs" />
+    <Compile Include="UserOperationLog\LogQueryCondition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UserOperationLog\OperationTasksLogDataSource.cs" />
+    <Compile Include="UserOperationLog\UploadFileHistoryQuery.cs" />
+    <Compile Include="UserOperationLog\UploadFileLog.aspx.cs">
+      <DependentUpon>UploadFileLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserOperationLog\UploadFileLog.aspx.designer.cs">
+      <DependentUpon>UploadFileLog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserOperationLog\UserOperationLogView.aspx.cs">
+      <DependentUpon>UserOperationLogView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserOperationLog\UserOperationLogView.aspx.designer.cs">
+      <DependentUpon>UserOperationLogView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserOperationLog\UserUploadFileHistory.aspx.cs">
+      <DependentUpon>UserUploadFileHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserOperationLog\UserUploadFileHistory.aspx.designer.cs">
+      <DependentUpon>UserUploadFileHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserOperationLog\UserUploadQueryCondition.cs" />
+    <Compile Include="Util.cs" />
+    <Compile Include="WFGroup\WFGroupEditor.aspx.cs">
+      <DependentUpon>WFGroupEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFGroup\WFGroupEditor.aspx.designer.cs">
+      <DependentUpon>WFGroupEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFGroup\WFGroupManager.aspx.cs">
+      <DependentUpon>WFGroupManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFGroup\WFGroupManager.aspx.designer.cs">
+      <DependentUpon>WFGroupManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFPost\WFPostEditor.aspx.cs">
+      <DependentUpon>WFPostEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFPost\WFPostEditor.aspx.designer.cs">
+      <DependentUpon>WFPostEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFPost\WFPostManager.aspx.cs">
+      <DependentUpon>WFPostManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFPost\WFPostManager.aspx.designer.cs">
+      <DependentUpon>WFPostManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ZyTest.aspx.cs">
+      <DependentUpon>ZyTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ZyTest.aspx.designer.cs">
+      <DependentUpon>ZyTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ZyTestMaterial.aspx.cs">
+      <DependentUpon>ZyTestMaterial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ZyTestMaterial.aspx.designer.cs">
+      <DependentUpon>ZyTestMaterial.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UserOperationLog\DownloadHandler.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Handlers\ShowUEditorImage.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\Main\DeluxeGrid.skin" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\Platform\DeluxeGrid.skin" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v12.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1658</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/MCSWebApp/OACommonPages</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

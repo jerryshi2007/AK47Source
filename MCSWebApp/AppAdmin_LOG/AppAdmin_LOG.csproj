@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{089CE423-04E0-4A01-B5F4-CCD71F8D75F2}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <AssemblyName>AppAdmin_LOG</AssemblyName>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>MCS.Applications.AppAdmin_LOG</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>MCS.Library.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags></FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation></UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile></ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE;GTNet40</DefineConstants>
+    <DocumentationFile></DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn></NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile></ConfigurationOverrideFile>
+    <DefineConstants>TRACE;GTNet40</DefineConstants>
+    <DocumentationFile></DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn></NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'DELUXEWORKSTEST|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;GTNet40</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MCS.Library, Version=1.2.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Accredit, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.Accredit.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Data, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Passport, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.Passport.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services">
+      <Name>System.Web.Services</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\AccreditAdmin\classLib\AccreditWebInstaller.cs">
+      <Link>server\AccreditWebInstaller.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\AccreditAdmin\classLib\AccreditWebInstaller.Designer.cs">
+      <Link>server\AccreditWebInstaller.Designer.cs</Link>
+      <DependentUpon>AccreditWebInstaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\LogResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="exports\LogDataService.asmx.cs">
+      <DependentUpon>LogDataService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="logList\SysLogDetail.aspx.cs">
+      <DependentUpon>SysLogDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="logList\SysLogDetail.aspx.designer.cs">
+      <DependentUpon>SysLogDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="logList\SysLogList.aspx.cs">
+      <DependentUpon>SysLogList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="logList\SysLogList.aspx.designer.cs">
+      <DependentUpon>SysLogList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="logList\UserLogDetail.aspx.cs">
+      <DependentUpon>UserLogDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="logList\UserLogDetail.aspx.designer.cs">
+      <DependentUpon>UserLogDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="logList\UserLogList.aspx.cs">
+      <DependentUpon>UserLogList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="logList\UserLogList.aspx.designer.cs">
+      <DependentUpon>UserLogList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogViewer.aspx.cs">
+      <DependentUpon>LogViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogViewer.aspx.designer.cs">
+      <DependentUpon>LogViewer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="server\InnerCommon.cs" />
+    <Compile Include="server\LogReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="server\ServerLog.aspx.cs">
+      <DependentUpon>ServerLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="server\ServerLog.aspx.designer.cs">
+      <DependentUpon>ServerLog.aspx</DependentUpon>
+    </Compile>
+    <Content Include="css\Input.css" />
+    <Content Include="dialogs\editAppObjects.htm" />
+    <Content Include="dialogs\editAppObjects.js" />
+    <Content Include="exports\LogDataService.asmx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="htc\Calendar.htc" />
+    <Content Include="htc\dbGrid.htc" />
+    <Content Include="htc\hTree.htc" />
+    <Content Include="images\32\stopLogo.gif" />
+    <Content Include="images\calendarDrop.gif" />
+    <Content Include="images\connect.GIF" />
+    <Content Include="images\delete.gif" />
+    <Content Include="images\edit.gif" />
+    <Content Include="images\HISTORY.gif" />
+    <Content Include="images\icon\checked.gif" />
+    <Content Include="images\icon\closedfolder.gif" />
+    <Content Include="images\icon\database.gif" />
+    <Content Include="images\icon\excel.gif" />
+    <Content Include="images\icon\field.gif" />
+    <Content Include="images\icon\index.gif" />
+    <Content Include="images\icon\minus.gif" />
+    <Content Include="images\icon\openedfolder.gif" />
+    <Content Include="images\icon\plus.gif" />
+    <Content Include="images\icon\server.gif" />
+    <Content Include="images\icon\snap001.gif" />
+    <Content Include="images\icon\snap002.gif" />
+    <Content Include="images\icon\snap003.gif" />
+    <Content Include="images\icon\table.gif" />
+    <Content Include="images\icon\today.gif" />
+    <Content Include="images\icon\word.gif" />
+    <Content Include="images\insert.gif" />
+    <Content Include="images\ou.gif" />
+    <Content Include="images\receiveDoc.gif" />
+    <Content Include="images\refresh.gif" />
+    <Content Include="images\ResourceFolder.gif" />
+    <Content Include="images\ResourceItem.gif" />
+    <Content Include="images\save.gif" />
+    <Content Include="logList\dbGridPublic.js" />
+    <Content Include="logList\ShowContent.htm" />
+    <Content Include="logList\SysLogDetail.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="logList\SysLogList.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="logList\SysLogList.js" />
+    <Content Include="logList\UserLogDetail.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="logList\UserLogList.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="logList\UserLogList.js" />
+    <Content Include="LogViewer.aspx" />
+    <Content Include="LogViewer.js" />
+    <Content Include="script\dbGrid.js" />
+    <Content Include="script\htcCommon.js" />
+    <Content Include="script\organizeTree.js" />
+    <Content Include="script\splitter.js" />
+    <Content Include="script\uiScript.js" />
+    <Content Include="script\validate.js" />
+    <Content Include="script\xAD.js" />
+    <Content Include="script\xmlHttp.js" />
+    <Content Include="script\xsdAccess.js" />
+    <Content Include="server\ServerLog.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Web.config" />
+    <Content Include="xml\logViewerTree.xml" />
+    <Content Include="xml\SysLogHead.xml" />
+    <Content Include="xml\UserLogHead.xml" />
+    <EmbeddedResource Include="exports\LogDataService.asmx.resx">
+      <DependentUpon>LogDataService.asmx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Global.asax.resx">
+      <DependentUpon>Global.asax.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="logList\SysLogDetail.aspx.resx">
+      <DependentUpon>SysLogDetail.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="logList\SysLogList.aspx.resx">
+      <DependentUpon>SysLogList.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="logList\UserLogDetail.aspx.resx">
+      <DependentUpon>UserLogDetail.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\LogResource.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LogResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogViewer.aspx.resx">
+      <DependentUpon>LogViewer.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="server\ServerLog.aspx.resx">
+      <DependentUpon>ServerLog.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="WebConfig\%28Passport%29Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="WebConfig\%28Loacl%29Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="images\icon\key.ico" />
+    <Content Include="script\ApplicationRoot.js" />
+    <None Include="MCS.Library.snk" />
+    <None Include="WebConfig\%28AD%29Web.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent></PreBuildEvent>
+    <PostBuildEvent>set path=%25path%25;C:\Windows\System32
+ 
+
+
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v12.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>8888</DevelopmentServerPort>
+          <DevelopmentServerVPath>/AppAdmin_LOG/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/MCSWebApp/AppAdmin_LOG/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl></CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PreBuildEvent>IF EXIST "$(TargetDir)DeluxeWorks.Library.dll" DEL "$(TargetDir)DeluxeWorks.Library.dll"
+IF EXIST "$(TargetDir)DeluxeWorks.Library.Data.dll" DEL "$(TargetDir)DeluxeWorks.Library.Data.dll"
+IF EXIST "$(TargetDir)DeluxeWorks.Library.OGUPermission.dll" DEL "$(TargetDir)DeluxeWorks.Library.OGUPermission.dll"
+IF EXIST "$(TargetDir)DeluxeWorks.Library.Passport.dll" DEL "$(TargetDir)DeluxeWorks.Library.Passport.dll"</PreBuildEvent>
+    <PostBuildEvent>set path=%25path%25;C:\Windows\System32 IF EXIST "$(ProjectDir)\..\..\Framework\Bin\DeluxeWorks.Library.dll" COPY "$(ProjectDir)\..\..\Framework\Bin\DeluxeWorks.Library.dll" "$(TargetDir)"
+IF EXIST "$(ProjectDir)\..\..\Framework\Bin\DeluxeWorks.Library.Data.dll" COPY "$(ProjectDir)\..\..\Framework\Bin\DeluxeWorks.Library.Data.dll" "$(TargetDir)"
+IF EXIST "$(ProjectDir)\..\..\Framework\Bin\DeluxeWorks.Library.OGUPermission.dll" COPY "$(ProjectDir)\..\..\Framework\Bin\DeluxeWorks.Library.OGUPermission.dll" "$(TargetDir)"
+IF EXIST "$(ProjectDir)\..\..\Framework\Bin\DeluxeWorks.Library.Passport.dll" COPY "$(ProjectDir)\..\..\Framework\Bin\DeluxeWorks.Library.Passport.dll" "$(TargetDir)"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

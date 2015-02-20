@@ -1,0 +1,45 @@
+﻿ @model CIIC.HSR.TSP.WF.Ctrl.Test.Models.Expense
+ 
+@(
+ Html.HSRUIWF().WFMoveTo().ActionUrl(Url.Action("MoveTo", "home"))
+                    .AfterClick("afterClick").BeforeClick("beforeClick")
+                    .DialogText("您确定要流转吗？").Name("ExpenseApprove123").ProgressBar(true)
+                    .DictionaryWfClientUser(Model.DictionaryWfClientUser)    
+)
+@(
+ Html.HSRUIWF().WFSaveWorkflow().ActionUrl(Url.Action("SaveWorkflow", "home")).AfterClick("afterClick")
+                                .BeforeClick("beforeClick").Text("保存")
+                        .DialogText("您确定要保存吗？").Name("btnSaveWf").ProgressBar(false)
+)
+@(
+ Html.HSRUIWF().WFPauseWorkflow().ActionUrl(Url.Action("PauseWorkflow", "home")).AfterClick("afterClick")
+                .BeforeClick("beforeClick").Text("暂停").DialogText("您确定要暂停吗？").Name("btnPauseWf").ProgressBar(false)
+
+)
+
+@(
+ Html.HSRUIWF().WFResumeWorkflow().ActionUrl(Url.Action("ResumeWorkflow", "home")).AfterClick("afterClick")
+                           .BeforeClick("beforeClick").Text("重启")
+                            .DialogText("您确定要重启吗？").Name("btnResumeWf").ProgressBar(false)
+)
+
+@(
+ Html.HSRUIWF().WFCancelWorkflow().ActionUrl(Url.Action("CancelWorkflow", "home")).AfterClick("afterClick")
+                       .BeforeClick("beforeClick").Text("作废")
+                               .DialogText("您确定要作废吗？").Name("btnCancelWf").ProgressBar(false)
+)
+
+@(
+ Html.HSRUIWF().WFRestoreWorkflow().ActionUrl(Url.Action("RestoreWorkflow", "home")).AfterClick("afterClick")
+                                        .BeforeClick("beforeClick").Text("恢复")
+                                .DialogText("您确定要恢复吗？").Name("btnRestoreWf").ProgressBar(false)
+)
+@(
+ Html.HSRUIWF().WFWithdrawWorkflow().ActionUrl(Url.Action("WithdrawWorkflow", "home")).AfterClick("afterClick")
+                                   .BeforeClick("beforeClick").Text("撤回")
+                                   .DialogText("您确定要撤回吗？").Name("btnWithdrawWf").ProgressBar(false)
+)
+@(
+ Html.HSRUIWF().WFTrackWorkflow().Text("跟踪").Name("btnTrackWf").ProgressBar(false)
+)
+<a href="#" class="btn btn-default" target="_parent">返回</a>

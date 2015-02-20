@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ColumnTitle>
+	<Column name="序号" dataFld="ID" dataSrc="USER_OPEATION_LOG" width="35" />
+	<Column name="用户名" dataFld="OP_USER_DISPLAYNAME" dataSrc="USER_OPEATION_LOG" width="40" />
+	<Column name="用户IP" dataFld="HOST_IP" dataSrc="USER_OPEATION_LOG" width="80" />
+	<Column name="应用名称" dataFld="APP_DISPLAYNAME" dataSrc="USER_OPEATION_LOG" width="80" />
+	<Column name="操作类型" dataFld="OP_DISPLAYNAME" dataSrc="USER_OPEATION_LOG"/>
+	<Column name="用户操作说明" dataFld="GOAL_EXPLAIN" dataSrc="USER_OPEATION_LOG" width="200" />
+	<Column name="时间" dataFld="LOG_DATE" dataSrc="USER_OPEATION_LOG" width="120"/>
+	<Column name="" dataFld="Detail" dataSrc="" width="40" />
+</ColumnTitle>

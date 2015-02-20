@@ -1,0 +1,96 @@
+<%@ page language="c#" codebehind="editScope1.aspx.cs" autoeventwireup="false" inherits="MCS.Applications.AppAdmin.Dialogs.editScope1" %>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
+<html>
+<head>
+	<title>机构服务范围</title>
+	<meta content="Microsoft Visual Studio .NET 7.1" name="GENERATOR">
+	<meta content="C#" name="CODE_LANGUAGE">
+	<meta content="JavaScript" name="vs_defaultClientScript">
+	<meta content="http://schemas.microsoft.com/intellisense/ie5" name="vs_targetSchema">
+
+	<script type="text/javascript" language="javascript" src="../script/validate.js"></script>
+
+	<script type="text/javascript" language="javascript" src="../script/xmlHttp.js"></script>
+
+	<script type="text/javascript" language="javascript" src="../script/xsdAccess.js"></script>
+
+	<script type="text/javascript" language="javascript" src="../script/uiScript.js"></script>
+
+	<script type="text/javascript" language="javascript" src="../script/appQuery.js"></script>
+
+	<script type="text/javascript" language="javascript" src="../script/appCommon.js"></script>
+
+	<script type="text/javascript" language="javascript" src="editScope1.js"></script>
+
+	<script type="text/javascript" language="javascript" src="../Script/ApplicationRoot.js"></script>
+
+	<link href="../CSS/Input.css" type="text/css" rel="stylesheet">
+</head>
+<body class="modal" onload="onDocumentLoad();" ms_positioning="GridLayout">
+	<form id="frmInput" runat="server">
+		<table style="width: 100%; height: 100%">
+			<tr>
+				<td style="height: 11px">
+					</FONT><img alt="" src="../images/scope1.gif"><strong><font size="4">机构服务范围<input
+						datafld="EXPRESSION" id="EXPRESSION" style="width: 38.56%; height: 16px" datasrc="SCOPES"
+						readonly type="hidden" size="42" name="EXPRESSION"><input datafld="APP_ID" id="APP_ID"
+							style="width: 320px; height: 16px" datasrc="SCOPES" type="hidden" size="48" name="APP_ID"></font></strong></td>
+			</tr>
+			<tr>
+				<td style="height: 12px">
+					<table style="width: 100%">
+						<tr>
+							<td>
+								<input id="chkCurDepart" onpropertychange="checkChanged();" type="radio" checked
+									name="area">本机构</td>
+							<td>
+								<input id="chkCurCustoms" onpropertychange="checkChanged();" type="radio" name="area">本关区</td>
+							<td>
+								<input id="chkUserDefine" onpropertychange="checkChanged();" type="radio" name="area">自选定</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td valign="middle">
+					</FONT>
+					<table class="modalEditable" id="Table1" style="width: 100%; height: 100%">
+						<tr>
+							<td style="width: 13.26%; height: 5px" align="right">
+								<strong>名称</strong>:</td>
+							<td style="height: 5px" align="left">
+								<input datafld="NAME" id="NAME" style="width: 79.57%; height: 16px" datasrc="SCOPES"
+									type="text" size="79" name="NAME" readonly><input id="btnDefine" style="width: 40px;
+										height: 17px" onclick="btnDefineClick();" type="button" value="..."></td>
+						</tr>
+						<tr valign="middle">
+							<td style="width: 13.26%; height: 100%" valign="top" align="right" colspan="1" rowspan="1">
+								<strong>描述</strong>:</td>
+							<td style="height: 100%" valign="top">
+								<textarea datafld="DESCRIPTION" id="DESCRIPTION" style="width: 100%; height: 100%"
+									datasrc="SCOPES" name="DESCRIPTION" readonly></textarea></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td height="1">
+					<table style="width: 100%; height: 100%" cellspacing="0">
+						<tr>
+							<td style="height: 12px" align="center">
+								<input id="btnOK" style="width: 80px" accesskey="O" onclick="onSaveClick();" type="button"
+									value="确定(O)">
+							</td>
+							<td style="height: 12px" align="center">
+								<input id="btnCancel" style="width: 80px" accesskey="C" onclick="window.close();"
+									type="button" value="取消(C)">
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

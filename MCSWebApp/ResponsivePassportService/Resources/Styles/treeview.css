@@ -1,0 +1,330 @@
+﻿
+
+.tree
+{
+    padding-left: 9px;
+    position: relative;
+    -ms-overflow-x: hidden;
+    -ms-overflow-y: auto;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+    .tree::before
+    {
+        border-width: 0px 0px 0px 1px;
+        border-style: dotted;
+        border-color: rgb(103, 178, 221);
+        left: 0px;
+        top: 15px;
+        bottom: 16px;
+        display: inline-block;
+        position: absolute;
+        /*z-index: 1;*/
+        content: "";
+    }
+
+    .tree :last-child.tree-folder::after
+    {
+        left: -15px;
+        top: 15px;
+        bottom: 0px;
+        border-left-color: rgb(255, 255, 255);
+        border-left-width: 1px;
+        border-left-style: solid;
+        display: inline-block;
+        position: absolute;
+        /*z-index: 1;*/
+        content: "";
+    }
+
+    .tree [class*='icon-']:first-child.icon-plus
+    {
+        border: 1px solid rgb(139, 174, 191);
+        width: 11px;
+        height: 11px;
+        text-align: center;
+        line-height: 10px;
+        vertical-align: middle;
+        position: relative;
+        /*z-index: 1;*/
+        background-color: rgb(255, 255, 255);
+        -moz-box-sizing: content-box;
+        -webkit-box-sizing: content-box;
+        box-sizing: content-box;
+    }
+
+    .tree [class*='icon-']:first-child.icon-minus
+    {
+        border: 1px solid rgb(139, 174, 191);
+        width: 11px;
+        height: 11px;
+        text-align: center;
+        line-height: 10px;
+        vertical-align: middle;
+        position: relative;
+        /*z-index: 1;*/
+        background-color: rgb(255, 255, 255);
+        -moz-box-sizing: content-box;
+        -webkit-box-sizing: content-box;
+        box-sizing: content-box;
+    }
+
+    .tree [class*='icon-']:first-child.icon-plus::before
+    {
+        left: 0px;
+        top: 1px;
+        font-family: "Open Sans";
+        font-size: 16px;
+        display: block;
+        position: relative;
+        /*z-index: 1;*/
+        content: "+";
+    }
+
+    .tree [class*='icon-']:first-child.icon-minus::before
+    {
+        left: 2px;
+        top: 5px;
+        width: 7px;
+        height: 0px;
+        border-top-color: rgb(77, 104, 120);
+        border-top-width: 1px;
+        border-top-style: solid;
+        display: block;
+        position: absolute;
+        content: "";
+    }
+
+    .tree .tree-unselectable .tree-item > [class*='icon-']:first-child
+    {
+        border-radius: 0px;
+        border: 0px currentColor;
+        width: 11px;
+        height: 11px;
+        text-align: center;
+        color: rgb(80, 132, 160);
+        line-height: 13px;
+        font-size: 10px;
+        box-shadow: none;
+        background-color: transparent;
+    }
+
+    .tree [class*='icon-'][class*='-down']
+    {
+        transform: rotate(-45deg);
+    }
+
+    .tree .icon-spin
+    {
+        height: auto;
+    }
+
+    .tree .tree-loading
+    {
+        margin-left: 36px;
+    }
+
+    .tree img
+    {
+        display: inline;
+        vertical-align: middle;
+    }
+
+    .tree .tree-folder
+    {
+        width: auto;
+        cursor: pointer;
+        min-height: 20px;
+        position: relative;
+        border: 1px solid rgb(255, 255, 255);
+    }
+
+        .tree .tree-folder::before
+        {
+            left: -13px;
+            top: 14px;
+            width: 18px;
+            height: 0px;
+            border-top-color: rgb(103, 178, 221);
+            border-top-width: 1px;
+            border-top-style: dotted;
+            display: inline-block;
+            position: absolute;
+            /*z-index: 1;*/
+            content: "";
+        }
+
+        .tree .tree-folder .tree-folder-header
+        {
+            height: 20px;
+            line-height: 20px;
+            position: relative;
+            margin: 0px;
+            padding: 5px;
+            color: rgb(77, 104, 120);
+            border-radius: 0px;
+            box-sizing: content-box;
+            -moz-box-sizing: content-box;
+            -webkit-box-sizing: content-box;
+        }
+
+            .tree .tree-folder .tree-folder-header:hover
+            {
+                background-color: rgb(240, 247, 252);
+            }
+
+            .tree .tree-folder .tree-folder-header .tree-folder-name
+            {
+                display: inline;
+                /*z-index: 2;*/
+                margin-left: 2px;
+            }
+
+            .tree .tree-folder .tree-folder-header > [class*='icon-']:first-child
+            {
+                top: -1px;
+                display: inline-block;
+                position: relative;
+                margin: -2px 0px 0px -2px;
+                /*z-index: 2;*/
+            }
+
+        .tree .tree-folder .tree-folder-content
+        {
+            margin-left: 23px;
+            position: relative;
+        }
+
+            .tree .tree-folder .tree-folder-content::before
+            {
+                border-width: 0px 0px 0px 1px;
+                border-style: dotted;
+                border-color: rgb(103, 178, 221);
+                left: -14px;
+                top: -14px;
+                bottom: 16px;
+                display: inline-block;
+                position: absolute;
+                /*z-index: 1;*/
+                content: "";
+            }
+
+    .tree .tree-item
+    {
+        height: 20px;
+        line-height: 20px;
+        position: relative;
+        cursor: pointer;
+        margin: 0px;
+        padding: 5px;
+        color: rgb(77, 104, 120);
+        box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        -webkit-box-sizing: content-box;
+        border: 1px solid rgb(255, 255, 255);
+    }
+
+        .tree .tree-item::before
+        {
+            left: -13px;
+            top: 14px;
+            width: 18px;
+            height: 0px;
+            border-top-color: rgb(103, 178, 221);
+            border-top-width: 1px;
+            border-top-style: dotted;
+            display: inline-block;
+            position: absolute;
+            /*z-index: 1;*/
+            content: "";
+        }
+
+        .tree .tree-item:hover
+        {
+            background-color: rgb(240, 247, 252);
+        }
+
+        .tree .tree-item > [class*='icon-']:first-child
+        {
+            margin-top: -1px;
+            border-radius: 2px;
+            border: 1px solid rgb(204, 204, 204);
+            width: 11px;
+            height: 11px;
+            text-align: center;
+            color: rgb(249, 232, 206);
+            line-height: 13px;
+            font-size: 11px;
+            box-sizing: content-box;
+            box-shadow: 0px 1px 2px rgba(0,0,0,0.05);
+            background-color: rgb(250, 250, 250);
+            -moz-box-sizing: content-box;
+            -webkit-box-sizing: content-box;
+            top: -1px;
+            display: inline-block;
+            position: relative;
+            /*z-index: 2;*/
+        }
+
+        .tree .tree-item .tree-item-name
+        {
+            display: inline;
+            margin-left: 3px;
+            /*z-index: 2;*/
+        }
+
+            .tree .tree-item .tree-item-name > [class*='icon-']:first-child
+            {
+                margin-right: 3px;
+            }
+
+
+    .tree .tree-selected
+    {
+        color: rgb(99, 152, 176);
+        background-color: rgba(98, 168, 209, 0.1);
+    }
+
+        .tree .tree-selected:hover
+        {
+            background-color: rgba(98, 168, 209, 0.1);
+        }
+
+        .tree .tree-selected > [class*='icon-']:first-child
+        {
+            border-color: rgb(249, 160, 33);
+            color: rgb(255, 255, 255);
+            background-color: rgb(249, 160, 33);
+        }
+
+
+    .tree .tree-folder .tree-folder-header > [class*='icon-']:nth-child(2)
+    {
+        margin-top: -1px;
+        border-radius: 2px;
+        border: 1px solid rgb(204, 204, 204);
+        width: 11px;
+        height: 11px;
+        text-align: center;
+        color: rgb(249, 232, 206);
+        line-height: 13px;
+        font-size: 11px;
+        box-sizing: content-box;
+        box-shadow: 0px 1px 2px rgba(0,0,0,0.05);
+        background-color: rgb(250, 250, 250);
+        -moz-box-sizing: content-box;
+        -webkit-box-sizing: content-box;
+        top: -1px;
+        display: inline-block;
+        position: relative;
+        /*z-index: 2;*/
+    }
+
+    .tree .tree-folder.tree-selected .tree-folder-header > [class*='icon-']:nth-child(2)
+    {
+        border-color: rgb(249, 160, 33);
+        color: rgb(255, 255, 255);
+        background-color: rgb(249, 160, 33);
+
+    }

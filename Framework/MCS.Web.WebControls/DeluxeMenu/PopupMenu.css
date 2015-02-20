@@ -1,0 +1,73 @@
+﻿/*itemCssClass默认的样式*/
+.popupMenu_Default_Item
+{
+	height:25px;
+}
+/*enable时的样式*/
+.popupMenu_Default_Item_Enable
+{
+	height:25px;
+}
+
+.popupMenu_Default_ItemSelected
+{
+	background-color: #aaaaaa;
+	height:25px;  /*和没选中时一样*/
+}
+
+.popupMenu_Default_ImageCol
+{
+	/*background-color: #bbbbbb;*/
+	
+	text-align:center;
+    width: 24px;	
+}
+
+.popupMenu_Fixed_ImageCol
+{ 
+	width: 24px;	
+	filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#B8D1F8,endcolorstr=#F6F6F6,gradientType=1);	
+}
+/*整个table，菜单项的样式*/
+.popupMenu_Default
+{
+	font-size:14px;
+	background-color:#F6F6F6;
+}
+/*popup取popupMenu_Default body不设*/
+.popupMenu_Default_PopBody
+{
+	background-color:#dddddd;
+	font-size:14px
+}
+
+.popupMenu_Default_ItemHover 
+{
+	background-color: #feeec2;
+}
+
+.popupMenu_Default_Image
+{
+}
+
+.popupMenu_Default_Separator
+{   
+	background-color: #555555;
+	height:1px
+}
+
+.popupMenu_Back
+{
+ width: 24px;
+background-image:url(<%=WebResource("MCS.Web.WebControls.PopupMenu.back.gif")%>); background-repeat:repeat-y; height:auto; width:20px;	
+}
+
+.popupMenu_Border
+{
+	border: 1px solid #000000;/**/
+}
+.imgright
+{
+ text-align:right;
+ float:right;
+	}

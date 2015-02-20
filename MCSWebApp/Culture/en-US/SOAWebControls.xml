@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dictionary sourceCulture="zh-CN" targetCulture="en-US">
+    <Item source="确定(O)" target="OK"/>
+    <Item source="取消(C)" target="Cancel"/>
+    <Item source="关闭(C)" target="Close"/>
+    <Item source="选择组织机构人员" target="Select OUs and Users"/>
+
+    <Item source="添加或修改" target="Add or modify"/>
+    <Item source="起草" target="Draft"/>
+    <Item source="正文" target="Normal Text"/>
+    <Item source="编辑" target="Edit"/>
+    <Item source="显示" target="Show"/>
+    <Item source="批量上传文件" target="Batch upload"/>
+    <Item source="文件版本" target="File version"/>
+    <Item source="设置以内嵌方式打开的文档类型" target="Set inline mode"/>
+    <Item source="正在上传文件" target="Uploading file"/>
+    <Item source="正在上传文件......" target="Uploading file..."/>
+    <Item source="点击此处展开详细错误信息......" target="click here to expand error details......" />
+    <Item source="点击此处关闭详细错误信息......" target="click here to close error details......" />
+    <Item source="您确认要关闭窗口吗？" target="Are you sure close the window?" />
+    <Item source="提醒消息" target="Notice" />
+    <Item source="标题" target="Title" />
+    <Item source="内容" target="Content" />
+    <Item source="优先级" target="Priority" />
+    <Item source="发送人" target="From" />
+    <Item source="发送日期" target="Sent Time" />
+    <Item source="过期时间" target="Expired Time" />
+    <Item source="个人设定" target="Settings" />
+    <Item source="阅读后删除" target="Delete after reading" />
+    <Item source="删除(C)" target="Delete" />
+    <Item source="错误提示" target="Error Message" />
+    <Item source="返回" target="Back" />
+    <Item source="关闭" target="Close" />
+    <Item source="ApplicationErrorModuleTemplate_stopLogo.gif" target="ApplicationErrorModuleTemplate_stopLogo-English.gif" />
+
+    <Item source="已选择文件列表" target="Selected files"/>
+    <Item source="选择文件(S)" target="Select Files"/>
+    <Item source="移除文件(R)" target="Remove Files"/>
+    <Item source="上传文件(U)" target="Upload Files"/>
+    <Item source="已上传文件列表" target="Uploaded files"/>
+    <Item source="文件名" target="File Name"/>
+    <Item source="备注" target="Description"/>
+    <Item source="序号" target="SN"/>
+    <Item source="删除文件(D)" target="Delete Files"/>
+    <Item source="确认删除所选的文件吗？" target="Confirmation to delete the selected file?"/>
+    <Item source="单击此处编辑" target="Click here to edit"/>
+    <Item source="回车保存，ESC取消" target="Enter save, ESC Cancel"/>
+    <Item source="您选择的文件路径长度超过了限制，请尝试减少选择文件的数量" target="You select the file path is longer than the limit, try to reduce the number of selected files."/>
+    <Item source="至少要选择一个上传文件！" target="Select at least one upload!"/>
+    <Item source="您还有未上传的文件，确定要关闭本窗口吗？" target="You have not uploaded the file, sure you want to close this window?"/>
+    <Item source="每个上传文件的尺寸必须小于{0}字节" target="Each upload file size must be less than {0} bytes"/>
+
+    <Item source="您有正在打开的文档文件，当前的页面不能关闭，请您保存文件后再关闭页面！" target="You are opening the document file, the current page can not be closed, save the file before you close the page!"/>
+    <Item source="您编辑了文件但没有保存当前文件，请您保存文件后再关闭页面！" target="You edit the file but not save the current file, save the file before you close the page!"/>
+
+    <Item source="请选择机构人员" target="Select OUs and Users"/>
+    <Item source="请选择：" target="Please select"/>
+    <Item source="选择(S)" target="Select"/>
+    <Item source="名称：" target="Name:"/>
+    <Item source="位置：" target="Position:"/>
+
+    <Item source="请选择机构或人员。" target="Please select OUs and Users."/>
+    <Item source="检查..." target="Check..."/>
+    <Item source="正在检查" target="Checking"/>
+
+    <Item source="输入非法" target="Invalid Input"/>
+
+    <Item source="输入非法" target="Invalid Input"/>
+
+    <Item source="整数部分的位数不能超过{0}位" target="Integral part of the median can not be more than {0}"/>
+    <Item source="小数部分的位数不能超过{0}位" target="Fractional part of the median can not be more than {0}"/>
+    <Item source="数字必须在{0}和{1}之间" target="Number must be between {0} and {1}"/>
+    <Item source="数字必须大于等于{0}" target="Number must be greater than or equal to {0}"/>
+    <Item source="数字必须小于等于{0}" target="Number must be less than or equal to {0}"/>
+
+    <Item source="数字类型只能有一个小数点" target="Only one decimal point numeric type"/>
+    <Item source="数字类型只能有一个'{0}'" target="Only one '{0}' numeric type"/>
+    <Item source="必须输入合法的数字" target="Must input a valid number"/>
+
+    <Item source="用户没有权限打开此文件" target="You do not have permission to open this file." />
+
+    <Item source="文件可能无效或被撤回。{0}" target="The file may be invalid or withdrawn. {0}" />
+    <Item source="不能找到ID为{0}的Activity信息，此文件可能已经流转走或被撤回。" target="Cannot find the ID '{0}' activity. The file may be invalid or withdrawn." />
+    <Item source="不能找到ID为'{0}'的流程。" target="Can not find the ID '{0}' process." />
+    <Item source="不能找到流程ID为'{0}'，ActivityID为'{1}'的Activity信息。" target="Cannot find the ID '{0}' process and the ID '{1}' activity." />
+    <Item source="没有执行BeginProcessChanges，不能回滚流程状态改变。" target="Do not execute BeginProcessChanges, process state changes can not be rolled back." />
+    <Item source="没有执行BeginProcessChanges，不能提交流程状态改变。" target="Do not execute BeginProcessChanges, process state changes can not be submitted." />
+    <Item source="存在未移交的流程状态改变" target="There are some not commited state changes." />
+    <Item source="流程上下文没有初始化，不能得到当前节点" target="ProcessContext has not initialized, can not get the current activity." />
+
+    <Item source="确认要撤回吗？" target="Do you want to withdraw the process ?"/>
+    <Item source="确认要作废或取消流程吗？" target="Do you want to reject or cancel this process ?"/>
+    <Item source="没有选择下一步的流转人员" target="You didn't choose the next step operators."/>
+    <Item source="已经被注销" target=" has been deleted."/>
+    <Item source="确认要执行吗？" target="Do you want to perform the operation ?"/>
+    <Item source="确定要回退吗？" target="Do you want to return the form ?"/>
+    <Item source="确认要送签并强制结束流程吗？" target="Do you want to send this form and enforce the end of process ?"/>
+
+    <Item source="请选择处理人" target="Please select operators"/>
+
+    <Item source="上传(U)" target="Upload"/>
+    <Item source="错误" target="Error"/>
+    <Item source="日志" target="Log"/>
+    <Item source="日志(L)" target="Log"/>
+    <Item source="请选择一个上传文件" target="Please select a file to upload."/>
+
+    <Item source="送签" target="Send"/>
+    <Item source="发送" target="Send"/>
+    <Item source="加签" target="Forward"/>
+    <Item source="转签" target="Change"/>
+    <Item source="会签" target="Consign"/>
+    <Item source="送签并传阅" target="Send &amp; Read"/>
+    <Item source="送签并通知" target="Send &amp; Notify"/>
+    <Item source="作废" target="Reject"/>
+    <Item source="还原" target="Restore"/>
+    <Item source="暂停" target="Pause"/>
+    <Item source="恢复" target="Resume"/>
+    <Item source="退件" target="Return"/>
+    <Item source="撤回" target="Withdraw"/>
+    <Item source="结束" target="End"/>
+    <Item source="强制结束当前流程" target="Force to end"/>
+    <Item source="保存" target="Save"/>
+    <Item source="流程跟踪" target="Trace"/>
+    <Item source="打印" target="Print"/>
+    <Item source="复制" target="Copy"/>
+    <Item source="复制当前表单的数据并且启动一个新流程" target="Copy current form's data and start up a new process"/>
+    <Item source="重起" target="Restart"/>
+    <Item source="作废当前流程，并且生成一份新的表单" target="Abort current process and restart a new form"/>
+    <Item source="交办" target="Assign"/>
+    <Item source="已阅" target="Read"/>
+    <Item source="催办" target="Remind"/>
+
+    <Item source="允许加签" target="Allow forward"/>
+    <Item source="允许转签" target="Allow change"/>
+    <Item source="允许会签" target="Allow consign"/>
+    <Item source="允许添加后续环节" target="Allow add follow step"/>
+    <Item source="允许删除此环节" target="Allow delete this step"/>
+    <Item source="禁止修改后续环节" target="Forbid edit follow steps"/>
+    <Item source="可以增加附件" target="Allow add attachments"/>
+    <Item source="可以修改附件" target="Allow edit attachments"/>
+    <Item source="允许环节审批人员为空" target="Allow empty approver"/>
+    <Item source="环节审批人员必须为空" target="Step approver must be empty"/>
+
+    <Item source="流程调整" target="Workflow Adjustment"/>
+
+    <Item source="增加" target="Add"/>
+    <Item source="修改" target="Edit"/>
+    <Item source="删除" target="Delete"/>
+
+    <Item source="编辑..." target="Edit..."/>
+    <Item source="常用意见..." target="Predefined..."/>
+    <Item source="常用意见" target="Predefined Comments"/>
+
+    <Item source="（无）" target="(None)"/>
+
+    <Item source="请填写意见" target="Please fill in the comments"/>
+    <Item source="请输入作废意见" target="Please fill in the reject comments"/>
+
+    <Item source="正在保存流程设置..." target="Saving Process Settings..."/>
+    <Item source="正在更新流程..." target="Changing Process Settings..."/>
+
+    <Item source="环节名称" target="Step Name"/>
+    <Item source="环节选项" target="Step Options"/>
+    <Item source="办理人" target="Processor"/>
+    <Item source="会签时，所有用户通过后流转到下一步" target="Transfer to next step when all users must approved in consign step."/>
+
+    <Item source="内容不能超过200个字" target="Content can not exceed 200 charactors."/>
+    <Item source="多条意见之间请使用英文空格或回车分隔；" target="Between the number of comments, please use the space or carriage return separated."/>
+    <Item source="所有意见（包含分隔符）的总长度不能超过200个字。" target="All comments (including separators) of the total length of not more than 200 charactors."/>
+
+    <Item source="确认删除该环节吗？" target="Do you want to delete the step ?"/>
+
+    <Item source="同意" target="Agree"/>
+    <Item source="不同意" target="Disagree"/>
+
+    <Item source="人员选择" target="Select User"/>
+    <Item source="请选择送阅人" target="Please select who to send read"/>
+    <Item source="正在传阅..." target="Sending to readers..."/>
+
+    <Item source="正在流转..." target="Sending..."/>
+    <Item source="正在保存..." target="Saving..."/>
+    <Item source="正在撤回..." target="Withdrawing..."/>
+    <Item source="正在作废..." target="Rejecting..."/>
+    <Item source="正在还原..." target="Restoring..."/>
+    <Item source="正在暂停..." target="Pausing..."/>
+    <Item source="正在恢复..." target="Resuming..."/>
+    <Item source="正在执行..." target="Executing..."/>
+
+    <Item source="阅知人" target="Circulator"/>
+    <Item source="无联机状态信息" target="No online info"/>
+
+    <Item source="当前流程的状态已经改变，不能流转" target="The current state of the process has changed, not circulation"/>
+    <Item source="流程跟踪..." target="Trace..."/>
+    <Item source="环节：{0}" target="Step"/>
+
+    <Item source="请设置 {0} 环节的审批人员" target="Please set the operator for step '{0}'." />
+
+    <Item source="申请" target="Requestor" />
+    <Item source="完成" target="Close"/>
+    <Item source="接受" target="Accept"/>
+    <Item source="冲销" target="Reverse"/>
+    <Item source="批准" target="Approve"/>
+    <Item source="提交" target="Submit"/>
+    <Item source="上传" target="Upload"/>
+    <!--<Item source="关闭" target="Close"/>-->
+
+    <Item source="取消" target="Cancel"/>
+
+    <Item source="审批同意" target="Approve"/>
+    <Item source="拒绝审批" target="Reject"/>
+    <!--<Item source="送签" target="Submit"/>-->
+    <Item source="结单" target="close"/>
+
+    <Item source="流转" target="Send"/>
+    <Item source="代写" target="on behalf"/>
+
+    <Item source="没有能够退回的环节" target="No steps can return." />
+    <Item source="选择退件环节" target="Select the step" />
+    <Item source="请选择退件环节" target="Please select the step" />
+    <Item source="请选择退件的环节。" target="Please select the step which you want to return to." />
+    <Item source="请填写退件意见。" target="Please fill in the return comments." />
+
+    <Item source="请选择加签人" target="Please select the person to be forwarded" />
+    <Item source="请选择转签人" target="Please select the person to process" />
+
+    <Item source="可以选择多个用户" target="Can select multiple users" />
+    <Item source="仅能选择单个用户" target="Can only select a single user" />
+
+    <Item source="请选择下一步的人员" target="Please the next step operators" />
+    <Item source="请选择待办人" target="Please select the assignees" />
+    <Item source="帐号已注销" target="Account has been canceled" />
+    <Item source="人员信息有误" target="Wrong user info" />
+    <Item source="请联系管理员调整流程" target="Please contact the administrator to adjust process" />
+
+    <Item source="流程状态已经改变，您不能执行作废操作" target="Process state has changed, you can not reject the process." />
+    <Item source="流程状态已经改变，您不能执行撤回操作" target="Process state has changed, you can not withdraw the action execution." />
+
+    <Item source="相关操作↓" target="Operations↓" />
+    <Item source="修改活动操作人" target="Modify operator of the activity" />
+    <Item source="编辑流程模板" target="Edit workflow template" />
+    <Item source="在图中选择需要修改的流程活动点，然后点击此链接进行修改" target="First select the activity of the need to modify the process in Figure, and then click on this link to make changes" />
+
+    <Item source="运行时操作↓" target="Runtime↓" />
+
+    <Item source="自动流转点" target="Automatic transfer activity" />
+
+    <Item source="确定要作废或取消流程吗？" target="Are you sure to cancel the process ?" />
+    <Item source="确定要还原作废(取消)的流程吗？" target="Are you sure to restore the process ?" />
+    <Item source="确定要暂停流程吗？" target="Are you sure to pause the process ?" />
+    <Item source="确定要恢复暂停的流程吗？" target="Are you sure to resume the process ?" />
+    <Item source="确认要退出维护状态吗？" target="Are you sure to exit the maintaining mode ?" />
+    <Item source="确认要异步作废流程吗？" target="Are you sure to cancel the process asynchronously ?" />
+    <Item source="确认要异步撤回流程吗？" target="Are you sure to withdraw the process asynchronously ?" />
+
+    <Item source="请指定该活动资源！" target="Please specify the activity resources !" />
+    <Item source="修改活动操作人失败，原因：" target="Modify the activity operation failed due to:" />
+    <Item source="流程不在运行中，无法作废。" target="Process is not running, can not be canceled" />
+    <Item source="操作成功！" target="Operation was successful !" />
+    <Item source="无法修改已完成的活动！" target="Completed activities can not be modified !" />
+    <Item source="请先选择需要修改的活动！" target="Please select an activity which you want to modify !" />
+
+    <Item source="正在读取......" target="Reading..." />
+
+    <!--WfRuntimeViewerControl-->
+    <Item source="图例" target="Legend" />
+    <Item source="设计的活动节点" target="Designed activity" />
+    <Item source="新增的活动节点" target="Added activity" />
+    <Item source="删除的活动节点" target="Removed activity" />
+
+    <Item source="模版活动节点" target="Template activity" />
+    <Item source="等待中的活动点" target="Pending activity" />
+    <Item source="克隆已运行活动节点" target="Cloned running activity" />
+    <Item source="克隆设计活动节点" target="Cloned not running activity" />
+    <Item source="克隆新增加活动节点" target="Cloned added activity" />
+    <Item source="未运行活动路径" target="Not through the transition" />
+    <Item source="已禁用活动路径" target="Disabled transition" />
+
+    <Item source="当前活动节点" target="Current activity" />
+    <Item source="已完成的活动节点" target="Completed activity" />
+    <Item source="已完成活动路径" target="Completed path" />
+    <Item source="包含分支流程的活动节点" target="Activity including branch processes" />
+    <Item source="流程信息" target="Process Information" />
+    <Item source="流程ID" target="Process ID" />
+    <Item source="资源ID" target="Resource ID" />
+    <Item source="状态" target="Status" />
+    <Item source="创建人" target="Creator" />
+    <Item source="所属组织" target="Organization" />
+    <Item source="开始时间" target="Begin Time" />
+    <Item source="结束时间" target="Finish Time" />
+    <Item source="名称" target="Name" />
+    <Item source="操作人" target="Operator" />
+    <Item source="活动" target="Activity" />
+    <Item source="模板" target="Template" />
+    <Item source="运行中" target="Running" />
+    <Item source="已完成" target="Completed" />
+    <Item source="被终止" target="Aborted" />
+    <Item source="未运行" target="Not running" />
+
+    <Item source="异步作废" target="Async reject" />
+    <Item source="异步撤回" target="Async withdraw" />
+    <Item source="退出维护模式" target="Exit maintaining mode" />
+    <Item source="处理等待中的活动" target="Process pending activities" />
+    <Item source="查看流程参数" target="View parameters" />
+    <Item source="查看主线流程" target="Mainstream process" />
+
+    <Item source="请先选择相应的活动！" target="Please select an activity." />
+    <Item source="未找到活动ID为{0}的流程！" target="Can not find the activity which ID is {0}" />
+    <Item source="修改当前活动点操作人失败！失败原因：{0}" target="Fail to modify the assignees of activity. The reason is {0}" />
+    <Item source="流程未启动，无法作废" target="Process is not started, can not reject." />
+    <Item source="流程不是已经作废的，无法还原" target="Process is not aborted, can not restore." />
+    <Item source="流程不在运行中，无法暂停" target="Process is not running, can not pause." />
+    <Item source="流程不在暂停中，无法恢复" target="Process is not paused, can not resume." />
+    <Item source="流程已经作废或者完成，无法重新计算" target="Process is aborted or completed, can not recalculate." />
+    <Item source="流程不在运行中，无法撤回" target="Process is not running, can not withdraw." />
+    <Item source="流程不在维护状态，无法执行此操作" target="Process is not in maintaining mode, can not do this operation." />
+    <Item source="不能获取到当前流程信息" target="Can not get the current process info." />
+    <Item source="您没有权限执行此操作" target="You don't have permission to do this operation." />
+
+    <!--RuntimeParametersViewer-->
+    <Item source="参数名称" target="Name" />
+    <Item source="参数类型" target="Type" />
+    <Item source="参数值" target="Value" />
+    <Item source="编辑(E)" target="Edit"/>
+
+    <!--Property Grid-->
+    <Item source="分类显示" target="Categorized" />
+    <Item source="按照字母排序显示" target="Alphabetical" />
+
+    <!--CIIC Controls-->
+    <Item source="退回" target="Return"/>
+    <Item source="意见" target="Opinions" />
+    <Item source="结果" target="Result" />
+    <Item source="处理人" target="Operator" />
+    <Item source="日期" target="Date" />
+    <Item source="跟踪" target="Trace" />
+    <Item source="更新流程参数" target="Update Params" />
+    <Item source="保存草稿" target="Save Draft" />
+    <Item source="您确定要提交吗？" target="Do you want to submit ?" />
+    <Item source="您确定要保存草稿吗？" target="Do you want to save the draft ?" />
+    <Item source="您确定要{0}吗？" target="Do you want to {0} ?" />
+    <Item source="您确定要保存吗？" target="Do you want to save the form ?" />
+    <Item source="您确定要流转吗？" target="Do you want to send the form ?" />
+    <Item source="您确定要撤回吗？" target="Do you want to withdraw the process ?" />
+    <Item source="您确定要作废吗？" target="Do you want to abort the process ?" />
+    <Item source="您确定要还原流程吗？" target="Do you want to restore the process ?" />
+    <Item source="您确定要恢复流程吗？" target="Do you want to resume the process ?" />
+    <Item source="您确定要暂停流程吗？" target="Do you want to pause the process ?" />
+</Dictionary>

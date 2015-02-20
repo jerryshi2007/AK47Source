@@ -1,0 +1,4 @@
+﻿/*创建Schema SC*/
+
+CREATE SCHEMA [SC]
+	AUTHORIZATION [dbo];

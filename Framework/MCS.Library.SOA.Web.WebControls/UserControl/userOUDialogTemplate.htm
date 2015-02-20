@@ -1,0 +1,25 @@
+﻿<script type="text/javascript">
+    function onConfirmButtonClick() {
+		var tree = $find(event.srcElement.treeControlID);
+		var multiSelect = (event.srcElement.multiSelect == "true");
+		var userControl = $find(event.srcElement.userControlID);
+		var result = new Array();
+
+		if (multiSelect)
+			result = userControl._dialogResult;
+		else {
+			var node = tree.get_selectedNode();
+
+			if (node)
+				result = [node.get_extendedData()];
+		}
+		if (result.length <= 0)//如果没有选择人员，按下确定。提示用户并返回。
+		{
+			alert($NT.getText("SOAWebControls", "请选择机构或人员。"));
+			return;
+		}
+		window.returnValue = Sys.Serialization.JavaScriptSerializer.serialize(result);
+		window.close();
+	}
+</script>
+

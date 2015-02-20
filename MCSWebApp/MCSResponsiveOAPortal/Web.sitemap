@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="~/Default.aspx" title="流程中心" description="流程中心" iconCss="" mcsroles="*">
+    <siteMapNode url="~/Task/Drafting.aspx" title="拟单" description="拟单" iconCss="glyphicon glyphicon-edit" mcsroles="*" />
+    <siteMapNode url="~/Task/ToDoList.aspx" title="待办" description="待办" iconCss="glyphicon glyphicon-inbox" badgeKey="todoCount" mcsroles="*" />
+    <siteMapNode url="~/Task/ActivatedList.aspx" title="流转中" description="流转中" iconCss="glyphicon glyphicon-transfer" mcsroles="*" />
+    <siteMapNode url="~/Task/CompletedList.aspx" title="已办结" description="已办结" iconCss="glyphicon glyphicon-flag" mcsroles="*"  />
+    <siteMapNode url="~/Task/DelegationList.aspx" title="授权委派"  description="授权委派" iconCss="glyphicon glyphicon-plane" mcsroles="*" />
+    <siteMapNode url="~/Profile.aspx" title="个人设置"  description="个人设置" iconCss="glyphicon glyphicon-user" mcsroles="*" />
+    <siteMapNode url="~/Help.aspx" title="帮助"  description="帮助" iconCss="glyphicon glyphicon-question-sign" mcsroles="*" />
+    <siteMapNode url="~/Admin/SystemAdmin.aspx" title="系统管理" description="系统管理" iconCss="glyphicon glyphicon-wrench" mcsroles="OAPORTAL:PORTAL_ADMIN" />
+    <siteMapNode  title="导航" iconCss="glyphicon glyphicon-link" mcsroles="OAPORTAL:PORTAL_ADMIN" >
+      <siteMapNode title="配置中心" url="/MCSWebApp/ConfigManager/Application.aspx" iconCss="glyphicon glyphicon-new-window" mcsroles="OAPORTAL:PORTAL_ADMIN" target="_blank" />
+      <siteMapNode title="监控中心" url="http://10.0.9.74:51908/default.aspx" iconCss="glyphicon glyphicon-new-window" mcsroles="OAPORTAL:PORTAL_ADMIN" target="_blank" />
+      <siteMapNode title="关系人管理" url="/MCSWebApp/OACommonPages/UserMapping/UserMappingManager.aspx" iconCss="glyphicon glyphicon-new-window" mcsroles="OAPORTAL:PORTAL_ADMIN" target="_blank" />
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>

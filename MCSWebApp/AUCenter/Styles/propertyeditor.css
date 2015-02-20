@@ -1,0 +1,109 @@
+﻿/* File Created: 六月 20, 2014 */
+ul.property-list
+{
+    list-style: none;
+    margin: 0;
+}
+
+ul.property-list li.property-list-item
+{
+    margin-left: 0;
+    padding: 2px;
+    border: 1px solid #ccc;
+    margin: 2px;
+}
+
+.property-list-commands
+{
+    margin-left: 0;
+    padding: 5px;
+}
+
+ul.property-list li.property-list-item .property-list-item-head
+{
+    line-height: 24px;
+    cursor: pointer;
+    padding: 2px 5px;
+}
+
+.property-list-item-head span.caption
+{
+    font-size: 18px;
+    font-weight: bold;
+    color: #444;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.property-list-item-head small
+{
+    color: #888;
+}
+
+.icon-toggle
+{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url('../Images/ui-icons_888888_256x240.png') no-repeat scroll -64px -192px;
+}
+
+.open .icon-toggle
+{
+    background-position: -48px -192px;
+}
+
+.open .property-list-item-head
+{
+    background: #456;
+    color: #fff;
+}
+
+.open .property-list-item-head span.caption, .open .property-list-item-head small
+{
+    color: #fff;
+}
+
+.property-list-item-body
+{
+    display: none;
+    border: 1px none #ddd;
+    border-top-style: solid;
+}
+
+.open .property-list-item-body
+{
+    display: block;
+}
+
+.property-label-name
+{
+    display: inline-block;
+    width: 160px;
+}
+
+.editor
+{
+    width: 200px;
+}
+.required
+{
+    color: #f00;
+}
+
+.input-error
+{
+    color: #f00;
+    text-decoration: underline;
+    background:#ff0;
+}
+
+.property-value
+{
+    width: 160px;
+    display:inline-block;
+	border:1px solid #888;
+	padding:0 5px;
+	height:16px;
+	border-style:none none solid;
+}

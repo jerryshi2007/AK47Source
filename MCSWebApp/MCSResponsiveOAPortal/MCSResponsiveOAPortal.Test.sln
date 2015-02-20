@@ -1,0 +1,133 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCSResponsiveOAPortal", "MCSResponsiveOAPortal.csproj", "{35225D95-9765-4498-8624-9D10558AF01C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2C8CE11B-A81E-4F64-B038-6570F618FB3A} = {2C8CE11B-A81E-4F64-B038-6570F618FB3A}
+		{31B6A252-182E-48C0-8D6A-56E3C2DD856F} = {31B6A252-182E-48C0-8D6A-56E3C2DD856F}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Web.Responsive.Library", "..\..\Framework\MCS.Web.Responsive.Library\MCS.Web.Responsive.Library.csproj", "{31B6A252-182E-48C0-8D6A-56E3C2DD856F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Web.Responsive.WebControls", "..\..\Framework\MCS.Web.Responsive.WebControls\MCS.Web.Responsive.WebControls.csproj", "{2C8CE11B-A81E-4F64-B038-6570F618FB3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCSOAPortal", "..\MCSOAPortal\MCSOAPortal.csproj", "{C9D50D54-9E5C-4053-A340-EC5CFBB77C07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library.SOA.DataObjects", "..\..\Framework\MCS.Library.SOA.DataObjects\MCS.Library.SOA.DataObjects.csproj", "{7905642F-4630-4D16-AF40-CB1FB70D516F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Web.SOA.Responsive.WebControls", "..\..\Framework\MCS.Web.SOA.Responsive.WebControls\MCS.Web.SOA.Responsive.WebControls.csproj", "{3D91BCD9-C2DC-4005-ACD1-D4C9586BFAE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library.SOA.Web.WebControls", "..\..\Framework\MCS.Library.SOA.Web.WebControls\MCS.Library.SOA.Web.WebControls.csproj", "{42C6D301-8CCB-4CBD-BC20-250D98A4C369}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://shsvr9141tfs.ciicsh.local:8080/tfs/rhso
+		SccProjectUniqueName0 = ..\\..\\Framework\\MCS.Web.SOA.Responsive.WebControls\\MCS.Web.SOA.Responsive.WebControls.csproj
+		SccProjectName0 = ../../Framework/MCS.Web.SOA.Responsive.WebControls
+		SccLocalPath0 = ..\\..\\Framework\\MCS.Web.SOA.Responsive.WebControls
+		SccProjectUniqueName1 = ..\\..\\Framework\\MCS.Web.Responsive.WebControls\\MCS.Web.Responsive.WebControls.csproj
+		SccProjectName1 = ../../Framework/MCS.Web.Responsive.WebControls
+		SccLocalPath1 = ..\\..\\Framework\\MCS.Web.Responsive.WebControls
+		SccProjectUniqueName2 = ..\\..\\Framework\\MCS.Web.Responsive.Library\\MCS.Web.Responsive.Library.csproj
+		SccProjectName2 = ../../Framework/MCS.Web.Responsive.Library
+		SccLocalPath2 = ..\\..\\Framework\\MCS.Web.Responsive.Library
+		SccProjectUniqueName3 = MCSResponsiveOAPortal.csproj
+		SccLocalPath3 = .
+		SccProjectUniqueName4 = ..\\MCSOAPortal\\MCSOAPortal.csproj
+		SccProjectName4 = ../MCSOAPortal
+		SccLocalPath4 = ..\\MCSOAPortal
+		SccProjectUniqueName5 = ..\\..\\Framework\\MCS.Library.SOA.DataObjects\\MCS.Library.SOA.DataObjects.csproj
+		SccProjectName5 = ../../Framework/MCS.Library.SOA.DataObjects
+		SccLocalPath5 = ..\\..\\Framework\\MCS.Library.SOA.DataObjects
+		SccProjectUniqueName6 = ..\\..\\Framework\\MCS.Library.SOA.Web.WebControls\\MCS.Library.SOA.Web.WebControls.csproj
+		SccProjectName6 = ../../Framework/MCS.Library.SOA.Web.WebControls
+		SccLocalPath6 = ..\\..\\Framework\\MCS.Library.SOA.Web.WebControls
+		SccLocalPath7 = .
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{35225D95-9765-4498-8624-9D10558AF01C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35225D95-9765-4498-8624-9D10558AF01C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35225D95-9765-4498-8624-9D10558AF01C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{35225D95-9765-4498-8624-9D10558AF01C}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{35225D95-9765-4498-8624-9D10558AF01C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{35225D95-9765-4498-8624-9D10558AF01C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35225D95-9765-4498-8624-9D10558AF01C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35225D95-9765-4498-8624-9D10558AF01C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{35225D95-9765-4498-8624-9D10558AF01C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{35225D95-9765-4498-8624-9D10558AF01C}.Release|x86.ActiveCfg = Release|Any CPU
+		{31B6A252-182E-48C0-8D6A-56E3C2DD856F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31B6A252-182E-48C0-8D6A-56E3C2DD856F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31B6A252-182E-48C0-8D6A-56E3C2DD856F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{31B6A252-182E-48C0-8D6A-56E3C2DD856F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{31B6A252-182E-48C0-8D6A-56E3C2DD856F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{31B6A252-182E-48C0-8D6A-56E3C2DD856F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31B6A252-182E-48C0-8D6A-56E3C2DD856F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31B6A252-182E-48C0-8D6A-56E3C2DD856F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{31B6A252-182E-48C0-8D6A-56E3C2DD856F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{31B6A252-182E-48C0-8D6A-56E3C2DD856F}.Release|x86.ActiveCfg = Release|Any CPU
+		{2C8CE11B-A81E-4F64-B038-6570F618FB3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C8CE11B-A81E-4F64-B038-6570F618FB3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C8CE11B-A81E-4F64-B038-6570F618FB3A}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2C8CE11B-A81E-4F64-B038-6570F618FB3A}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{2C8CE11B-A81E-4F64-B038-6570F618FB3A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2C8CE11B-A81E-4F64-B038-6570F618FB3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C8CE11B-A81E-4F64-B038-6570F618FB3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C8CE11B-A81E-4F64-B038-6570F618FB3A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{2C8CE11B-A81E-4F64-B038-6570F618FB3A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{2C8CE11B-A81E-4F64-B038-6570F618FB3A}.Release|x86.ActiveCfg = Release|Any CPU
+		{C9D50D54-9E5C-4053-A340-EC5CFBB77C07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9D50D54-9E5C-4053-A340-EC5CFBB77C07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9D50D54-9E5C-4053-A340-EC5CFBB77C07}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{C9D50D54-9E5C-4053-A340-EC5CFBB77C07}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{C9D50D54-9E5C-4053-A340-EC5CFBB77C07}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C9D50D54-9E5C-4053-A340-EC5CFBB77C07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9D50D54-9E5C-4053-A340-EC5CFBB77C07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9D50D54-9E5C-4053-A340-EC5CFBB77C07}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{C9D50D54-9E5C-4053-A340-EC5CFBB77C07}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{C9D50D54-9E5C-4053-A340-EC5CFBB77C07}.Release|x86.ActiveCfg = Release|Any CPU
+		{7905642F-4630-4D16-AF40-CB1FB70D516F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7905642F-4630-4D16-AF40-CB1FB70D516F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7905642F-4630-4D16-AF40-CB1FB70D516F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{7905642F-4630-4D16-AF40-CB1FB70D516F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{7905642F-4630-4D16-AF40-CB1FB70D516F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7905642F-4630-4D16-AF40-CB1FB70D516F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7905642F-4630-4D16-AF40-CB1FB70D516F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7905642F-4630-4D16-AF40-CB1FB70D516F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{7905642F-4630-4D16-AF40-CB1FB70D516F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{7905642F-4630-4D16-AF40-CB1FB70D516F}.Release|x86.ActiveCfg = Release|Any CPU
+		{3D91BCD9-C2DC-4005-ACD1-D4C9586BFAE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D91BCD9-C2DC-4005-ACD1-D4C9586BFAE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D91BCD9-C2DC-4005-ACD1-D4C9586BFAE7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{3D91BCD9-C2DC-4005-ACD1-D4C9586BFAE7}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{3D91BCD9-C2DC-4005-ACD1-D4C9586BFAE7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3D91BCD9-C2DC-4005-ACD1-D4C9586BFAE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D91BCD9-C2DC-4005-ACD1-D4C9586BFAE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D91BCD9-C2DC-4005-ACD1-D4C9586BFAE7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{3D91BCD9-C2DC-4005-ACD1-D4C9586BFAE7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{3D91BCD9-C2DC-4005-ACD1-D4C9586BFAE7}.Release|x86.ActiveCfg = Release|Any CPU
+		{42C6D301-8CCB-4CBD-BC20-250D98A4C369}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42C6D301-8CCB-4CBD-BC20-250D98A4C369}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42C6D301-8CCB-4CBD-BC20-250D98A4C369}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{42C6D301-8CCB-4CBD-BC20-250D98A4C369}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{42C6D301-8CCB-4CBD-BC20-250D98A4C369}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{42C6D301-8CCB-4CBD-BC20-250D98A4C369}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42C6D301-8CCB-4CBD-BC20-250D98A4C369}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42C6D301-8CCB-4CBD-BC20-250D98A4C369}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{42C6D301-8CCB-4CBD-BC20-250D98A4C369}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{42C6D301-8CCB-4CBD-BC20-250D98A4C369}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

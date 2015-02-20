@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Microsoft YaHei" Size="8.25" />
+  <Class Name="MCS.Web.WebControls.ButtonItem">
+    <Position X="0.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>DeluxeSelect\ButtonItem.cs</FileName>
+      <HashCode>AQAAgAEABIAAAAQAAAAAAAAgCAACAAAAAoAAAACAAAA=</HashCode>
+    </TypeIdentifier>
+    <NestedTypes>
+      <Enum Name="MCS.Web.WebControls.ButtonItem.ButtonTypeMode" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>DeluxeSelect\ButtonItem.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+  </Class>
+  <Class Name="MCS.Web.WebControls.ButtonItemCollection">
+    <Position X="2.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>DeluxeSelect\ButtonItem.cs</FileName>
+      <HashCode>AEIAAEAAAAAAAAAACAAABAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Web.WebControls.DeluxeSelect">
+    <Position X="6.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>DeluxeSelect\DeluxeSelect.cs</FileName>
+      <HashCode>AAkCCAACAAgIQAgAAIACEIABAAAQEBAAgBABgCgAAhA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Web.WebControls.DeluxeSelectDesigner">
+    <Position X="0.5" Y="4.5" Width="2" />
+    <TypeIdentifier>
+      <FileName>DeluxeSelect\DeluxeSelectDesigner.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Web.WebControls.SelectItem">
+    <Position X="3" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <FileName>DeluxeSelect\SelectItem.cs</FileName>
+      <HashCode>EAQAACAgAAAAIAAAAAAAAAAASBAAAAAAIAAAAgAACAI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Web.WebControls.SelectItemCollection">
+    <Position X="4.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>DeluxeSelect\SelectItem.cs</FileName>
+      <HashCode>AEIAAEAAAAAAAAAACAAABAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+</ClassDiagram>

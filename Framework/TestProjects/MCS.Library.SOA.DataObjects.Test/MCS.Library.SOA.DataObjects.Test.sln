@@ -1,0 +1,102 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library.SOA.DataObjects.Test", "MCS.Library.SOA.DataObjects.Test.csproj", "{D18E407B-7ABA-4D65-94C7-FBF134580551}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4313DE1E-738F-477D-B7FD-B237E9116670} = {4313DE1E-738F-477D-B7FD-B237E9116670}
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215} = {4077B0B7-062A-4F6D-8A45-A180A2ED3215}
+		{78CD90D6-129A-401C-8396-E7AD8996219E} = {78CD90D6-129A-401C-8396-E7AD8996219E}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4A0C3283-E2C5-4C13-862B-9725BF151C4C}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		MCS.Library.SOA.DataObjects.Test5.vsmdi = MCS.Library.SOA.DataObjects.Test5.vsmdi
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library.Data", "..\..\MCS.Library.Data\MCS.Library.Data.csproj", "{4313DE1E-738F-477D-B7FD-B237E9116670}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215} = {4077B0B7-062A-4F6D-8A45-A180A2ED3215}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library", "..\..\MCS.Library\MCS.Library.csproj", "{4077B0B7-062A-4F6D-8A45-A180A2ED3215}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library.SOA.DataObjects", "..\..\MCS.Library.SOA.DataObjects\MCS.Library.SOA.DataObjects.csproj", "{7905642F-4630-4D16-AF40-CB1FB70D516F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4313DE1E-738F-477D-B7FD-B237E9116670} = {4313DE1E-738F-477D-B7FD-B237E9116670}
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215} = {4077B0B7-062A-4F6D-8A45-A180A2ED3215}
+		{78CD90D6-129A-401C-8396-E7AD8996219E} = {78CD90D6-129A-401C-8396-E7AD8996219E}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Web.Library.Script.Json", "..\..\MCS.Web.Library.Script.Json\MCS.Web.Library.Script.Json.csproj", "{78CD90D6-129A-401C-8396-E7AD8996219E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215} = {4077B0B7-062A-4F6D-8A45-A180A2ED3215}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://shsvr9141tfs.ciicsh.local:8080/tfs/rhso
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = MCS.Library.SOA.DataObjects.Test.csproj
+		SccLocalPath1 = .
+		SccProjectUniqueName2 = ..\\..\\MCS.Library.Data\\MCS.Library.Data.csproj
+		SccProjectName2 = ../../MCS.Library.Data
+		SccLocalPath2 = ..\\..\\MCS.Library.Data
+		SccProjectUniqueName3 = ..\\..\\MCS.Library\\MCS.Library.csproj
+		SccProjectName3 = ../../MCS.Library
+		SccLocalPath3 = ..\\..\\MCS.Library
+		SccProjectUniqueName4 = ..\\..\\MCS.Library.SOA.DataObjects\\MCS.Library.SOA.DataObjects.csproj
+		SccProjectName4 = ../../MCS.Library.SOA.DataObjects
+		SccLocalPath4 = ..\\..\\MCS.Library.SOA.DataObjects
+		SccProjectUniqueName5 = ..\\..\\MCS.Web.Library.Script.Json\\MCS.Web.Library.Script.Json.csproj
+		SccProjectName5 = ../../MCS.Web.Library.Script.Json
+		SccLocalPath5 = ..\\..\\MCS.Web.Library.Script.Json
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		DELUXEWORKSTEST|Any CPU = DELUXEWORKSTEST|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D18E407B-7ABA-4D65-94C7-FBF134580551}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D18E407B-7ABA-4D65-94C7-FBF134580551}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D18E407B-7ABA-4D65-94C7-FBF134580551}.DELUXEWORKSTEST|Any CPU.ActiveCfg = Debug|Any CPU
+		{D18E407B-7ABA-4D65-94C7-FBF134580551}.DELUXEWORKSTEST|Any CPU.Build.0 = Debug|Any CPU
+		{D18E407B-7ABA-4D65-94C7-FBF134580551}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D18E407B-7ABA-4D65-94C7-FBF134580551}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4313DE1E-738F-477D-B7FD-B237E9116670}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4313DE1E-738F-477D-B7FD-B237E9116670}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4313DE1E-738F-477D-B7FD-B237E9116670}.DELUXEWORKSTEST|Any CPU.ActiveCfg = DELUXEWORKSTEST|Any CPU
+		{4313DE1E-738F-477D-B7FD-B237E9116670}.DELUXEWORKSTEST|Any CPU.Build.0 = DELUXEWORKSTEST|Any CPU
+		{4313DE1E-738F-477D-B7FD-B237E9116670}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4313DE1E-738F-477D-B7FD-B237E9116670}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.DELUXEWORKSTEST|Any CPU.ActiveCfg = DELUXEWORKSTEST|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.DELUXEWORKSTEST|Any CPU.Build.0 = DELUXEWORKSTEST|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7905642F-4630-4D16-AF40-CB1FB70D516F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7905642F-4630-4D16-AF40-CB1FB70D516F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7905642F-4630-4D16-AF40-CB1FB70D516F}.DELUXEWORKSTEST|Any CPU.ActiveCfg = Debug|Any CPU
+		{7905642F-4630-4D16-AF40-CB1FB70D516F}.DELUXEWORKSTEST|Any CPU.Build.0 = Debug|Any CPU
+		{7905642F-4630-4D16-AF40-CB1FB70D516F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7905642F-4630-4D16-AF40-CB1FB70D516F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78CD90D6-129A-401C-8396-E7AD8996219E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78CD90D6-129A-401C-8396-E7AD8996219E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78CD90D6-129A-401C-8396-E7AD8996219E}.DELUXEWORKSTEST|Any CPU.ActiveCfg = Debug|Any CPU
+		{78CD90D6-129A-401C-8396-E7AD8996219E}.DELUXEWORKSTEST|Any CPU.Build.0 = Debug|Any CPU
+		{78CD90D6-129A-401C-8396-E7AD8996219E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78CD90D6-129A-401C-8396-E7AD8996219E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = MCS.Library.SOA.DataObjects.Test5.vsmdi
+	EndGlobalSection
+EndGlobal

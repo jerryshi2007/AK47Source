@@ -1,0 +1,79 @@
+.ajax__calendar_container {padding:2px;position:absolute;cursor:default;width:200px;font-size:11px;text-align:center;font-family:tahoma,verdana,helvetica;}
+.ajax__calendar_body {height:150px;width:170px;position:relative;overflow:hidden;margin:auto;}
+.ajax__calendar_days, .ajax__calendar_months, .ajax__calendar_years {top:0px;left:0px;height:139px;width:170px;position:absolute;text-align:center;margin:auto;}
+.ajax__calendar_container TABLE {font-size:13px;}
+/*
+
+*/
+.ajax__calendar_headerlist { font-size:8;}
+.ajax__calendar_titleselect { cursor:pointer;width:38px;height:18px;float:right;}
+.ajax__calendar_titleinput { width:32px;height:18px;float:right;}
+.ajax__calendar_titleimg { cursor:pointer;width:18px;height:18px;float:right;background-repeat:no-repeat;background-position:50% 50%;background-image:url(<%=WebResource("ChinaCustoms.Framework.DeluxeWorks.Web.WebControls.Calendar.Images.updown.gif")%>);}
+/*0508*/
+.ajax__calendar_padding { width:52px;float:right; }
+
+.ajax__calendar_header {height:20px;width:100%;background-image:url(<%=WebResource("ChinaCustoms.Framework.DeluxeWorks.Web.WebControls.Calendar.Images.caption.gif")%>);}
+.ajax__calendar_prev {cursor:pointer;width:15px;height:15px;float:left;background-repeat:no-repeat;background-position:50% 50%;background-image:url(<%=WebResource("ChinaCustoms.Framework.DeluxeWorks.Web.WebControls.Calendar.Images.arrow-left.gif")%>);}
+.ajax__calendar_next {cursor:pointer;width:15px;height:15px;float:right;background-repeat:no-repeat;background-position:50% 50%;background-image:url(<%=WebResource("ChinaCustoms.Framework.DeluxeWorks.Web.WebControls.Calendar.Images.arrow-right.gif")%>);}
+.ajax__calendar_title {cursor:pointer;font-weight:bold;}
+.ajax__calendar_footer {height:15px;}
+.ajax__calendar_today {cursor:pointer;padding-top:3px;}
+/*day of list.ajax__calendar_dayname {height:25px;width:20px;text-align:right;padding:0 2px;}*/
+/*weekday*/
+.ajax__calendar_weekday {background-color:#c8e0f8;}
+
+.ajax__calendar_day {height:17px;width:18px;text-align:right;padding:0 2px;cursor:pointer;}
+.ajax__calendar_month {height:48px;width:44px;text-align:center;cursor:pointer;overflow:hidden;}
+.ajax__calendar_year {height:48px;width:44px;text-align:center;cursor:pointer;overflow:hidden;}
+
+.ajax__calendar .ajax__calendar_container {border:1px solid #646464;background-color:#ffffff;color:#000000;}
+.ajax__calendar .ajax__calendar_footer {border-top:1px solid #f5f5f5;}
+/*day of week name*/
+.ajax__calendar .ajax__calendar_dayname {border-bottom:1px solid #f5f5f5; padding:0 2px;}
+.ajax__calendar .ajax__calendar_day {border:1px solid #ffffff;}
+.ajax__calendar .ajax__calendar_month {border:1px solid #ffffff;}
+.ajax__calendar .ajax__calendar_year {border:1px solid #ffffff;}
+/*currentday*/
+.ajax__calendar .ajax__calendar_currentmonthday {background-color:#edf9ff;border-color:#0066cc;color:#0066cc;background-repeat:no-repeat; background-position:left; background-image:url(<%=WebResource("ChinaCustoms.Framework.DeluxeWorks.Web.WebControls.Calendar.Images.today.gif")%>);}
+
+/*today*/
+.ajax__calendar .ajax__calendar_active .ajax__calendar_today {background-color:#edf9ff;border-color:#0066cc;color:#0066cc;background-repeat:no-repeat; background-position:left; background-image:url(<%=WebResource("ChinaCustoms.Framework.DeluxeWorks.Web.WebControls.Calendar.Images.checked.gif")%>);}
+
+.ajax__calendar .ajax__calendar_active .ajax__calendar_day {background-color:#edf9ff;border-color:#0066cc;color:#0066cc;}/**/
+.ajax__calendar .ajax__calendar_active .ajax__calendar_month {background-color:#edf9ff;border-color:#0066cc;color:#0066cc;}
+.ajax__calendar .ajax__calendar_active .ajax__calendar_year {background-color:#edf9ff;border-color:#0066cc;color:#0066cc;}
+
+.ajax__calendar .ajax__calendar_other .ajax__calendar_day {background-color:#ffffff;border-color:#ffffff;color:#646464;}
+.ajax__calendar .ajax__calendar_other .ajax__calendar_year {background-color:#ffffff;border-color:#ffffff;color:#646464;}
+
+.ajax__calendar .ajax__calendar_hover .ajax__calendar_day {background-color:#edf9ff;border-color:#daf2fc;color:#0066cc;}
+.ajax__calendar .ajax__calendar_hover .ajax__calendar_month {background-color:#edf9ff;border-color:#daf2fc;color:#0066cc;}
+.ajax__calendar .ajax__calendar_hover .ajax__calendar_year {background-color:#edf9ff;border-color:#daf2fc;color:#0066cc;}
+
+.ajax__calendar .ajax__calendar_hover .ajax__calendar_title {color:#0066cc;}
+.ajax__calendar .ajax__calendar_hover .ajax__calendar_today {color:#0066cc;}
+
+/*
+add textbox icon
+*/
+.ajax_calendartextbox 
+{
+ border-top: 1px solid #666666;
+ border-right: 0px solid #666666;
+ border-bottom: 1px solid #666666;
+ border-left: 1px solid #666666;
+ }
+.ajax_calendarimagebutton
+{
+ border-top: 1px solid #666666;
+ border-right: 1px solid #666666;
+ border-bottom: 1px solid #666666;
+ border-left: 0px solid #666666;
+}
+ 
+.Wdate{
+	width:140px;
+	border:#999 1px solid;
+	background:url(<%=WebResource("ChinaCustoms.Framework.DeluxeWorks.Web.WebControls.Calendar.Images.datePicker.gif")%>) no-repeat right;
+	/*cursor:pointer;*/
+}

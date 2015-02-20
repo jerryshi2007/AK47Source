@@ -1,0 +1,39 @@
+.tabStripBackground
+{
+	font-size: 12px;
+	background-color: Transparent;
+}
+
+.tabStripBand
+{
+	font-size: 12px;
+	border-bottom: solid #eeeeee 1px;
+}
+
+.tabStrip
+{
+	font-size: 12px;
+	background-color: white;
+	border-right: solid #cccccc 1px;
+	border-top: solid white 1px;
+	border-bottom: solid black 1px;
+}
+
+.tabStripSelected
+{
+	font-size: 12px;
+	font-weight: BOLD;
+	background-color: #eeeeee;
+	border-left: solid white 1px;
+	
+	border-right: solid black 1px;
+	border-bottom: solid #eeeeee 1px;
+}
+
+.tabStripText
+{
+}
+
+.tabStripTextSelected
+{
+}

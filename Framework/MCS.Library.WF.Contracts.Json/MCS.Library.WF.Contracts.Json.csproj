@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>../../../CIIC.HSR.TSP.Files/TSPLib.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2BDA53BC-7BD9-4707-8DA4-A8B6DF7A46DC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MCS.Library.WF.Contracts.Json</RootNamespace>
+    <AssemblyName>MCS.Library.WF.Contracts.Json</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>MCS.Library.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MCS.Library">
+      <HintPath>..\..\Bin\MCS.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.WF.Contracts">
+      <HintPath>..\..\Bin\MCS.Library.WF.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Library.Script.Json">
+      <HintPath>..\..\Bin\MCS.Web.Library.Script.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Converters\ClientPropertyValueJsonConverter.cs" />
+    <Compile Include="Converters\DataObjects\WfClientDelegationJsonConverter.cs" />
+    <Compile Include="Converters\DataObjects\WfClientNextStepJsonConverter.cs" />
+    <Compile Include="Converters\DataObjects\WfClientRolePropertyDefinitionJsonConverter.cs" />
+    <Compile Include="Converters\DataObjects\WfClientRolePropertyValueJsonConverter.cs" />
+    <Compile Include="Converters\DataObjects\WfClientRolePropertyRowJsonConverter.cs" />
+    <Compile Include="Converters\DataObjects\WfClientStreamJsonConverter.cs" />
+    <Compile Include="Converters\Query\ClientPageQueryResultJsonConverterBase.cs" />
+    <Compile Include="Converters\ResourceDescriptors\WfClientActivityMatrixResourceDescriptorJsonConverter.cs" />
+    <Compile Include="Converters\ResourceDescriptors\WfClientActivityResourceDescriptorJsonConverterBase.cs" />
+    <Compile Include="Converters\ResourceDescriptors\WfClientDynamicResourceDescriptorJsonConverter.cs" />
+    <Compile Include="Converters\ResourceDescriptors\WfClientRoleResourceDescriptorJsonConverter.cs" />
+    <Compile Include="Converters\ResourceDescriptors\WfClientGroupResourceDescriptorJsonConverter.cs" />
+    <Compile Include="Converters\ResourceDescriptors\WfClientResourceDescriptorJsonConverterBase.cs" />
+    <Compile Include="Converters\ResourceDescriptors\WfClientDepartmentResourceDescriptorJsonConverter.cs" />
+    <Compile Include="Converters\ResourceDescriptors\WfClientUserResourceDescriptorJsonConverter.cs" />
+    <Compile Include="Converters\WClientBranchProcessTransferParamsJsonConverter.cs" />
+    <Compile Include="Converters\WfClientAuthorizationInfoJsonConverter.cs" />
+    <Compile Include="Converters\WfClientBranchProcessStartupParamsJsonConverter.cs" />
+    <Compile Include="Converters\WfClientExportProcessDescriptorParamsJsonConverter.cs" />
+    <Compile Include="Converters\WfClientMainStreamActivityDescriptorJsonConverter.cs" />
+    <Compile Include="Converters\WfClientOpinionJsonConverter.cs" />
+    <Compile Include="Converters\WfClientProcessCurrentInfoJsonConverter.cs" />
+    <Compile Include="Converters\WfClientProcessCurrentInfoPageQueryResultJsonConverter.cs" />
+    <Compile Include="Converters\WfClientProcessDescriptorInfoJsonConverter.cs" />
+    <Compile Include="Converters\WfClientProcessDescriptorInfoPageQueryResultJsonConverter.cs" />
+    <Compile Include="Converters\WfClientProcessInfoJsonConverterBase.cs" />
+    <Compile Include="Converters\WfClientProcessJsonConverter.cs" />
+    <Compile Include="Converters\WfClientRelativeLinkDescriptorJsonConverter.cs" />
+    <Compile Include="Converters\WfClientActivityDescriptorJsonConverter.cs" />
+    <Compile Include="Converters\WfClientActivityJsonConverter.cs" />
+    <Compile Include="Converters\WfClientBranchProcessTemplateDescriptorJsonConverter.cs" />
+    <Compile Include="Converters\WfClientJsonConverterHelper.cs" />
+    <Compile Include="Converters\WfClientKeyedDescriptorJsonConverterBase.cs" />
+    <Compile Include="Converters\WfClientOguObjectBaseJsonConverter.cs" />
+    <Compile Include="Converters\WfClientProcessDescriptorJsonConverter.cs" />
+    <Compile Include="Converters\WfClientProcessInfoJsonConverter.cs" />
+    <Compile Include="Converters\WfClientProcessStartupParamsJsonConverter.cs" />
+    <Compile Include="Converters\WfClientRuntimeContextJsonConverter.cs" />
+    <Compile Include="Converters\WfClientTransferParamsJsonConverter.cs" />
+    <Compile Include="Converters\WfClientTransitionDescriptorJsonConverter.cs" />
+    <Compile Include="Converters\WfCreateClientDynamicProcessParamsJsonConverter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MCS.Library.snk" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>IF NOT EXIST "$(ProjectDir)..\..\Bin" MD "$(ProjectDir)..\..\Bin"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetFileName)" DEL "$(ProjectDir)..\..\Bin\$(TargetFileName)"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetName).pdb" DEL "$(ProjectDir)..\..\Bin\$(TargetName).pdb"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetName).xml" DEL "$(ProjectDir)..\..\Bin\$(TargetName).xml"</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>set path=%25path%25;C:\Windows\System32
+ 
+
+ XCOPY "$(TargetPath)"  "$(ProjectDir)..\..\Bin" /Y /D /R
+IF EXIST "$(TargetDir)$(TargetName).pdb" XCOPY "$(TargetDir)$(TargetName).pdb" "$(ProjectDir)..\..\Bin" /Y /D /R
+IF EXIST "$(TargetDir)$(TargetName).xml"  XCOPY "$(TargetDir)$(TargetName).xml" "$(ProjectDir)..\..\Bin" /Y /D /R</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

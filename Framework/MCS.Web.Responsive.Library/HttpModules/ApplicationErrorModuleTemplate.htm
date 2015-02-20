@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    <title>$errorMessageHead$</title>$globalStyle$
+    <style type="text/css">
+        BODY
+        {
+            font-size: 12px;
+            color: black;
+            font-family: SimSun;
+        }
+        P
+        {
+            font-size: 12px;
+            color: black;
+            font-family: SimSun;
+        }
+        .linkSwitch
+        {
+            font-size: 12px;
+            color: black;
+            font-family: SimSun;
+        }
+        INPUT
+        {
+            border-right: #c4c4c4 1px solid;
+            border-top: #999999 1px solid;
+            font-size: 12px;
+            border-left: #999999 1px solid;
+            border-bottom: #c4c4c4 1px solid;
+            font-family: SimSun;
+        }
+        BUTTON
+        {
+            border-right: #c4c4c4 1px solid;
+            border-top: #999999 1px solid;
+            font-size: 12px;
+            border-left: #999999 1px solid;
+            border-bottom: #c4c4c4 1px solid;
+            font-family: SimSun;
+        }
+        TEXTAREA
+        {
+            border-right: #c4c4c4 1px solid;
+            border-top: #999999 1px solid;
+            font-size: 12px;
+            border-left: #999999 1px solid;
+            border-bottom: #c4c4c4 1px solid;
+            font-family: SimSun;
+        }
+        SELECT
+        {
+            font-size: 9pt;
+            color: #000000;
+            background-color: #ffffff;
+        }
+    </style>
+    <script type="text/javascript">
+        function onCopyErrorMessages() {
+            try {
+                copyMessages();
+
+                alert(document.getElementById("copyCompletedPrompt").value);
+            }
+            catch (e) {
+            }
+        }
+
+        function copyMessages() {
+            var selection = document.selection;
+            selection.empty();
+
+            var r = document.body.createControlRange();
+            var stp = document.getElementById("stackTracePanel");
+            var ma = document.getElementById("msgTable");
+
+            var oldStyle = stp.style.display;
+            try {
+                stp.style.display = "inline";
+
+                r.add(ma);
+                r.select();
+
+                r.execCommand("Copy");
+                selection.empty();
+            }
+            finally {
+                stp.style.display = oldStyle;
+            }
+        }
+
+        function onNotifyMailAddressClick() {
+            var elem = event.srcElement;
+            event.returnValue = false;
+
+            if (elem.href != "#") {
+                copyMessages();
+
+                var link = document.getElementById("mailToLink");
+
+                var href = elem.href;
+
+                href += "&subject=" + encodeURIComponent(elem.textContent || elem.innerText);
+
+                link.href = href;
+
+                link.click();
+            }
+
+            return false;
+        }
+    </script>
+</head>
+<body onload="onDocumentLoad()">
+    <input type="hidden" id="closePrompt" value="$closePromptValue$">
+    <input type="hidden" id="copyCompletedPrompt" value="$copyCompletedPrompt$">
+    <form id="ErrorPageForm" method="post" runat="server">
+    <a id="mailToLink" />
+    <table align="center" style="width: 100%; height: 100%" id="msgTable">
+        <tr>
+            <td align="center" valign="top">
+                <div class="messageContainer">
+                    <div class="messageHeader">
+                        <img class="messageBanner" src="$imageUrl$" style="cursor: hand" onclick="onCopyErrorMessages();"
+                            title="$copyHint$">
+                    </div>
+                    <div class="messageContent">
+                        <p style="font-size: 12pt; font-family: 宋体; font-weight: bold">
+                            <a href="$notifyMailAddress$" onclick="onNotifyMailAddressClick();">$errorMessage$</a>
+                        </p>
+                        <p>
+                            <input type="button" style="width: 64px; display: $goBackBtnDisplay$" value="$returnBtn$"
+                                id="goBackBtn" name="goBackBtn" runat="server" onclick="onBackClick();">
+                            <input type="button" style="display: none; width: 64px" value="$closeBtn$" runat="server"
+                                id="closeBtn" name="closeBtn" onclick="onCloseClick();">
+                        </p>
+                        <a id="linkTag" href="#" class="linkSwitch" onclick="onExpandStackTraceClick();"
+                            style="display: none">$clickToDetail$</a>
+                        <div id="stackTracePanel" style="display: none">
+                            <div id="stackTraceParagraph" style="width: 100%">
+                                $errorStackTrace$</div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    </form>
+    <script language="javascript">
+        var C_LINK_OPEN_TITLE = "$clickToDetail$";
+        var C_LINK_CLOSE_TITLE = "$clickToCloseDetail$";
+
+        function onDocumentLoad() {
+            if ((stackTraceParagraph.innerText || stackTraceParagraph.textContent).length > 0)
+                linkTag.style.display = "inline";
+
+            if (window.opener || window.dialogArguments)
+                document.getElementById("closeBtn").style.display = "inline";
+        }
+
+        function onCloseClick() {
+            if (document.getElementById("closePrompt").value.toLowerCase() == "true") {
+                if (window.confirm("$ConfirmClose$"))
+                    window.close();
+            }
+            else
+                window.close();
+        }
+
+        function onBackClick() {
+            window.history.go(-1);
+        }
+
+        function onExpandStackTraceClick() {
+            var a = event.srcElement;
+
+            try {
+                var stp = document.getElementById("stackTracePanel");
+
+                var bOpend = stp.style.display == "inline";
+
+                if (bOpend) {
+                    stp.style.display = "none";
+                    if (typeof (a.innerText) === 'string')
+                        a.innerText = C_LINK_OPEN_TITLE;
+                    else if (typeof (a.textContent) === 'string') {
+                        a.textContent = C_LINK_OPEN_TITLE;
+                    }
+                }
+                else {
+                    stp.style.display = "inline";
+                    if (typeof (a.innerText) === 'string')
+                        a.innerText = C_LINK_CLOSE_TITLE;
+                    else if (typeof (a.textContent) === 'string') {
+                        a.textContent = C_LINK_CLOSE_TITLE;
+                    }
+                }
+            }
+            finally {
+                event.returnValue = false;
+            }
+        }
+    </script>
+</body>
+</html>

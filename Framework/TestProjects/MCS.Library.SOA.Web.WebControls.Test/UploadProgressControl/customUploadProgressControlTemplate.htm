@@ -1,0 +1,121 @@
+﻿<script type="text/javascript">
+	var uploadButton = null;
+	window.returnValue = false;
+
+	function onUploadButtonClick() {
+		uploadButton = event.srcElement;
+
+		var fileInput = $get("selectedFile");
+
+		if (fileInput.value == "")
+			fileInput.click();
+
+		if (fileInput.value != "") {
+			beforeProcess();
+
+			$get("uploadFileBtn").click();
+		}
+	}
+
+	function beforeProcess() {
+		$get("logPanel").style.visibility = "hidden";
+		uploadButton.disabled = true;
+		$get("processList").style.width = "100%";
+		$get("processDescription").style.visibility = "visible";
+	}
+
+	function afterProcess() {
+		uploadButton.disabled = false;
+	}
+
+	function resetInterface() {
+		uploadButton.disabled = false;
+		$get("logPanel").style.visibility = "hidden";
+		$get("processList").style.width = "100%";
+		$get("progressBar").style.width = "0px"
+		$get("processDescription").style.visibility = "hidden";
+	}
+
+	function onProcessInfoChanged() {
+		var statusText = $get("processInfo").value;
+
+		var status = Sys.Serialization.JavaScriptSerializer.deserialize(statusText);
+
+		var percent = status.CurrentStep * 100 / (status.MaxStep - status.MinStep);
+
+		$get("progressBar").style.width = percent + "%";
+		$get("statusText").innerText = status.StatusText;
+	}
+
+	function onProcessCompleted() {
+		afterProcess();
+
+		var resultText = $get("processResult").value;
+		var result = Sys.Serialization.JavaScriptSerializer.deserialize(resultText);
+
+		var pText = $get("processList");
+
+		if (result.processLog != "") {
+			$get("logPanel").style.visibility = "visible";
+			pText.style.width = "99%";
+			pText.innerText = result.ProcessLog;
+		}
+
+		if (result.DataChanged)
+			top.returnValue = true;
+
+		if (result.CloseWindow)
+			top.close();
+	}
+</script>
+<div>
+	<iframe name="_innerFrame" id="innerFrame" style="display: none"></iframe>
+</div>
+<table cellpadding="0" cellspacing="0" style="width: 100%; height: 100%">
+	<tr>
+		<td style="vertical-align: middle; text-align: center">
+			<input type="file" id="selectedFile" name="selectedFile" style="text-align: left;
+				width: 80%" class="formButton" />
+			<input type="submit" id="uploadFileBtn" name="uploadFileBtn" value="Upload File"
+				style="display: none" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div style="text-align: center">
+				<input type="checkbox" id="longProgress" name="longProgress" value="true" /><lable
+					for="longProgress">这是一个定制的选项，选中后会执行得慢一倍</lable>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td style="vertical-align: middle; text-align: center">
+			<div id="processDescription" style="visibility: hidden; text-align: left; width: 80%">
+				<div id="statusText" style="text-align: left; font-weight: bold">
+				</div>
+				<div id="progressBarBorder" style="text-align: left; width: 100%; height: 24px; border: 1px solid silver">
+					<div id="progressBar" style="width: 0%; height: 100%; background-color: Navy">
+					</div>
+				</div>
+				<div id="logPanel" style="visibility: hidden">
+					<div style="margin-top: 10px; vertical-align: bottom">
+						<asp:label runat="server" id="logLabel" text="日志" category="SOAWebControls"></asp:label>
+					</div>
+					<textarea id="processList" readonly style="width: 100%; height: 80px; overflow: auto;
+						border: 1px solid silver"></textarea>
+				</div>
+			</div>
+			<div style="display: none">
+				<input id="processInfo" type="hidden" value="" />
+				<input id="processInfoChanged" type="button" onclick="onProcessInfoChanged();" />
+				<input id="processResult" type="hidden" value="" />
+				<input id="processResultButton" type="button" onclick="onProcessCompleted();" />
+				<input id="resetInterfaceButton" type="button" onclick="resetInterface();" />
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td style="vertical-align: middle; text-align: center">
+		</td>
+	</tr>
+</table>

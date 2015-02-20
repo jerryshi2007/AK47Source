@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dictionary sourceCulture="zh-CN" targetCulture="en-US">
+	<Item source="运行中" target="Running"/>
+	<Item source="已完成" target="Completed"/>
+	<Item source="被终止" target="Aborted"/>
+	<Item source="未运行" target="Not Running"/>
+	<Item source="被删除（用于撤回操作）" target="Deleted"/>
+</Dictionary>

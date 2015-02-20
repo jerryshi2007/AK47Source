@@ -1,0 +1,96 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Xml.Linq;
+using System.IO;
+using MCS.Library.Core;
+using MCS.Library.Caching;
+
+namespace MCS.Library.SOA.DataObjects.Workflow
+{
+    /// <summary>
+    /// 流程定义管理器的基类
+    /// </summary>
+    public abstract class WfProcessDescriptorManagerBase : IWfProcessDescriptorManager
+    {
+        #region IWfProcessDescriptorManager Members
+
+        public IWfProcessDescriptor LoadDescriptor(string processKey)
+        {
+            processKey.CheckStringIsNullOrEmpty("processKey");
+            XElement xml = LoadXml(processKey);
+
+            return WfProcessDescriptorManager.DeserializeXElementToProcessDescriptor(xml);
+        }
+
+        public IWfProcessDescriptor GetDescriptor(string processKey)
+        {
+            processKey.CheckStringIsNullOrEmpty("processKey");
+
+            string cacheKey = NormalizeCacheKey(processKey);
+
+            XElement processXml = WfProcessDescriptorXmlCache.Instance.GetOrAddNewValue(cacheKey, (cache, key) =>
+            {
+                XElement xml = LoadXml(processKey);
+
+                MixedDependency dependency = new MixedDependency(new UdpNotifierCacheDependency(), new MemoryMappedFileNotifierCacheDependency());
+
+                cache.Add(key, xml, dependency);
+
+                return xml;
+            });
+
+            return WfProcessDescriptorManager.DeserializeXElementToProcessDescriptor(processXml);
+        }
+
+        public void SaveDescriptor(IWfProcessDescriptor processDesp)
+        {
+            processDesp.NullCheck("processDesp");
+
+            XElementFormatter formatter = WfProcessDescriptorManager.CreateFormatter();
+
+            XElement xml = formatter.Serialize(processDesp);
+
+            SaveXml(processDesp, xml);
+
+            string cacheKey = NormalizeCacheKey(processDesp.Key);
+
+            CacheNotifyData notifyData = new CacheNotifyData(typeof(WfProcessDescriptorXmlCache), cacheKey, CacheNotifyType.Invalid);
+
+            UdpCacheNotifier.Instance.SendNotifyAsync(notifyData);
+            MmfCacheNotifier.Instance.SendNotify(notifyData);
+        }
+
+        public abstract void DeleteDescriptor(string processKey);
+
+        /// <summary>
+        /// 流程的描述是否重复
+        /// </summary>
+        /// <param name="processKey"></param>
+        public abstract bool ExsitsProcessKey(string processKey);
+        #endregion
+
+        #region Protected
+        /// <summary>
+        /// 根据Key加载Xml
+        /// </summary>
+        /// <param name="processKey"></param>
+        /// <returns></returns>
+        protected abstract XElement LoadXml(string processKey);
+
+        /// <summary>
+        /// 根据Key保存Xml
+        /// </summary>
+        /// <param name="processDesp">流程描述</param>
+        /// <param name="xml"></param>
+        protected abstract void SaveXml(IWfProcessDescriptor processDesp, XElement xml);
+
+        #endregion Protected
+
+        private static string NormalizeCacheKey(string processKey)
+        {
+            return processKey.ToLower();
+        }
+    }
+}

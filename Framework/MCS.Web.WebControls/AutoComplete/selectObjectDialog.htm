@@ -1,0 +1,154 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <style type="text/css">
+        .formButton
+        {
+            font-weight: normal;
+            border: 1px solid #b5b3b3;
+            height: 24px;
+            min-width: 80px;
+            line-height: 22px;
+            color: black;
+            margin-left: 10px;
+            margin-top: 3px;
+            text-align: center;
+            letter-spacing: 3px;
+            padding: 0px 2px;
+        }
+    </style>
+    <script type="text/javascript">
+        var $get = document.getElementById;
+        var $NT = { category: {} };
+
+        $NT.getText = function (category, sourceText) {
+            var targetText = sourceText;
+
+            if ($NT.category[category]) {
+                if ($NT.category[category][sourceText]) {
+                    targetText = $NT.category[category][sourceText];
+                }
+            }
+
+            return targetText;
+        }
+
+        var args = window.dialogArguments;
+
+        if (args) {
+            initNameTable(args.nameTable.category);
+
+            document.writeln("<title>" + $NT.getText("SOAWebControls", "请选择数据") + "</title>");
+        }
+
+        function initNameTable(categories) {
+            for (var c in categories) {
+                $NT.category[c] = categories[c];
+            }
+        }
+
+        function getQuery(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+
+            if (r != null)
+                return unescape(r[2]);
+
+            return null;
+        }
+
+        function CreateObject(obj, iIndex) {
+
+            var objItem = document.createElement("option");
+            var objSelect = document.all('objList');
+
+            objItem.value = iIndex;
+
+            if (iIndex == 0) {
+                objSelect.selected = true;
+            }
+
+            var displayPropName = window.dialogArguments.displayPropName;
+            var descriptionPropName = window.dialogArguments.descriptionPropName;
+            var sText = obj[displayPropName];
+            if (obj[descriptionPropName]) {
+                sText += " " + obj[descriptionPropName];
+            }
+
+            objItem.text = sText;
+            objItem.name = sText;
+            objSelect.add(objItem);
+        }
+
+        function Init() {
+            $get("titleContainer").innerText = $NT.getText("SOAWebControls", "请选择：");
+            $get("selectButton").value = $NT.getText("SOAWebControls", "选择(S)");
+            $get("cancelButton").value = $NT.getText("SOAWebControls", "取消(C)");
+
+            if (window.external.dialogArguments) {
+                for (var i = 0; i < window.external.dialogArguments.length; i++) {
+                    CreateObject(window.external.dialogArguments[i], i);
+                }
+            }
+        }
+
+        function SelectObject() {
+            var objSelect = document.all('objList');
+
+            for (var i = 0; i < objSelect.options.length; i++) {
+                if (objSelect.options[i].selected) {
+                    window.returnValue = i;
+                    break;
+                }
+            }
+            top.close();
+        }
+
+        function keyup() {
+            var e = event;
+            var iKC = e.keyCode;
+            if (iKC == 13) {
+                SelectObject();
+            }
+        }
+    </script>
+</head>
+<body onload="Init();" onkeyup="keyup();">
+    <table cellpadding="0" cellspacing="0" style="width: 100%; height: 100%">
+        <tr>
+            <td style="height: 32px">
+                <div id="titleContainer">
+                    请选择：</div>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding-left: 4px; padding-right: 4px;">
+                <select name="objList" ondblclick="SelectObject();" size="10" style="border: 1px solid black;
+                    width: 100%; height: 100%; overflow: auto">
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td style="height: 2px; padding: 4px;">
+                <hr size="1" />
+            </td>
+        </tr>
+        <tr>
+            <td style="height: 32px; padding-bottom: 8px">
+                <table cellpadding="0" cellspacing="0" style="width: 100%; height: 100%">
+                    <tr>
+                        <td style="text-align: center">
+                            <input accesskey="S" value="选择(S)" type="button" class="formButton" onclick="SelectObject();"
+                                id="selectButton" />
+                        </td>
+                        <td style="text-align: center">
+                            <input accesskey="C" value="取消(C)" type="button" class="formButton" onclick="window.close();"
+                                id="cancelButton" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

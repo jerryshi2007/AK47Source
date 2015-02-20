@@ -1,0 +1,73 @@
+﻿/*功能样式开始*/
+.csel_services
+{
+    display: block;
+    border-radius: 3px 3px 0 0;
+    width: 81px;
+    right: 10px;
+    background: #fff;
+    bottom: 20px;
+    /*cursor: pointer;*/
+    position: fixed;
+    _position: absolute;
+    _top: expression(documentElement.scrollTop+documentElement.clientHeight-this.offsetHeight);
+}
+.csel_services span.csel_more
+{
+    border-top: 3px solid #1e80b8;
+border-radius: 3px 3px 0 0;
+    padding-top: 0;
+    text-align: center;
+    *height: 40px;
+    *line-height: 40px;
+    font-size: 14px;
+    display: block;
+    color: #fff;
+background: #37A4E3;
+}
+ .csel_services span.csel_list
+{
+    padding-left: 10px;
+        padding-right: 10px;
+    *padding: 0px;
+    *padding-left: 5px;
+    padding-top: 15px;
+    line-height:30px;
+    height:30px;
+    text-align: left;
+    *width: 76px;
+    border: 1px solid #eaeaea;
+    border-top:none;
+    font-size: 12px;
+    display: block;
+    color: #333;
+    background:#FDFDFD;
+}
+ .csel_services span.csel_list .imnStatusText{ padding-top:2px; display:inline-block;	line-height:33px !important;margin-top: -12px;}
+.csel_services span.csel_more
+{
+    padding: 10px;
+    *padding: 0px;
+    *padding-left: 5px;
+    padding-top: 0;
+    padding-bottom: 0;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    *width: 76px;
+    border-top: 1px solid #eaeaea;
+    font-size: 12px;
+    display: block;
+    color: #fff;
+    font-weight:bold;
+}
+.hide-show{width: 35px; padding:10px; background:#1e80b8;position: absolute;left:-35px; top:40px; color: #fff;font-weight: bold; }
+.imnStatusText
+{
+    vertical-align:top;
+	padding-left: 2px;
+	margin-left:0 !important;
+	line-height:33px !important;
+}
+
+

@@ -1,0 +1,128 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WfFormTemplate", "WfFormTemplate.csproj", "{1AC27887-4441-483A-ADBF-D72FF926415B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{42C6D301-8CCB-4CBD-BC20-250D98A4C369} = {42C6D301-8CCB-4CBD-BC20-250D98A4C369}
+		{7905642F-4630-4D16-AF40-CB1FB70D516F} = {7905642F-4630-4D16-AF40-CB1FB70D516F}
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215} = {4077B0B7-062A-4F6D-8A45-A180A2ED3215}
+		{F4819ABF-3CD4-4158-BF86-8FE4D3F6A7A6} = {F4819ABF-3CD4-4158-BF86-8FE4D3F6A7A6}
+		{78CD90D6-129A-401C-8396-E7AD8996219E} = {78CD90D6-129A-401C-8396-E7AD8996219E}
+		{13C52DE4-BAFD-41E7-8D12-1C27221BACDD} = {13C52DE4-BAFD-41E7-8D12-1C27221BACDD}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library.SOA.DataObjects", "..\..\Framework\MCS.Library.SOA.DataObjects\MCS.Library.SOA.DataObjects.csproj", "{7905642F-4630-4D16-AF40-CB1FB70D516F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215} = {4077B0B7-062A-4F6D-8A45-A180A2ED3215}
+		{F4819ABF-3CD4-4158-BF86-8FE4D3F6A7A6} = {F4819ABF-3CD4-4158-BF86-8FE4D3F6A7A6}
+		{78CD90D6-129A-401C-8396-E7AD8996219E} = {78CD90D6-129A-401C-8396-E7AD8996219E}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library.SOA.Web.WebControls", "..\..\Framework\MCS.Library.SOA.Web.WebControls\MCS.Library.SOA.Web.WebControls.csproj", "{42C6D301-8CCB-4CBD-BC20-250D98A4C369}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7905642F-4630-4D16-AF40-CB1FB70D516F} = {7905642F-4630-4D16-AF40-CB1FB70D516F}
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215} = {4077B0B7-062A-4F6D-8A45-A180A2ED3215}
+		{F4819ABF-3CD4-4158-BF86-8FE4D3F6A7A6} = {F4819ABF-3CD4-4158-BF86-8FE4D3F6A7A6}
+		{78CD90D6-129A-401C-8396-E7AD8996219E} = {78CD90D6-129A-401C-8396-E7AD8996219E}
+		{13C52DE4-BAFD-41E7-8D12-1C27221BACDD} = {13C52DE4-BAFD-41E7-8D12-1C27221BACDD}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Web.Library", "..\..\Framework\MCS.Web.Library\MCS.Web.Library.csproj", "{13C52DE4-BAFD-41E7-8D12-1C27221BACDD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215} = {4077B0B7-062A-4F6D-8A45-A180A2ED3215}
+		{78CD90D6-129A-401C-8396-E7AD8996219E} = {78CD90D6-129A-401C-8396-E7AD8996219E}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library", "..\..\Framework\MCS.Library\MCS.Library.csproj", "{4077B0B7-062A-4F6D-8A45-A180A2ED3215}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Web.Library.Script.Json", "..\..\Framework\MCS.Web.Library.Script.Json\MCS.Web.Library.Script.Json.csproj", "{78CD90D6-129A-401C-8396-E7AD8996219E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215} = {4077B0B7-062A-4F6D-8A45-A180A2ED3215}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library.WcfExtensions", "..\..\Framework\MCS.Library.WcfExtensions\MCS.Library.WcfExtensions.csproj", "{F4819ABF-3CD4-4158-BF86-8FE4D3F6A7A6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215} = {4077B0B7-062A-4F6D-8A45-A180A2ED3215}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://shsvr9141tfs.ciicsh.local:8080/tfs/rhso
+		SccProjectUniqueName0 = ..\\..\\Framework\\MCS.Library\\MCS.Library.csproj
+		SccProjectName0 = ../../Framework/MCS.Library
+		SccLocalPath0 = ..\\..\\Framework\\MCS.Library
+		SccProjectUniqueName1 = ..\\..\\Framework\\MCS.Library.WcfExtensions\\MCS.Library.WcfExtensions.csproj
+		SccProjectName1 = ../../Framework/MCS.Library.WcfExtensions
+		SccLocalPath1 = ..\\..\\Framework\\MCS.Library.WcfExtensions
+		SccProjectUniqueName2 = ..\\..\\Framework\\MCS.Library.SOA.DataObjects\\MCS.Library.SOA.DataObjects.csproj
+		SccProjectName2 = ../../Framework/MCS.Library.SOA.DataObjects
+		SccLocalPath2 = ..\\..\\Framework\\MCS.Library.SOA.DataObjects
+		SccProjectUniqueName3 = ..\\..\\Framework\\MCS.Web.Library.Script.Json\\MCS.Web.Library.Script.Json.csproj
+		SccProjectName3 = ../../Framework/MCS.Web.Library.Script.Json
+		SccLocalPath3 = ..\\..\\Framework\\MCS.Web.Library.Script.Json
+		SccProjectUniqueName4 = ..\\..\\Framework\\MCS.Web.Library\\MCS.Web.Library.csproj
+		SccProjectName4 = ../../Framework/MCS.Web.Library
+		SccLocalPath4 = ..\\..\\Framework\\MCS.Web.Library
+		SccProjectUniqueName5 = ..\\..\\Framework\\MCS.Library.SOA.Web.WebControls\\MCS.Library.SOA.Web.WebControls.csproj
+		SccProjectName5 = ../../Framework/MCS.Library.SOA.Web.WebControls
+		SccLocalPath5 = ..\\..\\Framework\\MCS.Library.SOA.Web.WebControls
+		SccProjectUniqueName6 = WfFormTemplate.csproj
+		SccLocalPath6 = .
+		SccLocalPath7 = .
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		DELUXEWORKSTEST|Any CPU = DELUXEWORKSTEST|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1AC27887-4441-483A-ADBF-D72FF926415B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AC27887-4441-483A-ADBF-D72FF926415B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AC27887-4441-483A-ADBF-D72FF926415B}.DELUXEWORKSTEST|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AC27887-4441-483A-ADBF-D72FF926415B}.DELUXEWORKSTEST|Any CPU.Build.0 = Debug|Any CPU
+		{1AC27887-4441-483A-ADBF-D72FF926415B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AC27887-4441-483A-ADBF-D72FF926415B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7905642F-4630-4D16-AF40-CB1FB70D516F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7905642F-4630-4D16-AF40-CB1FB70D516F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7905642F-4630-4D16-AF40-CB1FB70D516F}.DELUXEWORKSTEST|Any CPU.ActiveCfg = Debug|Any CPU
+		{7905642F-4630-4D16-AF40-CB1FB70D516F}.DELUXEWORKSTEST|Any CPU.Build.0 = Debug|Any CPU
+		{7905642F-4630-4D16-AF40-CB1FB70D516F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7905642F-4630-4D16-AF40-CB1FB70D516F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42C6D301-8CCB-4CBD-BC20-250D98A4C369}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42C6D301-8CCB-4CBD-BC20-250D98A4C369}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42C6D301-8CCB-4CBD-BC20-250D98A4C369}.DELUXEWORKSTEST|Any CPU.ActiveCfg = Debug|Any CPU
+		{42C6D301-8CCB-4CBD-BC20-250D98A4C369}.DELUXEWORKSTEST|Any CPU.Build.0 = Debug|Any CPU
+		{42C6D301-8CCB-4CBD-BC20-250D98A4C369}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42C6D301-8CCB-4CBD-BC20-250D98A4C369}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13C52DE4-BAFD-41E7-8D12-1C27221BACDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13C52DE4-BAFD-41E7-8D12-1C27221BACDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13C52DE4-BAFD-41E7-8D12-1C27221BACDD}.DELUXEWORKSTEST|Any CPU.ActiveCfg = DELUXEWORKSTEST|Any CPU
+		{13C52DE4-BAFD-41E7-8D12-1C27221BACDD}.DELUXEWORKSTEST|Any CPU.Build.0 = DELUXEWORKSTEST|Any CPU
+		{13C52DE4-BAFD-41E7-8D12-1C27221BACDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13C52DE4-BAFD-41E7-8D12-1C27221BACDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.DELUXEWORKSTEST|Any CPU.ActiveCfg = DELUXEWORKSTEST|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.DELUXEWORKSTEST|Any CPU.Build.0 = DELUXEWORKSTEST|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78CD90D6-129A-401C-8396-E7AD8996219E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78CD90D6-129A-401C-8396-E7AD8996219E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78CD90D6-129A-401C-8396-E7AD8996219E}.DELUXEWORKSTEST|Any CPU.ActiveCfg = Debug|Any CPU
+		{78CD90D6-129A-401C-8396-E7AD8996219E}.DELUXEWORKSTEST|Any CPU.Build.0 = Debug|Any CPU
+		{78CD90D6-129A-401C-8396-E7AD8996219E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78CD90D6-129A-401C-8396-E7AD8996219E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4819ABF-3CD4-4158-BF86-8FE4D3F6A7A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4819ABF-3CD4-4158-BF86-8FE4D3F6A7A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4819ABF-3CD4-4158-BF86-8FE4D3F6A7A6}.DELUXEWORKSTEST|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4819ABF-3CD4-4158-BF86-8FE4D3F6A7A6}.DELUXEWORKSTEST|Any CPU.Build.0 = Debug|Any CPU
+		{F4819ABF-3CD4-4158-BF86-8FE4D3F6A7A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4819ABF-3CD4-4158-BF86-8FE4D3F6A7A6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

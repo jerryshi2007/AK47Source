@@ -1,0 +1,50 @@
+﻿/* File Created: 七月 2, 2014 */
+div.resp-submit-progress-overlay
+{
+    
+}
+
+div.resp-submit-progress-panel
+{
+    position:absolute;
+    position:fixed;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+	margin:0;
+	text-align:center;
+	height:100%;
+	overflow:hidden;
+	
+}
+
+.resp-submit-progress
+{
+    display:block;
+    width:300px;
+    height:150px;
+    padding: 10px 5px;
+    border:3px solid #666;
+    position:absolute;
+    background:#fff;
+    position:relative;
+    margin-left:auto;
+	margin-right:auto;
+	top:30%;
+	overflow:hidden;
+}
+
+div.resp-submit-progress-caption
+{
+    display:block;
+    font-size:16px;
+    padding:5px;
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.resp-submit-progress-bar
+{
+    
+}

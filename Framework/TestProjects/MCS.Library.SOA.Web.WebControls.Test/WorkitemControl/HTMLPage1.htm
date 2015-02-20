@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript">
+        //document.getElementById("test1").setAttribute("onchange", "value=(value.match(/\d+/g)||['']).join(',')");
+
+        var fefefefefe = "";
+        //fefefefefe.split
+
+        var arry1 = [];
+        arry1[0] = "a";
+        arry1[1] = "b";
+        arry1[2] = "c";
+        arry1[3] = "d";
+
+        var teststr = "teststr,";
+
+        var hh = teststr.split(',');
+
+        //alert(teststr.split(',')[0]);
+
+        //alert(arry1.indexOf("c"));
+        
+    </script>
+    <script type="text/javascript">
+
+        Array.prototype.contains = function (obj) {
+            var i = this.length;
+            while (i--) {
+                if (this[i] === obj) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        //alert(arry1.contains("e"));
+    
+    </script>
+    <script type="text/javascript">
+
+        Date.prototype.toString = function () {
+
+            return this.getDate() + "yyyy-mm-dd";
+
+        }
+        //var a = [];
+        //alert(Object.prototype.toString.apply(a, undefined) === '[object Array]');
+
+
+        var fefefefefe = "1,"
+        //alert(fefefefefe.trimEnd());
+
+
+        //alert(fefefefefe != undefined)
+
+        alert(new Date().toString())
+
+
+        function formatDate(d) {
+            var D = ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09']
+            with (d || new Date)
+                return [[getFullYear(), D[getMonth() + 1] || getMonth() + 1, D[getDate()] || getDate()].join('-'), [D[getHours()] || getHours(), D[getMinutes()] || getMinutes(), D[getSeconds()] || getSeconds()].join(':')].join(' ');
+        }
+    </script>
+    <script type="text/javascript">
+
+        /*格式化时间
+        formatStr:
+        yyyy:年
+        MM:月
+        dd:日
+        hh:小时
+        mm:分钟
+        ss:秒
+        */
+        Date.prototype.toString = function (formatStr) {
+            var date = this;
+            var timeValues = function () { };
+            timeValues.prototype = {
+                year: function () {
+                    if (formatStr.indexOf("yyyy") >= 0) {
+                        return date.getYear();
+                    }
+                    else {
+                        return date.getYear().toString().substr(2);
+                    }
+                },
+                elseTime: function (val, formatVal) {
+                    return formatVal >= 0 ? (val < 10 ? "0" + val : val) : (val);
+                },
+                month: function () {
+                    return this.elseTime(date.getMonth() + 1, formatStr.indexOf("MM"));
+                },
+                day: function () {
+                    return this.elseTime(date.getDate(), formatStr.indexOf("dd"));
+                },
+                hour: function () {
+                    return this.elseTime(date.getHours(), formatStr.indexOf("hh"));
+                },
+                minute: function () {
+                    return this.elseTime(date.getMinutes(), formatStr.indexOf("mm"));
+                },
+                second: function () {
+                    return this.elseTime(date.getSeconds(), formatStr.indexOf("ss"));
+                }
+            }
+            var tV = new timeValues();
+            var replaceStr = {
+                year: ["yyyy", "yy"],
+                month: ["MM", "M"],
+                day: ["dd", "d"],
+                hour: ["hh", "h"],
+                minute: ["mm", "m"],
+                second: ["ss", "s"]
+            };
+            for (var key in replaceStr) {
+                formatStr = formatStr.replace(replaceStr[key][0], eval("tV." + key + "()"));
+                formatStr = formatStr.replace(replaceStr[key][1], eval("tV." + key + "()"));
+            }
+            return formatStr;
+        }
+
+        var date = new Date();
+        alert(date.toString("yyyy-MM-dd hh:mm:ss"));
+    </script>
+    <script type="text/javascript">
+        var farry = [];
+        alert("farry.length:" + farry.length.toString());
+    
+    </script>
+    <script type="text/javascript">
+    
+    </script>
+</head>
+<body>
+    <input id="test1" onchange="value=(value.match(/\d+/g)||['']).join(',')" />
+    <br />
+    <br />
+    <select id="s21" style="width: 100px">
+        <option value="dddddddddddddddddddddd" title="dddddddddddddddddddddddddddddddddd">dddddddddddddddddddddddddddddddddd</option>
+        <option value="dddddddddddddddddddddd">dddddddddddddddddddddddddddddddddd</option>
+        <option value="dddddddddddddddddddddd">dddddddddddddddddddddddddddddddddd</option>
+        <option value="dddddddddddddddddddddd">dddddddddddddddddddddddddddddddddd</option>
+    </select>
+    <input type="checkbox" id="checkbox1" />
+    <input type="button" onclick="getcheckbox1()" />
+    <script type="text/javascript">
+        function getcheckbox1() {
+            alert(document.getElementById("checkbox1").checked);
+        }
+    
+    </script>
+</body>
+</html>

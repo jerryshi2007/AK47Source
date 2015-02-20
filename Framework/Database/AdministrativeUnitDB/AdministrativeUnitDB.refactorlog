@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="51638dc4-bc89-4158-95fd-58dbeed7c5d3" ChangeDateTime="11/04/2013 02:00:53">
+    <Property Name="ElementName" Value="[SC].[ConditionCalculateResults].[UserID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[SC].[ConditionCalculateResults]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ObjectID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="529263f5-5e5f-4a47-88c2-fbc6e9bc2062" ChangeDateTime="11/04/2013 02:01:25">
+    <Property Name="ElementName" Value="[SC].[ConditionCalculateResults].[ObjectSchemaTypep]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[SC].[ConditionCalculateResults]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ObjectType" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c98ecd3c-7aad-4807-9e00-a77e54a8b9b6" ChangeDateTime="11/04/2013 02:02:06">
+    <Property Name="ElementName" Value="[SC].[ObjectTypes].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[SC].[ObjectTypes]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="TypeKey" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="91924d64-a35d-4b16-854b-3740c5af0442" ChangeDateTime="11/04/2013 02:24:47">
+    <Property Name="ElementName" Value="[SC].[SchemaDefinitions].[IsUsersContainer]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[SC].[SchemaDefinitions]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IsObjectContainer" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c759434c-6bba-4d25-9388-6d54cc7858e5" ChangeDateTime="11/04/2013 06:24:14">
+    <Property Name="ElementName" Value="[SC].[SchemaObjects].[ObjectType]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[SC].[SchemaObjects]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ObjectType1" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c68d39ec-3b52-429a-a840-2541943b887e" ChangeDateTime="11/04/2013 06:24:17">
+    <Property Name="ElementName" Value="[SC].[SchemaObjects].[ObjectType1]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[SC].[SchemaObjects]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ObjectType" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="7800d887-678f-4968-9256-e34315acaa07" ChangeDateTime="11/04/2013 12:40:11">
+    <Property Name="ElementName" Value="[SC].[AdminUnitSnapshot].[ContainerID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[SC].[AdminUnitSnapshot]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="UnitID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ced00df0-ded9-4359-b1bd-927b294199c1" ChangeDateTime="11/04/2013 12:40:44">
+    <Property Name="ElementName" Value="[SC].[AdminUnitSnapshot].[MemberID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[SC].[AdminUnitSnapshot]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="SchemaID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ca07c3b4-c855-4df8-b817-514a82a86922" ChangeDateTime="11/04/2013 13:39:34">
+    <Property Name="ElementName" Value="[SC].[AURoles].[SchemaID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[SC].[AURoles]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="RoleCodeName" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3b28de1c-60ce-43ef-8dad-ac8b11856cf7" ChangeDateTime="11/05/2013 09:55:24">
+    <Property Name="ElementName" Value="[SC].[Conditions].[ObjectType]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[SC].[Conditions]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ObjectSchemaType" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="51132787-de55-41bd-b079-01d82c16bd97" ChangeDateTime="11/05/2013 09:55:37">
+    <Property Name="ElementName" Value="[SC].[Conditions].[ObjectSchemaType]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[SC].[Conditions]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ObjectType" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0fe591d8-4420-48f4-93d4-c4c9418d803c" ChangeDateTime="11/05/2013 09:58:09">
+    <Property Name="ElementName" Value="[SC].[ConditionCalculateResults].[ObjectType]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[SC].[ConditionCalculateResults]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ObjectSchemaType" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d5e4c638-63f8-42ae-bafe-35d3241074bf" ChangeDateTime="11/05/2013 10:17:09">
+    <Property Name="ElementName" Value="[SC].[AURoleSnapshot].[UserID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[SC].[AURoleSnapshot]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="RoleID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="71f7c27a-e371-4407-9dd6-9d907731622b" ChangeDateTime="11/06/2013 06:26:46">
+    <Property Name="ElementName" Value="[SC].[Conditions].[ObjectType]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[SC].[Conditions]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OwnerSchemaType" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1c001d39-8c73-4890-a5e9-8c5c11edc6f6" ChangeDateTime="11/08/2013 09:52:01">
+    <Property Name="ElementName" Value="[SC].[L2Categories].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[SC].[L2Categories]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ffcfc4e5-7c11-486d-ac8b-3f5969301e17" ChangeDateTime="11/08/2013 09:57:09">
+    <Property Name="ElementName" Value="[SC].[L2Categories].[IX_L2Categories_Column]" />
+    <Property Name="ElementType" Value="SqlIndex" />
+    <Property Name="ParentElementName" Value="[SC].[L2Categories]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[IX_L2Categories_Column_L1ID]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6c42ee84-ea31-4d4c-ba02-bf27b03fd932" ChangeDateTime="11/11/2013 06:33:02">
+    <Property Name="ElementName" Value="[SC].[L2Categories].[Enabled]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[SC].[L2Categories]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Status" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ba2003cf-2c4b-4597-963f-400ff889e462" ChangeDateTime="11/11/2013 06:39:06">
+    <Property Name="ElementName" Value="[SC].[L1Categories].[VersionTime]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[SC].[L1Categories]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="VersionStartTime" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ff7d628a-ec0e-46fd-8447-7ed57ec44791" ChangeDateTime="11/11/2013 07:58:32">
+    <Property Name="ElementName" Value="[SC].[L2Categories].[VersionTime]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[SC].[L2Categories]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="VersionStartTime" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1321158b-efd0-447e-befd-106df2d6fc0f" ChangeDateTime="11/11/2013 09:44:04">
+    <Property Name="ElementName" Value="[SC].[L1Categories].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[SC].[L1Categories]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d2e372cc-4815-4d20-9e9a-6cda33c79bd9" ChangeDateTime="11/11/2013 15:34:27">
+    <Property Name="ElementName" Value="[SC].[L2Categories]" />
+    <Property Name="ElementType" Value="SqlTable" />
+    <Property Name="ParentElementName" Value="[SC]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[SubCategories]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="9648274d-d9b5-47fa-9622-74930dad4248" ChangeDateTime="11/11/2013 15:35:19">
+    <Property Name="ElementName" Value="[SC].[L1Categories]" />
+    <Property Name="ElementType" Value="SqlTable" />
+    <Property Name="ParentElementName" Value="[SC]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[TopCategories]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="fdf7d3ca-e431-4393-af07-3cae57c4aabd" ChangeDateTime="11/11/2013 15:35:33">
+    <Property Name="ElementName" Value="[SC].[SubCategories].[L1ID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[SC].[SubCategories]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="SuperID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="9a5447c1-4aa2-453c-b82b-9879a66c5bc5" ChangeDateTime="11/12/2013 02:21:03">
+    <Property Name="ElementName" Value="[SC].[AUSchemaSnapshot].[CategoryKey]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[SC].[AUSchemaSnapshot]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CategoryID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="be94bf99-96ee-44b7-b4ce-851e3475be49" ChangeDateTime="11/12/2013 03:09:28">
+    <Property Name="ElementName" Value="[SC].[AUAdminRolesSnapshot].[ID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[SC].[AUAdminRolesSnapshot]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AUSchemaID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="297a4db7-ee16-431d-8121-6a812a89d0a3" ChangeDateTime="11/12/2013 05:42:19">
+    <Property Name="ElementName" Value="[SC].[AdminScopeSnapshot].[ID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[SC].[AdminScopeSnapshot]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="UnitID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f3436dd9-74b6-43dd-8846-ab40f23a57fe" ChangeDateTime="11/12/2013 05:59:36">
+    <Property Name="ElementName" Value="[SC].[AURoleSnapshot].[RefSchemaRoleID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[SC].[AURoleSnapshot]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="RefRoleID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f0c6c746-5a45-455d-8129-33f66821a3f5" ChangeDateTime="11/12/2013 07:33:45">
+    <Property Name="ElementName" Value="[SC].[AUAdminScopeTypes].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[SC].[AUAdminScopeTypes]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Key" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e17e1828-aee6-4179-85ae-e34e7f690e95" ChangeDateTime="11/12/2013 07:34:10">
+    <Property Name="ElementName" Value="[SC].[AUAdminScopeTypes].[Key]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[SC].[AUAdminScopeTypes]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="SchemaType" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1b5d9365-d3d8-435e-895a-2e4cfbda1ca7" ChangeDateTime="11/12/2013 09:56:11">
+    <Property Name="ElementName" Value="[SC].[AUSchemaAndSchemaTypeSnapshot].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[SC].[AUSchemaAndSchemaTypeSnapshot]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AUSchemaID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d7c42846-f3d0-46f8-82cc-edfe2696cc58" ChangeDateTime="11/13/2013 06:05:39">
+    <Property Name="ElementName" Value="[SC].[SubCategories].[SuperID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[SC].[SubCategories]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ParentID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="378c8430-266e-48a0-88be-e1fd0fad7420" ChangeDateTime="11/13/2013 06:48:35">
+    <Property Name="ElementName" Value="[SC].[AURoleSnapshot].[RefRoleID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[SC].[AURoleSnapshot]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="SchemaRoleID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5eee3b45-203a-4e9d-ba02-cd656cd114fa" ChangeDateTime="11/13/2013 09:25:34">
+    <Property Name="ElementName" Value="[SC].[AdminUnitSnapshot].[SchemaID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[SC].[AdminUnitSnapshot]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AUSchemaID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="56b20950-2ffa-4153-8874-b67ee9a7239f" ChangeDateTime="11/15/2013 10:05:49">
+    <Property Name="ElementName" Value="[SC].[SchemaObject].[IX_SchemaObject_Schematype]" />
+    <Property Name="ElementType" Value="SqlIndex" />
+    <Property Name="ParentElementName" Value="[SC].[SchemaObject]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[IX_SchemaObject_SchemaType]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e25400e5-ebf2-4472-9185-c93e74250bdc" ChangeDateTime="02/15/2014 09:21:20">
+    <Property Name="ElementName" Value="[SC].[ItemAndContainerSnapshot].[UserSchemaType]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[SC].[ItemAndContainerSnapshot]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ItemSchemaType" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ea1e4301-8961-425c-a69f-c2c7c6d0c571" ChangeDateTime="02/25/2014 16:17:46">
+    <Property Name="ElementName" Value="[SC].[AUAdminScopeItemSnapshot].[IX_AUAdminScopeItemSnapshot_RoUniqueID]" />
+    <Property Name="ElementType" Value="SqlIndex" />
+    <Property Name="ParentElementName" Value="[SC].[AUAdminScopeItemSnapshot]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[IX_AUAdminScopeItemSnapshot_RowUniqueID]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6564abd6-147f-4bc9-a2bf-191962443d27" ChangeDateTime="02/25/2014 16:32:31">
+    <Property Name="ElementName" Value="[SC].[ItemAndContainerSnapshot].[IX_ItemAndContainerSnapshot_ItemID]" />
+    <Property Name="ElementType" Value="SqlIndex" />
+    <Property Name="ParentElementName" Value="[SC].[ItemAndContainerSnapshot]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[IX_ItemAndContainerSnapshot_ItemSchemaType]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="162c12fe-a3a2-4803-afdf-617571fee499" ChangeDateTime="06/10/2014 07:01:01">
+    <Property Name="ElementName" Value="[SC].[SchemaPropertyExtensions].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[SC].[SchemaPropertyExtensions]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OwnerSchemaType" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e8e7f018-f5ed-488b-b626-2b02187319fd" ChangeDateTime="06/30/2014 02:33:23">
+    <Property Name="ElementName" Value="[SC].[SchemaPropertyExtensions].[IX_SchemaPropertyExtensions_Column]" />
+    <Property Name="ElementType" Value="SqlIndex" />
+    <Property Name="ParentElementName" Value="[SC].[SchemaPropertyExtensions]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[IX_SchemaPropertyExtensions]" />
+  </Operation>
+</Operations>

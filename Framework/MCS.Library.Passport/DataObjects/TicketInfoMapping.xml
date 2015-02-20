@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ORMapping>
+  <Item propertyName="AppSignInSessionID" dataFieldName="APP_SIGNIN_ID" primaryKey="True" bindingFlags="13" />
+  <Item propertyName="AppID" dataFieldName="APP_ID" />
+  <Item propertyName="AppSignInTime" dataFieldName="APP_SIGNIN_TIME" />
+  <Item propertyName="AppSignInTimeout" dataFieldName="APP_SIGNIN_TIMEOUT" />
+  <Item propertyName="AppSignInIP" dataFieldName="APP_SIGNIN_IP" />
+</ORMapping>

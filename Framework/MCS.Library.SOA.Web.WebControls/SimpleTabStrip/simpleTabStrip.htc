@@ -1,0 +1,367 @@
+﻿<public:component tagname="simpleTabStrip">
+	<public:attach event="oncontentready" HANDLER="doInit" />
+	<public:event name="onStripClick" id="idStripClick" />
+	<public:property get="fnGetStrips" name="strips" />
+	<public:property get="fnSelectedItem" name="selectedItem"/>
+	<public:property put="fnPutLeftMargin" name="leftMargin" />
+	<public:method name="buildStrips" />
+
+	<public:event name="onmenuclick" id="idMenuClick" />
+	<script language="javascript">
+	//<![CDATA[
+		var m_leftMargin = 16;
+		var m_nStripHeight = 16;
+		var m_backgroundPad = null;
+		var m_stripBand = null;
+		var m_lastSelectedTab = null;
+		var m_strips = new Array();
+		var m_panelContainer = null;
+		var m_hiddenPanelContainer = null;
+		var m_selectedItem = null;
+
+		function doInit() {
+			var xmlDoc = createDomDocument(element.innerHTML);
+
+			m_backgroundPad = createBackgroundTable();
+
+			if (xmlDoc.xml.length > 0)
+				createStrips(xmlDoc);
+		}
+
+		function createDomDocument() {
+			var xmlData;
+
+			try {
+				xmlData = new ActiveXObject("Msxml2.DOMDocument");
+			}
+			catch (e) {
+				xmlData = ActiveXObject("Msxml.DOMDocument");
+			}
+
+			xmlData.async = false;
+
+			if (arguments.length > 0) {
+				var xml = arguments[0];
+				if (typeof (xml) == "string")
+					xmlData.loadXML(xml);
+				else
+					if (typeof (xml) == "object")
+						xmlData.loadXML(xml.xml);
+			}
+
+			return xmlData;
+		}
+
+		function buildStrips(xmlDoc) {
+			rebuildStripRow(m_stripBand);
+			createStrips(xmlDoc);
+		}
+
+		function createBackgroundTable() {
+			var table = element.document.createElement("table");
+
+			with (table) {
+				cellSpacing = 0;
+				cellPadding = 0;
+				style.width = "100%";
+				style.height = "100%";
+				className = "tabStripBackground";
+			}
+
+			element.appendChild(table);
+
+			var oRow = table.insertRow(-1);
+			oRow.style.height = "20px";
+
+			var oCell = oRow.insertCell(-1);
+
+			m_stripBand = createStripBand(oCell);
+
+			oRow = table.insertRow(-1);
+			var oCell = oRow.insertCell(-1);
+			oCell.style.verticalAlign = "top";
+			oCell.style.width = "100%";
+			oCell.style.height = "100%";
+			m_panelContainer = oCell;
+
+			m_hiddenPanelContainer = element.document.createElement("div");
+			m_hiddenPanelContainer.style.display = "none";
+			element.appendChild(m_hiddenPanelContainer);
+
+			return table;
+		}
+
+		function createStripBand(oParent) {
+			var oBand = element.document.createElement("table");
+
+			with (oBand) {
+				cellSpacing = 0;
+				cellPadding = 0;
+				style.width = "100%";
+				style.height = "100%";
+				style.verticalAlign = "top";
+				className = "tabStripBand";
+			}
+
+			rebuildStripRow(oBand);
+			oParent.appendChild(oBand);
+
+			return oBand;
+		}
+
+		function rebuildStripRow(oBand) {
+			if (oBand.rows.length > 0)
+				oBand.deleteRow(0);
+
+			var oRow = oBand.insertRow(-1);
+			var oCell = oRow.insertCell(-1);
+
+			oCell.style.width = m_leftMargin;
+			oCell.style.borderRight = "none";
+			oCell.innerText = " ";
+			oCell.className = "tabStrip";
+
+			oBand.appendChild(oBand);
+		}
+
+		function tabStrip(xmlNode, cell) {
+			this.xData = xmlNode;
+			this.stripCell = cell;
+			this.elementID = xmlNode.getAttribute("elementID");
+			this.key = xmlNode.getAttribute("key");
+			this.tag = xmlNode.getAttribute("tag");
+			this.element = null;
+			this.selected = false;
+		}
+
+		tabStrip.prototype.setSelected = strip_setSelected;
+		tabStrip.prototype.getSelected = strip_getSelected;
+
+		function getItemByKey(strKey) {
+			var strip = null;
+
+			for (var i = 0; i < m_strips.length; i++) {
+				if (m_strips[i].key == strKey) {
+					strip = m_strips[i];
+					break;
+				}
+			}
+
+			return strip;
+		}
+
+		function createImgSpan(strImg, nWidth, nHeight) {
+			var span = document.createElement("span");
+
+			with (span) {
+				if (!nWidth)
+					nWidth = 16;
+
+				if (!nHeight)
+					nHeight = 16;
+
+				style.width = nWidth;
+				style.height = nHeight;
+			}
+
+			var img = document.createElement("img");
+
+			img.src = strImg;
+			img.style.verticalAlign = "middle";
+			img.width = nWidth;
+			img.height = nHeight;
+
+			span.appendChild(img);
+
+			return span;
+		}
+
+		function createTextSpan(strText, nWidth, nHeight) {
+			var oSpan = document.createElement("span");
+
+			with (oSpan) {
+				innerText = strText;
+
+				if (!nHeight)
+					style.height = 16;
+			}
+
+			return oSpan;
+		}
+
+		function createStrips(xmlDoc) {
+			m_strips = new Array();
+			m_strips.getItemByKey = getItemByKey;
+
+			var root = xmlDoc.documentElement;
+			var node = root.firstChild;
+			var iCell = 1;
+			var oRow = m_stripBand.rows[0];
+
+			while (node) {
+				var oCell = oRow.insertCell(iCell);
+
+				oCell.className = "tabStrip";
+
+				with (oCell) {
+					var strWidth = node.getAttribute("width");
+
+					if (!strWidth)
+						strWidth = "80px";
+
+					style.width = strWidth;
+					style.textAlign = "center";
+					style.verticalAlign = "middle";
+					oWrap = true;
+				}
+
+				var span = element.document.createElement("div");
+
+				with (span) {
+					span.key = node.getAttribute("key");
+					span.text = node.getAttribute("text");
+
+					span.appendChild(createTextSpan(" "));
+
+					var strImg = node.getAttribute("image");
+
+					if (strImg) {
+						var oImgSpan = createImgSpan(strImg);
+						oImgSpan.style.marginRight = "4px";
+						span.appendChild(oImgSpan);
+					}
+
+					span.appendChild(createTextSpan(span.text));
+					span.appendChild(createTextSpan(" "));
+
+					span.className = "tabStripText";
+
+					style.cursor = "hand";
+				}
+
+				oCell.appendChild(span);
+
+				oCell.onclick = onTableStripClick;
+
+				var strip = new tabStrip(node, oCell);
+
+				oCell.dataObject = strip;
+				m_strips.push(strip);
+
+				node = node.nextSibling;
+
+				iCell++;
+			}
+
+			oCell = oRow.insertCell(-1);
+			oCell.innerText = " ";
+			oCell.className = "tabStrip";
+			oCell.style.borderRight = "none";
+
+			m_lastSelectedTab = null;
+		}
+
+		function getOwnerTag(element, strTag) {
+			while (element.tagName && element.tagName.toUpperCase() != strTag.toUpperCase()) {
+				element = element.parentNode;
+				if (element == null)
+					break;
+			}
+
+			return (element);
+		}
+
+		function onTableStripClick() {
+			var elem = event.srcElement;
+
+			elem = getOwnerTag(elem, "TD");
+
+			while (!elem.dataObject)
+				elem = elem.parentElement;
+
+			var oEvent = createEventObject();
+
+			oEvent.stripElement = elem.dataObject;
+			oEvent.returnValue = true;
+
+			idStripClick.fire(oEvent);
+
+			if (oEvent.returnValue) {
+				setSelected(elem.dataObject);
+				m_selectedItem = elem.dataObject;
+			}
+		}
+
+		function strip_setSelected() {
+			setSelected(this);
+		}
+
+		function strip_getSelected() {
+			return this.selected;
+		}
+
+		function setSelected(objStrip) {
+			var lastPanel = null;
+
+			m_selectedItem = objStrip;
+
+			if (m_lastSelectedTab) {
+				if (m_lastSelectedTab.dataObject == objStrip)
+					return;
+
+				lastPanel = m_lastSelectedTab;
+
+				m_lastSelectedTab.className = "tabStrip";
+				m_lastSelectedTab.firstChild.className = "tabStripText";
+
+				if (lastPanel)
+					lastPanel.selected = false;
+
+			}
+
+			m_lastSelectedTab = objStrip.stripCell;
+			m_lastSelectedTab.className = "tabStripSelected";
+			m_lastSelectedTab.firstChild.className = "tabStripTextSelected";
+
+			var objPanel = objStrip.element;
+
+			if (!objPanel)
+				objPanel = element.document.getElementById(objStrip.elementID);
+
+			if (objPanel)
+				setStripPanel(objPanel);
+
+			objStrip.element = objPanel;
+			objStrip.selected = true;
+		}
+
+		function setStripPanel(objPanel) {
+			if (m_panelContainer.firstChild) {
+				var originalPanel = m_panelContainer.firstChild;
+
+				m_panelContainer.removeChild(originalPanel);
+				m_hiddenPanelContainer.appendChild(originalPanel);
+			}
+
+			if (objPanel.parentElement)
+				objPanel.parentElement.removeChild(objPanel);
+
+			m_panelContainer.appendChild(objPanel);
+			//objPanel.style.width = "100%";
+			//objPanel.style.height = "100%";
+		}
+
+		function fnGetStrips() {
+			return m_strips;
+		}
+
+		function fnPutLeftMargin(v) {
+			m_leftMargin = v;
+		}
+
+		function fnSelectedItem() {
+			return m_selectedItem;
+		}
+	//]]>
+	</script>
+</public:component>

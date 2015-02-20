@@ -1,0 +1,135 @@
+﻿.oguselecter
+{
+    width: 100%;
+    min-height: 30px;
+    min-width: 120px;
+}
+
+    .oguselecter .oguselecter-input
+    {
+        float: left;
+        border: 1px solid rgb(220, 235, 247);
+        min-height: 28px;
+        word-break: keep-all;
+        width: 90%;
+    }
+
+        .oguselecter .oguselecter-input > span
+        {
+            font-style: italic;
+            text-decoration: underline;
+        }
+
+        .oguselecter .oguselecter-input > input
+        {
+            border: 0px;
+            width:50px;
+        }
+
+        .oguselecter .oguselecter-input > datalist
+        {
+            border: 1px solid rgb(220, 235, 247);
+        }
+
+    .oguselecter .oguselecter-user, .oguselecter-ou, .oguselecter-group, .oguselecter-check
+    {
+        float: left;
+        width: 16px;
+        height: 16px;
+        margin: 5px 0px 5px 5px;
+        background-repeat: no-repeat;
+    }
+
+        .oguselecter .oguselecter-user, .oguselecter-ou, .oguselecter-group, .oguselecter-check :hover
+        {
+            cursor: pointer;
+        }
+
+    .oguselecter .oguselecter-user
+    {
+        background-image: url(../Images/user.gif);
+    }
+
+    .oguselecter .oguselecter-ou
+    {
+        background-image: url(../Images/ou.gif);
+    }
+
+    .oguselecter .oguselecter-group
+    {
+        background-image: url(../Images/group.gif);
+    }
+
+    .oguselecter .oguselecter-check
+    {
+        background-image: url(../Images/checkUser.gif);
+    }
+
+@media screen and (max-width:768px)
+{
+    .oguselecter .oguselecter-input
+    {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width:496px)
+{
+    .oguselecter .oguselecter-input
+    {
+        width: 70%;
+    }
+}
+
+
+/*抽象为多选*/
+
+.select-container
+{
+    width: 100%;
+    min-height: 30px;
+    min-width: 120px;
+}
+
+.select-container .select-multi
+{
+
+}
+
+.select-choices
+{
+    list-style:none;    
+    padding:0px;
+    margin:0px;
+}
+
+.select-choice
+{
+    display:inline-block;
+}
+
+.select-input
+{
+    display:inline-block;
+    width:25px;
+    border:0px;
+}
+
+.select-items-container
+{
+    position: absolute;
+    top: 100%;
+    left: -9999px;
+    z-index: 1010;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid #aaa;
+    border-top: 0;
+    background: #fff;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+}
+
+}
+

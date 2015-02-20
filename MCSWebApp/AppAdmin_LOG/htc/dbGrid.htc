@@ -1,0 +1,1153 @@
+<public:component tagname="dbGrid">
+	<public:attach event="oncontentready" HANDLER="doInit" />
+	<public:property put="fnPutHeaderXML" get="fnGetHeaderXML" name="headerXML"/>
+	<public:property put="fnPutDataXML" get="fnGetDataXML" name="dataXML"/>
+	<public:property put="fnPutLimitRows" get="fnGetLimitRows" name="limitRows"/>
+	<public:property put="fnPutCaption" get="fnGetCaption" name="caption"/>
+	<public:property put="fnPutShowCaption" get="fnGetShowCaption" name="showCaption"/>
+	<public:property put="fnPutShowTitle" get="fnGetShowTitle" name="showTitle"/>
+	<public:property put="fnPutShowPageIndex" get="fnGetShowPageIndex" name="showPageIndex"/>
+	<public:property put="fnPutCustomGetData" get="fnGetCustomGetData" name="customGetData"/>
+	<public:property get="fnGetCaptionElem" name="captionElement"/>
+	<public:property get="fnGetGetDataBody" name="dataBody"/>
+	<public:property get="fnGetCurrentNode" name="currentNode"/>
+	<public:property get="fnGetFirstPageLink" name="firstPageLink"/>
+	<public:property get="fnGetPrevPageLink" name="prevPageLink"/>
+	<public:property get="fnGetNextPageLink" name="nextPageLink"/>
+	<public:property get="fnGetLastPageLink" name="lastPageLink"/>
+	<public:property get="fnGetCurrentPage" name="currentPage"/>
+	<public:property put="fnPutTotalCount" get="fnGetTotalCount" name="totalCount"/>
+	<public:property get="fnGetTotalPages" name="totalPages"/>
+	<public:property get="fnGetShowBorder" put="fnPutShowBorder" name="border" />
+	<public:property get="fnGetBorderColor" put="fnPutBorderColor" name="borderColor" />
+	<public:property get="fnGetBorderCollapse" put="fnPutBorderCollapse" name="borderCollapse" />
+	<public:property get="fnGetShowExportToExcel" put="fnPutShowExportToExcel" name="showExportToExcel" />
+	<public:property get="fnGetShowExportToWord" put="fnPutShowExportToWord" name="showExportToWord" />
+
+	<public:method name="appendRow" />
+	<public:method name="updateRow" />
+	<public:method name="clearRows" />
+	<public:method name="enumRows" />
+	<public:method name="replaceCurrentPage" />
+	<public:method name="refreshTableBackground" />
+	<public:method name="resetPageNumber" />
+	<public:method name="copyTableToClipboard" />
+
+	<public:event name="oncalcheader" id="idCalcHeader" />
+	<public:event name="oncalcdata" id="idCalcData" />
+	<public:event name="onheadcontextmenu" id="idHeadContextMenu" />
+	<public:event name="onbodycontextmenu" id="idBodyContextMenu" />
+	<public:event name="onprevpage" id="idPrevPage" />
+	<public:event name="onnextpage" id="idNextPage" />
+	<public:event name="ongetpagedata" id="idGetPageData" />
+	<public:event name="ondataclick" id="idDataClick" />
+	<public:event name="onheaderclick" id="idHeaderClick" />
+	<public:event name="onsort" id="idSort" />
+	<public:event name="onload" id="idLoad" />
+
+<script type="text/javascript" language="javascript" src="../script/validate.js"></script>
+<script type="text/javascript" language="javascript" src="../script/xmlHttp.js"></script>
+<script type="text/javascript" language="javascript" src="../script/uiScript.js"></script>
+<script type="text/javascript" language="javascript" src="../script/dbGrid.js"></script>
+<script type="text/javascript" language="javascript" src="../script/htcCommon.js"></script>
+<script type="text/javascript" language="javascript">	
+//<![CDATA[
+var m_table = null;			//表格对象
+var m_headerXML = null;		//描述标题的XML对象
+var m_dataXML = null;		//表体的数据XML对象
+var m_limitRows = -1;		//表体的数据的县支行数
+
+var m_header = null;		//标题栏部分THEAD
+var m_body = null;			//数据部分TBODY
+
+var m_captionDiv = null;		//标题栏
+var m_captionCell = null;		//标题栏文本的cell
+var m_caption = "";				//标题栏文本
+var m_bShowCaption = false;		//是否显示标题栏
+var m_bShowTitle = false;		//是否显示Title行
+var m_bShowPageIndex = true;	//是否显示翻页Link
+var m_bShowExportToExcel = true;//是否显示输出当前页到Excel
+var m_bShowExportToWord = true;	//是否显示输出当前页到Word
+var m_bCustomGetData = false;	//是否在翻页的时候定制处理（不自动处理上一页,每一次请求翻页都需要重新查询，包括第一页和最后一页）
+var m_pageNumberSpan = null;
+var m_pageIndexSpan = null;
+var m_excelSpan = null;
+var m_wordSpan = null;
+var m_nPageNumber = 1;
+var m_nTotalCount = -1;
+var m_prevPage = null;
+var m_nextPage = null;
+var m_firstPage = null;
+var m_lastPage = null;
+var m_curNode = null;
+var m_borderColor = "black";
+var m_borderCollapse = "separate";
+var m_nBorder = 0;
+var m_lastClickHeaderCell = null;	//最后选择的表头单元格
+
+function fnGetShowBorder()
+{
+	return m_nBorder;
+}
+
+function fnPutShowBorder(value)
+{
+	m_nBorder = getIntParam(value);
+
+	if (m_table)
+		m_table.border = m_nBorder;
+}
+
+function fnPutTotalCount(value)
+{
+	m_nTotalCount = getIntParam(value);
+	
+	setPageNumberText();
+	setPageLinkStatus();
+}
+
+function fnGetTotalCount(value)
+{
+	return m_nTotalCount;
+}
+
+function fnGetBorderColor()
+{
+	return m_borderColor;
+}
+
+function fnPutBorderColor(value)
+{
+	m_borderColor = value;
+	
+	if (m_table)
+		m_table.borderColor = m_borderColor;
+}
+
+function fnGetShowExportToExcel()
+{
+	return m_bShowExportToExcel;
+}
+
+function fnGetShowExportToWord()
+{
+	return m_bShowExportToWord;
+}
+
+function fnPutShowExportToExcel(value)
+{
+	m_bShowExportToExcel = getBoolParam(value);
+
+	if (m_excelSpan)
+		m_excelSpan.style.display = m_bShowExportToExcel ? "inline" : "none";
+}
+
+function fnPutShowExportToWord(value)
+{
+	m_bShowExportToWord = getBoolParam(value);
+
+	if (m_wordSpan)
+		m_wordSpan.style.display = m_bShowExportToWord ? "inline" : "none";
+}
+
+function fnGetBorderCollapse()
+{
+	return m_borderCollapse;
+}
+
+function fnPutBorderCollapse(value)
+{
+	m_borderCollapse = value;
+
+	if (m_table)
+		m_table.style.borderCollapse = m_borderCollapse;
+}
+
+function fnPutCustomGetData(value)
+{
+	m_bCustomGetData = getBoolParam(value);
+	
+	if (m_lastPage)
+		if (m_bCustomGetData)
+			m_lastPage.style.display = "inline"
+		else
+			m_lastPage.style.display = "none";
+}
+
+function fnGettCustomGetData()
+{
+	return m_bCustomGetData;
+}
+
+function copyTableToClipboard()
+{
+	if (m_table)
+	{
+		var selection = element.document.selection;
+		selection.empty();
+
+		var r = element.document.body.createControlRange();
+		r.add(m_table);
+		r.select();
+
+		r.execCommand("Copy");
+		selection.empty();
+	}
+}
+
+//创建标题栏
+function createCaption()
+{
+	var div = document.createElement("DIV");
+	
+	div.className = "toolbarPanel";
+
+	with (div.style)
+	{
+		width = "100%";
+		height = "18px";
+		
+		if (m_bShowCaption)
+			display = "inline";
+		else
+			display = "none";
+	}
+
+	element.appendChild(div);
+
+	var toolBarTable = document.createElement("<table cellpadding='0' cellspacing='0' style='WIDTH:100%;HEIGHT:100%'>");
+	var row = toolBarTable.insertRow();
+	var cellCaption = row.insertCell();
+
+	with (cellCaption.style)
+	{
+		fontSize = "11pt";
+		fontWeight = "bold";
+	}
+	cellCaption.innerHTML = m_caption;
+
+	var cell = row.insertCell();
+	cell.align = "right";
+
+	createBuildinToolbar(cell);
+	createScrollPageLink(cell);
+
+	div.appendChild(toolBarTable);
+
+	m_captionDiv = div;
+
+	return cellCaption;
+}
+
+//创建工具栏
+function createBuildinToolbar(parentElement)
+{
+	m_wordSpan = createImgSpan("../images/icon/word.gif");
+
+	m_wordSpan.title = "输出本页数据到Microsoft Word...";
+	m_wordSpan.style.cursor = "hand";
+	m_wordSpan.style.marginRight = "4px";
+	m_wordSpan.onclick = onWordSpanClick;
+	m_wordSpan.style.display = m_bShowExportToWord ? "inline" : "none";
+	parentElement.appendChild(m_wordSpan);
+
+	m_excelSpan = createImgSpan("../images/icon/excel.gif");
+
+	m_excelSpan.title = "输出本页数据到Microsoft Excel...";
+	m_excelSpan.style.cursor = "hand";
+	m_excelSpan.style.marginRight = "4px";
+	m_excelSpan.onclick = onExcelSpanClick;
+	m_excelSpan.style.display = m_bShowExportToExcel ? "inline" : "none";
+	parentElement.appendChild(m_excelSpan);
+	
+	var span = createTextSpan("  ");
+	parentElement.appendChild(span);
+}
+
+//创建翻页链接
+function createScrollPageLink(parentElement)
+{
+	var pageIndexSpan = document.createElement("a");
+
+	var firstPage = document.createElement("a");
+	var prevPage = document.createElement("a");
+	var nextPage = document.createElement("a");
+	var lastPage = document.createElement("a");
+
+	firstPage.innerHTML = "<font face='Webdings'>9</font>";
+	firstPage.title = "回到第一页";
+	firstPage.href = "#";
+	firstPage.onclick = onFirstPageClick;
+	firstPage.disabled = true;
+
+	prevPage.innerHTML = "<font face='Webdings'>7</font>上一页";
+	prevPage.href = "#";
+	prevPage.onclick = onPrevPageClick;
+	prevPage.disabled = true;
+
+	nextPage.innerHTML = "下一页<font face='Webdings'>8</font>";
+	nextPage.href = "#";
+	nextPage.onclick = onNextPageClick;
+
+	lastPage.innerHTML = "<font face='Webdings'>:</font>";
+	lastPage.title = "转到最后一页";
+	lastPage.href = "#";
+	lastPage.onclick = onLastPageClick;
+	lastPage.disabled = true;
+
+	if (m_bCustomGetData)
+		lastPage.style.display = "inline";
+	else
+		lastPage.style.display = "none";
+
+	m_firstPage = firstPage;
+	m_prevPage = prevPage;
+	m_nextPage = nextPage;
+	m_lastPage = lastPage;
+
+	var span = document.createElement("span");
+
+	span.style.filter = "";
+
+	with (span.style)
+	{
+		width = "40px";
+		marginRight = "10px";
+	}
+	span.innerText = "1";
+
+	m_pageNumberSpan = span;
+
+	pageIndexSpan.appendChild(firstPage);
+	pageIndexSpan.appendChild(prevPage);
+	pageIndexSpan.appendChild(span);
+	pageIndexSpan.appendChild(nextPage);
+	pageIndexSpan.appendChild(lastPage);
+
+	if (!m_bShowPageIndex)
+		pageIndexSpan.style.display = "none";
+
+	parentElement.appendChild(pageIndexSpan);
+
+	m_pageIndexSpan = pageIndexSpan;
+}
+
+//响应控件的初始化事件
+function doInit()
+{
+	m_captionCell = createCaption();
+	m_table = element.document.createElement("table");
+	m_header = element.document.createElement("thead");
+	m_body = element.document.createElement("tbody");
+
+	m_header.oncontextmenu = onHeadContextMenu;
+	m_body.oncontextmenu = onBodyContextMenu;
+
+	with (m_table.style)
+	{
+		width = "100%";
+	}
+
+	m_table.appendChild(m_header);
+	m_table.appendChild(m_body);
+
+	if (m_headerXML)
+	{
+		createTableHeadByXml(m_headerXML, m_header, onHeaderCallback);
+		refreshData();
+	}
+
+	element.appendChild(m_table);
+
+	m_table.borderColor = m_borderColor;
+	m_table.border = m_nBorder;
+	m_table.style.borderCollapse = m_borderCollapse;
+
+	var oEvent = createEventObject();
+	idLoad.fire(oEvent);
+}
+
+function refreshData(bIgnorePageLink)
+{
+	if (m_dataXML)
+	{
+		createGridBodyByHead(m_curNode, 
+							m_body,
+							null,
+							m_limitRows,
+							m_header.rows(0),
+							m_table,
+							onDataCallback);
+
+		if (!bIgnorePageLink)
+		{
+			setPageLinkStatus();
+			/*
+			m_firstPage.disabled = true;
+			m_prevPage.disabled = true;
+			m_nextPage.disabled = (isRemainRowsLTLimitRows(m_curNode));
+			m_lastPage.disabled = m_nextPage.disabled;
+			*/
+		}
+	}
+}
+
+function fnPutHeaderXML(xml)
+{
+	m_headerXML = getXmlParam(xml);
+
+	if (m_header)
+		createTableHeadByXml(m_headerXML, m_header, onHeaderCallback);
+}
+
+function fnGetHeaderXML()
+{
+	return m_headerXML;
+}
+
+function fnPutDataXML(xml)
+{
+	if (xml)
+	{
+		m_dataXML = getXmlParam(xml);
+		m_curNode = m_dataXML.documentElement.firstChild;
+
+		m_nPageNumber = 1;
+		
+		if (m_pageNumberSpan)
+			setPageNumberText();
+
+		if (m_body)
+			refreshData();
+	}
+	else
+	{
+		m_dataXML = null;
+		m_curNode = null;
+		m_nPageNumber = 1;
+		m_nTotalCount = -1;
+
+		if (m_pageNumberSpan)
+			setPageNumberText();
+
+		setPageLinkStatus();
+		clearRows();
+	}
+}
+
+function fnGetDataXML()
+{
+	return m_dataXML;
+}
+
+function fnPutLimitRows(n)
+{
+	m_limitRows = getIntParam(n);
+
+	if (m_body)
+	{
+		if (m_limitRows < 0)
+		{
+			if (m_prevPage)
+				m_prevPage.disabled = true;
+			if (m_nextPage)
+				m_nextPage.disabled = true;
+		}
+			
+		refreshData();
+	}
+}
+
+function fnGetLimitRows()
+{
+	return m_limitRows;
+}
+
+function fnPutCaption(strCaption)
+{
+	m_caption = strCaption;
+	
+	if (m_captionCell)
+		m_captionCell.innerHTML = strCaption;
+}
+
+function fnGetCaption()
+{
+	return m_caption;
+}
+
+function fnPutShowCaption(bShowCaption)
+{
+	m_bShowCaption = getBoolParam(bShowCaption);
+
+	if (m_captionDiv)
+	{
+		if (m_bShowCaption)
+			m_captionDiv.style.display = "inline";
+		else
+			m_captionDiv.style.display = "none";
+	}
+}
+
+function fnGetShowTitle()
+{
+	return m_bShowTitle;
+}
+
+function fnPutShowTitle(bShowTitle)
+{
+	m_bShowTitle = getBoolParam(bShowTitle);
+
+	if (m_header)
+	{
+		if (m_bShowTitle)
+			m_header.style.display = "inline";
+		else
+			m_header.style.display = "none";
+	}
+}
+
+function fnGetShowPageIndex()
+{
+	return m_bShowPageIndex;
+}
+
+function fnPutShowPageIndex(bShow)
+{
+	m_bShowPageIndex = getBoolParam(bShow);
+
+	if (m_pageIndexSpan)
+	{
+		if (m_bShowTitle)
+			m_pageIndexSpan.style.display = "inline";
+		else
+			m_pageIndexSpan.style.display = "none";
+	}
+}
+
+function fnGetShowCaption()
+{
+	return m_bShowCaption;
+}
+
+function fnGetCaptionElem()
+{
+	return m_captionCell;
+}
+
+function fnGetGetDataBody()
+{
+	return m_body;
+}
+
+function fnGetCurrentNode()
+{
+	return m_curNode;
+}
+
+function fnGetFirstPageLink()
+{
+	return m_firstPage;
+}
+
+function fnGetPrevPageLink()
+{
+	return m_prevPage;
+}
+
+function fnGetNextPageLink()
+{
+	return m_nextPage;
+}
+
+function fnGetLastPageLink()
+{
+	return m_lastPage;
+}
+
+function fnGetCurrentPage()
+{
+	return m_nPageNumber;
+}
+
+function fnGetTotalPages()
+{
+	return Math.floor((m_nTotalCount - 1) / m_limitRows) + 1;
+}
+
+//设置页号的显示内容
+function setPageNumberText()
+{
+	var strText = m_nPageNumber.toString();
+	var strWidth = "40px";
+
+	if (m_nTotalCount >= 0)
+	{
+		strText = strText + "/" + fnGetTotalPages().toString();
+		var strWidth = "60px";
+	}
+
+	with (m_pageNumberSpan.style)
+	{
+		width = strWidth;
+		marginRight = "10px";
+	}
+	
+	m_pageNumberSpan.innerText = strText;
+}
+
+//设置翻页链接的状态
+function setPageLinkStatus()
+{
+	m_prevPage.disabled = !(m_nPageNumber > 1);
+	m_firstPage.disabled = m_prevPage.disabled;
+
+	if (m_bCustomGetData)
+		m_nextPage.disabled = m_nPageNumber >= totalPages;
+	else
+		m_nextPage.disabled = (isRemainRowsLTLimitRows(m_curNode));
+	
+	m_lastPage.disabled = m_nextPage.disabled;
+}
+
+function appendRow(xmlFirst, bAddNullRow)
+{
+	appendGridRow(xmlFirst, m_body, m_header.rows(0), bAddNullRow, onDataCallback);
+
+	if (m_dataXML)
+		m_dataXML.documentElement.appendChild(xmlFirst.cloneNode(true));
+}
+
+function updateRow(oRow)
+{
+	updateGridCell(oRow.xmlRow, oRow, onDataCallback);
+}
+
+function clearRows()
+{
+	clearAllRows(m_body);
+}
+
+function clearAllRows(oPart)
+{
+	while(oPart.rows.length > 0)
+	{
+		oPart.deleteRow(0);
+	}
+}
+
+function enumRows(callBack, arg)
+{
+	for (var i = 0; i < m_body.rows.length; i++)
+	{
+		var row = m_body.rows[i];
+
+		callBack(row, arg);
+	}
+}
+
+function mergeXml(xmlRecordset)
+{
+	if (m_dataXML == null)
+		m_dataXML = createDomDocument("<DataSet/>");
+
+	var node = xmlRecordset.documentElement.firstChild;
+
+	var i = 0;
+	var nodeFirst = null;
+
+	while(node != null && i < m_limitRows)
+	{
+		var lastNode = node.cloneNode(true);
+
+		m_dataXML.documentElement.appendChild(lastNode);
+		node = node.nextSibling;
+		i++;
+
+		if (nodeFirst == null)
+			nodeFirst = lastNode;
+	}
+
+	return nodeFirst;
+}
+
+//替换当前页
+function replaceCurrentPage(xmlRecordset)
+{
+	if (m_dataXML == null)
+		m_dataXML = createDomDocument("<DataSet/>");
+
+	var oldNode = m_curNode;
+	
+	var insertAfterNode = null;
+ 	
+ 	if (oldNode)
+ 		insertAfterNode = oldNode.previousSibling;
+
+ 	var i = 0;
+
+ 	while (oldNode != null && i < m_limitRows)
+	{
+		var nextOldNode = oldNode.nextSibling;
+		oldNode.parentNode.removeChild(oldNode);
+		oldNode = nextOldNode;
+		i++;
+	}
+
+	var node = xmlRecordset.documentElement.firstChild;
+
+	i = 0;
+
+	var nodeOriginalFirst = m_dataXML.documentElement.firstChild;
+	var nextNode = null;
+	
+	if (insertAfterNode)
+		nextNode = insertAfterNode.nextSibling;
+
+	while (node != null && i < m_limitRows)
+	{
+		var lastNode = node.cloneNode(true);
+
+		if (insertAfterNode)
+		{
+			if (nextNode)
+				m_dataXML.documentElement.insertBefore(lastNode, nextNode);
+			else
+				m_dataXML.documentElement.appendChild(lastNode);
+		}
+		else
+			if (nodeOriginalFirst)
+				m_dataXML.documentElement.insertBefore(lastNode, nodeOriginalFirst);
+			else
+				m_dataXML.documentElement.appendChild(lastNode);
+
+		node = node.nextSibling;
+		i++;
+	}
+
+	if (insertAfterNode)
+		m_curNode = insertAfterNode.nextSibling;
+	else
+		m_curNode = m_dataXML.documentElement.firstChild;
+
+	refreshData(true);
+}
+
+//得到本页最后一条记录
+function findPageLastRecord()
+{
+	var resultNode = null;
+
+	if (m_curNode && m_limitRows > 0)
+	{
+		var curNode = m_curNode;
+		var i = 0;
+
+		while (curNode && i < m_limitRows - 1)
+		{
+			curNode = curNode.nextSibling;
+			i++;
+		}
+
+		if (i == m_limitRows - 1)
+			resultNode = curNode;
+	}
+
+	return resultNode;
+}
+
+//建立office对象
+function createOfficeObject(strProgID, bVisible)
+{
+	var app = createObject(strProgID, "Microsoft Office");
+
+	if (bVisible == null || typeof(bVisible) == "undefined")
+		bVisible = true;
+
+	app.visible = bVisible;
+
+	return app;
+}
+
+function onWordSpanClick()
+{
+	try
+	{
+		var app = createOfficeObject("Word.Application");
+		var doc = app.documents.add("Normal");
+
+		try
+		{
+			doc.PageSetup.Orientation = 1;	//wdOrientLandscape
+		}
+		catch(e)
+		{
+		}
+
+		copyTableToClipboard();
+
+		doc.activeWindow.selection.paste();
+	}
+	catch(e)
+	{
+		showError(e);
+	}
+}
+
+function onExcelSpanClick()
+{
+	try
+	{
+		var app = createOfficeObject("Excel.Application");
+		var workbook = app.workbooks.Add();
+
+		try
+		{
+			workbook.ActiveSheet.PageSetup.Orientation = 2;	//xlLandscape
+		}
+		catch(e)
+		{
+		}
+
+		copyTableToClipboard();
+
+		workbook.activeSheet.paste();
+	}
+	catch(e)
+	{
+		showError(e);
+	}
+}
+
+function onHeadContextMenu()
+{
+	var oEvent = createEventObject();
+	oEvent.contextElement = event.srcElement;
+	oEvent.returnValue = true;
+
+	idHeadContextMenu.fire(oEvent);
+
+	event.returnValue = oEvent.returnValue;
+}
+
+function onBodyContextMenu()
+{
+	var oEvent = createEventObject();
+	oEvent.contextElement = event.srcElement;
+	oEvent.returnValue = true;
+
+	idBodyContextMenu.fire(oEvent);
+
+	event.returnValue = oEvent.returnValue;
+}
+
+//表头的回调函数
+function onHeaderCallback(strCMD, senderElement, xmlNode)
+{
+	var oEvent = createEventObject();
+
+	oEvent.senderElement = senderElement;
+	oEvent.returnValue = false;
+	oEvent.xmlNode = xmlNode;
+	oEvent.dataFld = xmlNode.getAttribute("dataFld");
+	oEvent.dataSrc = xmlNode.getAttribute("dataSrc");
+
+	var bResult = false;
+
+	switch (strCMD)
+	{
+		case "onCalc":	idCalcHeader.fire(oEvent);
+						break;
+		case "onClick":	idHeaderClick.fire(oEvent);
+						bResult = oEvent.returnValue;
+
+						if (!bResult)
+						{
+							oEvent.returnValue = false;
+
+							if (typeof(senderElement.sortDesc) == "undefined")
+								oEvent.sortDirection = "desc";
+							else
+							{
+								if (senderElement.sortDesc)
+									oEvent.sortDirection = "desc";
+								else
+									oEvent.sortDirection = "asc";
+							}
+
+							idSort.fire(oEvent);
+							bResult = oEvent.returnValue;
+							
+							if (bResult)
+								setSortColumn(senderElement);
+						}
+
+						m_lastClickHeaderCell = senderElement;
+						break;
+	}
+
+	return bResult;
+}
+
+//表体的回调函数
+function onDataCallback(strCMD, senderElement, xmlNode, strFld, nodeText)
+{
+	var oEvent = createEventObject();
+
+	oEvent.senderElement = senderElement;
+	oEvent.fieldName = strFld;
+	oEvent.nodeText = nodeText;
+	oEvent.returnValue = false;
+	oEvent.xmlNode = xmlNode;
+
+	switch (strCMD)
+	{
+		case "onCalc":	idCalcData.fire(oEvent);
+						break;
+		case "onClick":	idDataClick.fire(oEvent);
+						break;
+	}
+}
+
+function onFirstPageClick()
+{
+	try
+	{
+		if (m_firstPage.disabled == true)
+			return;
+
+		if (m_bCustomGetData)
+		{
+			doGetPageData(1);
+			return;
+		}
+
+		m_nPageNumber = 1;
+		m_curNode =  m_dataXML.documentElement.firstChild;
+		refreshData(true);
+
+		setPageNumberText();
+
+		setPageLinkStatus();
+	}
+	catch(e)
+	{
+		showError(e);
+	}
+	finally
+	{
+		event.returnValue = false;
+	}
+}
+
+function onPrevPageClick()
+{
+	try
+	{
+		if (m_prevPage.disabled == true)
+			return;
+
+		if (m_bCustomGetData)
+		{
+			doGetPageData(m_nPageNumber - 1);
+			return;
+		}
+
+		if (m_nPageNumber > 1)
+		{
+			var node = m_curNode;
+
+			var i = 0;
+
+			while (node && i < m_limitRows)
+			{
+				node = node.previousSibling;
+				i++;
+			}
+
+			var bRefresh = true;
+
+			if (node != null)				
+				m_curNode = node;
+			else
+			{
+				if (m_curNode != m_dataXML.documentElement.firstChild)
+					m_curNode = m_dataXML.documentElement.firstChild;
+				else
+					bRefresh = false;
+			}
+
+			if (bRefresh)
+			{
+				refreshData(true);
+
+				m_nPageNumber--;
+				setPageNumberText();
+			}
+		}
+
+		setPageLinkStatus();
+	}
+	catch(e)
+	{
+		showError(e);
+	}
+	finally
+	{
+		event.returnValue = false;
+	}
+}
+
+function onNextPageClick()
+{
+	try
+	{
+		if (m_nextPage.disabled == true)
+			return;
+
+		if (m_bCustomGetData)
+		{
+			doGetPageData(m_nPageNumber + 1);
+			return;
+		}
+
+		var oEvent = createEventObject();
+		var lastNode = findPageLastRecord();
+		var bRefresh = false;
+
+		if (lastNode)
+		{
+			if (lastNode.nextSibling == null)
+			{
+				oEvent.returnValue = null;
+				oEvent.lastRecord = lastNode;
+				idNextPage.fire(oEvent);
+
+				if (oEvent.returnValue && oEvent.returnValue.documentElement.childNodes.length > 0)
+				{
+					m_curNode = mergeXml(oEvent.returnValue);
+					bRefresh = true;
+				}
+			}
+			else
+			{
+				m_curNode = lastNode.nextSibling;
+				bRefresh = true;
+			}
+
+			if (bRefresh)
+			{
+				refreshData();
+
+				m_nPageNumber++;
+
+				setPageNumberText();
+				setPageLinkStatus();
+			}
+		}
+	}
+	catch(e)
+	{
+		showError(e);
+	}
+	finally
+	{
+		event.returnValue = false;
+	}
+}
+
+function onLastPageClick()
+{
+	try
+	{
+		if (m_lastPage.disabled == true)
+			return;
+
+		if (m_bCustomGetData)
+		{
+			doGetPageData(totalPages);
+			return;
+		}
+	}
+	catch(e)
+	{
+		showError(e);
+	}
+	finally
+	{
+		event.returnValue = false;
+	}
+}
+
+function doGetPageData(nPage)
+{
+	if (nPage > 0 && nPage <= totalPages)
+	{
+		var oEvent = createEventObject();
+
+		if (m_lastClickHeaderCell)
+		{
+			if (typeof(m_lastClickHeaderCell.sortDesc) == "undefined")
+				oEvent.sortDirection = "desc";
+			else
+			{
+				if (m_lastClickHeaderCell.sortDesc)
+					oEvent.sortDirection = "desc";
+				else
+					oEvent.sortDirection = "asc";
+			}
+			
+			oEvent.sortColumn = m_lastClickHeaderCell.datafld;
+		}
+
+		oEvent.pageNumber = nPage;
+		oEvent.returnValue = true;
+
+		idGetPageData.fire(oEvent);
+		
+		if (oEvent.returnValue)
+		{
+			m_nPageNumber = nPage;
+
+			setPageNumberText();
+			setPageLinkStatus();
+		}
+	}
+}
+
+//从当前行开始的行数是否小于等于每页的行数
+function isRemainRowsLTLimitRows(curNode)
+{
+	var bResult = false;
+
+	if (m_limitRows > 0)
+	{
+		var node = curNode;
+		var i = 0;
+
+		while (node && i < m_limitRows)
+		{
+			i++;
+			node = node.nextSibling;
+		}
+
+		bResult = (i < m_limitRows);
+	}
+	return bResult;
+}
+
+function refreshTableBackground()
+{
+	changeGridRowOddEvenColor(m_table);
+}
+
+function resetPageNumber()
+{
+	m_nPageNumber = 1;
+	
+	setPageNumberText();
+	setPageLinkStatus();
+}
+//]]>
+</script>
+</public:component>

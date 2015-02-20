@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LogViewer>
+	<Default>
+		<image>folder.gif</image>
+		<filter>SubTree</filter>
+	</Default>
+	<Root image="history16.gif" text="全部日志" filter="All">
+		<Node text="用户日志" image="User.gif" url="UserLogList.aspx" filter="displayall">
+		</Node>
+		<Node text="系统日志" image="drct.gif" url="SysLogList.aspx" filter="displayall">
+		</Node>
+	</Root>
+</LogViewer>

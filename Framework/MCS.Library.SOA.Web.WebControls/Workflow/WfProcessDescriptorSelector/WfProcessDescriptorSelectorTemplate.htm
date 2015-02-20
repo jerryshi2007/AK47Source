@@ -1,0 +1,101 @@
+﻿<%@ register assembly="MCS.Web.WebControls" namespace="MCS.Web.WebControls" tagprefix="MCS" %>
+<%@ register assembly="MCS.Library.SOA.Web.WebControls" namespace="MCS.Web.WebControls"
+	tagprefix="SOA" %>
+	<div>
+
+    <table cellpadding="0" cellspacing="0">
+		<tr>
+		    <th scope="col" style="width: 180px">
+			    应用名称
+		    </th>
+		    <th scope="col">
+			    模块名称
+		    </th>
+		    <th scope="col">
+			    流程模板Key
+		    </th>
+		    <th scope="col">
+			    流程模板名称
+		    </th>
+		    <th scope="col">
+			    启用
+		    </th>
+		    <th>
+
+		    </th>
+	    </tr>
+		<tr>
+						<td>
+        <asp:TextBox ID="txtApplicationName" runat="server" Width="160" />
+    <MCS:TextBoxDropdownExtender ID="dropdownExtender" runat="server" TargetControlID="txtApplicationName" Height="140px" />
+						</td>
+						<td>
+							<asp:TextBox ID="txtProgramName" runat="server"></asp:TextBox>
+						</td>
+						<td>
+							<asp:TextBox ID="txtProcessKey" runat="server"></asp:TextBox>
+						</td>
+						<td>
+							<asp:TextBox ID="txtProcessName" runat="server"></asp:TextBox>
+						</td>
+						<td>
+							<asp:DropDownList ID="ddlEnabled" runat="server">
+								<asp:ListItem Value="">请选择</asp:ListItem>
+								<asp:ListItem Value="1">是</asp:ListItem>
+								<asp:ListItem Value="0">否</asp:ListItem>
+							</asp:DropDownList>
+						</td>
+						<td rowspan="2">
+							<asp:Button ID="btnSearch" runat="server" Text="查询" class="formButton" OnClick="btnSearch_Click" />
+						</td>
+					</tr>
+	</table>
+    
+    <div style="width: 100%; height: 100%; overflow: auto">
+		<MCS:DeluxeGrid ID="ProcessDescInfoDeluxeGrid" runat="server" AutoGenerateColumns="False"
+			DataSourceID="ObjectDataSource" DataSourceMaxRow="0" AllowPaging="True" PageSize="10" 
+			Width="100%" DataKeyNames="ProcessKey"  GridTitle="Test"
+			CssClass="dataList" ShowExportControl="False" ShowCheckBoxes="true" MultiSelect="{1}" >
+			<Columns>
+				<asp:BoundField DataField="ProcessKey" HeaderText="流程模板Key" SortExpression="PROCESS_KEY" />
+				<asp:BoundField DataField="ApplicationName" HeaderText="应用名称" SortExpression="APPLICATION_NAME"
+					ItemStyle-HorizontalAlign="Center">
+					<ItemStyle HorizontalAlign="Center"></ItemStyle>
+				</asp:BoundField>
+				<asp:BoundField DataField="ProgramName" HeaderText="模块名称" SortExpression="PROGRAM_NAME" />
+				<asp:BoundField DataField="ProcessName" HeaderText="流程模板名称" SortExpression="PROCESS_NAME" />
+				<asp:BoundField DataField="CreateTime" HeaderText="创建时间" HtmlEncode="False" SortExpression="CreateTime"
+					DataFormatString="{0:yyyy-MM-dd HH:mm:ss}" />
+				<asp:BoundField DataField="ModifyTime" HeaderText="修改时间" HtmlEncode="False" SortExpression="ModifyTime"
+					DataFormatString="{0:yyyy-MM-dd HH:mm:ss}" />
+			</Columns>
+			<PagerStyle CssClass="pager" />
+			<RowStyle CssClass="item" />
+			<CheckBoxTemplateItemStyle CssClass="checkbox" />
+			<CheckBoxTemplateHeaderStyle CssClass="checkbox" />
+			<HeaderStyle CssClass="head" />
+			<AlternatingRowStyle CssClass="aitem" />
+			<EmptyDataTemplate>
+				暂时没有您需要的数据
+			</EmptyDataTemplate>
+			<PagerSettings FirstPageText="&lt;&lt;" LastPageText="&gt;&gt;" Mode="NextPreviousFirstLast"
+				NextPageText="下一页" Position="Bottom" PreviousPageText="上一页"></PagerSettings>
+		</MCS:DeluxeGrid>
+	</div>
+	<asp:ObjectDataSource ID="objectDataSource" runat="server" EnablePaging="True" SelectCountMethod="GetQueryCount"
+		SelectMethod="Query" SortParameterName="orderBy" OnSelecting="objectDataSource_Selecting"
+		OnSelected="objectDataSource_Selected" TypeName="MCS.Web.WebControls.ProcessDescriptorInfoQuery1"
+		EnableViewState="False">
+		<SelectParameters>
+			<asp:ControlParameter ControlID="whereCondition" Name="where" PropertyName="Value"
+				Type="String" />
+			<asp:Parameter Direction="InputOutput" Name="totalCount" Type="Int32" />
+		</SelectParameters>
+	</asp:ObjectDataSource>
+	</div>
+    <input runat="server" type="hidden" id="whereCondition" />
+
+	<div>
+		<SOA:SubmitButton runat="server" ID="serverConfirmButton" style="display:none" PopupCaption="正在读取..." RelativeControlID="confirmButton" />
+	</div>
+

@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dictionary sourceCulture="zh-CN" targetCulture="en-US">
+	<Item source="确认要撤回吗？" target="Do you want to withdraw your operations ?"/>
+	<Item source="确认要作废或取消流程吗？" target="Do you want to reject or cancel this form ?"/>
+	<Item source="没有选择下一步的流转人员" target="You didn't choose the next step operators."/>
+	<Item source="已经被注销" target=" has been deleted."/>
+	<Item source="确认要执行吗？" target="Do you want to perform the operation ?"/>
+	<Item source="确定要回退吗？" target="Do you want to return the form ?"/>
+	<Item source="确认要送签并强制结束流程吗？" target="Do you want to send this form and enforce the end of process ?"/>
+
+	<Item source="请选择处理人" target="Please select operators"/>
+
+	<Item source="上传(U)" target="Upload"/>
+	<Item source="错误" target="Error"/>
+	<Item source="日志" target="Log"/>
+	<Item source="请选择一个上传文件" target="Please select a file to upload."/>
+
+	<Item source="送签" target="Send"/>
+	<Item source="加签" target="Forward"/>
+	<Item source="转签" target="Change"/>
+	<Item source="会签" target="Consign"/>
+	<Item source="送签并传阅" target="Send &amp; Read"/>
+	<Item source="送签并通知" target="Send &amp; Notify"/>
+	<Item source="作废" target="Reject"/>
+	<Item source="退件" target="Return"/>
+	<Item source="撤回" target="Withdraw"/>
+	<Item source="结束" target="End"/>
+	<Item source="强制结束当前流程" target="Force to end"/>
+	<Item source="保存" target="Save"/>
+	<Item source="流程跟踪" target="Trace"/>
+	<Item source="打印" target="Print"/>
+	<Item source="复制" target="Copy"/>
+	<Item source="复制当前表单的数据并且启动一个新流程" target="Copy current form's data and start up a new process"/>
+	<Item source="重起" target="Restart"/>
+	<Item source="作废当前流程，并且生成一份新的表单" target="Abort current process and restart a new form"/>
+	<Item source="交办" target="Assign"/>
+	<Item source="已阅" target="Read"/>
+	<Item source="催办" target="Remind"/>
+
+	<Item source="允许加签" target="Allow forward"/>
+	<Item source="允许转签" target="Allow change"/>
+	<Item source="允许会签" target="Allow consign"/>
+	<Item source="允许添加后续环节" target="Allow add follow step"/>
+	<Item source="允许删除此环节" target="Allow delete this step"/>
+	<Item source="禁止修改后续环节" target="Forbid edit follow steps"/>
+	<Item source="可以增加附件" target="Allow add attachments"/>
+	<Item source="可以修改附件" target="Allow edit attachments"/>
+	<Item source="允许环节审批人员为空" target="Allow empty approver"/>
+	<Item source="环节审批人员必须为空" target="Step approver must be empty"/>
+	
+	<Item source="流程调整" target="Workflow Adjustment"/>
+
+	<Item source="增加" target="Add"/>
+	<Item source="修改" target="Edit"/>
+	<Item source="删除" target="Delete"/>
+
+	<Item source="编辑..." target="Edit..."/>
+	<Item source="常用意见..." target="Predefined..."/>
+	<Item source="常用意见" target="Predefined Comments"/>
+
+	<Item source="（无）" target="(None)"/>
+
+	<Item source="请填写意见" target="Please fill in the comments"/>
+	<Item source="请输入作废意见" target="Please fill in the reject comments"/>
+	
+	<Item source="正在保存流程设置..." target="Saving Process Settings..."/>
+	<Item source="正在更新流程..." target="Changing Process Settings..."/>
+	
+	<Item source="环节名称" target="Step Name"/>
+	<Item source="环节选项" target="Step Options"/>
+	<Item source="办理人" target="Processor"/>
+	<Item source="会签时，所有用户通过后流转到下一步" target="Transfer to next step when all users must approved in consign step."/>
+
+	<Item source="内容不能超过200个字" target="Content can not exceed 200 charactors."/>
+	<Item source="多条意见之间请使用英文空格或回车分隔；" target="Between the number of comments, please use the space or carriage return separated."/>
+	<Item source="所有意见（包含分隔符）的总长度不能超过200个字。" target="All comments (including separators) of the total length of not more than 200 charactors."/>
+
+	<Item source="确认删除该环节吗？" target="Do you want to delete the step ?"/>
+
+	<Item source="同意" target="Agree"/>
+	<Item source="不同意" target="Disagree"/>
+
+	<Item source="人员选择" target="Select User"/>
+	<Item source="请选择送阅人" target="Please select who to send read"/>
+	<Item source="正在传阅..." target="Sending to readers..."/>
+
+	<Item source="正在流转..." target="Sending..."/>
+	<Item source="正在保存..." target="Saving..."/>
+	<Item source="正在撤回..." target="Withdrawing..."/>
+	<Item source="正在作废..." target="Rejecting..."/>
+	
+	<Item source="阅知人" target="Circulator"/>
+	<Item source="无联机状态信息" target="No online info"/>
+	
+	<Item source="当前流程的状态已经改变，不能流转" target="The current state of the process has changed, not circulation"/>
+	<Item source="流程跟踪..." target="Trace..."/>
+	<Item source="环节：{0}" target="Step"/>
+
+	<Item source="请设置 {0} 环节的审批人员" target="Please set the operator for step '{0}'." />
+
+	<Item source="起草" target="Requestor" />
+	<Item source="完成" target="Close"/>
+	<Item source="接受" target="Accept"/>
+	<Item source="冲销" target="Reverse"/>
+	<Item source="批准" target="Approve"/>
+	<Item source="提交" target="Submit"/>
+	<Item source="上传" target="Upload"/>
+	<Item source="关闭" target="Close"/>
+	
+	<Item source="取消" target="Cancel"/>
+	
+	<Item source="审批同意" target="Approve"/>
+	<Item source="拒绝审批" target="Reject"/>
+	<Item source="送签" target="Submit"/>
+	<Item source="结单" target="close"/>
+
+	<Item source="流转" target="Flow"/>
+	<Item source="代写" target="on behalf"/>
+	
+	<Item source="没有能够退回的环节" target="No steps can return." />
+	<Item source="选择退件环节" target="Select the step" />
+	<Item source="请选择退件环节" target="Please select the step" />
+	<Item source="请选择退件的环节。" target="Please select the step which you want to return to." />
+	<Item source="请填写退件意见。" target="Please fill in the return comments." />
+
+	<Item source="请选择加签人" target="Please select the person to be forwarded" />
+	<Item source="请选择转签人" target="Please select the person to process" />
+
+	<Item source="可以选择多个用户" target="Can select multiple users" />
+	<Item source="仅能选择单个用户" target="Can only select a single user" />
+
+	<Item source="请选择下一步的人员" target="Please the next step operators" />
+
+	<Item source="帐号已注销" target="Account has been canceled" />
+	<Item source="人员信息有误" target="Wrong user info" />
+	<Item source="请联系管理员调整流程" target="Please contact the administrator to adjust process" />
+
+	<Item source="流程状态已经改变，您不能执行作废操作" target="Process state has changed, you can not reject the process." />
+	<Item source="流程状态已经改变，您不能执行撤回操作" target="Process state has changed, you can not withdraw the action execution." />
+</Dictionary>

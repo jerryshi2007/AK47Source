@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<HideTypes>
+	<HideType name="autoHide">
+		<!--<ORGANIZATIONS ALL_PATH_NAME="中国海关\Group Policy" />
+		<ORGANIZATIONS ALL_PATH_NAME="中国海关\Domain Controllers" />-->
+	</HideType>
+	<HideType name="first">
+		<!--<OU_USERS ALL_PATH_NAME="中国海关\01海关总署\00署领导\盛光祖" />
+		<ORGANIZATIONS ALL_PATH_NAME="中国海关\01海关总署\03政策法规司" />
+		<GROUPS ALL_PATH_NAME="中国海关\01海关总署\01办公厅\办公厅全体人员" />-->
+	</HideType>
+	<HideType name="second">
+		<!--<OU_USERS ALL_PATH_NAME="中国海关\01海关总署\00署领导\李克农" />
+		<ORGANIZATIONS ALL_PATH_NAME="中国海关\01海关总署\13综合统计司" />
+		<GROUPS ALL_PATH_NAME="中国海关\杂项\All Group\全国直属海关一把手" />-->
+	</HideType>
+</HideTypes>

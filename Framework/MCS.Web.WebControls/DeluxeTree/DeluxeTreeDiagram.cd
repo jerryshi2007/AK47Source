@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="微软雅黑" Size="9" />
+  <Class Name="ChinaCustoms.Framework.DeluxeWorks.Web.WebControls.DeluxeTree">
+    <Position X="0.5" Y="0.75" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>DeluxeTree\DeluxeTree.cs</FileName>
+      <HashCode>AAFkABAAAAA8AACCAAIAAAAJAEgEZAEABBIEAAAEIBA=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Delegate Name="ChinaCustoms.Framework.DeluxeWorks.Web.WebControls.DeluxeTree.GetChildrenDataDelegete" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>DeluxeTree\DeluxeTree.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+  </Class>
+  <Class Name="ChinaCustoms.Framework.DeluxeWorks.Web.WebControls.DeluxeTreeNode">
+    <Position X="3.25" Y="0.75" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>DeluxeTree\DeluxeTreeNode.cs</FileName>
+      <HashCode>QAAhAAgAAQoQAAHCGAAASAgAAAgAAKEIDACgCE4AICA=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="ChinaCustoms.Framework.DeluxeWorks.Web.WebControls.DeluxeTreeNodeCollection" Collapsed="true">
+    <Position X="5.75" Y="1" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>DeluxeTree\DeluxeTreeNode.cs</FileName>
+      <HashCode>AEIAAgAAAACAgBAACAAAFAQAAAAAAAAACAAAAABQIAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ChinaCustoms.Framework.DeluxeWorks.Web.WebControls.DeluxeTreeNodeConverter" Collapsed="true">
+    <Position X="5.75" Y="1.75" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>DeluxeTree\DeluxeTreeNode.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAACBAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChinaCustoms.Framework.DeluxeWorks.Web.WebControls.DeluxeTreeNodeListConverter" Collapsed="true">
+    <Position X="5.75" Y="2.75" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>DeluxeTree\DeluxeTreeNode.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAACBAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+</ClassDiagram>

@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>测试打开对话框</title>
+    <script type="text/javascript">
+        function openDialog() {
+            dialogHelper.Title = "测试程序";
+            dialogHelper.MultiSelect = true;
+            //dialogHelper.FileName = "";
+
+            if (dialogHelper.OpenDialog()) {
+                var fileNames = dialogHelper.FileNames.toArray();
+                var message = "";
+
+                for (var i = 0; i < fileNames.length; i++)
+                {
+                    if (message != "")
+                        message += "\n";
+
+                    message += fileNames[i];
+                }
+
+                alert(message);
+            }
+        }
+    </script>
+</head>
+<body>
+    <object classid="clsid:ED8B69F0-6563-472C-8177-C9ACDC26B2DC" id="dialogHelper"></object>
+    <button onclick="openDialog();">Open Dialog...</button>
+</body>
+</html>

@@ -1,0 +1,48 @@
+﻿<%@ Master Language="C#" AutoEventWireup="false" CodeBehind="MaintainMaster.Master.cs"
+	Inherits="PermissionCenter.Dialogs.MaintainMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" scroll="no" style="overflow: hidden">
+<head runat="server">
+	<title>用户配置</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<link rel="icon" href="../favicon.ico" type="image/x-icon" />
+	<link rel="Shortcut Icon" href="../favicon.ico" />
+	<pc:HeaderControl ID="HeaderControl1" runat="server" />
+	<style type="text/css">
+		.pc-label
+		{
+			font-weight: bold;
+			padding: 2px;
+		}
+		
+		.pc-description
+		{
+			padding:5px;
+		}
+	</style>
+	<asp:ContentPlaceHolder ID="head" runat="server">
+	</asp:ContentPlaceHolder>
+</head>
+<body>
+	<form id="form1" runat="server">
+	<asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true">
+	</asp:ScriptManager>
+	<div class="pc-frame-header">
+		<pc:Banner ID="pcBanner" runat="server" OnTimePointChanged="RefreshList" ActiveMenuIndex="-1" />
+	</div>
+	<pc:BannerNotice ID="notice" runat="server"></pc:BannerNotice>
+	<div class="pc-frame-container">
+		<div class="pc-container5">
+			<div class="pc-tabs-header2">
+				<span class=""><a href="Profile.aspx">个人设置</a></span><span class="pc-active">管理功能</span>
+			</div>
+			<div class="pc-tabs-content pc-active">
+				<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+				</asp:ContentPlaceHolder>
+			</div>
+		</div>
+	</div>
+	</form>
+</body>
+</html>

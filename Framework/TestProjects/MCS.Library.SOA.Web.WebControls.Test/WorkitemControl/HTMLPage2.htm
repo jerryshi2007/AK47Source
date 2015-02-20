@@ -1,0 +1,29 @@
+﻿<html>
+<head>
+    <title>Dom:clearTimeout使用实例</title>
+</head>
+<body>
+    <h2>
+        耐心等一下．会在5秒中以后向页面添加一段文字!刷新页面，在1秒中之内点击停止按扭．注销setTimeout方法．文字不会被添加
+        <br />
+    </h2>
+    <input type="button" value="停止" onclick="clear_set()" />
+    <hr />
+    <div id="a">
+    </div>
+    <script type="text/javascript">
+        function Add_Text() {
+            var a = document.getElementById("a");
+            var str = document.createTextNode("欢迎光临Web圈！");
+            a.appendChild(str);
+        }
+
+        set_id = setTimeout(Add_Text, 1000); //添加文字
+
+
+        function clear_set() {
+            clearTimeout(set_id);
+        }
+    </script>
+</body>
+</html>

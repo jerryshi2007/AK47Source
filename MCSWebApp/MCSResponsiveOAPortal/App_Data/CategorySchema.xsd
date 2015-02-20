@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:mcsroap="CategorySchema.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="CategorySchema.xsd" >
+  <xs:complexType name="type_group" >
+    <xs:sequence>
+      <xs:element name="category" type="mcsroap:type_category" minOccurs="1" maxOccurs="unbounded">
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="name" type="mcsroap:CodeName" use="required" />
+    <xs:attribute name="title" type="xs:string" use="required" />
+    <xs:anyAttribute namespace="##any" processContents="lax" />
+  </xs:complexType>
+  <xs:complexType name="type_category" >
+    <xs:choice minOccurs="0" maxOccurs="1">
+      <xs:sequence>
+        <xs:element name="group" type="mcsroap:type_group" minOccurs="0" maxOccurs="unbounded">
+          <xs:unique name="uniqueNameInGroup">
+            <xs:selector xpath="./*">
+            </xs:selector>
+            <xs:field xpath="@name">
+            </xs:field>
+          </xs:unique>
+        </xs:element>
+      </xs:sequence>
+      <xs:sequence>
+        <xs:element name="category" type="mcsroap:type_category" minOccurs="0" maxOccurs="unbounded">
+          <xs:unique name="uniqueNameInCategory">
+            <xs:selector xpath="./*">
+            </xs:selector>
+            <xs:field xpath="@name">
+            </xs:field>
+          </xs:unique>
+        </xs:element>
+        <xs:element name="item" type="mcsroap:type_item" minOccurs="0" maxOccurs="unbounded"></xs:element>
+      </xs:sequence>
+    </xs:choice>
+    <xs:attribute name="name" type="mcsroap:CodeName" use="required" />
+    <xs:attribute name="title" type="xs:string" use="required" />
+    <xs:attribute name="visible" type="xs:boolean" use="optional" />
+    <xs:attribute name="role" type="xs:string"  use="optional"/>
+    <xs:anyAttribute namespace="##any" processContents="lax" />
+  </xs:complexType>
+  <xs:complexType name="type_item">
+    <xs:attribute name="name" type="mcsroap:CodeName" use="required" />
+    <xs:attribute name="title" type="xs:string" use="required" />
+    <xs:attribute name="visible" type="xs:boolean" use="optional" />
+    <xs:attribute name="href" type="xs:string" use="optional" />
+    <xs:attribute name="role" type="xs:string"  use="optional"/>
+    <xs:attribute name="feature" type="xs:string"  use="optional"/>
+    <xs:anyAttribute namespace="##any" processContents="lax" />
+  </xs:complexType>
+  <xs:simpleType name="CodeName" id="CodeName">
+    <xs:restriction base="xs:Name">
+      <xs:pattern value="[\i-[:]][\c-[:]]*" id="CodeName.pattern">
+      </xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="category" type="mcsroap:type_category" >
+    <xs:unique name="uniqueName">
+      <xs:selector xpath="./*">
+      </xs:selector>
+      <xs:field xpath="@name">
+      </xs:field>
+    </xs:unique>
+  </xs:element>
+</xs:schema>

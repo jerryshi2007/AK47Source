@@ -1,0 +1,14 @@
+﻿@media screen
+{
+	.materialControlUploadBtn
+	{
+	}
+}
+
+@media print
+{
+	.materialControlUploadBtn
+	{
+		display: none;
+	}
+}

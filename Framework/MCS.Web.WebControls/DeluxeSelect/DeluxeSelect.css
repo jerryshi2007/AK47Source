@@ -1,0 +1,47 @@
+.ajax_deluxeselect_button
+{
+	border-right: #7b9ebd 1px solid;
+	padding-right: 2px;
+	border-top: #7b9ebd 1px solid;
+	padding-left: 2px;
+	font-size: 12px;
+	FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#cecfde);
+	border-left: #7b9ebd 1px solid;
+	cursor: hand;
+	color: black;
+	padding-top: 2px;
+	border-bottom: #7b9ebd 1px solid;
+	width: 60px;
+	margin: 4px;
+}
+.ajax_deluxeselect_select
+{
+	border-style: none;
+	float: left;
+}
+
+.ajax_deluxeselect_movebutton
+{
+	font-weight: bold;
+	border-right: #7b9ebd 1px solid;
+	padding-right: 2px;
+	border-top: #7b9ebd 1px solid;
+	padding-left: 2px;
+	font-size: 12px;
+	FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#cecfde);
+	border-left: #7b9ebd 1px solid;
+	cursor: hand;
+	color: black;
+	padding-top: 2px;
+	border-bottom: #7b9ebd 1px solid;
+	margin: 2px;
+}
+.ajax_deluxeselect_td
+{
+	vertical-align: middle;
+}
+
+
+
+
+

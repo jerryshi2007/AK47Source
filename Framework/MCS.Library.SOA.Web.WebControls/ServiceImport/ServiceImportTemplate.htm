@@ -1,0 +1,67 @@
+﻿<script type="text/javascript">
+	function onConfirmButtonClick() {
+		try {
+			window.returnValue = Sys.Serialization.JavaScriptSerializer.serialize($get("hf_serviceImport_returnValue").value);
+			window.close();
+		}
+		catch (e) {
+			alert(e);
+		}
+	}
+
+	function analysisResult() {
+		$find("ServiceImportDialog")._AnalysisResult();
+
+		//var confirmButtonClientID = $find("ServiceImportDialog").get_confirmButtonClientID();
+		//if ($get("hf_serviceImport_returnValue").value.length > 0)  
+		//    document.getElementById(confirmButtonClientID).disabled = false;
+		//else
+		//    document.getElementById(confirmButtonClientID).disabled = true;
+	}
+
+	function bindOperation() {
+		$find("ServiceImportDialog")._GetOperationList();
+	}
+</script>
+<html>
+<body>
+	<table cellpadding="0" cellspacing="0" style="width: 100%; height: 100%">
+		<tr>
+			<td style="vertical-align: middle; text-align: center;">
+				<div runat="server" id="ServiceImportContainer" style="width: 95%; text-align: center;">
+					<table style="width: 100%">
+						<tr>
+							<td style="width: 120px; text-align: right;">
+								Service地址：
+							</td>
+							<td>
+								<div runat="server" id="div_serviceImport_serviceAddress">
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 120px; text-align: right;">
+								方法名：
+							</td>
+							<td>
+								<div runat="server" id="div_serviceImport_serviceOperation">
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 120px; text-align: right; vertical-align: top;">
+								提示信息：
+							</td>
+							<td>
+								<div id="div_message" style="color: Red; font-weight: bold;">
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<input type="hidden" id="hf_serviceImport_returnValue" />
+</body>
+</html>

@@ -1,0 +1,813 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>../../../CIIC.HSR.TSP.Files/TSPLib.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{42C6D301-8CCB-4CBD-BC20-250D98A4C369}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MCS.Web.WebControls</RootNamespace>
+    <AssemblyName>MCS.Library.SOA.Web.WebControls</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>MCS.Library.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MCS.Library, Version=1.2.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Data">
+      <HintPath>..\..\Bin\MCS.Library.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Office">
+      <HintPath>..\..\Bin\MCS.Library.Office.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.OGUPermission, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <HintPath>..\..\Bin\MCS.Library.OGUPermission.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Passport, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <HintPath>..\..\Bin\MCS.Library.Passport.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <HintPath>..\..\Bin\MCS.Library.SOA.DataObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Library, Version=1.2.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Web.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Library.Script.Json">
+      <HintPath>..\..\Bin\MCS.Web.Library.Script.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.WebControls, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <HintPath>..\..\Bin\MCS.Web.WebControls.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommonAutoCompleteWithSelector\CommonAutoCompleteWithSelectorControl.cs" />
+    <Compile Include="Common\LoadingDialogContentEventArgs.cs" />
+    <Compile Include="Common\OriginaUserOUControlQueryImpl.cs" />
+    <Compile Include="Common\UserOUControlSettings.cs" />
+    <Compile Include="ComponentHelperWrapper\ComponentHelperWrapper.cs" />
+    <Compile Include="ComponentHelperWrapper\ComponentHelperWrapperSettings.cs" />
+    <Compile Include="Configuration\CutomerServiceExecutiveSetting.cs" />
+    <Compile Include="CustomerServiceExecutiveLink\CustomerServiceExecutiveLink.cs" />
+    <Compile Include="CustomerServiceExecutiveLink\DefaultCutomerServiceExecutiveQuery.cs" />
+    <Compile Include="DeluxeQueryConditionDataSourceControl\DeluxeQueryConditionDataSource.cs" />
+    <Compile Include="GangedDataBindingControl\GangedDataBindingItem.cs" />
+    <Compile Include="GangedDataBindingControl\GangedDataBindingControl.cs" />
+    <Compile Include="Modules\ArchiveRedirectModule.cs" />
+    <Compile Include="MVC\DefaultQueryUserProcessAclChecker.cs" />
+    <Compile Include="PhoneNumberControl\PhoneNumberControl.cs" />
+    <Compile Include="DeluxeSearchClient\DeluxeSearchClient.cs" />
+    <Compile Include="DeluxeSearchClient\DeluxeSearchClientDesigner.cs" />
+    <Compile Include="DeluxeSearch\CategoryColumn.cs" />
+    <Compile Include="DeluxeSearch\DeluxeSearch.cs" />
+    <Compile Include="DeluxeSearch\Category.cs" />
+    <Compile Include="ClientGrid\ClientGrid.cs" />
+    <Compile Include="ClientGrid\ClientGridColumn.cs" />
+    <Compile Include="ClientGrid\ClientGridColumnConverter.cs" />
+    <Compile Include="ClientGrid\ClientGridColumnEditTemplate.cs" />
+    <Compile Include="ClientGrid\ClientGridScript.cs" />
+    <Compile Include="CommandInput\CommandInput.cs" />
+    <Compile Include="Common\CheckLockOperation.cs" />
+    <Compile Include="Common\Define.cs" />
+    <Compile Include="Common\DialogControlAttribute.cs" />
+    <Compile Include="Common\DialogControlBase.cs" />
+    <Compile Include="Common\DialogControlParamsBase.cs" />
+    <Compile Include="Common\DialogStartUpControlConverter.cs" />
+    <Compile Include="Common\FileUpload.cs" />
+    <Compile Include="Common\HiddenButtonWrapper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configuration\WfControlSettings.cs" />
+    <Compile Include="Configuration\WfOperationPlugInsSettings.cs" />
+    <Compile Include="Configuration\WfRuntimeViewerSettings.cs" />
+    <Compile Include="Contexts\AclContext.cs" />
+    <Compile Include="DataBindingControl\ClientDataBindingItem.cs" />
+    <Compile Include="DataBindingControl\ClientVdtAttribute.cs" />
+    <Compile Include="DataBindingControl\DataBindingControl.cs" />
+    <Compile Include="DataBindingControl\DataBindingInnerValidationControl.cs" />
+    <Compile Include="DataBindingControl\DataBindingItem.cs" />
+    <Compile Include="DataBindingControl\DataBindingItemsEditor.cs" />
+    <Compile Include="DataBindingControl\DataBindingItemsEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataBindingControl\DataBindingItemsEditorForm.Designer.cs">
+      <DependentUpon>DataBindingItemsEditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeluxeSearch\DeluxeSearchDesigner.cs" />
+    <Compile Include="DeluxeSearch\SearchEventArgs.cs" />
+    <Compile Include="DeluxeSearch\WhereSqlClauseBuilderConverter.cs" />
+    <Compile Include="DialogHelperWrapper\DialogHelperWrapper.cs" />
+    <Compile Include="DialogHelperWrapper\DialogHelperWrapperSettings.cs" />
+    <Compile Include="Excel\WorkbookNodeExtension.cs" />
+    <Compile Include="Globalization\GlobalizationModule.cs" />
+    <Compile Include="HBDropDownList\HBDropDownList.cs" />
+    <Compile Include="HBRadioButtonList\HBRadioButtonList.cs" />
+    <Compile Include="HBTextBox\HBTextBox.cs" />
+    <Compile Include="ImageUploaderControl\ImageUploaderDialog.cs" />
+    <Compile Include="ImageUploaderControl\ImageUploadHelper.cs" />
+    <Compile Include="ImageUploaderControl\ImageUploader.cs" />
+    <Compile Include="MaterialControl\DialogUploadFileTraditionalControl.cs" />
+    <Compile Include="MaterialControl\DialogEditDocumentControl.cs" />
+    <Compile Include="MaterialControl\DialogFileOpenTypeControl.cs" />
+    <Compile Include="MaterialControl\DialogMaterialVersionControl.cs" />
+    <Compile Include="MaterialControl\DialogUploadFileControl.cs" />
+    <Compile Include="MaterialControl\DialogUploadFileProcessControl.cs" />
+    <Compile Include="MaterialControl\MaterialControl.cs" />
+    <Compile Include="MaterialControl\MaterialConverter.cs" />
+    <Compile Include="MaterialControl\MaterialScript.cs" />
+    <Compile Include="MultiProcessControl\MultiProcessControl.cs" />
+    <Compile Include="MultiProcessControl\MultiProcessControlParam.cs" />
+    <Compile Include="MVC\Act.cs" />
+    <Compile Include="MVC\ActHelper.cs" />
+    <Compile Include="MVC\CommandState.cs" />
+    <Compile Include="MVC\ControllerBase.cs" />
+    <Compile Include="MVC\ControllerOperationBase.cs" />
+    <Compile Include="MVC\ControllerOperationDelegations.cs" />
+    <Compile Include="MVC\ControllerNavigationTargetAttribute.cs" />
+    <Compile Include="MVC\DefaultAdminUserProcessAclCheck.cs" />
+    <Compile Include="MVC\DefaultUserProcessAclChecker.cs" />
+    <Compile Include="MVC\FormCommandState.cs" />
+    <Compile Include="MVC\FormCommandStateGenericBase.cs" />
+    <Compile Include="MVC\IUserProcessAclChecker.cs" />
+    <Compile Include="MVC\OpenFormControllerOperation.cs" />
+    <Compile Include="MVC\OpenFormSettings.cs" />
+    <Compile Include="MVC\Scene.cs" />
+    <Compile Include="MVC\SceneInfoAttribute.cs" />
+    <Compile Include="MVC\SceneItem.cs" />
+    <Compile Include="MVC\SceneRenderBase.cs" />
+    <Compile Include="MVC\SqlPageStatePersister.cs" />
+    <Compile Include="MVC\StartWorkflowControllerOperation.cs" />
+    <Compile Include="MVC\ViewBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MVC\ViewStatePersistSettings.cs" />
+    <Compile Include="MVC\WfClientContext.cs" />
+    <Compile Include="MVC\RequestCommand.cs" />
+    <Compile Include="MVC\WfClientLockCollection.cs" />
+    <Compile Include="NotifyDialog\NotifyDialogControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OfficeViewer\OfficeViewerWrapper.cs" />
+    <Compile Include="OfficeViewer\OfficeViewerWrapperSettings.cs" />
+    <Compile Include="Opinion\OpinionExtension.cs" />
+    <Compile Include="Opinion\OpinionInput.cs" />
+    <Compile Include="Opinion\OpinionListControlHelper.cs" />
+    <Compile Include="Opinion\OpinionListView.cs" />
+    <Compile Include="Opinion\OpinionListViewActivityRender.cs" />
+    <Compile Include="Opinion\OpinionListViewEnumerations.cs" />
+    <Compile Include="Opinion\OpinionListViewEventArgs.cs" />
+    <Compile Include="Opinion\OpinionListViewOperations.cs" />
+    <Compile Include="Opinion\PredefinedOpinionDialog.cs" />
+    <Compile Include="Opinion\PredefinedOpinionDialogParams.cs" />
+    <Compile Include="Opinion\SimpleOpinionListView.cs" />
+    <Compile Include="OuNavigatorControl\OuNavigator.cs" />
+    <Compile Include="OuUserInputControl\OuUserInputControl.cs" />
+    <Compile Include="PlanCompleteTime\PlanCompleteTime.cs" />
+    <Compile Include="PopupTip\PopupTip.cs" />
+    <Compile Include="PopupTip\PopupTipDesigner.cs" />
+    <Compile Include="PostProgress\PostProgressControl.cs" />
+    <Compile Include="PostProgress\PostProgressControlParams.cs" />
+    <Compile Include="PostProgress\PostProgressDoPostedDataEventArgs.cs" />
+    <Compile Include="PostProgress\PostProgressPrepareDataEventArgs.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Opinion\OpinionInputDialog.cs" />
+    <Compile Include="Opinion\OpinionInputDialogParams.cs" />
+    <Compile Include="PropertyEditorBase\ClientPropertyEditorControlBaseResources.cs" />
+    <Compile Include="PropertyEditorBase\OguGroupCollectionValueToPropertyValueConverter.cs" />
+    <Compile Include="PropertyEditorBase\OguGroupValueToPropertyValueConverter.cs" />
+    <Compile Include="PropertyEditorBase\OguObjectValueToPropertyValue.cs" />
+    <Compile Include="PropertyEditorBase\OguObjectCollectionValueToPropertyValueConverter.cs" />
+    <Compile Include="PropertyEditorBase\OguOrganizationCollectionValueToPropertyValueConverter.cs" />
+    <Compile Include="PropertyEditorBase\DropdownListEditor\DropdownPropertyDataSourceSettings.cs" />
+    <Compile Include="PropertyEditorBase\ImageUploaderPropertyEditor.cs" />
+    <Compile Include="PropertyEditorBase\ImageUploaderPropertyEditorForGrid.cs" />
+    <Compile Include="PropertyEditorBase\OguObjectValueToPropertyValueBase.cs" />
+    <Compile Include="PropertyEditorBase\OguOrganizationValueToPropertyValueConverter.cs" />
+    <Compile Include="PropertyEditorBase\OguUserCollectionValueToPropertyValueConverter.cs" />
+    <Compile Include="PropertyEditorBase\OguUserValueToPropertyValueConverter.cs" />
+    <Compile Include="PropertyEditorBase\OUUserInputEditorParams.cs" />
+    <Compile Include="PropertyEditorBase\OUUserInputPropertyEditor.cs" />
+    <Compile Include="PropertyEditorBase\PasswordConfirmationEditor.cs" />
+    <Compile Include="PropertyEditorBase\PropertyEditorControlBase.cs" />
+    <Compile Include="PropertyEditorBase\RoleGraphPropertyEditor.cs" />
+    <Compile Include="PropertyEditorBase\MaterialPropertyEditor.cs" />
+    <Compile Include="PropertyEditorBase\ClientGridPropertyEditor.cs" />
+    <Compile Include="PropertyForm\PropertyForm.cs" />
+    <Compile Include="PropertyEditorBase\BooleanPropertyEditor.cs" />
+    <Compile Include="PropertyEditorBase\DatePropertyEditor.cs" />
+    <Compile Include="PropertyEditorBase\DateTimePropertyEditor.cs" />
+    <Compile Include="PropertyEditorBase\EnumPropertyEditor.cs" />
+    <Compile Include="PropertyEditorBase\EnumTypeDescription.cs" />
+    <Compile Include="PropertyEditorBase\ObjectPropertyEditor.cs" />
+    <Compile Include="PropertyEditorBase\PropertyEditorBase.cs" />
+    <Compile Include="PropertyGrid\PropertyEditorDescriptionAttrubite.cs" />
+    <Compile Include="PropertyEditorBase\PropertyEditorHelper.cs" />
+    <Compile Include="PropertyEditorBase\PropertyEditorSettings.cs" />
+    <Compile Include="PropertyEditorBase\StandardPropertyEditor.cs" />
+    <Compile Include="RatingControl\RatingControl.cs" />
+    <Compile Include="RelativeLink\RelativeDesigner.cs" />
+    <Compile Include="RelativeLink\RelativeLink.cs" />
+    <Compile Include="DeluxeObjectDataSourceControl\DeluxeObjectDataSource.cs" />
+    <Compile Include="RelativeLink\RelativeLinkControlConfigSetting.cs" />
+    <Compile Include="PhoneNumberControl\PhoneNumberConverter.cs" />
+    <Compile Include="PhoneNumberControl\PhoneNumberScript.cs" />
+    <Compile Include="RightSideNavigator\RelativeLinkCategory.cs" />
+    <Compile Include="RightSideNavigator\RelativeLinkItem.cs" />
+    <Compile Include="RightSideNavigator\RightSideNavigator.cs" />
+    <Compile Include="RightSideNavigator\RightSideNavigatorDesigner.cs" />
+    <Compile Include="RoleControl\RoleGraphControl.cs" />
+    <Compile Include="RoleControl\RoleGraphControlParams.cs" />
+    <Compile Include="RoleMatrixEntry\RoleMatrixEntryControl.cs" />
+    <Compile Include="SubmitButton\SubmitButtonProgressResponser.cs" />
+    <Compile Include="UEditorWrapper\UEditorConfigWrapper.cs" />
+    <Compile Include="UEditorWrapper\UEditorConfigWrapperConverter.cs" />
+    <Compile Include="UEditorWrapper\UEditorWrapper.cs" />
+    <Compile Include="UEditorWrapper\UEditorWrapperOperations.cs" />
+    <Compile Include="UEditorWrapper\UEditorWrapperSettings.cs" />
+    <Compile Include="WfCollectParameterControl\WfCollectParameterControl.cs" />
+    <Compile Include="WfCollectParameterControl\WFParameterValidationControl.cs" />
+    <Compile Include="Workflow\PauseControl\WfPauseControl.cs" />
+    <Compile Include="Workflow\RelativeProcessControl\RelativeProcess.cs" />
+    <Compile Include="ServiceImport\ServiceImport.cs" />
+    <Compile Include="ServiceImport\ServiceImportParams.cs" />
+    <Compile Include="UploadProgress\UploadProgressControl.cs" />
+    <Compile Include="UploadProgress\UploadProgressControlParams.cs" />
+    <Compile Include="UploadProgress\UploadProgressStatus.cs" />
+    <Compile Include="Workflow\AbortControl\WfAbortControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Workflow\Abstract\IWfApplicationRuntimeParametersCollector.cs" />
+    <Compile Include="Workflow\Abstract\WfApplicationRuntimeParametersCollector.cs" />
+    <Compile Include="Workflow\CirculateControl\WfCirculateControl.cs" />
+    <Compile Include="Workflow\CopyForm\WfCopyFormControl.cs" />
+    <Compile Include="Workflow\LockContextControl\LockContextControl.cs" />
+    <Compile Include="Workflow\LockContextControl\LockConverter.cs" />
+    <Compile Include="Workflow\PrintControl\PrintControl.cs" />
+    <Compile Include="Workflow\ReturnControl\OpinionReasonItem.cs" />
+    <Compile Include="Workflow\ReturnControl\RejectActivityList.cs" />
+    <Compile Include="Workflow\ReturnControl\RejectActivitySelector.cs" />
+    <Compile Include="Workflow\ReturnControl\RejectActivitySelectorParams.cs" />
+    <Compile Include="Workflow\ReturnControl\WfReturnControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Workflow\RuntimeParametersViewer\RuntimeParametersViewer.cs" />
+    <Compile Include="Workflow\RuntimeParametersViewer\RuntimeParametersViewerParams.cs" />
+    <Compile Include="Workflow\WfAbortOpinionDisplayControl\WfAbortOpinionDisplayControl.cs" />
+    <Compile Include="Workflow\WfActivityDescriptorEditor\WfExtActivityDescriptorEditor.cs" />
+    <Compile Include="Workflow\WfActivityDescriptorEditor\WfSimpleActivityDescriptorEditor.cs" />
+    <Compile Include="Workflow\WfAddApprover\WfAddApproverControl.cs" />
+    <Compile Include="Workflow\WfNextStepSelector\WfNextStepSelectorControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Workflow\WfProcessDescriptorSelector\ProcessDescriptorInfoQuery.cs" />
+    <Compile Include="Workflow\WfProcessDescriptorSelector\WfProcessDescriptorSelector.cs" />
+    <Compile Include="Workflow\WfProcessDescriptorSelector\WfProcessDescriptorSelectorParams.cs" />
+    <Compile Include="PopUpMessageControl\PopUpMessageControl.cs" />
+    <Compile Include="ProcessNavigator\ProcessNavigatorControl.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyGrid\PropertyGrid.cs" />
+    <Compile Include="RelativeInfoListControl\RelativeInfoListControl.cs" />
+    <Compile Include="RelativeInfoListControl\RelativeInfoListControlBase.cs" />
+    <Compile Include="Resources\ControlResources.cs" />
+    <Compile Include="Script\Resources\HBCommonScript.cs" />
+    <Compile Include="SimpleTabStrip\SimpleTabStrip.cs" />
+    <Compile Include="SimpleTabStrip\TabStripItem.cs" />
+    <Compile Include="SubmitButton\SubmitButton.cs" />
+    <Compile Include="SubmitButton\SubmitButtonScript.cs" />
+    <Compile Include="UserControl\UserControlDefine.cs" />
+    <Compile Include="UserControl\UserControlParams.cs" />
+    <Compile Include="UserControl\UserOUGraphControl.cs" />
+    <Compile Include="UserPresence\UserPresence.cs" />
+    <Compile Include="UserSelector\ConsignUserSelector.cs" />
+    <Compile Include="UserSelector\ConsignUserSelectorParams.cs" />
+    <Compile Include="UserSelector\ExtConsignUserSelector.cs" />
+    <Compile Include="UserSelector\ExtConsignUserSelectorParams.cs" />
+    <Compile Include="UserSelector\ExtOuUserInputControl.cs" />
+    <Compile Include="UserSelector\UserSelector.cs" />
+    <Compile Include="UserSelector\UserSelectorParams.cs" />
+    <Compile Include="WfProcessStepsControl\WfProcessStepsControl.cs" />
+    <Compile Include="Workflow\Abstract\ExtScriptHelper.cs" />
+    <Compile Include="Workflow\Abstract\WfMoveToSelectedResultConverter.cs" />
+    <Compile Include="Workflow\Abstract\WfProcessControlBase.cs" />
+    <Compile Include="Workflow\StatusControl\WfStatusControl.cs" />
+    <Compile Include="Workflow\Toolbar\WfReadControl.cs" />
+    <Compile Include="Workflow\Toolbar\WfToolBar.cs" />
+    <Compile Include="Workflow\WfActivityDescriptorEditor\WfActivityDescriptorEditor.cs" />
+    <Compile Include="Workflow\WfActivityDescriptorEditor\WfActivityDescriptorEditorBase.cs" />
+    <Compile Include="Workflow\WfActivityDescriptorEditor\WfActivityDescriptorEditorParams.cs" />
+    <Compile Include="Workflow\Abstract\WfControlBase.cs" />
+    <Compile Include="Workflow\Abstract\WfControlHelperExt.cs" />
+    <Compile Include="Workflow\Abstract\WfMoveToSelectedResult.cs" />
+    <Compile Include="Workflow\Abstract\WfProcessDailogControlParamsBase.cs" />
+    <Compile Include="Workflow\Abstract\WfProcessDialogControlBase.cs" />
+    <Compile Include="Workflow\Abstract\WfVariableDefine.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Workflow\ConsignControl\WfConsignControl.cs" />
+    <Compile Include="Workflow\MoveTo\WfMoveToControl.cs" />
+    <Compile Include="Workflow\WfActivitiesSelector\WfActivitiesSelectorControl.cs" />
+    <Compile Include="Workflow\WfActivitiesSelector\WfActivitiesSelectorParams.cs" />
+    <Compile Include="Workflow\WfActivitiesSelector\WfProcessActivitiesListControl.cs" />
+    <Compile Include="Workflow\WfActivityDescriptorGroupResourceEditor\WfActivityDescriptorGroupResourceEditor.cs" />
+    <Compile Include="Workflow\WfRuntimeViewer\ProcessDescriptorInfoQuery.cs" />
+    <Compile Include="Workflow\WfRuntimeViewer\WfRuntimeViewer.cs" />
+    <Compile Include="Workflow\WfRuntimeViewer\WfRuntimeViewerDialog.cs" />
+    <Compile Include="Workflow\WfRuntimeViewer\WfRuntimeViewerDialogParams.cs" />
+    <Compile Include="Workflow\WfRuntimeViewer\WfRuntimeViewerWrapperControl.cs" />
+    <Compile Include="Workflow\WfRuntimeViewer\WfRuntimeViewerWrapperControlParams.cs" />
+    <Compile Include="Workflow\Withdraw\WfWithdrawControl.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MCS.Library.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DataBindingControl\DataBindingItemsEditorForm.resx">
+      <DependentUpon>DataBindingItemsEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PropertyGrid\PropertyGrid.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PropertyGrid\PropertyGrid.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PropertyGrid\alphabetSort.gif" />
+    <EmbeddedResource Include="PropertyGrid\alphabetSort_hover.gif" />
+    <EmbeddedResource Include="PropertyGrid\categorySort.gif" />
+    <EmbeddedResource Include="PropertyGrid\categorySort_hover.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ClientGrid\ClientGrid.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Script\Resources\addNamespace.js" />
+    <EmbeddedResource Include="Script\Resources\dialogLogo.gif" />
+    <EmbeddedResource Include="Script\Resources\HBCommon.js" />
+    <EmbeddedResource Include="Script\Resources\standardDialogControlTemplate.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CommandInput\CommandInput.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SubmitButton\SubmitButton.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MultiProcessControl\MultiProcessControl.htm" />
+    <EmbeddedResource Include="MultiProcessControl\MultiProcessControl.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SimpleTabStrip\SimpleTabStrip.css" />
+    <EmbeddedResource Include="SimpleTabStrip\simpleTabStrip.htc" />
+    <EmbeddedResource Include="SimpleTabStrip\simpleTabStrip.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PopUpMessageControl\MessageIcon.gif" />
+    <EmbeddedResource Include="PopUpMessageControl\MessageTitle.gif" />
+    <EmbeddedResource Include="PopUpMessageControl\msg.wav" />
+    <EmbeddedResource Include="PopUpMessageControl\PopUpMessageControl.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UserControl\disabledGroup.gif" />
+    <EmbeddedResource Include="UserControl\disabledOu.gif" />
+    <EmbeddedResource Include="UserControl\disabledUser.gif" />
+    <EmbeddedResource Include="UserControl\group.gif" />
+    <EmbeddedResource Include="UserControl\ou.gif" />
+    <EmbeddedResource Include="UserControl\user.gif" />
+    <EmbeddedResource Include="UserControl\userOUDialogTemplate.htm" />
+    <EmbeddedResource Include="UserControl\UserOUGraphControl.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="OuUserInputControl\checkUser.gif" />
+    <EmbeddedResource Include="OuUserInputControl\group.gif" />
+    <EmbeddedResource Include="OuUserInputControl\ou.gif" />
+    <EmbeddedResource Include="OuUserInputControl\OuUserInputControl.js" />
+    <EmbeddedResource Include="OuUserInputControl\OuUserInputDefaultCss.css" />
+    <EmbeddedResource Include="OuUserInputControl\propertyDialog.htm" />
+    <EmbeddedResource Include="OuUserInputControl\selectObjectDialog.htm" />
+    <EmbeddedResource Include="OuUserInputControl\user.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Images\activity.gif" />
+    <EmbeddedResource Include="Resources\Images\anchor.gif" />
+    <EmbeddedResource Include="Resources\Images\cancelled.gif" />
+    <EmbeddedResource Include="Resources\Images\completeActivity.gif" />
+    <EmbeddedResource Include="Resources\Images\delay.gif" />
+    <EmbeddedResource Include="Resources\Images\hourglass.gif" />
+    <EmbeddedResource Include="Resources\Images\initialActivity.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DataBindingControl\DataBindingControl.js" />
+    <EmbeddedResource Include="HBDropDownList\HBDropDownList.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="WfProcessStepsControl\flow_steps_bg.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="WfProcessStepsControl\WfProcessStepsControl.css" />
+    <EmbeddedResource Include="WfProcessStepsControl\WfProcessStepsControl.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UserPresence\Resources\blank.gif" />
+    <EmbeddedResource Include="UserPresence\Resources\imnaway.png" />
+    <EmbeddedResource Include="UserPresence\Resources\imnawayoof.png" />
+    <EmbeddedResource Include="UserPresence\Resources\imnblocked.png" />
+    <EmbeddedResource Include="UserPresence\Resources\imnbusy.png" />
+    <EmbeddedResource Include="UserPresence\Resources\imnbusyoof.png" />
+    <EmbeddedResource Include="UserPresence\Resources\imndnd.png" />
+    <EmbeddedResource Include="UserPresence\Resources\imndndoof.png" />
+    <EmbeddedResource Include="UserPresence\Resources\imnhdr.gif" />
+    <EmbeddedResource Include="UserPresence\Resources\imnidle.png" />
+    <EmbeddedResource Include="UserPresence\Resources\imnidlebusy.png" />
+    <EmbeddedResource Include="UserPresence\Resources\imnidlebusyoof.png" />
+    <EmbeddedResource Include="UserPresence\Resources\imnidleoof.png" />
+    <EmbeddedResource Include="UserPresence\Resources\imnoff.png" />
+    <EmbeddedResource Include="UserPresence\Resources\imnoffoof.png" />
+    <EmbeddedResource Include="UserPresence\Resources\imnon.png" />
+    <EmbeddedResource Include="UserPresence\Resources\imnonoof.png" />
+    <EmbeddedResource Include="UserPresence\Resources\IMNStatus.js" />
+    <EmbeddedResource Include="UserPresence\Resources\status.css" />
+    <EmbeddedResource Include="UserPresence\Resources\userPresenceInnerPage.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Workflow\Abstract\wfOperationNotifier.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Workflow\MoveTo\wflogo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UserSelector\userSelectorl.js" />
+    <EmbeddedResource Include="UserSelector\userSelectorTemplate.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Opinion\OpinionInputClient.js" />
+    <EmbeddedResource Include="Opinion\PredefinedOpinionDialog.htm" />
+    <EmbeddedResource Include="Opinion\PredefinedOpinionDialog.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Workflow\WfActivitiesSelector\WfActivitiesSelectorControl.htm" />
+    <EmbeddedResource Include="Workflow\WfActivitiesSelector\WfActivitiesSelectorControl.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Workflow\WfActivityDescriptorEditor\WfActivityDescriptorEditor.htm" />
+    <EmbeddedResource Include="Workflow\WfActivityDescriptorEditor\WfActivityDescriptorEditor.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="NotifyDialog\notifyDialogLogo.gif" />
+    <EmbeddedResource Include="NotifyDialog\notifyTaskTemplate.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Workflow\Toolbar\WfToolBarTemplate.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Workflow\StatusControl\WfStatusControl.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UserSelector\ConsignUserSelector.js" />
+    <EmbeddedResource Include="UserSelector\ConsignUserSelectorTemplate.htm" />
+    <EmbeddedResource Include="UserSelector\ExtConsignUserSelector.js" />
+    <EmbeddedResource Include="UserSelector\ExtConsignUserSelectorTemplate.htm" />
+    <EmbeddedResource Include="UserSelector\ExtOuUserInputControl.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DeluxeSearchClient\Images\" />
+    <Folder Include="RelativeInfoListControl\Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Workflow\WfRuntimeViewer\WfRuntimeViewerDialog.js" />
+    <EmbeddedResource Include="Workflow\WfRuntimeViewer\WfRuntimeViewerDialogTemplate.htm" />
+    <EmbeddedResource Include="Opinion\addApproverLogo.gif" />
+    <EmbeddedResource Include="Opinion\OpinionListView.js" />
+    <EmbeddedResource Include="Opinion\returnLogo.gif" />
+    <EmbeddedResource Include="Workflow\WfActivityDescriptorGroupResourceEditor\WfActivityDescriptorGroupResourceEditor.htm" />
+    <EmbeddedResource Include="Workflow\WfActivityDescriptorGroupResourceEditor\WfActivityDescriptorGroupResourceEditor.js" />
+    <EmbeddedResource Include="RelativeInfoListControl\base.css" />
+    <EmbeddedResource Include="RelativeInfoListControl\relativeLinkLogo.gif" />
+    <EmbeddedResource Include="RelativeInfoListControl\relativeUserLogo.gif" />
+    <EmbeddedResource Include="RelativeInfoListControl\RelativeInfoListControl.js" />
+    <EmbeddedResource Include="Workflow\Abstract\WfControls.js" />
+    <EmbeddedResource Include="Workflow\WfRuntimeViewer\Silverlight.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Workflow\WfRuntimeViewer\SilverlightObjectResource.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Workflow\WfRuntimeViewer\InteractionFnResource.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ProcessNavigator\ProcessNavigator.css" />
+    <EmbeddedResource Include="ProcessNavigator\ProcessNavigator.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Workflow\WfRuntimeViewer\WfRuntimeViewerWrapperControl.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ProcessNavigator\btnArrow.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ProcessNavigator\btnArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PlanCompleteTime\PlanCompleteTime.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Images\roles.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ProcessNavigator\arrow.gif" />
+    <EmbeddedResource Include="ProcessNavigator\line.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\addOpinion.gif" />
+    <EmbeddedResource Include="Images\banli.gif" />
+    <EmbeddedResource Include="Images\bg20.gif" />
+    <EmbeddedResource Include="Images\buchongfasong.gif" />
+    <EmbeddedResource Include="Images\buchongpishi.gif" />
+    <EmbeddedResource Include="Images\bulu.gif" />
+    <EmbeddedResource Include="Images\chakan.gif" />
+    <EmbeddedResource Include="Images\changyongyijian.gif" />
+    <EmbeddedResource Include="Images\checked.gif" />
+    <EmbeddedResource Include="Images\circle.gif" />
+    <EmbeddedResource Include="Images\computer.gif" />
+    <EmbeddedResource Include="Images\dayin.gif" />
+    <EmbeddedResource Include="Images\default.gif" />
+    <EmbeddedResource Include="Images\edit.gif" />
+    <EmbeddedResource Include="Images\empty.gif" />
+    <EmbeddedResource Include="Images\error.gif" />
+    <EmbeddedResource Include="Images\fileMapping.gif" />
+    <EmbeddedResource Include="Images\fileVersion.gif" />
+    <EmbeddedResource Include="Images\folder.gif" />
+    <EmbeddedResource Include="Images\go.gif" />
+    <EmbeddedResource Include="Images\huifu.gif" />
+    <EmbeddedResource Include="Images\huiqian.gif" />
+    <EmbeddedResource Include="Images\inlineDemo.gif" />
+    <EmbeddedResource Include="Images\jiaoliu.gif" />
+    <EmbeddedResource Include="Images\material.gif" />
+    <EmbeddedResource Include="Images\openType.gif" />
+    <EmbeddedResource Include="Images\pishi.gif" />
+    <EmbeddedResource Include="Images\pishibl.gif" />
+    <EmbeddedResource Include="Images\pishibulu.gif" />
+    <EmbeddedResource Include="Images\selectDept.gif" />
+    <EmbeddedResource Include="Images\setOpenType.gif" />
+    <EmbeddedResource Include="Images\shanchu.gif" />
+    <EmbeddedResource Include="Images\shousuo.gif" />
+    <EmbeddedResource Include="Images\tianj.gif" />
+    <EmbeddedResource Include="Images\upload.gif" />
+    <EmbeddedResource Include="Images\uploadFile.gif" />
+    <EmbeddedResource Include="Images\version.gif" />
+    <EmbeddedResource Include="Images\xiugai.gif" />
+    <EmbeddedResource Include="Images\zhankai.gif" />
+    <EmbeddedResource Include="MaterialControl\DialogFileOpenTypeControl.js" />
+    <EmbeddedResource Include="MaterialControl\DialogMaterialVersionControl.js" />
+    <EmbeddedResource Include="MaterialControl\DialogUploadFileControl.js" />
+    <EmbeddedResource Include="MaterialControl\DialogUploadFileProcessControl.js" />
+    <EmbeddedResource Include="MaterialControl\Material.js" />
+    <EmbeddedResource Include="MaterialControl\MaterialControl.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Workflow\WfActivityDescriptorEditor\WfExtActivityDescriptorEditor.htm" />
+    <EmbeddedResource Include="Workflow\WfActivityDescriptorEditor\WfExtActivityDescriptorEditor.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Workflow\ReturnControl\RejectActivitySelector.htm" />
+    <EmbeddedResource Include="Workflow\ReturnControl\RejectActivitySelector.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Opinion\OpinionInputDialog.htm" />
+    <EmbeddedResource Include="Opinion\OpinionInputDialog.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Workflow\LockContextControl\LockContextControl.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Workflow\PrintControl\PrintControlClient.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UploadProgress\UploadProgressControl.js" />
+    <EmbeddedResource Include="UploadProgress\UploadProgressControlTemplate.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Workflow\PrintControl\PrintControl.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ClientGrid\NewClientGrid.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ClientGrid\ClientGrid.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MaterialControl\MaterialControl.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Workflow\CopyForm\openFormScript.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Workflow\WfNextStepSelector\WfNextStepSelectorControl.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ImageUploaderControl\ImageUploader.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ImageUploaderControl\ImageUploader.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ImageUploaderControl\noLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ImageUploaderControl\defaultImage_bw.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ProcessNavigator\ProcessNavigator_No_Width.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Workflow\WfProcessDescriptorSelector\WfProcessDescriptorSelector.js" />
+    <EmbeddedResource Include="Workflow\WfProcessDescriptorSelector\WfProcessDescriptorSelectorTemplate.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ServiceImport\ServiceImportTemplate.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ServiceImport\ServiceImport.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RightSideNavigator\RightSideNavigator.css" />
+    <EmbeddedResource Include="RightSideNavigator\RightSideNavigator.js" />
+    <EmbeddedResource Include="RoleControl\RoleGraphControl.js" />
+    <EmbeddedResource Include="RoleControl\roleGraphDialogTemplate.htm" />
+    <EmbeddedResource Include="Workflow\WfRuntimeViewer\DialogTemplate.xml" />
+    <EmbeddedResource Include="Workflow\WfRuntimeViewer\wfrtvwc.css" />
+    <EmbeddedResource Include="Workflow\Abstract\currentUserPermissions.js" />
+    <EmbeddedResource Include="Images\excel.gif" />
+    <EmbeddedResource Include="Images\property.gif" />
+    <EmbeddedResource Include="RoleMatrixEntry\RoleMatrixEntryControlScript.htm" />
+    <EmbeddedResource Include="Workflow\RuntimeParametersViewer\RuntimeParametersViewer.js" />
+    <EmbeddedResource Include="Workflow\RuntimeParametersViewer\RuntimeParametersTemplate.htm" />
+    <EmbeddedResource Include="PhoneNumberControl\PhoneNumber.js" />
+    <EmbeddedResource Include="UserPresence\Resources\uc.css" />
+    <EmbeddedResource Include="UserPresence\Resources\ucStatus.png" />
+    <EmbeddedResource Include="UEditorWrapper\UEditorWrapperBridge.js" />
+    <EmbeddedResource Include="RelativeLink\Images\standard_l1.png" />
+    <EmbeddedResource Include="RelativeLink\Images\standard_r1.png" />
+    <EmbeddedResource Include="RelativeLink\Images\standard_title1.png" />
+    <EmbeddedResource Include="RelativeLink\Images\hand1.cur" />
+    <EmbeddedResource Include="RelativeLink\Images\blue_down.png" />
+    <EmbeddedResource Include="RelativeLink\Images\blue_line.png" />
+    <EmbeddedResource Include="RelativeLink\Images\blue_up.png" />
+    <EmbeddedResource Include="RelativeLink\Images\grap_bg.png" />
+    <EmbeddedResource Include="RelativeLink\Images\gray_down.png" />
+    <EmbeddedResource Include="RelativeLink\Images\gray_line.png" />
+    <EmbeddedResource Include="RelativeLink\Images\gray_up.png" />
+    <EmbeddedResource Include="RelativeLink\Images\line.png" />
+    <EmbeddedResource Include="RelativeLink\Images\standard_l.png" />
+    <EmbeddedResource Include="RelativeLink\Images\standard_m.png" />
+    <EmbeddedResource Include="RelativeLink\Images\standard_r.png" />
+    <EmbeddedResource Include="RelativeLink\Images\down_btn.png" />
+    <EmbeddedResource Include="RelativeLink\Images\icon1.png" />
+    <EmbeddedResource Include="RelativeLink\Images\standard_title.png" />
+    <EmbeddedResource Include="PopupTip\Images\down_bubble_bottom.gif" />
+    <EmbeddedResource Include="PopupTip\Images\down_bubble_middle.gif" />
+    <EmbeddedResource Include="PopupTip\Images\down_bubble_top.gif" />
+    <EmbeddedResource Include="PopupTip\PopupTip.css" />
+    <EmbeddedResource Include="PopupTip\PopupTip.js" />
+    <EmbeddedResource Include="RelativeLink\RelativeLink.css" />
+    <EmbeddedResource Include="RelativeLink\RelativeLink.js" />
+    <EmbeddedResource Include="Workflow\WfActivityDescriptorEditor\WfSimpleActivityDescriptorEditor.htm" />
+    <EmbeddedResource Include="Workflow\WfActivityDescriptorEditor\WfSimpleActivityDescriptorEditor.js" />
+    <EmbeddedResource Include="UEditorWrapper\UEditorWrapper.js" />
+    <EmbeddedResource Include="UEditorWrapper\UEditorLogo.png" />
+    <EmbeddedResource Include="OfficeViewer\OfficeViewerWrapper.js" />
+    <EmbeddedResource Include="MaterialControl\DialogEditDocumentControl.js" />
+    <EmbeddedResource Include="ImageUploaderControl\cannotShow.png" />
+    <EmbeddedResource Include="PopupTip\Images\up_bubble_bottom.gif" />
+    <EmbeddedResource Include="PopupTip\Images\up_bubble_middle.gif" />
+    <EmbeddedResource Include="PopupTip\Images\up_bubble_top.gif" />
+    <EmbeddedResource Include="HBRadioButtonList\HBRadioButtonList.js" />
+    <EmbeddedResource Include="PropertyForm\PropertyForm.css" />
+    <EmbeddedResource Include="PropertyForm\PropertyForm.js" />
+    <EmbeddedResource Include="DeluxeSearch\DeluxeSearch.css" />
+    <EmbeddedResource Include="DeluxeSearch\DeluxeSearch.js" />
+    <EmbeddedResource Include="MaterialControl\DialogUploadFileTraditionalControl.js" />
+    <EmbeddedResource Include="DeluxeSearch\Images\search.png" />
+    <EmbeddedResource Include="DeluxeSearch\Images\searchtip.png" />
+    <EmbeddedResource Include="DeluxeSearchClient\DeluxeSearchClient.css" />
+    <EmbeddedResource Include="DeluxeSearchClient\DeluxeSearchClient.js" />
+    <EmbeddedResource Include="PropertyEditorBase\PropertyEditorControlBase.js" />
+    <EmbeddedResource Include="Opinion\pen.png" />
+    <EmbeddedResource Include="Opinion\line.png" />
+    <EmbeddedResource Include="DeluxeSearch\Images\btn_left.png" />
+    <EmbeddedResource Include="DeluxeSearch\Images\btn_right.png" />
+    <EmbeddedResource Include="DeluxeSearch\Images\del.png" />
+    <EmbeddedResource Include="DeluxeSearch\Images\line.png" />
+    <EmbeddedResource Include="DeluxeSearch\Images\search_btn.png" />
+    <EmbeddedResource Include="DeluxeSearch\Images\search_icon.png" />
+    <EmbeddedResource Include="PropertyEditorBase\invalid_line.gif" />
+    <EmbeddedResource Include="ImageUploaderControl\ImageUploaderDialog.htm" />
+    <EmbeddedResource Include="ImageUploaderControl\ImageUploaderDialog.js" />
+    <EmbeddedResource Include="PhoneNumberControl\PhoneNumberControl.css" />
+    <EmbeddedResource Include="PhoneNumberControl\PhoneNumberControl.js" />
+    <Compile Include="PhoneNumberControl\PhoneNumberShowMode.cs" />
+    <EmbeddedResource Include="CommonAutoCompleteWithSelector\CommonAutoCompleteWithSelectorControl.js" />
+    <EmbeddedResource Include="CommonAutoCompleteWithSelector\CommonAutoCompleteWithSelectorControl.css" />
+    <EmbeddedResource Include="PostProgress\PostProgressControl.js" />
+    <EmbeddedResource Include="PostProgress\PostProgressControlTemplate.htm" />
+    <EmbeddedResource Include="Images\application16.gif" />
+    <EmbeddedResource Include="Images\application32.gif" />
+    <EmbeddedResource Include="Images\function16.png" />
+    <EmbeddedResource Include="Images\function32.gif" />
+    <EmbeddedResource Include="Images\group16.gif" />
+    <EmbeddedResource Include="Images\group32.gif" />
+    <EmbeddedResource Include="Images\ou16.gif" />
+    <EmbeddedResource Include="Images\ou32.gif" />
+    <EmbeddedResource Include="Images\role16.gif" />
+    <EmbeddedResource Include="Images\role32.gif" />
+    <EmbeddedResource Include="Images\user16.gif" />
+    <EmbeddedResource Include="Images\user32.gif" />
+    <EmbeddedResource Include="GangedDataBindingControl\GangedDataBindingControl.js" />
+    <EmbeddedResource Include="CustomerServiceExecutiveLink\CustomerServiceExecutiveLink.css" />
+    <EmbeddedResource Include="CustomerServiceExecutiveLink\CustomerServiceExecutiveLink.js" />
+    <Content Include="RatingControl\RatingControl.js" />
+    <Content Include="RatingControl\start.jpg" />
+    <Content Include="RatingControl\start2.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>IF NOT EXIST "$(ProjectDir)..\..\Bin" MD "$(ProjectDir)..\..\Bin"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetFileName)" DEL "$(ProjectDir)..\..\Bin\$(TargetFileName)"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetName).pdb" DEL "$(ProjectDir)..\..\Bin\$(TargetName).pdb"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetName).xml" DEL "$(ProjectDir)..\..\Bin\$(TargetName).xml"</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>set path=%25path%25;C:\Windows\System32
+ 
+
+ XCOPY "$(TargetPath)"  "$(ProjectDir)..\..\Bin" /Y /D /R
+IF EXIST "$(TargetDir)$(TargetName).pdb" XCOPY "$(TargetDir)$(TargetName).pdb" "$(ProjectDir)..\..\Bin" /Y /D /R
+IF EXIST "$(TargetDir)$(TargetName).xml"  XCOPY "$(TargetDir)$(TargetName).xml" "$(ProjectDir)..\..\Bin" /Y /D /R</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

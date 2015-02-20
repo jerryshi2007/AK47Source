@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">10.0</VisualStudioVersion>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>PermissionsCenterDB</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{79cd5e2a-dab6-468b-8db6-a3c41aa05847}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql100DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>PermessionsCenterDB</RootNamespace>
+    <AssemblyName>PermessionsCenterDB</AssemblyName>
+    <ModelCollation>2052,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <DefaultCollation>Chinese_PRC_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <DefaultSchema>SC</DefaultSchema>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <SuppressTSqlWarnings>71502</SuppressTSqlWarnings>
+  </PropertyGroup>
+  <!-- VS10 without SP1 will not have VisualStudioVersion set, so do that here -->
+  <PropertyGroup />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="SC\" />
+    <Folder Include="SC\Tables\" />
+    <Folder Include="Storage\" />
+    <Folder Include="Security\" />
+    <Folder Include="SC\Views" />
+    <Folder Include="SC\Functions" />
+    <Folder Include="SC\Procedures" />
+    <Folder Include="SC\Types" />
+    <Folder Include="PostDeployment" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="SC\Tables\SchemaObject.sql" />
+    <Build Include="SC\Tables\SchemaUserSnapshot.sql" />
+    <Build Include="SC\Tables\SchemaRelationObjects.sql" />
+    <Build Include="Storage\SCFullTextIndex.sql" />
+    <Build Include="FullTextIndexes.sql" />
+    <Build Include="Security\SC.sql" />
+    <Build Include="SC\Tables\OperationLog.sql" />
+    <Build Include="SC\Tables\SchemaRelationObjectsSnapshot.sql" />
+    <Build Include="SC\Tables\SchemaOrganizationSnapshot.sql" />
+    <Build Include="SC\Tables\PinYin.sql" />
+    <Build Include="SC\Tables\SchemaMembers.sql" />
+    <Build Include="SC\Tables\SchemaMembersSnapshot.sql" />
+    <Build Include="SC\Tables\SchemaGroupSnapshot.sql" />
+    <Build Include="SC\Tables\SchemaApplicationSnapshot.sql" />
+    <Build Include="SC\Tables\SchemaRoleSnapshot.sql" />
+    <Build Include="SC\Tables\SchemaPermissionSnapshot.sql" />
+    <Build Include="SC\Tables\UserAndContainerSnapshot.sql" />
+    <Build Include="SC\Tables\SchemaObjectSnapshot.sql" />
+    <Build Include="SC\Views\SchemaObjectAndParentView.sql" />
+    <Build Include="SC\Tables\SchemaDefine.sql" />
+    <Build Include="SC\Tables\SchemaPropertyDefine.sql" />
+    <Build Include="SC\Tables\UserPassword.sql" />
+    <Build Include="SC\Functions\FormatInteger.sql" />
+    <Build Include="SC\Procedures\ClearAllData.sql" />
+    <Build Include="SC\Procedures\QueryObjectsByMultiFullPath.sql" />
+    <Build Include="SC\Procedures\QueryObjectsByFullPath.sql" />
+    <Build Include="SC\Procedures\GenerateFullPaths.sql" />
+    <Build Include="SC\Tables\ToDoJobList.sql" />
+    <Build Include="SC\Tables\CompletedJobList.sql" />
+    <Build Include="SC\Procedures\ExecuteJobList.sql" />
+    <Build Include="SC\Types\ObjectWithParentTable.sql" />
+    <Build Include="SC\Procedures\UpdateFullPaths.sql" />
+    <Build Include="SC\Tables\Conditions.sql" />
+    <Build Include="SC\Tables\ConditionCalculateResult.sql" />
+    <Build Include="SC\Tables\Acl.sql" />
+    <None Include="Security\msuser.sql" />
+    <Build Include="SC\Tables\PermissionCenter_AD_IDMapping.sql" />
+    <Build Include="SC\Tables\ADSynchronizeLog.sql" />
+    <Build Include="SC\Tables\ADSynchronizeLogDetail.sql" />
+    <Build Include="SC\Functions\GetSchemaPropertySnapshotFields.sql" />
+    <Build Include="SC\Functions\GetSchemaPropertySearchSnapshotFields.sql" />
+    <Build Include="SC\Functions\GetSchemaPropertyValueSnapshotFields.sql" />
+    <Build Include="SC\Functions\ConvertPropertyValue.sql" />
+    <Build Include="SC\Procedures\GenerateSchemaSnapshot.sql" />
+    <Build Include="SC\Procedures\GenerateAllSchemaSnapshot.sql" />
+    <Build Include="SC\Procedures\GenerateSchemaTableSnapshot.sql" />
+    <Build Include="SC\Procedures\GenerateUserAndContainerSnapshot.sql" />
+    <Build Include="SC\Tables\SCOperationSnapshot.sql" />
+    <Build Include="SC\Tables\Locks.sql" />
+    <Build Include="SC\Tables\ADReverseSynchronizeLog.sql" />
+    <Build Include="SC\Tables\ADReverseSynchronizeLogDetail.sql" />
+    <Build Include="SC\Views\Acl_Current.sql" />
+    <Build Include="SC\Views\UserAndContainerSnapshot_Current.sql" />
+    <Build Include="SC\Views\Conditions_Current.sql" />
+    <Build Include="SC\Views\SchemaApplicationSnapshot_Current.sql" />
+    <Build Include="SC\Views\SchemaGroupSnapshot_Current.sql" />
+    <Build Include="SC\Views\SchemaMembersSnapshot_Current.sql" />
+    <Build Include="SC\Views\SchemaObjectSnapshot_Current.sql" />
+    <Build Include="SC\Views\SchemaOrganizationSnapshot_Current.sql" />
+    <Build Include="SC\Views\SchemaPermissionSnapshot_Current.sql" />
+    <Build Include="SC\Views\SchemaRelationObjectsSnapshot_Current.sql" />
+    <Build Include="SC\Views\SchemaRoleSnapshot_Current.sql" />
+    <Build Include="SC\Views\SchemaUserSnapshot_Current.sql" />
+    <Build Include="SC\Tables\TempForAD.sql" />
+    <Build Include="SC\Procedures\InitData.sql" />
+    <Build Include="SC\Procedures\GenerateInsertSql.sql" />
+    <Build Include="SC\Views\SchemaObject_Current.sql" />
+    <Build Include="SC\Tables\IncomeSynchronizeLog.sql" />
+    <Build Include="SC\Tables\IncomeSynchronizeLogDetail.sql" />
+    <PostDeploy Include="PostDeployment\PostDeployment.sql" />
+    <Build Include="SC\Procedures\InitPinYinTable.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PermissionsCenterDB.publish.xml" />
+    <None Include="PermissionsCenterDB_Dev.publish.xml" />
+    <None Include="PermissionsCenterDB_DevTest.publish.xml" />
+    <None Include="PermissionsCenterDB-test.publish.xml" />
+    <None Include="PermissionsCenterDB_DevTestForAD.publish.xml" />
+    <None Include="PermissionsCenterDB_Local.publish.xml" />
+    <None Include="SqlPackageDemo.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="PermissionsCenterDB.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="TaskJobName">
+      <DefaultValue>sc_execute_job_list</DefaultValue>
+      <Value>$(SqlCmdVar__1)</Value>
+    </SqlCmdVariable>
+  </ItemGroup>
+</Project>

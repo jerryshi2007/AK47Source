@@ -1,0 +1,910 @@
+﻿
+.dropdown-menu > li > a:hover > [class^='icon-']
+{
+    background-image: none;
+}
+
+.dropdown-menu > li > a:focus > [class^='icon-']
+{
+    background-image: none;
+}
+
+.dropdown-menu > li > a:hover > [class*=' icon-']
+{
+    background-image: none;
+}
+
+.dropdown-menu > li > a:focus > [class*=' icon-']
+{
+    background-image: none;
+}
+
+.dropdown-menu > .active > a > [class^='icon-']
+{
+    background-image: none;
+}
+
+.dropdown-menu > .active > a > [class*=' icon-']
+{
+    background-image: none;
+}
+
+.dropdown-submenu:hover > a > [class^='icon-']
+{
+    background-image: none;
+}
+
+.dropdown-submenu:focus > a > [class^='icon-']
+{
+    background-image: none;
+}
+
+.dropdown-submenu:hover > a > [class*=' icon-']
+{
+    background-image: none;
+}
+
+.dropdown-submenu:focus > a > [class*=' icon-']
+{
+    background-image: none;
+}
+
+.dropdown-menu
+{
+    border-radius: 0px !important;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+    .dropdown-menu > li > a
+    {
+        padding-right: 11px;
+        padding-left: 11px;
+        font-size: 13px;
+        margin-top: 1px;
+        margin-bottom: 1px;
+    }
+
+.dropdown-only-icon.dropdown-menu
+{
+    min-width: 50px;
+}
+
+    .dropdown-only-icon.dropdown-menu > li
+    {
+        margin: 0px 4px;
+        float: left;
+    }
+
+        .dropdown-only-icon.dropdown-menu > li > a [class*='icon-']
+        {
+            width: 18px;
+            display: inline-block;
+        }
+
+        .dropdown-only-icon.dropdown-menu > li > a .icon-2x
+        {
+            width: 36px;
+        }
+
+.dropdown-menu li a:hover
+{
+    background: rgb(79, 153, 198);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-menu li a:focus
+{
+    background: rgb(79, 153, 198);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-menu li a:active
+{
+    background: rgb(79, 153, 198);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-menu li.active a
+{
+    background: rgb(79, 153, 198);
+    color: rgb(255, 255, 255);
+}
+
+    .dropdown-menu li.active a:hover
+    {
+        background: rgb(79, 153, 198);
+        color: rgb(255, 255, 255);
+    }
+
+.dropdown-menu .dropdown-submenu:hover > a
+{
+    background: rgb(79, 153, 198);
+    color: rgb(255, 255, 255);
+}
+
+.nav-tabs .dropdown-menu li > a:focus
+{
+    background: rgb(79, 153, 198);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-default li a:hover
+{
+    background: rgb(171, 186, 195);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-default li a:focus
+{
+    background: rgb(171, 186, 195);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-default li a:active
+{
+    background: rgb(171, 186, 195);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-default li.active a
+{
+    background: rgb(171, 186, 195);
+    color: rgb(255, 255, 255);
+}
+
+    .dropdown-default li.active a:hover
+    {
+        background: rgb(171, 186, 195);
+        color: rgb(255, 255, 255);
+    }
+
+.dropdown-default .dropdown-submenu:hover > a
+{
+    background: rgb(171, 186, 195);
+    color: rgb(255, 255, 255);
+}
+
+.nav-tabs .dropdown-default li > a:focus
+{
+    background: rgb(171, 186, 195);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-info li a:hover
+{
+    background: rgb(111, 179, 224);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-info li a:focus
+{
+    background: rgb(111, 179, 224);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-info li a:active
+{
+    background: rgb(111, 179, 224);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-info li.active a
+{
+    background: rgb(111, 179, 224);
+    color: rgb(255, 255, 255);
+}
+
+    .dropdown-info li.active a:hover
+    {
+        background: rgb(111, 179, 224);
+        color: rgb(255, 255, 255);
+    }
+
+.dropdown-info .dropdown-submenu:hover > a
+{
+    background: rgb(111, 179, 224);
+    color: rgb(255, 255, 255);
+}
+
+.nav-tabs .dropdown-info li > a:focus
+{
+    background: rgb(111, 179, 224);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-primary li a:hover
+{
+    background: rgb(66, 139, 202);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-primary li a:focus
+{
+    background: rgb(66, 139, 202);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-primary li a:active
+{
+    background: rgb(66, 139, 202);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-primary li.active a
+{
+    background: rgb(66, 139, 202);
+    color: rgb(255, 255, 255);
+}
+
+    .dropdown-primary li.active a:hover
+    {
+        background: rgb(66, 139, 202);
+        color: rgb(255, 255, 255);
+    }
+
+.dropdown-primary .dropdown-submenu:hover > a
+{
+    background: rgb(66, 139, 202);
+    color: rgb(255, 255, 255);
+}
+
+.nav-tabs .dropdown-primary li > a:focus
+{
+    background: rgb(66, 139, 202);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-success li a:hover
+{
+    background: rgb(135, 184, 127);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-success li a:focus
+{
+    background: rgb(135, 184, 127);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-success li a:active
+{
+    background: rgb(135, 184, 127);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-success li.active a
+{
+    background: rgb(135, 184, 127);
+    color: rgb(255, 255, 255);
+}
+
+    .dropdown-success li.active a:hover
+    {
+        background: rgb(135, 184, 127);
+        color: rgb(255, 255, 255);
+    }
+
+.dropdown-success .dropdown-submenu:hover > a
+{
+    background: rgb(135, 184, 127);
+    color: rgb(255, 255, 255);
+}
+
+.nav-tabs .dropdown-success li > a:focus
+{
+    background: rgb(135, 184, 127);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-warning li a:hover
+{
+    background: rgb(255, 162, 77);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-warning li a:focus
+{
+    background: rgb(255, 162, 77);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-warning li a:active
+{
+    background: rgb(255, 162, 77);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-warning li.active a
+{
+    background: rgb(255, 162, 77);
+    color: rgb(255, 255, 255);
+}
+
+    .dropdown-warning li.active a:hover
+    {
+        background: rgb(255, 162, 77);
+        color: rgb(255, 255, 255);
+    }
+
+.dropdown-warning .dropdown-submenu:hover > a
+{
+    background: rgb(255, 162, 77);
+    color: rgb(255, 255, 255);
+}
+
+.nav-tabs .dropdown-warning li > a:focus
+{
+    background: rgb(255, 162, 77);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-danger li a:hover
+{
+    background: rgb(209, 91, 71);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-danger li a:focus
+{
+    background: rgb(209, 91, 71);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-danger li a:active
+{
+    background: rgb(209, 91, 71);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-danger li.active a
+{
+    background: rgb(209, 91, 71);
+    color: rgb(255, 255, 255);
+}
+
+    .dropdown-danger li.active a:hover
+    {
+        background: rgb(209, 91, 71);
+        color: rgb(255, 255, 255);
+    }
+
+.dropdown-danger .dropdown-submenu:hover > a
+{
+    background: rgb(209, 91, 71);
+    color: rgb(255, 255, 255);
+}
+
+.nav-tabs .dropdown-danger li > a:focus
+{
+    background: rgb(209, 91, 71);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-inverse li a:hover
+{
+    background: rgb(85, 85, 85);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-inverse li a:focus
+{
+    background: rgb(85, 85, 85);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-inverse li a:active
+{
+    background: rgb(85, 85, 85);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-inverse li.active a
+{
+    background: rgb(85, 85, 85);
+    color: rgb(255, 255, 255);
+}
+
+    .dropdown-inverse li.active a:hover
+    {
+        background: rgb(85, 85, 85);
+        color: rgb(255, 255, 255);
+    }
+
+.dropdown-inverse .dropdown-submenu:hover > a
+{
+    background: rgb(85, 85, 85);
+    color: rgb(255, 255, 255);
+}
+
+.nav-tabs .dropdown-inverse li > a:focus
+{
+    background: rgb(85, 85, 85);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-purple li a:hover
+{
+    background: rgb(149, 133, 191);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-purple li a:focus
+{
+    background: rgb(149, 133, 191);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-purple li a:active
+{
+    background: rgb(149, 133, 191);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-purple li.active a
+{
+    background: rgb(149, 133, 191);
+    color: rgb(255, 255, 255);
+}
+
+    .dropdown-purple li.active a:hover
+    {
+        background: rgb(149, 133, 191);
+        color: rgb(255, 255, 255);
+    }
+
+.dropdown-purple .dropdown-submenu:hover > a
+{
+    background: rgb(149, 133, 191);
+    color: rgb(255, 255, 255);
+}
+
+.nav-tabs .dropdown-purple li > a:focus
+{
+    background: rgb(149, 133, 191);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-pink li a:hover
+{
+    background: rgb(214, 72, 126);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-pink li a:focus
+{
+    background: rgb(214, 72, 126);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-pink li a:active
+{
+    background: rgb(214, 72, 126);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-pink li.active a
+{
+    background: rgb(214, 72, 126);
+    color: rgb(255, 255, 255);
+}
+
+    .dropdown-pink li.active a:hover
+    {
+        background: rgb(214, 72, 126);
+        color: rgb(255, 255, 255);
+    }
+
+.dropdown-pink .dropdown-submenu:hover > a
+{
+    background: rgb(214, 72, 126);
+    color: rgb(255, 255, 255);
+}
+
+.nav-tabs .dropdown-pink li > a:focus
+{
+    background: rgb(214, 72, 126);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-grey li a:hover
+{
+    background: rgb(160, 160, 160);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-grey li a:focus
+{
+    background: rgb(160, 160, 160);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-grey li a:active
+{
+    background: rgb(160, 160, 160);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-grey li.active a
+{
+    background: rgb(160, 160, 160);
+    color: rgb(255, 255, 255);
+}
+
+    .dropdown-grey li.active a:hover
+    {
+        background: rgb(160, 160, 160);
+        color: rgb(255, 255, 255);
+    }
+
+.dropdown-grey .dropdown-submenu:hover > a
+{
+    background: rgb(160, 160, 160);
+    color: rgb(255, 255, 255);
+}
+
+.nav-tabs .dropdown-grey li > a:focus
+{
+    background: rgb(160, 160, 160);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-light li a:hover
+{
+    background: rgb(231, 231, 231);
+    color: rgb(51, 51, 51);
+}
+
+.dropdown-light li a:focus
+{
+    background: rgb(231, 231, 231);
+    color: rgb(51, 51, 51);
+}
+
+.dropdown-light li a:active
+{
+    background: rgb(231, 231, 231);
+    color: rgb(51, 51, 51);
+}
+
+.dropdown-light li.active a
+{
+    background: rgb(231, 231, 231);
+    color: rgb(51, 51, 51);
+}
+
+    .dropdown-light li.active a:hover
+    {
+        background: rgb(231, 231, 231);
+        color: rgb(51, 51, 51);
+    }
+
+.dropdown-light .dropdown-submenu:hover > a
+{
+    background: rgb(231, 231, 231);
+    color: rgb(51, 51, 51);
+}
+
+.nav-tabs .dropdown-light li > a:focus
+{
+    background: rgb(231, 231, 231);
+    color: rgb(51, 51, 51);
+}
+
+.dropdown-lighter li a:hover
+{
+    background: rgb(239, 239, 239);
+    color: rgb(68, 68, 68);
+}
+
+.dropdown-lighter li a:focus
+{
+    background: rgb(239, 239, 239);
+    color: rgb(68, 68, 68);
+}
+
+.dropdown-lighter li a:active
+{
+    background: rgb(239, 239, 239);
+    color: rgb(68, 68, 68);
+}
+
+.dropdown-lighter li.active a
+{
+    background: rgb(239, 239, 239);
+    color: rgb(68, 68, 68);
+}
+
+    .dropdown-lighter li.active a:hover
+    {
+        background: rgb(239, 239, 239);
+        color: rgb(68, 68, 68);
+    }
+
+.dropdown-lighter .dropdown-submenu:hover > a
+{
+    background: rgb(239, 239, 239);
+    color: rgb(68, 68, 68);
+}
+
+.nav-tabs .dropdown-lighter li > a:focus
+{
+    background: rgb(239, 239, 239);
+    color: rgb(68, 68, 68);
+}
+
+.dropdown-lightest li a:hover
+{
+    background: rgb(243, 243, 243);
+    color: rgb(68, 68, 68);
+}
+
+.dropdown-lightest li a:focus
+{
+    background: rgb(243, 243, 243);
+    color: rgb(68, 68, 68);
+}
+
+.dropdown-lightest li a:active
+{
+    background: rgb(243, 243, 243);
+    color: rgb(68, 68, 68);
+}
+
+.dropdown-lightest li.active a
+{
+    background: rgb(243, 243, 243);
+    color: rgb(68, 68, 68);
+}
+
+    .dropdown-lightest li.active a:hover
+    {
+        background: rgb(243, 243, 243);
+        color: rgb(68, 68, 68);
+    }
+
+.dropdown-lightest .dropdown-submenu:hover > a
+{
+    background: rgb(243, 243, 243);
+    color: rgb(68, 68, 68);
+}
+
+.nav-tabs .dropdown-lightest li > a:focus
+{
+    background: rgb(243, 243, 243);
+    color: rgb(68, 68, 68);
+}
+
+.dropdown-yellow li a:hover
+{
+    background: rgb(254, 225, 136);
+    color: rgb(68, 68, 68);
+}
+
+.dropdown-yellow li a:focus
+{
+    background: rgb(254, 225, 136);
+    color: rgb(68, 68, 68);
+}
+
+.dropdown-yellow li a:active
+{
+    background: rgb(254, 225, 136);
+    color: rgb(68, 68, 68);
+}
+
+.dropdown-yellow li.active a
+{
+    background: rgb(254, 225, 136);
+    color: rgb(68, 68, 68);
+}
+
+    .dropdown-yellow li.active a:hover
+    {
+        background: rgb(254, 225, 136);
+        color: rgb(68, 68, 68);
+    }
+
+.dropdown-yellow .dropdown-submenu:hover > a
+{
+    background: rgb(254, 225, 136);
+    color: rgb(68, 68, 68);
+}
+
+.nav-tabs .dropdown-yellow li > a:focus
+{
+    background: rgb(254, 225, 136);
+    color: rgb(68, 68, 68);
+}
+
+.dropdown-yellow2 li a:hover
+{
+    background: rgb(249, 232, 179);
+    color: rgb(68, 68, 68);
+}
+
+.dropdown-yellow2 li a:focus
+{
+    background: rgb(249, 232, 179);
+    color: rgb(68, 68, 68);
+}
+
+.dropdown-yellow2 li a:active
+{
+    background: rgb(249, 232, 179);
+    color: rgb(68, 68, 68);
+}
+
+.dropdown-yellow2 li.active a
+{
+    background: rgb(249, 232, 179);
+    color: rgb(68, 68, 68);
+}
+
+    .dropdown-yellow2 li.active a:hover
+    {
+        background: rgb(249, 232, 179);
+        color: rgb(68, 68, 68);
+    }
+
+.dropdown-yellow2 .dropdown-submenu:hover > a
+{
+    background: rgb(249, 232, 179);
+    color: rgb(68, 68, 68);
+}
+
+.nav-tabs .dropdown-yellow2 li > a:focus
+{
+    background: rgb(249, 232, 179);
+    color: rgb(68, 68, 68);
+}
+
+.dropdown-light-blue li a:hover
+{
+    background: rgb(236, 243, 249);
+    color: rgb(68, 85, 102);
+}
+
+.dropdown-light-blue li a:focus
+{
+    background: rgb(236, 243, 249);
+    color: rgb(68, 85, 102);
+}
+
+.dropdown-light-blue li a:active
+{
+    background: rgb(236, 243, 249);
+    color: rgb(68, 85, 102);
+}
+
+.dropdown-light-blue li.active a
+{
+    background: rgb(236, 243, 249);
+    color: rgb(68, 85, 102);
+}
+
+    .dropdown-light-blue li.active a:hover
+    {
+        background: rgb(236, 243, 249);
+        color: rgb(68, 85, 102);
+    }
+
+.dropdown-light-blue .dropdown-submenu:hover > a
+{
+    background: rgb(236, 243, 249);
+    color: rgb(68, 85, 102);
+}
+
+.nav-tabs .dropdown-light-blue li > a:focus
+{
+    background: rgb(236, 243, 249);
+    color: rgb(68, 85, 102);
+}
+
+.dropdown-light .dropdown-submenu:hover > a::after
+{
+    border-left-color: rgb(68, 68, 68);
+}
+
+.dropdown-lighter .dropdown-submenu:hover > a::after
+{
+    border-left-color: rgb(68, 68, 68);
+}
+
+.dropdown-lightest .dropdown-submenu:hover > a::after
+{
+    border-left-color: rgb(68, 68, 68);
+}
+
+.dropdown-close.dropdown-menu
+{
+    left: -5px;
+    top: 92%;
+}
+
+.pull-right.dropdown-close.dropdown-menu
+{
+    left: auto;
+    right: -5px;
+}
+
+.dropdown-closer.dropdown-menu
+{
+    left: -10px;
+    top: 80%;
+}
+
+.pull-right.dropdown-closer.dropdown-menu
+{
+    left: auto;
+    right: -10px;
+}
+
+.dropdown-submenu > .dropdown-menu
+{
+    border-radius: 0px;
+}
+
+.dropdown-submenu > a::after
+{
+    margin-right: -5px;
+}
+
+.dropdown-colorpicker > .dropdown-menu
+{
+    padding: 4px;
+    left: -7px;
+    top: 80%;
+    min-width: 130px;
+    max-width: 130px;
+}
+
+.dropdown-colorpicker > .pull-right.dropdown-menu
+{
+    left: auto;
+    right: -7px;
+}
+
+.dropdown-colorpicker > .dropdown-menu > li
+{
+    margin: 2px;
+    width: 20px;
+    height: 20px;
+    float: left;
+    display: block;
+}
+
+    .dropdown-colorpicker > .dropdown-menu > li > .colorpick-btn
+    {
+        margin: 0px;
+        padding: 0px;
+        border-radius: 0px;
+        transition: 0.1s;
+        width: 20px;
+        height: 20px;
+        display: block;
+        position: relative;
+        -webkit-transition: all ease .1s;
+    }
+
+        .dropdown-colorpicker > .dropdown-menu > li > .colorpick-btn:hover
+        {
+            text-decoration: none;
+            opacity: 0.8;
+            transform: scale(1.08);
+            -webkit-transform: scale(1.08);
+        }
+
+    .dropdown-colorpicker > .dropdown-menu > li > .selected.colorpick-btn::after
+    {
+        left: 0px;
+        text-align: center;
+        right: 0px;
+        color: rgb(255, 255, 255);
+        line-height: 20px;
+        font-family: FontAwesome;
+        font-size: 11px;
+        display: inline-block;
+        position: absolute;
+        content: "\f00c";
+    }

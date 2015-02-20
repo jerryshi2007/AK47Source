@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="39006496-3916-40c6-b8ef-bc8d67465db9" ChangeDateTime="01/06/2013 07:47:18">
+    <Property Name="ElementName" Value="[dbo].[USER_CUSTOM_SEARCH_CONDITION].[IX_USER_CUSTOM_SEARCH_CONDITION_Column]" />
+    <Property Name="ElementType" Value="SqlIndex" />
+    <Property Name="ParentElementName" Value="[dbo].[USER_CUSTOM_SEARCH_CONDITION]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[IX_USER_CUSTOM_SEARCH_CONDITION_RESOURCE_ID]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="27281a33-c526-4b0a-81fc-3763fcf0f268" ChangeDateTime="04/24/2014 10:27:30">
+    <Property Name="ElementName" Value="[dbo].[USER_ID_BINDINGS]" />
+    <Property Name="ElementType" Value="SqlTable" />
+    <Property Name="ParentElementName" Value="[dbo]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[OPEN_ID_BINDINGS]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6d990247-c9fa-4710-826d-a3967f7ded57" ChangeDateTime="04/24/2014 10:27:44">
+    <Property Name="ElementName" Value="[dbo].[OPEN_ID_BINDINGS].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[OPEN_ID_BINDINGS]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OPEN_ID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="01ba0bf1-f53d-43fa-84ef-81899312f915" ChangeDateTime="04/24/2014 10:40:14">
+    <Property Name="ElementName" Value="[dbo].[OPEN_ID_BINDINGS].[IX_OPEN_ID_BINDINGS_Column]" />
+    <Property Name="ElementType" Value="SqlIndex" />
+    <Property Name="ParentElementName" Value="[dbo].[OPEN_ID_BINDINGS]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[IX_OPEN_ID_BINDINGS_USER_ID]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="780d55a4-7d28-49b6-9a40-be6a6618969a" ChangeDateTime="06/24/2014 01:45:59">
+    <Property Name="ElementName" Value="[dbo].[AUTHENTICATION_CODE].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[AUTHENTICATION_CODE]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AUTHENTICATION_ID" />
+  </Operation>
+</Operations>

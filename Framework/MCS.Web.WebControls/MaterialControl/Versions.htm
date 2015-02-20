@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>文件版本</title>
+		<meta content="Microsoft Visual Studio .NET 7.1" name="GEstyleNERATOR" />
+        <meta content="C#" name="CODE_LANGUAGE" />
+        <meta content="JavaScript" name="vs_defaultClientScript" />
+        <meta content="http://schemas.microsoft.com/intellisense/ie5" name="vs_targetSchema" />
+        <meta http-equiv="Expires" content="0" />
+        <meta http-equiv="Cache-Control" content="no-cache" />
+        <meta http-equiv="Pragma" content="no-cache" /> 
+		
+	</head>
+	<body>
+        <table >
+            <tbody id="TableMaterialListContent">
+                
+            </tbody>
+        </table>
+	</body>
+	<script language="javascript" type="text/javascript"> 
+		           //版本列表信息
+		           var  materialList  = window.dialogArguments._materialList ;
+		           var  tableMaterialListContent   = window.document.getElementById("TableMaterialListContent") ;
+		           
+		          function initTree()
+		         {  
+		              var row ;
+		              var cell ;
+		              var link  ; 
+		            
+		                //形成树
+		                for ( var i = 0 ; i<  materialList.length ; i ++ ) 
+		                {
+		                    //主版本
+		                    if( materialList[i].ParentID == null )
+		                   {
+		                        row = window.document.createElement("tr") ;
+		                        cell = window.document.createElement("td") ;		                    
+    		                    
+		                   	    link = window.document.createElement("a") ;
+					            link.href =  window.dialogArguments._fileUrlRoot   + "/" + materialList[i].FilePath;
+					            link.target = "_blank" ;
+					            link.innerHTML =  materialList[i].OriginalName ;
+					            cell = addTableCell( row ,"PopUpMaterialTableCellCss"  , popUpMaterialTableCellStyle ,null ,null,link,false) ; 
+    		                    
+		                        row.appendChild( cell ) ;
+		                        tableMaterialListContent.appendChild( row ) ; 
+    		                    
+		                   }
+		             } 
+		          }
+		            
+	      </script>
+</html>

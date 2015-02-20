@@ -1,0 +1,3309 @@
+﻿html, body, h1, h2, h3, h4, h5, h6
+{
+    font-family: 'Microsoft YaHei',arial,sans-serif;
+}
+
+html, body
+{
+    position: relative;
+    min-height: 100%;
+    min-width: 360px;
+    height: 100%;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+body
+{
+    /*background-color: rgb(228, 230, 233);*/
+}
+
+/*公用设置*/
+
+@media only screen and (max-width:360px)
+{
+    .hidden-360
+    {
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width:480px)
+{
+    .hidden-480
+    {
+        display: none !important;
+    }
+}
+
+/*公用设置*/
+
+/*Index页面整体布局*/
+.wrapper
+{
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+}
+
+.header
+{
+    width: 100%;
+    height: 90px;
+    z-index:1;
+}
+
+.main-container
+{
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    display:table;
+}
+
+/*.main-container::after
+    {
+        top: 0px;
+        width: 100%;
+        bottom: 0px;
+        display: block;
+        position: fixed;
+        z-index: -2;
+        max-width: inherit;
+        content: "";
+        background-color: rgb(255, 255, 255);
+    }*/
+
+.main-container-inner
+{
+    width: 100%;
+    display:table-row;
+}
+
+.sidebar-container
+{
+    /*display:table-column;
+    width: 220px;*/
+    /*float: left;
+    
+    max-width: 250px;
+    background-color: rgb(242, 242, 242);
+    border-right-color: rgb(204, 204, 204);
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-bottom-color: rgb(204, 204, 204);
+    border-bottom-width: 1px;
+    border-bottom-style: solid;*/
+}
+
+.main-content
+{
+    padding: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-left: 220px;
+    min-height: 100%;
+}
+
+@media only screen and (max-width:991px)
+{
+    .main-content
+    {
+        margin-left: 0px !important;
+    }
+}
+
+.footer
+{
+    clear: both;
+    width: 100%;
+}
+
+
+
+/*Index页面整体布局*/
+
+/*Index Header 部分布局与样式*/
+
+.mcs-navbar /*重定义bootstrap的navbar*/
+{
+    background: rgb(67, 142, 185); /*导航条背景色，必须在此处定义，否则会被Bootstrap的 navbar navbar-default  覆盖*/
+    margin: 0px;
+    border-radius: 0px;
+    border: 1px currentColor;
+    padding-right: 0px;
+    padding-left: 0px;
+    position: relative;
+    min-height: 45px;
+    height: 55.555556%; /*50/90*/
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.navbar-container /*navbar 内部层*/
+{
+    padding-right: 20px;
+    padding-left: 10px;
+    height: 100%;
+}
+
+@media only screen and (max-width:767px) /*仅当屏幕宽度小于767px时应用该样式*/
+{
+    .navbar-container
+    {
+        padding-right: 0px;
+        padding-left: 0px;
+        height: 100%;
+    }
+}
+
+.mcs-navbar .navbar-header
+{
+    margin: 0px !important;
+    height: 100%;
+}
+
+.mcs-navbar .navbar-brand
+{
+    color: rgb(255, 255, 255);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 1.7em;
+    text-shadow: none;
+}
+
+    .mcs-navbar .navbar-brand:hover
+    {
+        color: rgb(255, 255, 255);
+    }
+
+    .mcs-navbar .navbar-brand:focus
+    {
+        color: rgb(255, 255, 255);
+    }
+
+.mcs-nav
+{
+    margin: 0px !important;
+    height: 100%;
+}
+
+    .mcs-nav > li
+    {
+        padding: 0px;
+        line-height: 50px; /*line-height:45px  与 .header height:45px 决定居中*/
+        height: 100%;
+        border-left-color: rgb(221, 221, 221);
+        border-left-width: 1px;
+        border-left-style: solid;
+        float: left !important;
+        position: relative;
+    }
+
+        .mcs-nav > li:first-child
+        {
+            border-left-color: currentColor;
+            border-left-width: medium;
+            border-left-style: none;
+        }
+
+        .mcs-nav > li > a
+        {
+            padding: 0px 8px;
+            width: auto;
+            height: 100%;
+            text-align: center;
+            color: rgb(255, 255, 255);
+            line-height: inherit;
+            display: block;
+            position: relative;
+            min-width: 50px;
+            background-color: rgb(46, 101, 137);
+        }
+
+            .mcs-nav > li > a > [class*='icon-']
+            {
+                width: 20px;
+                text-align: center;
+                color: rgb(255, 255, 255);
+                font-size: 16px;
+                display: inline-block;
+            }
+
+            .mcs-nav > li > a > .badge
+            {
+                left: 2px;
+                top: -4px;
+                padding-right: 5px;
+                padding-left: 5px;
+                position: relative;
+            }
+
+            .mcs-nav > li > a:hover
+            {
+                background-color: rgb(44, 89, 118);
+            }
+
+            .mcs-nav > li > a:focus
+            {
+                background-color: rgb(44, 89, 118);
+            }
+
+        .mcs-nav > li.open > a
+        {
+            background-color: rgb(44, 89, 118) !important;
+        }
+
+        .mcs-nav > li.open > a
+        {
+            color: rgb(255, 255, 255) !important;
+        }
+
+        /*导航通知栏部分颜色设定*/
+
+        .mcs-nav > li.grey > a
+        {
+            background-color: rgb(85, 85, 85);
+        }
+
+            .mcs-nav > li.grey > a:hover
+            {
+                background-color: rgb(75, 75, 75);
+            }
+
+            .mcs-nav > li.grey > a:focus
+            {
+                background-color: rgb(75, 75, 75);
+            }
+
+        .mcs-nav > li.grey.open > a
+        {
+            background-color: rgb(75, 75, 75) !important;
+        }
+
+        .mcs-nav > li.purple > a
+        {
+            background-color: rgb(137, 46, 101);
+        }
+
+            .mcs-nav > li.purple > a:hover
+            {
+                background-color: rgb(118, 44, 89);
+            }
+
+            .mcs-nav > li.purple > a:focus
+            {
+                background-color: rgb(118, 44, 89);
+            }
+
+        .mcs-nav > li.purple.open > a
+        {
+            background-color: rgb(118, 44, 89) !important;
+        }
+
+        .mcs-nav > li.green > a
+        {
+            background-color: rgb(46, 137, 101);
+        }
+
+            .mcs-nav > li.green > a:hover
+            {
+                background-color: rgb(44, 118, 89);
+            }
+
+            .mcs-nav > li.green > a:focus
+            {
+                background-color: rgb(44, 118, 89);
+            }
+
+        .mcs-nav > li.green.open > a
+        {
+            background-color: rgb(44, 118, 89) !important;
+        }
+
+        .mcs-nav > li.light-blue > a
+        {
+            background-color: rgb(98, 168, 209);
+        }
+
+            .mcs-nav > li.light-blue > a:hover
+            {
+                background-color: rgb(87, 158, 200);
+            }
+
+            .mcs-nav > li.light-blue > a:focus
+            {
+                background-color: rgb(87, 158, 200);
+            }
+
+        .mcs-nav > li.light-blue.open > a
+        {
+            background-color: rgb(87, 158, 200) !important;
+        }
+
+        .mcs-nav > li.light-blue2 > a
+        {
+            background-color: rgb(66, 168, 225);
+        }
+
+            .mcs-nav > li.light-blue2 > a:hover
+            {
+                background-color: rgb(53, 159, 217);
+            }
+
+            .mcs-nav > li.light-blue2 > a:focus
+            {
+                background-color: rgb(53, 159, 217);
+            }
+
+        .mcs-nav > li.light-blue2.open > a
+        {
+            background-color: rgb(53, 159, 217) !important;
+        }
+
+        .mcs-nav > li.red > a
+        {
+            background-color: rgb(183, 70, 53);
+        }
+
+            .mcs-nav > li.red > a:hover
+            {
+                background-color: rgb(163, 67, 53);
+            }
+
+            .mcs-nav > li.red > a:focus
+            {
+                background-color: rgb(163, 67, 53);
+            }
+
+        .mcs-nav > li.red.open > a
+        {
+            background-color: rgb(163, 67, 53) !important;
+        }
+
+        .mcs-nav > li.light-green > a
+        {
+            background-color: rgb(154, 188, 50);
+        }
+
+            .mcs-nav > li.light-green > a:hover
+            {
+                background-color: rgb(139, 168, 50);
+            }
+
+            .mcs-nav > li.light-green > a:focus
+            {
+                background-color: rgb(139, 168, 50);
+            }
+
+        .mcs-nav > li.light-green.open > a
+        {
+            background-color: rgb(139, 168, 50) !important;
+        }
+
+        .mcs-nav > li.light-purple > a
+        {
+            background-color: rgb(203, 111, 215);
+        }
+
+            .mcs-nav > li.light-purple > a:hover
+            {
+                background-color: rgb(194, 99, 206);
+            }
+
+            .mcs-nav > li.light-purple > a:focus
+            {
+                background-color: rgb(194, 99, 206);
+            }
+
+        .mcs-nav > li.light-purple.open > a
+        {
+            background-color: rgb(194, 99, 206) !important;
+        }
+
+        .mcs-nav > li.light-orange > a
+        {
+            background-color: rgb(247, 146, 99);
+        }
+
+            .mcs-nav > li.light-orange > a:hover
+            {
+                background-color: rgb(242, 134, 83);
+            }
+
+            .mcs-nav > li.light-orange > a:focus
+            {
+                background-color: rgb(242, 134, 83);
+            }
+
+        .mcs-nav > li.light-orange.open > a
+        {
+            background-color: rgb(242, 134, 83) !important;
+        }
+
+        .mcs-nav > li.light-pink > a
+        {
+            background-color: rgb(244, 218, 229);
+        }
+
+            .mcs-nav > li.light-pink > a:hover
+            {
+                background-color: rgb(238, 204, 218);
+            }
+
+            .mcs-nav > li.light-pink > a:focus
+            {
+                background-color: rgb(238, 204, 218);
+            }
+
+        .mcs-nav > li.light-pink.open > a
+        {
+            background-color: rgb(238, 204, 218) !important;
+        }
+
+        .mcs-nav > li.dark > a
+        {
+            background-color: rgb(64, 64, 64);
+        }
+
+            .mcs-nav > li.dark > a:hover
+            {
+                background-color: rgb(54, 54, 54);
+            }
+
+            .mcs-nav > li.dark > a:focus
+            {
+                background-color: rgb(54, 54, 54);
+            }
+
+        .mcs-nav > li.dark.open > a
+        {
+            background-color: rgb(54, 54, 54) !important;
+        }
+
+        .mcs-nav > li.white-opaque > a
+        {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+            .mcs-nav > li.white-opaque > a:hover
+            {
+                background-color: rgba(245, 245, 245, 0.8);
+            }
+
+            .mcs-nav > li.white-opaque > a:focus
+            {
+                background-color: rgba(245, 245, 245, 0.8);
+            }
+
+        .mcs-nav > li.white-opaque.open > a
+        {
+            background-color: rgba(245, 245, 245, 0.8) !important;
+        }
+
+        .mcs-nav > li.dark-opaque > a
+        {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+            .mcs-nav > li.dark-opaque > a:hover
+            {
+                background-color: rgba(0, 0, 0, 0.2);
+            }
+
+            .mcs-nav > li.dark-opaque > a:focus
+            {
+                background-color: rgba(0, 0, 0, 0.2);
+            }
+
+        .mcs-nav > li.dark-opaque.open > a
+        {
+            background-color: rgba(0, 0, 0, 0.2) !important;
+        }
+
+        /*导航通知栏部分颜色设定*/
+
+        .mcs-nav > li.margin-4
+        {
+            margin-left: 4px;
+        }
+
+        .mcs-nav > li.margin-3
+        {
+            margin-left: 3px;
+        }
+
+        .mcs-nav > li.margin-2
+        {
+            margin-left: 2px;
+        }
+
+        .mcs-nav > li.margin-1
+        {
+            margin-left: 1px;
+        }
+
+        .mcs-nav > li.no-border
+        {
+            border: currentColor !important;
+        }
+
+        .mcs-nav > li .dropdown-menu
+        {
+            z-index: 1031;
+        }
+
+    .mcs-nav .nav-user-photo
+    {
+        margin: -4px 8px 0px 0px;
+        border-radius: 100%;
+        border: 2px solid rgb(255, 255, 255);
+        max-width: 40px;
+    }
+
+    .mcs-nav li:last-child a [class^='icon-']
+    {
+        width: 1.25em;
+        text-align: center;
+        display: inline-block;
+    }
+
+
+/*dropdown-navbar 首页导航链接弹出框*/
+
+.dropdown-navbar
+{
+    border-color: rgb(188, 212, 229);
+    padding: 0px;
+    width: 240px;
+    box-shadow: 0px 2px 4px rgba(30,30,100,0.25);
+    -webkit-box-shadow: 0 2px 4px rgba(30, 30, 100, 0.25);
+}
+
+    .dropdown-navbar > li
+    {
+        padding: 0px 8px;
+        background-color: rgb(255, 255, 255);
+    }
+
+        .dropdown-navbar > li.dropdown-header
+        {
+            text-transform: none;
+            line-height: 34px;
+            padding-top: 0px;
+            padding-bottom: 0px;
+            font-size: 13px;
+            font-weight: bold;
+            border-bottom-color: currentColor;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            text-shadow: none;
+        }
+
+        .dropdown-navbar > li > [class*='icon-']
+        {
+            color: rgb(85, 85, 85);
+            font-size: 14px;
+            margin-right: 5px !important;
+        }
+
+        .dropdown-navbar > li > a > [class*='icon-']
+        {
+            color: rgb(85, 85, 85);
+            font-size: 14px;
+            margin-right: 5px !important;
+        }
+
+        .dropdown-navbar > li > a
+        {
+            margin: 0px;
+            padding: 10px 2px;
+            color: rgb(85, 85, 85);
+            line-height: 16px;
+            font-size: 12px;
+            border-bottom-color: currentColor;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+        }
+
+            .dropdown-navbar > li > a:active
+            {
+                color: rgb(85, 85, 85);
+                background-color: transparent !important;
+            }
+
+            .dropdown-navbar > li > a:hover
+            {
+                color: rgb(85, 85, 85);
+                background-color: transparent !important;
+            }
+
+            .dropdown-navbar > li > a:focus
+            {
+                color: rgb(85, 85, 85);
+                background-color: transparent !important;
+            }
+
+            .dropdown-navbar > li > a .progress
+            {
+                margin-top: 4px;
+                margin-bottom: 0px;
+            }
+
+            .dropdown-navbar > li > a .badge
+            {
+                line-height: 16px;
+                padding-right: 4px;
+                padding-left: 4px;
+                font-size: 12px;
+            }
+
+        .dropdown-navbar > li:last-child > a
+        {
+            text-align: center;
+            color: rgb(79, 153, 198);
+            font-size: 13px;
+            border-top-color: transparent;
+            border-bottom-color: rgb(221, 221, 221);
+            border-top-width: 1px;
+            border-bottom-width: 0px;
+            border-top-style: dotted;
+            border-bottom-style: solid;
+        }
+
+            .dropdown-navbar > li:last-child > a:hover
+            {
+                color: rgb(79, 153, 198);
+                text-decoration: underline;
+                background-color: rgb(255, 255, 255);
+            }
+
+                .dropdown-navbar > li:last-child > a:hover > [class*='icon-']
+                {
+                    text-decoration: none;
+                }
+
+        .dropdown-navbar > li:hover
+        {
+            background-color: rgb(244, 249, 252) !important;
+        }
+
+        .dropdown-navbar > li.dropdown-header
+        {
+            color: rgb(128, 144, 160);
+            border-bottom-color: rgb(188, 212, 229);
+            background-color: rgb(236, 242, 247) !important;
+        }
+
+            .dropdown-navbar > li.dropdown-header > [class*='icon-']
+            {
+                color: rgb(128, 144, 160);
+            }
+
+        .dropdown-navbar > li > a
+        {
+            border-bottom-color: rgb(228, 236, 243);
+        }
+
+
+
+
+.navbar-pink.dropdown-navbar
+{
+    border-color: rgb(229, 188, 212);
+}
+
+    .navbar-pink.dropdown-navbar > li:hover
+    {
+        background-color: rgb(252, 244, 249) !important;
+    }
+
+    .navbar-pink.dropdown-navbar > li.dropdown-header
+    {
+        color: rgb(180, 113, 160);
+        border-bottom-color: rgb(229, 188, 212);
+        background-color: rgb(247, 236, 242) !important;
+    }
+
+        .navbar-pink.dropdown-navbar > li.dropdown-header > [class*='icon-']
+        {
+            color: rgb(192, 96, 144);
+        }
+
+    .navbar-pink.dropdown-navbar > li > a
+    {
+        border-bottom-color: rgb(243, 228, 236);
+    }
+
+.navbar-grey.dropdown-navbar
+{
+    border-color: rgb(229, 229, 229);
+}
+
+    .navbar-grey.dropdown-navbar > li:hover
+    {
+        background-color: rgb(248, 248, 248) !important;
+    }
+
+    .navbar-grey.dropdown-navbar > li.dropdown-header
+    {
+        color: rgb(58, 135, 173);
+        border-bottom-color: rgb(229, 229, 229);
+        background-color: rgb(242, 242, 242) !important;
+    }
+
+        .navbar-grey.dropdown-navbar > li.dropdown-header > [class*='icon-']
+        {
+            color: rgb(58, 135, 173);
+        }
+
+    .navbar-grey.dropdown-navbar > li > a
+    {
+        border-bottom-color: rgb(238, 238, 238);
+    }
+
+.navbar-green.dropdown-navbar
+{
+    border-color: rgb(180, 213, 172);
+}
+
+    .navbar-green.dropdown-navbar > li:hover
+    {
+        background-color: rgb(244, 249, 239) !important;
+    }
+
+    .navbar-green.dropdown-navbar > li.dropdown-header
+    {
+        color: rgb(136, 170, 102);
+        border-bottom-color: rgb(180, 213, 172);
+        background-color: rgb(235, 247, 228) !important;
+    }
+
+        .navbar-green.dropdown-navbar > li.dropdown-header > [class*='icon-']
+        {
+            color: rgb(144, 192, 96);
+        }
+
+    .navbar-green.dropdown-navbar > li > a
+    {
+        border-bottom-color: rgb(236, 243, 228);
+    }
+
+/*通知区域动画*/
+.icon-animated-bell
+{
+    animation: ringing 2s 1s 5;
+    display: inline-block;
+    -webkit-animation: ringing 2.0s 5 ease 1.0s;
+    -moz-animation: ringing 2.0s 5 ease 1.0s;
+    -o-animation: ringing 2.0s 5 ease 1.0s;
+    -moz-transform-origin: 50% 0;
+    -webkit-transform-origin: 50% 0;
+    -o-transform-origin: 50% 0;
+    transform-origin: 50% 0%;
+}
+
+.icon-animated-vertical
+{
+    animation: vertical 2s 2s 5;
+    display: inline-block;
+    -webkit-animation: vertical 2.0s 5 ease 2.0s;
+    -moz-animation: vertical 2.0s 5 ease 2.0s;
+    -o-animation: vertical 2.0s 5 ease 2.0s;
+}
+
+.icon-animated-hand-pointer
+{
+    animation: hand-pointer 2s 2s 4;
+    display: inline-block;
+    -webkit-animation: hand-pointer 2.0s 4 ease 2.0s;
+    -moz-animation: hand-pointer 2.0s 4 ease 2.0s;
+    -o-animation: hand-pointer 2.0s 4 ease 2.0s;
+}
+
+.icon-animated-wrench
+{
+    transform-origin: 90% 35%;
+    animation: wrenching 2.5s 4;
+    display: inline-block;
+    -webkit-animation: wrenching 2.5s 4 ease;
+    -moz-animation: wrenching 2.5s 4 ease;
+    -o-animation: wrenching 2.5s 4 ease;
+    -moz-transform-origin: 90% 35%;
+    -webkit-transform-origin: 90% 35%;
+    -o-transform-origin: 90% 35%;
+}
+
+/*通知区域动画*/
+
+.dropdown-navbar [class*='btn'][class*='icon-']
+{
+    margin: 0px 5px 0px 0px;
+    width: 24px;
+    text-align: center;
+    padding-right: 0px;
+    padding-left: 0px;
+    display: inline-block;
+}
+
+.dropdown-navbar .msg-photo
+{
+    margin-right: 6px;
+    max-width: 42px;
+}
+
+.dropdown-navbar .msg-body
+{
+    line-height: 20px;
+    vertical-align: middle;
+    display: inline-block;
+    white-space: normal;
+    max-width: 175px;
+}
+
+.dropdown-navbar .msg-title
+{
+    line-height: 14px;
+    display: inline-block;
+}
+
+.dropdown-navbar .msg-time
+{
+    color: rgb(119, 119, 119);
+    font-size: 11px;
+    display: block;
+}
+
+    .dropdown-navbar .msg-time > [class*='icon-']
+    {
+        color: rgb(85, 85, 85);
+        font-size: 14px;
+    }
+
+
+.dropdown-menu li a:hover
+{
+    background: rgb(79, 153, 198);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-menu li a:focus
+{
+    background: rgb(79, 153, 198);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-menu li a:active
+{
+    background: rgb(79, 153, 198);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-menu li.active a
+{
+    background: rgb(79, 153, 198);
+    color: rgb(255, 255, 255);
+}
+
+    .dropdown-menu li.active a:hover
+    {
+        background: rgb(79, 153, 198);
+        color: rgb(255, 255, 255);
+    }
+
+.dropdown-menu .dropdown-submenu:hover > a
+{
+    background: rgb(79, 153, 198);
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-menu > li > a:hover > [class^='icon-']
+{
+    background-image: none;
+}
+
+
+.dropdown-menu > li > a:focus > [class^='icon-']
+{
+    background-image: none;
+}
+
+.dropdown-menu > li > a:hover > [class*=' icon-']
+{
+    background-image: none;
+}
+
+.dropdown-menu > li > a:focus > [class*=' icon-']
+{
+    background-image: none;
+}
+
+.dropdown-menu > .active > a > [class^='icon-']
+{
+    background-image: none;
+}
+
+.dropdown-menu > .active > a > [class*=' icon-']
+{
+    background-image: none;
+}
+
+.dropdown-submenu:hover > a > [class^='icon-']
+{
+    background-image: none;
+}
+
+.dropdown-submenu:focus > a > [class^='icon-']
+{
+    background-image: none;
+}
+
+.dropdown-submenu:hover > a > [class*=' icon-']
+{
+    background-image: none;
+}
+
+.dropdown-submenu:focus > a > [class*=' icon-']
+{
+    background-image: none;
+}
+
+.dropdown-menu
+{
+    border-radius: 0px !important;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+    .dropdown-menu > li > a
+    {
+        padding-right: 11px;
+        padding-left: 11px;
+        font-size: 13px;
+        margin-top: 1px;
+        margin-bottom: 1px;
+    }
+
+
+.dropdown-caret.dropdown-menu::before
+{
+    left: 9px;
+    top: -7px;
+    border-right-color: transparent;
+    border-bottom-color: rgba(0, 0, 0, 0.2);
+    border-left-color: transparent;
+    border-right-width: 7px;
+    border-bottom-width: 7px;
+    border-left-width: 7px;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    display: inline-block;
+    position: absolute;
+    content: "";
+}
+
+
+.dropdown-caret.dropdown-menu::after
+{
+    left: 10px;
+    top: -6px;
+    border-right-color: transparent;
+    border-bottom-color: rgb(255, 255, 255);
+    border-left-color: transparent;
+    border-right-width: 6px;
+    border-bottom-width: 6px;
+    border-left-width: 6px;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    display: inline-block;
+    position: absolute;
+    content: "";
+}
+
+.dropdown-caret.pull-right.dropdown-menu::before
+{
+    left: auto;
+    right: 9px;
+}
+
+.dropdown-caret.pull-right.dropdown-menu::after
+{
+    left: auto;
+    right: 10px;
+}
+
+.dropdown-close.dropdown-menu
+{
+    left: -5px;
+    top: 92%;
+}
+
+.pull-right.dropdown-close.dropdown-menu
+{
+    left: auto;
+    right: -5px;
+}
+/*dropdown-navbar 首页导航链接弹出框*/
+
+/*搜索条及快捷按钮*/
+
+.breadcrumbs
+{
+    padding: 0px 12px 0px 0px;
+    line-height: 40px;
+    border-bottom-color: rgb(204, 204, 204);
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    display: block;
+    position: relative;
+    min-height: 40px;
+    height: 44.444444%; /*40/90*/
+    background-color: rgb(245, 245, 245);
+    z-index:1;
+}
+
+/*快捷方式按钮*/
+.nav-shortcuts
+{
+    text-align: center;
+    line-height: 36px; /*此行高过大会导致Sidebar偏离*/
+    margin-bottom: 0px;
+    /*border-bottom-color: rgb(221, 221, 221);
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    background-color: rgb(250, 250, 250);*/
+    max-height: 41px;
+    float: left;
+}
+
+.nav-shortcuts-large
+{
+    padding-bottom: 4px;
+}
+
+    .nav-shortcuts-large > .btn
+    {
+        border-width: 4px;
+        padding: 0px;
+        width: 41px;
+        text-align: center;
+        line-height: 24px;
+        margin-top: -2px;
+    }
+
+        .nav-shortcuts-large > .btn > [class*='icon-']
+        {
+            margin: 0px;
+        }
+
+.nav-shortcuts-mini
+{
+    width: 42px;
+    line-height: 18px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-size: 0px;
+    display: none;
+    background-color: rgb(255, 255, 255);
+}
+
+    .nav-shortcuts-mini > .btn
+    {
+        border-width: 0px !important;
+        margin: 0px 1px;
+        padding: 8px !important;
+        border-radius: 0px !important;
+        line-height: 0;
+        font-size: 0px;
+        opacity: 0.85;
+    }
+/*快捷方式按钮*/
+
+/*面包屑导航条*/
+.mcs-breadcrumb
+{
+    margin: 0px 22px 0px 12px;
+    padding: 0px;
+    border-radius: 0px;
+    color: rgb(51, 51, 51);
+    line-height: 24px;
+    font-size: 13px;
+    display: inline-block;
+    background-color: transparent;
+}
+
+    .mcs-breadcrumb > li
+    {
+        color: rgb(85, 85, 85);
+    }
+
+        .mcs-breadcrumb > li.active
+        {
+            color: rgb(85, 85, 85);
+        }
+
+        .mcs-breadcrumb > li > a
+        {
+            padding: 0px 4px;
+            color: rgb(76, 143, 189);
+            display: inline-block;
+        }
+
+        .mcs-breadcrumb > li + li::before
+        {
+            padding: 0px 5px 0px 2px;
+            top: 1px;
+            color: rgb(178, 182, 191);
+            font-family: FontAwesome;
+            font-size: 14px;
+            margin-right: 2px;
+            position: relative;
+            content: "\f105";
+        }
+
+    .mcs-breadcrumb .home-icon
+    {
+        top: 2px;
+        font-size: 20px;
+        margin-right: 2px;
+        margin-left: 4px;
+        position: relative;
+    }
+
+@media screen and (max-width:600px)
+{
+    .mcs-breadcrumb
+    {
+        display: none;
+    }
+}
+
+/*面包屑导航条*/
+
+/*查询区域*/
+.nav-search
+{
+    top: 6px;
+    right: 50px;
+    line-height: 24px;
+    position: absolute;
+}
+
+    .nav-search .form-search
+    {
+        margin-bottom: 0px;
+    }
+
+    .nav-search .nav-search-input
+    {
+        border-radius: 4px !important;
+        border: 1px solid rgb(111, 179, 224);
+        transition: width 0.15s;
+        width: 152px;
+        padding-left:20px;
+        height: 28px !important;
+        color: rgb(102, 102, 102) !important;
+        font-size: 13px;
+        z-index: 11;
+        -webkit-transition: width ease .15s;
+    }
+
+        .nav-search .nav-search-input + .dropdown-menu
+        {
+            left: 0px;
+            right: 0px;
+            min-width: 0px;
+        }
+
+        .nav-search .nav-search-input:focus
+        {
+            border-color: rgb(111, 179, 224);
+        }
+
+        .nav-search .nav-search-input:hover
+        {
+            border-color: rgb(111, 179, 224);
+        }
+
+    .nav-search .nav-search-icon
+    {
+        color: rgb(111, 179, 224) !important;
+        line-height: 24px !important;
+        font-size: 14px !important;
+    }
+
+.minimized.nav-search .nav-search-input
+{
+    width: 0px;
+    max-width: 0px;
+    opacity: 0;
+}
+
+.minimized.nav-search:hover .nav-search-input
+{
+    width: 152px;
+    max-width: 152px;
+    opacity: 1;
+}
+
+.minimized.nav-search .nav-search-btn:active + .nav-search-input
+{
+    width: 152px;
+    max-width: 152px;
+    opacity: 1;
+}
+
+.minimized.nav-search .nav-search-input:focus
+{
+    width: 152px;
+    max-width: 152px;
+    opacity: 1;
+}
+
+.minimized.nav-search .nav-search-input:hover
+{
+    width: 152px;
+    max-width: 152px;
+    opacity: 1;
+}
+
+.minimized.nav-search .nav-search-input:active
+{
+    width: 152px;
+    max-width: 152px;
+    opacity: 1;
+}
+
+.minimized.nav-search .nav-search-icon
+{
+    padding: 0px 5px !important;
+    border-radius: 100%;
+    border: 1px solid currentColor;
+    background-color: rgb(255, 255, 255);
+}
+
+.minimized.nav-search:hover .nav-search-icon
+{
+    padding: 0px 3px !important;
+    border-radius: 0px;
+    border: 0px currentColor;
+}
+
+.minimized.nav-search .nav-search-input:focus ~ .nav-search-icon
+{
+    padding: 0px 3px !important;
+    border-radius: 0px;
+    border: 0px currentColor;
+}
+
+.minimized.nav-search .nav-search-input:hover ~ .nav-search-icon
+{
+    padding: 0px 3px !important;
+    border-radius: 0px;
+    border: 0px currentColor;
+}
+
+.minimized.nav-search .nav-search-input:active ~ .nav-search-icon
+{
+    padding: 0px 3px !important;
+    border-radius: 0px;
+    border: 0px currentColor;
+}
+
+.nav-search-icon
+{
+    padding: 0px 3px !important;
+    border-radius: 0px;
+    border: 0px currentColor;
+}
+
+@media only screen and (max-width:767px)
+{
+    .nav-search
+    {
+        right: 5px;
+    }
+
+        .nav-search .nav-search-input
+        {
+            width: 105px;
+        }
+
+        .nav-search:hover .nav-search-input
+        {
+            width: 145px;
+        }
+
+        .nav-search .nav-search-btn:active + .nav-search-input
+        {
+            width: 145px;
+        }
+
+        .nav-search .nav-search-input:focus
+        {
+            width: 145px;
+        }
+
+        .nav-search .nav-search-input:hover
+        {
+            width: 145px;
+        }
+
+        .nav-search .nav-search-input:active
+        {
+            width: 145px;
+        }
+}
+
+@media only screen and (max-width:480px)
+{
+    .nav-search .nav-search-input
+    {
+        width: 0px;
+        max-width: 0px;
+        opacity: 0;
+    }
+
+    .nav-search:hover .nav-search-input
+    {
+        width: 152px;
+        max-width: 152px;
+        opacity: 1;
+    }
+
+    .nav-search .nav-search-btn:active + .nav-search-input
+    {
+        width: 152px;
+        max-width: 152px;
+        opacity: 1;
+    }
+
+    .nav-search .nav-search-input:focus
+    {
+        width: 152px;
+        max-width: 152px;
+        opacity: 1;
+    }
+
+    .nav-search .nav-search-input:hover
+    {
+        width: 152px;
+        max-width: 152px;
+        opacity: 1;
+    }
+
+    .nav-search .nav-search-input:active
+    {
+        width: 152px;
+        max-width: 152px;
+        opacity: 1;
+    }
+
+    .nav-search .nav-search-icon
+    {
+        padding: 0px 5px !important;
+        border-radius: 100%;
+        border: 1px solid currentColor;
+        background-color: rgb(255, 255, 255);
+    }
+
+    .nav-search:hover .nav-search-icon
+    {
+        padding: 0px 3px !important;
+        border-radius: 0px;
+        border: 0px currentColor;
+    }
+
+    .nav-search .nav-search-input:focus ~ .nav-search-icon
+    {
+        padding: 0px 3px !important;
+        border-radius: 0px;
+        border: 0px currentColor;
+    }
+
+    .nav-search .nav-search-input:hover ~ .nav-search-icon
+    {
+        padding: 0px 3px !important;
+        border-radius: 0px;
+        border: 0px currentColor;
+    }
+
+    .nav-search .nav-search-input:active ~ .nav-search-icon
+    {
+        padding: 0px 3px !important;
+        border-radius: 0px;
+        border: 0px currentColor;
+    }
+}
+
+/*查询区域*/
+/*Index Header 部分布局与样式*/
+
+
+/*Sidebar区域*/
+
+.menu-toggler
+{
+    display: none;
+}
+
+.sidebar
+{
+    border-width: 0px 1px 0px 0px;
+    border-style: solid;
+    border-color: rgb(204, 204, 204);
+    width: 220px;
+    float: left;
+    position: relative;
+    background-color: rgb(242, 242, 242);
+}
+
+    .sidebar::before
+    {
+        border-width: 0px 1px 0px 0px;
+        border-style: solid;
+        border-color: rgb(204, 204, 204);
+        top: 0px;
+        width: 220px;
+        bottom: 0px;
+        display: block;
+        position: fixed;
+        z-index: 0;
+        content: "";
+        background-color: rgb(242, 242, 242);
+    }
+
+
+.sidebar-collapse
+{
+    padding: 3px 0px;
+    text-align: center;
+    border-bottom-color: rgb(224, 224, 224);
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    position: relative;
+    background-color: rgb(243, 243, 243);
+}
+
+    .sidebar-collapse > [class*='icon-']
+    {
+        padding: 0px 5px;
+        border-radius: 16px;
+        border: 1px solid rgb(187, 187, 187);
+        color: rgb(170, 170, 170);
+        line-height: 18px;
+        font-size: 14px;
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        background-color: rgb(255, 255, 255);
+    }
+
+    .sidebar-collapse::before
+    {
+        left: 15px;
+        top: 13px;
+        height: 0px;
+        right: 15px;
+        border-top-color: rgb(224, 224, 224);
+        border-top-width: 1px;
+        border-top-style: solid;
+        display: inline-block;
+        position: absolute;
+        content: "";
+    }
+
+
+@media only screen and (max-width:991px)
+{
+    .sidebar::before
+    {
+        display: none;
+    }
+
+    .sidebar
+    {
+        border-width: 1px 1px 1px 0px;
+        border-style: solid;
+        border-color: rgb(204, 204, 204);
+        left: 0px;
+        top: auto !important;
+        bottom: auto;
+        margin-top: 0px;
+        float: none;
+        display: none;
+        position: absolute;
+        z-index: 1000;
+        box-shadow: 2px 1px 2px 0px rgba(0,0,0,0.2);
+    }
+
+    .sidebar.display
+    {
+        display: block;
+    }
+
+    .menu-toggler
+    {
+        left: 0px;
+        width: 50px;
+        height: 32px;
+        color: rgb(243, 243, 243);
+        text-transform: uppercase;
+        line-height: normal;
+        padding-top: 7px;
+        padding-bottom: 1px;
+        padding-left: 33px;
+        font-size: 13px;
+        font-weight: bold;
+        margin-right: 2px;
+        display: inline-block;
+        position: absolute;
+        z-index: 998;
+        box-sizing: content-box;
+        background-color: rgb(68, 68, 68);
+        -moz-box-sizing: content-box;
+        -webkit-box-sizing: content-box;
+    }
+
+        .menu-toggler:hover
+        {
+            text-decoration: none;
+        }
+
+        .menu-toggler::before
+        {
+            transition: 0.1s;
+            left: 4px;
+            top: 13px;
+            width: 24px;
+            height: 2px;
+            border-top-color: rgb(135, 184, 127);
+            border-bottom-color: rgb(111, 179, 224);
+            border-top-width: 1px;
+            border-bottom-width: 1px;
+            border-top-style: solid;
+            border-bottom-style: solid;
+            position: absolute;
+            z-index: 11;
+            content: "";
+            box-sizing: content-box;
+            -moz-box-sizing: content-box;
+            -webkit-box-sizing: content-box;
+            -webkit-transition: all .1s ease;
+            -o-transition: none;
+        }
+
+        .menu-toggler::after
+        {
+            transition: 0.1s;
+            left: 4px;
+            top: 19px;
+            width: 24px;
+            height: 2px;
+            border-top-color: rgb(255, 162, 77);
+            border-bottom-color: rgb(209, 91, 71);
+            border-top-width: 1px;
+            border-bottom-width: 1px;
+            border-top-style: solid;
+            border-bottom-style: solid;
+            position: absolute;
+            content: "";
+            box-sizing: content-box;
+            -moz-box-sizing: content-box;
+            -webkit-box-sizing: content-box;
+            -webkit-transition: all .1s ease;
+            -o-transition: none;
+        }
+
+    .display.menu-toggler::before
+    {
+        border-width: 2px;
+        top: 8px;
+        height: 4px;
+    }
+
+    .display.menu-toggler::after
+    {
+        border-width: 2px;
+        top: 20px;
+        height: 4px;
+    }
+
+    .menu-toggler > .menu-text
+    {
+        border-width: 9px 42px;
+        border-style: solid;
+        border-color: rgb(68, 68, 68) transparent transparent;
+        left: 0px;
+        bottom: -18px;
+        display: block;
+        position: absolute;
+    }
+
+        .menu-toggler > .menu-text::after
+        {
+            left: -8px;
+            top: -41px;
+            color: rgb(255, 255, 255);
+            display: block;
+            position: absolute;
+            content: "MENU";
+        }
+
+    .nav-list > li.active::after
+    {
+        display: none;
+    }
+
+    .nav-list li.active > a::after
+    {
+        display: none;
+    }
+
+    .nav-list li.open.active > .submenu > li.active > a::after
+    {
+        display: none;
+    }
+
+    .menu-min .nav-list > li.active::after
+    {
+        display: block;
+    }
+
+    .menu-min .nav-list > li.active > a::after
+    {
+        display: block;
+    }
+}
+
+@media only screen and (max-width:320px)
+{
+    .menu-toggler
+    {
+        width: 0px;
+    }
+
+        .menu-toggler > .menu-text
+        {
+            border-width: 7px 16px;
+            bottom: -14px;
+        }
+
+            .menu-toggler > .menu-text::after
+            {
+                left: -13px;
+                top: -42px;
+                color: rgb(255, 255, 255);
+                font-size: 9px;
+                font-weight: normal;
+                position: absolute;
+            }
+
+        .menu-toggler::before
+        {
+            margin-top: 8px;
+        }
+
+        .menu-toggler::after
+        {
+            margin-top: 8px;
+        }
+
+    .display.menu-toggler::before
+    {
+        border-width: 1px;
+        height: 2px;
+    }
+
+    .display.menu-toggler::after
+    {
+        border-width: 1px;
+        height: 2px;
+    }
+
+    .display.menu-toggler::before
+    {
+        top: 13px;
+    }
+
+    .display.menu-toggler::after
+    {
+        top: 19px;
+    }
+}
+
+
+
+
+
+.fixed.sidebar
+{
+    left: 0px;
+    top: 45px;
+    position: fixed;
+    z-index: 1029;
+}
+
+.sidebar-fixed.sidebar
+{
+    left: 0px;
+    top: 45px;
+    position: fixed;
+    z-index: 1029;
+}
+
+.fixed.sidebar::before
+{
+    left: 0px;
+    right: auto;
+}
+
+.sidebar-fixed.sidebar::before
+{
+    left: 0px;
+    right: auto;
+}
+
+
+.sidebar.menu-min
+{
+    width: 43px;
+}
+
+    .sidebar.menu-min::before
+    {
+        width: 43px;
+    }
+
+    .sidebar.menu-min + .main-content
+    {
+        margin-left: 43px;
+    }
+
+        .sidebar.menu-min + .main-content .fixed.breadcrumbs
+        {
+            left: 43px;
+        }
+
+        .sidebar.menu-min + .main-content .breadcrumbs-fixed.breadcrumbs
+        {
+            left: 43px;
+        }
+
+.menu-min .nav-list a .badge
+{
+    left: 4px;
+    top: -1px;
+    right: auto;
+    position: relative;
+}
+
+.menu-min .nav-list a .label
+{
+    left: 4px;
+    top: -1px;
+    right: auto;
+    position: relative;
+}
+
+.menu-min .nav-list .submenu .submenu a .badge
+{
+    top: 0px;
+}
+
+.menu-min .nav-list .submenu .submenu a .label
+{
+    top: 0px;
+}
+
+.menu-min .nav-list > li > a
+{
+    position: relative;
+}
+
+    .menu-min .nav-list > li > a > .menu-text
+    {
+        border: 1px solid rgb(204, 204, 204);
+        left: 42px;
+        top: -2px;
+        width: 174px;
+        height: 40px;
+        line-height: 38px;
+        padding-left: 12px;
+        display: none;
+        position: absolute;
+        z-index: 121;
+        box-shadow: 2px 1px 2px 0px rgba(0,0,0,0.2);
+        background-color: rgb(245, 245, 245);
+        -webkit-box-shadow: 2px 1px 2px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .menu-min .nav-list > li > a.dropdown-toggle > .menu-text
+    {
+        border-width: 0px 0px 1px;
+        border-style: none none solid;
+        border-color: currentColor currentColor rgb(221, 221, 221);
+        left: 43px;
+        top: -1px;
+        width: 174px;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+    }
+
+    .menu-min .nav-list > li > a .arrow
+    {
+        display: none;
+    }
+
+    .menu-min .nav-list > li > a:hover::before
+    {
+        width: 2px;
+    }
+
+.menu-min .nav-list > li:hover > a
+{
+    color: rgb(25, 99, 170);
+}
+
+    .menu-min .nav-list > li:hover > a > .menu-text
+    {
+        display: block;
+    }
+
+.menu-min .nav-list > li.active > a > .menu-text
+{
+    border-left-color: rgb(25, 99, 170);
+}
+
+.menu-min .nav-list > li.open > a
+{
+    color: rgb(88, 88, 88);
+    background-color: rgb(250, 250, 250);
+}
+
+.menu-min .nav-list > li.active.open > a
+{
+    background-color: rgb(255, 255, 255);
+}
+
+.menu-min .nav-list > li.open:hover > a
+{
+    color: rgb(25, 99, 170);
+}
+
+.menu-min .nav-list > li.active > a
+{
+    color: rgb(43, 125, 188);
+}
+
+    .menu-min .nav-list > li.active > a::after
+    {
+        border-width: 10px 6px;
+        top: 8px;
+    }
+
+.menu-min .nav-list > li.open.active > a::after
+{
+    display: block;
+}
+
+.menu-min .nav-list > li.open.active li.active > a::after
+{
+    display: none;
+}
+
+.menu-min .nav-list > li > .submenu
+{
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(204, 204, 204);
+    left: 42px;
+    top: -2px;
+    width: 176px;
+    padding-top: 40px;
+    padding-bottom: 2px;
+    display: none !important;
+    position: absolute;
+    z-index: 120;
+    box-shadow: 2px 1px 2px 0px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 2px 1px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+    .menu-min .nav-list > li > .submenu::before
+    {
+        display: none;
+    }
+
+    .menu-min .nav-list > li > .submenu li::before
+    {
+        display: none;
+    }
+
+    .menu-min .nav-list > li > .submenu li > a
+    {
+        padding-left: 24px;
+        margin-left: 0px;
+    }
+
+        .menu-min .nav-list > li > .submenu li > a > [class*='icon-']:first-child
+        {
+            left: 4px;
+        }
+
+.menu-min .nav-list > li:hover > .submenu
+{
+    display: block !important;
+}
+
+.menu-min .nav-list > li.active > .submenu
+{
+    border-left-color: rgb(43, 125, 188);
+}
+
+.menu-min .sidebar-shortcuts
+{
+    position: relative;
+}
+
+.menu-min .sidebar-shortcuts-mini
+{
+    display: block;
+}
+
+.menu-min .sidebar-shortcuts-large
+{
+    padding: 0px 2px 1px;
+    border: 1px solid rgb(204, 204, 204);
+    left: 42px;
+    top: -1px;
+    width: 182px;
+    display: none;
+    position: absolute;
+    z-index: 20;
+    box-shadow: 2px 1px 2px 0px rgba(0,0,0,0.2);
+    background-color: rgb(255, 255, 255);
+    -webkit-box-shadow: 2px 1px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.menu-min .sidebar-shortcuts:hover .sidebar-shortcuts-large
+{
+    display: block;
+}
+
+.menu-min .sidebar-collapse::before
+{
+    left: 5px;
+    right: 5px;
+}
+
+.menu-min .sidebar-collapse > [class*='icon-']
+{
+    border-width: 1px;
+    border-color: rgb(174, 174, 174);
+    padding: 0px 4px;
+    line-height: 15px;
+    font-size: 13px;
+}
+
+.menu-min .nav-list > li > .submenu li > .submenu > li > a
+{
+    padding-left: 30px;
+    margin-left: 0px;
+}
+
+.menu-min .nav-list > li > .submenu li > .submenu > li > .submenu > li > a
+{
+    padding-left: 45px;
+    margin-left: 0px;
+}
+
+.menu-min .nav-list > li > .submenu li.active > a::after
+{
+    display: none;
+}
+
+.menu-min .nav-list li.open.active > .submenu > li.active > a::after
+{
+    display: none;
+}
+
+
+
+
+
+.nav-list
+{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+    .nav-list .open > a
+    {
+        background-color: rgb(250, 250, 250);
+    }
+
+        .nav-list .open > a:hover
+        {
+            background-color: rgb(250, 250, 250);
+        }
+
+        .nav-list .open > a:focus
+        {
+            background-color: rgb(250, 250, 250);
+        }
+
+    .nav-list > li
+    {
+        border-width: 1px 0px;
+        border-style: solid none;
+        border-color: rgb(252, 252, 252) currentColor rgb(229, 229, 229);
+        margin: 0px;
+        padding: 0px;
+        display: block;
+        position: relative;
+    }
+
+        .nav-list > li > a
+        {
+            margin: 0px;
+            padding: 0px 16px 0px 10px;
+            height: 38px;
+            color: rgb(88, 88, 88);
+            line-height: 36px;
+            font-size: 13px;
+            text-decoration: none;
+            display: block;
+            text-shadow: none !important;
+            background-color: rgb(249, 249, 249);
+        }
+
+            .nav-list > li > a > [class*='icon-']:first-child
+            {
+                text-align: center;
+                font-size: 18px;
+                font-weight: normal;
+                margin-right: 2px;
+                vertical-align: middle;
+                display: inline-block;
+                min-width: 30px;
+            }
+
+            .nav-list > li > a:focus
+            {
+                color: rgb(25, 99, 170);
+                background-color: rgb(249, 249, 249);
+            }
+
+            .nav-list > li > a:hover
+            {
+                color: rgb(25, 99, 170);
+                background-color: rgb(255, 255, 255);
+            }
+
+                .nav-list > li > a:hover::before
+                {
+                    left: 0px;
+                    top: -1px;
+                    width: 3px;
+                    bottom: 0px;
+                    overflow: hidden;
+                    display: block;
+                    position: absolute;
+                    max-width: 3px;
+                    content: "";
+                    background-color: rgb(51, 130, 175);
+                }
+
+            .nav-list > li  a > .arrow
+            {
+                padding: 0px;
+                top: 11px;
+                width: 14px !important;
+                height: 14px;
+                right: 11px;
+                color: rgb(102, 102, 102);
+                line-height: 14px;
+                font-size: 18px;
+                display: inline-block;
+                position: absolute;
+                text-shadow: none;
+            }
+
+            .nav-list > li > a:hover > .arrow
+            {
+                color: rgb(25, 99, 170);
+            }
+
+        .nav-list > li.active > a > .arrow
+        {
+            color: rgb(25, 99, 170);
+        }
+
+        .nav-list > li.open > a > .arrow
+        {
+            color: rgb(25, 99, 170);
+        }
+
+        .nav-list > li.separator
+        {
+            margin: 1px 0px;
+            height: 3px;
+            position: static;
+            box-shadow: none;
+            background-color: transparent;
+            -webkit-box-shadow: none;
+        }
+
+        .nav-list > li.open > a
+        {
+            color: rgb(25, 99, 170);
+            background-color: rgb(250, 250, 250);
+        }
+
+        .nav-list > li.active
+        {
+            background-color: rgb(255, 255, 255);
+        }
+
+            .nav-list > li.active > a
+            {
+                color: rgb(43, 125, 188);
+                font-size: 13px;
+                font-weight: bold;
+                background-color: rgb(255, 255, 255);
+            }
+
+                .nav-list > li.active > a:hover
+                {
+                    color: rgb(43, 125, 188);
+                    font-size: 13px;
+                    font-weight: bold;
+                    background-color: rgb(255, 255, 255);
+                }
+
+                .nav-list > li.active > a:focus
+                {
+                    color: rgb(43, 125, 188);
+                    font-size: 13px;
+                    font-weight: bold;
+                    background-color: rgb(255, 255, 255);
+                }
+
+                .nav-list > li.active > a:active
+                {
+                    color: rgb(43, 125, 188);
+                    font-size: 13px;
+                    font-weight: bold;
+                    background-color: rgb(255, 255, 255);
+                }
+
+                .nav-list > li.active > a > [class*='icon-']
+                {
+                    font-weight: normal;
+                }
+
+                .nav-list > li.active > a:hover::before
+                {
+                    display: none;
+                }
+
+            .nav-list > li.active::after
+            {
+                border-width: 0px 2px 0px 0px;
+                border-style: solid;
+                border-color: rgb(43, 125, 188);
+                top: -1px;
+                right: -2px;
+                bottom: 0px;
+                display: inline-block;
+                position: absolute;
+                z-index: 1;
+                content: "";
+            }
+
+        .nav-list > li.open
+        {
+            border-bottom-color: rgb(229, 229, 229);
+        }
+
+
+        .nav-list > li.active .submenu
+        {
+            display: block;
+        }
+
+        .nav-list > li .submenu
+        {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+            border-top-color: rgb(229, 229, 229);
+            border-top-width: 1px;
+            border-top-style: solid;
+            display: none;
+            position: relative;
+            background-color: rgb(255, 255, 255);
+        }
+
+            .nav-list > li .submenu > li
+            {
+                margin-left: 0px;
+                position: relative;
+            }
+
+                .nav-list > li .submenu > li > a
+                {
+                    margin: 0px;
+                    padding: 7px 0px 9px 37px;
+                    color: rgb(97, 97, 97);
+                    border-top-color: rgb(228, 228, 228);
+                    border-top-width: 1px;
+                    border-top-style: dotted;
+                    display: block;
+                    position: relative;
+                }
+
+                    .nav-list > li .submenu > li > a:focus
+                    {
+                        text-decoration: none;
+                    }
+
+                    .nav-list > li .submenu > li > a:hover
+                    {
+                        color: rgb(75, 136, 183);
+                        text-decoration: none;
+                    }
+
+                .nav-list > li .submenu > li.active > a
+                {
+                    color: rgb(43, 125, 188);
+                }
+
+                .nav-list > li .submenu > li a > [class*='icon-']:first-child
+                {
+                    left: 10px;
+                    top: 11px;
+                    width: 18px;
+                    height: auto;
+                    text-align: center;
+                    line-height: 12px;
+                    font-size: 12px;
+                    font-weight: normal;
+                    display: none;
+                    position: absolute;
+                    z-index: 1;
+                    background-color: rgb(255, 255, 255);
+                }
+
+                .nav-list > li .submenu > li.active > a > [class*='icon-']:first-child
+                {
+                    display: inline-block;
+                }
+
+                .nav-list > li .submenu > li:hover > a > [class*='icon-']:first-child
+                {
+                    display: inline-block;
+                }
+
+                .nav-list > li .submenu > li.active > a > [class*='icon-']:first-child
+                {
+                    color: rgb(200, 97, 57);
+                }
+
+        .nav-list > li > .submenu > li::before
+        {
+            left: 20px;
+            top: 17px;
+            width: 7px;
+            border-top-color: rgb(157, 189, 214);
+            border-top-width: 1px;
+            border-top-style: dotted;
+            display: inline-block;
+            position: absolute;
+            content: "";
+        }
+
+        .nav-list > li > .submenu > li:first-child > a
+        {
+            border-top-color: rgb(250, 250, 250);
+            border-top-width: 1px;
+            border-top-style: solid;
+        }
+
+        .nav-list > li > .submenu::before
+        {
+            border-width: 0px 0px 0px 1px;
+            border-style: dotted;
+            border-color: rgb(157, 189, 214);
+            left: 18px;
+            top: 0px;
+            bottom: 0px;
+            display: block;
+            position: absolute;
+            z-index: 1;
+            content: "";
+        }
+
+        .nav-list > li.active > .submenu > li::before
+        {
+            border-top-color: rgb(142, 179, 208);
+        }
+
+        .nav-list > li.active > .submenu::before
+        {
+            border-left-color: rgb(142, 179, 208);
+        }
+
+    .nav-list li .submenu
+    {
+        overflow: hidden;
+    }
+
+    .nav-list li.active > a::after
+    {
+        border-width: 14px 10px;
+        border-style: solid;
+        border-color: transparent rgb(43, 125, 188) transparent transparent;
+        top: 4px;
+        right: 0px;
+        display: block;
+        position: absolute !important;
+        content: "";
+    }
+
+    .nav-list li.open > a::after
+    {
+        display: none;
+    }
+
+    .nav-list li.open.active > .submenu > li.open.active > a.dropdown-toggle::after
+    {
+        display: none;
+    }
+
+    .nav-list li.active > .submenu > li.active > a::after
+    {
+        display: none;
+    }
+
+    .nav-list li.open.active > .submenu > li.active > a::after
+    {
+        display: block;
+    }
+
+    .nav-list li.no-active-child.active > a::after
+    {
+        display: inline-block !important;
+    }
+
+
+    .nav-list a .badge
+    {
+        top: 9px;
+        right: 11px;
+        padding-right: 6px;
+        padding-left: 6px;
+        font-size: 12px;
+        position: absolute;
+        opacity: 0.88;
+    }
+
+    .nav-list a .label
+    {
+        top: 9px;
+        right: 11px;
+        padding-right: 6px;
+        padding-left: 6px;
+        font-size: 12px;
+        position: absolute;
+        opacity: 0.88;
+    }
+
+    .nav-list a .badge [class*='icon-']
+    {
+        margin: 0px;
+        vertical-align: middle;
+    }
+
+    .nav-list a .label [class*='icon-']
+    {
+        margin: 0px;
+        vertical-align: middle;
+    }
+
+    .nav-list a.dropdown-toggle .badge
+    {
+        right: 28px;
+    }
+
+    .nav-list a.dropdown-toggle .label
+    {
+        right: 28px;
+    }
+
+    .nav-list a:hover .badge
+    {
+        opacity: 1;
+    }
+
+    .nav-list a:hover .label
+    {
+        opacity: 1;
+    }
+
+    .nav-list .submenu .submenu a .badge
+    {
+        top: 6px;
+    }
+
+    .nav-list .submenu .submenu a .label
+    {
+        top: 6px;
+    }
+
+
+    .nav-list > li > .submenu li > .submenu
+    {
+        border-top-color: currentColor;
+        border-top-width: 0px;
+        border-top-style: none;
+        display: none;
+        background-color: transparent;
+    }
+
+    .nav-list > li > .submenu li.active > .submenu
+    {
+        display: block;
+    }
+
+    .nav-list > li > .submenu a > .arrow
+    {
+        top: 10px;
+        right: 11px;
+        color: rgb(107, 130, 142);
+        font-size: 16px;
+    }
+
+    .nav-list > li > .submenu .open > a
+    {
+        border-color: rgb(228, 228, 228);
+        background-color: transparent;
+    }
+
+        .nav-list > li > .submenu .open > a:hover
+        {
+            border-color: rgb(228, 228, 228);
+            background-color: transparent;
+        }
+
+        .nav-list > li > .submenu .open > a:focus
+        {
+            border-color: rgb(228, 228, 228);
+            background-color: transparent;
+        }
+
+    .nav-list > li > .submenu > li > .submenu > li > a > .arrow
+    {
+        top: 9px;
+        right: 12px;
+    }
+
+    .nav-list > li > .submenu > li > .submenu > li
+    {
+        line-height: 16px;
+    }
+
+        .nav-list > li > .submenu > li > .submenu > li::before
+        {
+            display: none;
+        }
+
+        .nav-list > li > .submenu > li > .submenu > li > a
+        {
+            padding-left: 22px;
+            margin-left: 20px;
+        }
+
+        .nav-list > li > .submenu > li > .submenu > li > .submenu > li > a
+        {
+            padding-left: 38px;
+            margin-left: 20px;
+        }
+
+        .nav-list > li > .submenu > li > .submenu > li a > [class*='icon-']:first-child
+        {
+            color: inherit;
+            font-size: 14px;
+            margin-right: 1px;
+            display: inline-block;
+            position: static;
+            background-color: transparent;
+        }
+
+        .nav-list > li > .submenu > li > .submenu > li a
+        {
+            color: rgb(119, 119, 119);
+            font-size: 13px;
+        }
+
+            .nav-list > li > .submenu > li > .submenu > li a:hover
+            {
+                color: rgb(49, 98, 146);
+                text-decoration: underline;
+            }
+
+                .nav-list > li > .submenu > li > .submenu > li a:hover [class*='icon-']
+                {
+                    color: rgb(49, 98, 146);
+                    text-decoration: none;
+                }
+
+    .nav-list > li > .submenu > li.open > a
+    {
+        color: rgb(37, 99, 158);
+    }
+
+        .nav-list > li > .submenu > li.open > a > [class*='icon-']:first-child
+        {
+            display: inline-block;
+        }
+
+        .nav-list > li > .submenu > li.open > a .arrow
+        {
+            color: rgb(37, 99, 158);
+        }
+
+    .nav-list > li > .submenu > li > .submenu li.open > a
+    {
+        color: rgb(37, 99, 158);
+    }
+
+        .nav-list > li > .submenu > li > .submenu li.open > a > [class*='icon-']:first-child
+        {
+            color: rgb(25, 99, 170);
+            display: inline-block;
+        }
+
+        .nav-list > li > .submenu > li > .submenu li.open > a .arrow
+        {
+            color: rgb(37, 99, 158);
+        }
+
+    .nav-list > li > .submenu > li > .submenu li.active > a
+    {
+        color: rgb(52, 124, 179);
+    }
+
+        .nav-list > li > .submenu > li > .submenu li.active > a > [class*='icon-']:first-child
+        {
+            color: rgb(52, 124, 179);
+            display: inline-block;
+        }
+
+    .nav-list > li.open.active li.active > a::after
+    {
+        border-width: 14px 8px;
+        top: 2px;
+    }
+
+    .nav-list > li.open.active li.open.active li.active > a::after
+    {
+        top: 0px;
+    }
+
+
+.sidebar-collapse
+{
+    padding: 3px 0px;
+    text-align: center;
+    border-bottom-color: rgb(224, 224, 224);
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    position: relative;
+    background-color: rgb(243, 243, 243);
+}
+
+    .sidebar-collapse > [class*='icon-']
+    {
+        padding: 0px 5px;
+        border-radius: 16px;
+        border: 1px solid rgb(187, 187, 187);
+        color: rgb(170, 170, 170);
+        line-height: 18px;
+        font-size: 14px;
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        background-color: rgb(255, 255, 255);
+    }
+
+    .sidebar-collapse::before
+    {
+        left: 15px;
+        top: 13px;
+        height: 0px;
+        right: 15px;
+        border-top-color: rgb(224, 224, 224);
+        border-top-width: 1px;
+        border-top-style: solid;
+        display: inline-block;
+        position: absolute;
+        content: "";
+    }
+/*Sidebar区域*/
+
+/*边栏设置区域*/
+
+.settings-container
+{
+    top: 50px;
+    right: 0px;
+    position: absolute;
+    z-index: 12;
+}
+
+.breadcrumbs-fixed .settings-container
+{
+    top: 9px;
+}
+
+@media only screen and (max-width:480px)
+{
+    .settings-container
+    {
+        top: 65px;
+    }
+
+    body.breadcrumbs-fixed .settings-container
+    {
+        top: 65px;
+    }
+}
+
+
+.btn.settings-btn
+{
+    margin: 0px !important;
+    border-radius: 6px 0px 0px 6px !important;
+    width: 45px !important;
+    text-align: center;
+    vertical-align: top;
+    float: left;
+    display: inline-block;
+    opacity: 0.55;
+}
+
+    .btn.settings-btn:hover
+    {
+        opacity: 1;
+    }
+
+    .btn.settings-btn.open
+    {
+        opacity: 1;
+    }
+
+    .btn.settings-btn > i
+    {
+        font-size:150%;
+    }
+
+.settings-box
+{
+    padding: 0px 14px;
+    border: 2px solid rgb(255, 179, 75);
+    width: 175px;
+    float: left;
+    display: none;
+    background-color: rgb(255, 255, 255);
+    height:200px;
+}
+
+    .settings-box.open
+    {
+        display: inline-block;
+    }
+
+    .settings-box > div
+    {
+        margin: 6px 0px;
+        color: rgb(68, 68, 68);
+        max-height: 24px;
+    }
+
+        .settings-box > div > label
+        {
+            font-size: 13px;
+        }
+
+/*边栏设置区域*/
+
+
+
+/*Lync状态样式*/
+
+.lync-status-icon
+{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-image: url(../Images/ucStatus.png);
+    background-repeat: no-repeat;
+}
+
+    .lync-status-icon.away
+    {
+        background-position: 0px -2px;
+    }
+
+    .lync-status-icon.awayoof
+    {
+        background-position: -14px -2px;
+    }
+
+    .lync-status-icon.blocked
+    {
+        background-position: -28px -2px;
+    }
+
+    .lync-status-icon.busy
+    {
+        background-position: -42px -2px;
+    }
+
+    .lync-status-icon.busyoof
+    {
+        background-position: -56px -2px;
+    }
+
+    .lync-status-icon.dnd
+    {
+        background-position: -70px -2px;
+    }
+
+    .lync-status-icon.dndoof
+    {
+        background-position: -84px -2px;
+    }
+
+    .lync-status-icon.hdr
+    {
+        background-position: -98px -2px;
+    }
+
+    .lync-status-icon.idle
+    {
+        background-position: -112px -2px;
+    }
+
+    .lync-status-icon.idlebusy
+    {
+        background-position: -126px -2px;
+    }
+
+    .lync-status-icon.idlebusyoof
+    {
+        background-position: -140px -2px;
+    }
+
+    .lync-status-icon.dileoof
+    {
+        background-position: -154px -2px;
+    }
+
+    .lync-status-icon.off
+    {
+        background-position: -168px -2px;
+    }
+
+    .lync-status-icon.offoof
+    {
+        background-position: -182px -2px;
+    }
+
+    .lync-status-icon.on
+    {
+        background-position: -196px -2px;
+    }
+
+    .lync-status-icon.onoof
+    {
+        background-position: -210px -2px;
+    }
+
+
+
+.lync-head-icon
+{
+    display: inline-block;
+    width: 10px;
+    height: 36px;
+    background-image: url(../Images/ucStatus.png);
+    background-repeat: no-repeat;
+}
+
+
+    .lync-head-icon.away
+    {
+        background-position: 0px -16px;
+    }
+
+    .lync-head-icon.awayoof
+    {
+        background-position: -12px -16px;
+    }
+
+    .lync-head-icon.blocked
+    {
+        background-position: -24px -16px;
+    }
+
+    .lync-head-icon.busy
+    {
+        background-position: -36px -16px;
+    }
+
+    .lync-head-icon.busyoof
+    {
+        background-position: -48px -16px;
+    }
+
+    .lync-head-icon.dnd
+    {
+        background-position: -60px -16px;
+    }
+
+    .lync-head-icon.dndoof
+    {
+        background-position: -72px -16px;
+    }
+
+    .lync-head-icon.hdr
+    {
+        background-position: -84px -16px;
+    }
+
+    .lync-head-icon.idle
+    {
+        background-position: -96px -16px;
+    }
+
+    .lync-head-icon.idlebusy
+    {
+        background-position: -108px -16px;
+    }
+
+    .lync-head-icon.idlebusyoof
+    {
+        background-position: -120px -16px;
+    }
+
+    .lync-head-icon.dileoof
+    {
+        background-position: -132px -16px;
+    }
+
+    .lync-head-icon.off
+    {
+        background-position: -144px -16px;
+    }
+
+    .lync-head-icon.offoof
+    {
+        background-position: -156px -16px;
+    }
+
+    .lync-head-icon.on
+    {
+        background-position: -168px -16px;
+    }
+
+    .lync-head-icon.onoof
+    {
+        background-position: -180px -16px;
+    }
+
+
+
+.arrow
+{
+    color: rgb(171, 186, 195);
+    font-weight: bold;
+    display: inline-block;
+    position: relative;
+    text-shadow: none;
+}
+
+    .arrow.arrow-right
+    {
+    }
+
+    .arrow.arrow-left
+    {
+    }
+
+    .arrow.arrow-up
+    {
+    }
+
+    .arrow.arrow-down
+    {
+    }
+
+.arrow-right::before
+{
+    top: -6px;
+    right: -20px;
+    position: absolute;
+    width: 20px;
+    height: 8px;
+    display: inline-block;
+    content: "";
+    background-color: rgb(171, 186, 195);
+}
+
+.arrow-right::after
+{
+    top: -10px;
+    right: -30px;
+    position: absolute;
+    border-width: 8px 7px;
+    border-style: solid;
+    border-color: transparent transparent transparent rgb(171, 186, 195);
+    display: inline-block;
+    content: "";
+}
+
+.arrow-left::before
+{
+    top: -6px;
+    right: -20px;
+    position: absolute;
+    width: 20px;
+    height: 8px;
+    display: inline-block;
+    content: "";
+    background-color: rgb(171, 186, 195);
+}
+
+.arrow-left::after
+{
+    top: -10px;
+    right: -4px;
+    position: absolute;
+    border-width: 8px 7px;
+    border-style: solid;
+    border-color: transparent rgb(171, 186, 195) transparent transparent;
+    display: inline-block;
+    content: "";
+}
+
+
+
+.arrow-up::before
+{
+    top: -6px;
+    right: -20px;
+    position: absolute;
+    width: 8px;
+    height: 20px;
+    display: inline-block;
+    content: "";
+    background-color: rgb(171, 186, 195);
+}
+
+.arrow-up::after
+{
+    top: -18px;
+    right: -23px;
+    position: absolute;
+    border-width: 8px 7px;
+    border-style: solid;
+    border-color: transparent transparent rgb(171, 186, 195) transparent;
+    display: inline-block;
+    content: "";
+}
+
+
+.arrow-down::before
+{
+    top: -6px;
+    right: -20px;
+    position: absolute;
+    width: 8px;
+    height: 20px;
+    display: inline-block;
+    content: "";
+    background-color: rgb(171, 186, 195);
+}
+
+.arrow-down::after
+{
+    top: 10px;
+    right: -23px;
+    position: absolute;
+    border-width: 8px 7px;
+    border-style: solid;
+    border-color: rgb(171, 186, 195) transparent transparent transparent;
+    display: inline-block;
+    content: "";
+}
+
+.arrow.arrow-success
+{
+    color: rgb(119, 198, 70);
+}
+
+    .arrow.arrow-success::before
+    {
+        background-color: rgb(119, 198, 70);
+    }
+
+.arrow-left.arrow-success::after
+{
+    border-right-color: rgb(119, 198, 70);
+}
+
+.arrow-right.arrow-success::after
+{
+    border-left-color: rgb(119, 198, 70);
+}
+
+.arrow-up.arrow-success::after
+{
+    border-bottom-color: rgb(119, 198, 70);
+}
+
+.arrow-down.arrow-success::after
+{
+    border-top-color: rgb(119, 198, 70);
+}
+
+
+.arrow.arrow-important
+{
+    color: rgb(255, 0, 110);
+}
+
+    .arrow.arrow-important::before
+    {
+        background-color: rgb(255, 0, 110);
+    }
+
+.arrow-left.arrow-important::after
+{
+    border-right-color: rgb(255, 0, 110);
+}
+
+.arrow-right.arrow-important::after
+{
+    border-left-color: rgb(255, 0, 110);
+}
+
+.arrow-up.arrow-important::after
+{
+    border-bottom-color: rgb(255, 0, 110);
+}
+
+.arrow-down.arrow-important::after
+{
+    border-top-color: rgb(255, 0, 110);
+}
+
+
+.btn-arrow
+{
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    background-image: url(../Images/btnArrow.png);
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+    .btn-arrow.right-active
+    {
+        background-position: 0px -1px;
+    }
+
+    .btn-arrow.right-unactive
+    {
+        background-position: 0px -37px;
+    }
+
+    .btn-arrow.left-active
+    {
+        background-position: 0px -73px;
+    }
+
+    .btn-arrow.left-unactive
+    {
+        background-position: 0px -109px;
+    }
+
+
+/*登录页面开始*/
+
+.login-container
+{
+    border: 1px solid rgb(220, 235, 247);
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 5px;
+    background-color: rgb(247, 250, 255);
+}
+
+    .login-container .login-title
+    {
+        margin-left: 0px;
+        height: 57px;
+        background-image: url(../Images/tmp/login-title-bg.png);
+        background-repeat: repeat-x;
+        /*background: rgb(247, 247, 247);
+        background: linear-gradient(rgb(255, 255, 255) 0px, rgb(238, 238, 238) 100%) repeat-x rgb(247, 247, 247) !important;
+        border-bottom: 1px solid rgb(220, 235, 247);*/
+        width: 100%;
+    }
+
+        .login-container .login-title .login-logo
+        {
+            margin-left: 20px;
+            background-image: url(../Images/tmp/login-title-logo.png);
+            background-repeat: no-repeat;
+            height: 100%;
+        }
+
+.login-container-inner
+{
+    display: inline-block;
+    width: 100%;
+    padding: 20px;
+}
+
+    .login-container-inner .login-panel
+    {
+        border: 5px solid rgb(220, 235, 247);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+.login-panel .login-panel-logo
+{
+    border-right: 1px solid rgb(220, 235, 247);
+    margin: 0px;
+    background-color: whitesmoke;
+    min-height: 300px;
+    height: 100%;
+}
+
+.login-panel .login-panel-content
+{
+    margin: 0px;
+    padding: 0px 10px 0px 0px;
+}
+
+    .login-panel .login-panel-content .form-horizontal
+    {
+        border-top: 1px solid rgb(220, 235, 247);
+        width: 100%;
+    }
+
+    .login-panel .login-panel-content > span
+    {
+        font-size: 1.6em;
+        line-height: 50px;
+        width: 100%;
+        margin-left: 50px;
+    }
+
+    .login-panel .login-panel-content .form-group
+    {
+        margin: 10px 5px 0px 15px;
+        padding: 0px;
+    }
+
+    .login-panel .login-panel-content .control-label
+    {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+@media only screen and (max-width:767px)
+{
+    .login-panel .login-panel-content .control-label
+    {
+        padding-left :15px;
+        padding-bottom:5px;
+    }
+}
+
+/*登录页面结束*/
+
+
+/*注销页面开始*/
+
+.logout-container
+{
+    border: 1px solid rgb(220, 235, 247);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(247, 250, 255);
+    max-width: 400px;
+}
+
+    .logout-container .logout-title
+    {
+        margin-left: 0px;
+        height: 57px;
+        background-image: url(../Images/tmp/login-title-bg.png);
+        background-repeat: repeat-x;
+        /*background: rgb(247, 247, 247);
+        background: linear-gradient(rgb(255, 255, 255) 0px, rgb(238, 238, 238) 100%) repeat-x rgb(247, 247, 247) !important;
+        border-bottom: 1px solid rgb(220, 235, 247);*/
+        width: 100%;
+    }
+
+        .logout-container .logout-title .logout-logo
+        {
+            margin-left: 20px;
+            background-image: url(../Images/tmp/login-title-logo.png);
+            background-repeat: no-repeat;
+            height: 100%;
+        }
+
+.logout-panel
+{
+    border: 5px solid rgb(220, 235, 247);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+    .logout-panel .logout-panel-content
+    {
+        margin: 0px;
+        padding: 0px;
+    }
+
+        .logout-panel .logout-panel-content > span
+        {
+            font-size: 1.6em;
+            line-height: 50px;
+            width: 100%;
+            margin-left: 50px;
+        }
+
+        .logout-panel .logout-panel-content .form-horizontal
+        {
+            border-top: 1px solid rgb(220, 235, 247);
+        }
+
+        .logout-panel .logout-panel-content .form-group
+        {
+            margin: 0px 0px 5px 0px;
+            padding: 0px;
+        }
+
+/*注销页面结束*/

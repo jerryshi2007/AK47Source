@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
+<html>
+<head>
+	<title>应用属性编辑</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+	<meta content="Microsoft Visual Studio 7.0" name="GENERATOR">
+	<meta content="http://schemas.microsoft.com/intellisense/ie5" name="vs_targetSchema">
+	<link href="../CSS/Input.css" type="text/css" rel="stylesheet">
+
+	<script type="text/javascript" language="javascript" src="../script/validate.js"></script>
+
+	<script type="text/javascript" language="javascript" src="../script/xmlHttp.js"></script>
+
+	<script type="text/javascript" language="javascript" src="../script/xsdAccess.js"></script>
+
+	<script type="text/javascript" language="javascript" src="../script/uiScript.js"></script>
+
+	<script type="text/javascript" language="javascript" src="../script/appQuery.js"></script>
+
+	<script type="text/javascript" language="javascript" src="../script/appCommon.js"></script>
+
+	<script type="text/javascript" language="javascript" src="../Script/ApplicationRoot.js"></script>
+
+	<script type="text/javascript" language="javascript" src="editAppObjects.js"></script>
+
+</head>
+<body class="modal" onload="onDocumentLoad();">
+	<form id="frmInput">
+		<table style="width: 100%; height: 100%">
+			<tr>
+				<td height="1">
+					<span id="logoSpan" style="background-position: center center; 
+						background-image: url(../images/32/ou.gif); width: 32px; background-repeat: no-repeat;
+						height: 32px"></span><font size="4"><strong id="topCaption"></strong></font>
+					<hr>
+				</td>
+			</tr>
+			<tr style="visibility: hidden">
+				<td height="1">
+					<input datafld="ID" id="objID" datasrc="APP" type="hidden">
+					<input datafld="RES_TYPE" id="RES_TYPE" datasrc="APP" type="hidden">
+					<input datafld="APP_ID" id="APP_ID" datasrc="APP" type="hidden" name="APP_ID">
+					<input datafld="INHERITED_STATE" id="INHERITED_STATE" datasrc="APPLICATIONS" type="hidden"
+						name="INHERITED_STATE">
+				</td>
+			</tr>
+			<tr>
+				<td align="center" colspan="1" rowspan="1">
+					<table class="modalEditable" style="width: 100%; height: 100%">
+						<tr>
+							<td style="width: 25%; height: 5px" align="right">
+								<strong>名称</strong>:</td>
+							<td style="height: 5px" align="left">
+								<input datafld="NAME" id="NAME" style="width: 100%" datasrc="APP" type="text"></td>
+						</tr>
+						<!--IMG SRC="file:///C:\Documents%20and%20Settings\yangrui_hgzs.OA-APP\Local%20Settings\Temporary%20Internet%20Files\Content.IE5\52LYVCQN\insert[1].gif"-->
+						<tr>
+							<td style="width: 25%; height: 5px" align="right">
+								<strong>英文标识</strong>:</td>
+							<td align="left">
+								<input datafld="CODE_NAME" onkeypress="onCodeNameKeyPress();" id="CODE_NAME" style="width: 100%"
+									datasrc="APP" type="text" onchange="return onCodeNameChange();"></td>
+						</tr>
+						<tr id="inheritedStateDiv" style="display: inline">
+							<td style="width: 25%; height: 2px" align="right">
+								<strong>继承状态</strong>:</td>
+							<td style="height: 2px" valign="middle">
+								<input id="cbScope" type="checkbox" value="1" name="cbScope" onpropertychange="checkChanged();">服务范围<input
+									id="cbRole" type="checkbox" value="2" name="cbRole" onpropertychange="checkChanged();">角色<input
+										id="cbFunction" type="checkbox" value="4" name="cbFunction" onpropertychange="checkChanged();">功能<input
+											id="cbRTF" type="checkbox" value="8" name="cbRTF" onpropertychange="checkChanged();">角色功能关系<input
+												id="cbObject" type="checkbox" value="16" name="cbObject" onpropertychange="checkChanged();">
+								被授权对象
+							</td>
+						</tr>
+						<tr valign="middle">
+							<td style="width: 25%; height: 100%" valign="top" align="right" colspan="1" rowspan="1">
+								<strong>描述</strong>:</td>
+							<td style="height: 100%" valign="top">
+								<textarea datafld="DESCRIPTION" id="DESCRIPTION" style="width: 100%; height: 100%"
+									datasrc="APP"></textarea></td>
+						</tr>
+						<tr valign="bottom">
+							<td>
+							</td>
+							<td style="height: 5px">
+								<span id="inheritDiv" style="display: inline">
+									<input datafld="INHERITED" id="INHERITED" style="border-right: medium none; border-top: medium none;
+										border-left: medium none; width: 16px; border-bottom: medium none; height: 16px"
+										datasrc="APP" type="checkbox" name="INHERITED">
+									继承上级授权 </span><span id="lowestDiv" style="display: inline">
+										<input datafld="LOWEST_SET" id="LOWEST_SET" style="border-right: medium none; border-top: medium none;
+											border-left: medium none; border-bottom: medium none" datasrc="FUNCTION_SETS"
+											type="checkbox" name="LOWEST_SET">最底层功能集合 </span><span id="delegationDiv" style="display: inline">
+												<input datafld="ALLOW_DELEGATE" id="ALLOW_DELEGATE" style="border-right: medium none;
+													border-top: medium none; border-left: medium none; border-bottom: medium none"
+													datasrc="ROLES" type="checkbox" name="ALLOW_DELEGATE">
+												允许权限委派 </span><span id="subAppDiv" style="display: inline">
+													<input datafld="ADD_SUBAPP" id="addSubapp" style="border-right: medium none; border-top: medium none;
+														border-left: medium none; border-bottom: medium none" datasrc="APPLICATIONS"
+														type="checkbox" name="ADD_SUBAPP">
+													包含子应用 </span><span id="scopeDiv" style="display: inline">
+														<input datafld="USE_SCOPE" id="useScope" style="border-right: medium none; border-top: medium none;
+															border-left: medium none; border-bottom: medium none" datasrc="APPLICATIONS"
+															type="checkbox" name="USE_SCOPE">
+														使用服务范围 </span>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td height="1">
+					<hr>
+				</td>
+			</tr>
+			<tr>
+				<td height="1">
+					<table style="width: 100%; height: 100%" cellspacing="0">
+						<tr>
+							<td style="height: 1px" align="center">
+								<input id="btnOK" style="width: 80px" accesskey="O" onclick="onSaveClick();" type="button"
+									value="确定(O)">
+							</td>
+							<td style="height: 1px" align="center">
+								<input id="btnCancel" style="width: 80px" accesskey="C" onclick="window.close();"
+									type="button" value="取消(C)">
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

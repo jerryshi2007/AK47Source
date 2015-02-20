@@ -1,0 +1,151 @@
+﻿<script type="text/javascript">
+	var uploadButton = null;
+	window.returnValue = false;
+
+	function onUploadButtonClick() {
+		if (typeof (event) !== 'undefined')
+			uploadButton = event.srcElement;
+
+		var fileInput = $get("selectedFile");
+
+		var triggered = false;
+		if (fileInput.value == "") {
+			fileInput.click();
+			triggered = true;
+		}
+
+		if (fileInput.value != "") {
+			beforeProcess();
+			try {
+				$get("uploadFileBtn").click();
+			} catch (e) {
+				resetInterface();
+				if (triggered) {
+					alert('出错:' + e.message + "请手动点击浏览按钮选择文件。"); window.close();
+				} else {
+					alert('出错' + e.message);
+				}
+			}
+		}
+	}
+
+	function beforeProcess() {
+		$get("logPanel").style.visibility = "hidden";
+		if (uploadButton)
+			uploadButton.disabled = true;
+		$get("processList").style.width = "100%";
+		$get("processDescription").style.visibility = "visible";
+	}
+
+	function afterProcess() {
+		if (uploadButton)
+			uploadButton.disabled = false;
+	}
+
+	function resetInterface() {
+		if (uploadButton)
+			uploadButton.disabled = false;
+		$get("logPanel").style.visibility = "hidden";
+		$get("processList").style.width = "100%";
+		$get("progressBar").style.width = "0px"
+		$get("processDescription").style.visibility = "hidden";
+	}
+
+	function onProcessInfoChanged() {
+		var statusText = $get("processInfo").value;
+
+		var status = Sys.Serialization.JavaScriptSerializer.deserialize(statusText);
+
+		var percent = status.CurrentStep * 100 / (status.MaxStep - status.MinStep);
+
+		$get("progressBar").style.width = percent + "%";
+		$get("statusText").innerText = status.StatusText;
+	}
+
+	function onProcessCompleted() {
+		afterProcess();
+
+		var resultText = $get("processResult").value;
+		var result = Sys.Serialization.JavaScriptSerializer.deserialize(resultText);
+
+		var pText = $get("processList");
+
+		if (result.processLog != "") {
+			$get("logPanel").style.visibility = "visible";
+			pText.style.width = "99%";
+			pText.innerText = result.ProcessLog;
+		}
+
+		if (result.DataChanged)
+			top.returnValue = true;
+
+		if (result.CloseWindow)
+			top.close();
+	}
+
+	function handleFileChanged() {
+		document.getElementById("fileNamePan").value = document.getElementById("selectedFile").value;
+	}
+
+	function triggerBrowse() {
+		document.getElementById("selectedFile").click();
+	}
+
+
+</script>
+<div>
+	<iframe name="_innerFrame" id="innerFrame" style="display: none"></iframe>
+</div>
+<table cellpadding="0" cellspacing="0" style="width: 500px; height: 100%">
+	<tr>
+		<td style="vertical-align: middle; text-align: center">
+			<div style="display: none">
+				<input type="submit" id="uploadFileBtn" name="uploadFileBtn" value="Upload File"
+					style="display: none" />
+			</div>
+			<div style="position: relative; width: 100%">
+				<input type="file" id="selectedFile" name="selectedFile" style="width: 400px;" class="formButton" />
+			</div>
+			<div id="customZone">
+				<input type="hidden" name="parentId" value="" />
+				<ul style="text-align: left;">
+					<li>
+						<input type="radio" id="rdoMode1" name="mergeMode" value="mergeMode" checked="checked"><label
+							for="rdoMode1" style="font-weight: bold">合并模式</label>
+						<span style="text-indent: 2em;">创建或合并到当前应用功能（必须来自同一应用）</span></li>
+					<li>
+						<input type="radio" name="mergeMode" id="rdoMode2" value="copyMode"><label for="rdoMode2"
+							style="font-weight: bold">副本模式</label>
+						<span style="text-indent: 2em;">从来自任何应用的功能创建新的功能，自动指定新ID，导入后将自动命名</span></li>
+				</ul>
+			</div>
+			<div id="processDescription" style="visibility: hidden; text-align: left; width: 500px;
+				margin: auto; overflow: hidden;">
+				<div id="progressBarBorder" class="pc-progress-border">
+					<div id="statusText" class="pc-progress-prompt">
+						上传中
+					</div>
+					<div id="progressBar" class="pc-progress-bar">
+					</div>
+				</div>
+				<div id="logPanel">
+					<div style="margin-top: 10px; vertical-align: bottom">
+						<label id="logLabel" text="日志">
+						</label>
+					</div>
+					<div>
+						<textarea id="processList" readonly="readonly" rows="4" cols="40" style="height: 80px;
+							overflow: auto; border: 1px solid silver"></textarea>
+					</div>
+				</div>
+			</div>
+			<div style="display: none">
+				<input id="processInfo" type="hidden" value="" />
+				<input id="processInfoChanged" type="button" onclick="onProcessInfoChanged();" />
+				<input id="processResult" type="hidden" value="" />
+				<input id="processResultButton" type="button" onclick="onProcessCompleted();" />
+				<input id="resetInterfaceButton" type="button" onclick="resetInterface();" />
+			</div>
+		</td>
+	</tr>
+</table>

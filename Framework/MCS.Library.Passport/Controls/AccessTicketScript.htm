@@ -1,0 +1,116 @@
+﻿<script type="text/javascript">
+	function onAccquireAccessTicketLinkClick() {
+		event.returnValue = false;
+		var anchor = event.srcElement;
+
+		while (anchor.tagName != "A")
+			anchor = anchor.parentElement;
+
+		var frame = document.getElementById("accquireAccessTicketFrame");
+
+		var src = buildAccquireAccessTicketUri(document.location.href, anchor);
+
+		frame.src = src;
+
+		return false;
+	}
+
+	function buildAccquireAccessTicketUri(aUri, anchor) {
+		var paramStartIndex = aUri.indexOf("?");
+		var targetUri = anchor.href;
+
+		var targetParameters = accessTicket_parseUrlParameters(targetUri);
+
+		targetParameters["_at"] = undefined;
+		targetUri = accessTicket_combineUrlParameters(targetUri, targetParameters);
+
+		if (paramStartIndex >= 0) {
+			aUri = aUri.substr(0, paramStartIndex);
+		}
+
+		aUri = aUri.replace("#", "");
+
+		var result = aUri;
+
+		if (targetUri)
+			result += "?_aat=" + encodeURIComponent(targetUri) + "&";
+		else
+			result += "?";
+
+		result += "_anchorID=" + anchor.id;
+
+		result += "&_ama=" + anchor["AutoMakeAbsolute"];
+
+		return result; ;
+	}
+
+	function accessTicket_parseUrlParameters(url) {
+		var result = {};
+
+		if (url != null && typeof (url) != "undefined" && url != "") {
+			var paramString = url;
+
+			var startIndex = url.indexOf("?");
+
+			if (startIndex >= 0)
+				paramString = url.substr(startIndex + 1);
+			else
+				paramString = "";
+
+			var parts = paramString.split("&");
+
+			for (var i = 0; i < parts.length; i++) {
+				var part = parts[i];
+
+				if (part.length > 0) {
+					var keyValuePair = part.split("=");
+
+					var value = "";
+
+					if (keyValuePair.length > 1)
+						value = keyValuePair[1];
+
+					result[keyValuePair[0]] = value;
+				}
+			}
+		}
+
+		return result;
+	}
+
+	function accessTicket_combineUrlParameters(url, parameters) {
+		var baseUrl = "";
+
+		if (url != null && typeof (url) != "undefined" && url != "") {
+			var startIndex = url.indexOf("?");
+
+			if (startIndex >= 0)
+				baseUrl = url.substr(0, startIndex);
+			else
+				baseUrl = url;
+		}
+
+		var strB = "";
+
+		if (parameters) {
+			for (var key in parameters) {
+				if (typeof (parameters[key]) != "undefined") {
+					if (strB != "")
+						strB += "&";
+
+					strB += key;
+					strB += "=";
+					strB += parameters[key];
+				}
+			}
+		}
+
+		if (strB != "")
+			baseUrl = baseUrl + "?" + strB;
+
+		return baseUrl;
+	}
+</script>
+<div style="display: none">
+	<iframe id="accquireAccessTicketFrame" name="accquireAccessTicketFrame"></iframe>
+</div>

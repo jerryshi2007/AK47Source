@@ -1,0 +1,221 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>图片上传</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <link rel="stylesheet" href="image.css" type="text/css" />
+    <script type="text/javascript">
+        function uploadImg() {
+            var parentUrl = window.parent.location.href;
+            var flag = parentUrl.indexOf("?") > 0;
+            var processPageUrl = parentUrl
+		                    + ((flag ? "&" : "?") + "requestType=upload")
+                            + "&upmethod=ue";
+            var file = document.getElementById("imgInput");
+            var localPath = file.value;
+
+            if (localPath == "") {
+                alert("请选择图片！");
+                return;
+            }
+
+            var imgExts = ".gif,.jpeg,.jpg,.jpe,.jiff,.png,.bmp";
+            var ext = localPath.substring(localPath.lastIndexOf(".")).toLowerCase();
+            if (imgExts.indexOf(ext) < 0) {
+                alert("您必须选择图片类型的文件！");
+                return;
+            }
+
+            var fileName = localPath.substring(localPath.lastIndexOf("\\") + 1);
+
+            processPageUrl += "&fileName=" + encodeURIComponent(fileName);
+
+            var form = document.createElement('form');
+            document.body.appendChild(form);
+            form.encoding = "multipart/form-data";
+            form.method = "post";
+            form.action = processPageUrl;
+            form.target = "postFrame";
+            var pos = file.nextSibling; //记住file在旧表单中的的位置
+            form.appendChild(file);
+            form.submit();
+            form.reset();
+            pos.parentNode.insertBefore(file, pos);
+            document.body.removeChild(form);
+            file.value = "";
+        }
+
+        function onUploadFinish(id, imgName) {
+            var wrapper = parent.UEditorWrapperBridge.getInstance().getActiveEditor();
+            ImgObj = { newMaterialID: id, filePath: imgName };
+            var url = wrapper.generateImageUrl(ImgObj);
+            ImgObj.src = url;
+            var img = document.createElement("img");
+
+            ImgObj.originalSrc = url;
+            ImgObj.toBeshow = true;
+            ImgObj.uploadedUrl = url;
+
+            img.src = url;
+            img.style.width = "200px";
+            img.style.height = "200px";
+            var td = document.getElementById("imgInput").parentNode;
+            document.getElementById("imgInput").style.display = "none";
+            document.getElementById("btnUpload").style.display = "none";
+            td.appendChild(img);
+        }
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <div id="imageTab">
+            <div id="tabHeads">
+                <span tabsrc="remote" class="focus">网络图片</span> <span tabsrc="local">本地上传</span>
+                <!-- <span tabSrc="imgManager">在线管理</span>
+                    <span tabSrc="imgSearch">图片搜索</span>-->
+            </div>
+            <div id="tabBodys">
+                <div id="remote" class="panel">
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td class="label">
+                                <label for="url">
+                                    地 址：</label>
+                            </td>
+                            <td>
+                                <input id="url" type="text" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">
+                                <label for="width">
+                                    宽 度：</label>
+                            </td>
+                            <td>
+                                <input type="text" id="width" />
+                                px
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">
+                                <label for="height">
+                                    高 度：</label>
+                            </td>
+                            <td>
+                                <input type="text" id="height" />
+                                px
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">
+                                <label for="border">
+                                    边 框：</label>
+                            </td>
+                            <td>
+                                <input type="text" id="border" />
+                                px
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">
+                                <label for="vhSpace">
+                                    边 距：</label>
+                            </td>
+                            <td>
+                                <input type="text" id="vhSpace" />
+                                px
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">
+                                <label for="title">
+                                    描 述：</label>
+                            </td>
+                            <td>
+                                <input type="text" id="title" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">
+                                对 齐：
+                            </td>
+                            <td id="remoteFloat">
+                            </td>
+                        </tr>
+                    </table>
+                    <div id="preview">
+                    </div>
+                    <div class="lock">
+                        <input id="lock" type="checkbox" title="锁定宽高比例" checked="checked"></div>
+                </div>
+                <div id="local" class="panel">
+                    <div style="height: 285px; width: 100%; text-align: center; vertical-align: middle;">
+                        <table style="height: 100%; width: 100%">
+                            <tr>
+                                <td style="vertical-align: middle">
+                                    <input id="imgInput" name="imgInput" type="file" accept=".gif,.jpeg,.jpg,.jpe,.jiff,.png,.bmp" />
+                                    <input id="btnUpload" type="button" value="上传" style="width: 100px; color: black;"
+                                        onclick="uploadImg();" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div>
+                        <div class="duiqi">
+                        </div>
+                        <div id="localFloat">
+                        </div>
+                    </div>
+                </div>
+                <div id="imgManager" class="panel">
+                    <div id="imageList">
+                        &nbsp;&nbsp;图片加载中……</div>
+                    <!--<p id="pageControler">分页控制器</p>-->
+                </div>
+                <div id="imgSearch" class="panel">
+                    <table style="margin-top: 5px;">
+                        <tr>
+                            <td width="200">
+                                <input id="imgSearchTxt" value="请输入搜索关键词" type="text" />
+                            </td>
+                            <td width="65">
+                                <select id="imgType">
+                                    <!--<option value="&s=0&z=0">全部</option>-->
+                                    <option value="&s=4&z=0">新闻</option>
+                                    <option value="&s=1&z=19">壁纸</option>
+                                    <option value="&s=2&z=0">表情</option>
+                                    <option value="&s=3&z=0">头像</option>
+                                </select>
+                            </td>
+                            <td width="80">
+                                <input id="imgSearchBtn" type="button" value="百度一下" />
+                            </td>
+                            <td width="80">
+                                <input id="imgSearchReset" type="button" value="清空搜索" />
+                            </td>
+                        </tr>
+                    </table>
+                    <div id="searchList">
+                    </div>
+                </div>
+                <iframe id="maskIframe" src="about:blank" scrolling="no" frameborder="no"></iframe>
+                <iframe id="postFrame" name="postFrame" style="display: none" scrolling="no" frameborder="no">
+                </iframe>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="../internal.js"></script>
+    <script type="text/javascript" src="../tangram.js"></script>
+    <script type="text/javascript" src="image.js"></script>
+    <script type="text/javascript">
+        //全局变量
+        var imageUrls = [],          //用于保存从服务器返回的图片信息数组
+            selectedImageCount = 0;  //当前已选择的但未上传的图片数量
+        window.onload = function () {
+            imageUploader.init();
+
+        };
+    </script>
+</body>
+</html>

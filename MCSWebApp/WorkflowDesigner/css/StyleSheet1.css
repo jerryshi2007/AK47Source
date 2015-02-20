@@ -1,0 +1,242 @@
+﻿body
+{
+    background-color: #97a8bd;
+    font-family: 微软雅黑;
+    font-size: 13px;
+    margin: 0 0 0 0;
+    overflow: hidden;
+}
+.divHeaderTable
+{
+    width: 100%;
+    padding-bottom: 5px;
+    display: block;
+}
+.divHeaderRow
+{
+    width: 100%; /* add extra that you want to for header column */
+    display: block;
+    height: 105px;
+}
+.divHeaderColumn
+{
+    float: left;
+    width: 33%;
+    display: block;
+}
+.divTable
+{
+    width: 99%;
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    display: block;
+}
+.divRow
+{
+    width: 99%;
+    display: block;
+    padding-bottom: 5px;
+    display: block;
+}
+.divColumn
+{
+    float: left;
+    width: 24%;
+    display: block;
+    display: block;
+}
+
+/*tabs*/
+#tabbed_box_1
+{
+    margin: 0px auto;
+    width: 300px;
+}
+.tabbed_box H4
+{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+    color: #ffffff;
+    font-size: 23px;
+}
+.tabbed_box H4 SMALL
+{
+    position: relative;
+    text-transform: uppercase;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    letter-spacing: 0px;
+    color: #e3e9ec;
+    font-size: 9px;
+    top: -4px;
+    font-weight: normal;
+    left: 6px;
+}
+.tabbed_area
+{
+    border-bottom: #494e52 1px solid;
+    border-left: #494e52 1px solid;
+    padding-bottom: 8px;
+    background-color: #636d76;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-top: #494e52 1px solid;
+    border-right: #494e52 1px solid;
+    padding-top: 8px;
+}
+UL.tabs
+{
+    padding-bottom: 0px;
+    margin: 5px 0px 6px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+}
+UL.tabs LI
+{
+    list-style-type: none;
+    display: inline;
+}
+UL.tabs LI A
+{
+    background-image: url(images/tab_off.jpg);
+    border-bottom: #464c54 1px solid;
+    border-left: #464c54 1px solid;
+    padding-bottom: 8px;
+    text-transform: uppercase;
+    background-color: #464c54;
+    padding-left: 14px;
+    padding-right: 14px;
+    background-repeat: repeat-x;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    background-position: 50% bottom;
+    color: #ffebb5;
+    font-size: 9px;
+    border-top: #464c54 1px solid;
+    font-weight: bold;
+    border-right: #464c54 1px solid;
+    text-decoration: none;
+    padding-top: 8px;
+}
+UL.tabs LI A:hover
+{
+    border-bottom-color: #2f343a;
+    background-color: #2f343a;
+    border-top-color: #2f343a;
+    border-right-color: #2f343a;
+    border-left-color: #2f343a;
+}
+UL.tabs LI A.active
+{
+    background-image: url(images/tab_on.jpg);
+    border-bottom: #ffffff 1px solid;
+    border-left: #464c54 1px solid;
+    background-color: #ffffff;
+    background-repeat: repeat-x;
+    background-position: 50% top;
+    color: #282e32;
+    border-top: #464c54 1px solid;
+    border-right: #464c54 1px solid;
+}
+.content
+{
+    background-image: url(images/content_bottom.jpg);
+    border-bottom: #464c54 1px solid;
+    border-left: #464c54 1px solid;
+    padding-bottom: 10px;
+    background-color: #ffffff;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-repeat: repeat-x;
+    font-family: Arial, Helvetica, sans-serif;
+    background-position: 50% bottom;
+    border-top: #464c54 1px solid;
+    border-right: #464c54 1px solid;
+    padding-top: 10px;
+}
+#content_2
+{
+    display: none;
+}
+#content_3
+{
+    display: none;
+}
+.content UL
+{
+    padding-bottom: 0px;
+    margin: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 0px;
+}
+.content UL LI
+{
+    border-bottom: #d6dde0 1px solid;
+    padding-bottom: 15px;
+    list-style-type: none;
+    font-size: 13px;
+    padding-top: 15px;
+}
+.content UL LI:unknown
+{
+    border-bottom-style: none;
+}
+.content UL LI A
+{
+    color: #3e4346;
+    text-decoration: none;
+}
+.content UL LI A SMALL
+{
+    position: relative;
+    text-transform: uppercase;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    color: #8b959c;
+    font-size: 9px;
+    top: 0px;
+    left: 4px;
+}
+.content UL LI A:hover
+{
+    color: #a59c83;
+}
+.content UL LI A:hover SMALL
+{
+    color: #baae8e;
+}
+
+.workflow-header {
+	background-image: url(../images/workflow_02.jpg);
+	background-repeat: repeat-x;
+	background-position: left top;
+	height: 53px;
+}
+.workflow-header .text {
+	font-family: "微软雅黑", "黑体", Arial, sans-serif;
+	font-size: 20px;
+	line-height: 53px;
+	color: #003366;
+	background-image: url(../images/workflow_01.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	display: block;
+	padding-left: 130px;
+	float:left;
+	width:460px;
+}
+.workflow-header .right {
+	font-family: "微软雅黑", "黑体", Arial, sans-serif;
+	font-size: 14px;
+	line-height: 53px;
+	background-position: left top;
+	display: block;
+	float:right;
+}
+.operationlink{
+     color:White;
+     margin: 0 5 0 5;
+}

@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+	<title>请稍候</title>
+	<base target="_top" />
+</head>
+<body onload="process();">
+	<form id="form1" action="BatchEditor.aspx" method="post">
+	<div id="message">
+		请稍侯……
+	</div>
+	<script type="text/javascript">
+
+		function process() {
+			var theForm1 = document.forms['form1'];
+			if (!theForm1) {
+				theForm1 = document.form1;
+			}
+
+			var dom = document.getElementById('form1');
+			var success = false;
+			if (window.dialogArguments) {
+				var len = window.dialogArguments.length;
+				if (len) {
+					var q;
+					for (var i = len - 1; i >= 0; i--) {
+						q = document.createElement("input");
+						q.type = "hidden";
+						q.name = "ids";
+						q.value = window.dialogArguments[i];
+						dom.appendChild(q);
+					}
+					success = true;
+
+					q = null;
+				}
+			}
+
+			if (success)
+				(function () { dom.submit(); }).apply();
+			else
+				document.getElementById("message").innerHTML = "没有提供任何对象，无法进行操作。请重新选择要编辑的对象。";
+
+		}
+
+	</script>
+	</form>
+</body>
+</html>

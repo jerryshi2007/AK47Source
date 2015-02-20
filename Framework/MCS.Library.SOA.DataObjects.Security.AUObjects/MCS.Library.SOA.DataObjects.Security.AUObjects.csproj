@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>../../../CIIC.HSR.TSP.Files/TSPLib.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{44B27BDD-565D-479A-9160-AEE85CE6F900}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MCS.Library.SOA.DataObjects.Security.AUObjects</RootNamespace>
+    <AssemblyName>MCS.Library.SOA.DataObjects.Security.AUObjects</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>MCS.Library.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MCS.Library">
+      <HintPath>..\..\Bin\MCS.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Data">
+      <HintPath>..\..\Bin\MCS.Library.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.OGUPermission">
+      <HintPath>..\..\Bin\MCS.Library.OGUPermission.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Passport, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.Passport.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.DataObjects">
+      <HintPath>..\..\Bin\MCS.Library.SOA.DataObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.DataObjects.Schemas">
+      <HintPath>..\..\Bin\MCS.Library.SOA.DataObjects.Schemas.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.DataObjects.Security">
+      <HintPath>..\..\Bin\MCS.Library.SOA.DataObjects.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.DataObjects.Security.Client">
+      <HintPath>..\..\Bin\MCS.Library.SOA.DataObjects.Security.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Actions\AUCacheHelper.cs" />
+    <Compile Include="Actions\AUConditionCalculatingContext.cs" />
+    <Compile Include="Actions\AUConditionCalculator.cs" />
+    <Compile Include="Actions\AUObjectOperationActionCollection.cs" />
+    <Compile Include="Actions\AUOperationCacheNotifierAction.cs" />
+    <Compile Include="Actions\AUOperationSnapshotAction.cs" />
+    <Compile Include="Actions\IAUObjectOperationAction.cs" />
+    <Compile Include="Actions\ItemAndContainerSnapshotAction.cs" />
+    <Compile Include="Adapters\AUAclAdapter.cs" />
+    <Compile Include="Adapters\AUConditionAdapter.cs" />
+    <None Include="Adapters\AUObjectAdapterBase.cs" />
+    <Compile Include="Adapters\AUMatrixHelper.cs" />
+    <Compile Include="Adapters\AUOperationSnapshotAdapter.cs" />
+    <Compile Include="Adapters\AUSnapshotAdapter.cs" />
+    <Compile Include="Adapters\AUSnapshotHelper.cs" />
+    <Compile Include="Adapters\AUConditionCalculateResultAdapter.cs" />
+    <Compile Include="Adapters\ItemAndContainerSnapshotAdapter.cs" />
+    <Compile Include="Adapters\LogCategoryAdapter.cs" />
+    <Compile Include="Adapters\SchemaCategoryAdapter.cs" />
+    <Compile Include="Adapters\SchemaPropertyExtensionAdapter.cs" />
+    <Compile Include="AdminUnit.cs" />
+    <Compile Include="AdminUnitCollection.cs" />
+    <Compile Include="AUAdminScope.cs" />
+    <Compile Include="AUAdminScopeCollection.cs" />
+    <Compile Include="AUAdminScopeItem.cs" />
+    <Compile Include="AUAdminScopeType.cs" />
+    <Compile Include="AUObjectException.cs" />
+    <Compile Include="AUObjectValidationException.cs" />
+    <Compile Include="AUOperationSnapshot.cs" />
+    <Compile Include="AUPermissionHelper.cs" />
+    <Compile Include="AURoleCollection.cs" />
+    <Compile Include="AURoleDisplayItem.cs" />
+    <Compile Include="AUSchema.cs" />
+    <Compile Include="AUScopeTypeCollection.cs" />
+    <Compile Include="AUSchemaCategory.cs" />
+    <Compile Include="AUSchemaRole.cs" />
+    <Compile Include="AUCommon.cs" />
+    <Compile Include="AURole.cs" />
+    <Compile Include="AUSchemaRoleCollection.cs" />
+    <Compile Include="Configuration\AUConfigurationSection.cs" />
+    <Compile Include="Configuration\AUObjectOperationActionSettings.cs" />
+    <Compile Include="Configuration\AUAdminScopeConfigurationItem.cs" />
+    <Compile Include="Configuration\AUUpdateActionConfigurationSection.cs" />
+    <Compile Include="Configuration\AUAdminScopeConfigurationItemCollection.cs" />
+    <Compile Include="Converters\AUObjectSimpleConverter.cs" />
+    <Compile Include="DataSources\AdminScopeItemDataSource.cs" />
+    <Compile Include="DataSources\AdminUnitDataSource.cs" />
+    <Compile Include="DataSources\AUAdminScopeConstMemberDataSource.cs" />
+    <Compile Include="DataSources\AUAdminScopeFullMemberDataSource.cs" />
+    <Compile Include="DataSources\AURecursiveDataSource.cs" />
+    <Compile Include="DataSources\AURoleMemberDataSource.cs" />
+    <Compile Include="DataSources\AURoleDataSource.cs" />
+    <Compile Include="DataSources\AUSchemaDataSource.cs" />
+    <Compile Include="DataSources\AUSchemaRoleDataSource.cs" />
+    <Compile Include="DataSources\AUDataViewDataSource.cs" />
+    <Compile Include="DataSources\AUMemberViewDataSourceBase.cs" />
+    <Compile Include="DataSources\CategoryDataSource.cs" />
+    <Compile Include="DataSources\ObjectHistoryDataSource.cs" />
+    <Compile Include="DataSources\SchemaLogDataSource.cs" />
+    <Compile Include="DataSources\UserAUDataSource.cs" />
+    <Compile Include="DbBuilderHelper.cs" />
+    <Compile Include="DuplicateObjectException.cs" />
+    <Compile Include="Executors\AddMemberAction.cs" />
+    <Compile Include="Executors\AddRelationAction.cs" />
+    <Compile Include="Executors\AdminUnitExecutor.cs" />
+    <Compile Include="Executors\AUExecutorBase.cs" />
+    <Compile Include="Executors\AUExecutorContextInfo.cs" />
+    <Compile Include="Executors\AUExecutorLogContextInfo.cs" />
+    <Compile Include="Executors\AUMemberRelativeExecutor.cs" />
+    <Compile Include="Executors\AUMemberRelativeExecutorBase.cs" />
+    <Compile Include="Executors\AUObjectOperationContext.cs" />
+    <Compile Include="Executors\AUOperationType.cs" />
+    <Compile Include="Executors\AUReplaceAclRecursivelyExecutor.cs" />
+    <Compile Include="Executors\AURoleMemberExecutor.cs" />
+    <Compile Include="Executors\AUSchemaExecutor.cs" />
+    <Compile Include="Executors\AUSchemaRoleExecutor.cs" />
+    <Compile Include="Executors\AUStatusCheckException.cs" />
+    <Compile Include="Executors\AUObjectExecutor.cs" />
+    <Compile Include="Executors\AUUpdateConditionExecutor.cs" />
+    <Compile Include="Executors\AUUpdateObjectAclExecutor.cs" />
+    <Compile Include="Executors\ClearConditionAction.cs" />
+    <Compile Include="Executors\ClearContainerAction.cs" />
+    <Compile Include="Executors\DeleteSelfAction.cs" />
+    <Compile Include="Executors\EnableMemberAction.cs" />
+    <Compile Include="Executors\MoveAUExecutor.cs" />
+    <Compile Include="Executors\IPendingAction.cs" />
+    <Compile Include="Executors\PendingActionCollection.cs" />
+    <Compile Include="Executors\RelationHelper.cs" />
+    <Compile Include="Executors\RemoveMemberAction.cs" />
+    <Compile Include="Executors\RemoveRelationAction.cs" />
+    <Compile Include="IAdminScopeItemContainer.cs" />
+    <Compile Include="IScopeItemService.cs" />
+    <Compile Include="ItemAndContainerSnapshot.cs" />
+    <Compile Include="Logs\AUOperationLog.cs" />
+    <Compile Include="Logs\AUOperationLogAdapter.cs" />
+    <Compile Include="Logs\AUOperationLogCollection.cs" />
+    <Compile Include="Operations\IAUAclOperations.cs" />
+    <Compile Include="Operations\IAUSchemaOperations.cs" />
+    <Compile Include="Operations\Facade.cs" />
+    <Compile Include="Operations\IAUOperations.cs" />
+    <Compile Include="Operations\IDynamicOperations.cs" />
+    <Compile Include="Permissions\AUPrincipalExtension.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AURoleMemberPack.cs" />
+    <Compile Include="SchemaPropertyExtension.cs" />
+    <Compile Include="Transfers\AUObjectExportor.cs" />
+    <Compile Include="Transfers\AUSchemaImportAction.cs" />
+    <Compile Include="Transfers\AUSchemaRoleImportAction.cs" />
+    <Compile Include="Transfers\AdminUnitImportAction.cs" />
+    <Compile Include="Validators\AUAdminScopeValidator.cs" />
+    <Compile Include="Validators\AUSchemaAdminScopeValidator.cs" />
+    <Compile Include="Validators\AUSchemaIDValidator.cs" />
+    <Compile Include="Validators\AUSchemaNameValidator.cs" />
+    <Compile Include="Validators\CategoryIDValidator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MCS.Library.snk" />
+    <None Include="Objects.cd" />
+    <None Include="Sample.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="管理单元设计.docx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Builders\" />
+    <Folder Include="Locks\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>IF NOT EXIST "$(ProjectDir)..\..\Bin" MD "$(ProjectDir)..\..\Bin"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetFileName)" DEL "$(ProjectDir)..\..\Bin\$(TargetFileName)"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetName).pdb" DEL "$(ProjectDir)..\..\Bin\$(TargetName).pdb"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetName).xml" DEL "$(ProjectDir)..\..\Bin\$(TargetName).xml"</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>set path=%25path%25;C:\Windows\System32
+ 
+
+ XCOPY "$(TargetPath)"  "$(ProjectDir)..\..\Bin" /Y /D /R
+IF EXIST "$(TargetDir)$(TargetName).pdb" XCOPY "$(TargetDir)$(TargetName).pdb" "$(ProjectDir)..\..\Bin" /Y /D /R
+IF EXIST "$(TargetDir)$(TargetName).xml"  XCOPY "$(TargetDir)$(TargetName).xml" "$(ProjectDir)..\..\Bin" /Y /D /R</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

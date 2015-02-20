@@ -1,0 +1,105 @@
+﻿<style type="text/css">
+	.dialogTitle { font-size: 16px; font-weight: bold }
+	.containerTable { width:100%;height:100% }
+	.label {font-weight: bold; text-align:right; width:120px}
+</style>
+<div class="appForm">
+	<form id="serverForm" method="post">
+		<input type="hidden" name="taskSource" value="$taskSource"/>
+		<table class="containerTable">
+			<tr>
+				<td style="height: 32px">
+					<table class="containerTable">
+						<tr>
+							<td class="gridHead">
+								<img style="width: 32px; height: 32px" src="$logoSrc" style="vertical-align: middle" />
+								<span class="dialogTitle">$notifyTitle$</span>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table class="containerTable" cellspacing="8">
+						<tr>
+							<td class="label">
+								<div>$title$</div>
+							</td>
+							<td>
+								<a style="word-break:break-all;text-decoration:underline;" href="$taskUrl" target="_blank">$taskTitle</a>
+							</td>
+						</tr>
+						<tr>
+							<td class="label" style="word-break:break-all">
+								<div>$content$</div>
+							</td>
+							<td>
+								$taskContent
+							</td>
+						</tr>
+						<tr>
+							<td class="label">
+								<div>$priority$</div>
+							</td>
+							<td>
+								$taskEmergency
+							</td>
+						</tr>
+						<tr>
+							<td class="label">
+								<div>$from$</div>
+							</td>
+							<td>
+								$taskSender
+							</td>
+						</tr>
+						<tr>
+							<td class="label">
+								<div>$sentTime$</div>
+							</td>
+							<td>
+								$taskStartTime
+							</td>
+						</tr>
+						<tr>
+							<td class="label">
+								<div>$expiredTime$</div>
+							</td>
+							<td>
+								$taskExpirDate
+							</td>
+						</tr>
+						<tr $personalSettingStyle>
+							<td class="label">
+								<div>$settings$</div>
+							</td>
+							<td>
+								<table class="containerTable" cellspacing="0" cellpadding="0">
+									<tr>
+										<td style="width: 16px">
+											<input id="transToCompletedTask" name="transToCompletedTask" type="checkbox" $transToCompletedTask
+												value="true" />
+										</td>
+										<td>
+											<label for="transToCompletedTask">$delAfterRead$</label>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td class="gridfileBottom">
+				</td>
+			</tr>
+			<tr>
+				<td style="height: 32px; text-align: center">
+					<input type="submit" id="closeBtn" class="formButton" name="closeBtn" accesskey="C" value="$delBtn$" />
+				</td>
+			</tr>
+		</table>
+	</form>
+</div>

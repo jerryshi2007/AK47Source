@@ -1,0 +1,85 @@
+﻿.workflow
+{
+	height: 23px;
+}
+
+.workflow li
+{
+	display: inline;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	vertical-align: middle;
+}
+
+.workflow li div
+{
+	display: inline;
+	height: 23px;
+	
+}
+.workflow .imageContainer
+{
+	border: none;
+	display: inline-block;
+	width: 15px;
+	height: 23px;
+	overflow: hidden;
+}
+.workflow .stepText
+{
+	padding-left: 16px;
+	padding-right: 8px;
+	font-size: 12px;
+}
+.workflow .running
+{
+	background-color: #FF6600;
+	color: White;
+	font-weight: bold;
+}
+.workflow .notRunning
+{
+	background-color: #E4E4E4;
+}
+.workflow .runningLeftStart
+{
+	margin-top: -92px;
+}
+.workflow .runningLeft
+{
+	margin-top: -23px;
+}
+.workflow .runningRight
+{
+	margin-top: 0px;
+}
+.workflow .runningRightEnd
+{
+	margin-top: -161px;
+}
+.workflow .notRunningLeft
+{
+	margin-top: 0px;
+}
+.workflow .notRunningFinished
+{
+	margin-top: -138px;
+}
+
+.workflow .passedLeftStart
+{
+	margin-top: -115px;
+}
+.workflow .passed
+{
+	margin-top: -115px;
+	background-color: #FFE6BA;
+}
+.workflow .passedRight
+{
+	margin-top: -46px;
+}
+.workflow .passedRightEnd
+{
+	margin-top: -184px;
+}

@@ -1,0 +1,13 @@
+﻿.wfrtvwc-container { position:relative; bottom:0; overflow:visible; display:block; display:inline-block; top:5px; }
+.wfrtvwc-container * { border:0; }
+ul.wfrtvwc-wrapper { list-style:none; border:0; position:absolute; left:0; width:200px; display:none; }
+.hover .wfrtvwc-wrapper { display:block; }
+ul.wfrtvwc-wrapper li { display:block; height:20px; background:silver; padding:5px;}
+ul.wfrtvwc-wrapper li:hover { background:#455678; color:#ffffff; }
+ul.wfrtvwc-wrapper a{ display:block; width:100%; }
+ul.wfrtvwc-wrapper a:hover { color:#ffffff; text-decoration:none; background:#455678; }
+.wfrtvwc-lable{ display:block; display:inline-block; font-size:12px; padding:0 5px; }
+.hover .wfrtvwc-lable{ background:silver; color:#ffffff; }
+
+.wfrtvwc-normal { display:block; display:inline-block; margin:0 20px; line-height:20px; height:20px; }
+.wfrtvwc-none { display:none; }

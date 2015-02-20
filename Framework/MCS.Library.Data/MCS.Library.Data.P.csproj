@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4313DE1E-738F-477D-B7FD-B237E9116670}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MCS.Library.Data</RootNamespace>
+    <AssemblyName>MCS.Library.Data</AssemblyName>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>MCS.Library.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'DebugP|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\DebugPerformance\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\DebugPerformance\MCS.Library.Data.xml</DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+    <CodeAnalysisRuleSet>Migrated rules for MCS.Library.Data.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Accessories\CryptoHelper.cs" />
+    <Compile Include="Accessories\DbTraceHelper.cs" />
+    <Compile Include="Builder\SqlClauseBuilderItems.cs" />
+    <Compile Include="Configuration\ConnectionStringConfigurationElementBase.cs" />
+    <Compile Include="Configuration\DataProviderConfigurationElementCollection.cs" />
+    <Compile Include="Configuration\DbEventArgsConfigurationElement.cs" />
+    <Compile Include="Configuration\MetaConnectionStringConfigurationElement.cs" />
+    <Compile Include="Configuration\TransactionConfigurationSection.cs" />
+    <Compile Include="Database.cs" />
+    <Compile Include="DatabaseFactory.cs" />
+    <Compile Include="DbConnectionMappingContext.cs" />
+    <Compile Include="DbContext\AutoEnlistDbContext.cs" />
+    <Compile Include="DbContext\DeluxeDbContextBase.cs" />
+    <Compile Include="DbContext\NotEnlistDbContext.cs" />
+    <Compile Include="DbEventType.cs" />
+    <Compile Include="Mapping\ConditionMapping.cs" />
+    <Compile Include="Mapping\ConditionMappingAttribute.cs" />
+    <Compile Include="Mapping\ConditionMappingCache.cs" />
+    <Compile Include="Mapping\ConditionMappingItem.cs" />
+    <Compile Include="Mapping\ConditionMappingItemCollection.cs" />
+    <Compile Include="Mapping\ORMappingContext.cs" />
+    <Compile Include="Mapping\ORMappingPartial.cs" />
+    <Compile Include="Mapping\ORMappintItemEncryption.cs" />
+    <Compile Include="Mapping\ORMappintItemEncryptionHelper.cs" />
+    <Compile Include="Mapping\PropertyEncryptionAttribute.cs" />
+    <Compile Include="Mapping\SubClassPropertyEncryptionAttribute.cs" />
+    <Compile Include="ObjectModel\ColumnDefinitionBase.cs" />
+    <Compile Include="ObjectModel\DataObjectCollectionBase.cs" />
+    <Compile Include="ObjectModel\GroupNode.cs" />
+    <Compile Include="ObjectModel\GroupNodeCollection.cs" />
+    <Compile Include="ObjectModel\LruDataObjectCollectionBase.cs" />
+    <Compile Include="ObjectModel\ObjectCompareAttribute.cs" />
+    <Compile Include="ObjectModel\ObjectCompareHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ObjectModel\ObjectCompareResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ObjectModel\RowValueBase.cs" />
+    <Compile Include="ObjectModel\TableBase.cs" />
+    <Compile Include="ObjectModel\TableRowBase.cs" />
+    <Compile Include="ObjectModel\TreeNodeBase.cs" />
+    <Compile Include="ObjectModel\TreeNodeBaseCollection.cs" />
+    <Compile Include="DbParameterCache.cs" />
+    <Compile Include="Builder\ISqlBuilder.cs" />
+    <Compile Include="Builder\PlSqlBuilder.cs" />
+    <Compile Include="Builder\SqlBuilderBase.cs" />
+    <Compile Include="Builder\SqlClauseBuilderBase.cs" />
+    <Compile Include="Builder\TSqlBuilder.cs" />
+    <Compile Include="Configuration\BuilderConfigurationElement.cs" />
+    <Compile Include="ConnectionStringBuilderBase.cs" />
+    <Compile Include="Configuration\ConnectionStringConfigurationElement.cs" />
+    <Compile Include="Configuration\ConnectionManagerConfigurationSection.cs" />
+    <Compile Include="Configuration\DbConfigurationSectionGroup.cs" />
+    <Compile Include="DbConnectionManager.cs" />
+    <Compile Include="DbEventArgs.cs" />
+    <Compile Include="DbContext.cs" />
+    <Compile Include="Mapping\EnumDefine.cs" />
+    <Compile Include="Mapping\ORFieldMappingAttribute.cs" />
+    <Compile Include="Mapping\ORMapping.cs" />
+    <Compile Include="Mapping\ORMappingItem.cs" />
+    <Compile Include="Mapping\ORMappingItemCollection.cs" />
+    <Compile Include="Mapping\ORMappingsCache.cs" />
+    <Compile Include="Mapping\ORTableMappingAttribute.cs" />
+    <Compile Include="Mapping\SqlBehaviorAttribute.cs" />
+    <Compile Include="Mapping\SubClassORFieldMappingAttribute.cs" />
+    <Compile Include="Mapping\SubClassSqlBehaviorAttribute.cs" />
+    <Compile Include="Mapping\SubClassTypeAttribute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServer\SqlDatabase.cs" />
+    <Compile Include="TransactionScopeFactory.cs" />
+    <Compile Include="UpdateBehavior.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Builder\Diagram\SqlBuilder.cd" />
+    <None Include="Builder\Diagram\SqlCaluseBuilder.cd" />
+    <None Include="MCS.Library.snk" />
+    <None Include="Properties\DeluxeWorks.Library.Data.Key.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resource.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <!--<BinFiles Include="**/bin/Debug/DeluxeWorks.Library.Data.dll" Condition="'$(Configuration)' == 'Debug'" />-->
+    <!--<BinFiles Include="**/bin/Debug/DeluxeWorks.Library.Data.pdb" Condition="'$(Configuration)' == 'Debug'" />-->
+    <!--<BinFiles Include="**/bin/Debug/DeluxeWorks.Library.Data.xml" Condition="'$(Configuration)' == 'Debug'" />-->
+    <!--<BinFiles Include="**/bin/Release/DeluxeWorks.Library.Data.dll" Condition="'$(Configuration)' == 'Release'" />-->
+    <!--<BinFiles Include="**/bin/TestDebug/DeluxeWorks.Library.Data.dll" Condition="'$(Configuration)' == 'DELUXEWORKSTEST'" />-->
+    <!--<BinFiles Include="**/bin/TestDebug/DeluxeWorks.Library.Data.pdb" Condition="'$(Configuration)' == 'DELUXEWORKSTEST'" />-->
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MCS.Library\MCS.Library.P.csproj">
+      <Project>{4077B0B7-062A-4F6D-8A45-A180A2ED3215}</Project>
+      <Name>MCS.Library.P</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+    <!--<Copy SourceFiles="@(BinFiles)" DestinationFolder="..\..\Bin" SkipUnchangedFiles="True" />-->
+  </Target>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

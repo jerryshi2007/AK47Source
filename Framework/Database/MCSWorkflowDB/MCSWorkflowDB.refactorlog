@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="247734eb-62a0-437f-b9aa-9e4e339722d8" ChangeDateTime="01/09/2013 07:28:10">
+    <Property Name="ElementName" Value="[WF].[DELEGATIONS].[IX_DELEGATIONS_Column]" />
+    <Property Name="ElementType" Value="SqlIndex" />
+    <Property Name="ParentElementName" Value="[WF].[DELEGATIONS]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[IX_DELEGATIONS_SOURCE_USER_NAME]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="abe8f72f-1073-4293-b50f-2d8622d4dfaf" ChangeDateTime="01/09/2013 07:29:07">
+    <Property Name="ElementName" Value="[WF].[DELEGATIONS].[IX_DELEGATIONS_Column]" />
+    <Property Name="ElementType" Value="SqlIndex" />
+    <Property Name="ParentElementName" Value="[WF].[DELEGATIONS]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[IX_DELEGATIONS_DESTINATION_USER_NAME]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="32ecb9d1-aa29-4f86-aa38-11c75848d0ab" ChangeDateTime="03/29/2013 03:05:50">
+    <Property Name="ElementName" Value="[dbo].[PROGRAMS].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PROGRAMS]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CATEGORY_ID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6971cc0c-20b0-4423-a20e-b61195d1e5ee" ChangeDateTime="03/29/2013 03:14:28">
+    <Property Name="ElementName" Value="[WF].[PROGRAMS].[PROGRAM_ID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[WF].[PROGRAMS]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="APPLICATION_CODE_NAME" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ff573128-2426-46a7-9857-41483879e51b" ChangeDateTime="03/29/2013 03:15:23">
+    <Property Name="ElementName" Value="[dbo].[APPLICATIONS].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[APPLICATIONS]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CODE_NAME" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="b34a872f-74c5-4e4f-a78a-4160f49844a2" ChangeDateTime="04/02/2013 01:38:04">
+    <Property Name="ElementName" Value="[WF].[ALT_APPLICATIONS].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[WF].[ALT_APPLICATIONS]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ALT_APP_CODE_NAME" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="91928185-219b-4d6c-b0b0-10214dd8eb8f" ChangeDateTime="04/02/2013 01:39:05">
+    <Property Name="ElementName" Value="[WF].[ALT_APPLICATIONS]" />
+    <Property Name="ElementType" Value="SqlTable" />
+    <Property Name="ParentElementName" Value="[WF]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[APPLICATIONS_ALIAS]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6739a326-bf96-4539-9778-10fe4234c20d" ChangeDateTime="04/02/2013 01:39:16">
+    <Property Name="ElementName" Value="[WF].[APPLICATIONS_ALIAS].[ALT_APP_CODE_NAME]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[WF].[APPLICATIONS_ALIAS]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="T_APP_CODE_NAME" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c6c3ec8c-b5c5-4b35-85ad-be5b374516b9" ChangeDateTime="04/02/2013 01:39:36">
+    <Property Name="ElementName" Value="[WF].[APPLICATIONS_ALIAS].[T_APP_CODE_NAME]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[WF].[APPLICATIONS_ALIAS]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="APP_ALIAS_CODE_NAME" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ed374c26-46bf-4055-9d58-136a6bcf3104" ChangeDateTime="04/02/2013 02:24:37">
+    <Property Name="ElementName" Value="[WF].[APPLICATIONS_ALIAS].[APP_CODE_CODE_NAME]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[WF].[APPLICATIONS_ALIAS]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="APP_CODE_NAME" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="20b2e333-34c2-4b6d-ae36-d26da2308290" ChangeDateTime="05/05/2013 02:30:07">
+    <Property Name="ElementName" Value="[WF].[SYS_TASK].[APPLICATION_NAME]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[WF].[SYS_TASK]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CATEGORY" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="dbb9fed8-7258-44cb-a4c2-cf5d06755a34" ChangeDateTime="05/05/2013 02:30:38">
+    <Property Name="ElementName" Value="[WF].[SYS_TASK].[PROGRAM_NAME]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[WF].[SYS_TASK]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="TASK_TYPE" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5a37e838-5161-4ff6-915c-3a52c46b0fa0" ChangeDateTime="05/07/2013 07:57:13">
+    <Property Name="ElementName" Value="[WF].[JOB_SCHEDULE_DEF].[SCHDULE_TYPE]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[WF].[JOB_SCHEDULE_DEF]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="SCHEDULE_TYPE" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="34b51587-4ef7-45a9-91a4-6884317078bc" ChangeDateTime="05/09/2013 09:25:58">
+    <Property Name="ElementName" Value="[WF].[JOBS].[IX_JOBS_Column]" />
+    <Property Name="ElementType" Value="SqlIndex" />
+    <Property Name="ParentElementName" Value="[WF].[JOBS]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[IX_JOBS_CREATE_TIME]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="616c24bb-3ecb-4b99-96e1-122e56e14b79" ChangeDateTime="08/15/2013 06:17:20">
+    <Property Name="ElementName" Value="[dbo].[PERSIST_QUEUE_ARCHIEVED].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PERSIST_QUEUE_ARCHIEVED]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="SORT_ID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1a8661c2-f353-4b86-abca-76d1806c64e4" ChangeDateTime="08/15/2013 06:32:22">
+    <Property Name="ElementName" Value="[WF].[PROCESS_DIMENSIONS].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[WF].[PROCESS_DIMENSIONS]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PROCESS_ID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3313d0d7-e57f-4739-aaec-33d20d69f3df" ChangeDateTime="08/19/2013 03:53:53">
+    <Property Name="ElementName" Value="[WF].[PROCESS_DIMENSIONS].[XML_IX_PROCESS_DIMENSIONS_Column]" />
+    <Property Name="ElementType" Value="SqlXmlIndex" />
+    <Property Name="ParentElementName" Value="[WF].[PROCESS_DIMENSIONS]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[XML_IX_PROCESS_DIMENSIONS_Data]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="64e82f3a-6002-4065-8f36-d4a286f7d96d" ChangeDateTime="08/26/2013 03:16:35">
+    <Property Name="ElementName" Value="[WF].[APP_PROGRAM_AUTH].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[WF].[APP_PROGRAM_AUTH]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="APPLICATION_NAME" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="29900d81-e270-4848-aa92-3b4b4051e674" ChangeDateTime="09/18/2013 15:43:21">
+    <Property Name="ElementName" Value="[WF].[PROCESS_DESCRIPTOR_DIMENSIONS].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[WF].[PROCESS_DESCRIPTOR_DIMENSIONS]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PROCESS_KEY" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ee45ad19-1070-43d4-8278-25f4160bcbf9" ChangeDateTime="09/23/2013 08:06:28">
+    <Property Name="ElementName" Value="[dbo].[ANALYSIS_TIMES].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ANALYSIS_TIMES]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="TimeKey" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ea38c45b-2d92-4c74-ae90-b0c6f32ea345" ChangeDateTime="09/23/2013 08:09:45">
+    <Property Name="ElementName" Value="[dbo].[ANALYSIS_TIMES].[TimeName]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ANALYSIS_TIMES]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Houre" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d49ca55f-7dc5-4ac1-bed8-75e44d9a2f76" ChangeDateTime="09/23/2013 08:09:49">
+    <Property Name="ElementName" Value="[dbo].[ANALYSIS_TIMES].[Hour]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ANALYSIS_TIMES]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Minute" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a66a0d6a-8caa-4664-ad97-513f08f2404f" ChangeDateTime="09/23/2013 08:09:52">
+    <Property Name="ElementName" Value="[dbo].[ANALYSIS_TIMES].[Houre]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ANALYSIS_TIMES]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Hour" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6fabc765-1d8b-47a2-b2e1-4a817fa2ea4c" ChangeDateTime="05/25/2014 11:46:05">
+    <Property Name="ElementName" Value="[WF].[SYS_TASK_ACTIVITY].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[WF].[SYS_TASK_ACTIVITY]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e4e3a6b3-8597-4bf8-be2a-fed48d136ece" ChangeDateTime="05/25/2014 12:06:19">
+    <Property Name="ElementName" Value="[WF].[SYS_TASK_ACTIVITY]" />
+    <Property Name="ElementType" Value="SqlTable" />
+    <Property Name="ParentElementName" Value="[WF]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[SYS_TASK_PROCESS]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="8c152544-17e7-4c64-ada1-00d62e7e05c1" ChangeDateTime="05/25/2014 12:06:32">
+    <Property Name="ElementName" Value="[WF].[SYS_TASK_PROCESS1]" />
+    <Property Name="ElementType" Value="SqlTable" />
+    <Property Name="ParentElementName" Value="[WF]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[SYS_TASK_ACTIVITY]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f78c6bc3-d8f8-4688-bd54-b0186d2cdf12" ChangeDateTime="05/25/2014 12:12:15">
+    <Property Name="ElementName" Value="[WF].[SYS_TASK_ACTIVITY].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[WF].[SYS_TASK_ACTIVITY]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6ad5a723-2c84-4b25-acd8-1aac03f831c5" ChangeDateTime="06/12/2014 14:41:12">
+    <Property Name="ElementName" Value="[WF].[MATRIX_ROWS_USERS].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[WF].[MATRIX_ROWS_USERS]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="MATRIX_ID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="b70404a8-1cea-4f23-be77-8642be03a5db" ChangeDateTime="02/14/2015 06:36:10">
+    <Property Name="ElementName" Value="[WF].[PROCESS_DESCRIPTOR_DIMENSIONS].[IX_PROCESS_DESCRIPTOR_DIMENSIONS_Column]" />
+    <Property Name="ElementType" Value="SqlIndex" />
+    <Property Name="ParentElementName" Value="[WF].[PROCESS_DESCRIPTOR_DIMENSIONS]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[IX_PROCESS_DESCRIPTOR_DIMENSIONS_PROCESS_KEY]" />
+  </Operation>
+</Operations>

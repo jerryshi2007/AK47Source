@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Acts>
+  <Act actID="PropertyEdit">
+    <!--正常编辑-->
+    <Scene sceneID="Normal">
+      <Item controlID="tabs" readOnly="false"  recursive="true" />
+      <Item controlID="okButton" visible="true"/>
+    </Scene>
+    <!--只读-->
+    <Scene sceneID="ReadOnly">
+      <Item controlID="tabs" readOnly="true" recursive="true"/>
+      <Item controlID="okButton" visible="false" enabled="false"/>
+    </Scene>
+  </Act>
+</Acts>

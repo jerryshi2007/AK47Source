@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Acts>
+  <Act actID="SchemaList">
+    <Scene sceneID="Normal">
+      <Item controlID="lnkAdd" readOnly="false" enabled="true"/>
+      <Item controlID="lnkDelete" readOnly="false" enabled="true"/>
+      <Item controlID="btnImport" readOnly="false"/>
+      <Item controlID="btnExport" readOnly="true"/>
+    </Scene>
+    <Scene sceneID="ReadOnly">
+      <Item controlID="lnkAdd" readOnly="true" enabled="false"/>
+      <Item controlID="lnkDelete" readOnly="true" enabled="false"/>
+      <Item controlID="btnImport" readOnly="true" enabled="false"/>
+      <Item controlID="btnExport" readOnly="true" enabled="true"/>
+    </Scene>
+  </Act>
+
+  <Act actID="SchemaRoleList">
+    <Scene sceneID="Normal">
+      <Item controlID="lnkAdd" readOnly="false" enabled="true"/>
+      <Item controlID="lnkDelete" readOnly="false" enabled="true"/>
+      <Item controlID="btnImport" readOnly="false"/>
+      <Item controlID="btnExport" readOnly="true"/>
+    </Scene>
+    <Scene sceneID="ReadOnly">
+      <Item controlID="lnkAdd" readOnly="true" enabled="false"/>
+      <Item controlID="lnkDelete" readOnly="true" enabled="false"/>
+      <Item controlID="btnImport" readOnly="true" enabled="false"/>
+      <Item controlID="btnExport" readOnly="true" enabled="true"/>
+    </Scene>
+  </Act>
+
+  <Act actID="AdminUnitList">
+    <Scene sceneID="Normal">
+      <Item controlID="lnkAdd" readOnly="false" enabled="true"/>
+      <Item controlID="lnkDelete" readOnly="false" enabled="true"/>
+      <Item controlID="lnkMove" readOnly="false" enabled="true"/>
+      <Item controlID="lnkCopy" readOnly="false" enabled="true"/>
+      <Item controlID="btnImport" readOnly="false"/>
+      <Item controlID="btnExport" readOnly="true"/>
+    </Scene>
+    <Scene sceneID="ReadOnly">
+      <Item controlID="lnkAdd" readOnly="true" enabled="false"/>
+      <Item controlID="lnkDelete" readOnly="true" enabled="false"/>
+      <Item controlID="lnkMove" readOnly="true" enabled="false"/>
+      <Item controlID="lnkCopy" readOnly="true" enabled="false"/>
+      <Item controlID="btnImport" readOnly="true" enabled="false"/>
+      <Item controlID="btnExport" readOnly="true" enabled="true"/>
+    </Scene>
+  </Act>
+
+  <Act actID="AURoleMembers">
+    <Scene sceneID="Normal">
+      <Item controlID="btnSubmit" readOnly="false" enabled="true" visible="true"/>
+    </Scene>
+    <Scene sceneID="ReadOnly">
+      <Item controlID="btnSubmit" readOnly="true" enabled="false" visible="false"/>
+    </Scene>
+  </Act>
+
+  <Act actID="AUScopes">
+    <Scene sceneID="Normal">
+      <Item controlID="btnRecalc" readOnly="false" enabled="true"/>
+      <Item controlID="btnRecalcAll" readOnly="false" enabled="true"/>
+      <Item controlID="calcProgress" readOnly="false"/>
+      <Item controlID="calcProgressAll" readOnly="true"/>
+    </Scene>
+    <Scene sceneID="ReadOnly">
+      <Item controlID="btnRecalc" readOnly="true" enabled="false"/>
+      <Item controlID="btnRecalcAll" readOnly="true" enabled="false"/>
+      <Item controlID="calcProgress" readOnly="true" enabled="false"/>
+      <Item controlID="calcProgressAll" readOnly="true" enabled="true"/>
+    </Scene>
+  </Act>
+  <Act actID="AUScopesCondition">
+    <Scene sceneID="Normal">
+      <Item controlID="btnSave" readOnly="false" enabled="true"/>
+      <Item controlID="chkAutoCalc" readOnly="false" enabled="true"/>
+      <Item controlID="calcProgress" readOnly="false"/>
+    </Scene>
+    <Scene sceneID="ReadOnly">
+      <Item controlID="btnSave" readOnly="true" enabled="false"/>
+      <Item controlID="chkAutoCalc" readOnly="true" enabled="false"/>
+      <Item controlID="calcProgress" readOnly="true" enabled="false"/>
+    </Scene>
+  </Act>
+
+  <Act actID="AUScopesConst">
+    <Scene sceneID="Normal">
+      <Item controlID="lnkAdd" readOnly="false" enabled="true"/>
+      <Item controlID="lnkDelete" readOnly="false" enabled="true"/>
+    </Scene>
+    <Scene sceneID="ReadOnly">
+      <Item controlID="lnkAdd" readOnly="true" enabled="false"/>
+      <Item controlID="lnkDelete" readOnly="true" enabled="false"/>
+    </Scene>
+  </Act>
+  <Act actID="CopyUnit">
+    <Scene sceneID="Normal">
+      <Item controlID="btnOk" readOnly="false" enabled="true" visible="true"/>
+      <Item controlID="calcProgress" readOnly="false" enabled="true" visible="true"/>
+    </Scene>
+    <Scene sceneID="ReadOnly">
+      <Item controlID="btnOk" readOnly="true" enabled="false" visible="false"/>
+      <Item controlID="calcProgress" readOnly="true" enabled="false" visible="false"/>
+    </Scene>
+  </Act>
+</Acts>

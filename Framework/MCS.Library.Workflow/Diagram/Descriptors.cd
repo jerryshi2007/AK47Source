@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="微软雅黑" Size="9" />
+  <Class Name="MCS.Library.Workflow.Descriptors.FromTransitionsDescriptorCollection" Collapsed="true">
+    <Position X="0.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Descriptors\WfTransitionDescriptor.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAIAAAEAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Workflow.Descriptors.ToTransitionsDescriptorCollection" Collapsed="true">
+    <Position X="2.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Descriptors\WfTransitionDescriptor.cs</FileName>
+      <HashCode>AAEAAABAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Workflow.Descriptors.WfActionDescriptor" Collapsed="true">
+    <Position X="9.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Descriptors\WfActionDescriptor.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Workflow.Descriptors.WfActionDescriptorCollection" Collapsed="true">
+    <Position X="11.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Descriptors\WfActionDescriptor.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Workflow.Descriptors.WfActivityDescriptorCollection" Collapsed="true">
+    <Position X="5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Descriptors\WfActivityDescriptor.cs</FileName>
+      <HashCode>AAYkBAAAAIAAACAAAAAABAACAAAAAAAAAgAAAAIAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Workflow.Descriptors.WfActivityDescriptor" Collapsed="true">
+    <Position X="4.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Descriptors\WfActivityDescriptor.cs</FileName>
+      <HashCode>AAQAAAAIIAAAEAQAIgAAAAAAAgAAAAAAggQAEAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Workflow.Descriptors.WfBackwardTransitionDescriptor" Collapsed="true">
+    <Position X="12" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Descriptors\WfTransitionDescriptor.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Workflow.Descriptors.WfCompletedActivityDescriptor" Collapsed="true">
+    <Position X="3" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Descriptors\WfActivityDescriptor.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Workflow.Descriptors.WfConditionDescriptor" Collapsed="true">
+    <Position X="13" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Descriptors\WfConditionDescriptor.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Workflow.Descriptors.WfDescriptorBase" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Descriptors\WfDescriptorBase.cs</FileName>
+      <HashCode>AAAAAAACAAAgAAQAAAAAIAQAAAAAAAAEAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Workflow.Descriptors.WfDescriptorCollectionBase&lt;T&gt;" Collapsed="true">
+    <Position X="2.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Descriptors\WfDescriptorBase.cs</FileName>
+      <HashCode>AAAEAAAAAAAAAAAACAEAAAAAAAAAAgAAAIAAEAAQAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Workflow.Descriptors.WfDescriptorException" Collapsed="true">
+    <Position X="9.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Descriptors\WfDescriptorException.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Workflow.Descriptors.WfForwardTransitionDescriptor" Collapsed="true">
+    <Position X="14.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Descriptors\WfTransitionDescriptor.cs</FileName>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Workflow.Descriptors.WfInitialActivityDescriptor" Collapsed="true">
+    <Position X="5.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Descriptors\WfActivityDescriptor.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Workflow.Descriptors.WfProcessDescriptor" Collapsed="true">
+    <Position X="9.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Descriptors\WfProcessDescriptor.cs</FileName>
+      <HashCode>AAAAAAAAAIAAACAAAAAAAAACEAAAAAAAgAQAAIIAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Workflow.Descriptors.WfRegularActivityDescriptor" Collapsed="true">
+    <Position X="0.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Descriptors\WfActivityDescriptor.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Workflow.Descriptors.WfResourceDescriptor" Collapsed="true">
+    <Position X="11.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Descriptors\WfResourceDescriptor.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Workflow.Descriptors.WfResourceDescriptorCollection" Collapsed="true">
+    <Position X="13" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Descriptors\WfResourceDescriptor.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Workflow.Descriptors.WfSubflowActivityDescriptor" Collapsed="true">
+    <Position X="7.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Descriptors\WfActivityDescriptor.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Workflow.Descriptors.WfTransitionDescriptor" Collapsed="true">
+    <Position X="13.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Descriptors\WfTransitionDescriptor.cs</FileName>
+      <HashCode>AAEAAAAAQAAAAAAAAAABAAAAgAAAAAAAAAQAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Workflow.Descriptors.WfTransitionDescriptorCollection" Collapsed="true">
+    <Position X="1.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Descriptors\WfTransitionDescriptor.cs</FileName>
+      <HashCode>AAIAAAAAAAAAAAAAAAAABAAAAAAAAAAAgAAAAAAAAQA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Workflow.Descriptors.WfVariableDescriptor" Collapsed="true">
+    <Position X="9.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Descriptors\WfVariableDescriptor.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Workflow.Descriptors.WfVariableDescriptorCollection" Collapsed="true">
+    <Position X="11.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Descriptors\WfVariableDescriptor.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+</ClassDiagram>

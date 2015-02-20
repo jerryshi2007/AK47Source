@@ -1,0 +1,17 @@
+﻿
+/************ MaskedEdit Related Styles ***********************/
+.deluxetime_masked_editfocus
+{
+	background-color: #ffffcc;
+	color: #000000;
+}
+
+.deluxetime_masked_editerror
+{
+	background-color: #ffcccc;
+}
+
+.deluxetime_masked_textbox
+{
+	width: 80px
+}

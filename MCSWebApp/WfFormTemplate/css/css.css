@@ -1,0 +1,94 @@
+/*使用此模版样式，需先使用overrides.css ，来覆盖toolbar中的定义 */
+/*列表页面的的标题*/
+div.t-dialog-caption { border-bottom: 1px solid silver; }
+span.t-dialog-caption { display:inline-block; background: url('../Images/h2_icon.gif') no-repeat scroll 5px center; background-origin:padding-box; height:30px; line-height:30px; padding-left:25px; font-weight:bold; }
+
+/* 布局用table*/
+table.t-layout
+{
+	width: 100%;
+	height: 100%;
+}
+
+div.t-layout
+{
+	padding: 5px;
+}
+
+div.t-container { position:static; zoom:1; }
+
+div.t-prompt
+{
+	line-height: 30px;
+	text-align: left;
+}
+
+/*header的背景图在toolbar*/
+
+.header div.header-lbg
+{
+	line-height:46px;
+	display:inline-block;
+	height:46px;
+	padding-left:134px;
+	background:url('../Images/task_03.jpg') no-repeat scroll;
+	float:left;
+}
+ 
+.header div.header-rbg
+{
+	height:46px;
+	display:block;
+	background:url("/MCSWebApp/Images/Toolbar/task_06.jpg") no-repeat scroll right top;
+	color: #003366;
+    font-family: "黑体",Arial,Helvetica,sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 46px;
+}
+
+div.t-button-panel
+{
+	margin-top: 25px;
+	height: 50px;
+	text-align: right;
+}
+
+tr.t-caption, div.t-caption
+{
+	height: 30px;
+}
+
+tr.t-caption > td, div.t-caption
+{
+	padding: 0 0 0 10px;
+	line-height: 30px;
+	text-align: left;
+	font-weight: bold;
+	border-bottom: inset 2px #C0C0C0;
+}
+
+table.t-form { width:100%; }
+
+.t-form-caption{ text-align:center; }
+
+.t-form-content { border: #ccc 1px solid; position :static; zoom:1; }
+
+th.t-form-hcell { width:15%; }
+td.t-form-cell { width:auto; }
+/* 表格的第一个不显示的空行 */
+tr.t-leading { line-height:0; height:0; border:none 0; }
+
+.t-text-field { padding:0 2px 0 0; }
+
+.t-width-wrapper { position:static; zoom:1; }
+
+.t-label{ font-size:12px; font-weight:bold; }
+
+.t-search-area { margin:5px; }
+
+.t-grid-container { margin: 5px; position:static; zoom:1;}
+
+
+
+

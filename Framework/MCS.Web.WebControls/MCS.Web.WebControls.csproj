@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C8E5AF14-62FB-44EE-9CCB-CFC263259863}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MCS.Web.WebControls</RootNamespace>
+    <AssemblyName>MCS.Web.WebControls</AssemblyName>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>MCS.Library.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags></FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation></UpgradeBackupLocation>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\MCS.Web.WebControls.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'DELUXEWORKSTEST|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\TestDebug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DELUXEWORKSTEST;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MCS.Library, Version=1.2.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Library, Version=1.2.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Web.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Library.Script.Json">
+      <HintPath>..\..\Bin\MCS.Web.Library.Script.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Extensions.Design" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AutoComplete\AutoCompleteControl.cs" />
+    <Compile Include="AutoComplete\AutoCompleteExtender.cs" />
+    <Compile Include="AutoComplete\AutoCompleteExtenderDesigner.cs" />
+    <Compile Include="AutoComplete\AutoCompleteWithSelectorControlBase.cs" />
+    <Compile Include="Common\Define.cs" />
+    <Compile Include="Common\GenericControlDesigner.cs" />
+    <Compile Include="DeluxeCalendar\DeluxeCalendar.cs" />
+    <Compile Include="DeluxeDateTime\DeluxeDateTime.cs" />
+    <Compile Include="DeluxeGrid\CheckBoxTemplate.cs" />
+    <Compile Include="DeluxeGrid\DeluxeGrid.cs" />
+    <Compile Include="DeluxeGrid\EnumDropDownField.cs" />
+    <Compile Include="DeluxeGrid\GridPagerTemplate.cs" />
+    <Compile Include="DeluxeGrid\InnerInputButton.cs"></Compile>
+    <Compile Include="DeluxeGrid\PagerTemplateDesigner.cs" />
+    <Compile Include="DeluxeGrid\Utils.cs" />
+    <Compile Include="DeluxeMenu\DeluxeMenu.cs" />
+    <Compile Include="DeluxeMenu\MenuCollectionItemsEditor.cs" />
+    <Compile Include="DeluxeMenu\MenuItem.cs" />
+    <Compile Include="DeluxeMenu\MenuItemsDesigner.cs" />
+    <Compile Include="DeluxeMenu\MenuItemsEditor.cs" />
+    <Compile Include="DeluxeMenu\MenuItemsEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeluxeMenu\PopupMenuDesigner.cs" />
+    <Compile Include="DeluxePager\DeluxePager.cs" />
+    <Compile Include="DeluxePager\DeluxePagerDesigner.cs" />
+    <Compile Include="DeluxePager\ICascadePagedControl.cs" />
+    <Compile Include="DeluxePager\IPageEventArgs.cs" />
+    <Compile Include="DeluxePager\IPagerBoundControlType.cs" />
+    <Compile Include="DeluxePager\PageEventArgs.cs" />
+    <Compile Include="DeluxePager\PagerBoundControlType.cs" />
+    <Compile Include="DeluxePager\PagerSettings.cs" />
+    <Compile Include="DeluxeSelect\ButtonItem.cs" />
+    <Compile Include="DeluxeSelect\DeluxeSelect.cs" />
+    <Compile Include="DeluxeSelect\DeluxeSelectDesigner.cs" />
+    <Compile Include="DeluxeSelect\SelectItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DeluxeTime\DeluxeTime.cs" />
+    <Compile Include="DeluxeTree\DeluxeTree.cs" />
+    <Compile Include="DeluxeTree\DeluxeTreeCollectionItemsEditor.cs" />
+    <Compile Include="DeluxeTree\DeluxeTreeItemsDesigner.cs" />
+    <Compile Include="DeluxeTree\DeluxeTreeItemsEditor.cs" />
+    <Compile Include="DeluxeTree\DeluxeTreeItemsEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeluxeTree\DeluxeTreeNode.cs" />
+    <Compile Include="DropDownBox\DropDownBox.cs" />
+    <Compile Include="GenericInput\GenericInput.cs" />
+    <Compile Include="GenericInput\GenericInputExtender.cs" />
+    <Compile Include="GenericInput\GenericInputExtenderDesigner.cs" />
+    <Compile Include="GridColumnSorter\GridColumnSorter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RelaxedTabStrip\RelaxedTabPage.cs" />
+    <Compile Include="RelaxedTabStrip\RelaxedTabPageCollection.cs" />
+    <Compile Include="RelaxedTabStrip\RelaxedTabStrip.cs">
+      <SubType></SubType>
+    </Compile>
+    <Compile Include="RelaxedTabStrip\RelaxedTabStripControlBuilder.cs" />
+    <Compile Include="SampleControl\DialogSampleControl.cs" />
+    <Compile Include="SampleControl\SampleControl.cs" />
+    <Compile Include="SampleControl\ShowModalDialogSampleControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tabs\TabContainer.cs" />
+    <Compile Include="Tabs\TabContainerDesigner.cs" />
+    <Compile Include="Tabs\TabPanel.cs" />
+    <Compile Include="Tabs\TabPanelCollection.cs" />
+    <Compile Include="Tabs\TabPanelDesigner.cs" />
+    <Compile Include="TextBoxDropdrownExtender\TextBoxControlConverter.cs" />
+    <Compile Include="TextBoxDropdrownExtender\TextBoxDropdownExtender.cs" />
+    <Compile Include="TimePoint\TimePointDisplayControl.cs" />
+    <Compile Include="TranslatorLabel\TranslatorLabel.cs"></Compile>
+    <Compile Include="WebBrowserWrapper\WebBrowserWrapper.cs" />
+    <Compile Include="WebBrowserWrapper\WebBrowserWrapperScript.cs" />
+    <Compile Include="WordPrint\EnumDefine.cs" />
+    <Compile Include="WordPrint\WordPrint.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SampleControl\Alert.gif" />
+    <EmbeddedResource Include="SampleControl\SampleControl.css" />
+    <EmbeddedResource Include="SampleControl\SampleControl.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DeluxeGrid\DeluxeGrid.css" />
+    <EmbeddedResource Include="DeluxeGrid\DeluxeGrid.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DeluxeTree\closeImg.gif" />
+    <EmbeddedResource Include="DeluxeTree\minus.gif" />
+    <EmbeddedResource Include="DeluxeTree\openImg.gif" />
+    <EmbeddedResource Include="DeluxeTree\plus.gif" />
+    <EmbeddedResource Include="DeluxeTree\Tree.bmp" />
+    <EmbeddedResource Include="DeluxeTree\Tree.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GenericInput\drop-arrow.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GenericInput\GenericInput.css" />
+    <EmbeddedResource Include="GenericInput\GenericInput.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GenericInput\GenericInputExtender.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DeluxeSelect\DeluxeSelect.css" />
+    <EmbeddedResource Include="DeluxeSelect\DeluxeSelect.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AutoComplete\AutoCompleteExtender.css" />
+    <EmbeddedResource Include="AutoComplete\AutoCompleteExtender.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DeluxeTree\DeluxeTreeItemsEditorForm.resx">
+      <DependentUpon>DeluxeTreeItemsEditorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeluxeTree\TreeNode.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DeluxeTree\DelxueTree.css" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DropDownBox\DropDownBox.js" />
+    <EmbeddedResource Include="RelaxedTabStrip\RelaxedTabStrip.js" />
+    <EmbeddedResource Include="GridColumnSorter\sorttag.png" />
+    <EmbeddedResource Include="GridColumnSorter\bannerbg.gif" />
+    <EmbeddedResource Include="GridColumnSorter\bgw.png" />
+    <EmbeddedResource Include="GridColumnSorter\GridColumnSorter.css" />
+    <EmbeddedResource Include="GridColumnSorter\GridColumnSorter.js" />
+    <EmbeddedResource Include="TextBoxDropdrownExtender\TextBoxDropdownExtender.js" />
+    <EmbeddedResource Include="TextBoxDropdrownExtender\dropdown.gif" />
+    <EmbeddedResource Include="WebBrowserWrapper\WebBrowserWrapper.txt" />
+    <EmbeddedResource Include="WebBrowserWrapper\WebBrowserWrapper.js" />
+    <EmbeddedResource Include="DeluxeCalendar\DeluxeCalendar.css" />
+    <EmbeddedResource Include="DeluxeCalendar\DeluxeCalendar.js" />
+    <EmbeddedResource Include="DeluxeCalendar\Images\arrow-left.gif" />
+    <EmbeddedResource Include="DeluxeCalendar\Images\arrow-right.gif" />
+    <EmbeddedResource Include="DeluxeCalendar\Images\caption.gif" />
+    <EmbeddedResource Include="DeluxeCalendar\Images\checked.gif" />
+    <EmbeddedResource Include="DeluxeCalendar\Images\datePicker.gif" />
+    <EmbeddedResource Include="DeluxeCalendar\Images\today.gif" />
+    <EmbeddedResource Include="DeluxeCalendar\Images\updown.gif" />
+    <EmbeddedResource Include="DeluxeMenu\DeluxeMenu.js" />
+    <EmbeddedResource Include="DeluxeMenu\dynamicPopOutImageUrl.gif" />
+    <EmbeddedResource Include="DeluxeMenu\MenuItem.js" />
+    <EmbeddedResource Include="DeluxeMenu\popOutImageUrl.gif" />
+    <EmbeddedResource Include="DeluxeMenu\PopupMenu.css" />
+    <EmbeddedResource Include="DeluxeMenu\staticPopOutImageUrl.gif" />
+    <EmbeddedResource Include="DeluxeDateTime\DeluxeDateTime.js" />
+    <EmbeddedResource Include="DeluxeGrid\excel.gif" />
+    <EmbeddedResource Include="DeluxeGrid\word.gif" />
+    <EmbeddedResource Include="AutoComplete\check.gif" />
+    <EmbeddedResource Include="AutoComplete\hourglass.gif" />
+    <EmbeddedResource Include="AutoComplete\checkUser.gif" />
+    <EmbeddedResource Include="AutoComplete\ou.gif" />
+    <EmbeddedResource Include="AutoComplete\selectObjectDialog.htm" />
+    <Content Include="DeluxeSelect\DeluxeSelect.htm" />
+    <EmbeddedResource Include="Tabs\tab-active-left.gif" />
+    <EmbeddedResource Include="Tabs\tab-active-right.gif" />
+    <EmbeddedResource Include="Tabs\tab-active.gif" />
+    <EmbeddedResource Include="Tabs\tab-hover-left.gif" />
+    <EmbeddedResource Include="Tabs\tab-hover-right.gif" />
+    <EmbeddedResource Include="Tabs\tab-hover.gif" />
+    <EmbeddedResource Include="Tabs\tab-left.gif" />
+    <EmbeddedResource Include="Tabs\tab-line.gif" />
+    <EmbeddedResource Include="Tabs\tab-right.gif" />
+    <EmbeddedResource Include="Tabs\tab.gif" />
+    <EmbeddedResource Include="Tabs\Tabs.css" />
+    <EmbeddedResource Include="Tabs\Tabs.ico" />
+    <EmbeddedResource Include="Tabs\Tabs.js" />
+    <EmbeddedResource Include="DeluxeMenu\MenuItemsEditorForm.resx">
+      <DependentUpon>MenuItemsEditorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeluxeTime\DeluxeTime.css" />
+    <EmbeddedResource Include="DeluxeTime\DeluxeTime.js" />
+    <EmbeddedResource Include="DeluxeTree\hourglass.gif" />
+    <EmbeddedResource Include="SampleControl\ShowModalDialogSampleControl.js" />
+    <EmbeddedResource Include="SampleControl\DialogSampleControl.js" />
+    <EmbeddedResource Include="WordPrint\WordPrint.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DeluxeGrid\Diagram\DeluxeGrid.cd" />
+    <None Include="DeluxeMenu\Diagram\DeluxeMenu.cd" />
+    <None Include="DeluxePager\Diagram\DeluxePager.cd" />
+    <None Include="DeluxeSelect\Diagram\DeluxeSelect.cd" />
+    <None Include="MCS.Library.snk" />
+    <None Include="SampleControl\Diagram\SampleControl.cd" />
+    <None Include="WordPrint\Diagram\Wordprint.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <!--<BinFiles Include="**/bin/Debug/*.dll;**/bin/Debug/*.pdb" Condition="'$(Configuration)' == 'Debug'" />-->
+    <!--<BinFiles Include="**/bin/Release/*.dll;**/bin/Release/*.pdb" Condition="'$(Configuration)' == 'Release'" />-->
+  </ItemGroup>
+  <Target Name="AfterBuild">
+    <!--<Copy SourceFiles="@(BinFiles)" DestinationFolder="..\..\Bin" SkipUnchangedFiles="True" />-->
+  </Target>
+  <PropertyGroup>
+    <PreBuildEvent>IF NOT EXIST "$(ProjectDir)..\..\Bin" MD "$(ProjectDir)..\..\Bin"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetFileName)" DEL "$(ProjectDir)..\..\Bin\$(TargetFileName)"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetName).pdb" DEL "$(ProjectDir)..\..\Bin\$(TargetName).pdb"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetName).xml" DEL "$(ProjectDir)..\..\Bin\$(TargetName).xml"</PreBuildEvent>
+    <PostBuildEvent>set path=%25path%25;C:\Windows\System32
+ 
+
+ XCOPY "$(TargetPath)"  "$(ProjectDir)..\..\Bin" /Y /D /R
+IF EXIST "$(TargetDir)$(TargetName).pdb" XCOPY "$(TargetDir)$(TargetName).pdb" "$(ProjectDir)..\..\Bin" /Y /D /R
+IF EXIST "$(TargetDir)$(TargetName).xml"  XCOPY "$(TargetDir)$(TargetName).xml" "$(ProjectDir)..\..\Bin" /Y /D /R</PostBuildEvent>
+  </PropertyGroup>
+</Project>

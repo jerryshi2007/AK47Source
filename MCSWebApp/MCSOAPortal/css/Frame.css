@@ -1,0 +1,157 @@
+﻿/* CSS Document */
+body {background:#FFF url(../frames/images/body_bg.png) repeat-x top left; height:100%; margin:0px; padding:0px;}
+
+/* ControlPanel style */
+.ControlPanel{background:transparent url(../frames/images/cpanel_center.png) repeat-x bottom left; border:none;padding-bottom:10px;}
+.cpanel_left {background: url(../frames/images/cpanel_left.png) no-repeat bottom left;padding-left:21px;}
+.cpanel_right {background: url(../frames/images/cpanel_right.png) no-repeat bottom right;padding-right:33px;}
+
+/*-------- Default Style --------*/
+body,th,td,div,p,table,h1,h2,h3,h4,h5,h6.Normal,.NormalDisabled,.Head,.SubHead,.SubSubHead, a:link, a:visited, a:hover, input{color:#2E3D47; font-family:宋体, Arial, Helvetica, sans-serif;}
+body,th,td,div,p,table,.Normal,.NormalDisabled,.Head,.SubHead,.SubSubHead, a:link, a:visited, a:hover{font-size:12px;}
+h1, h2, h3, h4, h5, h6{color:#375162;}
+h1, h3, h5, h1 input{font-weight:bold;}
+h2, h4, h6{font-weight:normal}
+h1, h2, h1 input{font-size:14px;margin:10px 0;}
+h3, h4{font-size:12px;margin:8px 0;}
+h5, h6{font-size:10px;margin:6px 0;}
+
+
+a,a:link,a:visited,a:active{color:#3E81B5; text-decoration:none; font-weight:normal; }
+a:hover{color:#D00; text-decoration:underline; }
+.Head, .SubHead, .SubSubHead, .Normal, .NormalDisabled, .NormalDisabled, .NormalBold, .NormalRed, .NormalTextBox
+{font-family:Verdana, Arial, Helvetica, sans-serif;}
+.Head{color:#2E3D47;font-weight:bold;}
+.SubHead {color:#4C6171;}
+.SubSubHead{color:#6E8AA0;}
+.NormalRed {color:#F00;}
+
+
+/*Datagrids */
+.DataGrid_Container {margin-top:15px;}
+.DataGrid_Header{font-weight:bold;}
+.DataGrid_Header td, .NormalBold td{font-weight:bold;}
+
+/*-------- design style --------*/
+.template_style{width:100%; margin:0 auto;}
+
+.top_space{height:34px;}
+.lang_pad{padding:7px 35px 0px 0px;}
+
+
+/* ------- logo style -------*/
+.logo_top_left{padding:0px; margin:0px; background:url(../frames/images/logo_top_left.png) no-repeat top left; height:23px;}
+.logo_top_right{padding:0px; margin:0px; background:url(../frames/images/logo_top_right.png) no-repeat top right;}
+.logo_top_bg{padding:0px; margin:0 39px 0 27px; background:#FFF url(../frames/images/logo_top_bg.png) repeat-x top;height:23px;}
+
+
+/* ------- logo link style -------*/
+.logo_left{padding:0px; background: url(../frames/images/logo_left.png) repeat-y top left;}
+.logo_right{padding:0px; background: url(../frames/images/logo_right.png) repeat-y top right;}
+.logo_pad{background:#FFF; margin: 0 19px 0 7px; padding:0 ;height:100px;}
+.logo_Link_1{float:right;background:#FFF; margin: 10px 70px 0 0; padding:0 ;}
+.logo_Link_2{float:right;background:#FFF; margin: 10px 30px 0 0; padding:0 ;}
+.logo_bg{padding:0px; margin:0 19px 0 8px; background:#FFF;}
+
+
+/* ------- recommendation info style -------*/
+
+.RecommendationInfo_bg{padding:10px; margin:15px 0px 0px 20px;  border:0px;background:url(../frames/images/Recommendation_bg.gif) no-repeat top left;height:145px;}
+.RecommendationInfo_left{padding:0px; margin:0px; background:url(../frames/images/left_bg.png) repeat-y top left; height:145px;}
+.RecommendationInfo_right{padding:0px;  background:url(../frames/images/right_bg.png) repeat-y top right; height:145px;}
+
+
+/* -------- user statistic info style --------------*/
+.UserStatistic_bg{padding:0px;margin:15px 0px 0px 20px;}
+.UserStatistic_left{padding:0px;margin:0px; background:url(../frames/images/left_bg.png) repeat-y top left; height:40px;}
+.UserStatistic_right{padding:0px;  background:url(../frames/images/right_bg.png) repeat-y top right; height:40px;}
+
+
+.menu_bg{padding:0 0 0 6px;  margin: 0 21px 0 9px; background:url(../frames/images/menu_bg.png) top left;}
+.menu_left{padding:0px; margin:0px; background:url(../frames/images/menu_left.png) repeat-y  top left;}
+.menu_right{margin:0px; background:url(../frames/images/menu_right.png) repeat-y top right; }
+
+.search_style{float:right; height:40px;}
+.search_bg{padding:8px 2px 0 0;}
+
+.bread_bg{padding:0px; margin: 0 19px 0 7px; background:url(../frames/images/bread_bg.png) repeat-x top left; height:34px;}
+.bread_left{padding:0px; margin:0px; background:url(../frames/images/bread_left.png) no-repeat top left; height:34px;}
+.bread_right{padding:0px;  background:url(../frames/images/bread_right.png) no-repeat top right; height:34px;}
+
+#login_style{ float:right; padding:8px 17px 0px 10px; }
+#bread_style{ float:left; line-height:34px; padding-left:18px;color:#000000;}
+
+.center_bg{padding:0px; margin:0px;clear:both;}
+.left_bg{padding:0px; margin:0px; background:url(../frames/images/left_bg.png) repeat-y top left;}
+.right_bg{padding:0px; margin:0px; background:url(../frames/images/right_bg.png) repeat-y top right;}
+
+.content_pad{padding:0px 0px 0 0px; margin: 0 19px 0 7px; 
+             background:#FFF url(../frames/images/center_bg.png) repeat-x bottom left;}
+             
+.content_width{overflow:auto; padding-top: 0px; min-height:350px;}
+
+.bot_left{padding:0px; margin:0px; background:url(../frames/images/bot_left.png) no-repeat top left;}
+.bot_right{padding:0px; margin:0px; background:url(../frames/images/bot_right.png) no-repeat top right; padding:0px 39px 0px 27px;}
+.bot_bg{padding:0px; margin:0px; background:url(../frames/images/bot_bg.png) repeat-x top left; height:41px;}
+
+
+
+.bot_pad{margin-bottom:20px;padding:0 30px 0 20px;}
+#terms_style{float:left;}
+#copy_style{float:right;}
+
+.clear_float{clear:both; line-height:0; font-size:0; height:0;}
+
+/* ------- FileManager -------*/
+div.FileManager{height:auto;border:none;}
+table.FileManager{width:99%}
+
+
+a.CommandButton:link, a.CommandButton:visited{color:#CB2027; font-weight:bold; text-decoration:none;}
+a.CommandButton:hover{color:#3E81B5; text-decoration:underline;}
+
+/*-------ControlPanel changes ---------------*/
+.ControlPanel a.CommandButton:link, .ControlPanel a.CommandButton:visited{color:#3E81B5;}
+.ControlPanel a.CommandButton:hover{color:#CB2027; text-decoration:underline;}
+.ControlPanel a.CommandButton:link, .ControlPanel a.CommandButton:visited, .ControlPanel .SubHead{font-size:11px;}
+
+/*--------- pane style ----------*/
+.ContentPane, .TopPane, .BottomPane{ padding:0px; margin:0px; }
+.LeftPane{ padding:0px 0px 0px 0px;  margin:0px; }
+.RightPane{ padding:0px 0px 0px 0px; margin:0px; }
+
+
+/*------------ Breadcrumb Style --------------*/
+.Breadcrumb,a.Breadcrumb:link,a.Breadcrumb:active,a.Breadcrumb:visited{color:#3E81B5;}
+a.Breadcrumb:hover{color:#C00;}
+
+/*-------------- Link Style --------------*/
+.linkscontainer{padding-top:20px;text-align:center;}
+.links,a.links:link,a.links:active,a.links:visited{ font-weight:bold; color:#3E81B5; text-transform:uppercase;}
+a.links:hover{color:#C00;}
+
+/*-------------- User Style --------------*/
+.user,a.user:link,a.user:active,a.user:visited { color:#3E81B5;}
+a.user:hover{color:#C00;}
+
+/*-------------- Footer Style --------------*/
+.footer,a.footer:link,a.footer:active,a.footer:visited { color:#3E81B5;}
+a.footer:hover{color:#C00;}
+
+/*-------------- Empty panes Style --------------*/
+.DNNEmptyPane{width:0;padding:0;margin:0;}
+
+/*-------------- Search SkinObject Styles --------------*/
+div.SearchContainer{position:relative; white-space: nowrap;}
+div.SearchBorder{width: 180px; height: 20px; border: solid 1px #e0e0e0; float:left; background-color: White; white-space: nowrap; margin-top: 2px;}
+div.SearchContainer a{padding: 0px; display: block; float:left; }
+div.SearchContainer a img{padding-left:5px;}
+div.SearchIcon{float: left; width: 31px; height: 20px; cursor: pointer; z-index: 11; background: no-repeat 2px 2px; text-align:right;}
+div.SearchIcon img{margin-top: 3px;}
+
+input.SearchTextBox{float: left; z-index: 10; border: 0px; width:130px; height:18px; margin-left:3px; color: #43494D;}
+
+#SearchChoices{clear: both; display: none; border: solid 1px #C3D4DF; z-index: 2000; cursor: pointer; margin: 0; padding: 0; text-align:left; background-color: #F3F7FA; position:absolute; top: 22px; left: 0px;}
+#SearchChoices li{cursor: pointer; margin: 0; padding: 2px 2px 0 2px; padding-left: 25px; height: 18px; text-align:left; background-color: #F3F7FA; background-repeat: no-repeat; background-position: 2px center; list-style: none; list-style-image: none; border: none; display:block;}
+#SearchChoices li.searchHilite{background-color: #CE0D0D;	color:#ffffff; border: none;}
+#SearchChoices li.searchDefault{background-color: #F8FAFF; border: none;}

@@ -1,0 +1,729 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AC7AC6F8-F91E-4A8F-B895-AABCD8D5EC3D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <AssemblyName>AccreditAdmin</AssemblyName>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>MCS.Applications.AccreditAdmin</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>Properties\AccreditAdmin.Key.pfx</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags></FileUpgradeFlags>
+    <UpgradeBackupLocation></UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile></ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE;GTNet40</DefineConstants>
+    <DocumentationFile></DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn></NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile></ConfigurationOverrideFile>
+    <DefineConstants>TRACE;GTNet40</DefineConstants>
+    <DocumentationFile></DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn></NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'DELUXEWORKSTEST|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;GTNet40</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MCS.Library, Version=1.2.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Accredit, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.Accredit.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Data, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Passport, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.Passport.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Library">
+      <HintPath>..\..\Bin\MCS.Web.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services">
+      <Name>System.Web.Services</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="classLib\AccreditWebInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="classLib\AccreditWebInstaller.Designer.cs">
+      <DependentUpon>AccreditWebInstaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="classLib\InnerCommon.cs" />
+    <Compile Include="Logoff.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Logoff.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logoff.aspx.designer.cs">
+      <DependentUpon>Logoff.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PassportLogon.aspx.cs">
+      <DependentUpon>PassportLogon.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PassportLogon.aspx.designer.cs">
+      <DependentUpon>PassportLogon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AccreditResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AccreditResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="classLib\OGUUserPermission.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="classLib\OGUWriter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="dialogs\changeUserPwd.aspx.cs">
+      <DependentUpon>changeUserPwd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dialogs\changeUserPwd.aspx.designer.cs">
+      <DependentUpon>changeUserPwd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\EditGroup.aspx.cs">
+      <DependentUpon>EditGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dialogs\EditGroup.aspx.designer.cs">
+      <DependentUpon>EditGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\EditOrganization.aspx.cs">
+      <DependentUpon>EditOrganization.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dialogs\EditOrganization.aspx.designer.cs">
+      <DependentUpon>EditOrganization.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\EditUser.aspx.cs">
+      <DependentUpon>EditUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dialogs\EditUser.aspx.designer.cs">
+      <DependentUpon>EditUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\PrepareForExport.aspx.cs">
+      <DependentUpon>PrepareForExport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dialogs\PrepareForExport.aspx.designer.cs">
+      <DependentUpon>PrepareForExport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\PrepareForImport.aspx.cs">
+      <DependentUpon>PrepareForImport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dialogs\PrepareForImport.aspx.designer.cs">
+      <DependentUpon>PrepareForImport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\SecretariesOfLeader.aspx.cs">
+      <DependentUpon>SecretariesOfLeader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dialogs\SecretariesOfLeader.aspx.designer.cs">
+      <DependentUpon>SecretariesOfLeader.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\SystemDataStat.aspx.cs">
+      <DependentUpon>SystemDataStat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dialogs\SystemDataStat.aspx.designer.cs">
+      <DependentUpon>SystemDataStat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\UsersInGroup.aspx.cs">
+      <DependentUpon>UsersInGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dialogs\UsersInGroup.aspx.designer.cs">
+      <DependentUpon>UsersInGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\ViewUserSideline.aspx.cs">
+      <DependentUpon>ViewUserSideline.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dialogs\ViewUserSideline.aspx.designer.cs">
+      <DependentUpon>ViewUserSideline.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="exports\OGUSelect.aspx.cs">
+      <DependentUpon>OGUSelect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="exports\OGUSelect.aspx.designer.cs">
+      <DependentUpon>OGUSelect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="exports\OGUTree.aspx.cs">
+      <DependentUpon>OGUTree.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="exports\OGUTree.aspx.designer.cs">
+      <DependentUpon>OGUTree.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="exports\selectObjsToRole.aspx.cs">
+      <DependentUpon>selectObjsToRole.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="exports\selectObjsToRole.aspx.designer.cs">
+      <DependentUpon>selectObjsToRole.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="exports\selectOGU.aspx.cs">
+      <DependentUpon>selectOGU.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="exports\selectOGU.aspx.designer.cs">
+      <DependentUpon>selectOGU.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="exports\treeSample.aspx.cs">
+      <DependentUpon>treeSample.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="exports\treeSample.aspx.designer.cs">
+      <DependentUpon>treeSample.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="exports\TreeSamplePostPage.aspx.cs">
+      <DependentUpon>TreeSamplePostPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="exports\TreeSamplePostPage.aspx.designer.cs">
+      <DependentUpon>TreeSamplePostPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="itemList\OGUList.aspx.cs">
+      <DependentUpon>OGUList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="itemList\OGUList.aspx.designer.cs">
+      <DependentUpon>OGUList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logon.aspx.cs">
+      <DependentUpon>Logon.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logon.aspx.designer.cs">
+      <DependentUpon>Logon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OGUAdmin.aspx.cs">
+      <DependentUpon>OGUAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OGUAdmin.aspx.designer.cs">
+      <DependentUpon>OGUAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Services\OGUReaderService.asmx.cs">
+      <DependentUpon>OGUReaderService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="sysAdmin\OGUEditer.aspx.cs">
+      <DependentUpon>OGUEditer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sysAdmin\OGUEditer.aspx.designer.cs">
+      <DependentUpon>OGUEditer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sysSearch\OGUSearch.aspx.cs">
+      <DependentUpon>OGUSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sysSearch\OGUSearch.aspx.designer.cs">
+      <DependentUpon>OGUSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Template\PassportLogonUC.ascx.cs">
+      <DependentUpon>PassportLogonUC.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Template\PassportLogonUC.ascx.designer.cs">
+      <DependentUpon>PassportLogonUC.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Test\GetOGUSchema.aspx.cs">
+      <DependentUpon>GetOGUSchema.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test\GetOGUSchema.aspx.designer.cs">
+      <DependentUpon>GetOGUSchema.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Test\TestSelectOGU.aspx.cs">
+      <DependentUpon>TestSelectOGU.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test\TestSelectOGU.aspx.designer.cs">
+      <DependentUpon>TestSelectOGU.aspx</DependentUpon>
+    </Compile>
+    <Content Include="css\Input.css" />
+    <Content Include="dialogs\changeUserPwd.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="dialogs\changeUserPwd.js" />
+    <Content Include="dialogs\EditGroup.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="dialogs\EditGroup.js" />
+    <Content Include="dialogs\EditOrganization.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="dialogs\EditOrganization.js" />
+    <Content Include="dialogs\EditUser.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="dialogs\EditUser.js" />
+    <Content Include="dialogs\PrepareForExport.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="dialogs\PrepareForExport.js" />
+    <Content Include="dialogs\PrepareForImport.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="dialogs\SecretariesOfLeader.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="dialogs\SecretariesOfLeader.js" />
+    <Content Include="dialogs\SystemDataStat.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="dialogs\SystemDataStat.js" />
+    <Content Include="dialogs\UsersInGroup.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="dialogs\UsersInGroup.js" />
+    <Content Include="dialogs\ViewUserSideline.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="dialogs\ViewUserSideline.js" />
+    <Content Include="exports\OGUSelect.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="exports\OGUSelect.js" />
+    <Content Include="exports\OGUTree.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="exports\OGUTree.js" />
+    <Content Include="exports\selectObjsToRole.aspx" />
+    <Content Include="exports\selectObjsToRole.js" />
+    <Content Include="exports\selectOGU.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="exports\selectOGU.js" />
+    <Content Include="exports\treeSample.aspx" />
+    <Content Include="exports\TreeSample.js" />
+    <Content Include="exports\TreeSamplePostPage.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="FederationMetadata\2007-06\FederationMetadata.xml" />
+    <Content Include="Global.asax" />
+    <Content Include="htc\Calendar.htc" />
+    <Content Include="htc\hMenu.htc" />
+    <Content Include="htc\hTree.htc" />
+    <Content Include="htc\OGUInput.htc" />
+    <Content Include="images\32\customs.gif" />
+    <Content Include="images\32\group.gif" />
+    <Content Include="images\32\help.gif" />
+    <Content Include="images\32\keys.gif" />
+    <Content Include="images\32\ou.gif" />
+    <Content Include="images\32\person.gif" />
+    <Content Include="images\32\search32.gif" />
+    <Content Include="images\32\searchGo.gif" />
+    <Content Include="images\32\sideline.gif" />
+    <Content Include="images\32\stopLogo.gif" />
+    <Content Include="images\32\user.gif" />
+    <Content Include="images\AD.gif" />
+    <Content Include="images\application.gif" />
+    <Content Include="images\bg.gif" />
+    <Content Include="images\calendarDrop.gif" />
+    <Content Include="images\checkUser.gif" />
+    <Content Include="images\Copy.gif" />
+    <Content Include="images\delete.gif" />
+    <Content Include="images\domain.gif" />
+    <Content Include="images\downArrow.gif" />
+    <Content Include="images\export.gif" />
+    <Content Include="images\find.gif" />
+    <Content Include="images\ForbiddenUser.gif" />
+    <Content Include="images\go.gif" />
+    <Content Include="images\group.gif" />
+    <Content Include="images\hlp.gif" />
+    <Content Include="images\icon\checked.gif" />
+    <Content Include="images\icon\excel.gif" />
+    <Content Include="images\icon\key.ico" />
+    <Content Include="images\icon\KeyIcon.gif" />
+    <Content Include="images\icon\key_32.ico" />
+    <Content Include="images\icon\minus.gif" />
+    <Content Include="images\icon\plus.gif" />
+    <Content Include="images\icon\today.gif" />
+    <Content Include="images\icon\word.gif" />
+    <Content Include="images\import.gif" />
+    <Content Include="images\insert.gif" />
+    <Content Include="images\KeyIcon.gif" />
+    <Content Include="images\mailbox.gif" />
+    <Content Include="images\move.gif" />
+    <Content Include="images\newgroup.gif" />
+    <Content Include="images\newOrg.gif" />
+    <Content Include="images\newuser.gif" />
+    <Content Include="images\Organization.gif" />
+    <Content Include="images\property.gif" />
+    <Content Include="images\refresh.gif" />
+    <Content Include="images\Role.gif" />
+    <Content Include="images\save.gif" />
+    <Content Include="images\search.gif" />
+    <Content Include="images\sideline.gif" />
+    <Content Include="images\sort.gif" />
+    <Content Include="images\trash.gif" />
+    <Content Include="images\trashGroup.gif" />
+    <Content Include="images\trashOrg.gif" />
+    <Content Include="images\trashUser.gif" />
+    <Content Include="images\user.gif" />
+    <Content Include="itemList\OGUList.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="itemList\OGUList.js" />
+    <Content Include="itemList\oguListCommon.js" />
+    <Content Include="Logoff.aspx" />
+    <Content Include="Logon.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="LogonImages\bg.gif" />
+    <Content Include="LogonImages\denglu.gif" />
+    <Content Include="LogonImages\denglu02_03.jpg" />
+    <Content Include="LogonImages\denglu02_04.jpg" />
+    <Content Include="LogonImages\denglu02_05.gif" />
+    <Content Include="LogonImages\denglu02_07.jpg" />
+    <Content Include="LogonImages\denglu02_09.gif" />
+    <Content Include="LogonImages\denglu02_10.gif" />
+    <Content Include="LogonImages\denglu02_11.gif" />
+    <Content Include="LogonImages\denglu02_12.gif" />
+    <Content Include="LogonImages\denglu02_13.gif" />
+    <Content Include="OGUAdmin.aspx" />
+    <Content Include="OGUAdmin.js" />
+    <Content Include="oguScript\dateTime.js" />
+    <Content Include="oguScript\dbGrid.js" />
+    <Content Include="oguScript\htcCommon.js" />
+    <Content Include="oguScript\uiScript.js" />
+    <Content Include="oguScript\validate.js" />
+    <Content Include="oguScript\xmlHttp.js" />
+    <Content Include="oguScript\xsdAccess.js" />
+    <Content Include="PassportLogon.aspx" />
+    <Content Include="Script\ApplicationRoot.js" />
+    <Content Include="selfscript\accreditAdmin.js" />
+    <Content Include="selfscript\individuality.js" />
+    <Content Include="selfscript\organizeTree.js" />
+    <Content Include="selfscript\persist.js" />
+    <Content Include="selfscript\splitter.js" />
+    <Content Include="Services\OGUReaderService.asmx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="sysAdmin\OGUEditer.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="sysSearch\OGUSearch.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Template\PassportLogonUC.ascx" />
+    <Content Include="Test\GetOGUSchema.aspx" />
+    <Content Include="Test\TestSelectOGU.aspx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Web.config" />
+    <Content Include="xml\AccreditConfig.xml" />
+    <Content Include="xml\ADSearchConfig.xml" />
+    <Content Include="xml\DataExtraCheck.xml" />
+    <Content Include="xml\ExportOrImport.xml" />
+    <Content Include="xml\GetDBSchema.xml" />
+    <Content Include="xml\HideTypes.xml" />
+    <Content Include="xml\ImpersonateUser.xml" />
+    <Content Include="xml\OrgAttribute.xml" />
+    <Content Include="xsd\GROUPS.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xsd\GROUP_USERS.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xsd\ORGANIZATIONS.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xsd\OU_USERS.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xsd\PageGroup.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xsd\PageOrganization.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xsd\PageUser.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xsd\PINYIN.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xsd\PWD_ARITHMETIC.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xsd\RANK_DEFINE.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xsd\SECRETARIES.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xsd\USERS.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Properties\AccreditResource.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AccreditResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dialogs\changeUserPwd.aspx.resx">
+      <DependentUpon>changeUserPwd.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dialogs\EditGroup.aspx.resx">
+      <DependentUpon>EditGroup.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dialogs\EditOrganization.aspx.resx">
+      <DependentUpon>EditOrganization.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dialogs\EditUser.aspx.resx">
+      <DependentUpon>EditUser.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dialogs\PrepareForExport.aspx.resx">
+      <DependentUpon>PrepareForExport.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dialogs\PrepareForImport.aspx.resx">
+      <DependentUpon>PrepareForImport.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dialogs\SecretariesOfLeader.aspx.resx">
+      <DependentUpon>SecretariesOfLeader.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dialogs\SystemDataStat.aspx.resx">
+      <DependentUpon>SystemDataStat.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dialogs\UsersInGroup.aspx.resx">
+      <DependentUpon>UsersInGroup.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dialogs\ViewUserSideline.aspx.resx">
+      <DependentUpon>ViewUserSideline.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="exports\OGUSelect.aspx.resx">
+      <DependentUpon>OGUSelect.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="exports\OGUTree.aspx.resx">
+      <DependentUpon>OGUTree.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="exports\selectObjsToRole.aspx.resx">
+      <DependentUpon>selectObjsToRole.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="exports\selectOGU.aspx.resx">
+      <DependentUpon>selectOGU.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="exports\treeSample.aspx.resx">
+      <DependentUpon>treeSample.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="exports\TreeSamplePostPage.aspx.resx">
+      <DependentUpon>TreeSamplePostPage.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Global.asax.resx">
+      <DependentUpon>Global.asax.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="itemList\OGUList.aspx.resx">
+      <DependentUpon>OGUList.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logon.aspx.resx">
+      <DependentUpon>Logon.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OGUAdmin.aspx.resx">
+      <DependentUpon>OGUAdmin.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\OGUReaderService.asmx.resx">
+      <DependentUpon>OGUReaderService.asmx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sysAdmin\OGUEditer.aspx.resx">
+      <DependentUpon>OGUEditer.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sysSearch\OGUSearch.aspx.resx">
+      <DependentUpon>OGUSearch.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\GetOGUSchema.aspx.resx">
+      <DependentUpon>GetOGUSchema.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\TestSelectOGU.aspx.resx">
+      <DependentUpon>TestSelectOGU.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="WebConfig\%28AD%29Web.config" />
+    <None Include="WebConfig\%28local%29Web.config" />
+    <None Include="WebConfig\%28Passport%29Web.config" />
+    <Content Include="LogonImages\model\OGUExportModel.xlt" />
+    <None Include="Properties\AccreditAdmin.Key.pfx" />
+    <None Include="xsd\GROUPS.xsx">
+      <DependentUpon>GROUPS.xsd</DependentUpon>
+    </None>
+    <None Include="xsd\GROUP_USERS.xsx">
+      <DependentUpon>GROUP_USERS.xsd</DependentUpon>
+    </None>
+    <None Include="xsd\ORGANIZATIONS.xsx">
+      <DependentUpon>ORGANIZATIONS.xsd</DependentUpon>
+    </None>
+    <None Include="xsd\OU_USERS.xsx">
+      <DependentUpon>OU_USERS.xsd</DependentUpon>
+    </None>
+    <None Include="xsd\PageGroup.xsx">
+      <DependentUpon>PageGroup.xsd</DependentUpon>
+    </None>
+    <None Include="xsd\PageOrganization.xsx">
+      <DependentUpon>PageOrganization.xsd</DependentUpon>
+    </None>
+    <None Include="xsd\PageUser.xsx">
+      <DependentUpon>PageUser.xsd</DependentUpon>
+    </None>
+    <None Include="xsd\PINYIN.xsx">
+      <DependentUpon>PINYIN.xsd</DependentUpon>
+    </None>
+    <None Include="xsd\PWD_ARITHMETIC.xsx">
+      <DependentUpon>PWD_ARITHMETIC.xsd</DependentUpon>
+    </None>
+    <None Include="xsd\RANK_DEFINE.xsx">
+      <DependentUpon>RANK_DEFINE.xsd</DependentUpon>
+    </None>
+    <None Include="xsd\SECRETARIES.xsx">
+      <DependentUpon>SECRETARIES.xsd</DependentUpon>
+    </None>
+    <None Include="xsd\USERS.xsx">
+      <DependentUpon>USERS.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent></PreBuildEvent>
+    <PostBuildEvent>set path=%25path%25;C:\Windows\System32
+ 
+
+
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v12.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2300</DevelopmentServerPort>
+          <DevelopmentServerVPath>/AccreditAdmin/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/MCSWebApp/AccreditAdmin/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl></CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PreBuildEvent></PreBuildEvent>
+    <PostBuildEvent>set path=%25path%25;C:\Windows\System32 
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,416 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>../../../CIIC.HSR.TSP.Files/TSPLib.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5818CF12-2F5D-4B41-836B-DD10E120C533}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MCS.Library.SOA.DataObjects.Security</RootNamespace>
+    <AssemblyName>MCS.Library.SOA.DataObjects.Security</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>MCS.Library.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TRACE|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\TRACE\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;PC_TRACE;GTNet40</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\MCS.Library.SOA.DataObjects.Security.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;H:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;H:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MCS.Library">
+      <HintPath>..\..\Bin\MCS.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Data">
+      <HintPath>..\..\Bin\MCS.Library.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.OGUPermission, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.OGUPermission.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Passport, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.Passport.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.DataObjects">
+      <HintPath>..\..\Bin\MCS.Library.SOA.DataObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.DataObjects.Schemas">
+      <HintPath>..\..\Bin\MCS.Library.SOA.DataObjects.Schemas.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Library.Script.Json">
+      <HintPath>..\..\Bin\MCS.Web.Library.Script.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.DebuggerVisualizers, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Actions\Constants.cs" />
+    <Compile Include="Actions\ISCObjectOperationAction.cs" />
+    <Compile Include="Actions\SCCacheHelper.cs" />
+    <Compile Include="Actions\SCObjectSnapshotAction.cs" />
+    <Compile Include="Actions\SCObjectUpdateStatusAction.cs" />
+    <Compile Include="Actions\SCOperationCacheNotifierAction.cs" />
+    <Compile Include="Actions\SCOperationSnapshotAction.cs" />
+    <Compile Include="Actions\UserAndContainerSnapshotAction.cs" />
+    <Compile Include="Adapters\ConditionCalculateResultAdapter.cs" />
+    <Compile Include="Adapters\ExportQueryHelper.cs" />
+    <Compile Include="Adapters\LogCategoryAdapter.cs" />
+    <Compile Include="Adapters\RoleDisplayItemAdapter.cs" />
+    <Compile Include="Adapters\SCOperationSnapshotAdapter.cs" />
+    <Compile Include="Conditions\SCBuiltInFunctionsCalculator.cs" />
+    <Compile Include="Conditions\SCCalculatorObjectCache.cs" />
+    <Compile Include="Configuration\LogCategoryConfigSection.cs" />
+    <Compile Include="Configuration\LogCategoryConfigurationElement.cs" />
+    <Compile Include="Configuration\SCObjectOperationActionConfigurationElement.cs" />
+    <Compile Include="Configuration\SCObjectOperationActionSettings.cs" />
+    <Compile Include="DataSources\ADReverseSyncLogDataSource.cs" />
+    <Compile Include="DataSources\ADReverseSyncLogDetailDataSource.cs" />
+    <Compile Include="DataSources\ADSyncLogDataSource.cs" />
+    <Compile Include="DataSources\ADSyncLogDetailDataSource.cs" />
+    <Compile Include="DataSources\DataSourceUtil.cs" />
+    <Compile Include="DataSources\SchemaDeletedUserDataSource.cs" />
+    <Compile Include="DataSources\UserMatrixDataSource.cs" />
+    <Compile Include="DataSources\SchemaOrgDescendantsDataSource.cs" />
+    <Compile Include="Executors\SCStatusCheckException.cs" />
+    <Compile Include="Interfaces\IImportAction.cs" />
+    <Compile Include="Interfaces\IImportContext.cs" />
+    <Compile Include="Locks\SCCheckLockException.cs" />
+    <Compile Include="Locks\SCCheckLockResult.cs" />
+    <Compile Include="Locks\SCDataOperationLockContext.cs" />
+    <Compile Include="Locks\SCLock.cs" />
+    <Compile Include="Locks\SCLockAdapter.cs" />
+    <Compile Include="Locks\SCCheckLockStatus.cs" />
+    <Compile Include="Locks\SCLockSettings.cs" />
+    <Compile Include="Locks\SCLockType.cs" />
+    <Compile Include="Logs\LogCategory.cs" />
+    <Compile Include="Organizations\HistoryEntry.cs" />
+    <Compile Include="Organizations\ObjectNotFoundException.cs" />
+    <Compile Include="Organizations\PhantomObjects.cs" />
+    <Compile Include="Adapters\QueryByCodeNamesAdapterBase.cs" />
+    <Compile Include="Adapters\QueryByFullPathsAdapterBase.cs" />
+    <Compile Include="Adapters\QueryByGuidsAdapterBase.cs" />
+    <Compile Include="Adapters\QueryByIDsAdapterBase.cs" />
+    <Compile Include="Adapters\QueryChildrenByCodeNamesAdapterBase.cs" />
+    <Compile Include="Adapters\QueryChildrenByFullPathsAdapterBase.cs" />
+    <Compile Include="Adapters\QueryChildrenByGuidsAdapterBase.cs" />
+    <Compile Include="Adapters\SCAclAdapter.cs" />
+    <Compile Include="Adapters\SCConditionAdapter.cs" />
+    <Compile Include="Adapters\SCConnectionDefine.cs" />
+    <Compile Include="Adapters\SchemaDefineAdapter.cs" />
+    <Compile Include="Adapters\SchemaObjectAdapter.cs" />
+    <Compile Include="Adapters\SchemaObjectAdapterBase.cs" />
+    <Compile Include="Adapters\SchemaObjectOperationContext.cs" />
+    <Compile Include="Adapters\SchemaRelationObjectAdapter.cs" />
+    <Compile Include="Adapters\SCMemberRelationAdapter.cs" />
+    <Compile Include="Adapters\SCOUControlQueryImpl.cs" />
+    <Compile Include="Adapters\SCSnapshotAdapter.cs" />
+    <Compile Include="Adapters\SCSnapshotAdapter_Others.cs" />
+    <Compile Include="Adapters\SCSnapshotAdapter_Permission.cs" />
+    <Compile Include="Adapters\SCSnapshotHelper.cs" />
+    <Compile Include="Adapters\SCSnapshotBasicAdapter.cs" />
+    <Compile Include="Adapters\SCToDoJobListAdapter.cs" />
+    <Compile Include="Adapters\UserAndContainerSnapshotAdapter.cs" />
+    <Compile Include="Adapters\WrappedSchemaOwnershipAdapter.cs" />
+    <Compile Include="Conditions\DefaultUsersPropertyAccessor.cs" />
+    <Compile Include="Conditions\SCCondition.cs" />
+    <Compile Include="Conditions\SCConditionCalculatingContext.cs" />
+    <Compile Include="Conditions\SCConditionCalculator.cs" />
+    <Compile Include="Conditions\SCConditionOwner.cs" />
+    <Compile Include="Conditions\SchemaNameAndPropertyName.cs" />
+    <Compile Include="Conditions\SCPropertyAccessorBase.cs" />
+    <Compile Include="Configuration\PermissionBackwardCompatibilityConfigSection.cs" />
+    <Compile Include="Converters\SchemaObjectSimpleConverter.cs" />
+    <Compile Include="DataSources\ConditionalUsersDataSource.cs" />
+    <Compile Include="Adapters\HistoryAdapter.cs" />
+    <Compile Include="DataSources\ObjectHistoryDataSource.cs" />
+    <Compile Include="DataSources\SchemaGlobalObjectDataSource.cs" />
+    <Compile Include="DataSources\SchemaOrgQueryDataSource.cs" />
+    <Compile Include="DataSources\SchemaRoleDifinitionDataSource.cs" />
+    <Compile Include="DataSources\SchemaRoleMembersDataSource.cs" />
+    <Compile Include="DataSources\SecretaryDataSource.cs" />
+    <Compile Include="DataSources\UserBelongingSchemaDataSource.cs" />
+    <Compile Include="DataSources\ConstBelongingSchemaDataSource.cs" />
+    <Compile Include="DataSources\ChildSchemaDataSource.cs" />
+    <Compile Include="DataSources\SchemaApplicationDataSource.cs" />
+    <Compile Include="DataSources\SchemaApplicationFunctionsDataSource.cs" />
+    <Compile Include="DataSources\SchemaApplicationRolesDataSource.cs" />
+    <Compile Include="DataSources\SchemaGroupConstMembersDataSource.cs" />
+    <Compile Include="DataSources\SchemaGroupDataSource.cs" />
+    <Compile Include="DataSources\SchemaLogDataSource.cs" />
+    <Compile Include="DataSources\SchemaNavPathDataSource.cs" />
+    <Compile Include="DataSources\SchemaOrgChildrenDataSource.cs" />
+    <Compile Include="DataSources\SchemaRootOrgDataSource.cs" />
+    <Compile Include="DataSources\SchemaUserDataSource.cs" />
+    <Compile Include="DataSources\SchemaUserGroupDataSource.cs" />
+    <Compile Include="DataSources\SchemaUsersOrgDataSource.cs" />
+    <Compile Include="DataSources\SchemaUserRoleDataSource.cs" />
+    <Compile Include="Debugger\ListKeyAndValue.cs" />
+    <Compile Include="Debugger\KeyValuePairs.cs" />
+    <Compile Include="Debugger\ListRelations.cs" />
+    <Compile Include="Executors\SCChangeOwnerExecutor.cs" />
+    <Compile Include="Executors\SCDeleteObjectRecursivelyExecutor.cs" />
+    <Compile Include="Executors\SCExecutorBase.cs" />
+    <Compile Include="Executors\SCExecutorContextInfo.cs" />
+    <Compile Include="Executors\SCJoinRoleAndPermissionExecutor.cs" />
+    <Compile Include="Executors\SCMemberRelativeExecutor.cs" />
+    <Compile Include="Executors\SCMemberRelativeExecutorBase.cs" />
+    <Compile Include="Executors\SCMoveObjectExecutor.cs" />
+    <Compile Include="Executors\SCMoveObjectToOrganizationExecutor.cs" />
+    <Compile Include="Executors\SCObjectExecutor.cs" />
+    <Compile Include="Executors\SCOrganizationRelativeExecutor.cs" />
+    <Compile Include="Executors\SCReplaceAclRecursivelyExecutor.cs" />
+    <Compile Include="Executors\SCSecretaryRelativeExecutor.cs" />
+    <Compile Include="Executors\SCUpdateObjectAclExecutor.cs" />
+    <Compile Include="Executors\SCUpdateConditionsExecutor.cs" />
+    <Compile Include="Executors\SCUpdateObjectImageExecutor.cs" />
+    <Compile Include="Facade\ISCQueryOperations.cs" />
+    <Compile Include="Logs\SCOperationLogExtensions.cs" />
+    <Compile Include="Facade\ISCObjectOperations.cs" />
+    <Compile Include="Facade\SCObjectOperations.cs" />
+    <Compile Include="Logs\SCOperationLog.cs" />
+    <Compile Include="Logs\SCOperationLogAdapter.cs" />
+    <Compile Include="Organizations\RoleDisplayItem.cs" />
+    <Compile Include="Organizations\SCApplication.cs" />
+    <Compile Include="Organizations\SCBase.cs" />
+    <Compile Include="Organizations\SCGenericObject.cs" />
+    <Compile Include="Organizations\SCGroup.cs" />
+    <Compile Include="Organizations\SchemaObjectXmlImporter.cs" />
+    <Compile Include="Organizations\SCMemberRelation.cs" />
+    <Compile Include="Organizations\SCObjectAndRelation.cs" />
+    <Compile Include="Organizations\SCObjectSet.cs" />
+    <Compile Include="Organizations\SCOrganization.cs" />
+    <Compile Include="Organizations\SCPermission.cs" />
+    <Compile Include="Organizations\SCRelationObject.cs" />
+    <Compile Include="Organizations\SCRole.cs" />
+    <Compile Include="Organizations\SCRoleEnumMatrixUsersContext.cs" />
+    <Compile Include="Organizations\SCRoleMemberBase.cs" />
+    <Compile Include="Organizations\SCSecretaryRelation.cs" />
+    <Compile Include="Organizations\SCSimpleObject.cs" />
+    <Compile Include="Organizations\SCSimpleRelationBase.cs" />
+    <Compile Include="Organizations\SCSimpleRelationObject.cs" />
+    <Compile Include="Organizations\SCUser.cs" />
+    <Compile Include="Organizations\SCWrappedSchemaOwnership.cs" />
+    <Compile Include="Permissions\SCAclPermissionCheckException.cs" />
+    <Compile Include="Permissions\SCPrincipalExtension.cs" />
+    <Compile Include="Permissions\SCAclContainer.cs" />
+    <Compile Include="Permissions\SCAclItem.cs" />
+    <Compile Include="Permissions\SCAclPermissionItem.cs" />
+    <Compile Include="Permissions\SCContainerAndPermission.cs" />
+    <Compile Include="Persister\SchemaImagePropertyPersister.cs" />
+    <Compile Include="Persister\UserPasswordPersister.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Schemas\Constants.cs" />
+    <Compile Include="Schemas\Delegations.cs" />
+    <Compile Include="Schemas\Enums.cs" />
+    <Compile Include="Schemas\Interfaces.cs" />
+    <Compile Include="Schemas\SchemaDefine.cs" />
+    <Compile Include="Schemas\SchemaDefineCollection.cs" />
+    <Compile Include="Schemas\SchemaDefineConverter.cs" />
+    <Compile Include="Schemas\SchemaExtensions.cs" />
+    <Compile Include="Schemas\SchemaInfo.cs" />
+    <Compile Include="Schemas\SchemaObjectBase.cs" />
+    <Compile Include="Schemas\SchemaObjectCollectionBase.cs" />
+    <Compile Include="Schemas\SchemaObjectExtension.cs" />
+    <Compile Include="Schemas\SchemaObjectPhoto.cs" />
+    <Compile Include="Schemas\SchemaObjectPhotoCache.cs" />
+    <Compile Include="Schemas\SchemaObjectPhotoKey.cs" />
+    <Compile Include="Schemas\SchemaOperationDefine.cs" />
+    <Compile Include="Schemas\SCOperationSnapshot.cs" />
+    <Compile Include="Schemas\UserAndContainerSnapshot.cs" />
+    <Compile Include="Adapters\UserPasswordAdapter.cs" />
+    <Compile Include="Tasks\SCToDoJobList.cs" />
+    <Compile Include="Transfer\ObjectComparerBase.cs" />
+    <Compile Include="Transfer\ObjectModifyType.cs" />
+    <Compile Include="Transfer\ObjectSetterBase.cs" />
+    <Compile Include="Transfer\ObjectSetterConfigurationElement.cs" />
+    <Compile Include="Transfer\PropertyComparerBase.cs" />
+    <Compile Include="Transfer\PropertyComparerConfigurationElement.cs" />
+    <Compile Include="Transfer\PropertyComparersSettings.cs" />
+    <Compile Include="Transfer\PropertyMappingConfigurationElement.cs" />
+    <Compile Include="Transfer\PropertySetterBase.cs" />
+    <Compile Include="Transfer\PropertySetterConfigurationElement.cs" />
+    <Compile Include="Transfer\PropertySettersSettings.cs" />
+    <Compile Include="Transfer\SchemaMappingConfigurationElement.cs" />
+    <Compile Include="Transfer\SchemaMappingInfo.cs" />
+    <Compile Include="Transfer\SetterContext.cs" />
+    <Compile Include="Transfer\SetterObjectMappingConfigurationElement.cs" />
+    <Compile Include="Validators\CodeNameUniqueValidator.cs" />
+    <Compile Include="Validators\CodeNameUniqueValidatorFacade.cs" />
+    <Compile Include="Validators\FullPathUniqueValidator.cs" />
+    <Compile Include="Validators\SchemaObjectValidator.cs" />
+    <Compile Include="Validators\SchemaPropertyValidator.cs" />
+    <Compile Include="Validators\SchemaPropertyValidatorContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MCS.Library.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Adapters\Templates\LoadAllParentInfo.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Adapters\Templates\QueryContainsUsers.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Adapters\Templates\QueryUserContainers.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Adapters\Templates\QueryContainsMembers.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Adapters\Templates\QueryMemberContainers.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Adapters\Templates\QueryApplicationObjects.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Adapters\Templates\QueryUserBelongToRoles.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Adapters\Templates\QueryUserBelongToPermissions.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Adapters\Templates\QueryRolesContainsUsers.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Adapters\Templates\QueryRolesContainsMembers.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Adapters\Templates\QueryObjectAndRelationByParent.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Adapters\Templates\QueryObjectAndRelation.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Adapters\Templates\QueryObjectAndRelationByRoot.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Adapters\Templates\QueryApplicationObjects_Current.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Adapters\Templates\QueryContainsMembers_Current.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Adapters\Templates\QueryContainsUsers_Current.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Adapters\Templates\QueryMemberContainers_Current.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Adapters\Templates\QueryObjectAndRelation_Current.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Adapters\Templates\QueryObjectAndRelationByParent_Current.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Adapters\Templates\QueryObjectAndRelationByRoot_Current.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Adapters\Templates\QueryRolesContainsMembers_Current.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Adapters\Templates\QueryRolesContainsUsers_Current.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Adapters\Templates\QueryUserBelongToPermissions_Current.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Adapters\Templates\QueryUserBelongToRoles_Current.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Adapters\Templates\QueryUserContainers_Current.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Adapters\Templates\QueryPermissionsRoles.sql" />
+    <EmbeddedResource Include="Adapters\Templates\QueryPermissionsRoles_Current.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Adapters\Templates\QueryObjectAndRelationByParentID.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Adapters\Templates\QueryObjectAndRelationByParentID_Current.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>IF NOT EXIST "$(ProjectDir)..\..\Bin" MD "$(ProjectDir)..\..\Bin"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetFileName)" DEL "$(ProjectDir)..\..\Bin\$(TargetFileName)"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetName).pdb" DEL "$(ProjectDir)..\..\Bin\$(TargetName).pdb"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetName).xml" DEL "$(ProjectDir)..\..\Bin\$(TargetName).xml"</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>set path=%25path%25;C:\Windows\System32
+ 
+
+ XCOPY "$(TargetPath)"  "$(ProjectDir)..\..\Bin" /Y /D /R
+IF EXIST "$(TargetDir)$(TargetName).pdb" XCOPY "$(TargetDir)$(TargetName).pdb" "$(ProjectDir)..\..\Bin" /Y /D /R
+IF EXIST "$(TargetDir)$(TargetName).xml"  XCOPY "$(TargetDir)$(TargetName).xml" "$(ProjectDir)..\..\Bin" /Y /D /R</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,174 @@
+﻿/* DeluxeSearch CSS Document */
+.deluxe-search-searchbar
+{
+    width:660px;
+}
+
+.deluxe-search.deluxe-center .deluxe-search-searchbar{ margin:auto; } 
+.deluxe-search-panel
+{
+    float: left;
+    position: relative;
+    width: 560px;
+}
+.deluxe-search-panel-fields
+{
+    background: none repeat scroll 0 0 #1177C6;
+    border-radius: 0 0 0 3px;
+    float: left;
+    height: 34px;
+    position: relative;
+    width: 470px;
+    _width:460px;
+    font-size: 100%;
+}
+.deluxe-search-panel-fields s
+{
+    background: #ffffff url(<%=WebResource("MCS.Web.WebControls.DeluxeSearch.Images.search_icon.png")%>) no-repeat scroll;
+    height: 16px;
+    left: 10px;
+    position: absolute;
+    top: 10px;
+    width: 16px;
+}
+.deluxe-search-panel-fields label
+{
+    color: #BBBBBB;
+    left: 32px;
+    position: absolute;
+    top: 8px;
+    cursor:text;
+    z-index: 1;
+}
+.deluxe-search-panel-fields .deluxe-search-content
+{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 0 none;
+    border-radius: 3px 0 0 0;
+    font-size: 14px;
+    height: 18px;
+    left: 3px;
+    line-height: 18px;
+    padding: 5px;
+    position: absolute;
+    top: 3px;
+    vertical-align: middle;
+    width: 457px;
+    _height: 28px;
+}
+.deluxe-search-panel .deluxe-search-button
+{
+    background: #1177C6 url(<%=WebResource("MCS.Web.WebControls.DeluxeSearch.Images.search_btn.png")%>) no-repeat scroll 0 0;
+    border: 0 none;
+    color: #FFFFFF;
+    cursor: pointer;
+    float: left;
+    font-size: 18px;
+    height: 34px;
+    text-indent: -999em;
+    width: 88px;
+}
+
+.deluxe-search-tips
+{
+    float: left;
+    height: 34px;
+    margin-top: -1px;
+    overflow: hidden;
+    text-align: right;
+    width: 60px;
+    color: #0066CC;
+    font-size: 12px;
+    line-height: 34px;
+    vertical-align: middle;
+}
+
+.deluxe-search-category-content
+{
+    clear: left;
+    padding-top:15px;
+}
+
+.deluxe-search-category-content .head{background:#fafafa;width:15%;text-align:right;}
+.deluxe-search-category-content .item{text-align:left;padding-left:5px;}
+
+
+.deluxe-search-classify
+{
+    background: none repeat scroll 0 0 #FAFAFA;
+    border: 1px solid #CCCCCC;
+    height: 25px;
+    padding-left: 10px;
+    line-height:25px;
+}
+
+table.deluxe-search-tab
+{
+    border-collapse: collapse;
+    width:100%;
+    border: 1px solid #CCCCCC;
+    margin-top: 5px;
+}
+
+table.deluxe-search-tab td
+{
+    height: 25px;
+    line-height: 25px;    
+    border-bottom: 1px dashed #CCCCCC;
+    
+}
+
+.deluxe-search-fix
+{
+    font-size: 0;
+    height: 2px;
+    position: absolute;
+    width: 2px;
+}
+.deluxe-search-fix-panellt
+{
+    background-position: -148px -349px;
+    left: 3px;
+    top: 3px;
+}
+.deluxe-search-fix-panellb
+{
+    background-position: -146px -349px;
+    bottom: 0;
+    left: 0;
+}
+
+.deluxe-search-panel-fields.focus label,  .deluxe-search-panel-fields.focus s
+{
+    display: none;
+}
+
+.deluxe-search-advanced-box
+{
+    clear:both;
+    position:relative;
+    padding-top: 2px;
+    text-align:left;
+}
+
+.deluxe-search-advanced-box .bg_white{background:#fff;}
+
+.deluxe-search-advance-container {border:1px solid #ccc;background:#f9f9f9;margin-top:2px;width:480px;}
+.deluxe-search-advance-container .line{FILTER:" alpha(opacity=100,finishopacity=0,style=3) ";size:1;width:470px;color:#ccc;margin:0 auto;}
+.deluxe-search-advance-container h2{height:30px;line-height:30px;text-align:left;padding-left:10px;font-size:14px;font-weight:normal;margin-bottom:5px;}
+.deluxe-search-advance-container .tb_condition{margin:0px auto ;width:470px;}
+.deluxe-search-advance-container .tb_condition thead{display:none;}
+.deluxe-search-advance-container .hidefooter{ height:20px; padding-left:8px; text-align:left}
+
+.deluxe-search-advance-container .search_save{margin:10px 0 0;}
+.deluxe-search-advance-container .search_save span{color:#0066cc;}
+.deluxe-search-advance-container .show{background:url(<%=WebResource("MCS.Web.WebControls.DeluxeSearch.Images.btn_left.png")%>) no-repeat;width:16px;height:16px;border:0;margin-right:10px;cursor:pointer;}
+.deluxe-search-advance-container .hide{background:url(<%=WebResource("MCS.Web.WebControls.DeluxeSearch.Images.btn_right.png")%>) no-repeat;width:16px;height:16px;border:0;margin-right:10px;cursor:pointer;}
+
+.deluxe-search-advance-container .tb_condition .mainTable td{border-bottom:1px dashed #ccc;text-align:center;height:25px;line-height:25px;}
+.deluxe-search-advance-container .tb_condition .header td{background:#f3f3f3;border-bottom:1px solid #666;font-weight:normal;height:25px;line-height:25px;}
+.deluxe-search-advance-container .tb_condition td.align_l{text-align:left;padding:0 10px;}
+.deluxe-search-advance-container .tb_condition td.align_r{text-align:right;border-bottom:0;}
+.deluxe-search-advance-container .tb_condition tfoot{ margin-top:20px;}
+.deluxe-search-advance-container td.align_r{ padding:0 0 0 0; text-align:right;}
+.deluxe-search-advance-container table td,.deluxesearch table th{height:25px}

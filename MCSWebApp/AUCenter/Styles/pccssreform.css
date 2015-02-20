@@ -1,0 +1,75 @@
+﻿/* Hack non-standard web browsers 
+
+Created by v-weirf
+Created on 20120703
+
+Rev history:
+
+*/
+
+/* DeluxeSearch */
+
+body { overflow :auto; }
+
+
+/*
+.deluxesearchfocusinput
+{
+    margin: 2px !important;
+    float:left;
+    clear:left;
+}
+.deluxesearchblurinput
+{
+    margin: 2px !important;
+    float:left;
+}
+
+*/
+/* hack control styles */
+
+.deluxegrid tr.item{ background-color:#ffffff; }
+.deluxegrid tr.aitem{ background-color:#e0e0e0; }
+.deluxegrid tr.hover { background-color:#545555; color:#ffffff;}
+.deluxegrid th.col-checkbox { width:0.1% !important;  text-align:left !important;}
+.deluxegrid td.col-checkbox { width:0.1% !important;  text-align:left !important;}
+.deluxegrid th.checkbox { width:0.1%; text-align:left;}
+.deluxegrid span.pager { display:block; float:right; clear:right;}
+.deluxegrid .pager { white-space:nowrap;}
+/*
+.deluxegrid td{ word-wrap:normal;}
+.deluxegrid tr { height:auto;}
+.deluxegrid .pager{ word-break:normal !important;}
+.deluxegrid .pager .title{ white-space:nowrap; }
+.deluxegrid { table-layout:auto;}
+*/
+
+.deluxegrid .item.hover td,.deluxegrid .aitem.hover td { color:#ffffff; }
+
+.mcsc-drop-sorter {
+    clear: both;
+    line-height: 12px;
+    position: relative;
+    zoom:1;
+}
+
+.dataList .head {
+    white-space: nowrap;
+}
+
+
+.deluxe-search-advanced-box
+{
+	z-index:9;
+	zoom:1;
+}
+
+.ajax__calendar_textbox
+{
+	width:80px !important;
+}
+
+.ajax__calendar_container
+{
+	height:200px !important;
+}

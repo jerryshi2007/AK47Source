@@ -1,0 +1,1265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorkflowProcesses>
+  <Root v="0" r="true">
+    <O id="0" oti="0">
+      <F n="_Variables" v="1" r="true" oti="0" />
+      <F n="_Activities" v="2" r="true" oti="0" />
+      <F n="_RelativeLinks" v="566" r="true" oti="0" />
+      <F n="_CancelEventReceivers" v="567" r="true" oti="0" />
+      <F n="_InternalRelativeUsers" v="568" r="true" oti="0" />
+      <F n="_ExternalUsers" v="569" r="true" oti="0" />
+      <F n="_CancelBeforeExecuteServices" v="570" r="true" oti="0" />
+      <F n="_CancelAfterExecuteServices" v="571" r="true" oti="0" />
+      <F n="_ParametersNeedToBeCollected" v="572" r="true" oti="0" ide="true" />
+      <F n="_GD" v="&lt;root id=&quot;Expense&quot;&gt;&#xD;&#xA;  &lt;node Key=&quot;N0&quot; Category=&quot;Initial&quot; Location=&quot;106 48&quot; WfName=&quot;起始&quot; WfDescription=&quot;流程开始&quot; /&gt;&#xD;&#xA;  &lt;node Key=&quot;N1&quot; Category=&quot;Completed&quot; Location=&quot;111.5 448&quot; WfName=&quot;结束&quot; WfDescription=&quot;流程结束&quot; /&gt;&#xD;&#xA;  &lt;node Key=&quot;N2&quot; Category=&quot;Normal&quot; Location=&quot;105 136&quot; Text=&quot;Normal&quot; WfName=&quot;部门领导&quot; WfDescription=&quot;活动点描述&quot; /&gt;&#xD;&#xA;  &lt;node Key=&quot;N3&quot; Category=&quot;Normal&quot; Location=&quot;103 235&quot; Text=&quot;Normal&quot; WfName=&quot;CFO&quot; WfDescription=&quot;活动点描述&quot; /&gt;&#xD;&#xA;  &lt;node Key=&quot;N4&quot; Category=&quot;Normal&quot; Location=&quot;101 334&quot; Text=&quot;Normal&quot; WfName=&quot;CEO&quot; WfDescription=&quot;活动点描述&quot; /&gt;&#xD;&#xA;  &lt;link From=&quot;N0&quot; To=&quot;N2&quot; FromPort=&quot;portBottom&quot; ToPort=&quot;portTop&quot; Points=&quot;106.5 76 106.5 86 106.5 92 105.5 92 105.5 98 105.5 108&quot; Key=&quot;L0&quot; WfEnabled=&quot;true&quot; WfReturnLine=&quot;false&quot; /&gt;&#xD;&#xA;  &lt;link From=&quot;N2&quot; To=&quot;N3&quot; FromPort=&quot;portBottom&quot; ToPort=&quot;portTop&quot; Text=&quot;送CFO&quot; Points=&quot;105.5 164 105.5 174 105.5 185.5 103 185.5 103 197 103 207&quot; Key=&quot;L1&quot; WfEnabled=&quot;true&quot; WfReturnLine=&quot;false&quot; /&gt;&#xD;&#xA;  &lt;link From=&quot;N3&quot; To=&quot;N4&quot; FromPort=&quot;portBottom&quot; ToPort=&quot;portTop&quot; Points=&quot;103 263 103 273 103 284.5 101.5 284.5 101.5 296 101.5 306&quot; Key=&quot;L2&quot; WfEnabled=&quot;true&quot; WfReturnLine=&quot;false&quot; /&gt;&#xD;&#xA;  &lt;link From=&quot;N4&quot; To=&quot;N1&quot; FromPort=&quot;portBottom&quot; ToPort=&quot;portTop&quot; Points=&quot;101.5 362 101.5 372 101.5 391 112 391 112 410 112 420&quot; Key=&quot;L3&quot; WfEnabled=&quot;true&quot; WfReturnLine=&quot;false&quot; /&gt;&#xD;&#xA;  &lt;link From=&quot;N2&quot; To=&quot;N4&quot; FromPort=&quot;portRight&quot; ToPort=&quot;portRight&quot; Text=&quot;送CEO&quot; Points=&quot;158 136.5 168 136.5 168 334.5 161 334.5 154 334.5 144 334.5&quot; Key=&quot;L4&quot; WfEnabled=&quot;true&quot; WfReturnLine=&quot;false&quot; /&gt;&#xD;&#xA;  &lt;link From=&quot;N2&quot; To=&quot;N0&quot; FromPort=&quot;portRight&quot; ToPort=&quot;portTop&quot; Text=&quot;退回&quot; Points=&quot;158 136.5 168 136.5 168 10 137.25 10 106.5 10 106.5 20&quot; Key=&quot;L5&quot; WfEnabled=&quot;true&quot; WfReturnLine=&quot;true&quot; /&gt;&#xD;&#xA;&lt;/root&gt;" oti="0" />
+      <F n="_Props" v="573" r="true" oti="11" />
+    </O>
+    <O id="1" oti="1">
+      <Items />
+      <F n="_Owner" v="0" r="true" oti="2" />
+      <F n="_IsReadOnly" v="false" oti="3" />
+    </O>
+    <O id="2" oti="4">
+      <Items>
+        <I v="3" oti="5" r="true" />
+        <I v="52" oti="5" r="true" />
+        <I v="6" oti="5" r="true" />
+        <I v="27" oti="5" r="true" />
+        <I v="31" oti="5" r="true" />
+      </Items>
+      <F n="_Process" v="0" r="true" oti="4" />
+      <F n="_InitialActivity" v="3" r="true" oti="4" />
+      <F n="_CompletedActivity" v="52" r="true" oti="4" />
+      <F n="_Owner" v="0" r="true" oti="33" />
+      <F n="_IsReadOnly" v="false" oti="34" />
+    </O>
+    <O id="3" oti="5">
+      <F n="_Process" v="0" r="true" oti="5" />
+      <F n="_FromTransitions" v="4" r="true" oti="5" />
+      <F n="_ToTransitions" v="477" r="true" oti="5" />
+      <F n="_Variables" v="478" r="true" oti="5" />
+      <F n="_Resources" v="479" r="true" oti="5" />
+      <F n="_Condition" v="480" r="true" oti="5" />
+      <F n="_BranchProcessTemplates" v="481" r="true" oti="5" />
+      <F n="_RelativeLinks" v="482" r="true" oti="5" />
+      <F n="_EnterEventReceivers" v="483" r="true" oti="5" />
+      <F n="_LeaveEventReceivers" v="484" r="true" oti="5" />
+      <F n="_InternalRelativeUsers" v="485" r="true" oti="5" />
+      <F n="_ExternalUsers" v="486" r="true" oti="5" />
+      <F n="_EnterEventExecServices" v="487" r="true" oti="5" />
+      <F n="_LeaveEventExecServices" v="488" r="true" oti="5" />
+      <F n="_ParametersNeedToBeCollected" v="489" r="true" oti="5" ide="true" />
+      <F n="_ActivityType" v="InitialActivity" oti="5" />
+      <F n="_Props" v="490" r="true" oti="11" />
+    </O>
+    <O id="4" oti="6">
+      <Items>
+        <I v="5" oti="7" r="true" />
+      </Items>
+      <F n="_ToActivity" v="3" r="true" oti="6" />
+      <F n="_Owner" v="3" r="true" oti="12" />
+      <F n="_IsReadOnly" v="false" oti="13" />
+    </O>
+    <O id="5" oti="7">
+      <F n="_FromActivity" v="6" r="true" oti="8" />
+      <F n="_ToActivity" v="3" r="true" oti="8" />
+      <F n="_Variables" v="461" r="true" oti="8" />
+      <F n="_FromActivityKey" v="N2" oti="8" />
+      <F n="_ToActivityKey" v="N0" oti="8" />
+      <F n="_Condition" v="462" r="true" oti="8" />
+      <F n="_Props" v="463" r="true" oti="11" />
+    </O>
+    <O id="6" oti="5">
+      <F n="_Process" v="0" r="true" oti="5" />
+      <F n="_FromTransitions" v="7" r="true" oti="5" />
+      <F n="_ToTransitions" v="25" r="true" oti="5" />
+      <F n="_Variables" v="362" r="true" oti="5" />
+      <F n="_Resources" v="363" r="true" oti="5" />
+      <F n="_Condition" v="368" r="true" oti="5" />
+      <F n="_BranchProcessTemplates" v="369" r="true" oti="5" />
+      <F n="_RelativeLinks" v="370" r="true" oti="5" />
+      <F n="_EnterEventReceivers" v="371" r="true" oti="5" />
+      <F n="_LeaveEventReceivers" v="372" r="true" oti="5" />
+      <F n="_InternalRelativeUsers" v="373" r="true" oti="5" />
+      <F n="_ExternalUsers" v="374" r="true" oti="5" />
+      <F n="_EnterEventExecServices" v="375" r="true" oti="5" />
+      <F n="_LeaveEventExecServices" v="376" r="true" oti="5" />
+      <F n="_ParametersNeedToBeCollected" v="377" r="true" oti="5" ide="true" />
+      <F n="_ActivityType" v="NormalActivity" oti="5" />
+      <F n="_Props" v="378" r="true" oti="11" />
+    </O>
+    <O id="7" oti="6">
+      <Items>
+        <I v="8" oti="7" r="true" />
+      </Items>
+      <F n="_ToActivity" v="6" r="true" oti="6" />
+      <F n="_Owner" v="6" r="true" oti="12" />
+      <F n="_IsReadOnly" v="false" oti="13" />
+    </O>
+    <O id="8" oti="7">
+      <F n="_FromActivity" v="3" r="true" oti="8" />
+      <F n="_ToActivity" v="6" r="true" oti="8" />
+      <F n="_Variables" v="9" r="true" oti="8" />
+      <F n="_FromActivityKey" v="N0" oti="8" />
+      <F n="_ToActivityKey" v="N2" oti="8" />
+      <F n="_Condition" v="10" r="true" oti="8" />
+      <F n="_Props" v="11" r="true" oti="11" />
+    </O>
+    <O id="9" oti="1">
+      <Items />
+      <F n="_Owner" v="8" r="true" oti="2" />
+      <F n="_IsReadOnly" v="false" oti="3" />
+    </O>
+    <O id="10" oti="9">
+      <F n="_Owner" v="8" r="true" oti="9" />
+      <F n="_Expression" v="" oti="9" />
+    </O>
+    <O id="11" oti="10" cs="true">
+      <I id="12" _n="Key" _category="基本信息" _desp="名称" _ro="true" _sortOrder="65535" _ml="65535" _sv="L0" />
+      <I id="13" _n="Name" _dn="名称" _category="基本信息" _desp="名称" _sortOrder="65535" _ml="65535" />
+      <I id="14" _n="Description" _dn="描述" _category="基本信息" _desp="描述" _sortOrder="65535" _ml="65535" />
+      <I id="15" _n="Enabled" _category="基本信息" _dataType="Boolean" _dv="True" _desp="启用" _sortOrder="65535" _ml="65535" />
+      <I id="16" _n="Condition" _dn="条件设置" _category="基本信息" _dataType="DataObject" _desp="条件表达式编辑" _eKey="ConditionExpressionPropertyEditor" _sortOrder="12" _ml="65535" />
+      <I id="17" _n="Variables" _dn="变量编辑" _category="基本信息" _dataType="DataObject" _desp="变量编辑" _eKey="ObjectListPropertyEditor" _eP="Variables" _sortOrder="13" _ml="65535" />
+      <I id="18" _n="Priority" _dn="优先级" _category="基本信息" _dataType="Integer" _dv="0" _desp="优先级" _sortOrder="7" _ml="65535" _sv="2" />
+      <I id="19" _n="DefaultSelect" _dn="默认选择" _category="基本信息" _dataType="Boolean" _dv="False" _desp="默认选择" _sortOrder="8" _ml="65535" _sv="True" />
+      <I id="20" _n="AffectProcessReturnValue" _dn="是否影响流程返回结果" _category="基本信息" _dataType="Boolean" _dv="False" _desp="是否影响流程返回结果" _sortOrder="9" _ml="65535" />
+      <I id="21" _n="AffectedProcessReturnValue" _dn="经过此线时流程的返回结果" _category="基本信息" _dataType="Boolean" _dv="False" _desp="经过此线时流程的返回结果" _sortOrder="10" _ml="65535" />
+      <I id="22" _n="IsReturn" _dn="退回线" _category="基本信息" _dataType="Boolean" _dv="False" _desp="是否是退回线" _sortOrder="11" _ml="65535" />
+      <I id="23" _n="DynamicSource" _dn="动态活动相关线的创建者" _category="流程" _desp="动态活动相关线的创建者Activity的Key" _visible="false" _sortOrder="65535" _ml="65535" />
+      <I id="24" _n="CodeName" _dn="代码名称" _category="基本信息" _desp="线的代码名称" _sortOrder="6" _ml="65535" />
+    </O>
+    <O id="25" oti="14">
+      <Items>
+        <I v="26" oti="7" r="true" />
+        <I v="33" oti="7" r="true" />
+        <I v="5" oti="7" r="true" />
+      </Items>
+      <F n="_FromActivity" v="6" r="true" oti="14" />
+      <F n="_Owner" v="6" r="true" oti="12" />
+      <F n="_IsReadOnly" v="false" oti="13" />
+    </O>
+    <O id="26" oti="7">
+      <F n="_FromActivity" v="6" r="true" oti="8" />
+      <F n="_ToActivity" v="27" r="true" oti="8" />
+      <F n="_Variables" v="346" r="true" oti="8" />
+      <F n="_FromActivityKey" v="N2" oti="8" />
+      <F n="_ToActivityKey" v="N3" oti="8" />
+      <F n="_Condition" v="347" r="true" oti="8" />
+      <F n="_Props" v="348" r="true" oti="11" />
+    </O>
+    <O id="27" oti="5">
+      <F n="_Process" v="0" r="true" oti="5" />
+      <F n="_FromTransitions" v="28" r="true" oti="5" />
+      <F n="_ToTransitions" v="29" r="true" oti="5" />
+      <F n="_Variables" v="249" r="true" oti="5" />
+      <F n="_Resources" v="250" r="true" oti="5" />
+      <F n="_Condition" v="253" r="true" oti="5" />
+      <F n="_BranchProcessTemplates" v="254" r="true" oti="5" />
+      <F n="_RelativeLinks" v="255" r="true" oti="5" />
+      <F n="_EnterEventReceivers" v="256" r="true" oti="5" />
+      <F n="_LeaveEventReceivers" v="257" r="true" oti="5" />
+      <F n="_InternalRelativeUsers" v="258" r="true" oti="5" />
+      <F n="_ExternalUsers" v="259" r="true" oti="5" />
+      <F n="_EnterEventExecServices" v="260" r="true" oti="5" />
+      <F n="_LeaveEventExecServices" v="261" r="true" oti="5" />
+      <F n="_ParametersNeedToBeCollected" v="262" r="true" oti="5" ide="true" />
+      <F n="_ActivityType" v="NormalActivity" oti="5" />
+      <F n="_Props" v="263" r="true" oti="11" />
+    </O>
+    <O id="28" oti="6">
+      <Items>
+        <I v="26" oti="7" r="true" />
+      </Items>
+      <F n="_ToActivity" v="27" r="true" oti="6" />
+      <F n="_Owner" v="27" r="true" oti="12" />
+      <F n="_IsReadOnly" v="false" oti="13" />
+    </O>
+    <O id="29" oti="14">
+      <Items>
+        <I v="30" oti="7" r="true" />
+      </Items>
+      <F n="_FromActivity" v="27" r="true" oti="14" />
+      <F n="_Owner" v="27" r="true" oti="12" />
+      <F n="_IsReadOnly" v="false" oti="13" />
+    </O>
+    <O id="30" oti="7">
+      <F n="_FromActivity" v="27" r="true" oti="8" />
+      <F n="_ToActivity" v="31" r="true" oti="8" />
+      <F n="_Variables" v="233" r="true" oti="8" />
+      <F n="_FromActivityKey" v="N3" oti="8" />
+      <F n="_ToActivityKey" v="N4" oti="8" />
+      <F n="_Condition" v="234" r="true" oti="8" />
+      <F n="_Props" v="235" r="true" oti="11" />
+    </O>
+    <O id="31" oti="5">
+      <F n="_Process" v="0" r="true" oti="5" />
+      <F n="_FromTransitions" v="32" r="true" oti="5" />
+      <F n="_ToTransitions" v="50" r="true" oti="5" />
+      <F n="_Variables" v="134" r="true" oti="5" />
+      <F n="_Resources" v="135" r="true" oti="5" />
+      <F n="_Condition" v="140" r="true" oti="5" />
+      <F n="_BranchProcessTemplates" v="141" r="true" oti="5" />
+      <F n="_RelativeLinks" v="142" r="true" oti="5" />
+      <F n="_EnterEventReceivers" v="143" r="true" oti="5" />
+      <F n="_LeaveEventReceivers" v="144" r="true" oti="5" />
+      <F n="_InternalRelativeUsers" v="145" r="true" oti="5" />
+      <F n="_ExternalUsers" v="146" r="true" oti="5" />
+      <F n="_EnterEventExecServices" v="147" r="true" oti="5" />
+      <F n="_LeaveEventExecServices" v="148" r="true" oti="5" />
+      <F n="_ParametersNeedToBeCollected" v="149" r="true" oti="5" ide="true" />
+      <F n="_ActivityType" v="NormalActivity" oti="5" />
+      <F n="_Props" v="150" r="true" oti="11" />
+    </O>
+    <O id="32" oti="6">
+      <Items>
+        <I v="33" oti="7" r="true" />
+        <I v="30" oti="7" r="true" />
+      </Items>
+      <F n="_ToActivity" v="31" r="true" oti="6" />
+      <F n="_Owner" v="31" r="true" oti="12" />
+      <F n="_IsReadOnly" v="false" oti="13" />
+    </O>
+    <O id="33" oti="7">
+      <F n="_FromActivity" v="6" r="true" oti="8" />
+      <F n="_ToActivity" v="31" r="true" oti="8" />
+      <F n="_Variables" v="34" r="true" oti="8" />
+      <F n="_FromActivityKey" v="N2" oti="8" />
+      <F n="_ToActivityKey" v="N4" oti="8" />
+      <F n="_Condition" v="35" r="true" oti="8" />
+      <F n="_Props" v="36" r="true" oti="11" />
+    </O>
+    <O id="34" oti="1">
+      <Items />
+      <F n="_Owner" v="33" r="true" oti="2" />
+      <F n="_IsReadOnly" v="false" oti="3" />
+    </O>
+    <O id="35" oti="9">
+      <F n="_Owner" v="33" r="true" oti="9" />
+      <F n="_Expression" v="Amount &lt; 1000" oti="9" />
+    </O>
+    <O id="36" oti="10" cs="true">
+      <I id="37" _n="Key" _category="基本信息" _desp="名称" _ro="true" _sortOrder="65535" _ml="65535" _sv="L4" />
+      <I id="38" _n="Name" _dn="名称" _category="基本信息" _desp="名称" _sortOrder="65535" _ml="65535" _sv="送CEO" />
+      <I id="39" _n="Description" _dn="描述" _category="基本信息" _desp="描述" _sortOrder="65535" _ml="65535" />
+      <I id="40" _n="Enabled" _category="基本信息" _dataType="Boolean" _dv="True" _desp="启用" _sortOrder="65535" _ml="65535" />
+      <I id="41" _n="Condition" _dn="条件设置" _category="基本信息" _dataType="DataObject" _desp="条件表达式编辑" _eKey="ConditionExpressionPropertyEditor" _sortOrder="12" _ml="65535" _sv="{&quot;Expression&quot;:&quot;Amount &lt; 1000&quot;}" />
+      <I id="42" _n="Variables" _dn="变量编辑" _category="基本信息" _dataType="DataObject" _desp="变量编辑" _eKey="ObjectListPropertyEditor" _eP="Variables" _sortOrder="13" _ml="65535" />
+      <I id="43" _n="Priority" _dn="优先级" _category="基本信息" _dataType="Integer" _dv="0" _desp="优先级" _sortOrder="7" _ml="65535" />
+      <I id="44" _n="DefaultSelect" _dn="默认选择" _category="基本信息" _dataType="Boolean" _dv="False" _desp="默认选择" _sortOrder="8" _ml="65535" />
+      <I id="45" _n="AffectProcessReturnValue" _dn="是否影响流程返回结果" _category="基本信息" _dataType="Boolean" _dv="False" _desp="是否影响流程返回结果" _sortOrder="9" _ml="65535" />
+      <I id="46" _n="AffectedProcessReturnValue" _dn="经过此线时流程的返回结果" _category="基本信息" _dataType="Boolean" _dv="False" _desp="经过此线时流程的返回结果" _sortOrder="10" _ml="65535" />
+      <I id="47" _n="IsReturn" _dn="退回线" _category="基本信息" _dataType="Boolean" _dv="False" _desp="是否是退回线" _sortOrder="11" _ml="65535" />
+      <I id="48" _n="DynamicSource" _dn="动态活动相关线的创建者" _category="流程" _desp="动态活动相关线的创建者Activity的Key" _visible="false" _sortOrder="65535" _ml="65535" />
+      <I id="49" _n="CodeName" _dn="代码名称" _category="基本信息" _desp="线的代码名称" _sortOrder="6" _ml="65535" _sv="Agree" />
+    </O>
+    <O id="50" oti="14">
+      <Items>
+        <I v="51" oti="7" r="true" />
+      </Items>
+      <F n="_FromActivity" v="31" r="true" oti="14" />
+      <F n="_Owner" v="31" r="true" oti="12" />
+      <F n="_IsReadOnly" v="false" oti="13" />
+    </O>
+    <O id="51" oti="7">
+      <F n="_FromActivity" v="31" r="true" oti="8" />
+      <F n="_ToActivity" v="52" r="true" oti="8" />
+      <F n="_Variables" v="118" r="true" oti="8" />
+      <F n="_FromActivityKey" v="N4" oti="8" />
+      <F n="_ToActivityKey" v="N1" oti="8" />
+      <F n="_Condition" v="119" r="true" oti="8" />
+      <F n="_Props" v="120" r="true" oti="11" />
+    </O>
+    <O id="52" oti="5">
+      <F n="_Process" v="0" r="true" oti="5" />
+      <F n="_FromTransitions" v="53" r="true" oti="5" />
+      <F n="_ToTransitions" v="54" r="true" oti="5" />
+      <F n="_Variables" v="55" r="true" oti="5" />
+      <F n="_Resources" v="56" r="true" oti="5" />
+      <F n="_Condition" v="57" r="true" oti="5" />
+      <F n="_BranchProcessTemplates" v="58" r="true" oti="5" />
+      <F n="_RelativeLinks" v="59" r="true" oti="5" />
+      <F n="_EnterEventReceivers" v="60" r="true" oti="5" />
+      <F n="_LeaveEventReceivers" v="61" r="true" oti="5" />
+      <F n="_InternalRelativeUsers" v="62" r="true" oti="5" />
+      <F n="_ExternalUsers" v="63" r="true" oti="5" />
+      <F n="_EnterEventExecServices" v="64" r="true" oti="5" />
+      <F n="_LeaveEventExecServices" v="65" r="true" oti="5" />
+      <F n="_ParametersNeedToBeCollected" v="66" r="true" oti="5" ide="true" />
+      <F n="_ActivityType" v="CompletedActivity" oti="5" />
+      <F n="_Props" v="67" r="true" oti="11" />
+    </O>
+    <O id="53" oti="6">
+      <Items>
+        <I v="51" oti="7" r="true" />
+      </Items>
+      <F n="_ToActivity" v="52" r="true" oti="6" />
+      <F n="_Owner" v="52" r="true" oti="12" />
+      <F n="_IsReadOnly" v="false" oti="13" />
+    </O>
+    <O id="54" oti="14">
+      <Items />
+      <F n="_FromActivity" v="52" r="true" oti="14" />
+      <F n="_Owner" v="52" r="true" oti="12" />
+      <F n="_IsReadOnly" v="false" oti="13" />
+    </O>
+    <O id="55" oti="1">
+      <Items />
+      <F n="_Owner" v="52" r="true" oti="2" />
+      <F n="_IsReadOnly" v="false" oti="3" />
+    </O>
+    <O id="56" oti="15">
+      <Items />
+      <F n="_Owner" v="52" r="true" oti="15" />
+      <F n="_IsReadOnly" v="false" oti="16" />
+    </O>
+    <O id="57" oti="9">
+      <F n="_Owner" v="52" r="true" oti="9" />
+      <F n="_Expression" v="" oti="9" />
+    </O>
+    <O id="58" oti="17">
+      <Items />
+      <F n="_Owner" v="52" r="true" oti="18" />
+      <F n="_IsReadOnly" v="false" oti="19" />
+    </O>
+    <O id="59" oti="20">
+      <Items />
+      <F n="_Owner" v="52" r="true" oti="21" />
+      <F n="_IsReadOnly" v="false" oti="22" />
+    </O>
+    <O id="60" oti="15">
+      <Items />
+      <F n="_Owner" v="52" r="true" oti="15" />
+      <F n="_IsReadOnly" v="false" oti="16" />
+    </O>
+    <O id="61" oti="15">
+      <Items />
+      <F n="_Owner" v="52" r="true" oti="15" />
+      <F n="_IsReadOnly" v="false" oti="16" />
+    </O>
+    <O id="62" oti="15">
+      <Items />
+      <F n="_Owner" v="52" r="true" oti="15" />
+      <F n="_IsReadOnly" v="false" oti="16" />
+    </O>
+    <O id="63" oti="23">
+      <Items />
+      <F n="_IsReadOnly" v="false" oti="24" />
+    </O>
+    <O id="64" oti="25">
+      <Items />
+      <F n="_IsReadOnly" v="false" oti="26" />
+    </O>
+    <O id="65" oti="25">
+      <Items />
+      <F n="_IsReadOnly" v="false" oti="26" />
+    </O>
+    <O id="66" oti="27">
+      <Items />
+      <F n="_IsReadOnly" v="false" oti="28" />
+    </O>
+    <O id="67" oti="10" cs="true">
+      <I id="68" _n="Key" _category="基本信息" _desp="名称" _ro="true" _sortOrder="65535" _ml="65535" _sv="N1" />
+      <I id="69" _n="Name" _dn="名称" _category="基本信息" _desp="名称" _sortOrder="65535" _ml="65535" _sv="结束" />
+      <I id="70" _n="Description" _dn="描述" _category="基本信息" _desp="描述" _sortOrder="65535" _ml="65535" _sv="流程结束" />
+      <I id="71" _n="Enabled" _category="基本信息" _dataType="Boolean" _dv="True" _desp="启用" _sortOrder="65535" _ml="65535" />
+      <I id="72" _n="CodeName" _dn="代码名称" _category="基本信息" _desp="活动的代码名称" _sortOrder="65535" _ml="65535" />
+      <I id="73" _n="Url" _dn="表单地址" _category="表单" _desp="活动的表单地址" _sortOrder="65535" _ml="65535" />
+      <I id="74" _n="LevelName" _dn="环节名称" _category="表单" _desp="活动的业务环节名称" _sortOrder="65535" _ml="65535" />
+      <I id="75" _n="Scene" _dn="场景名称" _category="表单" _desp="表单的场景名称" _sortOrder="65535" _ml="65535" />
+      <I id="76" _n="ReadOnlyScene" _dn="只读场景名称" _category="表单" _desp="表单的只读场景名称" _sortOrder="65535" _ml="65535" />
+      <I id="77" _n="NavigatorDisplayMode" _dn="在导航栏上的显示方式" _category="表单" _dataType="Enum" _dv="DependsOnProcess" _desp="在导航栏上的显示方式，如果是“取决于流程”，那么审批流显示人名，计划流程显示环节名称" _eKey="EnumPropertyEditor" _eP="MCS.Library.SOA.DataObjects.Workflow.WfNavigatorDisplayMode, MCS.Library.SOA.DataObjects" _sortOrder="65535" _ml="65535" />
+      <I id="78" _n="MaximizeAssigneeCount" _dn="流程活动中最多的受理人的个数" _category="流程" _dataType="Integer" _dv="-1" _desp="用户能够设置的受理人的个数，-1表示不限制。管理员在流程调整时，不受此限制" _sortOrder="12" _ml="65535" />
+      <I id="79" _n="EstimateStartTime" _dn="计划开始时间" _category="计划" _dataType="DateTime" _desp="计划开始时间" _visible="false" _sortOrder="65535" _ml="65535" _sv="0001/1/1 0:00:00" />
+      <I id="80" _n="EstimateEndTime" _dn="计划完成时间" _category="计划" _dataType="DateTime" _desp="计划完成时间" _visible="false" _sortOrder="65535" _ml="65535" _sv="0001/1/1 0:00:00" />
+      <I id="81" _n="EstimateDuration" _dn="计划进行时间" _category="计划" _dataType="Decimal" _dv="0" _desp="计划进行时间" _visible="false" _sortOrder="65535" _ml="65535" />
+      <I id="82" _n="IsWorkItem" _dn="是否可以生成工作项" _category="计划" _dataType="Boolean" _dv="False" _desp="是否是工作项" _visible="false" _sortOrder="65535" _ml="65535" />
+      <I id="83" _n="AllowWithdraw" _dn="允许撤回" _category="流程" _dataType="Boolean" _dv="False" _desp="是否允许撤回" _visible="false" _sortOrder="65535" _ml="65535" />
+      <I id="84" _n="AllowToBeWithdrawn" _dn="允许被撤回" _category="流程" _dataType="Boolean" _dv="False" _desp="是否允许被撤回" _sortOrder="65535" _ml="65535" />
+      <I id="85" _n="AutoSendUserTask" _dn="自动发送待办事项" _category="流程" _dataType="Boolean" _dv="False" _desp="到达此活动时是否自动发送待办事项" _visible="false" _sortOrder="65535" _ml="65535" />
+      <I id="86" _n="AutoSendUserTaskMode" _dn="自动发送待办的模式" _category="流程" _dataType="Enum" _dv="ByDefault" _desp="自动发送待办的模式，与AutoSendUserTask配合使用" _eKey="EnumPropertyEditor" _eP="MCS.Library.SOA.DataObjects.Workflow.WfAutoSendUserTaskMode, MCS.Library.SOA.DataObjects" _visible="false" _sortOrder="65535" _ml="65535" />
+      <I id="87" _n="TaskTitle" _dn="待办事项的标题" _category="流程" _desp="发送到此活动的待办事项的标题" _visible="false" _sortOrder="65535" _ml="65535" />
+      <I id="88" _n="NotifyTaskTitle" _dn="通知事项的标题" _category="流程" _desp="发送到此活动的通知事项的标题" _sortOrder="65535" _ml="65535" />
+      <I id="89" _n="AllowToBeAppended" _dn="允许被添加后续环节" _category="流程" _dataType="Boolean" _dv="False" _desp="该活动后是否允许添加后续环节" _visible="false" _sortOrder="65535" _ml="65535" />
+      <I id="90" _n="AllowToBeModified" _dn="允许被修改" _category="流程" _dataType="Boolean" _dv="False" _desp="是否允许被修改" _visible="false" _sortOrder="65535" _ml="65535" />
+      <I id="91" _n="AllowToBeDeleted" _dn="允许被删除" _category="流程" _dataType="Boolean" _dv="False" _desp="是否允许被删除" _visible="false" _sortOrder="65535" _ml="65535" />
+      <I id="92" _n="AllowAppendActivityAfterUnstartActivities" _dn="允许在未启动的活动后添加活动" _category="流程" _dataType="Boolean" _dv="False" _desp="是否允许在未启动的活动后添加活动" _visible="false" _sortOrder="65535" _ml="65535" />
+      <I id="93" _n="AllowModifyUnstartActivities" _dn="允许修改未启动的活动" _category="流程" _dataType="Boolean" _dv="False" _desp="是否允许修改未启动的活动" _visible="false" _sortOrder="65535" _ml="65535" />
+      <I id="94" _n="AllowDeleteUnstartActivities" _dn="允许删除未启动的活动" _category="流程" _dataType="Boolean" _dv="False" _desp="是否允许删除未启动的活动" _visible="false" _sortOrder="65535" _ml="65535" />
+      <I id="95" _n="AllowAbortProcess" _dn="允许作废流程" _category="流程" _dataType="Boolean" _dv="False" _desp="是否允许作废流程" _sortOrder="65535" _ml="65535" />
+      <I id="96" _n="AllowReturn" _dn="允许退回" _category="流程" _dataType="Boolean" _dv="False" _desp="是否允许退回之前的处理人" _visible="false" _sortOrder="65535" _ml="65535" />
+      <I id="97" _n="AllowToBeReturned" _dn="允许被退回" _category="流程" _dataType="Boolean" _dv="False" _desp="是否允许被后续活动退回" _visible="false" _sortOrder="65535" _ml="65535" />
+      <I id="98" _n="ForceCloseFormAfterMoveTo" _dn="送签后强制关闭表单" _category="表单" _dataType="Boolean" _dv="True" _desp="送签后是否强制关闭表单。否则当送签后，流程办理人还是同一个人时，不关闭表单" _visible="false" _sortOrder="65535" _ml="65535" />
+      <I id="99" _n="AllowAddAttachments" _dn="允许添加附件" _category="表单" _dataType="Boolean" _dv="False" _desp="是否允许添加附件" _visible="false" _sortOrder="65535" _ml="65535" />
+      <I id="100" _n="AllowEditAttachments" _dn="允许修改附件" _category="表单" _dataType="Boolean" _dv="False" _desp="是否允许修改附件" _visible="false" _sortOrder="65535" _ml="65535" />
+      <I id="101" _n="AllowPrint" _dn="允许打印" _category="表单" _dataType="Boolean" _dv="True" _desp="是否允许打印" _visible="false" _sortOrder="65535" _ml="65535" />
+      <I id="102" _n="SubProcessApprovalMode" _dn="审批流的审批结果模式" _category="分支流程" _dataType="Enum" _dv="NoActivityDecide" _desp="如果是自动启动审批流，审批结果的模式" _eKey="EnumPropertyEditor" _eP="MCS.Library.SOA.DataObjects.Workflow.WfSubProcessApprovalMode, MCS.Library.SOA.DataObjects" _visible="false" _sortOrder="65535" _ml="65535" />
+      <I id="103" _n="AutoMoveTo" _dn="是否自动流转" _category="流程" _dataType="Boolean" _dv="False" _desp="是否自动流转下一个默认活动" _sortOrder="65535" _ml="65535" />
+      <I id="104" _n="BranchProcessReturnValueParamName" _dn="分支流程返回结果上下文参数名" _category="流程" _desp="分支流程返回结果所影响的上下文参数名，该结果会以此名称填写进流程上下文中" _sortOrder="65535" _ml="65535" />
+      <I id="105" _n="Condition" _dn="条件设置" _category="流程" _dataType="DataObject" _desp="条件表达式编辑" _eKey="ConditionExpressionPropertyEditor" _sortOrder="1" _ml="65535" />
+      <I id="106" _n="Resources" _dn="资源设置" _category="流程" _dataType="DataObject" _desp="资源设置" _eKey="ReceiversObjectListPropertyEditor" _sortOrder="2" _ml="65535" />
+      <I id="107" _n="RelativeLinks" _dn="相关链接" _category="流程" _dataType="DataObject" _desp="相关链接" _eKey="ObjectListPropertyEditor" _eP="RelativeLink" _sortOrder="3" _ml="65535" />
+      <I id="108" _n="BranchProcessTemplates" _dn="分支流程设置" _category="分支流程" _dataType="DataObject" _desp="分支流程设置" _eKey="ObjectListPropertyEditor" _eP="BranchProcess" _sortOrder="4" _ml="65535" />
+      <I id="109" _n="EnterEventReceivers" _dn="起始通知人" _category="进入和离开" _dataType="DataObject" _desp="活动点进入时的通知人" _eKey="ReceiversObjectListPropertyEditor" _eP="EnterReceivers" _sortOrder="5" _ml="65535" />
+      <I id="110" _n="LeaveEventReceivers" _dn="结束通知人" _category="进入和离开" _dataType="DataObject" _desp="活动点离开时的通知人" _eKey="ReceiversObjectListPropertyEditor" _eP="LeaveReceivers" _sortOrder="5" _ml="65535" />
+      <I id="111" _n="EnterEventExecuteServices" _dn="起始执行服务" _category="进入和离开" _dataType="DataObject" _desp="进入活动执行的服务" _eKey="ObjectListPropertyEditor" _eP="EnterService" _sortOrder="6" _ml="65535" />
+      <I id="112" _n="LeaveEventExecuteServices" _dn="结束执行服务" _category="进入和离开" _dataType="DataObject" _desp="离开活动执行的服务" _eKey="ObjectListPropertyEditor" _eP="LeaveService" _sortOrder="6" _ml="65535" />
+      <I id="113" _n="Variables" _dn="变量编辑" _category="流程" _dataType="DataObject" _desp="变量编辑" _eKey="ObjectListPropertyEditor" _eP="Variables" _sortOrder="7" _ml="65535" />
+      <I id="114" _n="InternalRelativeUsers" _dn="内部相关人员" _category="流程" _dataType="DataObject" _desp="内部相关人员" _eKey="ReceiversObjectListPropertyEditor" _eP="InternalUsers" _sortOrder="8" _ml="65535" />
+      <I id="115" _n="ExternalUsers" _dn="外部相关人员" _category="流程" _dataType="DataObject" _desp="外部相关人员" _eKey="ObjectListPropertyEditor" _sortOrder="9" _ml="65535" />
+      <I id="116" _n="ImportWfMatrix" _dn="权限矩阵" _category="流程" _dataType="DataObject" _desp="权限矩阵" _eKey="KeyPropertyEditor" _eP="ImportWfMatrix" _sortOrder="10" _ml="65535" />
+      <I id="117" _n="ParametersNeedToBeCollected" _dn="自动收集流程参数" _category="流程" _dataType="DataObject" _desp="自动收集流程参数设置" _eKey="ObjectListPropertyEditor" _eP="ParametersNeedToBeCollected" _sortOrder="11" _ml="65535" />
+    </O>
+    <O id="118" oti="1">
+      <Items />
+      <F n="_Owner" v="51" r="true" oti="2" />
+      <F n="_IsReadOnly" v="false" oti="3" />
+    </O>
+    <O id="119" oti="9">
+      <F n="_Owner" v="51" r="true" oti="9" />
+      <F n="_Expression" v="" oti="9" />
+    </O>
+    <O id="120" oti="10" cs="true">
+      <I id="121" _n="Key" _category="基本信息" _desp="名称" _ro="true" _sortOrder="65535" _ml="65535" _sv="L3" />
+      <I id="122" _n="Name" _dn="名称" _category="基本信息" _desp="名称" _sortOrder="65535" _ml="65535" />
+      <I id="123" _n="Description" _dn="描述" _category="基本信息" _desp="描述" _sortOrder="65535" _ml="65535" />
+      <I id="124" _n="Enabled" _category="基本信息" _dataType="Boolean" _dv="True" _desp="启用" _sortOrder="65535" _ml="65535" />
+      <I id="125" _n="Condition" _dn="条件设置" _category="基本信息" _dataType="DataObject" _desp="条件表达式编辑" _eKey="ConditionExpressionPropertyEditor" _sortOrder="12" _ml="65535" />
+      <I id="126" _n="Variables" _dn="变量编辑" _category="基本信息" _dataType="DataObject" _desp="变量编辑" _eKey="ObjectListPropertyEditor" _eP="Variables" _sortOrder="13" _ml="65535" />
+      <I id="127" _n="Priority" _dn="优先级" _category="基本信息" _dataType="Integer" _dv="0" _desp="优先级" _sortOrder="7" _ml="65535" />
+      <I id="128" _n="DefaultSelect" _dn="默认选择" _category="基本信息" _dataType="Boolean" _dv="False" _desp="默认选择" _sortOrder="8" _ml="65535" />
+      <I id="129" _n="AffectProcessReturnValue" _dn="是否影响流程返回结果" _category="基本信息" _dataType="Boolean" _dv="False" _desp="是否影响流程返回结果" _sortOrder="9" _ml="65535" />
+      <I id="130" _n="AffectedProcessReturnValue" _dn="经过此线时流程的返回结果" _category="基本信息" _dataType="Boolean" _dv="False" _desp="经过此线时流程的返回结果" _sortOrder="10" _ml="65535" />
+      <I id="131" _n="IsReturn" _dn="退回线" _category="基本信息" _dataType="Boolean" _dv="False" _desp="是否是退回线" _sortOrder="11" _ml="65535" />
+      <I id="132" _n="DynamicSource" _dn="动态活动相关线的创建者" _category="流程" _desp="动态活动相关线的创建者Activity的Key" _visible="false" _sortOrder="65535" _ml="65535" />
+      <I id="133" _n="CodeName" _dn="代码名称" _category="基本信息" _desp="线的代码名称" _sortOrder="6" _ml="65535" />
+    </O>
+    <O id="134" oti="1">
+      <Items />
+      <F n="_Owner" v="31" r="true" oti="2" />
+      <F n="_IsReadOnly" v="false" oti="3" />
+    </O>
+    <O id="135" oti="15">
+      <Items>
+        <I v="136" oti="29" r="true" />
+        <I v="138" oti="32" r="true" />
+      </Items>
+      <F n="_Owner" v="31" r="true" oti="15" />
+      <F n="_IsReadOnly" v="false" oti="16" />
+    </O>
+    <O id="136" oti="29">
+      <F n="_User" v="137" r="true" oti="29" />
+    </O>
+    <O id="137" oti="30">
+      <F n="logOnName" v="liming" oti="30" />
+      <F n="email" v="liming@sinooceanland.com" oti="30" />
+      <F n="occupation" v="总裁" oti="30" />
+      <F n="rank" v="YiBanRenYuan" oti="30" />
+      <F n="isSideline" v="true" oti="30" />
+      <F n="id" v="5e03356b-0d68-4f58-82c3-900d2cb55feb" oti="31" />
+      <F n="name" v="李明" oti="31" />
+      <F n="displayName" v="李明" oti="31" />
+      <F n="description" v="总裁 集团总部\远洋地产有限公司" oti="31" />
+      <F n="fullPath" v="机构人员\远洋地产\集团总部\远洋地产有限公司\李明" oti="31" />
+      <F n="objectType" v="Users" oti="31" />
+      <F n="sortID" v="0" oti="31" />
+      <F n="globalSortID" v="000001000001000001000013000000" oti="31" />
+      <F n="levels" v="-1" oti="31" />
+      <F n="hasLoadingError" v="false" oti="31" />
+    </O>
+    <O id="138" oti="32">
+      <F n="_Condition" v="139" r="true" oti="32" />
+      <F n="&lt;Name&gt;k__BackingField" v="Requestor" oti="32" />
+    </O>
+    <O id="139" oti="9">
+      <F n="_Expression" v="ProcessRequestor" oti="9" />
+    </O>
+    <O id="140" oti="9">
+      <F n="_Owner" v="31" r="true" oti="9" />
+      <F n="_Expression" v="" oti="9" />
+    </O>
+    <O id="141" oti="17">
+      <Items />
+      <F n="_Owner" v="31" r="true" oti="18" />
+      <F n="_IsReadOnly" v="false" oti="19" />
+    </O>
+    <O id="142" oti="20">
+      <Items />
+      <F n="_Owner" v="31" r="true" oti="21" />
+      <F n="_IsReadOnly" v="false" oti="22" />
+    </O>
+    <O id="143" oti="15">
+      <Items />
+      <F n="_Owner" v="31" r="true" oti="15" />
+      <F n="_IsReadOnly" v="false" oti="16" />
+    </O>
+    <O id="144" oti="15">
+      <Items />
+      <F n="_Owner" v="31" r="true" oti="15" />
+      <F n="_IsReadOnly" v="false" oti="16" />
+    </O>
+    <O id="145" oti="15">
+      <Items />
+      <F n="_Owner" v="31" r="true" oti="15" />
+      <F n="_IsReadOnly" v="false" oti="16" />
+    </O>
+    <O id="146" oti="23">
+      <Items />
+      <F n="_IsReadOnly" v="false" oti="24" />
+    </O>
+    <O id="147" oti="25">
+      <Items />
+      <F n="_IsReadOnly" v="false" oti="26" />
+    </O>
+    <O id="148" oti="25">
+      <Items />
+      <F n="_IsReadOnly" v="false" oti="26" />
+    </O>
+    <O id="149" oti="27">
+      <Items />
+      <F n="_IsReadOnly" v="false" oti="28" />
+    </O>
+    <O id="150" oti="10" cs="true">
+      <I id="151" _n="Key" _category="基本信息" _desp="名称" _ro="true" _sortOrder="65535" _ml="65535" _sv="N4" />
+      <I id="152" _n="Name" _dn="名称" _category="基本信息" _desp="名称" _sortOrder="65535" _ml="65535" _sv="CEO" />
+      <I id="153" _n="Description" _dn="描述" _category="基本信息" _desp="描述" _sortOrder="65535" _ml="65535" _sv="活动点描述" />
+      <I id="154" _n="Enabled" _category="基本信息" _dataType="Boolean" _dv="True" _desp="启用" _sortOrder="65535" _ml="65535" />
+      <I id="155" _n="CodeName" _dn="代码名称" _category="基本信息" _desp="活动的代码名称" _sortOrder="65535" _ml="65535" />
+      <I id="156" _n="Url" _dn="表单地址" _category="表单" _desp="活动的表单地址" _sortOrder="65535" _ml="65535" />
+      <I id="157" _n="LevelName" _dn="环节名称" _category="表单" _desp="活动的业务环节名称" _sortOrder="65535" _ml="65535" />
+      <I id="158" _n="Scene" _dn="场景名称" _category="表单" _desp="表单的场景名称" _sortOrder="65535" _ml="65535" />
+      <I id="159" _n="ReadOnlyScene" _dn="只读场景名称" _category="表单" _desp="表单的只读场景名称" _sortOrder="65535" _ml="65535" />
+      <I id="160" _n="NavigatorDisplayMode" _dn="在导航栏上的显示方式" _category="表单" _dataType="Enum" _dv="DependsOnProcess" _desp="在导航栏上的显示方式，如果是“取决于流程”，那么审批流显示人名，计划流程显示环节名称" _eKey="EnumPropertyEditor" _eP="MCS.Library.SOA.DataObjects.Workflow.WfNavigatorDisplayMode, MCS.Library.SOA.DataObjects" _sortOrder="65535" _ml="65535" />
+      <I id="161" _n="MaximizeAssigneeCount" _dn="流程活动中最多的受理人的个数" _category="流程" _dataType="Integer" _dv="-1" _desp="用户能够设置的受理人的个数，-1表示不限制。管理员在流程调整时，不受此限制" _sortOrder="12" _ml="65535" />
+      <I id="162" _n="EstimateStartTime" _dn="计划开始时间" _category="计划" _dataType="DateTime" _desp="计划开始时间" _sortOrder="65535" _ml="65535" _sv="0001/1/1 0:00:00" />
+      <I id="163" _n="EstimateEndTime" _dn="计划完成时间" _category="计划" _dataType="DateTime" _desp="计划完成时间" _sortOrder="65535" _ml="65535" _sv="0001/1/1 0:00:00" />
+      <I id="164" _n="EstimateDuration" _dn="计划进行时间" _category="计划" _dataType="Decimal" _dv="0" _desp="计划进行时间" _sortOrder="65535" _ml="65535" />
+      <I id="165" _n="IsWorkItem" _dn="是否可以生成工作项" _category="计划" _dataType="Boolean" _dv="True" _desp="是否是工作项" _sortOrder="65535" _ml="65535" />
+      <I id="166" _n="AllowWriteOpinion" _dn="允许输入意见" _category="意见" _dataType="Boolean" _dv="True" _desp="是否允许输入意见" _sortOrder="65535" _ml="65535" />
+      <I id="167" _n="ShowingInOpinionList" _dn="在意见列表中显示" _category="意见" _dataType="Boolean" _dv="True" _desp="是否在意见列表中显示" _sortOrder="65535" _ml="65535" />
+      <I id="168" _n="AllowEmptyOpinion" _dn="允许意见为空" _category="意见" _dataType="Boolean" _dv="True" _desp="是否允许意见为空" _sortOrder="65535" _ml="65535" />
+      <I id="169" _n="EmptyOpinionText" _dn="意见为空时显示的文本" _category="意见" _desp="意见为空时显示的文本" _sortOrder="65535" _ml="65535" />
+      <I id="170" _n="PredefinedOpinions" _dn="预定义的意见" _category="意见" _desp="预定义的意见，会在流转到此环节中显示在常用意见中" _sortOrder="65535" _ml="65535" />
+      <I id="171" _n="AllowSave" _dn="允许保存" _category="应用" _dataType="Boolean" _dv="True" _desp="是否允许保存功能" _sortOrder="65535" _ml="65535" />
+      <I id="172" _n="AutoStartBranchProcesses" _dn="自动启动分支流程" _category="分支流程" _dataType="Boolean" _dv="True" _desp="流转时是否自动启动分支流程" _sortOrder="65535" _ml="65535" />
+      <I id="173" _n="AutoStartBranchApprovalProcess" _dn="自动启动审批流程" _category="分支流程" _dataType="Boolean" _dv="False" _desp="没有分支流程时，且有多个审批人时，自动启动审批分支流程" _sortOrder="65535" _ml="65535" />
+      <I id="174" _n="AutoStartBranchProcessKey" _dn="自动启动审批流程的Key" _category="分支流程" _dataType="Enum" _dv="DefaultApprovalProcess" _desp="自动启动审批分支流程的Key" _eKey="BranchProcessKeyPropertyEditor" _eP="{&quot;tagName&quot;:&quot;AutoStartBranch&quot;,&quot;enumTypeName&quot;:&quot;WorkflowDesigner.PropertyEditor.BranchProcessKey, WorkflowDesigner&quot;}" _sortOrder="65535" _ml="65535" />
+      <I id="175" _n="AutoStartBranchProcessBlockingType" _dn="自动启动的审批流程的阻塞类型" _category="分支流程" _dataType="Enum" _dv="0" _desp="自动启动的审批流程和主流程之间的阻塞关系" _eKey="EnumPropertyEditor" _eP="MCS.Library.SOA.DataObjects.Workflow.WfBranchProcessBlockingType, MCS.Library.SOA.DataObjects" _sortOrder="65535" _ml="65535" />
+      <I id="176" _n="AutoStartBranchProcessExecuteSequence" _dn="自动启动的审批流程的串行/并行" _category="分支流程" _dataType="Enum" _dv="2" _desp="自动启动的审批流程的执行次序" _eKey="EnumPropertyEditor" _eP="MCS.Library.SOA.DataObjects.Workflow.WfBranchProcessExecuteSequence, MCS.Library.SOA.DataObjects" _sortOrder="65535" _ml="65535" />
+      <I id="177" _n="AllowWithdraw" _dn="允许撤回" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许撤回" _sortOrder="65535" _ml="65535" />
+      <I id="178" _n="AllowToBeWithdrawn" _dn="允许被撤回" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许被撤回" _sortOrder="65535" _ml="65535" />
+      <I id="179" _n="AutoSendUserTask" _dn="自动发送待办事项" _category="流程" _dataType="Boolean" _dv="True" _desp="到达此活动时是否自动发送待办事项" _sortOrder="65535" _ml="65535" />
+      <I id="180" _n="AutoSendUserTaskMode" _dn="自动发送待办的模式" _category="流程" _dataType="Enum" _dv="ByDefault" _desp="自动发送待办的模式，与AutoSendUserTask配合使用" _eKey="EnumPropertyEditor" _eP="MCS.Library.SOA.DataObjects.Workflow.WfAutoSendUserTaskMode, MCS.Library.SOA.DataObjects" _sortOrder="65535" _ml="65535" />
+      <I id="181" _n="TaskTitle" _dn="待办事项的标题" _category="流程" _desp="发送到此活动的待办事项的标题" _sortOrder="65535" _ml="65535" />
+      <I id="182" _n="NotifyTaskTitle" _dn="通知事项的标题" _category="流程" _desp="发送到此活动的通知事项的标题" _sortOrder="65535" _ml="65535" />
+      <I id="183" _n="AllowAddApprover" _dn="允许加签" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许加签" _sortOrder="65535" _ml="65535" />
+      <I id="184" _n="AllowAddConsignApprover" _dn="允许会签" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许会签" _sortOrder="65535" _ml="65535" />
+      <I id="185" _n="AllowToBeAppended" _dn="允许被添加后续环节" _category="流程" _dataType="Boolean" _dv="True" _desp="该活动后是否允许添加后续环节" _sortOrder="65535" _ml="65535" />
+      <I id="186" _n="AllowToBeModified" _dn="允许被修改" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许被修改" _sortOrder="65535" _ml="65535" />
+      <I id="187" _n="AllowToBeModifiedVariables" _dn="允许被修改流程选项" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许被修改流程选项" _sortOrder="65535" _ml="65535" />
+      <I id="188" _n="AllowAssignToMultiUsers" _dn="允许分派给多个执行人" _category="流程" _dataType="Boolean" _dv="True" _desp="允许分派给多个执行人" _sortOrder="65535" _ml="65535" />
+      <I id="189" _n="AllowToBeDeleted" _dn="允许被删除" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许被删除" _sortOrder="65535" _ml="65535" />
+      <I id="190" _n="AllowAppendActivityAfterUnstartActivities" _dn="允许在未启动的活动后添加活动" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许在未启动的活动后添加活动" _sortOrder="65535" _ml="65535" />
+      <I id="191" _n="AllowModifyUnstartActivities" _dn="允许修改未启动的活动" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许修改未启动的活动" _sortOrder="65535" _ml="65535" />
+      <I id="192" _n="AllowDeleteUnstartActivities" _dn="允许删除未启动的活动" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许删除未启动的活动" _sortOrder="65535" _ml="65535" />
+      <I id="193" _n="CanAppendActivityKeys" _dn="允许在活动后添加活动的Key" _category="流程" _desp="允许在活动后添加活动的Key，Key之间用逗号或分号分隔" _eKey="CanActivityKeysEditor" _eP="CanActivitysKeys" _sortOrder="65535" _ml="65535" />
+      <I id="194" _n="CanModifyActivityKeys" _dn="允许修改的活动的Key" _category="流程" _desp="允许修改的活动的Key，Key之间用逗号或分号分隔" _eKey="CanActivityKeysEditor" _eP="CanActivitysKeys" _sortOrder="65535" _ml="65535" />
+      <I id="195" _n="CanDeleteActivityKeys" _dn="允许删除的活动的Key" _category="流程" _desp="允许删除的活动的Key，Key之间用逗号或分号分隔" _eKey="CanActivityKeysEditor" _eP="CanActivitysKeys" _sortOrder="65535" _ml="65535" />
+      <I id="196" _n="AllowCirculate" _dn="允许传阅" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许传阅" _sortOrder="65535" _ml="65535" />
+      <I id="197" _n="AutoMoveAfterPending" _dn="挂起解除后自动流转" _category="分支流程" _dataType="Boolean" _dv="False" _desp="从挂起状态解除后自动向下流转" _sortOrder="65535" _ml="65535" />
+      <I id="198" _n="AllowAbortProcess" _dn="允许作废流程" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许作废流程" _sortOrder="65535" _ml="65535" />
+      <I id="199" _n="AllowReturn" _dn="允许退回" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许退回之前的处理人" _sortOrder="65535" _ml="65535" />
+      <I id="200" _n="AllowToBeReturned" _dn="允许被退回" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许被后续活动退回" _sortOrder="65535" _ml="65535" />
+      <I id="201" _n="AutoMaintain" _dn="是否进入到维护状态" _category="流程" _dataType="Boolean" _dv="False" _desp="当流转到这个活动时，是否自动将流程进入到维护状态" _sortOrder="65535" _ml="65535" />
+      <I id="202" _n="IsDynamic" _dn="是否是模版活动" _category="流程" _dataType="Boolean" _dv="False" _desp="是否是模版活动" _eKey="DynamicPropertyEditor" _sortOrder="65535" _ml="65535" />
+      <I id="203" _n="MoveToButtonNameSameAsTransitionName" _dn="送签按钮名称和线的名称一样" _category="表单" _dataType="Boolean" _dv="False" _desp="送签按钮名称和线的名称一样" _sortOrder="65535" _ml="65535" _sv="True" />
+      <I id="204" _n="AbortButtonName" _dn="作废按钮的名称" _category="表单" _dv="作废" _desp="作废按钮的名称" _sortOrder="65535" _ml="65535" />
+      <I id="205" _n="ReturnButtonName" _dn="退件按钮的名称" _category="表单" _dv="退件" _desp="退件按钮的名称" _sortOrder="65535" _ml="65535" />
+      <I id="206" _n="ForceCloseFormAfterMoveTo" _dn="送签后强制关闭表单" _category="表单" _dataType="Boolean" _dv="False" _desp="送签后是否强制关闭表单。否则当送签后，流程办理人还是同一个人时，不关闭表单" _sortOrder="65535" _ml="65535" />
+      <I id="207" _n="AllowAddAttachments" _dn="允许添加附件" _category="表单" _dataType="Boolean" _dv="True" _desp="是否允许添加附件" _sortOrder="65535" _ml="65535" />
+      <I id="208" _n="AllowEditAttachments" _dn="允许修改附件" _category="表单" _dataType="Boolean" _dv="True" _desp="是否允许修改附件" _sortOrder="65535" _ml="65535" />
+      <I id="209" _n="AllowPrint" _dn="允许打印" _category="表单" _dataType="Boolean" _dv="True" _desp="是否允许打印" _sortOrder="65535" _ml="65535" />
+      <I id="210" _n="AllowEmptyCandidates" _dn="允许候选人为空" _category="表单" _dataType="Boolean" _dv="False" _desp="在表单上，如果候选人为空，是否允许流转" _sortOrder="65535" _ml="65535" />
+      <I id="211" _n="AllowInvalidCandidates" _dn="允许非法候选人" _category="表单" _dataType="Boolean" _dv="False" _desp="在表单上，如果候选人不存在或者已经禁用，是否允许流转" _sortOrder="65535" _ml="65535" />
+      <I id="212" _n="AutoAppendSecretary" _dn="自动添加秘书" _category="流程" _dataType="Boolean" _dv="False" _desp="是否自动添加秘书环节" _sortOrder="65535" _ml="65535" />
+      <I id="213" _n="BlockingType" _dn="阻塞类型" _category="分支流程" _dataType="Enum" _dv="0" _desp="分支流程组之间和主流程的阻塞关系" _eKey="EnumPropertyEditor" _eP="MCS.Library.SOA.DataObjects.Workflow.WfBranchGroupBlockingType, MCS.Library.SOA.DataObjects" _sortOrder="65535" _ml="65535" />
+      <I id="214" _n="SubProcessApprovalMode" _dn="审批流的审批结果模式" _category="分支流程" _dataType="Enum" _dv="NoActivityDecide" _desp="如果是自动启动审批流，审批结果的模式" _eKey="EnumPropertyEditor" _eP="MCS.Library.SOA.DataObjects.Workflow.WfSubProcessApprovalMode, MCS.Library.SOA.DataObjects" _sortOrder="65535" _ml="65535" />
+      <I id="215" _n="AutoMoveTo" _dn="是否自动流转" _category="流程" _dataType="Boolean" _dv="False" _desp="是否自动流转下一个默认活动" _sortOrder="65535" _ml="65535" />
+      <I id="216" _n="BranchProcessReturnValueParamName" _dn="分支流程返回结果上下文参数名" _category="流程" _desp="分支流程返回结果所影响的上下文参数名，该结果会以此名称填写进流程上下文中" _sortOrder="65535" _ml="65535" />
+      <I id="217" _n="Condition" _dn="条件设置" _category="流程" _dataType="DataObject" _desp="条件表达式编辑" _eKey="ConditionExpressionPropertyEditor" _sortOrder="1" _ml="65535" />
+      <I id="218" _n="Resources" _dn="资源设置" _category="流程" _dataType="DataObject" _desp="资源设置" _eKey="ReceiversObjectListPropertyEditor" _sortOrder="2" _ml="65535" />
+      <I id="219" _n="RelativeLinks" _dn="相关链接" _category="流程" _dataType="DataObject" _desp="相关链接" _eKey="ObjectListPropertyEditor" _eP="RelativeLink" _sortOrder="3" _ml="65535" />
+      <I id="220" _n="BranchProcessTemplates" _dn="分支流程设置" _category="分支流程" _dataType="DataObject" _desp="分支流程设置" _eKey="ObjectListPropertyEditor" _eP="BranchProcess" _sortOrder="4" _ml="65535" />
+      <I id="221" _n="EnterEventReceivers" _dn="起始通知人" _category="进入和离开" _dataType="DataObject" _desp="活动点进入时的通知人" _eKey="ReceiversObjectListPropertyEditor" _eP="EnterReceivers" _sortOrder="5" _ml="65535" />
+      <I id="222" _n="LeaveEventReceivers" _dn="结束通知人" _category="进入和离开" _dataType="DataObject" _desp="活动点离开时的通知人" _eKey="ReceiversObjectListPropertyEditor" _eP="LeaveReceivers" _sortOrder="5" _ml="65535" />
+      <I id="223" _n="EnterEventExecuteServices" _dn="起始执行服务" _category="进入和离开" _dataType="DataObject" _desp="进入活动执行的服务" _eKey="ObjectListPropertyEditor" _eP="EnterService" _sortOrder="6" _ml="65535" />
+      <I id="224" _n="LeaveEventExecuteServices" _dn="结束执行服务" _category="进入和离开" _dataType="DataObject" _desp="离开活动执行的服务" _eKey="ObjectListPropertyEditor" _eP="LeaveService" _sortOrder="6" _ml="65535" />
+      <I id="225" _n="Variables" _dn="变量编辑" _category="流程" _dataType="DataObject" _desp="变量编辑" _eKey="ObjectListPropertyEditor" _eP="Variables" _sortOrder="7" _ml="65535" />
+      <I id="226" _n="InternalRelativeUsers" _dn="内部相关人员" _category="流程" _dataType="DataObject" _desp="内部相关人员" _eKey="ReceiversObjectListPropertyEditor" _eP="InternalUsers" _sortOrder="8" _ml="65535" />
+      <I id="227" _n="ExternalUsers" _dn="外部相关人员" _category="流程" _dataType="DataObject" _desp="外部相关人员" _eKey="ObjectListPropertyEditor" _sortOrder="9" _ml="65535" />
+      <I id="228" _n="ImportWfMatrix" _dn="权限矩阵" _category="流程" _dataType="DataObject" _desp="权限矩阵" _eKey="KeyPropertyEditor" _eP="ImportWfMatrix" _sortOrder="10" _ml="65535" />
+      <I id="229" _n="ParametersNeedToBeCollected" _dn="自动收集流程参数" _category="流程" _dataType="DataObject" _desp="自动收集流程参数设置" _eKey="ObjectListPropertyEditor" _eP="ParametersNeedToBeCollected" _sortOrder="11" _ml="65535" />
+      <I id="230" _n="RoleCode" _dn="角色编码" _category="计划" _desp="角色编码" _sortOrder="65535" _ml="65535" />
+      <I id="231" _n="DomainCode" _dn="部门编码" _category="计划" _desp="部门编码" _sortOrder="65535" _ml="65535" />
+      <I id="232" _n="AllowSelectCandidates" _dn="允许从候选人中选择执行人" _category="流程" _dataType="Boolean" _dv="False" _desp="如果流程环节有多个" _sortOrder="65535" _ml="65535" />
+    </O>
+    <O id="233" oti="1">
+      <Items />
+      <F n="_Owner" v="30" r="true" oti="2" />
+      <F n="_IsReadOnly" v="false" oti="3" />
+    </O>
+    <O id="234" oti="9">
+      <F n="_Owner" v="30" r="true" oti="9" />
+      <F n="_Expression" v="" oti="9" />
+    </O>
+    <O id="235" oti="10" cs="true">
+      <I id="236" _n="Key" _category="基本信息" _desp="名称" _ro="true" _sortOrder="65535" _ml="65535" _sv="L2" />
+      <I id="237" _n="Name" _dn="名称" _category="基本信息" _desp="名称" _sortOrder="65535" _ml="65535" />
+      <I id="238" _n="Description" _dn="描述" _category="基本信息" _desp="描述" _sortOrder="65535" _ml="65535" />
+      <I id="239" _n="Enabled" _category="基本信息" _dataType="Boolean" _dv="True" _desp="启用" _sortOrder="65535" _ml="65535" />
+      <I id="240" _n="Condition" _dn="条件设置" _category="基本信息" _dataType="DataObject" _desp="条件表达式编辑" _eKey="ConditionExpressionPropertyEditor" _sortOrder="12" _ml="65535" />
+      <I id="241" _n="Variables" _dn="变量编辑" _category="基本信息" _dataType="DataObject" _desp="变量编辑" _eKey="ObjectListPropertyEditor" _eP="Variables" _sortOrder="13" _ml="65535" />
+      <I id="242" _n="Priority" _dn="优先级" _category="基本信息" _dataType="Integer" _dv="0" _desp="优先级" _sortOrder="7" _ml="65535" />
+      <I id="243" _n="DefaultSelect" _dn="默认选择" _category="基本信息" _dataType="Boolean" _dv="False" _desp="默认选择" _sortOrder="8" _ml="65535" />
+      <I id="244" _n="AffectProcessReturnValue" _dn="是否影响流程返回结果" _category="基本信息" _dataType="Boolean" _dv="False" _desp="是否影响流程返回结果" _sortOrder="9" _ml="65535" />
+      <I id="245" _n="AffectedProcessReturnValue" _dn="经过此线时流程的返回结果" _category="基本信息" _dataType="Boolean" _dv="False" _desp="经过此线时流程的返回结果" _sortOrder="10" _ml="65535" />
+      <I id="246" _n="IsReturn" _dn="退回线" _category="基本信息" _dataType="Boolean" _dv="False" _desp="是否是退回线" _sortOrder="11" _ml="65535" />
+      <I id="247" _n="DynamicSource" _dn="动态活动相关线的创建者" _category="流程" _desp="动态活动相关线的创建者Activity的Key" _visible="false" _sortOrder="65535" _ml="65535" />
+      <I id="248" _n="CodeName" _dn="代码名称" _category="基本信息" _desp="线的代码名称" _sortOrder="6" _ml="65535" />
+    </O>
+    <O id="249" oti="1">
+      <Items />
+      <F n="_Owner" v="27" r="true" oti="2" />
+      <F n="_IsReadOnly" v="false" oti="3" />
+    </O>
+    <O id="250" oti="15">
+      <Items>
+        <I v="251" oti="29" r="true" />
+      </Items>
+      <F n="_Owner" v="27" r="true" oti="15" />
+      <F n="_IsReadOnly" v="false" oti="16" />
+    </O>
+    <O id="251" oti="29">
+      <F n="_User" v="252" r="true" oti="29" />
+    </O>
+    <O id="252" oti="30">
+      <F n="logOnName" v="quym" oti="30" />
+      <F n="email" v="quym@sinooceanland.com" oti="30" />
+      <F n="occupation" v="" oti="30" />
+      <F n="rank" v="YiBanRenYuan" oti="30" />
+      <F n="isSideline" v="false" oti="30" />
+      <F n="id" v="0b7390ac-5578-44bc-a4dd-c4155ba5cca2" oti="31" />
+      <F n="name" v="曲毅民" oti="31" />
+      <F n="displayName" v="曲毅民" oti="31" />
+      <F n="description" v=" 房地产金融事业部\金融事业部高管" oti="31" />
+      <F n="fullPath" v="机构人员\远洋地产\房地产金融事业部\金融事业部高管\曲毅民" oti="31" />
+      <F n="objectType" v="Users" oti="31" />
+      <F n="sortID" v="2" oti="31" />
+      <F n="globalSortID" v="000001000001000004000001000002" oti="31" />
+      <F n="levels" v="-1" oti="31" />
+      <F n="hasLoadingError" v="false" oti="31" />
+    </O>
+    <O id="253" oti="9">
+      <F n="_Owner" v="27" r="true" oti="9" />
+      <F n="_Expression" v="" oti="9" />
+    </O>
+    <O id="254" oti="17">
+      <Items />
+      <F n="_Owner" v="27" r="true" oti="18" />
+      <F n="_IsReadOnly" v="false" oti="19" />
+    </O>
+    <O id="255" oti="20">
+      <Items />
+      <F n="_Owner" v="27" r="true" oti="21" />
+      <F n="_IsReadOnly" v="false" oti="22" />
+    </O>
+    <O id="256" oti="15">
+      <Items />
+      <F n="_Owner" v="27" r="true" oti="15" />
+      <F n="_IsReadOnly" v="false" oti="16" />
+    </O>
+    <O id="257" oti="15">
+      <Items />
+      <F n="_Owner" v="27" r="true" oti="15" />
+      <F n="_IsReadOnly" v="false" oti="16" />
+    </O>
+    <O id="258" oti="15">
+      <Items />
+      <F n="_Owner" v="27" r="true" oti="15" />
+      <F n="_IsReadOnly" v="false" oti="16" />
+    </O>
+    <O id="259" oti="23">
+      <Items />
+      <F n="_IsReadOnly" v="false" oti="24" />
+    </O>
+    <O id="260" oti="25">
+      <Items />
+      <F n="_IsReadOnly" v="false" oti="26" />
+    </O>
+    <O id="261" oti="25">
+      <Items />
+      <F n="_IsReadOnly" v="false" oti="26" />
+    </O>
+    <O id="262" oti="27">
+      <Items />
+      <F n="_IsReadOnly" v="false" oti="28" />
+    </O>
+    <O id="263" oti="10" cs="true">
+      <I id="264" _n="Key" _category="基本信息" _desp="名称" _ro="true" _sortOrder="65535" _ml="65535" _sv="N3" />
+      <I id="265" _n="Name" _dn="名称" _category="基本信息" _desp="名称" _sortOrder="65535" _ml="65535" _sv="CFO" />
+      <I id="266" _n="Description" _dn="描述" _category="基本信息" _desp="描述" _sortOrder="65535" _ml="65535" _sv="活动点描述" />
+      <I id="267" _n="Enabled" _category="基本信息" _dataType="Boolean" _dv="True" _desp="启用" _sortOrder="65535" _ml="65535" />
+      <I id="268" _n="CodeName" _dn="代码名称" _category="基本信息" _desp="活动的代码名称" _sortOrder="65535" _ml="65535" />
+      <I id="269" _n="Url" _dn="表单地址" _category="表单" _desp="活动的表单地址" _sortOrder="65535" _ml="65535" />
+      <I id="270" _n="LevelName" _dn="环节名称" _category="表单" _desp="活动的业务环节名称" _sortOrder="65535" _ml="65535" />
+      <I id="271" _n="Scene" _dn="场景名称" _category="表单" _desp="表单的场景名称" _sortOrder="65535" _ml="65535" />
+      <I id="272" _n="ReadOnlyScene" _dn="只读场景名称" _category="表单" _desp="表单的只读场景名称" _sortOrder="65535" _ml="65535" />
+      <I id="273" _n="NavigatorDisplayMode" _dn="在导航栏上的显示方式" _category="表单" _dataType="Enum" _dv="DependsOnProcess" _desp="在导航栏上的显示方式，如果是“取决于流程”，那么审批流显示人名，计划流程显示环节名称" _eKey="EnumPropertyEditor" _eP="MCS.Library.SOA.DataObjects.Workflow.WfNavigatorDisplayMode, MCS.Library.SOA.DataObjects" _sortOrder="65535" _ml="65535" />
+      <I id="274" _n="MaximizeAssigneeCount" _dn="流程活动中最多的受理人的个数" _category="流程" _dataType="Integer" _dv="-1" _desp="用户能够设置的受理人的个数，-1表示不限制。管理员在流程调整时，不受此限制" _sortOrder="12" _ml="65535" />
+      <I id="275" _n="EstimateStartTime" _dn="计划开始时间" _category="计划" _dataType="DateTime" _desp="计划开始时间" _sortOrder="65535" _ml="65535" _sv="0001/1/1 0:00:00" />
+      <I id="276" _n="EstimateEndTime" _dn="计划完成时间" _category="计划" _dataType="DateTime" _desp="计划完成时间" _sortOrder="65535" _ml="65535" _sv="0001/1/1 0:00:00" />
+      <I id="277" _n="EstimateDuration" _dn="计划进行时间" _category="计划" _dataType="Decimal" _dv="0" _desp="计划进行时间" _sortOrder="65535" _ml="65535" />
+      <I id="278" _n="IsWorkItem" _dn="是否可以生成工作项" _category="计划" _dataType="Boolean" _dv="True" _desp="是否是工作项" _sortOrder="65535" _ml="65535" />
+      <I id="279" _n="AllowWriteOpinion" _dn="允许输入意见" _category="意见" _dataType="Boolean" _dv="True" _desp="是否允许输入意见" _sortOrder="65535" _ml="65535" />
+      <I id="280" _n="ShowingInOpinionList" _dn="在意见列表中显示" _category="意见" _dataType="Boolean" _dv="True" _desp="是否在意见列表中显示" _sortOrder="65535" _ml="65535" />
+      <I id="281" _n="AllowEmptyOpinion" _dn="允许意见为空" _category="意见" _dataType="Boolean" _dv="True" _desp="是否允许意见为空" _sortOrder="65535" _ml="65535" />
+      <I id="282" _n="EmptyOpinionText" _dn="意见为空时显示的文本" _category="意见" _desp="意见为空时显示的文本" _sortOrder="65535" _ml="65535" />
+      <I id="283" _n="PredefinedOpinions" _dn="预定义的意见" _category="意见" _desp="预定义的意见，会在流转到此环节中显示在常用意见中" _sortOrder="65535" _ml="65535" />
+      <I id="284" _n="AllowSave" _dn="允许保存" _category="应用" _dataType="Boolean" _dv="True" _desp="是否允许保存功能" _sortOrder="65535" _ml="65535" />
+      <I id="285" _n="AutoStartBranchProcesses" _dn="自动启动分支流程" _category="分支流程" _dataType="Boolean" _dv="True" _desp="流转时是否自动启动分支流程" _sortOrder="65535" _ml="65535" />
+      <I id="286" _n="AutoStartBranchApprovalProcess" _dn="自动启动审批流程" _category="分支流程" _dataType="Boolean" _dv="False" _desp="没有分支流程时，且有多个审批人时，自动启动审批分支流程" _sortOrder="65535" _ml="65535" />
+      <I id="287" _n="AutoStartBranchProcessKey" _dn="自动启动审批流程的Key" _category="分支流程" _dataType="Enum" _dv="DefaultApprovalProcess" _desp="自动启动审批分支流程的Key" _eKey="BranchProcessKeyPropertyEditor" _eP="{&quot;tagName&quot;:&quot;AutoStartBranch&quot;,&quot;enumTypeName&quot;:&quot;WorkflowDesigner.PropertyEditor.BranchProcessKey, WorkflowDesigner&quot;}" _sortOrder="65535" _ml="65535" />
+      <I id="288" _n="AutoStartBranchProcessBlockingType" _dn="自动启动的审批流程的阻塞类型" _category="分支流程" _dataType="Enum" _dv="0" _desp="自动启动的审批流程和主流程之间的阻塞关系" _eKey="EnumPropertyEditor" _eP="MCS.Library.SOA.DataObjects.Workflow.WfBranchProcessBlockingType, MCS.Library.SOA.DataObjects" _sortOrder="65535" _ml="65535" />
+      <I id="289" _n="AutoStartBranchProcessExecuteSequence" _dn="自动启动的审批流程的串行/并行" _category="分支流程" _dataType="Enum" _dv="2" _desp="自动启动的审批流程的执行次序" _eKey="EnumPropertyEditor" _eP="MCS.Library.SOA.DataObjects.Workflow.WfBranchProcessExecuteSequence, MCS.Library.SOA.DataObjects" _sortOrder="65535" _ml="65535" />
+      <I id="290" _n="AllowWithdraw" _dn="允许撤回" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许撤回" _sortOrder="65535" _ml="65535" />
+      <I id="291" _n="AllowToBeWithdrawn" _dn="允许被撤回" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许被撤回" _sortOrder="65535" _ml="65535" />
+      <I id="292" _n="AutoSendUserTask" _dn="自动发送待办事项" _category="流程" _dataType="Boolean" _dv="True" _desp="到达此活动时是否自动发送待办事项" _sortOrder="65535" _ml="65535" />
+      <I id="293" _n="AutoSendUserTaskMode" _dn="自动发送待办的模式" _category="流程" _dataType="Enum" _dv="ByDefault" _desp="自动发送待办的模式，与AutoSendUserTask配合使用" _eKey="EnumPropertyEditor" _eP="MCS.Library.SOA.DataObjects.Workflow.WfAutoSendUserTaskMode, MCS.Library.SOA.DataObjects" _sortOrder="65535" _ml="65535" />
+      <I id="294" _n="TaskTitle" _dn="待办事项的标题" _category="流程" _desp="发送到此活动的待办事项的标题" _sortOrder="65535" _ml="65535" />
+      <I id="295" _n="NotifyTaskTitle" _dn="通知事项的标题" _category="流程" _desp="发送到此活动的通知事项的标题" _sortOrder="65535" _ml="65535" />
+      <I id="296" _n="AllowAddApprover" _dn="允许加签" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许加签" _sortOrder="65535" _ml="65535" />
+      <I id="297" _n="AllowAddConsignApprover" _dn="允许会签" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许会签" _sortOrder="65535" _ml="65535" />
+      <I id="298" _n="AllowToBeAppended" _dn="允许被添加后续环节" _category="流程" _dataType="Boolean" _dv="True" _desp="该活动后是否允许添加后续环节" _sortOrder="65535" _ml="65535" />
+      <I id="299" _n="AllowToBeModified" _dn="允许被修改" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许被修改" _sortOrder="65535" _ml="65535" />
+      <I id="300" _n="AllowToBeModifiedVariables" _dn="允许被修改流程选项" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许被修改流程选项" _sortOrder="65535" _ml="65535" />
+      <I id="301" _n="AllowAssignToMultiUsers" _dn="允许分派给多个执行人" _category="流程" _dataType="Boolean" _dv="True" _desp="允许分派给多个执行人" _sortOrder="65535" _ml="65535" />
+      <I id="302" _n="AllowToBeDeleted" _dn="允许被删除" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许被删除" _sortOrder="65535" _ml="65535" />
+      <I id="303" _n="AllowAppendActivityAfterUnstartActivities" _dn="允许在未启动的活动后添加活动" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许在未启动的活动后添加活动" _sortOrder="65535" _ml="65535" />
+      <I id="304" _n="AllowModifyUnstartActivities" _dn="允许修改未启动的活动" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许修改未启动的活动" _sortOrder="65535" _ml="65535" />
+      <I id="305" _n="AllowDeleteUnstartActivities" _dn="允许删除未启动的活动" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许删除未启动的活动" _sortOrder="65535" _ml="65535" />
+      <I id="306" _n="CanAppendActivityKeys" _dn="允许在活动后添加活动的Key" _category="流程" _desp="允许在活动后添加活动的Key，Key之间用逗号或分号分隔" _eKey="CanActivityKeysEditor" _eP="CanActivitysKeys" _sortOrder="65535" _ml="65535" />
+      <I id="307" _n="CanModifyActivityKeys" _dn="允许修改的活动的Key" _category="流程" _desp="允许修改的活动的Key，Key之间用逗号或分号分隔" _eKey="CanActivityKeysEditor" _eP="CanActivitysKeys" _sortOrder="65535" _ml="65535" />
+      <I id="308" _n="CanDeleteActivityKeys" _dn="允许删除的活动的Key" _category="流程" _desp="允许删除的活动的Key，Key之间用逗号或分号分隔" _eKey="CanActivityKeysEditor" _eP="CanActivitysKeys" _sortOrder="65535" _ml="65535" />
+      <I id="309" _n="AllowCirculate" _dn="允许传阅" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许传阅" _sortOrder="65535" _ml="65535" />
+      <I id="310" _n="AutoMoveAfterPending" _dn="挂起解除后自动流转" _category="分支流程" _dataType="Boolean" _dv="False" _desp="从挂起状态解除后自动向下流转" _sortOrder="65535" _ml="65535" />
+      <I id="311" _n="AllowAbortProcess" _dn="允许作废流程" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许作废流程" _sortOrder="65535" _ml="65535" />
+      <I id="312" _n="AllowReturn" _dn="允许退回" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许退回之前的处理人" _sortOrder="65535" _ml="65535" />
+      <I id="313" _n="AllowToBeReturned" _dn="允许被退回" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许被后续活动退回" _sortOrder="65535" _ml="65535" />
+      <I id="314" _n="AutoMaintain" _dn="是否进入到维护状态" _category="流程" _dataType="Boolean" _dv="False" _desp="当流转到这个活动时，是否自动将流程进入到维护状态" _sortOrder="65535" _ml="65535" />
+      <I id="315" _n="IsDynamic" _dn="是否是模版活动" _category="流程" _dataType="Boolean" _dv="False" _desp="是否是模版活动" _eKey="DynamicPropertyEditor" _sortOrder="65535" _ml="65535" />
+      <I id="316" _n="MoveToButtonNameSameAsTransitionName" _dn="送签按钮名称和线的名称一样" _category="表单" _dataType="Boolean" _dv="False" _desp="送签按钮名称和线的名称一样" _sortOrder="65535" _ml="65535" _sv="True" />
+      <I id="317" _n="AbortButtonName" _dn="作废按钮的名称" _category="表单" _dv="作废" _desp="作废按钮的名称" _sortOrder="65535" _ml="65535" />
+      <I id="318" _n="ReturnButtonName" _dn="退件按钮的名称" _category="表单" _dv="退件" _desp="退件按钮的名称" _sortOrder="65535" _ml="65535" />
+      <I id="319" _n="ForceCloseFormAfterMoveTo" _dn="送签后强制关闭表单" _category="表单" _dataType="Boolean" _dv="False" _desp="送签后是否强制关闭表单。否则当送签后，流程办理人还是同一个人时，不关闭表单" _sortOrder="65535" _ml="65535" />
+      <I id="320" _n="AllowAddAttachments" _dn="允许添加附件" _category="表单" _dataType="Boolean" _dv="True" _desp="是否允许添加附件" _sortOrder="65535" _ml="65535" />
+      <I id="321" _n="AllowEditAttachments" _dn="允许修改附件" _category="表单" _dataType="Boolean" _dv="True" _desp="是否允许修改附件" _sortOrder="65535" _ml="65535" />
+      <I id="322" _n="AllowPrint" _dn="允许打印" _category="表单" _dataType="Boolean" _dv="True" _desp="是否允许打印" _sortOrder="65535" _ml="65535" />
+      <I id="323" _n="AllowEmptyCandidates" _dn="允许候选人为空" _category="表单" _dataType="Boolean" _dv="False" _desp="在表单上，如果候选人为空，是否允许流转" _sortOrder="65535" _ml="65535" />
+      <I id="324" _n="AllowInvalidCandidates" _dn="允许非法候选人" _category="表单" _dataType="Boolean" _dv="False" _desp="在表单上，如果候选人不存在或者已经禁用，是否允许流转" _sortOrder="65535" _ml="65535" />
+      <I id="325" _n="AutoAppendSecretary" _dn="自动添加秘书" _category="流程" _dataType="Boolean" _dv="False" _desp="是否自动添加秘书环节" _sortOrder="65535" _ml="65535" />
+      <I id="326" _n="BlockingType" _dn="阻塞类型" _category="分支流程" _dataType="Enum" _dv="0" _desp="分支流程组之间和主流程的阻塞关系" _eKey="EnumPropertyEditor" _eP="MCS.Library.SOA.DataObjects.Workflow.WfBranchGroupBlockingType, MCS.Library.SOA.DataObjects" _sortOrder="65535" _ml="65535" />
+      <I id="327" _n="SubProcessApprovalMode" _dn="审批流的审批结果模式" _category="分支流程" _dataType="Enum" _dv="NoActivityDecide" _desp="如果是自动启动审批流，审批结果的模式" _eKey="EnumPropertyEditor" _eP="MCS.Library.SOA.DataObjects.Workflow.WfSubProcessApprovalMode, MCS.Library.SOA.DataObjects" _sortOrder="65535" _ml="65535" />
+      <I id="328" _n="AutoMoveTo" _dn="是否自动流转" _category="流程" _dataType="Boolean" _dv="False" _desp="是否自动流转下一个默认活动" _sortOrder="65535" _ml="65535" />
+      <I id="329" _n="BranchProcessReturnValueParamName" _dn="分支流程返回结果上下文参数名" _category="流程" _desp="分支流程返回结果所影响的上下文参数名，该结果会以此名称填写进流程上下文中" _sortOrder="65535" _ml="65535" />
+      <I id="330" _n="Condition" _dn="条件设置" _category="流程" _dataType="DataObject" _desp="条件表达式编辑" _eKey="ConditionExpressionPropertyEditor" _sortOrder="1" _ml="65535" />
+      <I id="331" _n="Resources" _dn="资源设置" _category="流程" _dataType="DataObject" _desp="资源设置" _eKey="ReceiversObjectListPropertyEditor" _sortOrder="2" _ml="65535" />
+      <I id="332" _n="RelativeLinks" _dn="相关链接" _category="流程" _dataType="DataObject" _desp="相关链接" _eKey="ObjectListPropertyEditor" _eP="RelativeLink" _sortOrder="3" _ml="65535" />
+      <I id="333" _n="BranchProcessTemplates" _dn="分支流程设置" _category="分支流程" _dataType="DataObject" _desp="分支流程设置" _eKey="ObjectListPropertyEditor" _eP="BranchProcess" _sortOrder="4" _ml="65535" />
+      <I id="334" _n="EnterEventReceivers" _dn="起始通知人" _category="进入和离开" _dataType="DataObject" _desp="活动点进入时的通知人" _eKey="ReceiversObjectListPropertyEditor" _eP="EnterReceivers" _sortOrder="5" _ml="65535" />
+      <I id="335" _n="LeaveEventReceivers" _dn="结束通知人" _category="进入和离开" _dataType="DataObject" _desp="活动点离开时的通知人" _eKey="ReceiversObjectListPropertyEditor" _eP="LeaveReceivers" _sortOrder="5" _ml="65535" />
+      <I id="336" _n="EnterEventExecuteServices" _dn="起始执行服务" _category="进入和离开" _dataType="DataObject" _desp="进入活动执行的服务" _eKey="ObjectListPropertyEditor" _eP="EnterService" _sortOrder="6" _ml="65535" />
+      <I id="337" _n="LeaveEventExecuteServices" _dn="结束执行服务" _category="进入和离开" _dataType="DataObject" _desp="离开活动执行的服务" _eKey="ObjectListPropertyEditor" _eP="LeaveService" _sortOrder="6" _ml="65535" />
+      <I id="338" _n="Variables" _dn="变量编辑" _category="流程" _dataType="DataObject" _desp="变量编辑" _eKey="ObjectListPropertyEditor" _eP="Variables" _sortOrder="7" _ml="65535" />
+      <I id="339" _n="InternalRelativeUsers" _dn="内部相关人员" _category="流程" _dataType="DataObject" _desp="内部相关人员" _eKey="ReceiversObjectListPropertyEditor" _eP="InternalUsers" _sortOrder="8" _ml="65535" />
+      <I id="340" _n="ExternalUsers" _dn="外部相关人员" _category="流程" _dataType="DataObject" _desp="外部相关人员" _eKey="ObjectListPropertyEditor" _sortOrder="9" _ml="65535" />
+      <I id="341" _n="ImportWfMatrix" _dn="权限矩阵" _category="流程" _dataType="DataObject" _desp="权限矩阵" _eKey="KeyPropertyEditor" _eP="ImportWfMatrix" _sortOrder="10" _ml="65535" />
+      <I id="342" _n="ParametersNeedToBeCollected" _dn="自动收集流程参数" _category="流程" _dataType="DataObject" _desp="自动收集流程参数设置" _eKey="ObjectListPropertyEditor" _eP="ParametersNeedToBeCollected" _sortOrder="11" _ml="65535" />
+      <I id="343" _n="RoleCode" _dn="角色编码" _category="计划" _desp="角色编码" _sortOrder="65535" _ml="65535" />
+      <I id="344" _n="DomainCode" _dn="部门编码" _category="计划" _desp="部门编码" _sortOrder="65535" _ml="65535" />
+      <I id="345" _n="AllowSelectCandidates" _dn="允许从候选人中选择执行人" _category="流程" _dataType="Boolean" _dv="False" _desp="如果流程环节有多个" _sortOrder="65535" _ml="65535" />
+    </O>
+    <O id="346" oti="1">
+      <Items />
+      <F n="_Owner" v="26" r="true" oti="2" />
+      <F n="_IsReadOnly" v="false" oti="3" />
+    </O>
+    <O id="347" oti="9">
+      <F n="_Owner" v="26" r="true" oti="9" />
+      <F n="_Expression" v="Amount &gt;= 1000" oti="9" />
+    </O>
+    <O id="348" oti="10" cs="true">
+      <I id="349" _n="Key" _category="基本信息" _desp="名称" _ro="true" _sortOrder="65535" _ml="65535" _sv="L1" />
+      <I id="350" _n="Name" _dn="名称" _category="基本信息" _desp="名称" _sortOrder="65535" _ml="65535" _sv="送CFO" />
+      <I id="351" _n="Description" _dn="描述" _category="基本信息" _desp="描述" _sortOrder="65535" _ml="65535" />
+      <I id="352" _n="Enabled" _category="基本信息" _dataType="Boolean" _dv="True" _desp="启用" _sortOrder="65535" _ml="65535" />
+      <I id="353" _n="Condition" _dn="条件设置" _category="基本信息" _dataType="DataObject" _desp="条件表达式编辑" _eKey="ConditionExpressionPropertyEditor" _sortOrder="12" _ml="65535" _sv="{&quot;Expression&quot;:&quot;Amount &gt;= 1000&quot;}" />
+      <I id="354" _n="Variables" _dn="变量编辑" _category="基本信息" _dataType="DataObject" _desp="变量编辑" _eKey="ObjectListPropertyEditor" _eP="Variables" _sortOrder="13" _ml="65535" />
+      <I id="355" _n="Priority" _dn="优先级" _category="基本信息" _dataType="Integer" _dv="0" _desp="优先级" _sortOrder="7" _ml="65535" />
+      <I id="356" _n="DefaultSelect" _dn="默认选择" _category="基本信息" _dataType="Boolean" _dv="False" _desp="默认选择" _sortOrder="8" _ml="65535" />
+      <I id="357" _n="AffectProcessReturnValue" _dn="是否影响流程返回结果" _category="基本信息" _dataType="Boolean" _dv="False" _desp="是否影响流程返回结果" _sortOrder="9" _ml="65535" />
+      <I id="358" _n="AffectedProcessReturnValue" _dn="经过此线时流程的返回结果" _category="基本信息" _dataType="Boolean" _dv="False" _desp="经过此线时流程的返回结果" _sortOrder="10" _ml="65535" />
+      <I id="359" _n="IsReturn" _dn="退回线" _category="基本信息" _dataType="Boolean" _dv="False" _desp="是否是退回线" _sortOrder="11" _ml="65535" />
+      <I id="360" _n="DynamicSource" _dn="动态活动相关线的创建者" _category="流程" _desp="动态活动相关线的创建者Activity的Key" _visible="false" _sortOrder="65535" _ml="65535" />
+      <I id="361" _n="CodeName" _dn="代码名称" _category="基本信息" _desp="线的代码名称" _sortOrder="6" _ml="65535" _sv="Agree" />
+    </O>
+    <O id="362" oti="1">
+      <Items />
+      <F n="_Owner" v="6" r="true" oti="2" />
+      <F n="_IsReadOnly" v="false" oti="3" />
+    </O>
+    <O id="363" oti="15">
+      <Items>
+        <I v="364" oti="29" r="true" />
+        <I v="366" oti="29" r="true" />
+      </Items>
+      <F n="_Owner" v="6" r="true" oti="15" />
+      <F n="_IsReadOnly" v="false" oti="16" />
+    </O>
+    <O id="364" oti="29">
+      <F n="_User" v="365" r="true" oti="29" />
+    </O>
+    <O id="365" oti="30">
+      <F n="logOnName" v="fanhy" oti="30" />
+      <F n="email" v="fanhy@sinooceanland.com" oti="30" />
+      <F n="occupation" v="" oti="30" />
+      <F n="rank" v="YiBanRenYuan" oti="30" />
+      <F n="isSideline" v="false" oti="30" />
+      <F n="id" v="80f4464f-e912-40c9-9502-c369a0d935ee" oti="31" />
+      <F n="name" v="樊海云" oti="31" />
+      <F n="displayName" v="樊海云" oti="31" />
+      <F n="description" v=" 集团总部\流程管理部" oti="31" />
+      <F n="fullPath" v="机构人员\远洋地产\集团总部\流程管理部\樊海云" oti="31" />
+      <F n="objectType" v="Users" oti="31" />
+      <F n="sortID" v="1" oti="31" />
+      <F n="globalSortID" v="000001000001000001000011000001" oti="31" />
+      <F n="levels" v="-1" oti="31" />
+      <F n="hasLoadingError" v="false" oti="31" />
+    </O>
+    <O id="366" oti="29">
+      <F n="_User" v="367" r="true" oti="29" />
+    </O>
+    <O id="367" oti="30">
+      <F n="logOnName" v="yangrui1" oti="30" />
+      <F n="email" v="yangrui1@sinooceanland.com" oti="30" />
+      <F n="occupation" v="" oti="30" />
+      <F n="rank" v="YiBanRenYuan" oti="30" />
+      <F n="isSideline" v="false" oti="30" />
+      <F n="id" v="6e9ca5d0-f342-4065-af09-e91f2ba285bc" oti="31" />
+      <F n="name" v="杨睿1" oti="31" />
+      <F n="displayName" v="杨睿(集团流程管理部)" oti="31" />
+      <F n="description" v=" 集团总部\流程管理部" oti="31" />
+      <F n="fullPath" v="机构人员\远洋地产\集团总部\流程管理部\杨睿1" oti="31" />
+      <F n="objectType" v="Users" oti="31" />
+      <F n="sortID" v="2" oti="31" />
+      <F n="globalSortID" v="000001000001000001000011000002" oti="31" />
+      <F n="levels" v="-1" oti="31" />
+      <F n="hasLoadingError" v="false" oti="31" />
+    </O>
+    <O id="368" oti="9">
+      <F n="_Owner" v="6" r="true" oti="9" />
+      <F n="_Expression" v="" oti="9" />
+    </O>
+    <O id="369" oti="17">
+      <Items />
+      <F n="_Owner" v="6" r="true" oti="18" />
+      <F n="_IsReadOnly" v="false" oti="19" />
+    </O>
+    <O id="370" oti="20">
+      <Items />
+      <F n="_Owner" v="6" r="true" oti="21" />
+      <F n="_IsReadOnly" v="false" oti="22" />
+    </O>
+    <O id="371" oti="15">
+      <Items />
+      <F n="_Owner" v="6" r="true" oti="15" />
+      <F n="_IsReadOnly" v="false" oti="16" />
+    </O>
+    <O id="372" oti="15">
+      <Items />
+      <F n="_Owner" v="6" r="true" oti="15" />
+      <F n="_IsReadOnly" v="false" oti="16" />
+    </O>
+    <O id="373" oti="15">
+      <Items />
+      <F n="_Owner" v="6" r="true" oti="15" />
+      <F n="_IsReadOnly" v="false" oti="16" />
+    </O>
+    <O id="374" oti="23">
+      <Items />
+      <F n="_IsReadOnly" v="false" oti="24" />
+    </O>
+    <O id="375" oti="25">
+      <Items />
+      <F n="_IsReadOnly" v="false" oti="26" />
+    </O>
+    <O id="376" oti="25">
+      <Items />
+      <F n="_IsReadOnly" v="false" oti="26" />
+    </O>
+    <O id="377" oti="27">
+      <Items />
+      <F n="_IsReadOnly" v="false" oti="28" />
+    </O>
+    <O id="378" oti="10" cs="true">
+      <I id="379" _n="Key" _category="基本信息" _desp="名称" _ro="true" _sortOrder="65535" _ml="65535" _sv="N2" />
+      <I id="380" _n="Name" _dn="名称" _category="基本信息" _desp="名称" _sortOrder="65535" _ml="65535" _sv="部门领导" />
+      <I id="381" _n="Description" _dn="描述" _category="基本信息" _desp="描述" _sortOrder="65535" _ml="65535" _sv="活动点描述" />
+      <I id="382" _n="Enabled" _category="基本信息" _dataType="Boolean" _dv="True" _desp="启用" _sortOrder="65535" _ml="65535" />
+      <I id="383" _n="CodeName" _dn="代码名称" _category="基本信息" _desp="活动的代码名称" _sortOrder="65535" _ml="65535" />
+      <I id="384" _n="Url" _dn="表单地址" _category="表单" _desp="活动的表单地址" _sortOrder="65535" _ml="65535" />
+      <I id="385" _n="LevelName" _dn="环节名称" _category="表单" _desp="活动的业务环节名称" _sortOrder="65535" _ml="65535" />
+      <I id="386" _n="Scene" _dn="场景名称" _category="表单" _desp="表单的场景名称" _sortOrder="65535" _ml="65535" />
+      <I id="387" _n="ReadOnlyScene" _dn="只读场景名称" _category="表单" _desp="表单的只读场景名称" _sortOrder="65535" _ml="65535" />
+      <I id="388" _n="NavigatorDisplayMode" _dn="在导航栏上的显示方式" _category="表单" _dataType="Enum" _dv="DependsOnProcess" _desp="在导航栏上的显示方式，如果是“取决于流程”，那么审批流显示人名，计划流程显示环节名称" _eKey="EnumPropertyEditor" _eP="MCS.Library.SOA.DataObjects.Workflow.WfNavigatorDisplayMode, MCS.Library.SOA.DataObjects" _sortOrder="65535" _ml="65535" />
+      <I id="389" _n="MaximizeAssigneeCount" _dn="流程活动中最多的受理人的个数" _category="流程" _dataType="Integer" _dv="-1" _desp="用户能够设置的受理人的个数，-1表示不限制。管理员在流程调整时，不受此限制" _sortOrder="12" _ml="65535" />
+      <I id="390" _n="EstimateStartTime" _dn="计划开始时间" _category="计划" _dataType="DateTime" _desp="计划开始时间" _sortOrder="65535" _ml="65535" _sv="0001/1/1 0:00:00" />
+      <I id="391" _n="EstimateEndTime" _dn="计划完成时间" _category="计划" _dataType="DateTime" _desp="计划完成时间" _sortOrder="65535" _ml="65535" _sv="0001/1/1 0:00:00" />
+      <I id="392" _n="EstimateDuration" _dn="计划进行时间" _category="计划" _dataType="Decimal" _dv="0" _desp="计划进行时间" _sortOrder="65535" _ml="65535" />
+      <I id="393" _n="IsWorkItem" _dn="是否可以生成工作项" _category="计划" _dataType="Boolean" _dv="True" _desp="是否是工作项" _sortOrder="65535" _ml="65535" />
+      <I id="394" _n="AllowWriteOpinion" _dn="允许输入意见" _category="意见" _dataType="Boolean" _dv="True" _desp="是否允许输入意见" _sortOrder="65535" _ml="65535" />
+      <I id="395" _n="ShowingInOpinionList" _dn="在意见列表中显示" _category="意见" _dataType="Boolean" _dv="True" _desp="是否在意见列表中显示" _sortOrder="65535" _ml="65535" />
+      <I id="396" _n="AllowEmptyOpinion" _dn="允许意见为空" _category="意见" _dataType="Boolean" _dv="True" _desp="是否允许意见为空" _sortOrder="65535" _ml="65535" />
+      <I id="397" _n="EmptyOpinionText" _dn="意见为空时显示的文本" _category="意见" _desp="意见为空时显示的文本" _sortOrder="65535" _ml="65535" />
+      <I id="398" _n="PredefinedOpinions" _dn="预定义的意见" _category="意见" _desp="预定义的意见，会在流转到此环节中显示在常用意见中" _sortOrder="65535" _ml="65535" />
+      <I id="399" _n="AllowSave" _dn="允许保存" _category="应用" _dataType="Boolean" _dv="True" _desp="是否允许保存功能" _sortOrder="65535" _ml="65535" />
+      <I id="400" _n="AutoStartBranchProcesses" _dn="自动启动分支流程" _category="分支流程" _dataType="Boolean" _dv="True" _desp="流转时是否自动启动分支流程" _sortOrder="65535" _ml="65535" />
+      <I id="401" _n="AutoStartBranchApprovalProcess" _dn="自动启动审批流程" _category="分支流程" _dataType="Boolean" _dv="False" _desp="没有分支流程时，且有多个审批人时，自动启动审批分支流程" _sortOrder="65535" _ml="65535" />
+      <I id="402" _n="AutoStartBranchProcessKey" _dn="自动启动审批流程的Key" _category="分支流程" _dataType="Enum" _dv="DefaultApprovalProcess" _desp="自动启动审批分支流程的Key" _eKey="BranchProcessKeyPropertyEditor" _eP="{&quot;tagName&quot;:&quot;AutoStartBranch&quot;,&quot;enumTypeName&quot;:&quot;WorkflowDesigner.PropertyEditor.BranchProcessKey, WorkflowDesigner&quot;}" _sortOrder="65535" _ml="65535" />
+      <I id="403" _n="AutoStartBranchProcessBlockingType" _dn="自动启动的审批流程的阻塞类型" _category="分支流程" _dataType="Enum" _dv="0" _desp="自动启动的审批流程和主流程之间的阻塞关系" _eKey="EnumPropertyEditor" _eP="MCS.Library.SOA.DataObjects.Workflow.WfBranchProcessBlockingType, MCS.Library.SOA.DataObjects" _sortOrder="65535" _ml="65535" />
+      <I id="404" _n="AutoStartBranchProcessExecuteSequence" _dn="自动启动的审批流程的串行/并行" _category="分支流程" _dataType="Enum" _dv="2" _desp="自动启动的审批流程的执行次序" _eKey="EnumPropertyEditor" _eP="MCS.Library.SOA.DataObjects.Workflow.WfBranchProcessExecuteSequence, MCS.Library.SOA.DataObjects" _sortOrder="65535" _ml="65535" />
+      <I id="405" _n="AllowWithdraw" _dn="允许撤回" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许撤回" _sortOrder="65535" _ml="65535" />
+      <I id="406" _n="AllowToBeWithdrawn" _dn="允许被撤回" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许被撤回" _sortOrder="65535" _ml="65535" />
+      <I id="407" _n="AutoSendUserTask" _dn="自动发送待办事项" _category="流程" _dataType="Boolean" _dv="True" _desp="到达此活动时是否自动发送待办事项" _sortOrder="65535" _ml="65535" />
+      <I id="408" _n="AutoSendUserTaskMode" _dn="自动发送待办的模式" _category="流程" _dataType="Enum" _dv="ByDefault" _desp="自动发送待办的模式，与AutoSendUserTask配合使用" _eKey="EnumPropertyEditor" _eP="MCS.Library.SOA.DataObjects.Workflow.WfAutoSendUserTaskMode, MCS.Library.SOA.DataObjects" _sortOrder="65535" _ml="65535" />
+      <I id="409" _n="TaskTitle" _dn="待办事项的标题" _category="流程" _desp="发送到此活动的待办事项的标题" _sortOrder="65535" _ml="65535" />
+      <I id="410" _n="NotifyTaskTitle" _dn="通知事项的标题" _category="流程" _desp="发送到此活动的通知事项的标题" _sortOrder="65535" _ml="65535" />
+      <I id="411" _n="AllowAddApprover" _dn="允许加签" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许加签" _sortOrder="65535" _ml="65535" />
+      <I id="412" _n="AllowAddConsignApprover" _dn="允许会签" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许会签" _sortOrder="65535" _ml="65535" />
+      <I id="413" _n="AllowToBeAppended" _dn="允许被添加后续环节" _category="流程" _dataType="Boolean" _dv="True" _desp="该活动后是否允许添加后续环节" _sortOrder="65535" _ml="65535" />
+      <I id="414" _n="AllowToBeModified" _dn="允许被修改" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许被修改" _sortOrder="65535" _ml="65535" />
+      <I id="415" _n="AllowToBeModifiedVariables" _dn="允许被修改流程选项" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许被修改流程选项" _sortOrder="65535" _ml="65535" />
+      <I id="416" _n="AllowAssignToMultiUsers" _dn="允许分派给多个执行人" _category="流程" _dataType="Boolean" _dv="True" _desp="允许分派给多个执行人" _sortOrder="65535" _ml="65535" />
+      <I id="417" _n="AllowToBeDeleted" _dn="允许被删除" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许被删除" _sortOrder="65535" _ml="65535" />
+      <I id="418" _n="AllowAppendActivityAfterUnstartActivities" _dn="允许在未启动的活动后添加活动" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许在未启动的活动后添加活动" _sortOrder="65535" _ml="65535" />
+      <I id="419" _n="AllowModifyUnstartActivities" _dn="允许修改未启动的活动" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许修改未启动的活动" _sortOrder="65535" _ml="65535" />
+      <I id="420" _n="AllowDeleteUnstartActivities" _dn="允许删除未启动的活动" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许删除未启动的活动" _sortOrder="65535" _ml="65535" />
+      <I id="421" _n="CanAppendActivityKeys" _dn="允许在活动后添加活动的Key" _category="流程" _desp="允许在活动后添加活动的Key，Key之间用逗号或分号分隔" _eKey="CanActivityKeysEditor" _eP="CanActivitysKeys" _sortOrder="65535" _ml="65535" />
+      <I id="422" _n="CanModifyActivityKeys" _dn="允许修改的活动的Key" _category="流程" _desp="允许修改的活动的Key，Key之间用逗号或分号分隔" _eKey="CanActivityKeysEditor" _eP="CanActivitysKeys" _sortOrder="65535" _ml="65535" />
+      <I id="423" _n="CanDeleteActivityKeys" _dn="允许删除的活动的Key" _category="流程" _desp="允许删除的活动的Key，Key之间用逗号或分号分隔" _eKey="CanActivityKeysEditor" _eP="CanActivitysKeys" _sortOrder="65535" _ml="65535" />
+      <I id="424" _n="AllowCirculate" _dn="允许传阅" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许传阅" _sortOrder="65535" _ml="65535" />
+      <I id="425" _n="AutoMoveAfterPending" _dn="挂起解除后自动流转" _category="分支流程" _dataType="Boolean" _dv="False" _desp="从挂起状态解除后自动向下流转" _sortOrder="65535" _ml="65535" />
+      <I id="426" _n="AllowAbortProcess" _dn="允许作废流程" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许作废流程" _sortOrder="65535" _ml="65535" />
+      <I id="427" _n="AllowReturn" _dn="允许退回" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许退回之前的处理人" _sortOrder="65535" _ml="65535" />
+      <I id="428" _n="AllowToBeReturned" _dn="允许被退回" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许被后续活动退回" _sortOrder="65535" _ml="65535" />
+      <I id="429" _n="AutoMaintain" _dn="是否进入到维护状态" _category="流程" _dataType="Boolean" _dv="False" _desp="当流转到这个活动时，是否自动将流程进入到维护状态" _sortOrder="65535" _ml="65535" />
+      <I id="430" _n="IsDynamic" _dn="是否是模版活动" _category="流程" _dataType="Boolean" _dv="False" _desp="是否是模版活动" _eKey="DynamicPropertyEditor" _sortOrder="65535" _ml="65535" />
+      <I id="431" _n="MoveToButtonNameSameAsTransitionName" _dn="送签按钮名称和线的名称一样" _category="表单" _dataType="Boolean" _dv="False" _desp="送签按钮名称和线的名称一样" _sortOrder="65535" _ml="65535" _sv="True" />
+      <I id="432" _n="AbortButtonName" _dn="作废按钮的名称" _category="表单" _dv="作废" _desp="作废按钮的名称" _sortOrder="65535" _ml="65535" />
+      <I id="433" _n="ReturnButtonName" _dn="退件按钮的名称" _category="表单" _dv="退件" _desp="退件按钮的名称" _sortOrder="65535" _ml="65535" />
+      <I id="434" _n="ForceCloseFormAfterMoveTo" _dn="送签后强制关闭表单" _category="表单" _dataType="Boolean" _dv="False" _desp="送签后是否强制关闭表单。否则当送签后，流程办理人还是同一个人时，不关闭表单" _sortOrder="65535" _ml="65535" />
+      <I id="435" _n="AllowAddAttachments" _dn="允许添加附件" _category="表单" _dataType="Boolean" _dv="True" _desp="是否允许添加附件" _sortOrder="65535" _ml="65535" />
+      <I id="436" _n="AllowEditAttachments" _dn="允许修改附件" _category="表单" _dataType="Boolean" _dv="True" _desp="是否允许修改附件" _sortOrder="65535" _ml="65535" />
+      <I id="437" _n="AllowPrint" _dn="允许打印" _category="表单" _dataType="Boolean" _dv="True" _desp="是否允许打印" _sortOrder="65535" _ml="65535" />
+      <I id="438" _n="AllowEmptyCandidates" _dn="允许候选人为空" _category="表单" _dataType="Boolean" _dv="False" _desp="在表单上，如果候选人为空，是否允许流转" _sortOrder="65535" _ml="65535" />
+      <I id="439" _n="AllowInvalidCandidates" _dn="允许非法候选人" _category="表单" _dataType="Boolean" _dv="False" _desp="在表单上，如果候选人不存在或者已经禁用，是否允许流转" _sortOrder="65535" _ml="65535" />
+      <I id="440" _n="AutoAppendSecretary" _dn="自动添加秘书" _category="流程" _dataType="Boolean" _dv="False" _desp="是否自动添加秘书环节" _sortOrder="65535" _ml="65535" />
+      <I id="441" _n="BlockingType" _dn="阻塞类型" _category="分支流程" _dataType="Enum" _dv="0" _desp="分支流程组之间和主流程的阻塞关系" _eKey="EnumPropertyEditor" _eP="MCS.Library.SOA.DataObjects.Workflow.WfBranchGroupBlockingType, MCS.Library.SOA.DataObjects" _sortOrder="65535" _ml="65535" />
+      <I id="442" _n="SubProcessApprovalMode" _dn="审批流的审批结果模式" _category="分支流程" _dataType="Enum" _dv="NoActivityDecide" _desp="如果是自动启动审批流，审批结果的模式" _eKey="EnumPropertyEditor" _eP="MCS.Library.SOA.DataObjects.Workflow.WfSubProcessApprovalMode, MCS.Library.SOA.DataObjects" _sortOrder="65535" _ml="65535" />
+      <I id="443" _n="AutoMoveTo" _dn="是否自动流转" _category="流程" _dataType="Boolean" _dv="False" _desp="是否自动流转下一个默认活动" _sortOrder="65535" _ml="65535" />
+      <I id="444" _n="BranchProcessReturnValueParamName" _dn="分支流程返回结果上下文参数名" _category="流程" _desp="分支流程返回结果所影响的上下文参数名，该结果会以此名称填写进流程上下文中" _sortOrder="65535" _ml="65535" />
+      <I id="445" _n="Condition" _dn="条件设置" _category="流程" _dataType="DataObject" _desp="条件表达式编辑" _eKey="ConditionExpressionPropertyEditor" _sortOrder="1" _ml="65535" />
+      <I id="446" _n="Resources" _dn="资源设置" _category="流程" _dataType="DataObject" _desp="资源设置" _eKey="ReceiversObjectListPropertyEditor" _sortOrder="2" _ml="65535" />
+      <I id="447" _n="RelativeLinks" _dn="相关链接" _category="流程" _dataType="DataObject" _desp="相关链接" _eKey="ObjectListPropertyEditor" _eP="RelativeLink" _sortOrder="3" _ml="65535" />
+      <I id="448" _n="BranchProcessTemplates" _dn="分支流程设置" _category="分支流程" _dataType="DataObject" _desp="分支流程设置" _eKey="ObjectListPropertyEditor" _eP="BranchProcess" _sortOrder="4" _ml="65535" />
+      <I id="449" _n="EnterEventReceivers" _dn="起始通知人" _category="进入和离开" _dataType="DataObject" _desp="活动点进入时的通知人" _eKey="ReceiversObjectListPropertyEditor" _eP="EnterReceivers" _sortOrder="5" _ml="65535" />
+      <I id="450" _n="LeaveEventReceivers" _dn="结束通知人" _category="进入和离开" _dataType="DataObject" _desp="活动点离开时的通知人" _eKey="ReceiversObjectListPropertyEditor" _eP="LeaveReceivers" _sortOrder="5" _ml="65535" />
+      <I id="451" _n="EnterEventExecuteServices" _dn="起始执行服务" _category="进入和离开" _dataType="DataObject" _desp="进入活动执行的服务" _eKey="ObjectListPropertyEditor" _eP="EnterService" _sortOrder="6" _ml="65535" />
+      <I id="452" _n="LeaveEventExecuteServices" _dn="结束执行服务" _category="进入和离开" _dataType="DataObject" _desp="离开活动执行的服务" _eKey="ObjectListPropertyEditor" _eP="LeaveService" _sortOrder="6" _ml="65535" />
+      <I id="453" _n="Variables" _dn="变量编辑" _category="流程" _dataType="DataObject" _desp="变量编辑" _eKey="ObjectListPropertyEditor" _eP="Variables" _sortOrder="7" _ml="65535" />
+      <I id="454" _n="InternalRelativeUsers" _dn="内部相关人员" _category="流程" _dataType="DataObject" _desp="内部相关人员" _eKey="ReceiversObjectListPropertyEditor" _eP="InternalUsers" _sortOrder="8" _ml="65535" />
+      <I id="455" _n="ExternalUsers" _dn="外部相关人员" _category="流程" _dataType="DataObject" _desp="外部相关人员" _eKey="ObjectListPropertyEditor" _sortOrder="9" _ml="65535" />
+      <I id="456" _n="ImportWfMatrix" _dn="权限矩阵" _category="流程" _dataType="DataObject" _desp="权限矩阵" _eKey="KeyPropertyEditor" _eP="ImportWfMatrix" _sortOrder="10" _ml="65535" />
+      <I id="457" _n="ParametersNeedToBeCollected" _dn="自动收集流程参数" _category="流程" _dataType="DataObject" _desp="自动收集流程参数设置" _eKey="ObjectListPropertyEditor" _eP="ParametersNeedToBeCollected" _sortOrder="11" _ml="65535" />
+      <I id="458" _n="RoleCode" _dn="角色编码" _category="计划" _desp="角色编码" _sortOrder="65535" _ml="65535" />
+      <I id="459" _n="DomainCode" _dn="部门编码" _category="计划" _desp="部门编码" _sortOrder="65535" _ml="65535" />
+      <I id="460" _n="AllowSelectCandidates" _dn="允许从候选人中选择执行人" _category="流程" _dataType="Boolean" _dv="False" _desp="如果流程环节有多个" _sortOrder="65535" _ml="65535" />
+    </O>
+    <O id="461" oti="1">
+      <Items />
+      <F n="_Owner" v="5" r="true" oti="2" />
+      <F n="_IsReadOnly" v="false" oti="3" />
+    </O>
+    <O id="462" oti="9">
+      <F n="_Owner" v="5" r="true" oti="9" />
+      <F n="_Expression" v="" oti="9" />
+    </O>
+    <O id="463" oti="10" cs="true">
+      <I id="464" _n="Key" _category="基本信息" _desp="名称" _ro="true" _sortOrder="65535" _ml="65535" _sv="L5" />
+      <I id="465" _n="Name" _dn="名称" _category="基本信息" _desp="名称" _sortOrder="65535" _ml="65535" _sv="退回" />
+      <I id="466" _n="Description" _dn="描述" _category="基本信息" _desp="描述" _sortOrder="65535" _ml="65535" />
+      <I id="467" _n="Enabled" _category="基本信息" _dataType="Boolean" _dv="True" _desp="启用" _sortOrder="65535" _ml="65535" />
+      <I id="468" _n="Condition" _dn="条件设置" _category="基本信息" _dataType="DataObject" _desp="条件表达式编辑" _eKey="ConditionExpressionPropertyEditor" _sortOrder="12" _ml="65535" />
+      <I id="469" _n="Variables" _dn="变量编辑" _category="基本信息" _dataType="DataObject" _desp="变量编辑" _eKey="ObjectListPropertyEditor" _eP="Variables" _sortOrder="13" _ml="65535" />
+      <I id="470" _n="Priority" _dn="优先级" _category="基本信息" _dataType="Integer" _dv="0" _desp="优先级" _sortOrder="7" _ml="65535" _sv="1" />
+      <I id="471" _n="DefaultSelect" _dn="默认选择" _category="基本信息" _dataType="Boolean" _dv="False" _desp="默认选择" _sortOrder="8" _ml="65535" />
+      <I id="472" _n="AffectProcessReturnValue" _dn="是否影响流程返回结果" _category="基本信息" _dataType="Boolean" _dv="False" _desp="是否影响流程返回结果" _sortOrder="9" _ml="65535" />
+      <I id="473" _n="AffectedProcessReturnValue" _dn="经过此线时流程的返回结果" _category="基本信息" _dataType="Boolean" _dv="False" _desp="经过此线时流程的返回结果" _sortOrder="10" _ml="65535" />
+      <I id="474" _n="IsReturn" _dn="退回线" _category="基本信息" _dataType="Boolean" _dv="False" _desp="是否是退回线" _sortOrder="11" _ml="65535" _sv="True" />
+      <I id="475" _n="DynamicSource" _dn="动态活动相关线的创建者" _category="流程" _desp="动态活动相关线的创建者Activity的Key" _visible="false" _sortOrder="65535" _ml="65535" />
+      <I id="476" _n="CodeName" _dn="代码名称" _category="基本信息" _desp="线的代码名称" _sortOrder="6" _ml="65535" _sv="Disagree" />
+    </O>
+    <O id="477" oti="14">
+      <Items>
+        <I v="8" oti="7" r="true" />
+      </Items>
+      <F n="_FromActivity" v="3" r="true" oti="14" />
+      <F n="_Owner" v="3" r="true" oti="12" />
+      <F n="_IsReadOnly" v="false" oti="13" />
+    </O>
+    <O id="478" oti="1">
+      <Items />
+      <F n="_Owner" v="3" r="true" oti="2" />
+      <F n="_IsReadOnly" v="false" oti="3" />
+    </O>
+    <O id="479" oti="15">
+      <Items />
+      <F n="_Owner" v="3" r="true" oti="15" />
+      <F n="_IsReadOnly" v="false" oti="16" />
+    </O>
+    <O id="480" oti="9">
+      <F n="_Owner" v="3" r="true" oti="9" />
+      <F n="_Expression" v="" oti="9" />
+    </O>
+    <O id="481" oti="17">
+      <Items />
+      <F n="_Owner" v="3" r="true" oti="18" />
+      <F n="_IsReadOnly" v="false" oti="19" />
+    </O>
+    <O id="482" oti="20">
+      <Items />
+      <F n="_Owner" v="3" r="true" oti="21" />
+      <F n="_IsReadOnly" v="false" oti="22" />
+    </O>
+    <O id="483" oti="15">
+      <Items />
+      <F n="_Owner" v="3" r="true" oti="15" />
+      <F n="_IsReadOnly" v="false" oti="16" />
+    </O>
+    <O id="484" oti="15">
+      <Items />
+      <F n="_Owner" v="3" r="true" oti="15" />
+      <F n="_IsReadOnly" v="false" oti="16" />
+    </O>
+    <O id="485" oti="15">
+      <Items />
+      <F n="_Owner" v="3" r="true" oti="15" />
+      <F n="_IsReadOnly" v="false" oti="16" />
+    </O>
+    <O id="486" oti="23">
+      <Items />
+      <F n="_IsReadOnly" v="false" oti="24" />
+    </O>
+    <O id="487" oti="25">
+      <Items />
+      <F n="_IsReadOnly" v="false" oti="26" />
+    </O>
+    <O id="488" oti="25">
+      <Items />
+      <F n="_IsReadOnly" v="false" oti="26" />
+    </O>
+    <O id="489" oti="27">
+      <Items />
+      <F n="_IsReadOnly" v="false" oti="28" />
+    </O>
+    <O id="490" oti="10" cs="true">
+      <I id="491" _n="Key" _category="基本信息" _desp="名称" _ro="true" _sortOrder="65535" _ml="65535" _sv="N0" />
+      <I id="492" _n="Name" _dn="名称" _category="基本信息" _desp="名称" _sortOrder="65535" _ml="65535" _sv="起始" />
+      <I id="493" _n="Description" _dn="描述" _category="基本信息" _desp="描述" _sortOrder="65535" _ml="65535" _sv="流程开始" />
+      <I id="494" _n="Enabled" _category="基本信息" _dataType="Boolean" _dv="True" _desp="启用" _sortOrder="65535" _ml="65535" />
+      <I id="495" _n="CodeName" _dn="代码名称" _category="基本信息" _desp="活动的代码名称" _sortOrder="65535" _ml="65535" />
+      <I id="496" _n="Url" _dn="表单地址" _category="表单" _desp="活动的表单地址" _sortOrder="65535" _ml="65535" />
+      <I id="497" _n="LevelName" _dn="环节名称" _category="表单" _desp="活动的业务环节名称" _sortOrder="65535" _ml="65535" />
+      <I id="498" _n="Scene" _dn="场景名称" _category="表单" _desp="表单的场景名称" _sortOrder="65535" _ml="65535" />
+      <I id="499" _n="ReadOnlyScene" _dn="只读场景名称" _category="表单" _desp="表单的只读场景名称" _sortOrder="65535" _ml="65535" />
+      <I id="500" _n="NavigatorDisplayMode" _dn="在导航栏上的显示方式" _category="表单" _dataType="Enum" _dv="DependsOnProcess" _desp="在导航栏上的显示方式，如果是“取决于流程”，那么审批流显示人名，计划流程显示环节名称" _eKey="EnumPropertyEditor" _eP="MCS.Library.SOA.DataObjects.Workflow.WfNavigatorDisplayMode, MCS.Library.SOA.DataObjects" _sortOrder="65535" _ml="65535" />
+      <I id="501" _n="MaximizeAssigneeCount" _dn="流程活动中最多的受理人的个数" _category="流程" _dataType="Integer" _dv="-1" _desp="用户能够设置的受理人的个数，-1表示不限制。管理员在流程调整时，不受此限制" _sortOrder="12" _ml="65535" />
+      <I id="502" _n="EstimateStartTime" _dn="计划开始时间" _category="计划" _dataType="DateTime" _desp="计划开始时间" _sortOrder="65535" _ml="65535" _sv="0001/1/1 0:00:00" />
+      <I id="503" _n="EstimateEndTime" _dn="计划完成时间" _category="计划" _dataType="DateTime" _desp="计划完成时间" _sortOrder="65535" _ml="65535" _sv="0001/1/1 0:00:00" />
+      <I id="504" _n="EstimateDuration" _dn="计划进行时间" _category="计划" _dataType="Decimal" _dv="0" _desp="计划进行时间" _sortOrder="65535" _ml="65535" />
+      <I id="505" _n="IsWorkItem" _dn="是否可以生成工作项" _category="计划" _dataType="Boolean" _dv="True" _desp="是否是工作项" _sortOrder="65535" _ml="65535" />
+      <I id="506" _n="AllowWriteOpinion" _dn="允许输入意见" _category="意见" _dataType="Boolean" _dv="True" _desp="是否允许输入意见" _sortOrder="65535" _ml="65535" />
+      <I id="507" _n="ShowingInOpinionList" _dn="在意见列表中显示" _category="意见" _dataType="Boolean" _dv="False" _desp="是否在意见列表中显示" _sortOrder="65535" _ml="65535" />
+      <I id="508" _n="AllowEmptyOpinion" _dn="允许意见为空" _category="意见" _dataType="Boolean" _dv="True" _desp="是否允许意见为空" _sortOrder="65535" _ml="65535" />
+      <I id="509" _n="EmptyOpinionText" _dn="意见为空时显示的文本" _category="意见" _desp="意见为空时显示的文本" _sortOrder="65535" _ml="65535" />
+      <I id="510" _n="PredefinedOpinions" _dn="预定义的意见" _category="意见" _desp="预定义的意见，会在流转到此环节中显示在常用意见中" _sortOrder="65535" _ml="65535" />
+      <I id="511" _n="AllowSave" _dn="允许保存" _category="应用" _dataType="Boolean" _dv="True" _desp="是否允许保存功能" _sortOrder="65535" _ml="65535" />
+      <I id="512" _n="AllowWithdraw" _dn="允许撤回" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许撤回" _sortOrder="65535" _ml="65535" />
+      <I id="513" _n="AllowToBeWithdrawn" _dn="允许被撤回" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许被撤回" _sortOrder="65535" _ml="65535" />
+      <I id="514" _n="AutoStartBranchProcesses" _dn="自动启动分支流程" _category="分支流程" _dataType="Boolean" _dv="True" _desp="流转时是否自动启动分支流程" _sortOrder="65535" _ml="65535" />
+      <I id="515" _n="AutoStartBranchApprovalProcess" _dn="自动启动审批流程" _category="分支流程" _dataType="Boolean" _dv="False" _desp="没有分支流程时，且有多个审批人时，自动启动审批分支流程" _sortOrder="65535" _ml="65535" />
+      <I id="516" _n="AutoStartBranchProcessKey" _dn="自动启动审批流程的Key" _category="分支流程" _dataType="Enum" _dv="DefaultApprovalProcess" _desp="自动启动审批分支流程的Key" _eKey="BranchProcessKeyPropertyEditor" _eP="{&quot;tagName&quot;:&quot;AutoStartBranch&quot;,&quot;enumTypeName&quot;:&quot;WorkflowDesigner.PropertyEditor.BranchProcessKey, WorkflowDesigner&quot;}" _sortOrder="65535" _ml="65535" />
+      <I id="517" _n="AutoStartBranchProcessBlockingType" _dn="自动启动的审批流程的阻塞类型" _category="分支流程" _dataType="Enum" _dv="0" _desp="自动启动的审批流程和主流程之间的阻塞关系" _eKey="EnumPropertyEditor" _eP="MCS.Library.SOA.DataObjects.Workflow.WfBranchProcessBlockingType, MCS.Library.SOA.DataObjects" _sortOrder="65535" _ml="65535" />
+      <I id="518" _n="AutoStartBranchProcessExecuteSequence" _dn="自动启动的审批流程的串行/并行" _category="分支流程" _dataType="Enum" _dv="2" _desp="自动启动的审批流程的执行次序" _eKey="EnumPropertyEditor" _eP="MCS.Library.SOA.DataObjects.Workflow.WfBranchProcessExecuteSequence, MCS.Library.SOA.DataObjects" _sortOrder="65535" _ml="65535" />
+      <I id="519" _n="AutoSendUserTask" _dn="自动发送待办事项" _category="流程" _dataType="Boolean" _dv="True" _desp="到达此活动时是否自动发送待办事项" _sortOrder="65535" _ml="65535" />
+      <I id="520" _n="AutoSendUserTaskMode" _dn="自动发送待办的模式" _category="流程" _dataType="Enum" _dv="ByDefault" _desp="自动发送待办的模式，与AutoSendUserTask配合使用" _eKey="EnumPropertyEditor" _eP="MCS.Library.SOA.DataObjects.Workflow.WfAutoSendUserTaskMode, MCS.Library.SOA.DataObjects" _sortOrder="65535" _ml="65535" />
+      <I id="521" _n="TaskTitle" _dn="待办事项的标题" _category="流程" _desp="发送到此活动的待办事项的标题" _sortOrder="65535" _ml="65535" />
+      <I id="522" _n="NotifyTaskTitle" _dn="通知事项的标题" _category="流程" _desp="发送到此活动的通知事项的标题" _sortOrder="65535" _ml="65535" />
+      <I id="523" _n="AllowToBeAppended" _dn="允许被添加后续环节" _category="流程" _dataType="Boolean" _dv="True" _desp="该活动后是否允许添加后续环节" _sortOrder="65535" _ml="65535" />
+      <I id="524" _n="AllowToBeModified" _dn="允许被修改" _category="流程" _dataType="Boolean" _dv="False" _desp="是否允许被修改" _visible="false" _sortOrder="65535" _ml="65535" />
+      <I id="525" _n="AllowToBeDeleted" _dn="允许被删除" _category="流程" _dataType="Boolean" _dv="False" _desp="是否允许被删除" _visible="false" _sortOrder="65535" _ml="65535" />
+      <I id="526" _n="AutoMoveAfterPending" _dn="挂起解除后自动流转" _category="分支流程" _dataType="Boolean" _dv="False" _desp="从挂起状态解除后自动向下流转" _sortOrder="65535" _ml="65535" />
+      <I id="527" _n="AllowAppendActivityAfterUnstartActivities" _dn="允许在未启动的活动后添加活动" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许在未启动的活动后添加活动" _sortOrder="65535" _ml="65535" />
+      <I id="528" _n="AllowModifyUnstartActivities" _dn="允许修改未启动的活动" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许修改未启动的活动" _sortOrder="65535" _ml="65535" />
+      <I id="529" _n="AllowDeleteUnstartActivities" _dn="允许删除未启动的活动" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许删除未启动的活动" _sortOrder="65535" _ml="65535" />
+      <I id="530" _n="CanAppendActivityKeys" _dn="允许在活动后添加活动的Key" _category="流程" _desp="允许在活动后添加活动的Key，Key之间用逗号或分号分隔" _sortOrder="65535" _ml="65535" />
+      <I id="531" _n="CanModifyActivityKeys" _dn="允许修改的活动的Key" _category="流程" _desp="允许修改的活动的Key，Key之间用逗号或分号分隔" _sortOrder="65535" _ml="65535" />
+      <I id="532" _n="CanDeleteActivityKeys" _dn="允许删除的活动的Key" _category="流程" _desp="允许删除的活动的Key，Key之间用逗号或分号分隔" _sortOrder="65535" _ml="65535" />
+      <I id="533" _n="AllowAbortProcess" _dn="允许作废流程" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许作废流程" _sortOrder="65535" _ml="65535" />
+      <I id="534" _n="AllowReturn" _dn="允许退回" _category="流程" _dataType="Boolean" _dv="False" _desp="是否允许退回之前的处理人" _visible="false" _sortOrder="65535" _ml="65535" />
+      <I id="535" _n="AllowToBeReturned" _dn="允许被退回" _category="流程" _dataType="Boolean" _dv="True" _desp="是否允许被后续活动退回" _sortOrder="65535" _ml="65535" />
+      <I id="536" _n="MoveToButtonNameSameAsTransitionName" _dn="送签按钮名称和线的名称一样" _category="表单" _dataType="Boolean" _dv="False" _desp="送签按钮名称和线的名称一样" _sortOrder="65535" _ml="65535" _sv="True" />
+      <I id="537" _n="AbortButtonName" _dn="作废按钮的名称" _category="表单" _dv="作废" _desp="作废按钮的名称" _sortOrder="65535" _ml="65535" />
+      <I id="538" _n="ForceCloseFormAfterMoveTo" _dn="送签后强制关闭表单" _category="表单" _dataType="Boolean" _dv="False" _desp="送签后是否强制关闭表单。否则当送签后，流程办理人还是同一个人时，不关闭表单" _sortOrder="65535" _ml="65535" />
+      <I id="539" _n="AllowAddAttachments" _dn="允许添加附件" _category="表单" _dataType="Boolean" _dv="True" _desp="是否允许添加附件" _sortOrder="65535" _ml="65535" />
+      <I id="540" _n="AllowEditAttachments" _dn="允许修改附件" _category="表单" _dataType="Boolean" _dv="True" _desp="是否允许修改附件" _sortOrder="65535" _ml="65535" />
+      <I id="541" _n="AllowPrint" _dn="允许打印" _category="表单" _dataType="Boolean" _dv="True" _desp="是否允许打印" _sortOrder="65535" _ml="65535" />
+      <I id="542" _n="AllowEmptyCandidates" _dn="允许候选人为空" _category="表单" _dataType="Boolean" _dv="False" _desp="在表单上，如果候选人为空，是否允许流转" _sortOrder="65535" _ml="65535" />
+      <I id="543" _n="AllowInvalidCandidates" _dn="允许非法候选人" _category="表单" _dataType="Boolean" _dv="False" _desp="在表单上，如果候选人不存在或者已经禁用，是否允许流转" _sortOrder="65535" _ml="65535" />
+      <I id="544" _n="AllowAddApprover" _dn="允许加签" _category="流程" _dataType="Boolean" _dv="False" _desp="是否允许加签" _sortOrder="65535" _ml="65535" />
+      <I id="545" _n="AllowAddConsignApprover" _dn="允许会签" _category="流程" _dataType="Boolean" _dv="False" _desp="是否允许会签" _sortOrder="65535" _ml="65535" />
+      <I id="546" _n="AllowCirculate" _dn="允许传阅" _category="流程" _dataType="Boolean" _dv="False" _desp="是否允许传阅" _sortOrder="65535" _ml="65535" />
+      <I id="547" _n="BlockingType" _dn="阻塞类型" _category="分支流程" _dataType="Enum" _dv="0" _desp="分支流程组之间和主流程的阻塞关系" _eKey="EnumPropertyEditor" _eP="MCS.Library.SOA.DataObjects.Workflow.WfBranchGroupBlockingType, MCS.Library.SOA.DataObjects" _sortOrder="65535" _ml="65535" />
+      <I id="548" _n="SubProcessApprovalMode" _dn="审批流的审批结果模式" _category="分支流程" _dataType="Enum" _dv="NoActivityDecide" _desp="如果是自动启动审批流，审批结果的模式" _eKey="EnumPropertyEditor" _eP="MCS.Library.SOA.DataObjects.Workflow.WfSubProcessApprovalMode, MCS.Library.SOA.DataObjects" _sortOrder="65535" _ml="65535" />
+      <I id="549" _n="AutoMoveTo" _dn="是否自动流转" _category="流程" _dataType="Boolean" _dv="False" _desp="是否自动流转下一个默认活动" _sortOrder="65535" _ml="65535" />
+      <I id="550" _n="BranchProcessReturnValueParamName" _dn="分支流程返回结果上下文参数名" _category="流程" _desp="分支流程返回结果所影响的上下文参数名，该结果会以此名称填写进流程上下文中" _sortOrder="65535" _ml="65535" />
+      <I id="551" _n="Condition" _dn="条件设置" _category="流程" _dataType="DataObject" _desp="条件表达式编辑" _eKey="ConditionExpressionPropertyEditor" _sortOrder="1" _ml="65535" />
+      <I id="552" _n="Resources" _dn="资源设置" _category="流程" _dataType="DataObject" _desp="资源设置" _eKey="ReceiversObjectListPropertyEditor" _sortOrder="2" _ml="65535" />
+      <I id="553" _n="RelativeLinks" _dn="相关链接" _category="流程" _dataType="DataObject" _desp="相关链接" _eKey="ObjectListPropertyEditor" _eP="RelativeLink" _sortOrder="3" _ml="65535" />
+      <I id="554" _n="BranchProcessTemplates" _dn="分支流程设置" _category="分支流程" _dataType="DataObject" _desp="分支流程设置" _eKey="ObjectListPropertyEditor" _eP="BranchProcess" _sortOrder="4" _ml="65535" />
+      <I id="555" _n="EnterEventReceivers" _dn="起始通知人" _category="进入和离开" _dataType="DataObject" _desp="活动点进入时的通知人" _eKey="ReceiversObjectListPropertyEditor" _eP="EnterReceivers" _sortOrder="5" _ml="65535" />
+      <I id="556" _n="LeaveEventReceivers" _dn="结束通知人" _category="进入和离开" _dataType="DataObject" _desp="活动点离开时的通知人" _eKey="ReceiversObjectListPropertyEditor" _eP="LeaveReceivers" _sortOrder="5" _ml="65535" />
+      <I id="557" _n="EnterEventExecuteServices" _dn="起始执行服务" _category="进入和离开" _dataType="DataObject" _desp="进入活动执行的服务" _eKey="ObjectListPropertyEditor" _eP="EnterService" _sortOrder="6" _ml="65535" />
+      <I id="558" _n="LeaveEventExecuteServices" _dn="结束执行服务" _category="进入和离开" _dataType="DataObject" _desp="离开活动执行的服务" _eKey="ObjectListPropertyEditor" _eP="LeaveService" _sortOrder="6" _ml="65535" />
+      <I id="559" _n="Variables" _dn="变量编辑" _category="流程" _dataType="DataObject" _desp="变量编辑" _eKey="ObjectListPropertyEditor" _eP="Variables" _sortOrder="7" _ml="65535" />
+      <I id="560" _n="InternalRelativeUsers" _dn="内部相关人员" _category="流程" _dataType="DataObject" _desp="内部相关人员" _eKey="ReceiversObjectListPropertyEditor" _eP="InternalUsers" _sortOrder="8" _ml="65535" />
+      <I id="561" _n="ExternalUsers" _dn="外部相关人员" _category="流程" _dataType="DataObject" _desp="外部相关人员" _eKey="ObjectListPropertyEditor" _sortOrder="9" _ml="65535" />
+      <I id="562" _n="ImportWfMatrix" _dn="权限矩阵" _category="流程" _dataType="DataObject" _desp="权限矩阵" _eKey="KeyPropertyEditor" _eP="ImportWfMatrix" _sortOrder="10" _ml="65535" />
+      <I id="563" _n="ParametersNeedToBeCollected" _dn="自动收集流程参数" _category="流程" _dataType="DataObject" _desp="自动收集流程参数设置" _eKey="ObjectListPropertyEditor" _eP="ParametersNeedToBeCollected" _sortOrder="11" _ml="65535" />
+      <I id="564" _n="RoleCode" _dn="角色编码" _category="计划" _desp="角色编码" _sortOrder="65535" _ml="65535" />
+      <I id="565" _n="DomainCode" _dn="部门编码" _category="计划" _desp="部门编码" _sortOrder="65535" _ml="65535" />
+    </O>
+    <O id="566" oti="20">
+      <Items />
+      <F n="_Owner" v="0" r="true" oti="21" />
+      <F n="_IsReadOnly" v="false" oti="22" />
+    </O>
+    <O id="567" oti="15">
+      <Items />
+      <F n="_Owner" v="0" r="true" oti="15" />
+      <F n="_IsReadOnly" v="false" oti="16" />
+    </O>
+    <O id="568" oti="15">
+      <Items />
+      <F n="_Owner" v="0" r="true" oti="15" />
+      <F n="_IsReadOnly" v="false" oti="16" />
+    </O>
+    <O id="569" oti="23">
+      <Items />
+      <F n="_IsReadOnly" v="false" oti="24" />
+    </O>
+    <O id="570" oti="25">
+      <Items />
+      <F n="_IsReadOnly" v="false" oti="26" />
+    </O>
+    <O id="571" oti="25">
+      <Items />
+      <F n="_IsReadOnly" v="false" oti="26" />
+    </O>
+    <O id="572" oti="27">
+      <Items />
+      <F n="_IsReadOnly" v="false" oti="28" />
+    </O>
+    <O id="573" oti="10" cs="true">
+      <I id="574" _n="Key" _category="基本信息" _desp="名称" _ro="true" _sortOrder="65535" _ml="65535" _sv="Expense" />
+      <I id="575" _n="Name" _dn="名称" _category="基本信息" _desp="名称" _sortOrder="65535" _ml="65535" _sv="报销流程" />
+      <I id="576" _n="Description" _dn="描述" _category="基本信息" _desp="描述" _sortOrder="65535" _ml="65535" />
+      <I id="577" _n="Enabled" _category="基本信息" _dataType="Boolean" _dv="True" _desp="启用" _sortOrder="65535" _ml="65535" />
+      <I id="578" _n="ApplicationName" _dn="应用名称" _category="基本信息" _desp="流程所对应的应用的名称" _sortOrder="65535" _ml="65535" />
+      <I id="579" _n="ProgramName" _dn="模块名称" _category="基本信息" _desp="流程所对应的应用的模块名称" _sortOrder="65535" _ml="65535" />
+      <I id="580" _n="RuntimeProcessName" _dn="运行时的流程名称" _category="基本信息" _desp="运行时的流程名称。如果为空，则使用名称属性" _sortOrder="65535" _ml="65535" _sv="${RequestorName}$的报销流程" />
+      <I id="581" _n="Url" _dn="表单地址" _category="表单" _desp="应用默认的Url" _sortOrder="65535" _ml="65535" />
+      <I id="582" _n="AutoGenerateCadidates" _dn="自动生成活动中的候选人" _category="资源" _dataType="Boolean" _dv="True" _desp="流程启动时自动生成环节中的候选人员" _sortOrder="65535" _ml="65535" />
+      <I id="583" _n="OnlyInitialResourcesCanStartProcess" _dn="是否只能由起始点的指派人才能启动流程" _category="资源" _dataType="Boolean" _dv="False" _desp="当作为主流程启动时，只有第一个点的指派人才可以启动" _sortOrder="65535" _ml="65535" />
+      <I id="584" _n="ProcessType" _dn="流程类型" _category="基本信息" _dataType="Enum" _dv="Approval" _desp="审批流侧重于人员之间的流转；计划流程侧重于时间和任务分派" _eKey="EnumPropertyEditor" _eP="MCS.Library.SOA.DataObjects.Workflow.WfProcessType, MCS.Library.SOA.DataObjects" _sortOrder="65535" _ml="65535" />
+      <I id="585" _n="UseMatrix" _dn="使用权限矩阵" _category="基本信息" _dataType="Boolean" _dv="True" _desp="如果定义了权限矩阵，则流转时使用权限矩阵中配置的人员" _sortOrder="65535" _ml="65535" />
+      <I id="586" _n="Independent" _dn="是否是独立的流程" _category="基本信息" _dataType="Boolean" _dv="True" _desp="流程能够独立启动。区别于会签、传阅等由独立流程衍生出来的非独立流程" _sortOrder="65535" _ml="65535" />
+      <I id="587" _n="DefaultTaskTitle" _dn="默认的待办事项标题" _category="基本信息" _desp="发送待办事项时的默认标题" _sortOrder="65535" _ml="65535" _sv="${RequestorName}$的报销流程" />
+      <I id="588" _n="DefaultNotifyTaskTitle" _dn="默认的通知事项标题" _category="基本信息" _desp="发送通知事项时的默认标题" _sortOrder="65535" _ml="65535" />
+      <I id="589" _n="DefaultWithtrawTaskPrefix" _dn="撤回通知的默认前缀" _category="基本信息" _dv="流程被撤回:" _desp="撤回时，通知消息的默认前缀" _sortOrder="65535" _ml="65535" />
+      <I id="590" _n="DefaultCancelTaskPrefix" _dn="作废通知的默认前缀" _category="基本信息" _dv="流程被取消:" _desp="作废流程时，通知消息的默认前缀" _sortOrder="65535" _ml="65535" />
+      <I id="591" _n="DefaultLeaveTaskPrefix" _dn="离开活动时通知的默认前缀" _category="基本信息" _dv="离开活动:" _desp="离开活动时，通知消息的默认前缀" _sortOrder="65535" _ml="65535" />
+      <I id="592" _n="ProbeParentProcessParams" _dn="是否从父流程查找参数" _category="基本信息" _dataType="Boolean" _dv="False" _desp="如果在本级流程中找不到参数时，是否从父流程查找参数" _sortOrder="65535" _ml="65535" />
+      <I id="593" _n="CreateSearchIDMode" _dn="SearchID生成方式" _category="基本信息" _dataType="Enum" _dv="SameAsResourceID" _desp="根据什么数据生成搜索ID" _eKey="EnumPropertyEditor" _eP="MCS.Library.SOA.DataObjects.Workflow.WfSearchIDMode, MCS.Library.SOA.DataObjects" _sortOrder="65535" _ml="65535" />
+      <I id="594" _n="DefaultReturnValue" _dn="默认流程返回结果" _category="基本信息" _dataType="Boolean" _dv="False" _desp="默认流程返回结果" _sortOrder="65535" _ml="65535" />
+      <I id="595" _n="ProcessStarters" _dn="流程的启动者" _category="流程" _dataType="DataObject" _desp="能够启动流程的人" _eKey="ReceiversObjectListPropertyEditor" _eP="ProcessStarters" _sortOrder="2" _ml="65535" />
+      <I id="596" _n="MaximizeMainStreamActivityCount" _dn="流程中最多的主环节个数" _category="流程" _dataType="Integer" _dv="-1" _desp="用户能够添加的最多的主环节的个数，-1表示不限制。管理员也不受限制" _sortOrder="6" _ml="65535" />
+      <I id="597" _n="MaximizeAssigneeCount" _dn="流程活动中最多的受理人个数" _category="流程" _dataType="Integer" _dv="-1" _desp="用户能够设置的受理人的个数，-1表示不限制。管理员在流程调整时，不受此限制" _sortOrder="7" _ml="65535" />
+      <I id="598" _n="RelativeLinks" _dn="相关链接" _category="流程" _dataType="DataObject" _desp="相关链接" _eKey="ObjectListPropertyEditor" _eP="RelativeLink" _sortOrder="1" _ml="65535" />
+      <I id="599" _n="CancelEventReceivers" _dn="撤销通知人" _category="流程" _dataType="DataObject" _desp="撤销通知人" _eKey="ReceiversObjectListPropertyEditor" _eP="CancelReceivers" _sortOrder="2" _ml="65535" />
+      <I id="600" _n="CancelBeforeExecuteServices" _dn="撤销前执行服务" _category="进入和离开" _dataType="DataObject" _dv="[]" _desp="撤销前执行服务" _eKey="ObjectListPropertyEditor" _eP="CancelExecuteServices" _sortOrder="2" _ml="65535" />
+      <I id="601" _n="CancelAfterExecuteServices" _dn="撤销后执行服务" _category="进入和离开" _dataType="DataObject" _dv="[]" _desp="撤销后执行服务" _eKey="ObjectListPropertyEditor" _eP="CancelExecuteServices" _sortOrder="2" _ml="65535" />
+      <I id="602" _n="InternalRelativeUsers" _dn="内部相关人员" _category="流程" _dataType="DataObject" _desp="内部相关人员" _eKey="ReceiversObjectListPropertyEditor" _eP="InternalUsers" _sortOrder="2" _ml="65535" />
+      <I id="603" _n="ExternalUsers" _dn="外部相关人员" _category="流程" _dataType="DataObject" _desp="外部相关人员" _eKey="ObjectListPropertyEditor" _sortOrder="2" _ml="65535" />
+      <I id="604" _n="Variables" _dn="变量编辑" _category="流程" _dataType="DataObject" _desp="变量编辑" _eKey="ObjectListPropertyEditor" _eP="Variables" _sortOrder="3" _ml="65535" />
+      <I id="605" _n="ImportWfMatrix" _dn="权限矩阵" _category="流程" _dataType="DataObject" _desp="权限矩阵" _eKey="KeyPropertyEditor" _eP="ImportWfMatrix" _sortOrder="4" _ml="65535" />
+      <I id="606" _n="ParametersNeedToBeCollected" _dn="自动收集流程参数" _category="流程" _dataType="DataObject" _desp="自动收集流程参数设置" _eKey="ObjectListPropertyEditor" _eP="ParametersNeedToBeCollected" _sortOrder="5" _ml="65535" />
+    </O>
+    <Types>
+      <T id="0" n="MCS.Library.SOA.DataObjects.Workflow.WfProcessDescriptor, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+      <T id="1" n="MCS.Library.SOA.DataObjects.Workflow.WfVariableDescriptorCollection, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+      <T id="2" n="MCS.Library.SOA.DataObjects.Workflow.WfKeyedDescriptorCollectionBase`1[[MCS.Library.SOA.DataObjects.Workflow.WfVariableDescriptor, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798]], MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+      <T id="3" n="MCS.Library.Data.DataObjects.EditableDataObjectCollectionBase`1[[MCS.Library.SOA.DataObjects.Workflow.WfVariableDescriptor, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798]], MCS.Library, Version=1.2.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+      <T id="4" n="MCS.Library.SOA.DataObjects.Workflow.WfActivityDescriptorCollection, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+      <T id="5" n="MCS.Library.SOA.DataObjects.Workflow.WfActivityDescriptor, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+      <T id="6" n="MCS.Library.SOA.DataObjects.Workflow.FromTransitionsDescriptorCollection, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+      <T id="7" n="MCS.Library.SOA.DataObjects.Workflow.WfForwardTransitionDescriptor, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+      <T id="8" n="MCS.Library.SOA.DataObjects.Workflow.WfTransitionDescriptor, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+      <T id="9" n="MCS.Library.SOA.DataObjects.Workflow.WfConditionDescriptor, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+      <T id="10" n="MCS.Library.SOA.DataObjects.PropertyValueCollection, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+      <T id="11" n="MCS.Library.SOA.DataObjects.Workflow.WfKeyedDescriptorBase, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+      <T id="12" n="MCS.Library.SOA.DataObjects.Workflow.WfKeyedDescriptorCollectionBase`1[[MCS.Library.SOA.DataObjects.Workflow.IWfTransitionDescriptor, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798]], MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+      <T id="13" n="MCS.Library.Data.DataObjects.EditableDataObjectCollectionBase`1[[MCS.Library.SOA.DataObjects.Workflow.IWfTransitionDescriptor, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798]], MCS.Library, Version=1.2.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+      <T id="14" n="MCS.Library.SOA.DataObjects.Workflow.ToTransitionsDescriptorCollection, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+      <T id="15" n="MCS.Library.SOA.DataObjects.Workflow.WfResourceDescriptorCollection, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+      <T id="16" n="MCS.Library.Data.DataObjects.EditableDataObjectCollectionBase`1[[MCS.Library.SOA.DataObjects.Workflow.WfResourceDescriptor, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798]], MCS.Library, Version=1.2.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+      <T id="17" n="MCS.Library.SOA.DataObjects.Workflow.WfBranchProcessTemplateCollection, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+      <T id="18" n="MCS.Library.SOA.DataObjects.Workflow.WfKeyedDescriptorCollectionBase`1[[MCS.Library.SOA.DataObjects.Workflow.IWfBranchProcessTemplateDescriptor, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798]], MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+      <T id="19" n="MCS.Library.Data.DataObjects.EditableDataObjectCollectionBase`1[[MCS.Library.SOA.DataObjects.Workflow.IWfBranchProcessTemplateDescriptor, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798]], MCS.Library, Version=1.2.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+      <T id="20" n="MCS.Library.SOA.DataObjects.Workflow.WfRelativeLinkDescriptorCollection, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+      <T id="21" n="MCS.Library.SOA.DataObjects.Workflow.WfKeyedDescriptorCollectionBase`1[[MCS.Library.SOA.DataObjects.Workflow.IWfRelativeLinkDescriptor, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798]], MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+      <T id="22" n="MCS.Library.Data.DataObjects.EditableDataObjectCollectionBase`1[[MCS.Library.SOA.DataObjects.Workflow.IWfRelativeLinkDescriptor, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798]], MCS.Library, Version=1.2.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+      <T id="23" n="MCS.Library.SOA.DataObjects.WfExternalUserCollection, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+      <T id="24" n="MCS.Library.Data.DataObjects.EditableDataObjectCollectionBase`1[[MCS.Library.SOA.DataObjects.WfExternalUser, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798]], MCS.Library, Version=1.2.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+      <T id="25" n="MCS.Library.SOA.DataObjects.Workflow.WfServiceOperationDefinitionCollection, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+      <T id="26" n="MCS.Library.Data.DataObjects.EditableDataObjectCollectionBase`1[[MCS.Library.SOA.DataObjects.Workflow.WfServiceOperationDefinition, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798]], MCS.Library, Version=1.2.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+      <T id="27" n="MCS.Library.SOA.DataObjects.Workflow.WfParameterNeedToBeCollected, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+      <T id="28" n="MCS.Library.Data.DataObjects.EditableDataObjectCollectionBase`1[[MCS.Library.SOA.DataObjects.Workflow.WfParameterDescriptor, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798]], MCS.Library, Version=1.2.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+      <T id="29" n="MCS.Library.SOA.DataObjects.Workflow.WfUserResourceDescriptor, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+      <T id="30" n="MCS.Library.SOA.DataObjects.OguUser, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+      <T id="31" n="MCS.Library.SOA.DataObjects.OguBase, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+      <T id="32" n="MCS.Library.SOA.DataObjects.Workflow.WfDynamicResourceDescriptor, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+      <T id="33" n="MCS.Library.SOA.DataObjects.Workflow.WfKeyedDescriptorCollectionBase`1[[MCS.Library.SOA.DataObjects.Workflow.IWfActivityDescriptor, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798]], MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+      <T id="34" n="MCS.Library.Data.DataObjects.EditableDataObjectCollectionBase`1[[MCS.Library.SOA.DataObjects.Workflow.IWfActivityDescriptor, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798]], MCS.Library, Version=1.2.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798" />
+    </Types>
+  </Root>
+</WorkflowProcesses>

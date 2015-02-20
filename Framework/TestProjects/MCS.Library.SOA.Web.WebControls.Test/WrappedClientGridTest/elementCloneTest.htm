@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Clone Test</title>
+	<script type="text/javascript">
+		function cloneTemplate() {
+			var clonedElement = document.getElementById("template").cloneNode(true);
+
+			document.getElementById("container").appendChild(clonedElement);
+		}
+	</script>
+</head>
+<body>
+	<div>
+		<select id="template">
+			<option value="sz">沈峥</option>
+			<option value="lb">林彬</option>
+			<option value="jyj">贾彦军</option>
+		</select>
+	</div>
+	<div>
+		<input type="button" value="Clone" onclick="cloneTemplate();" />
+	</div>
+	<div id="container">
+	</div>
+</body>
+</html>

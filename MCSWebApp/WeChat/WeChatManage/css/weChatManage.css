@@ -1,0 +1,47 @@
+﻿.title
+{
+	background: url('../img/title_bg.png') no-repeat;
+	width: 380px;
+	height: 37px;
+	margin: 0 0 10px 0;
+	color: #fff;
+	line-height: 37px;
+	text-align: center;
+	font-size: 16px;
+	font-weight: 900;
+}
+.select
+{
+	border: 2px solid rgb(102, 153, 255);
+	text-align: center;
+	background: rgb(102, 153, 255);
+	font-weight: 900;
+	color: rgb(255, 255, 255);
+}
+.unselect
+{
+	border: 2px solid rgb(102, 153, 255);
+	text-align: center;
+	font-weight: 900;
+	color: rgb(0, 0, 0);
+}
+
+.wechat_formbutton {
+	background: none repeat scroll 0 0 rgb(102, 153, 255);
+	font-weight: normal;
+    border: 0px;
+    height: 24px;
+    min-width: 80px;
+    line-height: 22px;
+    color: white;
+	font-weight: 900;
+    margin-left: 10px;
+    margin-top: 3px;
+    text-align: center;
+    letter-spacing: 3px;
+    padding: 0px 2px;
+}
+
+.dataList td {
+    padding: 0 5px 0 5px;
+}

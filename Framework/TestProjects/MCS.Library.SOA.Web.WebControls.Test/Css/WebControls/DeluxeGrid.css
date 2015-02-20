@@ -1,0 +1,52 @@
+.deluxegrid-overrow 
+{
+	background-color: #A1ADF1;
+    text-align : center;
+}
+.deluxegrid-selectedrow 
+{
+	background-color : #D1DDF1;
+	color : #333333;
+    font-weight: bold;
+    text-align : center;
+}
+.deluxegrid-row
+{
+	background-color : #EFF3FB;
+    text-align : center;
+}
+.deluxegrid-alternatingrow
+{
+	background-color : White;
+    text-align : center;
+}
+.deluxegrid-headerrow
+{
+	background-color : #507CD1;
+	color : White;
+    font-weight: bold;
+    text-align : center;
+}
+.deluxegrid-headerrow a
+{
+	color : White;
+}
+.deluxegrid-pagerrow
+{
+	background-color : White;
+}
+.deluxegrid-hidden
+{
+	display: none;
+}
+
+.deluxegrid table
+{
+	font-size : 12px;
+}
+.deluxegrid textarea,.deluxegrid input,.deluxegrid select
+{
+	font-size: 12px; color: #000000; font-weight: normal;
+	border-top-width : 1px; border-right-width : 1px;
+	border-bottom-width : 1px; border-left-width : 1px;
+}

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<SQL>
+	<QueryTable>SELECT o.id, o.name, opk.name AS pk_name, opk.id AS opk_id, p.value
+FROM sysobjects o LEFT JOIN sysobjects opk on o.id = opk.parent_obj AND opk.xtype = 'PK',
+	sysobjects o1 LEFT JOIN sysproperties p ON o1.id = p.id AND p.type = '3' AND p.name = 'MS_Description'
+WHERE o.xtype = 'U' AND o.name &lt;&gt; 'dtproperties' AND o1.id = o.id</QueryTable>
+	<QueryTableNew>SELECT SOS.NAME AS TAB_NAME, SOS.ID AS TAB_ID, SPK.NAME AS PK_NAME, SPK.ID AS PK_ID, SPS.VALUE AS TAB_DES
+FROM SYSOBJECTS SOS 
+	LEFT JOIN SYSOBJECTS SPK 
+		ON 	SOS.ID = SPK.PARENT_OBJ
+			AND SPK.XTYPE = 'PK'
+	LEFT JOIN SYSPROPERTIES SPS
+		ON 	SOS.ID = SPS.ID
+			AND SPS.TYPE = 3
+			AND SPS.NAME = 'MS_Description'
+WHERE SOS.XTYPE = 'U' 
+	AND SOS.NAME &lt;&gt; 'dtproperties'</QueryTableNew>
+	<QueryColumns>SELECT PK_INFO.keyno, c.name, t.name as type, c.prec, c.length, c.xprec, c.xscale, c.isnullable, comments.text as default_text, p.value as description
+FROM sysobjects o, syscolumns c LEFT JOIN
+	(SELECT i.indid, o.name, k.keyno, k.colid
+		FROM sysindexes i, sysobjects o, sysindexkeys k
+	WHERE o.id = {0} AND i.name = o.name
+	AND k.indid = i.indid AND k.id = i.id
+	) AS PK_INFO on c.colid = PK_INFO.colid,
+	syscolumns cc LEFT JOIN syscomments comments on comments.id = cc.cdefault,
+	syscolumns cp LEFT JOIN sysproperties p on p.id = cp.id AND p.smallid = cp.colorder AND p.name = 'MS_Description' AND p.type = '4',
+	systypes t
+WHERE c.id = o.id AND o.id = {1}
+	AND c.id = cc.id
+	AND c.colorder = cc.colorder
+	AND c.id = cp.id
+	AND c.colorder = cp.colorder
+	AND t.xtype = c.xtype
+	AND t.name &lt;&gt; 'sysname'
+ORDER BY c.colorder</QueryColumns>
+	<QueryColumnsAll>SELECT SOS.NAME AS TAB_NAME, SOS.ID AS TAB_ID, TEMPDB.KEYSHOW AS ISKEY, SCS.NAME AS COLNAME, SCS.COLORDER AS COL_ID, STS.NAME AS COL_TYPE, SCS.PREC AS COL_LEN, SCS.ISNULLABLE, SMS.TEXT AS COL_DEFAULT_VALUE, SPS.VALUE AS COL_DES
+FROM SYSOBJECTS SOS 
+	LEFT JOIN SYSCOLUMNS SCS
+		ON 	SOS.ID = SCS.ID
+	LEFT JOIN SYSPROPERTIES SPS
+		ON 	SCS.ID = SPS.ID
+			AND SCS.COLORDER = SPS.SMALLID
+	LEFT JOIN SYSCOMMENTS SMS
+		ON SMS.ID = SCS.CDEFAULT
+	LEFT JOIN (	SELECT SPKS.PARENT_OBJ, SIKS.KEYNO, 'y' AS KEYSHOW
+			FROM SYSOBJECTS SPKS, SYSINDEXES SIS, SYSINDEXKEYS SIKS
+			WHERE SPKS.XTYPE = 'PK'
+				AND SPKS.NAME = SIS.NAME
+				AND SIS.INDID = SIKS.INDID
+				AND SIKS.ID = SIS.ID
+		) TEMPDB
+		ON SOS.ID = TEMPDB.PARENT_OBJ
+			AND SCS.COLORDER = TEMPDB.KEYNO,
+	SYSTYPES STS
+WHERE 	SOS.XTYPE = 'U'
+	AND SOS.NAME &lt;&gt; 'dtproperties'
+	AND STS.XTYPE = SCS.XTYPE
+	AND STS.NAME &lt;&gt; 'sysname'
+ORDER BY SOS.NAME, SCS.COLORDER</QueryColumnsAll>
+</SQL>

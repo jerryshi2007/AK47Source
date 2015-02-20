@@ -1,0 +1,68 @@
+﻿
+body
+{
+    background-color: #f8f8f8; 
+    width: 100%;
+    height:100%;
+ }
+#container
+{
+    width:100%;
+    clear:both;
+    text-align:center;
+}
+.contentblock
+{
+    margin:5px;
+    border:solid 0px #Silver;
+    text-align:left;
+    width:100%;
+}
+.topblock
+{
+    border-bottom: groove 1px Silver; 
+    overflow: hidden; 
+    text-align:left; 
+    margin-right:-12px;
+}
+/*query condition style*/
+.texttable
+{
+    width:99%;
+    text-align:left;
+    border:solid 1px Silver;
+    border-collapse:collapse;
+    table-layout:fixed;
+	
+}
+.texttable td
+{
+    padding-left:2px;
+    border:solid 1px Silver;
+    border-collapse:collapse;
+}
+.texttd
+{
+    background-color: #f2f8f8; 
+    height: 30px; 
+    width:80px;
+}
+.texttable td table,.texttable td table td
+{
+    border:none;
+    border-collapse:collapse;
+}
+/************************/
+/*overflow ellipsis*/
+a.textover
+{
+    width:100%;
+    text-align:left;
+    border:solid 0px #FF0000;
+    white-space:nowrap;
+ 	word-wrap:break-word;
+	word-break:break-all;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	-o-text-overflow: ellipsis;
+}

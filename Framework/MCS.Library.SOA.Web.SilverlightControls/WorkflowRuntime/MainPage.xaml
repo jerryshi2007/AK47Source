@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="WorkflowRuntime.MainPage"
+	xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:go="clr-namespace:Northwoods.GoXam;assembly=Northwoods.GoSilverlight"
+    xmlns:golayout="clr-namespace:Northwoods.GoXam.Layout;assembly=Northwoods.GoSilverlight"
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    xmlns:local="clr-namespace:WorkflowRuntime.Controls"
+    xmlns:localview="clr-namespace:WorkflowRuntime.Views"
+    xmlns:vw="clr-namespace:WorkflowRuntime.Views"
+    xmlns:toolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+    xmlns:toolkitinput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit">
+
+    <Grid x:Name="LayoutRoot" Margin="1,1,1,5" MouseLeftButtonUp="LayoutRoot_MouseLeftButtonUp" >
+        <local:CustomTabControl x:Name="tabControl" Grid.Column="2"
+                                ItemsDataSource="{Binding DiagramDataSource}"
+                                SelectedItem="{Binding SelectedItem ,Mode=TwoWay}" SelectionChanged="tabControl_SelectionChanged">
+            <local:CustomTabControl.TabHeaderItemTemplate>
+                <DataTemplate>
+                    <toolkit:DockPanel >
+                        <Button Template="{StaticResource ClosedBtn}"
+                                toolkit:DockPanel.Dock="Right"
+                                Command="{Binding Path=CloseItemCommand}" CommandParameter="{Binding}"/>
+                        <ContentPresenter Content="{Binding Path=Name}" Margin="5,0,5,0" VerticalAlignment="Center" />
+                    </toolkit:DockPanel>
+                </DataTemplate>
+            </local:CustomTabControl.TabHeaderItemTemplate>
+            <local:CustomTabControl.TabItemTemplate>
+                <DataTemplate>
+                    <vw:DiagramPage></vw:DiagramPage>
+                </DataTemplate>
+            </local:CustomTabControl.TabItemTemplate>
+        </local:CustomTabControl>
+    </Grid>
+</UserControl>

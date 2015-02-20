@@ -1,0 +1,39 @@
+﻿<table style="width: 100%; height: 100%">
+  <tr>
+    <td class="gridHead" style="height: 32px;">
+      <div class="dialogTitle">
+        <img runat="server" id="logoImage" alt="logo" src="" style="vertical-align: middle" />
+        <span class="title" id="dialogHeaderText" runat="server"></span>
+        <ul class="wfrtvwc-menu-list" id="wfrtvwcmenulist"></ul>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td style="vertical-align: top">
+      <div class="dialogContent" id="dialogContent" runat="server" style="width: 100%;
+				height: 100%; overflow: auto">
+        <!--dialogContent-->
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td class="gridfileBottom">
+    </td>
+  </tr>
+  <tr>
+    <td style="height: 40px;">
+      <table cellpadding="0" cellspacing="0" style="width: 100%; height: 100%">
+        <tr>
+          <td style="text-align: center">
+            <input accesskey="O" runat="server" id="confirmButton" type="button" Category="SOAWebControls" class="formButton"
+							value="确定(O)" style="width: 96px"/>
+          </td>
+          <td style="text-align: center">
+            <input accesskey="C" runat="server" id="cancelButton" type="button" Category="SOAWebControls" class="formButton"
+							value="关闭(C)" style="width: 96px" onclick="top.close();" />
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>

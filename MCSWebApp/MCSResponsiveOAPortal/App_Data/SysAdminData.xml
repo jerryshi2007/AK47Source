@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<r:category name="Root" title="根" xmlns:r="CategorySchema.xsd">
+  <r:group name="SysAdmin" title="系统管理">
+    <r:category name="ProcessAdmin" title="流程管理" visible="true">
+      <r:item name="TemplateDefinition" title="流程模板定义" href="/MCSWebApp/WorkflowDesigner/default.aspx" role="*" feature="320,240" />
+      <r:item name="GlobalConig" title="全局配置" href="/MCSWebApp/WorkflowDesigner/modaldialog/ExtGlobalParametersEditor.aspx" role="OAPORTAL:PORTAL_ADMIN" />
+      <r:item name="JobDefinition" title="作业定义" href="/MCSWebApp/WorkflowDesigner/PlanScheduleDialog/JobList.aspx?showEditBtn=false" role="OAPORTAL:PORTAL_ADMIN" />
+      <r:item name="ScheduleDefinition" title="计划定义" href="/MCSWebApp/WorkflowDesigner/PlanScheduleDialog/ScheduleList.aspx?showEditBtn=false" role="OAPORTAL:PORTAL_ADMIN" />
+      <r:item name="TaskMonitior" title="任务监控" href="/MCSWebApp/WorkflowDesigner/PlanScheduleDialog/TaskMonitor.aspx" role="*" />
+      <r:item name="WorkflowPersist" title="流程持久化任务" href="/MCSWebApp/OACommonPages/AsyncPersist/Default.aspx" role="OAPORTAL:PORTAL_ADMIN" />
+      <r:item name="Category" title="分类授权" href="/MCSWebApp/OACommonPages/AppTrace/Category.aspx" role="*" />
+    </r:category>
+    <r:category name="UserAndPC" title="用户和权限中心" visible="true">
+      <r:item name="PC" title="机构人员管理" href="/MCSWebApp/PermissionCenter/default.aspx" />
+      <r:item name="AllApplication" title="应用" href="/MCSWebApp/PermissionCenter/lists/AllApps.aspx"/>
+      <r:item name="Group" title="群组管理" href="/MCSWebApp/OACommonPages/WFGroup/WFGroupManager.aspx"/>
+      <r:item name="Position" title="岗位管理" href="/MCSWebApp/OACommonPages/WFPost/WFPostManager.aspx"/>
+      <r:item name="Cache" title="清除缓存" href="/MCSWebApp/MCSOAPortal/Mechanism/RemoveMechanismCache.aspx" />
+      <r:item name="AlterMan" title="修改待办人" href="/MCSWebApp/MCSOAPortal/ReplaceAssignee/ReplaceAssigneeList.aspx" />
+      <r:item name="ReplaceMemberOfRole" title="替换角色中人员" href="/MCSWebApp/SinoOcean.Seagull2.PersonnelAdjustment/MemberRole/MemberRoleView.aspx" role="OAPORTAL:PORTAL_ADMIN" />
+      <r:item name="ReplaceMemberInMatrix" title="批量替换矩阵成员" href="/MCSWebApp/SinoOcean.Seagull2.PersonnelAdjustment/MatrixRole/MemberMatrix.aspx" role="OAPORTAL:PORTAL_ADMIN" />
+      <r:item name="ReplaceStaticMembers" title="批量替换固定人员" href="/MCSWebApp/SinoOcean.Seagull2.PersonnelAdjustment/ProcessDefinitionImpl/FlowList.aspx" role="OAPORTAL:PORTAL_ADMIN" />
+    </r:category>
+    <r:category name="LogAndMonitor" title="日志和监控" visible="true" >
+      <r:item name="OperationLog" title="日志" href="/MCSWebApp/OACommonPages/UserOperationLog/UserOperationLogView.aspx" />
+      <r:item name="ServiceProcess" title="服务进程" href="/MCSWebApp/OACommonPages/ThreadStatus/ServiceThreadStatus.aspx" />
+    </r:category>
+  </r:group>
+</r:category>

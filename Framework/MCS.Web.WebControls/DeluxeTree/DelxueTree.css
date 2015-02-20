@@ -1,0 +1,21 @@
+.ajax__tree_nodetext
+{
+	font-family: simsun;
+	font-size: 12px;
+	font-weight: normal;
+	cursor: hand;
+}
+
+.ajax__tree_nodetext_selected
+{
+	font-family: simsun;
+	font-size: 12px;
+	background-color: Navy;
+	font-weight: normal;
+	color: White;
+	cursor: hand;
+}
+
+.ajax__tree_nodeimg
+{
+}

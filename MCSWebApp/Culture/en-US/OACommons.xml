@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dictionary sourceCulture="zh-CN" targetCulture="en-US">
+    <Item source="无" target="None" />
+    <Item source="加签" target="Forward" />
+    <Item source="退件" target="Return" />
+    <Item source="转签" target="Change" />
+    <Item source="会签" target="Countersign" />
+    <Item source="起草" target="Requestor" />
+    <Item source="开始: {0:yyyy年M月d日 HH:mm:ss}" target="Begin:{0:yyyy-MM-dd HH:mm:ss}" />
+    <Item source="处理时间为" target="Processing time:" />
+    <Item source="{0:#,##0}秒" target="{0:#,##0} seconds" />
+    <Item source="{0:#,##0}分钟{1:#,##0}秒" target="{0:#,##0} minutes and {1:#,##0} seconds" />
+    <Item source="{0:#,##0}小时{1:#,##0}分钟" target="{0:#,##0} hours and {1:#,##0} minutes" />
+    <Item source="{0:#,##0}天{1:#,##0}小时" target="{0:#,##0} days and {1:#,##0} hours" />
+    <Item source="人员信息有误" target="Personal info error" />
+    <Item source="未指定人员或角色" target="Person or role is not specified" />
+    <Item source="起点" target="Begin" />
+    <Item source="结束" target="The End" />
+    <Item source="查看日志描述" target="View log" />
+    <Item source="日志查看" target="Log view" />
+    <Item source="应用日志浏览" target="Application log view" />
+    <Item source="没有查询到您所需要的数据" target="No data" />
+    <Item source="标题" target="Title" />
+    <Item source="表单类别" target="Form categories" />
+    <Item source="操作人部门" target="Operator Department" />
+    <Item source="操作人组织" target="Department" />
+    <Item source="操作人员" target="Operator" />
+    <Item source="操作人" target="Operator" />
+    <Item source="应用名称" target="App Name" />
+    <Item source="环节名称" target="Activity Name" />
+    <Item source="具体操作"  target="Operation" />
+    <Item source="待办人列表" target="Assignees" />
+    <Item source="操作时间" target="Operation time" />
+    <Item source="详细" target="Details" />
+    <Item source="详细日志" target="Log Details" />
+    <Item source="详细信息" target="Details info" />
+    <Item source="动作名称" target="Action" />
+    <Item source="作废" target="Reject" />
+    <Item source="否决" target="Reject" />
+    <Item source="流转" target="Circulate" />
+    <Item source="送签" target="Send" />
+    <Item source="撤回" target="Withdraw" />
+    <Item source="待办转出" target="Change assignees" />
+    <Item source="流程跟踪" target="Trace" />
+    <Item source="任务催办" target="Reminds" />
+    <Item source="催办人员" target="Target" />
+    <Item source="消息标题" target="Title" />
+    <Item source="消息内容" target="Content" />
+    <Item source="催办时间" target="Time" />
+    <Item source="被催办人" target="Target" />
+    <Item source="催办方式" target="Methods" />
+    <Item source="再次催办" target="Again" />
+    <Item source="催办记录" target="Reminds" />
+
+    <Item source="服务器" target="Servers" />
+    <Item source="服务进程状态监测" target="Services Status" />
+    <Item source="催办记录" target="Reminds" />
+    <Item source="线程名称" target="Thread Name" />
+    <Item source="执行状态" target="Thread Status" />
+    <Item source="最后轮询时间" target="Last Polling Time" />
+    <Item source="最后的消息" target="Last Message" />
+    <Item source="最后的异常" target="Last Exception" />
+
+    <Item source="委托授权" target="Delegation" />
+    <Item source="委托授权定义" target="Delegation" />
+    <Item source="新增委托授权" target="New delegation" />
+    <Item source="新增委托授权" target="New delegation" />
+    <Item source="委托授权记录浏览" target="Delegation List" />
+
+    <Item source="被委托人" target="Consignee" />
+    <Item source="委托开始时间" target="Start Time" />
+    <Item source="委托结束时间" target="End Time" />
+    <Item source="编辑" target="Edit" />
+    <Item source="修改" target="Modify" />
+    <Item source="删除" target="Delete" />
+    <Item source="确认要删除吗？" target="Sure you want to delete ?" />
+
+    <Item source="关闭(C)" target="Close" />
+    <Item source="保存(S)" target="Save" />
+    <Item source="错误" target="Error" />
+    <Item source="必须选择被委托人" target="Must choose the consignee." />
+    <Item source="必须填写开始时间和结束时间" target="Required start time and end time." />
+    <Item source="结束时间不能小于开始时间" target="End time can not be less than start time." />
+    <Item source="暂时没有您需要的数据" target="No data found" />
+
+    <Item source="相关材料" target="Relative Materials" />
+
+    <!--ProcessParametersEditor-->
+    <Item source="流程参数编辑器" target="Process Parameters Editor" />
+    <Item source="流程参数编辑" target="Edit Process Parameters" />
+</Dictionary>

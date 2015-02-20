@@ -1,0 +1,101 @@
+// DeluxeWebHelperControl.idl : IDL source for DeluxeWebHelperControl
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (DeluxeWebHelperControl.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(A5310BE0-3441-4D43-8B16-64A677D7C889),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IComponentHelper : IDispatch{
+	[id(1)] HRESULT CreateObject([in] BSTR progID, [out, retval] IDispatch** result);
+	[id(2)] HRESULT CreateLocalServer(BSTR progID, [out, retval] IDispatch** result);
+	[id(3)] HRESULT GetAuthor([out, retval] IDispatch** author);
+};
+[
+	object,
+	uuid(CE5489C3-E5FE-4B07-8A05-7C468FE54849),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IDialogHelper : IDispatch{
+	[propget, id(1)] HRESULT Title([out, retval] BSTR* pVal);
+	[propput, id(1)] HRESULT Title([in] BSTR newVal);
+	[propget, id(2)] HRESULT FileName([out, retval] BSTR* pVal);
+	[propput, id(2)] HRESULT FileName([in] BSTR newVal);
+	[propget, id(3)] HRESULT MultiSelect([out, retval] VARIANT_BOOL* pVal);
+	[propput, id(3)] HRESULT MultiSelect([in] VARIANT_BOOL newVal);
+	[propget, id(4)] HRESULT FileNames([out, retval] VARIANT* pVal);
+	[propget, id(5)] HRESULT Filter([out, retval] BSTR* pVal);
+	[propput, id(5)] HRESULT Filter([in] BSTR newVal);
+	[id(6)] HRESULT OpenDialog([out, retval] VARIANT_BOOL* retVal);
+};
+[
+	object,
+	uuid(0DACA1F2-4D58-4E1F-98C1-B1CAEB9B48D4),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IAuthor : IDispatch{
+	[propget, id(1)] HRESULT Name([out, retval] BSTR* pVal);
+	[propput, id(1)] HRESULT Name([in] BSTR newVal);
+};
+[
+	object,
+	uuid(D6D17CF3-BB5A-4B80-ABB0-080DE96AC4ED),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IClientEnv : IDispatch{
+	[id(1)] HRESULT GetMACAddressFromUuid([out, retval] BSTR* retVal);
+	[id(2)] HRESULT GetAllMACAddresses([out, retval] VARIANT* addresses);
+	[id(3)] HRESULT GetAllEncryptedMACAddresses([in] BSTR encString, [out, retval] VARIANT* encAddresses);
+};
+[
+	uuid(4F153A56-19C8-48B0-8B87-903B1C7FF86A),
+	version(1.0),
+]
+library DeluxeWebHelperControlLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(A4C46B85-9E6E-4B38-8911-2EFC1F2984C3)
+	]
+	coclass ComponentHelper
+	{
+		[default] interface IComponentHelper;
+	};
+	[
+		uuid(ED8B69F0-6563-472C-8177-C9ACDC26B2DC)
+	]
+	coclass DialogHelper
+	{
+		[default] interface IDialogHelper;
+	};
+	[
+		uuid(ED85DDEC-691E-4807-9243-C5E9ECFFE2B3)		
+	]
+	coclass Author
+	{
+		[default] interface IAuthor;
+	};
+	[
+		uuid(44C5B98D-3B18-4821-8CA5-2139E95EE689)		
+	]
+	coclass ClientEnv
+	{
+		[default] interface IClientEnv;
+	};
+};
+
+import "shobjidl.idl";

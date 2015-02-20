@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{69A1E346-A9A4-49A3-B9B0-CAA03BCE8A62}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MCS.Library.Office.OpenXml.Excel</RootNamespace>
+    <AssemblyName>MCS.Library.Office.OpenXml.Excel</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'DebugP|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\DebugPerformance\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>MCS.Library.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CellAddress.cs" />
+    <Compile Include="Cell.cs" />
+    <Compile Include="CellBase.cs" />
+    <Compile Include="CellCollection.cs" />
+    <Compile Include="Column.cs" />
+    <Compile Include="ColumnCollections.cs" />
+    <Compile Include="Comment.cs" />
+    <Compile Include="Common\CommonNodeInfo.cs" />
+    <Compile Include="Common\ExcelCommon.cs" />
+    <Compile Include="Common\ExtensionMethods.cs" />
+    <Compile Include="Common\ElementInfo.cs" />
+    <Compile Include="Common\PackageHelper.cs" />
+    <Compile Include="Common\SpreadSheetAttributeHelper.cs" />
+    <Compile Include="Common\TimeWrapper.cs" />
+    <Compile Include="DataValidation\BaseDataValidationFormula.cs" />
+    <Compile Include="DataValidation\DataValidationCollection.cs" />
+    <Compile Include="DataValidation\DataValidationCustom.cs" />
+    <Compile Include="DataValidation\DataValidationDateTime.cs" />
+    <Compile Include="DataValidation\DataValidationDecimal.cs" />
+    <Compile Include="DataValidation\DataValidationFactory.cs" />
+    <Compile Include="DataValidation\DataValidationFormulas.cs" />
+    <Compile Include="DataValidation\DataValidationInt.cs" />
+    <Compile Include="DataValidation\DataValidationList.cs" />
+    <Compile Include="DataValidation\DataValidationTime.cs" />
+    <Compile Include="DataValidation\DataValidationType.cs" />
+    <Compile Include="DataValidation\DataValidationWithFormula2.cs" />
+    <Compile Include="DataValidation\ExcelDataValidation.cs" />
+    <Compile Include="DataValidation\IDataValidation.cs" />
+    <Compile Include="DataValidation\IDataValidationFormula.cs" />
+    <Compile Include="DataValidation\IDataValidationWithFormula.cs" />
+    <Compile Include="DataValidation\IDataValidationWithOperator.cs" />
+    <Compile Include="Description\Attributes.cs" />
+    <Compile Include="Description\ExportTableRowContext.cs" />
+    <Compile Include="Description\SpreadSheetDescription.cs" />
+    <Compile Include="Description\TableDescriptionCacheQueue.cs" />
+    <Compile Include="DocumentHelper.cs" />
+    <Compile Include="Drawing\DrawingBorder.cs" />
+    <Compile Include="Drawing\DrawingCollection.cs" />
+    <Compile Include="Drawing\DrawingFill.cs" />
+    <Compile Include="Drawing\DrawingPosition.cs" />
+    <Compile Include="Drawing\ExcelDrawing.cs" />
+    <Compile Include="Drawing\ExcelPicture.cs" />
+    <Compile Include="Drawing\ImageInfo.cs" />
+    <Compile Include="Encryption\EncryptedPackageHandler.cs" />
+    <Compile Include="Encryption\EncryptionHeader.cs" />
+    <Compile Include="Encryption\EncryptionInfo.cs" />
+    <Compile Include="Encryption\EncryptionVerifier.cs" />
+    <Compile Include="Encryption\ExcelEncryption.cs" />
+    <Compile Include="Enumerations.cs" />
+    <Compile Include="ExcelHyperlink.cs" />
+    <Compile Include="ExcelWriter.cs" />
+    <Compile Include="Formula\Formulas.cs" />
+    <Compile Include="Formula\Formula.cs" />
+    <Compile Include="HeaderFooter\HeaderFooter.cs" />
+    <Compile Include="HeaderFooter\HeaderFooterText.cs" />
+    <Compile Include="HeaderFooter\VmlDrawingPicture.cs" />
+    <Compile Include="HeaderFooter\VmlDrawingPictureCollection.cs" />
+    <Compile Include="IIndex.cs" />
+    <Compile Include="IPersistable.cs" />
+    <Compile Include="DefinedName.cs" />
+    <Compile Include="DefinedNameCollection.cs" />
+    <Compile Include="FileProperties.cs" />
+    <Compile Include="PageSetup.cs" />
+    <Compile Include="PageSetupSettings\PrinterSettings.cs" />
+    <Compile Include="PhoneticProperties.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Range.cs" />
+    <Compile Include="RichText\CommentCollection.cs" />
+    <Compile Include="RichText\RichText.cs" />
+    <Compile Include="RichText\RichTextCollection.cs" />
+    <Compile Include="RichText\VmlDrawingPosition.cs" />
+    <Compile Include="SheetPageMargins.cs" />
+    <Compile Include="SheetProtection.cs" />
+    <Compile Include="ExcelCollectionBase.cs" />
+    <Compile Include="ExcelIndexCollection.cs" />
+    <Compile Include="ExcelReader.cs" />
+    <Compile Include="SheetView.cs" />
+    <Compile Include="Styles\CellFormat.cs" />
+    <Compile Include="Styles\SheetTableStyles.cs" />
+    <Compile Include="Styles\StyleDifferentialFormat.cs" />
+    <Compile Include="Tables\TableCell.cs" />
+    <Compile Include="Tables\TableRow.cs" />
+    <Compile Include="Tables\TableRowCollection.cs" />
+    <Compile Include="Theme\IThemeColorScheme.cs" />
+    <Compile Include="Theme\Theme.cs" />
+    <Compile Include="Theme\ThemeColorScheme.cs" />
+    <Compile Include="Theme\ThemeElements.cs" />
+    <Compile Include="Theme\ThemeExtraClrSchemeLst.cs" />
+    <Compile Include="Theme\ThemeFontScheme.cs" />
+    <Compile Include="Theme\ThemeFormatScheme.cs" />
+    <Compile Include="Theme\ThemeObjectDefaults.cs" />
+    <Compile Include="Theme\ThemeSrgbColor.cs" />
+    <Compile Include="Theme\ThemeSysColor.cs" />
+    <Compile Include="WorkbookFileVersion.cs" />
+    <Compile Include="WorkBookProperties.cs" />
+    <Compile Include="WorkBookProtection.cs" />
+    <Compile Include="Row.cs" />
+    <Compile Include="SharedStringItem.cs" />
+    <Compile Include="Common\ExcelHelper.cs" />
+    <Compile Include="ExcelLoadContext.cs" />
+    <Compile Include="ExcelSaveContext.cs" />
+    <Compile Include="Common\ExcelXmlElement.cs" />
+    <Compile Include="Styles\BorderItemXml.cs" />
+    <Compile Include="Styles\BorderXml.cs" />
+    <Compile Include="Styles\CellStyleXml.cs" />
+    <Compile Include="Styles\ColorXml.cs" />
+    <Compile Include="Styles\FillXml.cs" />
+    <Compile Include="Styles\FontXml.cs" />
+    <Compile Include="Styles\NamedStyleXml.cs" />
+    <Compile Include="Styles\NumberFormatXml.cs" />
+    <Compile Include="Styles\StyleCollection.cs" />
+    <Compile Include="Styles\StyleXmlBase.cs" />
+    <Compile Include="Styles\WorkBookStyles.cs" />
+    <Compile Include="Tables\TableColumn.cs" />
+    <Compile Include="Tables\TableColumnCollection.cs" />
+    <Compile Include="Tables\Table.cs" />
+    <Compile Include="Tables\TableCollection.cs" />
+    <Compile Include="WorkBookView.cs" />
+    <Compile Include="WorkBook.cs" />
+    <Compile Include="WorkBookViewCollection.cs" />
+    <Compile Include="WorkSheet.cs" />
+    <Compile Include="WorkSheetCollection.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MCS.Library.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Exceptions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MCS.Library\MCS.Library.P.csproj">
+      <Project>{4077B0B7-062A-4F6D-8A45-A180A2ED3215}</Project>
+      <Name>MCS.Library.P</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

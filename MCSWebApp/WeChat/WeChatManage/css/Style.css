@@ -1,0 +1,479 @@
+﻿
+*
+{
+	margin: 0;
+	padding: 0;
+}
+p
+{
+	margin: 0 0 1em 0;
+}
+html, body
+{
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+body
+{
+	height: 100%;
+	margin: 0;
+	font-family: Verdana, 宋体, SimSun;
+	font-size: 9pt;
+	border: solid 0px #FF0000;
+}
+#outer
+{
+	/*background: white;*/
+	overflow: auto;
+	position: fixed;
+	left: 0px;
+	right: 0px;
+	top: 70px;
+	bottom: 20px;
+}
+#top, #bottom
+{
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	height: 70px;
+	background: repeat-x;
+	overflow: hidden;
+	display: block;
+	clear: both;
+}
+#top
+{
+	top: 0px;
+	height: 70px;
+}
+#bottom
+{
+	bottom: 0px;
+	height: 20px;
+}
+
+
+* html
+{
+	padding: 70px 0px 10px 0px;
+	overflow: hidden;
+}
+* html #outer
+{
+	height: 100%;
+	width: 100%;
+	position: absolute;
+}
+* html #top
+{
+	width: 100%;
+	left: 0; /*margin-top:20px;*/
+	border: solid 0px #00FF00;
+}
+* html #bottom
+{
+	left: 0;
+	width: 100%;
+}
+
+input
+{
+}
+
+a.addfile
+{
+	/*background-image: url(../images/muti.gif);*/
+	background-repeat: no-repeat;
+	background-position: -823px -17px;
+	display: block;
+	float: left;
+	height: 20px;
+	margin-top: -1px;
+	position: inherit;
+	text-decoration: none;
+	top: 0pt;
+	width: 15px;
+}
+
+a.button
+{
+	font-size: 14px;
+	margin-top: 8px;
+	margin-bottom: 4px;
+	margin-left: 4px;
+	margin-right: 4px;
+}
+
+input.addfile
+{
+	/*left:-18px;*/
+}
+input.addfile
+{
+	cursor: pointer !important;
+	height: 18px;
+	left: -13px;
+	filter: alpha(opacity=0);
+	position: absolute;
+	top: 5px;
+	width: 1px;
+	z-index: -1;
+}
+
+.formTitle
+{
+	height: 50px;
+	text-align: center;
+	color: #2A4CA5;
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 50px;
+}
+
+.Title
+{
+	font-size: 11pt;
+	font-weight: normal;
+	height: 24px;
+	text-align: center;
+	color: #333333;
+	text-decoration: none;
+	background-color: #A4B9D7;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-bottom-style: inherit;
+	border-top-color: #999999;
+	border-right-color: #999999;
+	border-bottom-color: #999999;
+	border-left-color: #999999;
+}
+
+.line
+{
+	background-color: #D4D4D4;
+	height: 3px;
+}
+.outerTable
+{
+	border: solid 0px #FFFFFF;
+	border-collapse: collapse;
+	border-spacing: 0px;
+	width: 90%;
+	text-align: left;
+}
+.commonTable
+{
+	width: 100%;
+	background-color: #C0C0C0;
+	text-align: left;
+}
+
+.commonTable1
+{
+	border: solid 1px #C3C3C3;
+	border-collapse: collapse;
+	border-spacing: 0px;
+	width: 100%;
+	text-align: left;
+}
+.commonTable1 td, .commonTable1 th
+{
+	border-color: #C3C3C3;
+}
+.commongravetable
+{
+	border-collapse: collapse;
+	border: solid 0px #FF0000;
+}
+.commongravetable td, .commongravetable th
+{
+	border-collapse: collapse;
+	border-top: solid 1px #C3C3C3;
+	border-right: solid 1px #C3C3C3;
+}
+
+.printTable, .printTable td, .printTable th, .printheadTable, .printheadTable th
+{
+	border-collapse: collapse;
+	border: solid 1px #000000;
+}
+
+.commonRow
+{
+	background-color: White;
+}
+
+.TitleRow
+{
+	background-color: #E7E6E6;
+}
+.TitleRow td
+{
+	height: 28px;
+}
+
+.text
+{
+	border-top-style: none;
+	border-bottom: #e0e0e0 1px solid;
+	border-right-style: none;
+	border-left-style: none;
+}
+
+.borderText
+{
+	border-top-color: #0099FF;
+	border-left-color: #0099FF;
+	border-color: #0099FF;
+	border-width: 1px;
+}
+
+.multiText
+{
+}
+
+.fieldName
+{
+	height: 28px;
+	background-color: #F0F0F0;
+	text-align: center;
+}
+
+.listbox
+{
+	border: #2A4CA5 1px solid;
+}
+
+.linkbtn
+{
+	font-weight: 800;
+	text-decoration: none;
+	font-size: 11pt;
+	color: #333333;
+}
+
+.smalllinkbtn
+{
+	font-weight: 800;
+	text-decoration: none;
+	font-size: 9pt;
+	color: #333333;
+}
+
+.childTbFieldCell
+{
+	height: 35px;
+	background-color: #F0F0F0;
+	border-right-style: groove;
+	border-right-color: Silver;
+	border-right-width: 1px;
+}
+
+.childTbCell
+{
+	border-right-style: groove;
+	border-right-color: Silver;
+	border-right-width: 1px;
+}
+
+.wordBreak
+{
+	word-break: break-all;
+	word-wrap: break-word; /*overflow: hidden;  	white-space:nowrap; 	padding-right: 0px; 	padding-left: 3px;  	padding-bottom: 3px;  	padding-top: 3px; */
+}
+
+.wordNoBreak
+{
+	white-space: nowrap;
+	text-align: center;
+}
+
+/*clear border*/
+.clearallborder, .clearallborder td, .clearallborder th
+{
+	border: none;
+}
+.clearborderright, .clearborderright td, .clearborderright th
+{
+	border-right: solid 0px #C3C3C3;
+}
+.clearborderleft, .clearborderleft td, .clearborderleft th
+{
+	border-left: solid 0px #C3C3C3;
+}
+.clearborderbottom, .clearborderbottom td, .clearborderbottom th
+{
+	border-bottom: solid 0px #C3C3C3;
+}
+.clearbordertop td
+{
+	border-top: solid 0px #C3C3C3;
+}
+/*clear border*/
+
+/* add by Chen Weiwei 2009.06.19 */
+/* workflow toolbar */
+.wftoolbar
+{
+	background: url(../images/toolbar.png) repeat-x;
+	width: 100%;
+	height: 60px;
+	text-align: center;
+	vertical-align: middle;
+	border: solid 1px #B2B2B2;
+}
+
+.wftoolbar .bar
+{
+	width: 100%;
+	height: 100%;
+}
+
+.wftoolbar .enable
+{
+	color: #000;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 5px 0 4px;
+	background: transparent url(../images/MenuButtonEnable.png) repeat-x scroll left top;
+}
+
+.wftoolbar .invisible
+{
+	display: none;
+}
+
+.wftoolbar .disable
+{
+	font-weight: normal;
+	font-size: 14px;
+	color: #BBB;
+	cursor: text;
+}
+
+/* opinion list view */
+.opinionListView
+{
+	font-size: 12px;
+	font-weight: normal;
+	color: #000;
+	width: 100%;
+	background: #F0F0F0;
+}
+
+.opinionListView td
+{
+	border-top: solid 1px #C3C3C3;
+}
+
+.opinionListView .activity
+{
+	width: 20%;
+	min-width: 150px; *width:23%;
+	text-align:center;
+	padding:10px2px;
+	border-right:solid1px#C3C3C3;
+}
+
+.opinionListView .activity .actName
+{
+	font-weight: bold;
+	margin: 5px 0px;
+	text-decoration: underline;
+}
+
+.opinionListView .activity .opDept
+{
+	font-weight: bold;
+	margin: 5px 0px;
+}
+
+.opinionListView .activity .opName
+{
+	color: Black;
+	margin: 5px 0px;
+}
+
+.opinionListView .activity .command
+{
+	margin: 5px 0px;
+}
+
+.opinionListView .activity .command .btn
+{
+	background: url(../images/RoundButton.png);
+	display: inline-block;
+	width: 44px;
+	height: 20px;
+	margin: 0px 2px;
+	padding-top: 2px;
+	-padding-top: 3px;
+}
+
+.opinionListView .activity .command .btn:hover
+{
+	background: url(../images/RoundButtonHover.png);
+}
+
+.opinionListView .opinions
+{
+	text-align: left;
+	padding: 10px;
+	-padding-left: 16px;
+	font-size: 12px;
+	font-weight: normal;
+	font-style: normal;
+}
+
+.opinionListView .opinions td
+{
+	border: none;
+}
+
+.opinionListView .opinions .opinion
+{
+	background: #FFFFFF none repeat scroll 0 0;
+	border: 1px solid #AAA;
+	border-bottom: none;
+	padding: 6px 8px;
+	-margin-left: -8px;
+}
+
+.opinionListView .opinions .opinion .text
+{
+	border: none;
+}
+
+.opinionListView .opinions .opinion .signName
+{
+	text-align: right;
+}
+
+.opinionListView .opinions .opinion .signDate
+{
+	text-align: right;
+}
+
+.radioBtnGrp input
+{
+	vertical-align: middle;
+}
+
+.asterisk
+{
+	color: Red;
+	font-weight: bold;	
+}
+
+.button
+{
+	font-size: 14px;
+	margin-top: 8px;
+	margin-bottom: 4px;
+	margin-left: 4px;
+	margin-right: 4px;
+}

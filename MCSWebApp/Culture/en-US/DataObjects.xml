@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dictionary sourceCulture="zh-CN" targetCulture="en-US">
+	<Item source="门户应用" target="Portal Application"/>
+	<Item source="门户" target="Portal"/>
+
+	<Item source="列表展示" target="List show"/>
+	<Item source="公共设置" target="Public settings" />
+
+	<Item source="待办事项单页显示条数" target="To do list the number of rows per page"/>
+	<Item source="通知单页显示条数" target="Notifies list the number of rows per page" />
+	<Item source="已办事项单页显示条数" target="Completed list the number of rows per page" />
+	<Item source="工作台待办事项显示条数" target="Workspace to do list count" />
+	<Item source="工作台通知显示条数" target="Workspace notifies count" />
+	<Item source="全文搜索单页显示条数" target="search list the number of rows per page" />
+	<Item source="常用意见" target="common opinion" />
+	<Item source="附件文件打开方式" target="file open way" />
+	<Item source="语言" target="Language" />
+	<Item source="下载Excel Xml的文档类型(缺省application/vnd.ms-excel)" target="Download Excel Xml document type(Default: application/vnd.ms-excel)" />
+	<Item source="下载Excel Xml的文件后缀(缺省xls)" target="Download Excel Xml file suffix(Default: xls)" />
+	
+	<!--Enumerations-->
+	<Item source="一般" target="Common" />
+	<Item source="加急" target="Urgent" />
+	<Item source="特急" target="Extra urgent" />
+	<Item source="急件" target="Language" />
+
+	<Item source="秘密" target="Secret" />
+	<Item source="机密" target="Confidential" />
+	<Item source="绝密" target="Top-secret" />
+
+	<Item source="未完成" target="Unfinished" />
+	<Item source="完成" target="Finished" />
+
+	<Item source="男" target="Male" />
+	<Item source="女" target="Female" />
+
+	<Item source="启用" target="Enable" />
+	<Item source="禁用" target="Disable" />
+
+	<Item source="选人方式" target="Select Approver" />
+	<Item source="通用流程方式" target="Generic Process" />
+
+	<Item source="同意" target="Agree" />
+	<Item source="不同意" target="Disagree" />
+
+	<Item source="是" target="Yes" />
+	<Item source="否" target="No" />
+	<Item source="不选" target="Not selected" />
+	
+	<Item source="有" target="Have" />
+	<Item source="没有" target="None" />
+
+	<Item source="邮件" target="Mail" />
+	<Item source="催办任务" target="Remind Task" />
+
+	<Item source="普通操作日志" target="Op Log" />
+	<Item source="表单操作日志" target="For Op Log" />
+
+	<Item source="拒绝" target="Refuse" />
+	
+	<Item source="归档" target="Archive" />
+	<Item source="发送范围" target="Send Scope" />
+	<!--Enumerations-->
+</Dictionary>

@@ -1,0 +1,27 @@
+body
+{
+}
+
+alertSpan
+{
+	background-image : url(<%=WebResource("MCS.Web.Controls.PopupCalendar.Images.Alert.gif")%>)
+}
+
+.sampleControl
+{
+	border:solid 1px #cccccc;
+}
+
+.sampleControl .input
+{
+	border:solid 1px #ffff00;
+	font-size:18px;	
+}
+
+.sampleControl .button
+{
+	width:50px;
+	height:30px;
+	font-size:14px;
+	font-family:@¡• È;
+}

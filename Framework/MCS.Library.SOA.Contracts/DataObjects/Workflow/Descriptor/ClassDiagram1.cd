@@ -1,0 +1,887 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.ClientCollectionBase&lt;T&gt;" Collapsed="true">
+    <Position X="21.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEYEAEAAABSAoBAQCAEAFAQAAAAAAgAECEQQAABQIAI=</HashCode>
+      <FileName>DataObjects\ObjectModel\ClientCollectionBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.ReadOnlyDataObjectCollectionBase&lt;T&gt;" Collapsed="true">
+    <Position X="21.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAACAAAAABEAAAQAAAQAAAAAAAIAAABAAEAAAFQIAA=</HashCode>
+      <FileName>DataObjects\ObjectModel\DataObjectCollectionBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.DataObjectCollectionBase&lt;T&gt;" Collapsed="true">
+    <Position X="21.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\ObjectModel\DataObjectCollectionBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.EditableDataObjectCollectionBase&lt;T&gt;" Collapsed="true">
+    <Position X="20" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAACAAAAAAQAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\ObjectModel\DataObjectCollectionBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.EditableKeyedDataObjectCollectionBase&lt;TKey, TItem&gt;" Collapsed="true">
+    <Position X="20" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAEACCACAEAAAAAAAAAAgAAAAAAEAAAIAA=</HashCode>
+      <FileName>DataObjects\ObjectModel\DataObjectCollectionBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.ClientOguDataCollection&lt;T&gt;" Collapsed="true">
+    <Position X="40.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIQAAIAAAAUAAEECAAQRAAEAIAAAAAgANgAogYQAAI=</HashCode>
+      <FileName>DataObjects\Ogu\ClientOguDataCollection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.ClientOguGroup" Collapsed="true">
+    <Position X="0.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMIAEAAAAAAA=</HashCode>
+      <FileName>DataObjects\Ogu\ClientOguGroup.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.ClientOguObjectBase" Collapsed="true">
+    <Position X="3.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CCAAEAAAAAAggAAAAAAQAAQAAAAAAAABAIAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Ogu\ClientOguObjectBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.ClientOguObjectCollection&lt;T&gt;" Collapsed="true">
+    <Position X="31.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Ogu\ClientOguObjectBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.ClientOguOrganization" Collapsed="true">
+    <Position X="2.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ICABEIAAAQCAAAAAAAAEQAAAAEAAAAAAEIAAACAAEBA=</HashCode>
+      <FileName>DataObjects\Ogu\ClientOguOrganization.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.ClientOguRole" Collapsed="true">
+    <Position X="5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAgAAAgoAAAIAACAAQAAAAEAAAAAgAAAACAAgA=</HashCode>
+      <FileName>DataObjects\Ogu\ClientOguRole.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.ClientOguUser" Collapsed="true">
+    <Position X="7.25" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAACAAAAAAAAAQAAAgAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Ogu\ClientOguUser.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.ClientPropertyDefine" Collapsed="true">
+    <Position X="42.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAIxAEAAAAAAAAQAAABAAAAIggAIAAAACAA=</HashCode>
+      <FileName>DataObjects\PropertyDefine\ClientPropertyDefine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.ClientPropertyDefineCollection" Collapsed="true">
+    <Position X="6.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\PropertyDefine\ClientPropertyDefineCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.ClientPropertyValue" Collapsed="true">
+    <Position X="44.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAGAAAAAAAAAAAAAAAAAIgAAAAAAAAABA=</HashCode>
+      <FileName>DataObjects\PropertyDefine\ClientPropertyValue.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.ClientPropertyValueCollection" Collapsed="true">
+    <Position X="8.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAgCAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\PropertyDefine\ClientPropertyValueCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.WfClientExternalUser" Collapsed="true">
+    <Position X="44.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACCCAQAESQAAAAIAQAAIEAAEAAAAAAIAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\ExternalUser\WfClientExternalUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.WfClientExternalUserCollection" Collapsed="true">
+    <Position X="20" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\ExternalUser\WfClientExternalUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.ClientStringCollection" Collapsed="true">
+    <Position X="11" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Test\Test1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Main" Collapsed="true">
+    <Position X="49.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Test\Test1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Sub" Collapsed="true">
+    <Position X="51.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAIAADAAAAAA=</HashCode>
+      <FileName>Test\Test1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientActionParams" Collapsed="true">
+    <Position X="46.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Actions\IWfClientAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.ClientUserTaskActionBase" Collapsed="true">
+    <Position X="46.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Actions\IWfClientAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientActivityAssigneesResourceDescriptor" Collapsed="true">
+    <Position X="21.75" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Descriptor\WfClientActivityAssigneesResourceDescriptor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientActivityDescriptor" Collapsed="true">
+    <Position X="10.5" Y="13.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>BAAAAIAoIECAECAAoxBAAAAIIgAAAAgEikwCEAgAAQg=</HashCode>
+      <FileName>DataObjects\Workflow\Descriptor\WfClientActivityDescriptor..cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientActivityDescriptorCollection" Collapsed="true">
+    <Position X="29" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Descriptor\WfClientActivityDescriptor..cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientActivityOperatorResourceDescriptor" Collapsed="true">
+    <Position X="28.5" Y="13.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAABAAAAAAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Descriptor\WfClientActivityOperatorResourceDescriptor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientBranchProcessTemplateDescriptor" Collapsed="true">
+    <Position X="30.75" Y="13.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>QAAAABAAIAEAAAAAAAAAAAAAAgAIAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Descriptor\WfClientBranchProcessTemplateDescriptor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientBranchProcessTemplateDescriptorCollection" Collapsed="true">
+    <Position X="17.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Descriptor\WfClientBranchProcessTemplateDescriptor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientConditionDescriptor" Collapsed="true">
+    <Position X="49.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAgAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Descriptor\WfClientConditonDescriptor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientDepartmentResourceDescriptor" Collapsed="true">
+    <Position X="17.25" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Descriptor\WfClientDepartmentResourceDescriptor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientDynamicResourceDescriptor" Collapsed="true">
+    <Position X="19.5" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>DataObjects\Workflow\Descriptor\WfClientDynamicResourceDescriptor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientKeyedDescriptorBase" Collapsed="true">
+    <Position X="16.25" Y="12.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAJQQAAAAAAQAAAAAAAAAABAAAAACAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Descriptor\WfClientKeyedDescriptorBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientKeyedDescriptorCollectionBase&lt;TKey, TItem&gt;" Collapsed="true">
+    <Position X="23.5" Y="7.5" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAgAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Descriptor\WfClientKeyedDescriptorBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientProcessDescriptor" Collapsed="true">
+    <Position X="3.75" Y="13.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>JAAACBAAAEAEAAAAIBAAAAAAEIAAAAAEiA1ACIADAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Descriptor\WfClientProcessDescriptor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientRelativeLinkDescriptor" Collapsed="true">
+    <Position X="8.25" Y="13.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAACAA=</HashCode>
+      <FileName>DataObjects\Workflow\Descriptor\WfClientRelativeLinkDescriptor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientRelativeLinkDescriptorCollection" Collapsed="true">
+    <Position X="26.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Descriptor\WfClientRelativeLinkDescriptor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientResourceDescriptor" Collapsed="true">
+    <Position X="19.5" Y="13.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Descriptor\WfClientResourceDescriptor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientUserResourceDescriptor" Collapsed="true">
+    <Position X="24" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Descriptor\WfClientResourceDescriptor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientGroupResourceDescriptor" Collapsed="true">
+    <Position X="26.25" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Descriptor\WfClientResourceDescriptor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientOrganizationResourceDescriptor" Collapsed="true">
+    <Position X="12.75" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAQ=</HashCode>
+      <FileName>DataObjects\Workflow\Descriptor\WfClientResourceDescriptor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientRoleResourceDescriptor" Collapsed="true">
+    <Position X="15" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Descriptor\WfClientResourceDescriptor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientResourceDescriptorCollection" Collapsed="true">
+    <Position X="4.25" Y="6.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Descriptor\WfClientResourceDescriptor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientTransitionDescriptor" Collapsed="true">
+    <Position X="1.5" Y="13.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAACAAQAEAAABAAAAgQAAAAAAgASACAQAAAg=</HashCode>
+      <FileName>DataObjects\Workflow\Descriptor\WfClientTransitionDescriptor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientTransitionDescriptorCollection" Collapsed="true">
+    <Position X="22.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Descriptor\WfClientTransitionDescriptor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.ToTransitionsDescriptorCollection" Collapsed="true">
+    <Position X="22.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Descriptor\WfClientTransitionDescriptor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientVariableDescriptor" Collapsed="true">
+    <Position X="6" Y="13.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAwAAAAIAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Descriptor\WfClientVariableDescriptor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientVariableDescriptorCollection" Collapsed="true">
+    <Position X="24.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Descriptor\WfClientVariableDescriptor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.ClientUserTaskCollection" Collapsed="true">
+    <Position X="48" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\ClientUserTaskCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientAclItem" Collapsed="true">
+    <Position X="42.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientAclItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientAclItemCollection" Collapsed="true">
+    <Position X="44.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientAclItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientActivity" Collapsed="true">
+    <Position X="48" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BABAAAIEEkBAgAQBggAQUAAAIAEgIAAIAgCAAAAENAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientActivity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientActivity" Collapsed="true">
+    <Position X="11.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BABAQAIEEkBAgAQBggAQUAAgYAEgIAAIggCAAAAENIA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientActivity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientActivityBuilderBase" Collapsed="true">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientActivityBuilderBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientNormalActivityBuilder" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientActivityBuilderBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientInitialActivityBuilder" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientActivityBuilderBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientCompletedActivityBuilder" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientActivityBuilderBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientConditionalActivityBuilder" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientActivityBuilderBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientCompositeActivityBuilder" Collapsed="true">
+    <Position X="9.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientActivityBuilderBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientActivityChangingContext" Collapsed="true">
+    <Position X="49.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientActivityChangingContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientActivityCollection" Collapsed="true">
+    <Position X="33.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientActivityCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientActionCollection" Collapsed="true">
+    <Position X="38" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientActivityCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientActivityDescriptorCreateParams" Collapsed="true">
+    <Position X="51.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientActivityDescriptorCreateParams.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientApplicationRumtimeParameters" Collapsed="true">
+    <Position X="5" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientApplicationRumtimeParameters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientAssignee" Collapsed="true">
+    <Position X="42.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAgAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientAssignee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientAssigneeCollection" Collapsed="true">
+    <Position X="2" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientAssignee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientBranchProcessGroup" Collapsed="true">
+    <Position X="44.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAABAAAAAAAAAgAAgAAgAAAAAAAAAAEAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientBranchProcessGroup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientBranchProcessStartupParams" Collapsed="true">
+    <Position X="46.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAEAAAAAAAAAAAAQEAAAGAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientBranchProcessStartupParams.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientBranchProcessStartupParamsCollection" Collapsed="true">
+    <Position X="35.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientBranchProcessStartupParams.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientCompletedActivity" Collapsed="true">
+    <Position X="12.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientCompletedActivity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientContextDictionaryBase&lt;TKey, TValue&gt;" Collapsed="true">
+    <Position X="2.75" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAIAAAAAIAGAADAECCAEBAQAAAAAIAAAAAAAAAAQoCA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientContextDictionaryBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientActivityContext" Collapsed="true">
+    <Position X="0.5" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientContextDictionaryBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientProcessContext" Collapsed="true">
+    <Position X="2.75" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientContextDictionaryBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientDefaultUserFunctionImpl" Collapsed="true">
+    <Position X="51.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientDefaultUserFunctionImpl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientDescriptorBase" Collapsed="true">
+    <Position X="42.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientDescriptorBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientMoveToParams" Collapsed="true">
+    <Position X="46.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientMoveToParams.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientNormalActivity" Collapsed="true">
+    <Position X="10.25" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientNormalActivity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientPendingActivityInfo" Collapsed="true">
+    <Position X="48" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAEAAAAAAAAAAAAAAEAEAAAAAEAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientPendingActivityInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientProcess" Collapsed="true">
+    <Position X="49.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IYBAYIQEIkAKgkQAFIESAIBCMAmgBAAAEAAASIsEFAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientProcess.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientProcessCollection" Collapsed="true">
+    <Position X="13.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientProcess.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientProcessActionContext" Collapsed="true">
+    <Position X="51.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAkAAQEAAAQCigAAAAEAAAAAAAABAAAIAAAAQAACEg=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientProcessActionContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientProcessContextCache" Collapsed="true">
+    <Position X="42" Y="4.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientProcessContextCache.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientProcessInstanceData" Collapsed="true">
+    <Position X="44.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IABAAIAEAAQEAAAAAIAgAAAAOAGgABAAEAEACAkAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientProcessInstanceData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientProcessStartupParams" Collapsed="true">
+    <Position X="46.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIMAAAAACAEABAIAQEABAEAAAAAAAEAAAAAkAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientProcessStartupParams.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientRuntime" Collapsed="true">
+    <Position X="48" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientRuntime.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientRuntimeException" Collapsed="true">
+    <Position X="49.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientRuntimeException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientRuntimeParameters" Collapsed="true">
+    <Position X="51.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientRuntimeParameters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientSqlProcessPersistManager" Collapsed="true">
+    <Position X="42.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientSqlProcessPersistManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientStartupWorkflowParams" Collapsed="true">
+    <Position X="44.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientStartupWorkflowParams.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientTransferParamsBase" Collapsed="true">
+    <Position X="14.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAEAAAAAAQQUAAAAAAAAAAAAAAAAAAAMAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientTransferParamsBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientTransferParams" Collapsed="true">
+    <Position X="14.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientTransferParamsBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientBranchProcessTransferParams" Collapsed="true">
+    <Position X="48" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAEAAAAAAAAABAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientTransferParamsBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.Contracts.DataObjects.Workflow.WfClientBranchProcessTransferParamsCollection" Collapsed="true">
+    <Position X="15.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Runtime\WfClientTransferParamsBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="MCS.Library.SOA.Contracts.DataObjects.IClientGroup" Collapsed="true">
+    <Position X="7.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>DataObjects\Ogu\IClientGroup.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MCS.Library.SOA.Contracts.DataObjects.IClientOguObject" Collapsed="true">
+    <Position X="10.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CCAAEAAAAAAggAAAAAAAAAQAAAAAAAABAIAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Ogu\IClientOguObject.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MCS.Library.SOA.Contracts.DataObjects.IClientOguRole" Collapsed="true">
+    <Position X="9.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAgAAAggAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Ogu\IClientOguRole.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MCS.Library.SOA.Contracts.DataObjects.IClientOrganization" Collapsed="true">
+    <Position X="12" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAACAAAAAAAAEAAAAAEAAAAAAAAAAACAAEAA=</HashCode>
+      <FileName>DataObjects\Ogu\IClientOrganization.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MCS.Library.SOA.Contracts.DataObjects.IClientUser" Collapsed="true">
+    <Position X="14.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAACAAAAAAAAAQAAAgAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Ogu\IClientUser.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="MCS.Library.SOA.Contracts.DataObjects.ClientFileEmergency" Collapsed="true">
+    <Position X="48" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAEAgAAAAAAAAAAAAAAAAAEAAAEAAAA=</HashCode>
+      <FileName>DataObjects\Common\Enumerations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Library.SOA.Contracts.DataObjects.ClientFileSecret" Collapsed="true">
+    <Position X="49.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAEAACA=</HashCode>
+      <FileName>DataObjects\Common\Enumerations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Library.SOA.Contracts.DataObjects.ClientArchiveStatus" Collapsed="true">
+    <Position X="46.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAIAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>DataObjects\Common\Enumerations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Library.SOA.Contracts.DataObjects.ClientCompleteFlag" Collapsed="true">
+    <Position X="48" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAACAAA=</HashCode>
+      <FileName>DataObjects\Common\Enumerations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Library.SOA.Contracts.DataObjects.ClientGender" Collapsed="true">
+    <Position X="51.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>DataObjects\Common\Enumerations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Library.SOA.Contracts.DataObjects.ClientApprovalScore" Collapsed="true">
+    <Position X="44.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAACAAAAAAAAAAIAAIAAAIAABAAAAAAAQE=</HashCode>
+      <FileName>DataObjects\Common\Enumerations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Library.SOA.Contracts.DataObjects.ClientApprovalResult" Collapsed="true">
+    <Position X="42.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Common\Enumerations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Library.SOA.Contracts.DataObjects.ClientDepartmentClassType" Collapsed="true">
+    <Position X="42.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAQAAAAAAgBAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Common\Enumerations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Library.SOA.Contracts.DataObjects.ClientDepartmentTypeDefine" Collapsed="true">
+    <Position X="46.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAABAABAgAAIAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Common\Enumerations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Library.SOA.Contracts.DataObjects.ClientDepartmentRankType" Collapsed="true">
+    <Position X="44.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAEAAQAAAgAQAAAAAAAAIAAAAAAAEAAAk=</HashCode>
+      <FileName>DataObjects\Common\Enumerations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Library.SOA.Contracts.DataObjects.ClientObjectSchemaType" Collapsed="true">
+    <Position X="42.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAGABAAAAgABAAAQAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Ogu\Enumerations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Library.SOA.Contracts.DataObjects.ClientUserRankType" Collapsed="true">
+    <Position X="48" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAEAAQAAAgAQAAAAAAAAIgAAAEAAAAAAk=</HashCode>
+      <FileName>DataObjects\Ogu\Enumerations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Library.SOA.Contracts.DataObjects.ClientSearchOUIDType" Collapsed="true">
+    <Position X="46.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAQAAAAAAAABAAAAAAAAAEAAAA=</HashCode>
+      <FileName>DataObjects\Ogu\Enumerations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Library.SOA.Contracts.DataObjects.SortDirectionType" Collapsed="true">
+    <Position X="51.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAABAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>DataObjects\Ogu\Enumerations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Library.SOA.Contracts.DataObjects.OrderByPropertyType" Collapsed="true">
+    <Position X="49.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CCAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>DataObjects\Ogu\Enumerations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Library.SOA.Contracts.DataObjects.ClientPropertyDataType" Collapsed="true">
+    <Position X="44.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAARAgAAAQQAAAAAAAAAAAAgQAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\PropertyDefine\ClientPropertyDataType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Library.SOA.Contracts.DataObjects.WfClientProcessStatus" Collapsed="true">
+    <Position X="51.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIABAAAAAAAAAAAAAAIAAAAAAAAAgA=</HashCode>
+      <FileName>DataObjects\Workflow\Enumerations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Library.SOA.Contracts.DataObjects.WfClientActivityStatus" Collapsed="true">
+    <Position X="42.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIABAAAAAAAAAAAAAAIAAAAIAAAAgA=</HashCode>
+      <FileName>DataObjects\Workflow\Enumerations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Library.SOA.Contracts.DataObjects.WfClientActivityType" Collapsed="true">
+    <Position X="44.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Enumerations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Library.SOA.Contracts.DataObjects.WfClientBranchProcessBlockingType" Collapsed="true">
+    <Position X="48" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAgBAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Enumerations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Library.SOA.Contracts.DataObjects.WfClientBranchProcessExecuteSequence" Collapsed="true">
+    <Position X="49.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAQAAACAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Enumerations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Library.SOA.Contracts.DataObjects.WfClientProcessType" Collapsed="true">
+    <Position X="42.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Enumerations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Library.SOA.Contracts.DataObjects.ClientDataType" Collapsed="true">
+    <Position X="51.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAQAAAAAAAAAACAAQAAAAAAAAgACA=</HashCode>
+      <FileName>DataObjects\Workflow\Enumerations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Library.SOA.Contracts.DataObjects.WfClientAssigneeType" Collapsed="true">
+    <Position X="46.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Workflow\Enumerations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Library.SOA.Contracts.DataObjects.ClientDataLoadingType" Collapsed="true">
+    <Position X="49.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAACAA=</HashCode>
+      <FileName>DataObjects\Workflow\Enumerations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="MCS.Library.SOA.Contracts.DataObjects.DataObjectCollectionDataInsertedHandler&lt;T&gt;" Collapsed="true">
+    <Position X="42.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>JAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\ObjectModel\DataObjectCollectionBase.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="MCS.Library.SOA.Contracts.DataObjects.DistinctComparison&lt;T&gt;" Collapsed="true">
+    <Position X="44.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\ObjectModel\DataObjectCollectionBase.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Microsoft YaHei" Size="9" />
+</ClassDiagram>

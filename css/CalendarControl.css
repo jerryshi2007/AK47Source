@@ -1,0 +1,114 @@
+.CssClass_Demo1 .ajax__calendar_container {
+    border:2px solid #646464;
+    background-color:Lime;
+    color: red;
+}
+.CssClass_Demo1 .ajax__calendar_other .ajax__calendar_day,
+.CssClass_Demo1 .ajax__calendar_other .ajax__calendar_year {
+    color: Red;
+}
+.CssClass_Demo1 .ajax__calendar_hover .ajax__calendar_day,
+.CssClass_Demo1 .ajax__calendar_hover .ajax__calendar_month,
+.CssClass_Demo1 .ajax__calendar_hover .ajax__calendar_year {
+    color: Green;
+}
+.CssClass_Demo1 .ajax__calendar_active .ajax__calendar_day,
+.CssClass_Demo1 .ajax__calendar_active .ajax__calendar_month,
+.CssClass_Demo1 .ajax__calendar_active .ajax__calendar_year {
+    color: Yellow;
+    font-weight:bold;
+}
+
+.CssClass_Demo2 .ajax__calendar_container {
+    border:1px solid #646464;
+    background-color: lemonchiffon;
+    color: red;
+}
+.CssClass_Demo2 .ajax__calendar_other .ajax__calendar_day,
+.CssClass_Demo2 .ajax__calendar_other .ajax__calendar_year {
+    color: black;
+}
+.CssClass_Demo2 .ajax__calendar_hover .ajax__calendar_day,
+.CssClass_Demo2 .ajax__calendar_hover .ajax__calendar_month,
+.CssClass_Demo2 .ajax__calendar_hover .ajax__calendar_year {
+    color: black;
+}
+.CssClass_Demo2 .ajax__calendar_active .ajax__calendar_day,
+.CssClass_Demo2 .ajax__calendar_active .ajax__calendar_month,
+.CssClass_Demo2 .ajax__calendar_active .ajax__calendar_year {
+    color: black;
+    font-weight:bold;
+}
+
+.TextCss_Demo1 
+{
+	font-size:larger;
+	font-weight:bold;
+	color:Red;
+    background-color:Lime;
+}
+
+.TextCss_Demo2
+{
+	font-style:italic;
+	color:Gray;
+	background-color:white;
+}
+
+.TextCssClass_Demo1 
+{
+	font-size:larger;
+	font-weight:bold;
+	color:Red;
+    background-color:Lime;
+}
+
+.TextCssClass_Demo2
+{
+	font-style:italic;
+	color:Gray;
+	background-color:white;
+}
+
+.OnInvalidCssClass_Demo1
+{
+	color:Red;
+	background-color:Green;
+	 background-color:Lime;
+	 border-bottom-color:Green;
+}
+
+.OnInvalidCssClass_Demo2
+{
+	color:Blue;
+	background-color:Yellow;
+	 border-bottom-style:double;
+	 color:Blue;
+}
+
+.ImageCssClass_Demo1
+{
+	background-color:Red;
+	width:100px;
+	height:25px;
+	 font-size:x-small;
+	 outline-color:Orange;
+}
+
+.ImageCssClass_Demo2
+{
+	background-color:Yellow;
+	border-color:Green;
+	outline-color:Black;
+}
+
+.CssClass_Demo1
+{
+	width:70px;
+	 color:Green;
+}
+.CssClass_Demo2
+{
+	left:100px;
+	color:Black;
+}

@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppCodeName" xml:space="preserve">
+    <value>OGU_ADMIN</value>
+    <comment>机构人员管理系统的注册名称</comment>
+  </data>
+  <data name="ConnAlias" xml:space="preserve">
+    <value>AccreditAdmin</value>
+  </data>
+  <data name="Func_CreateGroup" xml:space="preserve">
+    <value>CREATE_GROUPS</value>
+    <comment>功能：创建新用户组</comment>
+  </data>
+  <data name="Func_CreateOrg" xml:space="preserve">
+    <value>CREATE_ORGANIZATIONS</value>
+    <comment>功能：创建新机构</comment>
+  </data>
+  <data name="Func_CreateUser" xml:space="preserve">
+    <value>CREATE_USERS</value>
+    <comment>功能：创建新用户</comment>
+  </data>
+  <data name="Func_FurbishGroup" xml:space="preserve">
+    <value>FURBISH_DELETE_GROUPS</value>
+    <comment>功能：恢复被逻辑删除用户组</comment>
+  </data>
+  <data name="Func_FurbishOrg" xml:space="preserve">
+    <value>FURBISH_DELETE_ORGANIZATIONS</value>
+    <comment>功能：恢复被逻辑删除机构</comment>
+  </data>
+  <data name="Func_FurbishUser" xml:space="preserve">
+    <value>FURBISH_DELETE_USERS</value>
+    <comment>功能：恢复被逻辑删除用户</comment>
+  </data>
+  <data name="Func_GroupAddUser" xml:space="preserve">
+    <value>GROUP_ADD_USERS</value>
+    <comment>功能：人员组中增加成员</comment>
+  </data>
+  <data name="Func_GroupDelUser" xml:space="preserve">
+    <value>GROUP_DEL_USERS</value>
+    <comment>功能：人员组中删除成员</comment>
+  </data>
+  <data name="Func_InitUserPwd" xml:space="preserve">
+    <value>INIT_USERS_PWD</value>
+    <comment>功能：初始化用户口令</comment>
+  </data>
+  <data name="Func_LogicDelGroup" xml:space="preserve">
+    <value>LOGIC_DELETE_GROUPS</value>
+    <comment>功能：逻辑删除用户组</comment>
+  </data>
+  <data name="Func_LogicDelOrg" xml:space="preserve">
+    <value>LOGIC_DELETE_ORGANIZATIONS</value>
+    <comment>功能：逻辑删除机构</comment>
+  </data>
+  <data name="Func_LogicDelUser" xml:space="preserve">
+    <value>LOGIC_DELETE_USERS</value>
+    <comment>功能：逻辑删除用户</comment>
+  </data>
+  <data name="Func_ModifyGroup" xml:space="preserve">
+    <value>UPDATE_GROUPS</value>
+    <comment>功能：修改人员组属性</comment>
+  </data>
+  <data name="Func_ModifyOrg" xml:space="preserve">
+    <value>UPDATE_ORGANIZATIONS</value>
+    <comment>功能：修改机构属性</comment>
+  </data>
+  <data name="Func_ModifyUser" xml:space="preserve">
+    <value>UPDATE_USERS</value>
+    <comment>功能：修改用户属性</comment>
+  </data>
+  <data name="Func_RealDelGroup" xml:space="preserve">
+    <value>REAL_DELETE_GROUPS</value>
+    <comment>功能：物理删除人员组</comment>
+  </data>
+  <data name="Func_RealDelOrg" xml:space="preserve">
+    <value>REAL_DELETE_ORGANIZATIONS</value>
+    <comment>功能：物理删除机构</comment>
+  </data>
+  <data name="Func_RealDelUser" xml:space="preserve">
+    <value>REAL_DELETE_USERS</value>
+    <comment>功能：物理删除用户</comment>
+  </data>
+  <data name="Func_SecretaryAdd" xml:space="preserve">
+    <value>SECRETARY_ADD</value>
+    <comment>功能：设置秘书</comment>
+  </data>
+  <data name="Func_SecretaryDel" xml:space="preserve">
+    <value>SECRETARY_DEL</value>
+    <comment>功能：删除秘书</comment>
+  </data>
+  <data name="Func_SetSideline" xml:space="preserve">
+    <value>SET_SIDELINE</value>
+    <comment>功能：设置用户兼职</comment>
+  </data>
+  <data name="Func_SortInGroup" xml:space="preserve">
+    <value>SORT_IN_GROUP</value>
+    <comment>功能：人员组中人员排序</comment>
+  </data>
+  <data name="Func_SortInOrg" xml:space="preserve">
+    <value>SORT_IN_ORGANIZATIONS</value>
+    <comment>功能：机构内对象排序</comment>
+  </data>
+  <data name="OriginalSortDefault" xml:space="preserve">
+    <value>000000</value>
+    <comment>用于设置排序上的区别（6位一节方式）</comment>
+  </data>
+  <data name="Table_Group" xml:space="preserve">
+    <value>GROUPS</value>
+    <comment>数据表：用户组表</comment>
+  </data>
+  <data name="Table_GroupUser" xml:space="preserve">
+    <value>GROUP_USERS</value>
+    <comment>数据表：用户与人员组之间的关系表</comment>
+  </data>
+  <data name="Table_Org" xml:space="preserve">
+    <value>ORGANIZATIONS</value>
+    <comment>数据表：机构</comment>
+  </data>
+  <data name="Table_OuUser" xml:space="preserve">
+    <value>OU_USERS</value>
+    <comment>数据表：用户与机构之间的关系表</comment>
+  </data>
+  <data name="Table_Pwd" xml:space="preserve">
+    <value>PWD_ARITHMETIC</value>
+    <comment>数据表：系统中使用的密码类型表</comment>
+  </data>
+  <data name="Table_RankDefine" xml:space="preserve">
+    <value>RANK_DEFINE</value>
+    <comment>数据表：系统定义的人员行政级别信息表</comment>
+  </data>
+  <data name="Table_Secretary" xml:space="preserve">
+    <value>SECRETARIES</value>
+    <comment>数据表：领导与秘书的关系表</comment>
+  </data>
+  <data name="Table_User" xml:space="preserve">
+    <value>USERS</value>
+    <comment>数据表：用户数据表</comment>
+  </data>
+</root>

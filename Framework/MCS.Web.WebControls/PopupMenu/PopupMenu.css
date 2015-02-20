@@ -1,0 +1,60 @@
+﻿/*itemCssClass默认的样式*/
+.popupMenu_Default_Item
+{
+	height:25px;
+}
+/*enable时的样式*/
+.popupMenu_Default_Item_Enable
+{
+	height:25px;
+}
+
+.popupMenu_Default_ItemSelected
+{
+	background-color: #aaaaaa;
+	height:25px;  /*和没选中时一样*/
+}
+
+.popupMenu_Default_ImageCol
+{
+	background-color: #bbbbbb;
+	text-align:center;
+    width: 24px;	
+}
+/*整个table，菜单项的样式*/
+.popupMenu_Default
+{
+	font-size:14px;
+}
+
+.popupMenu_Default_PopBody
+{
+	background-color:#dddddd;
+	font-size:14px
+}
+
+.popupMenu_Default_ItemHover 
+{
+	background-color: #feeec2;
+}
+
+.popupMenu_Default_Image
+{
+}
+
+.popupMenu_Default_Separator
+{
+	background-color: #555555;
+	height:1px
+}
+
+.popupMenu_Back
+{
+ width: 24px;
+background-image:url(<%=WebResource("ChinaCustoms.Framework.DeluxeWorks.Web.WebControls.PopupMenu.back.gif")%>); background-repeat:repeat-y; height:auto; width:20px;	
+}
+
+.popupMenu_Border
+{
+	border: 1px solid #000000;/**/
+}

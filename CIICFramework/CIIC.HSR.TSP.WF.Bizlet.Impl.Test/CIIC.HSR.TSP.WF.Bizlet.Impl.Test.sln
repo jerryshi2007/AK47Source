@@ -1,0 +1,247 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIIC.HSR.TSP.WF.Bizlet.Impl.Test", "CIIC.HSR.TSP.WF.Bizlet.Impl.Test\CIIC.HSR.TSP.WF.Bizlet.Impl.Test.csproj", "{38A06D22-7B98-491A-9918-2365DFE6558A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIIC.HSR.TSP.WF.Bizlet.Impl", "..\CIIC.HSR.TSP.WF.Bizlet.Impl\CIIC.HSR.TSP.WF.Bizlet.Impl.csproj", "{0DD239F0-1F63-4A35-800E-B9EA29D0E24C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIIC.HSR.TSP.Abstractions", "..\..\..\TSP.TA\CIIC.HSR.TSP.Abstractions\CIIC.HSR.TSP.Abstractions\CIIC.HSR.TSP.Abstractions.csproj", "{079A3A27-1909-427C-870C-EF6A5FEF243B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIIC.HSR.TSP.Common", "..\..\..\TSP.TA\CIIC.HSR.TSP.Common\CIIC.HSR.TSP.Common\CIIC.HSR.TSP.Common.csproj", "{B2DB46BA-7188-416B-AD27-6320AF3FD2A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIIC.HSR.TSP.Resource", "..\..\..\TSP.TA\CIIC.HSR.TSP.Resource\CIIC.HSR.TSP.Resource.csproj", "{55AAB7CE-4BE0-466F-B3EC-2201210F0D0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIIC.HSR.TSP.DataAccess.EF", "..\..\..\TSP.TA\CIIC.HSR.TSP.DataAccess.EF\CIIC.HSR.TSP.DataAccess.EF\CIIC.HSR.TSP.DataAccess.EF.csproj", "{E0484D3B-182F-4A21-A35C-4CE1AB2444B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIIC.HSR.TSP.AN.Bizlet.Contract", "..\..\..\TSP.AN\CIIC.HSR.TSP.AN\CIIC.HSR.TSP.AN.Bizlet.Contract\CIIC.HSR.TSP.AN.Bizlet.Contract.csproj", "{AE176E41-61A8-435D-95BD-9045F7323ED4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIIC.HSR.TSP.AN.BizObject", "..\..\..\TSP.AN\CIIC.HSR.TSP.AN\CIIC.HSR.TSP.AN.BizObject\CIIC.HSR.TSP.AN.BizObject.csproj", "{4FF9D908-ECAB-4712-A5B0-A2FC37FC9F5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIIC.HSR.TSP.AN.Bizlet.Impl", "..\..\..\TSP.AN\CIIC.HSR.TSP.AN\CIIC.HSR.TSP.AN.Bizlet.Impl\CIIC.HSR.TSP.AN.Bizlet.Impl.csproj", "{46DE323F-F30A-4267-9DAF-1B5922F73F13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIIC.HSR.TSP.TA.Bizlet.Contract", "..\..\..\TSP.TA\CIIC.HSR.TSP.TA.Bizlet.Contract\CIIC.HSR.TSP.TA.Bizlet.Contract.csproj", "{EEF8B919-73B1-429C-A96E-19381E860242}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIIC.HSR.TSP.TA.BizObject", "..\..\..\TSP.TA\CIIC.HSR.TSP.TA.BizObject\CIIC.HSR.TSP.TA.BizObject.csproj", "{B448872C-EF93-4E8F-A50C-9BB8E925E6E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIIC.HSR.TSP.TA.Bizlet.Impl", "..\..\..\TSP.TA\CIIC.HSR.TSP.TA.Bizlet.Impl\CIIC.HSR.TSP.TA.Bizlet.Impl.csproj", "{22D065AE-4510-41D6-80F5-B8292D42666E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIIC.HSR.TSP.WF.Bizlet.Contract", "..\CIIC.HSR.TSP.WF.Bizlet.Contract\CIIC.HSR.TSP.WF.Bizlet.Contract.csproj", "{B0633F3C-8C34-4A51-912A-9201E0B7945F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIIC.HSR.TSP.WF.Bizlet.Common", "..\CIIC.HSR.TSP.WF.Bizlet.Common\CIIC.HSR.TSP.WF.Bizlet.Common.csproj", "{5E2A47D3-16C8-4DFD-AC7C-3796E868AF4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIIC.HSR.TSP.WF.BizObject", "..\CIIC.HSR.TSP.WF.BizObject\CIIC.HSR.TSP.WF.BizObject.csproj", "{B779C5A2-EFAF-4BE6-B540-91732C6B6222}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIIC.HSR.TSP.WF.Persistence.Contract", "..\CIIC.HSR.TSP.WF.Persistence.Contract\CIIC.HSR.TSP.WF.Persistence.Contract.csproj", "{6BDD31BF-65B5-46B8-A5D0-BB4CF1DE819D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIIC.HSR.TSP.WF.Persistence.Impl", "..\CIIC.HSR.TSP.WF.Persistence.Impl\CIIC.HSR.TSP.WF.Persistence.Impl.csproj", "{76E74D1D-0933-4D4A-AAE8-E1F9E03D3EE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIIC.HSR.TSP.AN.Persistence.Contract", "..\..\..\TSP.AN\CIIC.HSR.TSP.AN\CIIC.HSR.TSP.AN.Persistence.Contract\CIIC.HSR.TSP.AN.Persistence.Contract.csproj", "{83E69FAB-FDB4-409A-B310-8E9BF29AB44E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIIC.HSR.Messages", "..\..\..\TSP.Message\CIIC.HSR.Messages\CIIC.HSR.Messages\CIIC.HSR.Messages.csproj", "{30DD19FA-B376-47F8-BC40-24FF1B77AC63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIIC.HSR.TSP.AN.Common", "..\..\..\TSP.AN\CIIC.HSR.TSP.AN\CIIC.HSR.TSP.AN.Common\CIIC.HSR.TSP.AN.Common.csproj", "{4E29901B-EA3A-491B-8DF9-6ACCBB1B473E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIIC.HSR.TSP.AN.Persistence.Impl", "..\..\..\TSP.AN\CIIC.HSR.TSP.AN\CIIC.HSR.TSP.AN.Persistence.Impl\CIIC.HSR.TSP.AN.Persistence.Impl.csproj", "{6DEA2BDC-96E7-4A9B-89E3-E85DD6D8B21B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIIC.HSR.TSP.WorkSchedule.Abstractions", "..\..\..\TSP.TA\CIIC.HSR.TSP.WorkSchedule\CIIC.HSR.TSP.WorkSchedule.Abstractions\CIIC.HSR.TSP.WorkSchedule.Abstractions.csproj", "{26A0FEF0-756C-4AB2-BE60-88D161500AB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIIC.HSR.TSP.WorkSchedule", "..\..\..\TSP.TA\CIIC.HSR.TSP.WorkSchedule\CIIC.HSR.TSP.WorkSchedule\CIIC.HSR.TSP.WorkSchedule.csproj", "{180FBF5E-D9A1-4A59-8108-06C3448F1EBC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIIC.HSR.TSP.ServiceBus", "..\..\..\TSP.TA\CIIC.HSR.TSP.ServiceBus\CIIC.HSR.TSP.ServiceBus.csproj", "{F6EBA781-A3CD-490A-B284-9731FFF445FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIIC.HSR.TSP.TA.Persistence.Contract", "..\..\..\TSP.TA\CIIC.HSR.TSP.TA.Persistence.Contract\CIIC.HSR.TSP.TA.Persistence.Contract.csproj", "{98F2C9CE-6971-41A4-B063-E57E9CD2E63A}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 26
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://shsvr9141tfs.ciicsh.local:8080/tfs/rhso
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ..\\CIIC.HSR.TSP.WF.Bizlet.Impl\\CIIC.HSR.TSP.WF.Bizlet.Impl.csproj
+		SccProjectName1 = ../CIIC.HSR.TSP.WF.Bizlet.Impl
+		SccLocalPath1 = ..\\CIIC.HSR.TSP.WF.Bizlet.Impl
+		SccProjectUniqueName2 = ..\\..\\..\\TSP.TA\\CIIC.HSR.TSP.Abstractions\\CIIC.HSR.TSP.Abstractions\\CIIC.HSR.TSP.Abstractions.csproj
+		SccProjectName2 = ../../../TSP.TA/CIIC.HSR.TSP.Abstractions/CIIC.HSR.TSP.Abstractions
+		SccLocalPath2 = ..\\..\\..\\TSP.TA\\CIIC.HSR.TSP.Abstractions\\CIIC.HSR.TSP.Abstractions
+		SccProjectUniqueName3 = ..\\..\\..\\TSP.TA\\CIIC.HSR.TSP.Common\\CIIC.HSR.TSP.Common\\CIIC.HSR.TSP.Common.csproj
+		SccProjectName3 = ../../../TSP.TA/CIIC.HSR.TSP.Common/CIIC.HSR.TSP.Common
+		SccLocalPath3 = ..\\..\\..\\TSP.TA\\CIIC.HSR.TSP.Common\\CIIC.HSR.TSP.Common
+		SccProjectUniqueName4 = ..\\..\\..\\TSP.TA\\CIIC.HSR.TSP.Resource\\CIIC.HSR.TSP.Resource.csproj
+		SccProjectName4 = ../../../TSP.TA/CIIC.HSR.TSP.Resource
+		SccLocalPath4 = ..\\..\\..\\TSP.TA\\CIIC.HSR.TSP.Resource
+		SccProjectUniqueName5 = ..\\..\\..\\TSP.TA\\CIIC.HSR.TSP.DataAccess.EF\\CIIC.HSR.TSP.DataAccess.EF\\CIIC.HSR.TSP.DataAccess.EF.csproj
+		SccProjectName5 = ../../../TSP.TA/CIIC.HSR.TSP.DataAccess.EF/CIIC.HSR.TSP.DataAccess.EF
+		SccLocalPath5 = ..\\..\\..\\TSP.TA\\CIIC.HSR.TSP.DataAccess.EF\\CIIC.HSR.TSP.DataAccess.EF
+		SccProjectUniqueName6 = ..\\..\\..\\TSP.AN\\CIIC.HSR.TSP.AN\\CIIC.HSR.TSP.AN.Bizlet.Contract\\CIIC.HSR.TSP.AN.Bizlet.Contract.csproj
+		SccProjectName6 = ../../../TSP.AN/CIIC.HSR.TSP.AN/CIIC.HSR.TSP.AN.Bizlet.Contract
+		SccLocalPath6 = ..\\..\\..\\TSP.AN\\CIIC.HSR.TSP.AN\\CIIC.HSR.TSP.AN.Bizlet.Contract
+		SccProjectUniqueName7 = ..\\..\\..\\TSP.AN\\CIIC.HSR.TSP.AN\\CIIC.HSR.TSP.AN.BizObject\\CIIC.HSR.TSP.AN.BizObject.csproj
+		SccProjectName7 = ../../../TSP.AN/CIIC.HSR.TSP.AN/CIIC.HSR.TSP.AN.BizObject
+		SccLocalPath7 = ..\\..\\..\\TSP.AN\\CIIC.HSR.TSP.AN\\CIIC.HSR.TSP.AN.BizObject
+		SccProjectUniqueName8 = ..\\..\\..\\TSP.AN\\CIIC.HSR.TSP.AN\\CIIC.HSR.TSP.AN.Bizlet.Impl\\CIIC.HSR.TSP.AN.Bizlet.Impl.csproj
+		SccProjectName8 = ../../../TSP.AN/CIIC.HSR.TSP.AN/CIIC.HSR.TSP.AN.Bizlet.Impl
+		SccLocalPath8 = ..\\..\\..\\TSP.AN\\CIIC.HSR.TSP.AN\\CIIC.HSR.TSP.AN.Bizlet.Impl
+		SccProjectUniqueName9 = ..\\..\\..\\TSP.TA\\CIIC.HSR.TSP.TA.Bizlet.Contract\\CIIC.HSR.TSP.TA.Bizlet.Contract.csproj
+		SccProjectName9 = ../../../TSP.TA/CIIC.HSR.TSP.TA.Bizlet.Contract
+		SccLocalPath9 = ..\\..\\..\\TSP.TA\\CIIC.HSR.TSP.TA.Bizlet.Contract
+		SccProjectUniqueName10 = ..\\..\\..\\TSP.TA\\CIIC.HSR.TSP.TA.BizObject\\CIIC.HSR.TSP.TA.BizObject.csproj
+		SccProjectName10 = ../../../TSP.TA/CIIC.HSR.TSP.TA.BizObject
+		SccLocalPath10 = ..\\..\\..\\TSP.TA\\CIIC.HSR.TSP.TA.BizObject
+		SccProjectUniqueName11 = ..\\..\\..\\TSP.TA\\CIIC.HSR.TSP.TA.Bizlet.Impl\\CIIC.HSR.TSP.TA.Bizlet.Impl.csproj
+		SccProjectName11 = ../../../TSP.TA/CIIC.HSR.TSP.TA.Bizlet.Impl
+		SccLocalPath11 = ..\\..\\..\\TSP.TA\\CIIC.HSR.TSP.TA.Bizlet.Impl
+		SccProjectUniqueName12 = ..\\CIIC.HSR.TSP.WF.Bizlet.Contract\\CIIC.HSR.TSP.WF.Bizlet.Contract.csproj
+		SccProjectName12 = ../CIIC.HSR.TSP.WF.Bizlet.Contract
+		SccLocalPath12 = ..\\CIIC.HSR.TSP.WF.Bizlet.Contract
+		SccProjectUniqueName13 = ..\\CIIC.HSR.TSP.WF.Bizlet.Common\\CIIC.HSR.TSP.WF.Bizlet.Common.csproj
+		SccProjectName13 = ../CIIC.HSR.TSP.WF.Bizlet.Common
+		SccLocalPath13 = ..\\CIIC.HSR.TSP.WF.Bizlet.Common
+		SccProjectUniqueName14 = ..\\CIIC.HSR.TSP.WF.BizObject\\CIIC.HSR.TSP.WF.BizObject.csproj
+		SccProjectName14 = ../CIIC.HSR.TSP.WF.BizObject
+		SccLocalPath14 = ..\\CIIC.HSR.TSP.WF.BizObject
+		SccProjectUniqueName15 = ..\\CIIC.HSR.TSP.WF.Persistence.Contract\\CIIC.HSR.TSP.WF.Persistence.Contract.csproj
+		SccProjectName15 = ../CIIC.HSR.TSP.WF.Persistence.Contract
+		SccLocalPath15 = ..\\CIIC.HSR.TSP.WF.Persistence.Contract
+		SccProjectUniqueName16 = ..\\CIIC.HSR.TSP.WF.Persistence.Impl\\CIIC.HSR.TSP.WF.Persistence.Impl.csproj
+		SccProjectName16 = ../CIIC.HSR.TSP.WF.Persistence.Impl
+		SccLocalPath16 = ..\\CIIC.HSR.TSP.WF.Persistence.Impl
+		SccProjectUniqueName17 = ..\\..\\..\\TSP.AN\\CIIC.HSR.TSP.AN\\CIIC.HSR.TSP.AN.Persistence.Contract\\CIIC.HSR.TSP.AN.Persistence.Contract.csproj
+		SccProjectName17 = ../../../TSP.AN/CIIC.HSR.TSP.AN/CIIC.HSR.TSP.AN.Persistence.Contract
+		SccLocalPath17 = ..\\..\\..\\TSP.AN\\CIIC.HSR.TSP.AN\\CIIC.HSR.TSP.AN.Persistence.Contract
+		SccProjectUniqueName18 = CIIC.HSR.TSP.WF.Bizlet.Impl.Test\\CIIC.HSR.TSP.WF.Bizlet.Impl.Test.csproj
+		SccProjectName18 = CIIC.HSR.TSP.WF.Bizlet.Impl.Test
+		SccLocalPath18 = CIIC.HSR.TSP.WF.Bizlet.Impl.Test
+		SccProjectUniqueName19 = ..\\..\\..\\TSP.Message\\CIIC.HSR.Messages\\CIIC.HSR.Messages\\CIIC.HSR.Messages.csproj
+		SccProjectName19 = ../../../TSP.Message/CIIC.HSR.Messages/CIIC.HSR.Messages
+		SccLocalPath19 = ..\\..\\..\\TSP.Message\\CIIC.HSR.Messages\\CIIC.HSR.Messages
+		SccProjectUniqueName20 = ..\\..\\..\\TSP.AN\\CIIC.HSR.TSP.AN\\CIIC.HSR.TSP.AN.Common\\CIIC.HSR.TSP.AN.Common.csproj
+		SccProjectName20 = ../../../TSP.AN/CIIC.HSR.TSP.AN/CIIC.HSR.TSP.AN.Common
+		SccLocalPath20 = ..\\..\\..\\TSP.AN\\CIIC.HSR.TSP.AN\\CIIC.HSR.TSP.AN.Common
+		SccProjectUniqueName21 = ..\\..\\..\\TSP.AN\\CIIC.HSR.TSP.AN\\CIIC.HSR.TSP.AN.Persistence.Impl\\CIIC.HSR.TSP.AN.Persistence.Impl.csproj
+		SccProjectName21 = ../../../TSP.AN/CIIC.HSR.TSP.AN/CIIC.HSR.TSP.AN.Persistence.Impl
+		SccLocalPath21 = ..\\..\\..\\TSP.AN\\CIIC.HSR.TSP.AN\\CIIC.HSR.TSP.AN.Persistence.Impl
+		SccProjectUniqueName22 = ..\\..\\..\\TSP.TA\\CIIC.HSR.TSP.WorkSchedule\\CIIC.HSR.TSP.WorkSchedule.Abstractions\\CIIC.HSR.TSP.WorkSchedule.Abstractions.csproj
+		SccProjectName22 = ../../../TSP.TA/CIIC.HSR.TSP.WorkSchedule/CIIC.HSR.TSP.WorkSchedule.Abstractions
+		SccLocalPath22 = ..\\..\\..\\TSP.TA\\CIIC.HSR.TSP.WorkSchedule\\CIIC.HSR.TSP.WorkSchedule.Abstractions
+		SccProjectUniqueName23 = ..\\..\\..\\TSP.TA\\CIIC.HSR.TSP.WorkSchedule\\CIIC.HSR.TSP.WorkSchedule\\CIIC.HSR.TSP.WorkSchedule.csproj
+		SccProjectName23 = ../../../TSP.TA/CIIC.HSR.TSP.WorkSchedule/CIIC.HSR.TSP.WorkSchedule
+		SccLocalPath23 = ..\\..\\..\\TSP.TA\\CIIC.HSR.TSP.WorkSchedule\\CIIC.HSR.TSP.WorkSchedule
+		SccProjectUniqueName24 = ..\\..\\..\\TSP.TA\\CIIC.HSR.TSP.ServiceBus\\CIIC.HSR.TSP.ServiceBus.csproj
+		SccProjectName24 = ../../../TSP.TA/CIIC.HSR.TSP.ServiceBus
+		SccLocalPath24 = ..\\..\\..\\TSP.TA\\CIIC.HSR.TSP.ServiceBus
+		SccProjectUniqueName25 = ..\\..\\..\\TSP.TA\\CIIC.HSR.TSP.TA.Persistence.Contract\\CIIC.HSR.TSP.TA.Persistence.Contract.csproj
+		SccProjectName25 = ../../../TSP.TA/CIIC.HSR.TSP.TA.Persistence.Contract
+		SccLocalPath25 = ..\\..\\..\\TSP.TA\\CIIC.HSR.TSP.TA.Persistence.Contract
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38A06D22-7B98-491A-9918-2365DFE6558A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38A06D22-7B98-491A-9918-2365DFE6558A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38A06D22-7B98-491A-9918-2365DFE6558A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38A06D22-7B98-491A-9918-2365DFE6558A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DD239F0-1F63-4A35-800E-B9EA29D0E24C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DD239F0-1F63-4A35-800E-B9EA29D0E24C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DD239F0-1F63-4A35-800E-B9EA29D0E24C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DD239F0-1F63-4A35-800E-B9EA29D0E24C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{079A3A27-1909-427C-870C-EF6A5FEF243B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{079A3A27-1909-427C-870C-EF6A5FEF243B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{079A3A27-1909-427C-870C-EF6A5FEF243B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{079A3A27-1909-427C-870C-EF6A5FEF243B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2DB46BA-7188-416B-AD27-6320AF3FD2A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2DB46BA-7188-416B-AD27-6320AF3FD2A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2DB46BA-7188-416B-AD27-6320AF3FD2A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2DB46BA-7188-416B-AD27-6320AF3FD2A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55AAB7CE-4BE0-466F-B3EC-2201210F0D0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55AAB7CE-4BE0-466F-B3EC-2201210F0D0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55AAB7CE-4BE0-466F-B3EC-2201210F0D0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55AAB7CE-4BE0-466F-B3EC-2201210F0D0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0484D3B-182F-4A21-A35C-4CE1AB2444B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0484D3B-182F-4A21-A35C-4CE1AB2444B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0484D3B-182F-4A21-A35C-4CE1AB2444B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0484D3B-182F-4A21-A35C-4CE1AB2444B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE176E41-61A8-435D-95BD-9045F7323ED4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE176E41-61A8-435D-95BD-9045F7323ED4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE176E41-61A8-435D-95BD-9045F7323ED4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE176E41-61A8-435D-95BD-9045F7323ED4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FF9D908-ECAB-4712-A5B0-A2FC37FC9F5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FF9D908-ECAB-4712-A5B0-A2FC37FC9F5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FF9D908-ECAB-4712-A5B0-A2FC37FC9F5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FF9D908-ECAB-4712-A5B0-A2FC37FC9F5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46DE323F-F30A-4267-9DAF-1B5922F73F13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46DE323F-F30A-4267-9DAF-1B5922F73F13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46DE323F-F30A-4267-9DAF-1B5922F73F13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46DE323F-F30A-4267-9DAF-1B5922F73F13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEF8B919-73B1-429C-A96E-19381E860242}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEF8B919-73B1-429C-A96E-19381E860242}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEF8B919-73B1-429C-A96E-19381E860242}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEF8B919-73B1-429C-A96E-19381E860242}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B448872C-EF93-4E8F-A50C-9BB8E925E6E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B448872C-EF93-4E8F-A50C-9BB8E925E6E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B448872C-EF93-4E8F-A50C-9BB8E925E6E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B448872C-EF93-4E8F-A50C-9BB8E925E6E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22D065AE-4510-41D6-80F5-B8292D42666E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22D065AE-4510-41D6-80F5-B8292D42666E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22D065AE-4510-41D6-80F5-B8292D42666E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22D065AE-4510-41D6-80F5-B8292D42666E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0633F3C-8C34-4A51-912A-9201E0B7945F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0633F3C-8C34-4A51-912A-9201E0B7945F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0633F3C-8C34-4A51-912A-9201E0B7945F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0633F3C-8C34-4A51-912A-9201E0B7945F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E2A47D3-16C8-4DFD-AC7C-3796E868AF4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E2A47D3-16C8-4DFD-AC7C-3796E868AF4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E2A47D3-16C8-4DFD-AC7C-3796E868AF4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E2A47D3-16C8-4DFD-AC7C-3796E868AF4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B779C5A2-EFAF-4BE6-B540-91732C6B6222}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B779C5A2-EFAF-4BE6-B540-91732C6B6222}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B779C5A2-EFAF-4BE6-B540-91732C6B6222}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B779C5A2-EFAF-4BE6-B540-91732C6B6222}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BDD31BF-65B5-46B8-A5D0-BB4CF1DE819D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BDD31BF-65B5-46B8-A5D0-BB4CF1DE819D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BDD31BF-65B5-46B8-A5D0-BB4CF1DE819D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BDD31BF-65B5-46B8-A5D0-BB4CF1DE819D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76E74D1D-0933-4D4A-AAE8-E1F9E03D3EE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76E74D1D-0933-4D4A-AAE8-E1F9E03D3EE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76E74D1D-0933-4D4A-AAE8-E1F9E03D3EE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76E74D1D-0933-4D4A-AAE8-E1F9E03D3EE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83E69FAB-FDB4-409A-B310-8E9BF29AB44E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83E69FAB-FDB4-409A-B310-8E9BF29AB44E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83E69FAB-FDB4-409A-B310-8E9BF29AB44E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83E69FAB-FDB4-409A-B310-8E9BF29AB44E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30DD19FA-B376-47F8-BC40-24FF1B77AC63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30DD19FA-B376-47F8-BC40-24FF1B77AC63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30DD19FA-B376-47F8-BC40-24FF1B77AC63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30DD19FA-B376-47F8-BC40-24FF1B77AC63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E29901B-EA3A-491B-8DF9-6ACCBB1B473E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E29901B-EA3A-491B-8DF9-6ACCBB1B473E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E29901B-EA3A-491B-8DF9-6ACCBB1B473E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E29901B-EA3A-491B-8DF9-6ACCBB1B473E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DEA2BDC-96E7-4A9B-89E3-E85DD6D8B21B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DEA2BDC-96E7-4A9B-89E3-E85DD6D8B21B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DEA2BDC-96E7-4A9B-89E3-E85DD6D8B21B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DEA2BDC-96E7-4A9B-89E3-E85DD6D8B21B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26A0FEF0-756C-4AB2-BE60-88D161500AB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26A0FEF0-756C-4AB2-BE60-88D161500AB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26A0FEF0-756C-4AB2-BE60-88D161500AB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26A0FEF0-756C-4AB2-BE60-88D161500AB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{180FBF5E-D9A1-4A59-8108-06C3448F1EBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{180FBF5E-D9A1-4A59-8108-06C3448F1EBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{180FBF5E-D9A1-4A59-8108-06C3448F1EBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{180FBF5E-D9A1-4A59-8108-06C3448F1EBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6EBA781-A3CD-490A-B284-9731FFF445FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6EBA781-A3CD-490A-B284-9731FFF445FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6EBA781-A3CD-490A-B284-9731FFF445FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6EBA781-A3CD-490A-B284-9731FFF445FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98F2C9CE-6971-41A4-B063-E57E9CD2E63A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98F2C9CE-6971-41A4-B063-E57E9CD2E63A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98F2C9CE-6971-41A4-B063-E57E9CD2E63A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98F2C9CE-6971-41A4-B063-E57E9CD2E63A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

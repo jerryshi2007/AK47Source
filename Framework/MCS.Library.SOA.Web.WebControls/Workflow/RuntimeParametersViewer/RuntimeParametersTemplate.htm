@@ -1,0 +1,61 @@
+﻿<%@ register assembly="MCS.Web.WebControls" namespace="MCS.Web.WebControls" tagprefix="MCS" %>
+<asp:button runat="server" id="refreshButton" style="display: none" />
+<table style="width: 100%; height: 100%">
+    <tr>
+        <td class="gridHead" style="height: 32px;">
+            <div class="dialogTitle">
+                <img runat="server" id="logoImage" alt="logo" src="" style="vertical-align: middle" />
+                <span class="title" id="dialogHeaderText" runat="server"></span>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td style="vertical-align: top">
+            <div class="dialogContent" id="dialogContent" runat="server" style="width: 100%;
+				height: 100%; overflow: auto">
+                <mcs:deluxegrid id="RuntimeParametersInfoDeluxeGrid" runat="server" autogeneratecolumns="False"
+                                datasourcemaxrow="0" allowpaging="True" pagesize="10" width="99%" datakeynames="ParameterName"
+                                exportingdeluxegrid="False" gridtitle="流程参数列表" cssclass="dataList" showexportcontrol="False" Category="SOAWebControls"
+                                EmptyDataText="暂时没有您需要的数据"
+                                showcheckboxes="False">
+                    <columns>
+                        <asp:boundfield datafield="ParameterName" headertext="参数名称">
+                            <itemstyle horizontalalign="Left" />
+                        </asp:boundfield>
+                        <asp:boundfield datafield="ParameterType" headertext="参数类型">
+                            <itemstyle horizontalalign="Left" />
+                        </asp:boundfield>
+                        <asp:boundfield datafield="ParameterValue" headertext="参数值" />
+                    </columns>
+                    <pagerstyle cssclass="pager" />
+                    <rowstyle cssclass="item" />
+                    <checkboxtemplateitemstyle cssclass="checkbox" />
+                    <checkboxtemplateheaderstyle cssclass="checkbox" />
+                    <headerstyle cssclass="head" />
+                    <alternatingrowstyle cssclass="aitem" />
+                    <pagersettings firstpagetext="&lt;&lt;" lastpagetext="&gt;&gt;" mode="NextPreviousFirstLast"
+                                   nextpagetext="下一页" position="Bottom" previouspagetext="上一页"></pagersettings>
+                </mcs:deluxegrid>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="gridfileBottom"></td>
+    </tr>
+    <tr>
+        <td style="height: 40px">
+            <table style="width: 100%; height: 100%">
+                <tr>
+                    <td style="text-align: center">
+                        <input accesskey="E" runat="server" id="editBtn" runat="server" type="button" category="SOAWebControls"
+                               class="formButton" value="编辑(E)" style="width: 96px" />
+                    </td>
+                    <td style="text-align: center">
+                        <input accesskey="C" runat="server" id="cancelButton" type="button" category="SOAWebControls"
+                               class="formButton" value="关闭(C)" style="width: 96px" onclick="top.close();" />
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>

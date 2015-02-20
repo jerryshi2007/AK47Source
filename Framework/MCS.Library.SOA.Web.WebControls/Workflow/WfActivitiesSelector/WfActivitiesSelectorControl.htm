@@ -1,0 +1,33 @@
+<style type="text/css">
+	.cellRadio { width:32px; text-align: right }
+	.cellImage { width:16px }
+	.cellText { text-align: left}
+</style>
+<script type="text/javascript">
+	window.returnValue = null;
+
+	function onConfirmClick()
+	{
+		var options = document.getElementsByName("selectedActivity");
+		var result = null;
+
+		for(var i = 0; i < options.length; i++)
+		{
+			if (options[i].checked)
+			{
+				result = new Object();
+
+				var data = options[i].value.split(":");
+				
+				result.processKey = data[0];
+				result.activityKey = data[1];
+				result.description = data[2];
+
+				break;
+			}
+		}
+
+		window.returnValue = result;
+		top.close();
+	}
+</script>

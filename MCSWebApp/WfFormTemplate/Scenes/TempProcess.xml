@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Acts>
+	<Act actID="TempProcess">
+		<Scene sceneID="ReadOnly">
+			<Item controlID="Subject" visible="true" readOnly="true"/>
+			<Item controlID="attachmentsControl" visible="true" readOnly="true"/>
+			<Item controlID="opinionListView" visible="true" readOnly="true" />
+		</Scene >
+    <Scene sceneID="Normal">
+      <Item controlID="Subject" visible="true" readOnly="false"/>
+      <Item controlID="attachmentsControl" visible="true" readOnly="false"/>
+      <Item controlID="opinionListView" visible="true" readOnly="false" />
+    </Scene >
+	</Act >
+</Acts >

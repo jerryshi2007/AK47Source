@@ -1,0 +1,400 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+
+/* home */
+
+
+.container-home{}
+
+.panel .panel-heading .title{ font-size:18px; line-height:24px;}
+.panel .panel-heading .title .Icon32,
+.panel .panel-heading .title .Icon24{ margin-right:5px;}
+
+.panel-body-compact{ padding:0px !important;}
+
+.panel-heading{ font-size:18px;}
+
+.UserPortrait {
+  height: 200px;
+  margin-bottom: 10px;
+  
+  position: relative;
+  background:#fa980d;
+}
+
+.UserPortrait img {
+  width: 85px;
+  height: 85px;
+  display: inline-block;
+   float:left;
+   margin:10px;
+  
+  border-radius:100% !important;
+}
+
+.UserPortrait .info {
+  
+  
+  display: block;
+  height:110px;
+ 
+  background: #fa980d;
+  color: #fff;
+  font-size: 12px;
+  border-bottom:1px solid #ffad4d;
+}
+
+.UserPortrait .info .name {
+  display: block;
+  font-size: 16px;
+  padding: 15px 0px 5px 0px;
+}
+
+.UserPortrait .info .ename {
+  display: block;
+  font-size: 12px;
+  padding: 0px;
+  margin-bottom:10px;
+}
+
+.UserPortrait .info .code {
+  display: block;
+  font-size: 14px;
+  padding: 0px 10px;
+}
+
+.UserInfo {
+  padding:5px 15px;
+  height: 100px;
+  font-size: 12px;
+  color:#fff;
+}
+.UserInfo P{ font-size:12px;}
+
+.UserInfo > div {
+  font-size:12px;
+  margin-bottom: 15px;
+}
+
+.UserInfo > p {
+  margin: 5px 0px;
+}
+.UserInfo .label{ 
+padding:1px 6px; 
+vertical-align:middle;
+ margin-right:3px; background:url(image/mask_black1.png);}
+
+
+
+.QuickLink {
+  margin: 0px;
+  text-align: center;
+  position: relative;
+}
+
+.QuickLink ul {
+  list-style-type: none;
+  padding: 0px;
+}
+
+.QuickLink li {
+  background: url(image/icon_or_arrow2_R.png) 90% 50% no-repeat;
+  list-style-type: none;
+  padding: 0px 20px;
+  height: 35px;
+  line-height: 35px;
+  text-align: left;
+  
+}
+
+.QuickLink li A {
+  display: block;
+  height: 35px;
+  font-size: 14px;
+  color:#fff;
+}
+
+.QuickLink li A:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
+.QuickLink li:hover {
+  background-color:#0ca8e1;
+}
+
+.QuickLink .buAdd {
+  background: url(image/icon_t_addNew1.png) 30px 50% no-repeat;
+  padding: 0px 10px 0px 24px;
+  line-height: 35px;
+  height: 35px;
+  display: inline-block;
+  margin: 0px auto;
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  position:absolute;
+}
+
+.QuickLink .buAdd:hover {
+  color: #fff;
+}
+
+.QuickLinkH1{ min-height:349px;}
+
+.DocList {}
+
+.DocList .list-group-item {
+  background-color: transparent !important;
+  font-size: 14px;
+}
+.DocList .list-group-item A{ color:#333; font-size:14px;}
+
+.DocList .list-group-item .badge {
+  background-color: #1dc1f2;
+  border-radius: 5px;
+  margin-top: 2px;
+}
+
+.HomeBlock1 {
+  background-color: #fff;
+  color: #333;
+  height: 310px;
+  
+}
+
+.HomeBlock1 .blockContent {
+  width: 45%;
+  display: inline-block;
+  float: left;
+  height: 100%;
+}
+
+.HomeBlock1 .blockContent A {
+  color: #333;
+}
+
+.HomeBlock1 .blockContent .title {
+  font-size: 18px;
+  font-weight: normal;
+  height: 80px;
+  padding: 14px;
+  margin-bottom: 10px;
+  color:#000;
+}
+
+.HomeBlock1 .blockContent .title .badge {
+  background: #fe8900;
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: normal;
+  border-radius: 5px;
+}
+
+.HomeBlock1 .blockContent .title b {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  vertical-align: middle;
+  margin-right: 15px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.more {
+  float: right;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: url(image/icon_24_title_g.png) 0px -24px no-repeat;
+  margin: 12px 0 0 0;
+}
+
+.more:active {
+  -moz-opacity: 0.5;
+  opacity: 0.5;
+}
+
+.HomeDate {
+  width: 10%;
+  display: inline-block;
+  float: left;
+  padding: 0px;
+  height: 100%;
+  text-align: center;
+  position: relative;
+  color:#65a60e;
+  
+}
+
+.HomeDate .month {
+  display: block;
+  padding: 20px 0px 0px 0px;
+  font-size: 14px;
+  margin: 0px;
+}
+
+.HomeDate .date {
+  display: block;
+  padding: 0px;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 10px 0px;
+}
+
+.HomeDate .day {
+  display: block;
+  padding: 0px;
+  font-size: 12px;
+  margin: 10px 0px;
+}
+
+.HomeDate .buAdd {
+  position: absolute;
+  bottom: 10px;
+  text-align: center;
+  display: block;
+  width: 100%;
+  color: #65a60e;
+  font-size: 12px;
+  background: url(image/icon_w_addNew1.png) 10px 50% no-repeat;
+  padding-left: 30px;
+}
+
+.HomeDate .buAdd:hover {
+  text-decoration: none;
+  color: #222;
+}
+
+.HomeToDo {
+  background: #fff;
+  
+  border-left:1px dotted #ddd;
+  border-right:1px dashed #eee;
+}
+
+.HomeToDo .title{ background:#edfcd9; }
+
+.HomeToDo .title b {
+  background-image: url(image/icon_big_001.png);
+}
+.HomeToDo .badge{ background:#8cc63e !important;}
+.HomeToDo .time{ color:#92c251;}
+
+.HomeReminder {
+  background: #fff;
+  
+}
+.HomeReminder .title{ background:#dff8ff; }
+.HomeReminder .title b {
+  background-image: url(image/icon_big_002.png);
+}
+.HomeReminder .time{ color:#00b3e6;}
+
+.HomeReminder .more{ background-image:url(image/icon_24_title_t.png);}
+
+.HomeReminder .badge{ background:#00b3e6 !important;}
+.TitleList {
+}
+
+.TitleList a {
+  color: #333;
+}
+
+.TitleList ul {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+}
+
+.TitleList li {
+  background: url(image/title_front1.png) 15px 12px no-repeat;
+  margin: 0px;
+  padding: 5px 15px 5px 25px;
+  list-style-type: none;
+}
+
+.TitleList li .time {
+  display: block;
+  text-align: left;
+  font-size: 12px;
+  -moz-opacity: 0.5;
+  opacity: 0.5;
+}
+
+.TitleListType2 {
+  padding-top: 0px;
+}
+
+.TitleListType2 li {
+  padding: 14px 15px 14px 20px;
+  background: none;
+}
+
+.TitleListType2 li A {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.TitleListType2 li .time {
+  text-align: left !important;
+}
+
+.TitleListType2 li:nth-child(odd) {
+  background: url(image/mask_black7.png);
+}
+
+.UserList{}
+.UserList .panel-default{ background-color:#fff;-webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.175);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.175); border:1px solid #eeedeb !important; margin-bottom:0px !important;}
+.UserList .panel-default td{ border:none !important;}
+.UserList table{ margin-bottom:0px;}
+.UserList .username{ font-size:16px; color:#8cc63e;}
+
+
+.panel-home1{}
+.panel-home1 .panel-heading{ border-top:none; margin-top:0px;}
+
+.panel .panel-heading>b{ margin-right:5px;}
+
+.panel-colorized .panel-heading{ border-bottom:1px solid #cce6aa;}
+
+
+
+.bodyh1{ height:244px;}
+
+
+.home-quick-link{ background:#36c0f2 !important;}
+.home-quick-link .panel-heading{ border-bottom:1px solid #a7e3f9;}
+.home-quick-link .panel-heading{ color:#fff !important;}
+.home-quick-link .panel-heading .Icon24{ background-image:url(image/icon_24_title_w.png) !important;}
+
+.home-doc{ background:#92c251 !important;}
+.home-doc .panel-heading{ border-bottom:1px solid #b6d299;}
+.home-doc *{ color:#fff !important;}
+.home-doc .panel-heading .Icon24{ background-image:url(image/icon_24_title_w.png) !important;}
+.home-doc .badge{ background:url(image/mask_black1.png) !important;}
+.home-doc .list-group-item{ background:none !important;}
+
+
+.home-notice{}
+.home-notice .panel-heading{ background:#edfcd9 !important; border-bottom:1px solid #daeec3 !important; color:#74b819 !important;}
+.home-notice .panel-heading .Icon24{ background-image:url(image/icon_24_title_g.png) !important;}
+
+
+.home-news{}
+.home-news .panel-heading{ background:#dff8ff !important; border-bottom:1px solid #c8ecf0 !important; color:#00b3e6 !important;}
+.home-news .panel-heading .Icon24{ background-image:url(image/icon_24_title_t.png) !important;}
+
+.home-emp{}
+.home-emp .panel-heading{ background:#fff !important; border-bottom:none!important; color:#00b3e6 !important;}
+
+/* home END */

@@ -1,0 +1,48 @@
+<script type="text/javascript" language="javascript">
+	function initControlsFocus(signInNameID, passwordID)
+	{
+		var signInName = document.all(signInNameID);
+		var password = document.all(passwordID);
+
+		try
+		{
+			document.onkeydown = null;
+
+			if (signInName)
+			{
+				if (signInName.value.length > 0)
+					if (password)
+						password.focus();
+					else
+						signInName.focus();
+				else
+					signInName.focus();
+			}
+		}
+		catch(e)
+		{
+		}
+	}
+
+	function doDetailErrorMessageClick(detailErrorMessageID)
+	{
+		var detailErrorMessage = document.all(detailErrorMessageID);
+
+		try
+		{
+			if (detailErrorMessage)
+			{
+				if (detailErrorMessage.style.display == "none")
+					detailErrorMessage.style.display = "block";
+				else
+					detailErrorMessage.style.display = "none";
+			}
+		}
+		finally
+		{
+			event.returnValue = false;
+		}
+
+		return false;
+	}
+</script>

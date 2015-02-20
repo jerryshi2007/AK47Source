@@ -1,0 +1,2004 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DBFB78CC-540D-49E7-9936-628D63E49450}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MCS.Library.SOA.Web.WebControls.Test</RootNamespace>
+    <AssemblyName>MCS.Library.SOA.Web.WebControls.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MCS.Library.Data, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Bin\MCS.Library.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Office">
+      <HintPath>..\..\..\Bin\MCS.Library.Office.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\MCS.Library.SOA.DataObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.Web.WebControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\MCS.Library.SOA.Web.WebControls.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Library, Version=1.2.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Bin\MCS.Web.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library">
+      <HintPath>..\..\..\Bin\MCS.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Data">
+      <HintPath>..\..\..\Bin\MCS.Library.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Library">
+      <HintPath>..\..\..\Bin\MCS.Web.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Library.Script.Json">
+      <HintPath>..\..\..\Bin\MCS.Web.Library.Script.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.WebControls, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\MCS.Web.WebControls.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AutoCompleteWithSelectorControl\test2.aspx" />
+    <Content Include="AutoCompleteWithSelectorControl\test.aspx" />
+    <Content Include="ClientGrid\ClientGridUseSensitiveWordsTest.aspx" />
+    <Content Include="ClientGrid\TestWithMaterialControl.aspx" />
+    <Content Include="ClientGrid\TestWithOuUserInputEditor.aspx" />
+    <Content Include="ClientGrid\TestWithTemplate.aspx" />
+    <Content Include="CustomerServiceExecutiveLink\Test.aspx" />
+    <Content Include="CustomerServiceExecutiveLink\Test2.aspx" />
+    <Content Include="DataBindingControl\clientDataBindingTest.aspx" />
+    <Content Include="DataBindingControl\DataBindingControl.js" />
+    <Content Include="DataBindingControl\jquery-1.7.1.min.js" />
+    <Content Include="DataBindingControl\ObserverDemo.aspx" />
+    <Content Include="ErrorPage\Test.aspx" />
+    <Content Include="GangedDataBindingControl\Scene5Test.aspx" />
+    <Content Include="DeluxeSearch\DialogTest1.aspx" />
+    <Content Include="DeluxeSearch\default.aspx" />
+    <Content Include="ClientGrid\girl.gif" />
+    <Content Include="ClientGrid\ClientGridTest.aspx" />
+    <Content Include="CommandInput\CommandInputOpen.aspx" />
+    <Content Include="CommandInput\CommandInputTest.aspx" />
+    <Content Include="Css\baseForm.css" />
+    <Content Include="Css\basePage.css" />
+    <Content Include="Css\WebControls\AutoCompleteExtender.css" />
+    <Content Include="Css\WebControls\ClientGrid.css" />
+    <Content Include="Css\WebControls\DeluxeCalendar.css" />
+    <Content Include="Css\WebControls\DeluxeGrid.css" />
+    <Content Include="Css\WebControls\DeluxeMenu.css" />
+    <Content Include="Css\WebControls\DeluxeSelect.css" />
+    <Content Include="Css\WebControls\DeluxeTime.css" />
+    <Content Include="Css\WebControls\DeluxeTree.css" />
+    <Content Include="Css\WebControls\GenericInput.css" />
+    <Content Include="Css\WebControls\Tabs.css" />
+    <Content Include="DataBindingControl\dropdownListBindingTest.aspx" />
+    <Content Include="DataBindingControl\LinkButtonTest.aspx" />
+    <Content Include="DataBindingControl\SimpleDataBindingControlTestPage.aspx" />
+    <Resource Include="DataBindingControl\Validators\MyTestValidator.js" />
+    <Content Include="DataBindingControl\WithDeluxeCalendar.aspx" />
+    <Content Include="DeluxeGrid\DeluxeGridTest.aspx" />
+    <Content Include="DeluxeSearch\TestUserControl.aspx" />
+    <Content Include="DeluxeSearch\WebUserControl1.ascx" />
+    <Content Include="DeluxeTree\Test.aspx" />
+    <Content Include="DownloadFile\ContinueDownloading.aspx" />
+    <Content Include="DownloadFile\downloadFileTest.aspx" />
+    <Content Include="ExcelViewerControl\ExcelViewerControlTest.aspx" />
+    <Content Include="GangedDataBindingControl\Scene2Test.aspx" />
+    <Content Include="GangedDataBindingControl\Scene1Test.aspx" />
+    <Content Include="GangedDataBindingControl\Scene3Test.aspx" />
+    <Content Include="GangedDataBindingControl\Scene4Test.aspx" />
+    <Content Include="HBRadioButtonList\InvisibleRadioButtonList.aspx" />
+    <Content Include="HBRadioButtonList\Test.aspx" />
+    <Content Include="HBText\HBDropdownList.aspx" />
+    <Content Include="HBText\HBTextBoxTest.aspx" />
+    <Content Include="HBText\InvisibleHBDropdownList.aspx" />
+    <Content Include="HBWebHelperControl\HBWebHelperControl.CAB" />
+    <Content Include="HBWebHelperControl\officeviewer7.5.0.331.cab" />
+    <Content Include="HBWebHelperControl\officeviewer7.5.0.355.cab" />
+    <Content Include="HBWebHelperControl\officeviewer7.5.0.356.cab" />
+    <Content Include="HtmlToWord\images\academyAward.jpg" />
+    <Content Include="HtmlToWord\images\album.jpg" />
+    <Content Include="HtmlToWord\default.aspx" />
+    <Content Include="ImageUpload\cloneImageUploadControl.aspx" />
+    <Content Include="ImageUpload\ImageUploadTest.aspx" />
+    <Content Include="ImageUpload\ImageView.aspx" />
+    <Content Include="JSON\WhereSqlClauseBuilderSerialization.aspx" />
+    <Content Include="MaterialControl\MaterialControlDataChangedTest.aspx" />
+    <Content Include="MaterialControl\CloneWithDialogUploadFileControl.aspx" />
+    <Content Include="MaterialControl\CloneWithDialogUploadFileTraditionalControl.aspx" />
+    <Content Include="MaterialControl\CloneWithOfficeViewer.aspx" />
+    <Content Include="MaterialControl\UploadFileToMossTest.aspx" />
+    <Content Include="MultiProcessControl\MultiProcessControl.aspx" />
+    <Content Include="MultiProcessControl\MultiProcessControlWithError.aspx" />
+    <Content Include="MultiProcessControl\MultiProcessControlWithPrepareData.aspx" />
+    <Content Include="Observer\observer.js" />
+    <Content Include="Observer\ObserverTest.aspx" />
+    <Content Include="OfficeViewer\CloneOfficeViewer.aspx" />
+    <Content Include="OfficeViewer\OfficeViewerTest.aspx" />
+    <Content Include="OfficeViewer\SimpleOfficeViewer.aspx" />
+    <Content Include="OuNavigatorControl\OguTarget.aspx" />
+    <Content Include="OuNavigatorControl\OuNavigatorTest.aspx" />
+    <Content Include="OuUserInputControl\addExtraUserInfoOuUserInput.aspx" />
+    <Content Include="OuUserInputControl\clientAddControl.aspx" />
+    <Content Include="OuUserInputControl\clientSetDataTest.aspx" />
+    <Content Include="OuUserInputControl\cloneOuUserInputControl.aspx" />
+    <Content Include="OuUserInputControl\imitateOuUserInputControl.aspx" />
+    <Content Include="OuUserInputControl\test.aspx" />
+    <Content Include="OuUserInputControl\TestDynamicOuUserInput.aspx" />
+    <Content Include="OuUserInputControl\testOuUserInputControl.aspx" />
+    <Content Include="OuUserInputControl\testVisibility.aspx" />
+    <Content Include="PopupTip\Test1.aspx" />
+    <EmbeddedResource Include="PropertyForm\PropertyForm.css" />
+    <Content Include="PostProgressControl\GridPostProgressControlTest.aspx" />
+    <Content Include="PostProgressControl\SimplePostProgressControlTest.aspx" />
+    <Content Include="PropertyForm\Associated with drop-down Form.aspx" />
+    <Content Include="PropertyForm\CloneControlSetProperties.aspx" />
+    <Content Include="PropertyForm\OUUserInputPropertyEditor.js" />
+    <Content Include="PropertyForm\EmptyCategoryTest.aspx" />
+    <Content Include="PropertyForm\PasswordConfirmationEditor.js" />
+    <Content Include="PropertyForm\PasswordConfirmationEditorTest.aspx" />
+    <Content Include="PropertyForm\PropertyEditorBaseTest.aspx" />
+    <Content Include="PropertyForm\PropertyFormTestForMaterialEditor.aspx" />
+    <Content Include="PropertyForm\PropertyFormValidatorTest.aspx" />
+    <Content Include="PropertyForm\PropertyFromTest.aspx" />
+    <Content Include="PropertyForm\PropertyFormTestForClientGridEditor.aspx" />
+    <Content Include="PropertyGrid\CustomObjectListPropertyEditor.js" />
+    <Content Include="PropertyGrid\DictionaryToPropertiesTest.aspx" />
+    <Content Include="PropertyGrid\PropertyGridTestForMaterialEditor.aspx" />
+    <Content Include="PropertyGrid\PropertyGridCloneDeluxeCalendar.aspx" />
+    <Content Include="RelativeLink\bridge.aspx" />
+    <Content Include="RelativeLink\popupForm.aspx" />
+    <Content Include="RelativeLink\RelativeLinkTest.aspx" />
+    <Content Include="RelativeLink\Test1.aspx" />
+    <Content Include="RepeaterControl\RepeaterTest.aspx" />
+    <Content Include="RightSideNavigator\RightSideNavigatorTest.aspx" />
+    <Content Include="RoleControl\cloneRoleSelectorControlTest.aspx" />
+    <Content Include="RoleControl\RoleSelectTest.aspx" />
+    <Content Include="ServiceImportControlTest\ServiceImportControlTest.aspx" />
+    <Content Include="ServiceImport\ImportedWebService.asmx" />
+    <Content Include="ServiceImport\ImportServiceInfo.aspx" />
+    <Content Include="SimpleTabStrip\SimpleStripInFrame.aspx" />
+    <Content Include="DeluxeQueryConditionDataSourceControl\Test.aspx" />
+    <Content Include="SubmitButtonTest\SubmitButtonInUpdatePanelMode.aspx" />
+    <Content Include="SubmitButtonTest\SubmitButtonWithProgress.aspx" />
+    <Content Include="TestPages\PopupTestForIE10.aspx" />
+    <Content Include="TestPages\UploadTestForIE10.aspx" />
+    <Content Include="UEditorWrapperTest\simpleUEditorWrapperTest.aspx" />
+    <Content Include="UEditor\CHANGELOG.TXT" />
+    <Content Include="UEditor\dialogs\anchor\anchor.html" />
+    <Content Include="UEditor\dialogs\code\code.html" />
+    <Content Include="UEditor\dialogs\emotion\emotion.css" />
+    <Content Include="UEditor\dialogs\emotion\emotion.html" />
+    <Content Include="UEditor\dialogs\emotion\emotion.js" />
+    <Content Include="UEditor\dialogs\emotion\images\0.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\babycat\bc_0001.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\babycat\bc_0002.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\babycat\bc_0003.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\babycat\bc_0004.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\babycat\bc_0005.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\babycat\bc_0006.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\babycat\bc_0007.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\babycat\bc_0008.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\babycat\bc_0009.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\babycat\bc_0010.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\babycat\bc_0011.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\babycat\bc_0012.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\babycat\bc_0013.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\babycat\bc_0014.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\babycat\bc_0015.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\babycat\bc_0016.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\babycat\bc_0017.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\babycat\bc_0018.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\babycat\bc_0019.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\babycat\bc_0020.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bface.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0001.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0002.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0003.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0004.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0005.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0006.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0007.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0008.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0009.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0010.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0011.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0012.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0013.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0014.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0015.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0016.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0017.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0018.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0019.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0020.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0021.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0022.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0023.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0024.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0025.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0026.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0027.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0028.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0029.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0030.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0031.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0032.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0033.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0034.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0035.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0036.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0037.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0038.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0039.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0040.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0041.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0042.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0043.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0044.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0045.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0046.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0047.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0048.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0049.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0050.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0051.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0052.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0053.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0054.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0055.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0056.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0057.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0058.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0059.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0060.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0061.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0062.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\bobo\b_0063.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\cface.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0001.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0002.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0003.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0004.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0005.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0006.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0007.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0008.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0009.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0010.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0011.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0012.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0013.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0014.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0015.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0016.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0017.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0018.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0019.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0020.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0021.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0022.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0023.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0024.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0025.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0026.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0027.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0028.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0029.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0030.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0031.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0032.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0033.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0034.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0035.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0036.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0037.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0038.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0039.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0040.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0041.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0042.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0043.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0044.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0045.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0046.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0047.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0048.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0049.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\face\f_0050.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\fface.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0001.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0002.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0003.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0004.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0005.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0006.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0007.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0008.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0009.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0010.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0011.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0012.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0013.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0014.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0015.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0016.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0017.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0018.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0019.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0020.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0021.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0022.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0023.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0024.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0025.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0026.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0027.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0028.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0029.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0030.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0031.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0032.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0033.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0034.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0035.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0036.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0037.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0038.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0039.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0040.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0041.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0042.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0043.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0044.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0045.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0046.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0047.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0048.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0049.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0050.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0051.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0052.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0053.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0054.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0055.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0056.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0057.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0058.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0059.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0060.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0061.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0062.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0063.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0064.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0065.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0066.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0067.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0068.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0069.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0070.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0071.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0072.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0073.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0074.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0075.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0076.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0077.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0078.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0079.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0080.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0081.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0082.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0083.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jx2\j_0084.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\jxface2.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0001.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0002.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0003.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0004.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0005.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0006.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0007.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0008.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0009.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0010.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0011.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0012.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0013.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0014.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0015.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0016.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0017.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0018.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0019.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0020.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0021.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0022.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0023.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0024.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0025.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0026.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0027.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0028.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0029.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0030.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0031.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0032.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0033.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0034.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0035.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0036.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0037.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0038.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0039.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0040.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0041.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0042.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0043.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0044.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0045.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0046.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0047.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0048.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0049.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0050.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0051.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\ldw\l_0052.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\neweditor-tab-bg.png" />
+    <Content Include="UEditor\dialogs\emotion\images\tface.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0001.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0002.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0003.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0004.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0005.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0006.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0007.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0008.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0009.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0010.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0011.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0012.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0013.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0014.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0015.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0016.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0017.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0018.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0019.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0020.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0021.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0022.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0023.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0024.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0025.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0026.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0027.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0028.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0029.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0030.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0031.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0032.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0033.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0034.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0035.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0036.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0037.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0038.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0039.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\tsj\t_0040.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\wface.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\yface.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0001.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0002.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0003.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0004.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0005.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0006.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0007.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0008.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0009.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0010.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0011.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0012.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0013.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0014.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0015.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0016.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0017.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0018.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0019.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0020.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0021.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0022.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0023.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0024.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0025.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0026.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0027.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0028.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0029.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0030.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0031.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0032.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0033.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0034.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0035.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0036.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0037.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0038.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0039.gif" />
+    <Content Include="UEditor\dialogs\emotion\images\youa\y_0040.gif" />
+    <Content Include="UEditor\dialogs\gmap\gmap.html" />
+    <Content Include="UEditor\dialogs\help\help.html" />
+    <Content Include="UEditor\dialogs\image\callbacks.js" />
+    <Content Include="UEditor\dialogs\image\image.css" />
+    <Content Include="UEditor\dialogs\image\image.html" />
+    <Content Include="UEditor\dialogs\image\image.js" />
+    <Content Include="UEditor\dialogs\image\imageUploader.swf" />
+    <Content Include="UEditor\dialogs\image\tangram.js" />
+    <Content Include="UEditor\dialogs\image\uploadimg.html" />
+    <Content Include="UEditor\dialogs\insertframe\insertframe.html" />
+    <Content Include="UEditor\dialogs\internal.js" />
+    <Content Include="UEditor\dialogs\link\link.html" />
+    <Content Include="UEditor\dialogs\map\map.html" />
+    <Content Include="UEditor\dialogs\searchreplace\searchreplace.html" />
+    <Content Include="UEditor\dialogs\spechars\spechars.html" />
+    <Content Include="UEditor\dialogs\table\edittd.html" />
+    <Content Include="UEditor\dialogs\table\table.html" />
+    <Content Include="UEditor\dialogs\table\table.js" />
+    <Content Include="UEditor\dialogs\tangram.js" />
+    <Content Include="UEditor\dialogs\video\video.css" />
+    <Content Include="UEditor\dialogs\video\video.html" />
+    <Content Include="UEditor\dialogs\video\video.js" />
+    <Content Include="UEditor\dialogs\wordimage\fClipboard_ueditor.swf" />
+    <Content Include="UEditor\dialogs\wordimage\wordimage.html" />
+    <Content Include="UEditor\dialogs\wordimage\wordimage.js" />
+    <Content Include="UEditor\editor_all.js" />
+    <Content Include="UEditor\editor_all_min.js" />
+    <Content Include="UEditor\editor_config.js" />
+    <Content Include="UEditor\server\upload\asp\up.asp" />
+    <Content Include="UEditor\server\upload\asp\upload.inc" />
+    <Content Include="UEditor\server\upload\jsp\commons-fileupload-1.2.2.jar" />
+    <Content Include="UEditor\themes\default\iframe.css" />
+    <Content Include="UEditor\themes\default\images\anchor.gif" />
+    <Content Include="UEditor\themes\default\images\button-bg.gif" />
+    <Content Include="UEditor\themes\default\images\copy.png" />
+    <Content Include="UEditor\themes\default\images\dialog-title-bg.png" />
+    <Content Include="UEditor\themes\default\images\icons-all.gif" />
+    <Content Include="UEditor\themes\default\images\icons.gif" />
+    <Content Include="UEditor\themes\default\images\icons.png" />
+    <Content Include="UEditor\themes\default\images\imgLable.png" />
+    <Content Include="UEditor\themes\default\images\left.jpg" />
+    <Content Include="UEditor\themes\default\images\left_focus.jpg" />
+    <Content Include="UEditor\themes\default\images\localimage.jpg" />
+    <Content Include="UEditor\themes\default\images\localimage.png" />
+    <Content Include="UEditor\themes\default\images\lock.gif" />
+    <Content Include="UEditor\themes\default\images\logo.png" />
+    <Content Include="UEditor\themes\default\images\menu\sparator_v.png" />
+    <Content Include="UEditor\themes\default\images\neweditor-tab-bg.png" />
+    <Content Include="UEditor\themes\default\images\none.jpg" />
+    <Content Include="UEditor\themes\default\images\none_focus.jpg" />
+    <Content Include="UEditor\themes\default\images\pagebreak.gif" />
+    <Content Include="UEditor\themes\default\images\right.jpg" />
+    <Content Include="UEditor\themes\default\images\right_focus.jpg" />
+    <Content Include="UEditor\themes\default\images\spacer.gif" />
+    <Content Include="UEditor\themes\default\images\tablepicker\highlighted.gif" />
+    <Content Include="UEditor\themes\default\images\tablepicker\unhighlighted.gif" />
+    <Content Include="UEditor\themes\default\images\toolbar_bg.png" />
+    <Content Include="UEditor\themes\default\images\topbottom.jpg" />
+    <Content Include="UEditor\themes\default\images\topbottom_focus.jpg" />
+    <Content Include="UEditor\themes\default\images\upload.png" />
+    <Content Include="UEditor\themes\default\ueditor.css" />
+    <Content Include="UEditor\third-party\codemirror2.15\codemirror.css" />
+    <Content Include="UEditor\third-party\codemirror2.15\codemirror.js" />
+    <Content Include="UEditor\third-party\SyntaxHighlighter\shCore.js" />
+    <Content Include="UEditor\third-party\SyntaxHighlighter\shCoreDefault.css" />
+    <Content Include="UEditor\_examples\completeDemo.html" />
+    <Content Include="UEditor\_examples\customPluginDemo.html" />
+    <Content Include="UEditor\_examples\customToolbarDemo.html" />
+    <Content Include="UEditor\_examples\editor_api.js" />
+    <Content Include="UEditor\_examples\highlightDemo.html" />
+    <Content Include="UEditor\_examples\index.html" />
+    <Content Include="UEditor\_examples\multiDemo.html" />
+    <Content Include="UEditor\_examples\resetDemo.html" />
+    <Content Include="UEditor\_examples\simpleDemo.html" />
+    <Content Include="UEditor\_examples\submitFormDemo.html" />
+    <Content Include="UEditor\_examples\textareaDemo.html" />
+    <Content Include="UEditor\_src\commands\anchor.js" />
+    <Content Include="UEditor\_src\commands\blockquote.js" />
+    <Content Include="UEditor\_src\commands\cleardoc.js" />
+    <Content Include="UEditor\_src\commands\delete.js" />
+    <Content Include="UEditor\_src\commands\directionality.js" />
+    <Content Include="UEditor\_src\commands\emotion.js" />
+    <Content Include="UEditor\_src\commands\font.js" />
+    <Content Include="UEditor\_src\commands\horizontal.js" />
+    <Content Include="UEditor\_src\commands\iframe.js" />
+    <Content Include="UEditor\_src\commands\image.js" />
+    <Content Include="UEditor\_src\commands\indent.js" />
+    <Content Include="UEditor\_src\commands\inserthtml.js" />
+    <Content Include="UEditor\_src\commands\justify.js" />
+    <Content Include="UEditor\_src\commands\lineheight.js" />
+    <Content Include="UEditor\_src\commands\link.js" />
+    <Content Include="UEditor\_src\commands\map.js" />
+    <Content Include="UEditor\_src\commands\paragraph.js" />
+    <Content Include="UEditor\_src\commands\preview.js" />
+    <Content Include="UEditor\_src\commands\print.js" />
+    <Content Include="UEditor\_src\commands\removeformat.js" />
+    <Content Include="UEditor\_src\commands\rowspacing.js" />
+    <Content Include="UEditor\_src\commands\selectall.js" />
+    <Content Include="UEditor\_src\commands\spechars.js" />
+    <Content Include="UEditor\_src\commands\time.js" />
+    <Content Include="UEditor\_src\commands\wordcount.js" />
+    <Content Include="UEditor\_src\core\browser.js" />
+    <Content Include="UEditor\_src\core\dom\dom.js" />
+    <Content Include="UEditor\_src\core\dom\domUtils.js" />
+    <Content Include="UEditor\_src\core\dom\dtd.js" />
+    <Content Include="UEditor\_src\core\dom\Range.js" />
+    <Content Include="UEditor\_src\core\dom\Selection.js" />
+    <Content Include="UEditor\_src\core\Editor.js" />
+    <Content Include="UEditor\_src\core\EventBase.js" />
+    <Content Include="UEditor\_src\core\utils.js" />
+    <Content Include="UEditor\_src\editor.js" />
+    <Content Include="UEditor\_src\plugins\autofloat\autofloat.js" />
+    <Content Include="UEditor\_src\plugins\autoheight\autoheight.js" />
+    <Content Include="UEditor\_src\plugins\autolink\autolink.js" />
+    <Content Include="UEditor\_src\plugins\basestyle\basestyle.js" />
+    <Content Include="UEditor\_src\plugins\checkimage\checkimage.js" />
+    <Content Include="UEditor\_src\plugins\contextmenu\contextmenu.js" />
+    <Content Include="UEditor\_src\plugins\customstyle\customstyle.js" />
+    <Content Include="UEditor\_src\plugins\elementpath\elementpath.js" />
+    <Content Include="UEditor\_src\plugins\enterkey\enterkey.js" />
+    <Content Include="UEditor\_src\plugins\fiximgclick\fiximgclick.js" />
+    <Content Include="UEditor\_src\plugins\formatmatch\formatmatch.js" />
+    <Content Include="UEditor\_src\plugins\highlight\highlight.js" />
+    <Content Include="UEditor\_src\plugins\keystrokes\keystrokes.js" />
+    <Content Include="UEditor\_src\plugins\list\list.js" />
+    <Content Include="UEditor\_src\plugins\pagebreak\pagebreak.js" />
+    <Content Include="UEditor\_src\plugins\paste\paste.js" />
+    <Content Include="UEditor\_src\plugins\searchreplace\searchreplace.js" />
+    <Content Include="UEditor\_src\plugins\serialize\serialize.js" />
+    <Content Include="UEditor\_src\plugins\shortcutkeys\shortcutkeys.js" />
+    <Content Include="UEditor\_src\plugins\source\source.js" />
+    <Content Include="UEditor\_src\plugins\table\table.js" />
+    <Content Include="UEditor\_src\plugins\undo\undo.js" />
+    <Content Include="UEditor\_src\plugins\video\video.js" />
+    <Content Include="UEditor\_src\ui\button.js" />
+    <Content Include="UEditor\_src\ui\colorbutton.js" />
+    <Content Include="UEditor\_src\ui\colorpicker.js" />
+    <Content Include="UEditor\_src\ui\combox.js" />
+    <Content Include="UEditor\_src\ui\datebutton.js" />
+    <Content Include="UEditor\_src\ui\dialog.js" />
+    <Content Include="UEditor\_src\ui\editor.js" />
+    <Content Include="UEditor\_src\ui\editorui.js" />
+    <Content Include="UEditor\_src\ui\mask.js" />
+    <Content Include="UEditor\_src\ui\menu.js" />
+    <Content Include="UEditor\_src\ui\menubutton.js" />
+    <Content Include="UEditor\_src\ui\multiMenu.js" />
+    <Content Include="UEditor\_src\ui\popup.js" />
+    <Content Include="UEditor\_src\ui\popupbutton.js" />
+    <Content Include="UEditor\_src\ui\separator.js" />
+    <Content Include="UEditor\_src\ui\splitbutton.js" />
+    <Content Include="UEditor\_src\ui\stateful.js" />
+    <Content Include="UEditor\_src\ui\tablebutton.js" />
+    <Content Include="UEditor\_src\ui\tablepicker.js" />
+    <Content Include="UEditor\_src\ui\toolbar.js" />
+    <Content Include="UEditor\_src\ui\ui.js" />
+    <Content Include="UEditor\_src\ui\uibase.js" />
+    <Content Include="UEditor\_src\ui\uiutils.js" />
+    <Content Include="UploadProgressControl\CustomTemplateUploadProgressControl.aspx" />
+    <Content Include="UploadProgressControl\SampleData.xml" />
+    <EmbeddedResource Include="UploadProgressControl\customUploadProgressControlTemplate.htm" />
+    <Content Include="UploadProgressControl\UploadProgressControlTest.aspx" />
+    <Content Include="UserControl\cloneUserOUGraphControlTest.aspx" />
+    <Content Include="UserControl\cloneUserOUGraphDialogControlTest.aspx" />
+    <Content Include="UserControl\DynamicUserTree.aspx" />
+    <Content Include="UserControl\testUserOUGraphControl2.aspx" />
+    <Content Include="UserPresenceControl\cdm.png" />
+    <Content Include="UserPresenceControl\ucImageTest.aspx" />
+    <Content Include="UserPresenceControl\TestWithUpdatePanel.aspx" />
+    <Content Include="Validation\TextValidatorTest.aspx" />
+    <Content Include="Validation\ValidationBinderTest.aspx" />
+    <Content Include="WfCollectParameterControl\ValidatorTestPage.aspx" />
+    <Content Include="WfCollectParameterControl\WfCollectParameterControlTest.aspx" />
+    <Content Include="WfMatrixTest\MatrixTemplate.xml" />
+    <Content Include="WfMatrixTest\OutputDimensionMatrix.aspx" />
+    <Content Include="Workflow\Circulate\CirculateControlTest.aspx" />
+    <Content Include="Workflow\Print\PrintControlTest.aspx" />
+    <Content Include="Workflow\Print\ss1.css" />
+    <Content Include="Workflow\WfProcessDescriptorSelector\test.htm" />
+    <Content Include="Workflow\WfProcessDescriptorSelector\WfProcessDescriptorSelectorTest.aspx" />
+    <Content Include="WorkitemControl\duolie.htm" />
+    <Content Include="WorkitemControl\duolie2.htm" />
+    <Content Include="WorkitemControl\HTMLPage1.htm" />
+    <Content Include="WorkitemControl\HTMLPage2.htm" />
+    <Content Include="WorkitemControl\jquery-1.4.3.js" />
+    <Content Include="WorkitemControl\jquery.json-2.2.js" />
+    <Content Include="WorkitemControl\Super_Tables_0_30beta_compressed\javascripts\superTables_compressed.js" />
+    <Content Include="WorkitemControl\Super_Tables_0_30beta_compressed\stylesheets\superTables_compressed.css" />
+    <Content Include="WorkitemControl\table.htm" />
+    <Content Include="WorkitemControl\test.css" />
+    <Content Include="WorkitemControl\duolie3.htm" />
+    <Content Include="WrappedClientGridTest\Bin\CellCtrl5.ocx" />
+    <Content Include="WrappedClientGridTest\Bin\YRWXls.ocx" />
+    <Content Include="WrappedClientGridTest\cellCtrlTest.htm" />
+    <EmbeddedResource Include="DataBindingControl\Validators\ScriptResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScriptResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WrappedClientGridTest\ClientGrid.css" />
+    <Content Include="WrappedClientGridTest\clientGridStyleDemo.aspx" />
+    <Content Include="WrappedClientGridTest\ClientGridTest1.aspx" />
+    <Content Include="WrappedClientGridTest\ClientGridTest2.aspx" />
+    <Content Include="WrappedClientGridTest\clientSetDataSource.aspx" />
+    <Content Include="WrappedClientGridTest\columnVisibleTest.aspx" />
+    <Content Include="WrappedClientGridTest\dateTimeToJsonTest.aspx" />
+    <Content Include="WrappedClientGridTest\elementCloneTest.htm" />
+    <Content Include="WrappedClientGridTest\headerManageTest.aspx" />
+    <Content Include="WrappedClientGridTest\HTMLPage1.htm" />
+    <Content Include="WrappedClientGridTest\HTMLPage2.htm" />
+    <Content Include="WrappedClientGridTest\ItemManageTest.aspx" />
+    <Content Include="WrappedClientGridTest\justTest.aspx" />
+    <Content Include="WrappedClientGridTest\pageChangeTest.aspx" />
+    <Content Include="WrappedClientGridTest\PaymentDetailsGridTest.aspx" />
+    <Content Include="WrappedClientGridTest\PreRowAddEventTest.aspx" />
+    <Content Include="WrappedClientGridTest\serverAddClientGrid.aspx" />
+    <Content Include="WrappedClientGridTest\ServerDefine.aspx" />
+    <Content Include="WrappedClientGridTest\test11.aspx" />
+    <Content Include="WrappedClientGridTest\testDuohang.htm" />
+    <Content Include="WrappedClientGridTest\withDataTimeClientGrid.aspx" />
+    <Content Include="PopUpMessage\msg.wav" />
+    <Content Include="PopUpMessage\PopUpMessageTest.aspx" />
+    <Content Include="PropertyGrid\PropertyGridTest.aspx" />
+    <Content Include="SimpleTabStrip\delete.gif" />
+    <Content Include="SimpleTabStrip\image.gif" />
+    <Content Include="SimpleTabStrip\insert.gif" />
+    <Content Include="SimpleTabStrip\jianmian.jpg" />
+    <Content Include="SimpleTabStrip\msdn.bmp" />
+    <Content Include="SimpleTabStrip\offDuty.bmp" />
+    <Content Include="SimpleTabStrip\TestSimpleTabStrip.aspx" />
+    <Content Include="SimpleTabStrip\WordPad.gif" />
+    <Content Include="SimpleTabStrip\xrx04.jpg" />
+    <Content Include="SubmitButtonTest\SubmitButtonTestForm.aspx" />
+    <Content Include="UserControl\testMergeResultOUGraphControl.aspx" />
+    <Content Include="UserControl\testUserOUGraphControl.aspx" />
+    <Content Include="UserPresenceControl\userPresenceTest.aspx" />
+    <Content Include="UserSelector\testConsignUserSelector.aspx" />
+    <Content Include="UserSelector\testExtConsignUserSelector.aspx" />
+    <Content Include="UserSelector\testExtOuUserInputControl.aspx" />
+    <Content Include="UserSelector\testUserSelector.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Workflow\ActivityEditor\activityEditorTest.aspx" />
+    <Content Include="Workflow\testConsignControl.aspx" />
+    <Content Include="Workflow\WfRuntimeViewer\SilverlightFile\WorkflowRuntime.xap" />
+    <Content Include="Workflow\WfRuntimeViewer\ViewerDialogTest.aspx" />
+    <Content Include="Workflow\WfRuntimeViewer\ViewerTest.aspx" />
+    <Content Include="WrappedClientGridTest\clientGridTest.aspx" />
+    <Content Include="WrappedClientGridTest\editInvoice.aspx" />
+    <Content Include="WrappedClientGridTest\checkBoxClientGrid.aspx" />
+    <Content Include="WrappedClientGridTest\withOuUserInputControl.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AutoCompleteWithSelectorControl\CommonData.cs" />
+    <Compile Include="AutoCompleteWithSelectorControl\test2.aspx.cs">
+      <DependentUpon>test2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AutoCompleteWithSelectorControl\test2.aspx.designer.cs">
+      <DependentUpon>test2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AutoCompleteWithSelectorControl\test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AutoCompleteWithSelectorControl\test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClientGrid\ClientGridUseSensitiveWordsTest.aspx.cs">
+      <DependentUpon>ClientGridUseSensitiveWordsTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientGrid\ClientGridUseSensitiveWordsTest.aspx.designer.cs">
+      <DependentUpon>ClientGridUseSensitiveWordsTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClientGrid\TestWithMaterialControl.aspx.cs">
+      <DependentUpon>TestWithMaterialControl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientGrid\TestWithMaterialControl.aspx.designer.cs">
+      <DependentUpon>TestWithMaterialControl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClientGrid\TestWithOuUserInputEditor.aspx.cs">
+      <DependentUpon>TestWithOuUserInputEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientGrid\TestWithOuUserInputEditor.aspx.designer.cs">
+      <DependentUpon>TestWithOuUserInputEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClientGrid\TestWithTemplate.aspx.cs">
+      <DependentUpon>TestWithTemplate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientGrid\TestWithTemplate.aspx.designer.cs">
+      <DependentUpon>TestWithTemplate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerServiceExecutiveLink\Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerServiceExecutiveLink\Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerServiceExecutiveLink\Test2.aspx.cs">
+      <DependentUpon>Test2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerServiceExecutiveLink\Test2.aspx.designer.cs">
+      <DependentUpon>Test2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DataBindingControl\clientDataBindingTest.aspx.cs">
+      <DependentUpon>clientDataBindingTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DataBindingControl\clientDataBindingTest.aspx.designer.cs">
+      <DependentUpon>clientDataBindingTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DataBindingControl\ObserverDemo.aspx.cs">
+      <DependentUpon>ObserverDemo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DataBindingControl\ObserverDemo.aspx.designer.cs">
+      <DependentUpon>ObserverDemo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorPage\Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorPage\Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GangedDataBindingControl\Scene5Test.aspx.cs">
+      <DependentUpon>Scene5Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GangedDataBindingControl\Scene5Test.aspx.designer.cs">
+      <DependentUpon>Scene5Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeluxeSearch\DataObjects\AreaItem.cs" />
+    <Compile Include="DeluxeSearch\DataObjects\DatabaseUtils.cs" />
+    <Compile Include="DeluxeSearch\DataObjects\Supplier.cs" />
+    <Compile Include="DeluxeSearch\DataObjects\SupplierAdapter.cs" />
+    <Compile Include="DeluxeSearch\DialogTest1.aspx.cs">
+      <DependentUpon>DialogTest1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeluxeSearch\DialogTest1.aspx.designer.cs">
+      <DependentUpon>DialogTest1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeluxeSearch\DataObjects\LevelItem.cs" />
+    <Compile Include="DeluxeSearch\SupplierSearch.cs" />
+    <Compile Include="DeluxeSearch\DataObjects\RegisteredCapitalItem.cs" />
+    <Compile Include="DeluxeSearch\DataObjects\SupplierQueryAdapter.cs" />
+    <Compile Include="DeluxeSearch\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeluxeSearch\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeluxeSearch\TestResult.cs" />
+    <Compile Include="DeluxeSearch\DataObjects\TypeItem.cs" />
+    <Compile Include="ClientGrid\ClientGridTest.aspx.cs">
+      <DependentUpon>ClientGridTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientGrid\ClientGridTest.aspx.designer.cs">
+      <DependentUpon>ClientGridTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CommandInput\CommandInputOpen.aspx.cs">
+      <DependentUpon>CommandInputOpen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommandInput\CommandInputOpen.aspx.designer.cs">
+      <DependentUpon>CommandInputOpen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CommandInput\CommandInputTest.aspx.cs">
+      <DependentUpon>CommandInputTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommandInput\CommandInputTest.aspx.designer.cs">
+      <DependentUpon>CommandInputTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DataBindingControl\dropdownListBindingTest.aspx.cs">
+      <DependentUpon>dropdownListBindingTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DataBindingControl\dropdownListBindingTest.aspx.designer.cs">
+      <DependentUpon>dropdownListBindingTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DataBindingControl\LinkButtonTest.aspx.cs">
+      <DependentUpon>LinkButtonTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DataBindingControl\LinkButtonTest.aspx.designer.cs">
+      <DependentUpon>LinkButtonTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DataBindingControl\SimpleDataBindingControlTestPage.aspx.cs">
+      <DependentUpon>SimpleDataBindingControlTestPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DataBindingControl\SimpleDataBindingControlTestPage.aspx.designer.cs">
+      <DependentUpon>SimpleDataBindingControlTestPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DataBindingControl\SimpleDataObject.cs" />
+    <Compile Include="DataBindingControl\SimpleUser.cs" />
+    <Compile Include="DataBindingControl\Validators\MyTestValidator.cs" />
+    <Compile Include="DataBindingControl\Validators\MyTestValidatorAttribute.cs" />
+    <Compile Include="DataBindingControl\Validators\ScriptResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ScriptResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="DataBindingControl\WithDeluxeCalendar.aspx.cs">
+      <DependentUpon>WithDeluxeCalendar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DataBindingControl\WithDeluxeCalendar.aspx.designer.cs">
+      <DependentUpon>WithDeluxeCalendar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeluxeGrid\DeluxeGridTest.aspx.cs">
+      <DependentUpon>DeluxeGridTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeluxeGrid\DeluxeGridTest.aspx.designer.cs">
+      <DependentUpon>DeluxeGridTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeluxeGrid\ProcessDescriptorInfoQuery.cs" />
+    <Compile Include="DeluxeSearch\TestUserControl.aspx.cs">
+      <DependentUpon>TestUserControl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeluxeSearch\TestUserControl.aspx.designer.cs">
+      <DependentUpon>TestUserControl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeluxeSearch\WebUserControl1.ascx.cs">
+      <DependentUpon>WebUserControl1.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeluxeSearch\WebUserControl1.ascx.designer.cs">
+      <DependentUpon>WebUserControl1.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DeluxeTree\Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeluxeTree\Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DownloadFile\ContinueDownloading.aspx.cs">
+      <DependentUpon>ContinueDownloading.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DownloadFile\ContinueDownloading.aspx.designer.cs">
+      <DependentUpon>ContinueDownloading.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DownloadFile\downloadFileTest.aspx.cs">
+      <DependentUpon>downloadFileTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DownloadFile\downloadFileTest.aspx.designer.cs">
+      <DependentUpon>downloadFileTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExcelViewerControl\ExcelViewerControlTest.aspx.cs">
+      <DependentUpon>ExcelViewerControlTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExcelViewerControl\ExcelViewerControlTest.aspx.designer.cs">
+      <DependentUpon>ExcelViewerControlTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GangedDataBindingControl\Scene2Test.aspx.cs">
+      <DependentUpon>Scene2Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GangedDataBindingControl\Scene2Test.aspx.designer.cs">
+      <DependentUpon>Scene2Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GangedDataBindingControl\Scene1Test.aspx.cs">
+      <DependentUpon>Scene1Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GangedDataBindingControl\Scene1Test.aspx.designer.cs">
+      <DependentUpon>Scene1Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GangedDataBindingControl\Scene3Test.aspx.cs">
+      <DependentUpon>Scene3Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GangedDataBindingControl\Scene3Test.aspx.designer.cs">
+      <DependentUpon>Scene3Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GangedDataBindingControl\Scene4Test.aspx.cs">
+      <DependentUpon>Scene4Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GangedDataBindingControl\Scene4Test.aspx.designer.cs">
+      <DependentUpon>Scene4Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\ShowUEditorImage.ashx.cs">
+      <DependentUpon>ShowUEditorImage.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="HBRadioButtonList\InvisibleRadioButtonList.aspx.cs">
+      <DependentUpon>InvisibleRadioButtonList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HBRadioButtonList\InvisibleRadioButtonList.aspx.designer.cs">
+      <DependentUpon>InvisibleRadioButtonList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HBRadioButtonList\Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HBRadioButtonList\Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HBText\HBDropdownList.aspx.cs">
+      <DependentUpon>HBDropdownList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HBText\HBDropdownList.aspx.designer.cs">
+      <DependentUpon>HBDropdownList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HBText\HBTextBoxTest.aspx.cs">
+      <DependentUpon>HBTextBoxTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HBText\HBTextBoxTest.aspx.designer.cs">
+      <DependentUpon>HBTextBoxTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HBText\InvisibleHBDropdownList.aspx.cs">
+      <DependentUpon>InvisibleHBDropdownList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HBText\InvisibleHBDropdownList.aspx.designer.cs">
+      <DependentUpon>InvisibleHBDropdownList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HtmlToWord\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HtmlToWord\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ImageUpload\cloneImageUploadControl.aspx.cs">
+      <DependentUpon>cloneImageUploadControl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ImageUpload\cloneImageUploadControl.aspx.designer.cs">
+      <DependentUpon>cloneImageUploadControl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ImageUpload\ImageUploadTest.aspx.cs">
+      <DependentUpon>ImageUploadTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ImageUpload\ImageUploadTest.aspx.designer.cs">
+      <DependentUpon>ImageUploadTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ImageUpload\ImageView.aspx.cs">
+      <DependentUpon>ImageView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ImageUpload\ImageView.aspx.designer.cs">
+      <DependentUpon>ImageView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JSON\WhereSqlClauseBuilderSerialization.aspx.cs">
+      <DependentUpon>WhereSqlClauseBuilderSerialization.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JSON\WhereSqlClauseBuilderSerialization.aspx.designer.cs">
+      <DependentUpon>WhereSqlClauseBuilderSerialization.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MaterialControl\MaterialControlDataChangedTest.aspx.cs">
+      <DependentUpon>MaterialControlDataChangedTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MaterialControl\MaterialControlDataChangedTest.aspx.designer.cs">
+      <DependentUpon>MaterialControlDataChangedTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MaterialControl\CloneWithDialogUploadFileControl.aspx.cs">
+      <DependentUpon>CloneWithDialogUploadFileControl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MaterialControl\CloneWithDialogUploadFileControl.aspx.designer.cs">
+      <DependentUpon>CloneWithDialogUploadFileControl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MaterialControl\CloneWithDialogUploadFileTraditionalControl.aspx.cs">
+      <DependentUpon>CloneWithDialogUploadFileTraditionalControl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MaterialControl\CloneWithDialogUploadFileTraditionalControl.aspx.designer.cs">
+      <DependentUpon>CloneWithDialogUploadFileTraditionalControl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MaterialControl\CloneWithOfficeViewer.aspx.cs">
+      <DependentUpon>CloneWithOfficeViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MaterialControl\CloneWithOfficeViewer.aspx.designer.cs">
+      <DependentUpon>CloneWithOfficeViewer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MaterialControl\UploadFileToMossTest.aspx.cs">
+      <DependentUpon>UploadFileToMossTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MaterialControl\UploadFileToMossTest.aspx.designer.cs">
+      <DependentUpon>UploadFileToMossTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MultiProcessControl\MultiProcessControl.aspx.cs">
+      <DependentUpon>MultiProcessControl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MultiProcessControl\MultiProcessControl.aspx.designer.cs">
+      <DependentUpon>MultiProcessControl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MultiProcessControl\MultiProcessControlWithError.aspx.cs">
+      <DependentUpon>MultiProcessControlWithError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MultiProcessControl\MultiProcessControlWithError.aspx.designer.cs">
+      <DependentUpon>MultiProcessControlWithError.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MultiProcessControl\MultiProcessControlWithPrepareData.aspx.cs">
+      <DependentUpon>MultiProcessControlWithPrepareData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MultiProcessControl\MultiProcessControlWithPrepareData.aspx.designer.cs">
+      <DependentUpon>MultiProcessControlWithPrepareData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Observer\ObserverTest.aspx.cs">
+      <DependentUpon>ObserverTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Observer\ObserverTest.aspx.designer.cs">
+      <DependentUpon>ObserverTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OfficeViewer\CloneOfficeViewer.aspx.cs">
+      <DependentUpon>CloneOfficeViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OfficeViewer\CloneOfficeViewer.aspx.designer.cs">
+      <DependentUpon>CloneOfficeViewer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OfficeViewer\OfficeViewerTest.aspx.cs">
+      <DependentUpon>OfficeViewerTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OfficeViewer\OfficeViewerTest.aspx.designer.cs">
+      <DependentUpon>OfficeViewerTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OfficeViewer\SimpleOfficeViewer.aspx.cs">
+      <DependentUpon>SimpleOfficeViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OfficeViewer\SimpleOfficeViewer.aspx.designer.cs">
+      <DependentUpon>SimpleOfficeViewer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OuNavigatorControl\OguTarget.aspx.cs">
+      <DependentUpon>OguTarget.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OuNavigatorControl\OguTarget.aspx.designer.cs">
+      <DependentUpon>OguTarget.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OuNavigatorControl\OuNavigatorTest.aspx.cs">
+      <DependentUpon>OuNavigatorTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OuNavigatorControl\OuNavigatorTest.aspx.designer.cs">
+      <DependentUpon>OuNavigatorTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OuUserInputControl\addExtraUserInfoOuUserInput.aspx.cs">
+      <DependentUpon>addExtraUserInfoOuUserInput.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OuUserInputControl\addExtraUserInfoOuUserInput.aspx.designer.cs">
+      <DependentUpon>addExtraUserInfoOuUserInput.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OuUserInputControl\clientAddControl.aspx.cs">
+      <DependentUpon>clientAddControl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OuUserInputControl\clientAddControl.aspx.designer.cs">
+      <DependentUpon>clientAddControl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OuUserInputControl\clientSetDataTest.aspx.cs">
+      <DependentUpon>clientSetDataTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OuUserInputControl\clientSetDataTest.aspx.designer.cs">
+      <DependentUpon>clientSetDataTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OuUserInputControl\cloneOuUserInputControl.aspx.cs">
+      <DependentUpon>cloneOuUserInputControl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OuUserInputControl\cloneOuUserInputControl.aspx.designer.cs">
+      <DependentUpon>cloneOuUserInputControl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OuUserInputControl\imitateOuUserInputControl.aspx.cs">
+      <DependentUpon>imitateOuUserInputControl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OuUserInputControl\imitateOuUserInputControl.aspx.designer.cs">
+      <DependentUpon>imitateOuUserInputControl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OuUserInputControl\test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OuUserInputControl\test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OuUserInputControl\TestDynamicOuUserInput.aspx.cs">
+      <DependentUpon>TestDynamicOuUserInput.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OuUserInputControl\TestDynamicOuUserInput.aspx.designer.cs">
+      <DependentUpon>TestDynamicOuUserInput.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OuUserInputControl\testOuUserInputControl.aspx.cs">
+      <DependentUpon>testOuUserInputControl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OuUserInputControl\testOuUserInputControl.aspx.designer.cs">
+      <DependentUpon>testOuUserInputControl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OuUserInputControl\testVisibility.aspx.cs">
+      <DependentUpon>testVisibility.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OuUserInputControl\testVisibility.aspx.designer.cs">
+      <DependentUpon>testVisibility.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopupTip\Test1.aspx.cs">
+      <DependentUpon>Test1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopupTip\Test1.aspx.designer.cs">
+      <DependentUpon>Test1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PostProgressControl\GridPostProgressControlTest.aspx.cs">
+      <DependentUpon>GridPostProgressControlTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PostProgressControl\GridPostProgressControlTest.aspx.designer.cs">
+      <DependentUpon>GridPostProgressControlTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PostProgressControl\SimplePostProgressControlTest.aspx.cs">
+      <DependentUpon>SimplePostProgressControlTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PostProgressControl\SimplePostProgressControlTest.aspx.designer.cs">
+      <DependentUpon>SimplePostProgressControlTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PostProgressControl\TestOrder.cs" />
+    <Compile Include="PropertyForm\Associated with drop-down Form.aspx.cs">
+      <DependentUpon>Associated with drop-down Form.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PropertyForm\Associated with drop-down Form.aspx.designer.cs">
+      <DependentUpon>Associated with drop-down Form.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyForm\CloneControlSetProperties.aspx.cs">
+      <DependentUpon>CloneControlSetProperties.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PropertyForm\CloneControlSetProperties.aspx.designer.cs">
+      <DependentUpon>CloneControlSetProperties.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyForm\EmptyCategoryTest.aspx.cs">
+      <DependentUpon>EmptyCategoryTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PropertyForm\EmptyCategoryTest.aspx.designer.cs">
+      <DependentUpon>EmptyCategoryTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyForm\PasswordConfirmationEditorTest.aspx.cs">
+      <DependentUpon>PasswordConfirmationEditorTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PropertyForm\PasswordConfirmationEditorTest.aspx.designer.cs">
+      <DependentUpon>PasswordConfirmationEditorTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyForm\PropertyEditorBaseTest.aspx.cs">
+      <DependentUpon>PropertyEditorBaseTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PropertyForm\PropertyEditorBaseTest.aspx.designer.cs">
+      <DependentUpon>PropertyEditorBaseTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyForm\PropertyFormDemoSource.cs" />
+    <Compile Include="PropertyForm\PropertyFormTestForMaterialEditor.aspx.cs">
+      <DependentUpon>PropertyFormTestForMaterialEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PropertyForm\PropertyFormTestForMaterialEditor.aspx.designer.cs">
+      <DependentUpon>PropertyFormTestForMaterialEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyForm\PropertyFormValidatorTest.aspx.cs">
+      <DependentUpon>PropertyFormValidatorTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PropertyForm\PropertyFormValidatorTest.aspx.designer.cs">
+      <DependentUpon>PropertyFormValidatorTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyForm\PropertyFromTest.aspx.cs">
+      <DependentUpon>PropertyFromTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PropertyForm\PropertyFromTest.aspx.designer.cs">
+      <DependentUpon>PropertyFromTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyForm\PropertyFormTestForClientGridEditor.aspx.cs">
+      <DependentUpon>PropertyFormTestForClientGridEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PropertyForm\PropertyFormTestForClientGridEditor.aspx.designer.cs">
+      <DependentUpon>PropertyFormTestForClientGridEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyGrid\CustomObjectListPropertyEditor.cs" />
+    <Compile Include="PropertyGrid\DictionaryToPropertiesTest.aspx.cs">
+      <DependentUpon>DictionaryToPropertiesTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PropertyGrid\DictionaryToPropertiesTest.aspx.designer.cs">
+      <DependentUpon>DictionaryToPropertiesTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyGrid\EnumValueDefine.cs" />
+    <Compile Include="PropertyGrid\PropertyGridTestForMaterialEditor.aspx.cs">
+      <DependentUpon>PropertyGridTestForMaterialEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PropertyGrid\PropertyGridTestForMaterialEditor.aspx.designer.cs">
+      <DependentUpon>PropertyGridTestForMaterialEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyGrid\PropertyGridCloneDeluxeCalendar.aspx.cs">
+      <DependentUpon>PropertyGridCloneDeluxeCalendar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PropertyGrid\PropertyGridCloneDeluxeCalendar.aspx.designer.cs">
+      <DependentUpon>PropertyGridCloneDeluxeCalendar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RelativeLink\bridge.aspx.cs">
+      <DependentUpon>bridge.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RelativeLink\bridge.aspx.designer.cs">
+      <DependentUpon>bridge.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RelativeLink\popupForm.aspx.cs">
+      <DependentUpon>popupForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RelativeLink\popupForm.aspx.designer.cs">
+      <DependentUpon>popupForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RelativeLink\RelativeLinkTest.aspx.cs">
+      <DependentUpon>RelativeLinkTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RelativeLink\RelativeLinkTest.aspx.designer.cs">
+      <DependentUpon>RelativeLinkTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RelativeLink\Test1.aspx.cs">
+      <DependentUpon>Test1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RelativeLink\Test1.aspx.designer.cs">
+      <DependentUpon>Test1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RepeaterControl\RepeaterHeaderTemplate.cs" />
+    <Compile Include="RepeaterControl\RepeaterItemTemplate.cs" />
+    <Compile Include="RepeaterControl\RepeaterTest.aspx.cs">
+      <DependentUpon>RepeaterTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RepeaterControl\RepeaterTest.aspx.designer.cs">
+      <DependentUpon>RepeaterTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RepeaterControl\TestData.cs" />
+    <Compile Include="RightSideNavigator\RightSideNavigatorTest.aspx.cs">
+      <DependentUpon>RightSideNavigatorTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RightSideNavigator\RightSideNavigatorTest.aspx.designer.cs">
+      <DependentUpon>RightSideNavigatorTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RoleControl\cloneRoleSelectorControlTest.aspx.cs">
+      <DependentUpon>cloneRoleSelectorControlTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RoleControl\cloneRoleSelectorControlTest.aspx.designer.cs">
+      <DependentUpon>cloneRoleSelectorControlTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RoleControl\RoleSelectTest.aspx.cs">
+      <DependentUpon>RoleSelectTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RoleControl\RoleSelectTest.aspx.designer.cs">
+      <DependentUpon>RoleSelectTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceImportControlTest\ServiceImportControlTest.aspx.cs">
+      <DependentUpon>ServiceImportControlTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ServiceImportControlTest\ServiceImportControlTest.aspx.designer.cs">
+      <DependentUpon>ServiceImportControlTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceImport\ImportedWebService.asmx.cs">
+      <DependentUpon>ImportedWebService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ServiceImport\ImportServiceInfo.aspx.cs">
+      <DependentUpon>ImportServiceInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ServiceImport\ImportServiceInfo.aspx.designer.cs">
+      <DependentUpon>ImportServiceInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceImport\MySoapClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ServiceImport\TestUser.cs" />
+    <Compile Include="SimpleTabStrip\SimpleStripInFrame.aspx.cs">
+      <DependentUpon>SimpleStripInFrame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SimpleTabStrip\SimpleStripInFrame.aspx.designer.cs">
+      <DependentUpon>SimpleStripInFrame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeluxeQueryConditionDataSourceControl\Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeluxeQueryConditionDataSourceControl\Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SubmitButtonTest\SubmitButtonInUpdatePanelMode.aspx.cs">
+      <DependentUpon>SubmitButtonInUpdatePanelMode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SubmitButtonTest\SubmitButtonInUpdatePanelMode.aspx.designer.cs">
+      <DependentUpon>SubmitButtonInUpdatePanelMode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SubmitButtonTest\SubmitButtonWithProgress.aspx.cs">
+      <DependentUpon>SubmitButtonWithProgress.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SubmitButtonTest\SubmitButtonWithProgress.aspx.designer.cs">
+      <DependentUpon>SubmitButtonWithProgress.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestPages\PopupTestForIE10.aspx.cs">
+      <DependentUpon>PopupTestForIE10.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestPages\PopupTestForIE10.aspx.designer.cs">
+      <DependentUpon>PopupTestForIE10.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestPages\UploadTestForIE10.aspx.cs">
+      <DependentUpon>UploadTestForIE10.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestPages\UploadTestForIE10.aspx.designer.cs">
+      <DependentUpon>UploadTestForIE10.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UEditorWrapperTest\simpleUEditorWrapperTest.aspx.cs">
+      <DependentUpon>simpleUEditorWrapperTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UEditorWrapperTest\simpleUEditorWrapperTest.aspx.designer.cs">
+      <DependentUpon>simpleUEditorWrapperTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UEditorWrapperTest\UEditorModule.cs" />
+    <Compile Include="UploadProgressControl\CustomTemplateUploadProgressControl.aspx.cs">
+      <DependentUpon>CustomTemplateUploadProgressControl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UploadProgressControl\CustomTemplateUploadProgressControl.aspx.designer.cs">
+      <DependentUpon>CustomTemplateUploadProgressControl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UploadProgressControl\UploadProgressControlTest.aspx.cs">
+      <DependentUpon>UploadProgressControlTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UploadProgressControl\UploadProgressControlTest.aspx.designer.cs">
+      <DependentUpon>UploadProgressControlTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\cloneUserOUGraphControlTest.aspx.cs">
+      <DependentUpon>cloneUserOUGraphControlTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\cloneUserOUGraphControlTest.aspx.designer.cs">
+      <DependentUpon>cloneUserOUGraphControlTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\cloneUserOUGraphDialogControlTest.aspx.cs">
+      <DependentUpon>cloneUserOUGraphDialogControlTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\cloneUserOUGraphDialogControlTest.aspx.designer.cs">
+      <DependentUpon>cloneUserOUGraphDialogControlTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\DynamicUserTree.aspx.cs">
+      <DependentUpon>DynamicUserTree.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\DynamicUserTree.aspx.designer.cs">
+      <DependentUpon>DynamicUserTree.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\testUserOUGraphControl2.aspx.cs">
+      <DependentUpon>testUserOUGraphControl2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\testUserOUGraphControl2.aspx.designer.cs">
+      <DependentUpon>testUserOUGraphControl2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserPresenceControl\ucImageTest.aspx.cs">
+      <DependentUpon>ucImageTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserPresenceControl\ucImageTest.aspx.designer.cs">
+      <DependentUpon>ucImageTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserPresenceControl\TestWithUpdatePanel.aspx.cs">
+      <DependentUpon>TestWithUpdatePanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserPresenceControl\TestWithUpdatePanel.aspx.designer.cs">
+      <DependentUpon>TestWithUpdatePanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Validation\TextValidatorTest.aspx.cs">
+      <DependentUpon>TextValidatorTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Validation\TextValidatorTest.aspx.designer.cs">
+      <DependentUpon>TextValidatorTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Validation\ValidationBinderTest.aspx.cs">
+      <DependentUpon>ValidationBinderTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Validation\ValidationBinderTest.aspx.designer.cs">
+      <DependentUpon>ValidationBinderTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WfCollectParameterControl\TestValidator.cs" />
+    <Compile Include="WfCollectParameterControl\ValidatorTestPage.aspx.cs">
+      <DependentUpon>ValidatorTestPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WfCollectParameterControl\ValidatorTestPage.aspx.designer.cs">
+      <DependentUpon>ValidatorTestPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WfCollectParameterControl\ValidatorWrapperControl.cs" />
+    <Compile Include="WfCollectParameterControl\WfCollectParameterControlTest.aspx.cs">
+      <DependentUpon>WfCollectParameterControlTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WfCollectParameterControl\WfCollectParameterControlTest.aspx.designer.cs">
+      <DependentUpon>WfCollectParameterControlTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WfMatrixTest\OutputDimensionMatrix.aspx.cs">
+      <DependentUpon>OutputDimensionMatrix.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WfMatrixTest\OutputDimensionMatrix.aspx.designer.cs">
+      <DependentUpon>OutputDimensionMatrix.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\Circulate\CirculateControlTest.aspx.cs">
+      <DependentUpon>CirculateControlTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Workflow\Circulate\CirculateControlTest.aspx.designer.cs">
+      <DependentUpon>CirculateControlTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\Print\PrintControlTest.aspx.cs">
+      <DependentUpon>PrintControlTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Workflow\Print\PrintControlTest.aspx.designer.cs">
+      <DependentUpon>PrintControlTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\WfProcessDescriptorSelector\WfProcessDescriptorSelectorTest.aspx.cs">
+      <DependentUpon>WfProcessDescriptorSelectorTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Workflow\WfProcessDescriptorSelector\WfProcessDescriptorSelectorTest.aspx.designer.cs">
+      <DependentUpon>WfProcessDescriptorSelectorTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopUpMessage\PopUpMessageTest.aspx.cs">
+      <DependentUpon>PopUpMessageTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopUpMessage\PopUpMessageTest.aspx.designer.cs">
+      <DependentUpon>PopUpMessageTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyGrid\PropertyGridTest.aspx.cs">
+      <DependentUpon>PropertyGridTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PropertyGrid\PropertyGridTest.aspx.designer.cs">
+      <DependentUpon>PropertyGridTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SimpleTabStrip\TestSimpleTabStrip.aspx.cs">
+      <DependentUpon>TestSimpleTabStrip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SimpleTabStrip\TestSimpleTabStrip.aspx.designer.cs">
+      <DependentUpon>TestSimpleTabStrip.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SubmitButtonTest\SubmitButtonTestForm.aspx.cs">
+      <DependentUpon>SubmitButtonTestForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SubmitButtonTest\SubmitButtonTestForm.aspx.designer.cs">
+      <DependentUpon>SubmitButtonTestForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\testMergeResultOUGraphControl.aspx.cs">
+      <DependentUpon>testMergeResultOUGraphControl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\testMergeResultOUGraphControl.aspx.designer.cs">
+      <DependentUpon>testMergeResultOUGraphControl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\testUserOUGraphControl.aspx.cs">
+      <DependentUpon>testUserOUGraphControl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\testUserOUGraphControl.aspx.designer.cs">
+      <DependentUpon>testUserOUGraphControl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserPresenceControl\userPresenceTest.aspx.cs">
+      <DependentUpon>userPresenceTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserPresenceControl\userPresenceTest.aspx.designer.cs">
+      <DependentUpon>userPresenceTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserSelector\testConsignUserSelector.aspx.cs">
+      <DependentUpon>testConsignUserSelector.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserSelector\testConsignUserSelector.aspx.designer.cs">
+      <DependentUpon>testConsignUserSelector.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserSelector\testExtConsignUserSelector.aspx.cs">
+      <DependentUpon>testExtConsignUserSelector.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserSelector\testExtConsignUserSelector.aspx.designer.cs">
+      <DependentUpon>testExtConsignUserSelector.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserSelector\testExtOuUserInputControl.aspx.cs">
+      <DependentUpon>testExtOuUserInputControl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserSelector\testExtOuUserInputControl.aspx.designer.cs">
+      <DependentUpon>testExtOuUserInputControl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserSelector\testUserSelector.aspx.cs">
+      <DependentUpon>testUserSelector.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserSelector\testUserSelector.aspx.designer.cs">
+      <DependentUpon>testUserSelector.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\ActivityEditor\activityEditorTest.aspx.cs">
+      <DependentUpon>activityEditorTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Workflow\ActivityEditor\activityEditorTest.aspx.designer.cs">
+      <DependentUpon>activityEditorTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\testConsignControl.aspx.cs">
+      <DependentUpon>testConsignControl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Workflow\testConsignControl.aspx.designer.cs">
+      <DependentUpon>testConsignControl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\WfRuntimeViewer\ViewerDialogTest.aspx.cs">
+      <DependentUpon>ViewerDialogTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Workflow\WfRuntimeViewer\ViewerDialogTest.aspx.designer.cs">
+      <DependentUpon>ViewerDialogTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\WfRuntimeViewer\ViewerTest.aspx.cs">
+      <DependentUpon>ViewerTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Workflow\WfRuntimeViewer\ViewerTest.aspx.designer.cs">
+      <DependentUpon>ViewerTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\clientGridStyleDemo.aspx.cs">
+      <DependentUpon>clientGridStyleDemo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\clientGridStyleDemo.aspx.designer.cs">
+      <DependentUpon>clientGridStyleDemo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\clientGridTest.aspx.cs">
+      <DependentUpon>clientGridTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\clientGridTest.aspx.designer.cs">
+      <DependentUpon>clientGridTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\ClientGridTest1.aspx.cs">
+      <DependentUpon>ClientGridTest1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\ClientGridTest1.aspx.designer.cs">
+      <DependentUpon>ClientGridTest1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\ClientGridTest2.aspx.cs">
+      <DependentUpon>ClientGridTest2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\ClientGridTest2.aspx.designer.cs">
+      <DependentUpon>ClientGridTest2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\clientSetDataSource.aspx.cs">
+      <DependentUpon>clientSetDataSource.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\clientSetDataSource.aspx.designer.cs">
+      <DependentUpon>clientSetDataSource.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\columnVisibleTest.aspx.cs">
+      <DependentUpon>columnVisibleTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\columnVisibleTest.aspx.designer.cs">
+      <DependentUpon>columnVisibleTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\dateTimeToJsonTest.aspx.cs">
+      <DependentUpon>dateTimeToJsonTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\dateTimeToJsonTest.aspx.designer.cs">
+      <DependentUpon>dateTimeToJsonTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\editInvoice.aspx.cs">
+      <DependentUpon>editInvoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\editInvoice.aspx.designer.cs">
+      <DependentUpon>editInvoice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\headerManageTest.aspx.cs">
+      <DependentUpon>headerManageTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\headerManageTest.aspx.designer.cs">
+      <DependentUpon>headerManageTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\Invoice.cs" />
+    <Compile Include="WrappedClientGridTest\ItemManageTest.aspx.cs">
+      <DependentUpon>ItemManageTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\ItemManageTest.aspx.designer.cs">
+      <DependentUpon>ItemManageTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\justTest.aspx.cs">
+      <DependentUpon>justTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\justTest.aspx.designer.cs">
+      <DependentUpon>justTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\pageChangeTest.aspx.cs">
+      <DependentUpon>pageChangeTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\pageChangeTest.aspx.designer.cs">
+      <DependentUpon>pageChangeTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\PaymentDetailsGridTest.aspx.cs">
+      <DependentUpon>PaymentDetailsGridTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\PaymentDetailsGridTest.aspx.designer.cs">
+      <DependentUpon>PaymentDetailsGridTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\PreRowAddEventTest.aspx.cs">
+      <DependentUpon>PreRowAddEventTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\PreRowAddEventTest.aspx.designer.cs">
+      <DependentUpon>PreRowAddEventTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\serverAddClientGrid.aspx.cs">
+      <DependentUpon>serverAddClientGrid.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\serverAddClientGrid.aspx.designer.cs">
+      <DependentUpon>serverAddClientGrid.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\ServerDefine.aspx.cs">
+      <DependentUpon>ServerDefine.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\ServerDefine.aspx.designer.cs">
+      <DependentUpon>ServerDefine.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\test11.aspx.cs">
+      <DependentUpon>test11.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\test11.aspx.designer.cs">
+      <DependentUpon>test11.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\testDemo.cs" />
+    <Compile Include="WrappedClientGridTest\withDataTimeClientGrid.aspx.cs">
+      <DependentUpon>withDataTimeClientGrid.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\withDataTimeClientGrid.aspx.designer.cs">
+      <DependentUpon>withDataTimeClientGrid.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\checkBoxClientGrid.aspx.cs">
+      <DependentUpon>checkBoxClientGrid.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\checkBoxClientGrid.aspx.designer.cs">
+      <DependentUpon>checkBoxClientGrid.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\withOuUserInputControl.aspx.cs">
+      <DependentUpon>withOuUserInputControl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WrappedClientGridTest\withOuUserInputControl.aspx.designer.cs">
+      <DependentUpon>withOuUserInputControl.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\MCS.Library.OGUPermission\MCS.Library.OGUPermission.csproj">
+      <Project>{6EA98729-9A07-4D1F-B389-07C6B9D43B1D}</Project>
+      <Name>MCS.Library.OGUPermission</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MCS.Library.SOA.DataObjects\MCS.Library.SOA.DataObjects.csproj">
+      <Project>{7905642F-4630-4D16-AF40-CB1FB70D516F}</Project>
+      <Name>MCS.Library.SOA.DataObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MCS.Library.SOA.Web.WebControls\MCS.Library.SOA.Web.WebControls.csproj">
+      <Project>{42C6D301-8CCB-4CBD-BC20-250D98A4C369}</Project>
+      <Name>MCS.Library.SOA.Web.WebControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MCS.Library\MCS.Library.csproj">
+      <Project>{4077B0B7-062A-4F6D-8A45-A180A2ED3215}</Project>
+      <Name>MCS.Library</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Handlers\ShowUEditorImage.ashx" />
+    <None Include="MaterialControl\Templates\Test.xlsx" />
+    <None Include="OfficeViewer\Expense.xls" />
+    <None Include="UEditor\server\submit\getContent.php" />
+    <None Include="UEditor\server\upload\jsp\up.jsp" />
+    <None Include="UEditor\server\upload\php\up.php" />
+    <None Include="WrappedClientGridTest\Bin\Cell.chm" />
+    <None Include="WrappedClientGridTest\Bin\CellFAQ.chm" />
+    <None Include="WrappedClientGridTest\Bin\Eula.rtf" />
+    <None Include="WrappedClientGridTest\Bin\Licence.rtf" />
+    <None Include="WrappedClientGridTest\Bin\order.cll" />
+    <None Include="WrappedClientGridTest\Bin\版本更新信息.url" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UEditor\server\upload\net\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>3007</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

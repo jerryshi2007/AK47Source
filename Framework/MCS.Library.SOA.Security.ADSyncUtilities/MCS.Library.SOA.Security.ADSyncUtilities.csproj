@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>../../../CIIC.HSR.TSP.Files/TSPLib.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6C750EF1-D01C-447A-9FED-C07744853C62}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MCS.Library.SOA.Security.ADSyncUtilities</RootNamespace>
+    <AssemblyName>MCS.Library.SOA.Security.ADSyncUtilities</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;ALLOWXREF;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>ALLOWXREF;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>MCS.Library.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'TRACE|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\TRACERT\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;PC_TRACE ALLOWXREF;GTNet40</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\MCS.Library.SOA.Security.ADSyncUtilities.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;H:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;H:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'NoLockDebug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\NoLockDebug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;ALLOWXREF NOLOCK;GTNet40</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\MCS.Library.SOA.Security.ADSyncUtilities.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;H:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;H:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'NoLockDebugANDUnitTest|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\NoLockDebugANDUnitTest\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;ALLOWXREF NOLOCK UNITTEST;GTNet40</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\MCS.Library.SOA.Security.ADSyncUtilities.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;H:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;H:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MCS.Library">
+      <HintPath>..\..\Bin\MCS.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.ADHelper">
+      <HintPath>..\..\Bin\MCS.Library.ADHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Data">
+      <HintPath>..\..\Bin\MCS.Library.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.OGUPermission">
+      <HintPath>..\..\Bin\MCS.Library.OGUPermission.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Passport, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.Passport.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.DataObjects">
+      <HintPath>..\..\Bin\MCS.Library.SOA.DataObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.DataObjects.Schemas">
+      <HintPath>..\..\Bin\MCS.Library.SOA.DataObjects.Schemas.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.DataObjects.Security">
+      <HintPath>..\..\Bin\MCS.Library.SOA.DataObjects.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Adapters\ADReverseSynchronizeLogAdapter.cs" />
+    <Compile Include="Adapters\ADReverseSynchronizeLogDetailAdapter.cs" />
+    <Compile Include="Adapters\ADSynchronizeLogAdapter.cs" />
+    <Compile Include="Adapters\ADSynchronizeLogDetailAdapter.cs" />
+    <Compile Include="Adapters\SimpleUserAdapter.cs" />
+    <Compile Include="Adapters\IDMappingAdapter.cs" />
+    <Compile Include="ADObjectWrapperCollection.cs" />
+    <Compile Include="ADObjectFinder.cs" />
+    <Compile Include="ADObjectModifier.cs" />
+    <Compile Include="ADObjectWrapper.cs" />
+    <Compile Include="ADToPermissionCenterSynchronizer.cs" />
+    <Compile Include="BatchFetcher.cs" />
+    <Compile Include="Comparer\DNPropertyComparer.cs" />
+    <Compile Include="Comparer\GroupObjectComparer.cs" />
+    <Compile Include="Comparer\LargeIntAndDateTimePropertyComparer.cs" />
+    <Compile Include="Comparer\NamePropertyComparer.cs" />
+    <Compile Include="Comparer\OguAndADObjectComparerBase.cs" />
+    <Compile Include="Comparer\OguAndADObjectPropertyComparerBase.cs" />
+    <Compile Include="Comparer\OguAndADObjectPropertySetterBase.cs" />
+    <Compile Include="Comparer\OguAndADObjectSetterBase.cs" />
+    <Compile Include="Comparer\OrganizationObjectComparer.cs" />
+    <Compile Include="Comparer\PhotoKeyComparer.cs" />
+    <Compile Include="Comparer\SimplePropertyComparer.cs" />
+    <Compile Include="Comparer\StringCollectionPropertyComparer.cs" />
+    <Compile Include="Comparer\UACPropertyComparer.cs" />
+    <Compile Include="Comparer\UserObjectComparer.cs" />
+    <Compile Include="DirectoryEntryNotFoundException.cs" />
+    <Compile Include="Entity\ADReverseSynchronizeLog.cs" />
+    <Compile Include="Entity\ADReverseSynchronizeLogDetail.cs" />
+    <Compile Include="Entity\ADSynchronizeResult.cs" />
+    <Compile Include="Entity\DelayRenameCodeNameAction.cs" />
+    <Compile Include="Entity\SimpleUser.cs" />
+    <Compile Include="Entity\IDelayAction.cs" />
+    <Compile Include="Entity\DelayActionCollection.cs" />
+    <Compile Include="Entity\DelayRenameAction.cs" />
+    <Compile Include="Entity\ADSynchronizeLog.cs" />
+    <Compile Include="Entity\ADSynchronizeLogDetail.cs" />
+    <Compile Include="Entity\IDMapping.cs" />
+    <Compile Include="Entity\ModifiedItem.cs" />
+    <Compile Include="Entity\SynchronizeContext.cs" />
+    <Compile Include="ADGroupMemerCollection.cs" />
+    <Compile Include="IDMapper.cs" />
+    <Compile Include="ObjectMappingElement.cs" />
+    <Compile Include="ObjectMappingElementCollection.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="ObjectComparerHelper.cs" />
+    <Compile Include="ObjectSetterHelper.cs" />
+    <Compile Include="KeyedOguObjectCollection.cs" />
+    <Compile Include="OguObjectFinder.cs" />
+    <Compile Include="PathPartEnumerator.cs" />
+    <Compile Include="PermissionCenterSynchronizer.cs" />
+    <Compile Include="PermissionCenterToADSynchronizeSettings.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Setter\AddADGroupObjectSetter.cs" />
+    <Compile Include="Setter\AddADObjectSetter.cs" />
+    <Compile Include="Setter\AddADUserObjectSetter.cs" />
+    <Compile Include="Setter\CodeNamePropertySetter.cs" />
+    <Compile Include="Setter\DeleteADObjectSetter.cs" />
+    <Compile Include="Setter\DeleteADOrganizationObjectSetter.cs" />
+    <Compile Include="Setter\DeleteADUserObjectSetter.cs" />
+    <Compile Include="Setter\LargeIntAndDateTimePropertySetter.cs" />
+    <Compile Include="Setter\ModifyADObjectPropertiesSetter.cs" />
+    <Compile Include="Setter\ObjNamePropertySetter.cs" />
+    <Compile Include="Setter\PhotoPropertySetter.cs" />
+    <Compile Include="Setter\SimplePropertySetter.cs" />
+    <Compile Include="Setter\GroupMarkerSetter.cs" />
+    <Compile Include="Setter\StringCollectionPropertySetter.cs" />
+    <Compile Include="Setter\UACPropertySetter.cs" />
+    <Compile Include="Setter\UserCodeNamePropertySetter.cs" />
+    <Compile Include="SynchronizeHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MCS.Library.snk" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>IF NOT EXIST "$(ProjectDir)..\..\Bin" MD "$(ProjectDir)..\..\Bin"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetFileName)" DEL "$(ProjectDir)..\..\Bin\$(TargetFileName)"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetName).pdb" DEL "$(ProjectDir)..\..\Bin\$(TargetName).pdb"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetName).xml" DEL "$(ProjectDir)..\..\Bin\$(TargetName).xml"</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>set path=%25path%25;C:\Windows\System32
+ 
+
+ XCOPY "$(TargetPath)"  "$(ProjectDir)..\..\Bin" /Y /D /R
+IF EXIST "$(TargetDir)$(TargetName).pdb" XCOPY "$(TargetDir)$(TargetName).pdb" "$(ProjectDir)..\..\Bin" /Y /D /R
+IF EXIST "$(TargetDir)$(TargetName).xml"  XCOPY "$(TargetDir)$(TargetName).xml" "$(ProjectDir)..\..\Bin" /Y /D /R</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

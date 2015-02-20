@@ -1,0 +1,30 @@
+﻿@model CIIC.HSR.TSP.WF.Ctrl.Test.Models.Expense
+@{
+    ViewBag.Title = "StartWorkflow";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript">
+
+</script>
+<div class="container">
+    <ol class="breadcrumb">
+        <li><a href="#" target="_parent">首页</a></li>
+        <li><span class="label label-success" id="QueryCustName">报销</span></li>
+        <li><a href="#">差旅报销</a></li>
+        <li>创建报销单</li>
+    </ol>
+    <div class="panel panel-default">
+        <div class="panel-heading clearfix panel-title">
+            创建报销单
+            <div class="btn-group pull-right">
+
+                <a href="#" class="btn btn-default" target="_parent">返回</a>
+            </div>
+        </div>
+        <div class="panel-body">
+            @(
+ Html.HSRUIWF().WFComments().Name("test11111");
+            )
+        </div>
+    </div>
+</div>

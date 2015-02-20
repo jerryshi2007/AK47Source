@@ -1,0 +1,54 @@
+﻿<%@ register assembly="MCS.Web.WebControls" namespace="MCS.Web.WebControls" tagprefix="MCS" %>
+<%@ register assembly="MCS.Library.SOA.Web.WebControls" namespace="MCS.Web.WebControls"
+	tagprefix="SOA" %>
+<asp:updatepanel runat="server">
+	<ContentTemplate>
+		<input type="hidden" runat="server" id="resultData"/>
+		<div style="height:24px" runat="server" id="statistics"></div>
+		<div>
+			<MCS:DeluxeGrid ID="ProcessDescInfoDeluxeGrid" runat="server" AutoGenerateColumns="False"
+				DataSourceID="objectDataSource" DataSourceMaxRow="0" AllowPaging="True" PageSize="10"
+				Width="100%" DataKeyNames="InstanceID"  GridTitle="分支流程列表"
+				CssClass="dataList" ShowExportControl="False" ShowCheckBoxes="True">
+				<Columns>
+                    <asp:BoundField DataField="DescriptorKey" HeaderText="流程描述Key" SortExpression="DescriptorKey">
+						<ItemStyle HorizontalAlign="Left" />
+					</asp:BoundField>
+                    <asp:BoundField DataField="ProcessName" HeaderText="流程描述名称" SortExpression="ProcessName">
+						<ItemStyle HorizontalAlign="Left" />
+					</asp:BoundField>
+                    <asp:BoundField DataField="Status" HeaderText="状态" SortExpression="Status" />
+                    <asp:BoundField DataField="StartTime" HeaderText="开始时间" HtmlEncode="False" SortExpression="StartTime"
+                                DataFormatString="{0:yyyy-MM-dd HH:mm:ss}" />
+                    <asp:BoundField DataField="EndTime" HeaderText="结束时间" HtmlEncode="False" SortExpression="EndTime"
+                                DataFormatString="{0:yyyy-MM-dd HH:mm:ss}" />
+				</Columns>
+				<PagerStyle CssClass="pager" />
+				<RowStyle CssClass="item" />
+				<CheckBoxTemplateItemStyle CssClass="checkbox" />
+				<CheckBoxTemplateHeaderStyle CssClass="checkbox" />
+				<HeaderStyle CssClass="head" />
+				<AlternatingRowStyle CssClass="aitem" />
+				<EmptyDataTemplate>
+					暂时没有您需要的数据
+				</EmptyDataTemplate>
+				<PagerSettings FirstPageText="&lt;&lt;" LastPageText="&gt;&gt;" Mode="NextPreviousFirstLast"
+					NextPageText="下一页" Position="Bottom" PreviousPageText="上一页"></PagerSettings>
+			</MCS:DeluxeGrid>
+			<asp:ObjectDataSource ID="objectDataSource" runat="server" EnablePaging="True" SelectCountMethod="GetQueryCount"
+				SelectMethod="Query" SortParameterName="orderBy" OnSelecting="objectDataSource_Selecting"
+				OnSelected="objectDataSource_Selected" TypeName="MCS.Web.WebControls.ProcessDescriptorInfoQuery"
+				EnableViewState="False">
+				<SelectParameters>
+					<asp:ControlParameter ControlID="whereCondition" Name="where" PropertyName="Value"
+						Type="String" />
+					<asp:Parameter Direction="InputOutput" Name="totalCount" Type="Int32" />
+				</SelectParameters>
+			</asp:ObjectDataSource>
+			<input runat="server" type="hidden" id="whereCondition" value="1=0" />
+		</div>
+		<div>
+			<SOA:SubmitButton runat="server" ID="serverConfirmButton" style="display:none" category="SOAWebControls" PopupCaption="正在读取......" RelativeControlID="confirmButton" />
+		</div>
+	</ContentTemplate>
+</asp:updatepanel>

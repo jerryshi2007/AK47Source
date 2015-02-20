@@ -1,0 +1,161 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WfOperationServices", "WfOperationServices.csproj", "{9B44D465-AA0B-44BC-85D8-D303E1D83048}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7905642F-4630-4D16-AF40-CB1FB70D516F} = {7905642F-4630-4D16-AF40-CB1FB70D516F}
+		{E24FAE52-428F-4B6E-8D9D-B24E7EE0A940} = {E24FAE52-428F-4B6E-8D9D-B24E7EE0A940}
+		{CBD91CA5-A50B-4F3E-AA77-E9CA9A8358C4} = {CBD91CA5-A50B-4F3E-AA77-E9CA9A8358C4}
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215} = {4077B0B7-062A-4F6D-8A45-A180A2ED3215}
+		{2BDA53BC-7BD9-4707-8DA4-A8B6DF7A46DC} = {2BDA53BC-7BD9-4707-8DA4-A8B6DF7A46DC}
+		{F4819ABF-3CD4-4158-BF86-8FE4D3F6A7A6} = {F4819ABF-3CD4-4158-BF86-8FE4D3F6A7A6}
+		{78CD90D6-129A-401C-8396-E7AD8996219E} = {78CD90D6-129A-401C-8396-E7AD8996219E}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library.Services.Contracts", "..\..\Framework\MCS.Library.Services.Contracts\MCS.Library.Services.Contracts.csproj", "{BCCA14A9-DC96-45C8-91C1-77CA6E51F70C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215} = {4077B0B7-062A-4F6D-8A45-A180A2ED3215}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library.WF.Contracts", "..\..\Framework\MCS.Library.WF.Contracts\MCS.Library.WF.Contracts.csproj", "{E24FAE52-428F-4B6E-8D9D-B24E7EE0A940}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215} = {4077B0B7-062A-4F6D-8A45-A180A2ED3215}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library.WF.Contracts.Json", "..\..\Framework\MCS.Library.WF.Contracts.Json\MCS.Library.WF.Contracts.Json.csproj", "{2BDA53BC-7BD9-4707-8DA4-A8B6DF7A46DC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E24FAE52-428F-4B6E-8D9D-B24E7EE0A940} = {E24FAE52-428F-4B6E-8D9D-B24E7EE0A940}
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215} = {4077B0B7-062A-4F6D-8A45-A180A2ED3215}
+		{78CD90D6-129A-401C-8396-E7AD8996219E} = {78CD90D6-129A-401C-8396-E7AD8996219E}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library.WF.Contracts.Converters", "..\..\Framework\MCS.Library.WF.Contracts.Converters\MCS.Library.WF.Contracts.Converters.csproj", "{CBD91CA5-A50B-4F3E-AA77-E9CA9A8358C4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7905642F-4630-4D16-AF40-CB1FB70D516F} = {7905642F-4630-4D16-AF40-CB1FB70D516F}
+		{E24FAE52-428F-4B6E-8D9D-B24E7EE0A940} = {E24FAE52-428F-4B6E-8D9D-B24E7EE0A940}
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215} = {4077B0B7-062A-4F6D-8A45-A180A2ED3215}
+		{2BDA53BC-7BD9-4707-8DA4-A8B6DF7A46DC} = {2BDA53BC-7BD9-4707-8DA4-A8B6DF7A46DC}
+		{F4819ABF-3CD4-4158-BF86-8FE4D3F6A7A6} = {F4819ABF-3CD4-4158-BF86-8FE4D3F6A7A6}
+		{78CD90D6-129A-401C-8396-E7AD8996219E} = {78CD90D6-129A-401C-8396-E7AD8996219E}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library.SOA.DataObjects", "..\..\Framework\MCS.Library.SOA.DataObjects\MCS.Library.SOA.DataObjects.csproj", "{7905642F-4630-4D16-AF40-CB1FB70D516F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215} = {4077B0B7-062A-4F6D-8A45-A180A2ED3215}
+		{F4819ABF-3CD4-4158-BF86-8FE4D3F6A7A6} = {F4819ABF-3CD4-4158-BF86-8FE4D3F6A7A6}
+		{78CD90D6-129A-401C-8396-E7AD8996219E} = {78CD90D6-129A-401C-8396-E7AD8996219E}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library", "..\..\Framework\MCS.Library\MCS.Library.csproj", "{4077B0B7-062A-4F6D-8A45-A180A2ED3215}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library.WcfExtensions", "..\..\Framework\MCS.Library.WcfExtensions\MCS.Library.WcfExtensions.csproj", "{F4819ABF-3CD4-4158-BF86-8FE4D3F6A7A6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215} = {4077B0B7-062A-4F6D-8A45-A180A2ED3215}
+		{78CD90D6-129A-401C-8396-E7AD8996219E} = {78CD90D6-129A-401C-8396-E7AD8996219E}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Web.Library.Script.Json", "..\..\Framework\MCS.Web.Library.Script.Json\MCS.Web.Library.Script.Json.csproj", "{78CD90D6-129A-401C-8396-E7AD8996219E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215} = {4077B0B7-062A-4F6D-8A45-A180A2ED3215}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 10
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://shsvr9141tfs.ciicsh.local:8080/tfs/rhso
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ..\\..\\Framework\\MCS.Library.Services.Contracts\\MCS.Library.Services.Contracts.csproj
+		SccProjectName1 = ../../Framework/MCS.Library.Services.Contracts
+		SccLocalPath1 = ..\\..\\Framework\\MCS.Library.Services.Contracts
+		SccProjectUniqueName2 = ..\\..\\Framework\\MCS.Library.WF.Contracts\\MCS.Library.WF.Contracts.csproj
+		SccProjectName2 = ../../Framework/MCS.Library.WF.Contracts
+		SccLocalPath2 = ..\\..\\Framework\\MCS.Library.WF.Contracts
+		SccProjectUniqueName3 = WfOperationServices.csproj
+		SccLocalPath3 = .
+		SccProjectUniqueName4 = ..\\..\\Framework\\MCS.Library.WF.Contracts.Json\\MCS.Library.WF.Contracts.Json.csproj
+		SccProjectName4 = ../../Framework/MCS.Library.WF.Contracts.Json
+		SccLocalPath4 = ..\\..\\Framework\\MCS.Library.WF.Contracts.Json
+		SccProjectUniqueName5 = ..\\..\\Framework\\MCS.Library\\MCS.Library.csproj
+		SccProjectName5 = ../../Framework/MCS.Library
+		SccLocalPath5 = ..\\..\\Framework\\MCS.Library
+		SccProjectUniqueName6 = ..\\..\\Framework\\MCS.Library.SOA.DataObjects\\MCS.Library.SOA.DataObjects.csproj
+		SccProjectName6 = ../../Framework/MCS.Library.SOA.DataObjects
+		SccLocalPath6 = ..\\..\\Framework\\MCS.Library.SOA.DataObjects
+		SccProjectUniqueName7 = ..\\..\\Framework\\MCS.Library.WF.Contracts.Converters\\MCS.Library.WF.Contracts.Converters.csproj
+		SccProjectName7 = ../../Framework/MCS.Library.WF.Contracts.Converters
+		SccLocalPath7 = ..\\..\\Framework\\MCS.Library.WF.Contracts.Converters
+		SccProjectUniqueName8 = ..\\..\\Framework\\MCS.Library.WcfExtensions\\MCS.Library.WcfExtensions.csproj
+		SccProjectName8 = ../../Framework/MCS.Library.WcfExtensions
+		SccLocalPath8 = ..\\..\\Framework\\MCS.Library.WcfExtensions
+		SccProjectUniqueName9 = ..\\..\\Framework\\MCS.Web.Library.Script.Json\\MCS.Web.Library.Script.Json.csproj
+		SccProjectName9 = ../../Framework/MCS.Web.Library.Script.Json
+		SccLocalPath9 = ..\\..\\Framework\\MCS.Web.Library.Script.Json
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		DELUXEWORKSTEST|Any CPU = DELUXEWORKSTEST|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9B44D465-AA0B-44BC-85D8-D303E1D83048}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B44D465-AA0B-44BC-85D8-D303E1D83048}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B44D465-AA0B-44BC-85D8-D303E1D83048}.DELUXEWORKSTEST|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B44D465-AA0B-44BC-85D8-D303E1D83048}.DELUXEWORKSTEST|Any CPU.Build.0 = Debug|Any CPU
+		{9B44D465-AA0B-44BC-85D8-D303E1D83048}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B44D465-AA0B-44BC-85D8-D303E1D83048}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCCA14A9-DC96-45C8-91C1-77CA6E51F70C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCCA14A9-DC96-45C8-91C1-77CA6E51F70C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCCA14A9-DC96-45C8-91C1-77CA6E51F70C}.DELUXEWORKSTEST|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCCA14A9-DC96-45C8-91C1-77CA6E51F70C}.DELUXEWORKSTEST|Any CPU.Build.0 = Debug|Any CPU
+		{BCCA14A9-DC96-45C8-91C1-77CA6E51F70C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCCA14A9-DC96-45C8-91C1-77CA6E51F70C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E24FAE52-428F-4B6E-8D9D-B24E7EE0A940}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E24FAE52-428F-4B6E-8D9D-B24E7EE0A940}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E24FAE52-428F-4B6E-8D9D-B24E7EE0A940}.DELUXEWORKSTEST|Any CPU.ActiveCfg = Debug|Any CPU
+		{E24FAE52-428F-4B6E-8D9D-B24E7EE0A940}.DELUXEWORKSTEST|Any CPU.Build.0 = Debug|Any CPU
+		{E24FAE52-428F-4B6E-8D9D-B24E7EE0A940}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E24FAE52-428F-4B6E-8D9D-B24E7EE0A940}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BDA53BC-7BD9-4707-8DA4-A8B6DF7A46DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BDA53BC-7BD9-4707-8DA4-A8B6DF7A46DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BDA53BC-7BD9-4707-8DA4-A8B6DF7A46DC}.DELUXEWORKSTEST|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BDA53BC-7BD9-4707-8DA4-A8B6DF7A46DC}.DELUXEWORKSTEST|Any CPU.Build.0 = Debug|Any CPU
+		{2BDA53BC-7BD9-4707-8DA4-A8B6DF7A46DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BDA53BC-7BD9-4707-8DA4-A8B6DF7A46DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBD91CA5-A50B-4F3E-AA77-E9CA9A8358C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBD91CA5-A50B-4F3E-AA77-E9CA9A8358C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBD91CA5-A50B-4F3E-AA77-E9CA9A8358C4}.DELUXEWORKSTEST|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBD91CA5-A50B-4F3E-AA77-E9CA9A8358C4}.DELUXEWORKSTEST|Any CPU.Build.0 = Debug|Any CPU
+		{CBD91CA5-A50B-4F3E-AA77-E9CA9A8358C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBD91CA5-A50B-4F3E-AA77-E9CA9A8358C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7905642F-4630-4D16-AF40-CB1FB70D516F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7905642F-4630-4D16-AF40-CB1FB70D516F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7905642F-4630-4D16-AF40-CB1FB70D516F}.DELUXEWORKSTEST|Any CPU.ActiveCfg = Debug|Any CPU
+		{7905642F-4630-4D16-AF40-CB1FB70D516F}.DELUXEWORKSTEST|Any CPU.Build.0 = Debug|Any CPU
+		{7905642F-4630-4D16-AF40-CB1FB70D516F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7905642F-4630-4D16-AF40-CB1FB70D516F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.DELUXEWORKSTEST|Any CPU.ActiveCfg = DELUXEWORKSTEST|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.DELUXEWORKSTEST|Any CPU.Build.0 = DELUXEWORKSTEST|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4819ABF-3CD4-4158-BF86-8FE4D3F6A7A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4819ABF-3CD4-4158-BF86-8FE4D3F6A7A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4819ABF-3CD4-4158-BF86-8FE4D3F6A7A6}.DELUXEWORKSTEST|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4819ABF-3CD4-4158-BF86-8FE4D3F6A7A6}.DELUXEWORKSTEST|Any CPU.Build.0 = Debug|Any CPU
+		{F4819ABF-3CD4-4158-BF86-8FE4D3F6A7A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4819ABF-3CD4-4158-BF86-8FE4D3F6A7A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78CD90D6-129A-401C-8396-E7AD8996219E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78CD90D6-129A-401C-8396-E7AD8996219E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78CD90D6-129A-401C-8396-E7AD8996219E}.DELUXEWORKSTEST|Any CPU.ActiveCfg = Debug|Any CPU
+		{78CD90D6-129A-401C-8396-E7AD8996219E}.DELUXEWORKSTEST|Any CPU.Build.0 = Debug|Any CPU
+		{78CD90D6-129A-401C-8396-E7AD8996219E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78CD90D6-129A-401C-8396-E7AD8996219E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

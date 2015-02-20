@@ -1,0 +1,411 @@
+<html xmlns:hgui>
+<head>
+	<public:component tagname="Calendar">
+			<public:attach event="oncontentready" onevent="contentReady()" />
+			<public:attach event="ondocumentready" onevent="onDocumentLoad()" />
+			<public:attach event="ondeactivate" onevent="element_OnDeActivate()" />
+			<public:property name="dateSelected" get="getDateSelected" put="setDateSelected" />
+			<public:property name="rootDir" get="getRootDir" put="setRootDir" />
+			<public:method name="show" />
+			<public:event name="ondateclick" id="idClick" />
+			<public:event name="onlostfocus" id="idLostFocus" />
+			<PUBLIC:DEFAULTS viewLinkContent />
+		</public:component>
+	<meta content="http://schemas.microsoft.com/intellisense/ie5" name="vs_targetSchema">
+	<style type="text/css">
+		<!--
+		body
+		{
+			font-size: 9pt;
+			color: black;
+			font-family: SimSun;
+		}
+		table
+		{
+			font-size: 9pt;
+			font-family: SimSun;
+		}
+		tr.date
+		{
+			font-size: 7pt;
+			font-family: verdana;
+			cursor: default;
+		}
+		td
+		{
+			color: black;
+			TEXT-ALIGN: center;
+		}
+		td.checked
+		{
+			border-right: black 1px solid;
+			border-top: black 1px solid;
+			border-left: black 1px solid;
+			border-bottom: black 1px solid;
+			background-color: beige;
+			background-color: #b6bdd2;
+		}
+		tr.title
+		{
+			color: white;
+			cursor: default;
+			BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; BACKGROUND: gray; BORDER-LEFT: black 1px solid; COLOR: #ffffff; BORDER-BOTTOM: black 1px solid
+		}
+		//-->
+		</style>
+
+	<script type="text/javascript" language="javascript" src="../Script/ApplicationRoot.js"></script>
+
+	<script type="text/javascript" language="javascript">
+<!--
+var DAYS_IN_MONTH = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+var NAME_OF_MONTH = new Array("一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月");
+var DAY_OF_WEEK = new Array("日", "一", "二", "三", "四", "五", "六");
+
+var dateChecked = new Date(1971, 1, 1);
+var m_bDisplayed = false;
+
+var strRootDir = C_HG_LOG_ROOT_URI;
+
+function getRootDir()
+{
+	return strRootDir;
+}
+
+function setRootDir(s)
+{
+	strRootDir = s;
+}
+
+function getAbsUrl(strUrl)
+{
+	var strPrefix = "";
+
+	if (strRootDir.length > 0)
+		strPrefix = "/";
+
+	return strPrefix + strRootDir + "/" + strUrl;
+}
+
+function isWindows2000()
+{
+	var ua = window.navigator.userAgent;
+
+	return ua.indexOf( "Windows NT" ) > 0;
+}
+
+function applyFilter()
+{
+	if (isWindows2000())
+		divCalendar.filters[0].Apply();
+}
+
+function playFilter()
+{
+	if (isWindows2000())
+		divCalendar.filters[0].Play();
+}
+
+function getDateSelected()
+{
+	return dateChecked;
+}
+
+function setDateSelected(dt)
+{
+	dateChecked = dt;
+}
+
+function isLeapYearCalendar(y)
+{
+	if (0 == y % 4 && ((y % 100 != 0) || (y % 400 == 0)))
+		return true;
+	else
+		return false;
+}
+
+function getDaysInMonth(nYear, nMonth)
+{
+	var nDays = DAYS_IN_MONTH[nMonth - 1];
+
+	if (nMonth == 2 && isLeapYearCalendar(nYear))
+		nDays++;
+
+	return nDays;
+}
+
+function calculateDayOfWeek(oRow)
+{
+	for (var i = 0; i < DAY_OF_WEEK.length; i++)
+	{
+		var cell = oRow.insertCell();
+
+		cell.style.width = 16;
+		cell.style.height = 16;
+		cell.innerText = DAY_OF_WEEK[i];
+		cell.vAlign = "middle";
+		cell.style.fontWeight = "bold";
+	}
+}
+
+function changeMonth(strOP)
+{
+	var nNewMonth = YearMonth.currentMonth;
+	var nNewYear = YearMonth.currentYear;
+
+	switch(strOP)
+	{
+		case "prev":	nNewMonth--;
+						break;
+		case "next":	nNewMonth++;
+						break;
+	}
+
+	if (nNewMonth < 1)
+	{
+		nNewMonth = 12;
+		nNewYear--;
+	}
+	else
+	if (nNewMonth > 12)
+	{
+		nNewMonth = 1;
+		nNewYear++;
+	}
+
+	if (nNewYear > 1970 && nNewYear < 9999)
+		calculateDateList(dateList, nNewYear, nNewMonth);
+}
+
+function onTDMouseOver()
+{
+	var td = window.event.srcElement;
+
+	if (td.innerText.length > 0)
+	{
+		td.oldColor = td.style.backgroundColor;
+
+		td.style.backgroundColor = "#dbd8d1";
+		
+		var nWeekDayIndex = td.cellDate.getDay();
+		var tdWeek = DayOfWeek.cells[nWeekDayIndex];
+		
+		tdWeek.oldColor = tdWeek.style.backgroundColor;
+		tdWeek.style.backgroundColor = "#dbd8d1";
+	}
+}
+
+function onTDMouseOut()
+{
+	var td = window.event.srcElement;
+
+	if (td.innerText.length > 0)
+	{
+		td.style.backgroundColor = td.oldColor;
+		
+		var nWeekDayIndex = td.cellDate.getDay();
+		var tdWeek = DayOfWeek.cells[nWeekDayIndex];
+
+		tdWeek.style.backgroundColor = tdWeek.oldColor;
+	}
+}
+
+function calculateDateList(oBody, nYear, nMonth)
+{
+	while (oBody.rows.length > 0)
+		oBody.deleteRow(0);
+
+	var today = new Date();
+	var nYearOfToday = today.getFullYear();
+	var nMonthOfToday = today.getMonth() + 1;
+	var nDayOfToday = today.getDate();
+
+	YearMonth.innerText = nYear + "年" + NAME_OF_MONTH[nMonth - 1];
+
+	YearMonth.currentYear = nYear;
+	YearMonth.currentMonth = nMonth;
+
+	var nStartMonth = nMonth - 1;	//Month is from 0 to 11 in JScript
+
+	var dtCurrentMonth = new Date(nYear, nStartMonth, 1);
+	var nStartIndex = dtCurrentMonth.getDay();
+	
+	var nStartDay = 1;
+	var nEndDay = getDaysInMonth(nYear, nMonth);
+
+	var yearChecked = dateChecked.getFullYear();
+	var monthChecked = dateChecked.getMonth() + 1;
+	var dayChecked = dateChecked.getDate();
+
+	for (var i = 0; i < 6; i++)
+	{
+		var newRow = oBody.insertRow();
+
+		newRow.className = "date";
+
+		for (var j = 0; j < 7; j++)
+		{
+			var newCell = newRow.insertCell();
+			
+			newCell.onmouseover = onTDMouseOver;
+			newCell.onmouseout = onTDMouseOut;
+			newCell.onclick = onTDClick;
+
+			newCell.style.width = 16;
+			newCell.style.height = 16;
+
+			if ((i > 0 || j >= nStartIndex) && nStartDay <= nEndDay)
+			{
+				if (yearChecked == nYear && monthChecked == nMonth && dayChecked == nStartDay)
+				{
+					newCell.style.backgroundImage = "url(" + getAbsUrl("/images/icon/checked.gif") + ")";
+					newCell.style.backgroundPositionX = "center";
+					newCell.style.backgroundPositionY = "center";
+					newCell.style.backgroundRepeat = "no-repeat";
+
+					newCell.className = "checked";
+				}
+				else
+				if (nYearOfToday == nYear && nMonthOfToday == nMonth && nDayOfToday == nStartDay)
+				{
+					newCell.style.backgroundImage = "url(" + getAbsUrl("/images/icon/today.gif") + ")";
+					newCell.style.backgroundPositionX = "center";
+					newCell.style.backgroundPositionY = "center";
+					newCell.style.backgroundRepeat = "no-repeat";
+
+				}
+
+				newCell.cellDate = new Date(nYear, nMonth - 1, nStartDay);
+
+				newCell.innerText = nStartDay;
+				nStartDay++; 
+			}
+		}
+	}
+}
+
+function onDocumentLoad()
+{
+	//show(true);
+}
+
+function show(bAll)
+{
+	applyFilter();
+	element.style.visibility = "visible";
+	playFilter();
+
+	divCalendar.setActive();
+
+	if (bAll == true && m_bDisplayed == false)
+	{
+		calculateDayOfWeek(DayOfWeek);
+		m_bDisplayed = true;
+	}
+
+	var year = dateChecked.getFullYear();
+	var month = dateChecked.getMonth() + 1;
+
+	if (year <= 1971)
+	{
+		var dt = new Date();
+
+		year = dt.getFullYear();
+		month = dt.getMonth() + 1;
+	}
+
+	calculateDateList(dateList, year, month);
+}
+
+function contentReady()
+{
+}
+
+function onTDClick()
+{
+	var dt = window.event.srcElement.cellDate;
+
+	if (dt)
+	{
+		var oEvent = createEventObject();
+		
+		oEvent.date = dt;
+		oEvent.returnValue = true;
+
+		element_OnDeActivate();
+
+		idClick.fire(oEvent);
+	}
+}
+
+function element_OnDeActivate()
+{
+	var oEvent = createEventObject();
+
+	oEvent.returnValue = true;
+	
+	idLostFocus.fire(oEvent);
+
+	if (oEvent.returnValue)
+		element.style.visibility = "hidden";
+}
+
+function onClickClose()
+{
+	element_OnDeActivate();
+	event.returnValue = false;
+}
+//-->
+	</script>
+
+</head>
+<body id="ctrlBody" onselectstart="return false;">
+	<iframe id="ifrmCalendar" frameborder="no" style="position: absolute; left: 0; top: 0;
+		width: 100%; height: 100%" ondeactive="element_OnDeActivate();"></iframe>
+	<div id="divCalendar" ondeactive="element_OnDeActivate();" style="position: absolute;
+		left: 0; top: 0; border: 1; width: 100%; height: 100%; border-style: solid; margin: 0;
+		background-color: transparent; filter: progid:DXImageTransform.Microsoft.Fade(duration=0.5,overlap=1.0)">
+		<table cellspacing="1" cellpadding="1" width="100%" height="100%">
+			<thead>
+				<tr class="title">
+					<td valign="middle" width="16" height="16" align="center" onclick="changeMonth('prev');">
+						<font face="marlett" color="white">3</font>
+						<!--
+							<IMG src="icon/prev.gif" onclick="changeMonth('prev');">
+							-->
+					</td>
+					<td colspan="5" id="YearMonth" style="color: white">
+					</td>
+					<td valign="middle" width="16" height="16" align="center" onclick="changeMonth('next');">
+						<font face="marlett" color="white">4</font>
+						<!--
+							<IMG src="icon/next.gif" onclick="changeMonth('next');">
+							-->
+					</td>
+				</tr>
+				<tr style="text-align: center" id="DayOfWeek">
+				</tr>
+				<tr>
+					<td colspan="7">
+						<hr size="1" color="black">
+					</td>
+				</tr>
+			</thead>
+			<tbody id="dateList">
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="7">
+						<hr size="1" color="black">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="7" align="center">
+						<a href="" onclick="onClickClose();">关闭</a>
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</body>
+</html>

@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MCS.Library.SOA.DocServiceContract.DataObjects.WordPropertyAttribute" Collapsed="true">
+    <Position X="29" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAAYAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Attributes\WordPropertyAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DocServiceContract.DataObjects.DCTWordObjectBuilder" Collapsed="true">
+    <Position X="32.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAACA=</HashCode>
+      <FileName>DataObjects\DCTWordObjectBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DocServiceContract.DataObjects.GeneralParserService" Collapsed="true">
+    <Position X="34.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAACAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\GeneralParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DocServiceContract.DataObjects.GeneralParser&lt;T&gt;" Collapsed="true">
+    <Position X="14" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\GeneralParser.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MCS.Library.SOA.DocServiceContract.DataObjects.IntParser" Collapsed="true">
+    <Position X="19.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\GeneralParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DocServiceContract.DataObjects.NullableIntParser" Collapsed="true">
+    <Position X="24.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\GeneralParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DocServiceContract.DataObjects.LongParser" Collapsed="true">
+    <Position X="1.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\GeneralParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DocServiceContract.DataObjects.NullableLongParser" Collapsed="true">
+    <Position X="6.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\GeneralParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DocServiceContract.DataObjects.FloatParser" Collapsed="true">
+    <Position X="10.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\GeneralParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DocServiceContract.DataObjects.NullableFloatParser" Collapsed="true">
+    <Position X="15.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\GeneralParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DocServiceContract.DataObjects.DoubleParser" Collapsed="true">
+    <Position X="17.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\GeneralParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DocServiceContract.DataObjects.NullableDoubleParser" Collapsed="true">
+    <Position X="22" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\GeneralParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DocServiceContract.DataObjects.DecimalParser" Collapsed="true">
+    <Position X="26.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\GeneralParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DocServiceContract.DataObjects.NullableDecimalParser" Collapsed="true">
+    <Position X="4" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\GeneralParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DocServiceContract.DataObjects.DateTimeParser" Collapsed="true">
+    <Position X="8.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\GeneralParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DocServiceContract.DataObjects.NullableDateTimeParser" Collapsed="true">
+    <Position X="13" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\GeneralParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DocServiceContract.BaseCollection&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="29" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BGIAAEAAAAAAABAQCAAABAQAAAAAAAAACAAAAABQIAA=</HashCode>
+      <FileName>DataObjects\BaseCollection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MCS.Library.SOA.DocServiceContract.DCTFieldInfo" Collapsed="true">
+    <Position X="32.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAEAgEAAAiAAAAAAAABAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>DataObjects\DCTFieldInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DocServiceContract.DCTFile" Collapsed="true">
+    <Position X="5.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAQAAAAAgBAAAAAAAEAAAAwAAAAAAAAAEAA=</HashCode>
+      <FileName>DataObjects\DCTFile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DocServiceContract.DCTFileField" Collapsed="true">
+    <Position X="34.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>DataObjects\DCTFileField.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DocServiceContract.DCTFileVersion" Collapsed="true">
+    <Position X="29" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAQAAgBAAAAAAAAAAAAAAAAQACAAAAAAAAAE=</HashCode>
+      <FileName>DataObjects\DCTFileVersion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DocServiceContract.DCTFolder" Collapsed="true">
+    <Position X="7.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\DCTFolder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DocServiceContract.DCTGroup" Collapsed="true">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\DCTGroup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DocServiceContract.DCTPrincipal" Collapsed="true">
+    <Position X="1.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\DCTPrincipal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DocServiceContract.DCTRoleAssignment" Collapsed="true">
+    <Position X="30.75" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAgCAAAIAAAAAA=</HashCode>
+      <FileName>DataObjects\DCTRoleAssignment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DocServiceContract.DCTRoleDefinition" Collapsed="true">
+    <Position X="32.5" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAggAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\DCTRoleDefinition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DocServiceContract.DCTSearchResult" Collapsed="true">
+    <Position X="34.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAgEIAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\DCTSearchResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DocServiceContract.DCTStorageObject" Collapsed="true">
+    <Position X="6.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAgAAAAAAAAAQAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\DCTStorageObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DocServiceContract.DCTUser" Collapsed="true">
+    <Position X="2.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\DCTUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DocServiceContract.DCTComplexProperty" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAAA=</HashCode>
+      <FileName>DataObjects\Word\DCTComplexProperty.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DocServiceContract.DCTDataProperty" Collapsed="true">
+    <Position X="1.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Word\DCTDataProperty.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DocServiceContract.DCTDataPropertyCollection" Collapsed="true">
+    <Position X="30.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACACAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>DataObjects\Word\DCTDataProperty.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DocServiceContract.DCTSimpleProperty" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAAIAAAQAgAAAAAAA=</HashCode>
+      <FileName>DataObjects\Word\DCTSimpleProperty.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DocServiceContract.DCTWordDataObject" Collapsed="true">
+    <Position X="29" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIEAgAAAAAAAAgAAAAAAAAAAgAAIAAAAAAiAAAAAACA=</HashCode>
+      <FileName>DataObjects\Word\DCTWordDataObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DocServiceContract.DCTWordDataObjectCollection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="30.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AGIAAEAAAAAAABAQCAAABAQAgAAAAAAACAAAAABQIAA=</HashCode>
+      <FileName>DataObjects\Word\DCTWordDataObjectCollection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="MCS.Library.SOA.DocServiceContract.DataObjects.IGeneralParser" Collapsed="true">
+    <Position X="29" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\GeneralParser.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="MCS.Library.SOA.DocServiceContract.DataObjects.DCTWordPropertyType" Collapsed="true">
+    <Position X="34.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\Word\DCTWordPropertyType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Library.SOA.DocServiceContract.DCTCheckinType" Collapsed="true">
+    <Position X="29" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>DataObjects\DCTCheckinType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Library.SOA.DocServiceContract.DCTCheckOutType" Collapsed="true">
+    <Position X="30.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAEAAIAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>DataObjects\DCTCheckOutType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Library.SOA.DocServiceContract.DCTContentType" Collapsed="true">
+    <Position X="32.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAIAAAAEABAA=</HashCode>
+      <FileName>DataObjects\DCTContentType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Library.SOA.DocServiceContract.DCTFieldType" Collapsed="true">
+    <Position X="34.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAQAgAAAAAAAAAAAAAAAAAgQAAAAACAEAAAA=</HashCode>
+      <FileName>DataObjects\DCTFieldType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Library.SOA.DocServiceContract.DCTPermission" Collapsed="true">
+    <Position X="29" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAgAAAAAACIEAAAAA=</HashCode>
+      <FileName>DataObjects\DCTPermission.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Library.SOA.DocServiceContract.DCTPrincipalType" Collapsed="true">
+    <Position X="30.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAACAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\DCTPrincipalType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Library.SOA.DocServiceContract.DCTPrivilegeLevel" Collapsed="true">
+    <Position X="32.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataObjects\DCTPrivilegeLevel.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>

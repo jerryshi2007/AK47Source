@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
+<HTML>
+	<HEAD>
+		<title>错误提示</title>
+		<meta name="GENERATOR" Content="Microsoft Visual Studio 7.0">
+		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+		<meta name="CODE_LANGUAGE" Content="C#">
+		<meta name="vs_defaultClientScript" content="JavaScript">
+		<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+		<style type="text/css">
+			body,p
+			{
+				font-size: 9pt;
+				color: black;
+				font-family: SimSun;
+			}
+			.linkSwitch
+			{
+				font-size: 9pt;
+				color: black;
+				font-family: SimSun;
+			}
+			input, button, textarea
+			{
+				font-family: SimSun;
+				font-size: 9pt;
+				BORDER-RIGHT: #c4c4c4 1px solid;
+				BORDER-TOP: #999999 1px solid;
+				BORDER-LEFT: #999999 1px solid;
+				BORDER-BOTTOM: #c4c4c4 1px solid
+			}
+			select
+			{ 
+				BACKGROUND-COLOR: #FFFFFF;
+				font-size: 9pt; 
+				color: #000000;
+			}
+		</style>
+		<script type="text/javascript" language="javascript">
+		<!--
+		var C_LINK_OPEN_TITLE = "点击此处展开详细错误信息......";
+		var C_LINK_CLOSE_TITLE = "点击此处关闭详细错误信息......";
+		
+		function onDocumentLoad()
+		{
+			if (stackTraceParagraph.innerText.length > 0)
+				linkTag.style.display = "inline";
+
+			if (window.opener || window.dialogArguments != null || window.history.length == 0)
+				renew.value = "关闭";
+			else
+				renew.value = "返回";
+
+			renew.focus();
+		}
+
+		function onRenewClick()
+		{
+			if (window.opener || window.dialogArguments != null || window.history.length == 0)
+				window.close();
+			else 
+				window.history.go(-1);
+		}
+
+		function onExpandStackTraceClick()
+		{
+			var a = event.srcElement;
+
+			try
+			{
+				var bOpend = stackTracePanel.style.display == "inline";
+				
+				if (bOpend)
+				{
+					stackTracePanel.style.display = "none";
+					a.innerText = C_LINK_OPEN_TITLE;
+				}
+				else
+				{
+					stackTracePanel.style.display = "inline";
+					a.innerText = C_LINK_CLOSE_TITLE;
+				}
+			}
+			finally
+			{
+				event.returnValue = false;
+			}
+		}
+		//-->
+		</script>
+	</HEAD>
+	<body MS_POSITIONING="GridLayout" onload="onDocumentLoad()">
+		<table align="center" style="WIDTH:100%;HEIGHT:100%" ID="Table1">
+			<tr>
+				<td align="middle" valign="top">
+					<p><!--<img src="{ShowErrorImg}" alt="{LabelError}" id="showErrorImg" />--></p>
+					<span id="spanStop" style="BACKGROUND-POSITION: center center;  BACKGROUND-IMAGE: url({ShowErrorImg}); WIDTH: 128px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 128px">
+					</span>
+					<!--img  src="/AccreditAdmin/images/32/stopLogo.gif"--><br>
+					<p style="FONT-SIZE: 12pt;FONT_WEIGHT: bold;FONT-FAMILY: 宋体">
+						{LabelError}
+					</p>
+					<P>
+						<input type="button" style="width:64px" value="关闭" id="renew" name="renew" onclick="onRenewClick();">
+					</P>
+					<a id="linkTag" href="#" class="linkSwitch" onclick="onExpandStackTraceClick();" style="display:none">
+						点击此处展开详细错误信息......</a>
+					<div id="stackTracePanel" style="display:none;">
+						<p id="stackTraceParagraph">{StackTrace}</p>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</body>
+</HTML>

@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelOpenXmlTest", "ExcelOpenXmlTest.csproj", "{52584832-1832-4252-8284-9C1B674CC08C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{69A1E346-A9A4-49A3-B9B0-CAA03BCE8A62} = {69A1E346-A9A4-49A3-B9B0-CAA03BCE8A62}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3B37DA6F-827A-4FFC-A1B2-616AD72E805E}"
+	ProjectSection(SolutionItems) = preProject
+		ExcelTestSettings.testsettings = ExcelTestSettings.testsettings
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library.Office.OpenXml.Excel", "..\..\MCS.Library.Office.OpenXml.Excel\MCS.Library.Office.OpenXml.Excel.csproj", "{69A1E346-A9A4-49A3-B9B0-CAA03BCE8A62}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://shsvr9141tfs.ciicsh.local:8080/tfs/rhso
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ExcelOpenXmlTest.csproj
+		SccLocalPath1 = .
+		SccProjectUniqueName2 = ..\\..\\MCS.Library.Office.OpenXml.Excel\\MCS.Library.Office.OpenXml.Excel.csproj
+		SccProjectName2 = ../../MCS.Library.Office.OpenXml.Excel
+		SccLocalPath2 = ..\\..\\MCS.Library.Office.OpenXml.Excel
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52584832-1832-4252-8284-9C1B674CC08C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52584832-1832-4252-8284-9C1B674CC08C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52584832-1832-4252-8284-9C1B674CC08C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52584832-1832-4252-8284-9C1B674CC08C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69A1E346-A9A4-49A3-B9B0-CAA03BCE8A62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69A1E346-A9A4-49A3-B9B0-CAA03BCE8A62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69A1E346-A9A4-49A3-B9B0-CAA03BCE8A62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69A1E346-A9A4-49A3-B9B0-CAA03BCE8A62}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

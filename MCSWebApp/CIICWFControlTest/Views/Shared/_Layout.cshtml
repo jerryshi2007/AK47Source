@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Scripts/kendo")
+    @*@Scripts.Render(Html.GetRelativeControlScript(), Html.GetWFControlScript())*@
+    @Scripts.Render("~/bundles/jqueryval")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("用户-" + MCS.Library.Principal.DeluxeIdentity.CurrentUser.DisplayName, "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("关于", "About", "Home")</li>
+                    <li>@Html.ActionLink("报销", "StartWorkflow", "Home")</li>
+                    <li><a href="/MCSWebApp/MCSOAPortal/TaskList/UnCompletedTaskList.aspx?defaultTarget=_self">待办</a></li>
+                    <li><a href="/MCSWebApp/MCSOAPortal/TaskList/CompletedTaskList.aspx?process_status=Running&defaultTarget=_self">流转中</a></li>
+                    <li><a href="/MCSWebApp/MCSOAPortal/TaskList/CompletedTaskList.aspx?process_status=Completed&defaultTarget=_self">已办结</a></li>
+                    <li><a href='@MCS.Library.Passport.PassportManager.GetLogOnOrLogOffUrl("/MCSWebApp/CIICWFControlTest/")'>注销</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year -AK47 应用</p>
+        </footer>
+    </div>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

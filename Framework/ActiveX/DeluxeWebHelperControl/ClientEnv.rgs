@@ -1,0 +1,26 @@
+HKCR
+{
+	DeluxeWebHelperControl.ClientEnv.1 = s 'ClientEnv Class'
+	{
+		CLSID = s '{44C5B98D-3B18-4821-8CA5-2139E95EE689}'
+	}
+	DeluxeWebHelperControl.ClientEnv = s 'ClientEnv Class'
+	{		
+		CurVer = s 'DeluxeWebHelperControl.ClientEnv.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {44C5B98D-3B18-4821-8CA5-2139E95EE689} = s 'ClientEnv Class'
+		{
+			ProgID = s 'DeluxeWebHelperControl.ClientEnv.1'
+			VersionIndependentProgID = s 'DeluxeWebHelperControl.ClientEnv'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{4F153A56-19C8-48B0-8B87-903B1C7FF86A}'
+			Version = s '1.0'
+		}
+	}
+}

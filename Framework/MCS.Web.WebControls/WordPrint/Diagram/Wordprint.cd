@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Microsoft YaHei" Size="8.25" />
+  <Class Name="MCS.Web.WebControls.WordPrint">
+    <Position X="0.5" Y="1" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>WordPrint\WordPrint.cs</FileName>
+      <HashCode>AAAARAEAAAAAAgAASAAAAAAQAAQCAQAACzAECAAEAAA=</HashCode>
+    </TypeIdentifier>
+    <NestedTypes>
+      <Delegate Name="MCS.Web.WebControls.WordPrint.OnPrintDelegete" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>WordPrint\WordPrint.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+  </Class>
+  <Class Name="MCS.Web.WebControls.WordPrintDataSource">
+    <Position X="3.25" Y="3.75" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>WordPrint\WordPrint.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAEAAAAQAIAQAAAAAABAAAAAEAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Web.WebControls.WordPrintDataSourceCollection">
+    <Position X="3.25" Y="1" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>WordPrint\WordPrint.cs</FileName>
+      <HashCode>AEIAAEAAAAAAAAAACAAABAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="MCS.Web.WebControls.ButtonType">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>WordPrint\WordPrint.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAQEAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+</ClassDiagram>

@@ -1,0 +1,49 @@
+﻿<style type="text/css">
+	.label
+	{
+		text-align: right;
+		font-weight: bold;
+		padding-right: 8px;
+		width: 30%;
+	}
+</style>
+<div>
+	<input runat="server" id="applicationData" type="hidden" />
+	<input runat="server" id="roleData" type="hidden" />
+	<table style="width: 100%; height: 100%">
+		<tr>
+			<td class="label">
+				应用
+			</td>
+			<td>
+				<select runat="server" id="applications">
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td style="height: 20px">
+			</td>
+			<td>
+				<a runat="server" id="relativeLink" href="javascript:void(0);" target="_blank">相关链接...</a>
+			</td>
+		</tr>
+		<tr>
+			<td style="height: 24px">
+			</td>
+			<td>
+				<div id="loadingTag" runat="server" style="visibility: hidden">
+					<span id="loadingImg" runat="server" style="width: 16px; height: 16px" />正在加载...
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="label">
+				角色
+			</td>
+			<td>
+				<select runat="server" id="roles" style="width: 180px">
+				</select>
+			</td>
+		</tr>
+	</table>
+</div>

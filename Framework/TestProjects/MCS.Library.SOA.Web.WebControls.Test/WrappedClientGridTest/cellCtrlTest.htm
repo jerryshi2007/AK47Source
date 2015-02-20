@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>Cell 插件测试网页</title>
+    <script type="text/javascript">
+
+        function window_onload() {
+            //DCellWeb1.OpenFile("Bin/CellCtrl5.ocx", "");
+
+            //            var obj = document.getElementById("DCellWeb1");
+            //            obj.OpenFile("Bin/CellCtrl5.ocx", "");
+        }
+
+
+    </script>
+    <meta name="GENERATOR" content="Microsoft Visual Studio 6.0">
+    <title></title>
+    <script id="clientEventHandlersJS" language="javascript">
+        function DCellWeb1_MouseRClick(col, row, updn) {
+            if (col == 1 && row == 1 && updn == 0)
+                alert("Mouse Right Click");
+        }
+    </script>
+    <script language="javascript" for="DCellWeb1" event="MouseRClick(col,row,updn)">
+
+    DCellWeb1_MouseRClick(col, row, updn);
+
+    </script>
+</head>
+<body onload="return window_onload()">
+    <object id="DCellWeb1" style="left: 0px; width: 388px; top: 0px; height: 265px" classid="CLSID:3F166327-8030-4881-8BD2-EA25350E574A VIEWASTEXT"
+        codebase="Bin/CellCtrl5.ocx#version=5,3,9,13">
+        <param name="_Version" value="65536" />
+        <param name="_ExtentX" value="10266" />
+        <param name="_ExtentY" value="7011" />
+        <param name="_StockProps" value="0" />
+    </object>
+</body>
+</html>

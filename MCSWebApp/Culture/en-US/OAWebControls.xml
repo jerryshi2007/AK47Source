@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dictionary sourceCulture="zh-CN" targetCulture="en-US">
+	<Item source="确定(O)" target="OK"/>
+	<Item source="取消(C)" target="Cancel"/>
+	<Item source="关闭(C)" target="Close"/>
+	<Item source="选择组织机构人员" target="Select OUs and Users"/>
+
+	<Item source="添加或修改" target="Add or modify"/>
+	<Item source="起草" target="Draft"/>
+	<Item source="正文" target="Normal Text"/>
+	<Item source="编辑" target="Edit"/>
+	<Item source="显示" target="Show"/>
+	<Item source="批量上传文件" target="Batch upload"/>
+	<Item source="文件版本" target="File version"/>
+	<Item source="设置以内嵌方式打开的文档类型" target="Set inline mode"/>
+	<Item source="正在上传文件" target="Uploading file"/>
+	<Item source="正在上传文件......" target="Uploading file..."/>
+	<Item source="点击此处展开详细错误信息......" target="click here to expand error details......" />
+	<Item source="点击此处关闭详细错误信息......" target="click here to close error details......" />
+	<Item source="您确认要关闭窗口吗？" target="Are you sure close the window?" />
+	<Item source="提醒消息" target="Notice" />
+	<Item source="标题" target="Title" />
+	<Item source="内容" target="Content" />
+	<Item source="优先级" target="Priority" />
+	<Item source="发送人" target="From" />
+	<Item source="发送日期" target="Sent Time" />
+	<Item source="过期时间" target="Expired Time" />
+	<Item source="个人设定" target="Settings" />
+	<Item source="阅读后删除" target="Delete after reading" />
+	<Item source="删除(C)" target="Delete" />
+	<Item source="错误提示" target="Error Message" />
+	<Item source="返回" target="Return" />
+	<Item source="关闭" target="Close" />
+	<Item source="ApplicationErrorModuleTemplate_stopLogo.gif" target="ApplicationErrorModuleTemplate_stopLogo-English.gif" />
+
+	<Item source="已选择文件列表" target="Selected files"/>
+	<Item source="选择文件(S)" target="Select Files"/>
+	<Item source="移除文件(R)" target="Remove Files"/>
+	<Item source="上传文件(U)" target="Upload Files"/>
+	<Item source="已上传文件列表" target="Uploaded files"/>
+	<Item source="文件名" target="File Name"/>
+	<Item source="备注" target="Description"/>
+	<Item source="序号" target="SN"/>
+	<Item source="删除文件(D)" target="Delete Files"/>
+	<Item source="确认删除所选的文件吗？" target="Confirmation to delete the selected file?"/>
+	<Item source="单击此处编辑" target="Click here to edit"/>
+	<Item source="回车保存，ESC取消" target="Enter save, ESC Cancel"/>
+	<Item source="您选择的文件路径长度超过了限制，请尝试减少选择文件的数量" target="You select the file path is longer than the limit, try to reduce the number of selected files."/>
+	<Item source="至少要选择一个上传文件！" target="Select at least one upload!"/>
+	<Item source="您还有未上传的文件，确定要关闭本窗口吗？" target="You have not uploaded the file, sure you want to close this window?"/>
+	<Item source="每个上传文件的尺寸必须小于{0}字节" target="Each upload file size must be less than {0} bytes"/>
+
+	<Item source="您有正在打开的文档文件，当前的页面不能关闭，请您保存文件后再关闭页面！" target="You are opening the document file, the current page can not be closed, save the file before you close the page!"/>
+	<Item source="您编辑了文件但没有保存当前文件，请您保存文件后再关闭页面！" target="You edit the file but not save the current file, save the file before you close the page!"/>
+
+	<Item source="请选择机构人员" target="Select OUs and Users"/>
+	<Item source="请选择：" target="Please select"/>
+	<Item source="选择(S)" target="Select"/>
+	<Item source="名称：" target="Name:"/>
+	<Item source="位置：" target="Position:"/>
+
+	<Item source="请选择机构或人员。" target="Please select OUs and Users."/>
+	<Item source="检查..." target="Check..."/>
+	<Item source="正在检查" target="Checking"/>
+
+	<Item source="输入非法" target="Invalid Input"/>
+	
+	<Item source="输入非法" target="Invalid Input"/>
+	
+	<Item source="整数部分的位数不能超过{0}位" target="Integral part of the median can not be more than {0}"/>
+	<Item source="小数部分的位数不能超过{0}位" target="Fractional part of the median can not be more than {0}"/>
+	<Item source="数字必须在{0}和{1}之间" target="Number must be between {0} and {1}"/>
+	<Item source="数字必须大于等于{0}" target="Number must be greater than or equal to {0}"/>
+	<Item source="数字必须小于等于{0}" target="Number must be less than or equal to {0}"/>
+
+	<Item source="数字类型只能有一个小数点" target="Only one decimal point numeric type"/>
+	<Item source="数字类型只能有一个'{0}'" target="Only one '{0}' numeric type"/>
+	<Item source="必须输入合法的数字" target="Must input a valid number"/>
+
+	<Item source="用户没有权限打开此文件" target="You do not have permission to open this file." />
+
+	<Item source="文件可能无效或被撤回。{0}" target="The file may be invalid or withdrawn. {0}" />
+	<Item source="不能找到ID为{0}的Activity信息，此文件可能已经流转走或被撤回。" target="Cannot find the ID '{0}' activity. The file may be invalid or withdrawn." />
+	<Item source="不能找到ID为'{0}'的流程。" target="Can not find the ID '{0}' process." />
+	<Item source="不能找到流程ID为'{0}'，ActivityID为'{1}'的Activity信息。" target="Cannot find the ID '{0}' process and the ID '{1}' activity." />
+	<Item source="没有执行BeginProcessChanges，不能回滚流程状态改变。" target="Do not execute BeginProcessChanges, process state changes can not be rolled back." />
+	<Item source="没有执行BeginProcessChanges，不能提交流程状态改变。" target="Do not execute BeginProcessChanges, process state changes can not be submitted." />
+	<Item source="存在未移交的流程状态改变" target="There are some not commited state changes." />
+	<Item source="流程上下文没有初始化，不能得到当前节点" target="ProcessContext has not initialized, can not get the current activity." />
+</Dictionary>

@@ -1,0 +1,38 @@
+﻿/* File Created: 八月 6, 2014 */
+
+.propertygrid-layout { display: table; table-layout: fixed; width: 100%; height: 100%; min-height:90px; }
+.propertygrid-layout .propertygrid-header { height: 30px; display:table-header-group; width: 100%; background: #DFECFA; top: 0; display: table-caption; }
+.propertygrid-layout .propertygrid-header .sorter { width: 26px; height: 26px; padding: 5px; }
+.propertygrid-layout .propertygrid-header .sorter s { display: inline-block; width: 16px; height: 16px; line-height: 0; background-image: url('<% = WebResource("MCS.Web.Responsive.WebControls.PropertyGrid.Sprites.gif") %>'); background-repeat: no-repeat; background-attachment: scroll; background-position: 0 0; }
+.propertygrid-layout .propertygrid-header .sorting-alpha s { background-position: -16px 0; }
+.propertygrid-layout .propertygrid-header .sorting-category s { background-position: 0 0; }
+.propertygrid-layout .propertygrid-contents { display:table-row-group; left: 0; right: 0; overflow: auto; }
+.propertygrid-layout .propertygrid-header .propertygrid-caption { display:inline-block; line-height:30px; position:absolute; left:60px; right:0; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+.propertygrid-layout .propertygrid-footer { display:table-footer-group; line-height:20px; padding:5px; background: #DFECFA; width:100%; bottom: 0; white-space:nowrap; overflow: hidden; text-overflow:ellipsis; }
+.propertygrid-layout .propertygrid-footer>div { height:30px; }
+
+.propertygrid-layout .propertygrid-property-layout { overflow:auto; max-height:100%; }
+
+table.propertygrid-view { height: 100%; width: 100%; table-layout: fixed; border: 1px soli #DDDDDD; border-collapse: collapse; overflow: auto; }
+table.propertygrid-view > tbody > tr > td { height:37px; padding:0; }
+table.propertygrid-view .group-title { background-color: #ddd; font-weight: bold; }
+table.propertygrid-view td.namecell, table.propertygrid-view .valuecell { width: 50%; border: 1px solid #ccc; }
+table.propertygrid-view td.namecell.active { background-color:#3399FF; color:#fff; }
+table.propertygrid-view td.namecell span { display:inline-block; text-overflow: ellipsis; white-space:nowrap; width:100%; overflow:hidden; text-indent:5px; }
+table.propertygrid-view td.namecell.propertygrid-dirty > span { font-weight:bold; }
+table.propertygrid-view td.valuecell .propertyeditor { width: 100%; height: 100%; }
+table.propertygrid-view td.valuecell .propertygrid-objectvalue { cursor:text; }
+table.propertygrid-view td.valuecell .objecteditor > .image-container { padding:1px; }
+table.propertygrid-view td.valuecell .objecteditor > .image-container img { height:100%; }
+table.propertygrid-view td.valuecell .objecteditor { width:auto; height:auto; }
+table.propertygrid-view td.valuecell .objecteditor > .displaycell { display: table-cell; overflow: hidden; text-overflow: ellipsis; position:relative; }
+table.propertygrid-view td.valuecell .objecteditor > .displaycell > input.propertygrid-objectvalue { display:table-cell; cursor:default; }
+
+table.propertygrid-view td.valuecell .objecteditor > .dialoglaunchercell { display: table-cell; width: 40px; }
+
+table.propertygrid-view td.valuecell .objecteditor > .dialoglaunchercell > .btn-launcher { cursor: pointer; content: "..."; }
+table.propertygrid-view td.valuecell .objecteditor > .displaycell .image-container{ position:relative; height:37px; }
+table.propertygrid-view td.valuecell .objecteditor > .displaycell .image-container .image-snail { height:100%; width:auto; }
+
+
+td.dialoglaunchercell { width: 16px; height: 100%; }

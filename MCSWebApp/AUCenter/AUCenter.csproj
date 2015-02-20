@@ -1,0 +1,455 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{94BB7E55-57DA-4247-87A9-80EC882C06F5}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AUCenter</RootNamespace>
+    <AssemblyName>AUCenter</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MCS.Library">
+      <HintPath>..\..\Bin\MCS.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Data, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.OGUPermission, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.OGUPermission.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Passport, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.Passport.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.SOA.DataObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.DataObjects.Schemas">
+      <HintPath>..\..\Bin\MCS.Library.SOA.DataObjects.Schemas.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.DataObjects.Schemas.Client">
+      <HintPath>..\..\Bin\MCS.Library.SOA.DataObjects.Schemas.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.DataObjects.Security">
+      <HintPath>..\..\Bin\MCS.Library.SOA.DataObjects.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.DataObjects.Security.AUObjects">
+      <HintPath>..\..\Bin\MCS.Library.SOA.DataObjects.Security.AUObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.DataObjects.Security.Client">
+      <HintPath>..\..\Bin\MCS.Library.SOA.DataObjects.Security.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.Web.WebControls">
+      <HintPath>..\..\Bin\MCS.Library.SOA.Web.WebControls.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Library">
+      <HintPath>..\..\Bin\MCS.Web.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Library.Script.Json">
+      <HintPath>..\..\Bin\MCS.Web.Library.Script.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.WebControls">
+      <HintPath>..\..\Bin\MCS.Web.WebControls.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\AclEditor.xml" />
+    <Content Include="App_Data\Editor.xml" />
+    <Content Include="App_Data\ListScene.xml" />
+    <Content Include="AURoleMembers.aspx" />
+    <Content Include="AUScopes.aspx" />
+    <Content Include="AUScopesCondition.aspx" />
+    <Content Include="AUScopesConst.aspx" />
+    <Content Include="CopyUnit.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="Dialogs\PropertyEditor.js" />
+    <Content Include="Dialogs\AclEdit.aspx" />
+    <Content Include="Dialogs\AclEdit.js" />
+    <Content Include="Dialogs\Editor.aspx" />
+    <Content Include="Dialogs\PropertyEditor.aspx" />
+    <Content Include="Dialogs\RoleSearchDialog.aspx" />
+    <Content Include="Dialogs\RoleSearchDialog.js" />
+    <Content Include="Dialogs\ScopeItemBrowser.aspx" />
+    <Content Include="Dialogs\TimePicker.aspx" />
+    <Content Include="Explorer.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="Images\ajax-loader.gif" />
+    <Content Include="Images\ajax-loader2.gif" />
+    <Content Include="Images\artwork\check.png" />
+    <Content Include="Images\artwork\Cube.png" />
+    <Content Include="Images\artwork\disabledGroup.gif" />
+    <Content Include="Images\artwork\disabledOu.gif" />
+    <Content Include="Images\artwork\disabledUser.gif" />
+    <Content Include="Images\artwork\Folder.png" />
+    <Content Include="Images\artwork\group.gif" />
+    <Content Include="Images\artwork\Group.png" />
+    <Content Include="Images\artwork\Hierarchies.png" />
+    <Content Include="Images\artwork\History.png" />
+    <Content Include="Images\artwork\Login.png" />
+    <Content Include="Images\artwork\ou.gif" />
+    <Content Include="Images\artwork\user.gif" />
+    <Content Include="Images\bannerbg.gif" />
+    <Content Include="Images\bg17.gif" />
+    <Content Include="Images\blocks.png" />
+    <Content Include="Images\check.png" />
+    <Content Include="Images\common_bg_x.png" />
+    <Content Include="Images\cubes-icon.png" />
+    <Content Include="Images\file_path.png" />
+    <Content Include="Images\icon_01.gif" />
+    <Content Include="Images\loading_animation.gif" />
+    <Content Include="Images\pbar-ani.gif" />
+    <Content Include="Images\progress.gif" />
+    <Content Include="Images\result.png" />
+    <Content Include="Images\sorttag.png" />
+    <Content Include="Images\task_01.png" />
+    <Content Include="Images\task_15.gif" />
+    <Content Include="Images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Images\ui-icons_888888_256x240.png" />
+    <Content Include="Images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="inc\Banner.ascx" />
+    <Content Include="inc\SchemaListUploadTemplate.htm" />
+    <Content Include="inc\CommonTemplate.htm" />
+    <Content Include="inc\AdminUnitUploadTemplate.htm" />
+    <Content Include="LogList.aspx" />
+    <Content Include="LogView.aspx" />
+    <Content Include="Nomatch.aspx" />
+    <Content Include="ObjectHistoryLog.aspx" />
+    <Content Include="SchemaAdmin\Default.aspx" />
+    <Content Include="SchemaAdmin\Maintain.aspx" />
+    <Content Include="SchemaAdmin\Nomatch.aspx" />
+    <Content Include="SchemaAdmin\SchemaList.aspx" />
+    <Content Include="SchemaAdmin\SchemaRoleList.aspx" />
+    <Content Include="SchemaAdmin\Test.aspx" />
+    <Content Include="AdminUnitList.aspx" />
+    <Content Include="Scripts\EditorScripts.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\pc.js" />
+    <Content Include="Scripts\pcExt.js" />
+    <Content Include="Services\CommonServices.asmx" />
+    <Content Include="Services\ConditionSvc.asmx" />
+    <Content Include="Styles\propertyeditor.css" />
+    <Content Include="Styles\aumain.css" />
+    <Content Include="Styles\dlg.css" />
+    <Content Include="Styles\home.css" />
+    <Content Include="Styles\pccom.css" />
+    <Content Include="Styles\pccssreform.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="TargetSelector.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AURoleMembers.aspx.cs">
+      <DependentUpon>AURoleMembers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AURoleMembers.aspx.designer.cs">
+      <DependentUpon>AURoleMembers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AUScopes.aspx.cs">
+      <DependentUpon>AUScopes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AUScopes.aspx.designer.cs">
+      <DependentUpon>AUScopes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AUScopesCondition.aspx.cs">
+      <DependentUpon>AUScopesCondition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AUScopesCondition.aspx.designer.cs">
+      <DependentUpon>AUScopesCondition.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AUScopesConst.aspx.cs">
+      <DependentUpon>AUScopesConst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AUScopesConst.aspx.designer.cs">
+      <DependentUpon>AUScopesConst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CopyUnit.aspx.cs">
+      <DependentUpon>CopyUnit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CopyUnit.aspx.designer.cs">
+      <DependentUpon>CopyUnit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\PropertyEditor.aspx.cs">
+      <DependentUpon>PropertyEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dialogs\PropertyEditor.aspx.designer.cs">
+      <DependentUpon>PropertyEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="inc\DbUtil.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\AclEdit.aspx.cs">
+      <DependentUpon>AclEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dialogs\AclEdit.aspx.designer.cs">
+      <DependentUpon>AclEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\Editor.aspx.cs">
+      <DependentUpon>Editor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dialogs\Editor.aspx.designer.cs">
+      <DependentUpon>Editor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\RoleSearchDialog.aspx.cs">
+      <DependentUpon>RoleSearchDialog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dialogs\RoleSearchDialog.aspx.designer.cs">
+      <DependentUpon>RoleSearchDialog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ScopeItemBrowser.aspx.cs">
+      <DependentUpon>ScopeItemBrowser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dialogs\ScopeItemBrowser.aspx.designer.cs">
+      <DependentUpon>ScopeItemBrowser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\TimePicker.aspx.cs">
+      <DependentUpon>TimePicker.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dialogs\TimePicker.aspx.designer.cs">
+      <DependentUpon>TimePicker.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="inc\Editors.cs" />
+    <Compile Include="Explorer.aspx.cs">
+      <DependentUpon>Explorer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Explorer.aspx.designer.cs">
+      <DependentUpon>Explorer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="inc\AdminUnitExportExecutor.cs" />
+    <Compile Include="inc\AUSchemaExportExecutor.cs" />
+    <Compile Include="inc\AUObjectExportExecutor.cs" />
+    <Compile Include="inc\AUSchemaRoleExportExecutor.cs" />
+    <Compile Include="inc\Banner.ascx.cs">
+      <DependentUpon>Banner.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="inc\Banner.ascx.designer.cs">
+      <DependentUpon>Banner.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="inc\ImportExecutor.cs" />
+    <Compile Include="inc\LogOperationLabel.cs" />
+    <Compile Include="inc\ITimeSceneDescriptor.cs" />
+    <Compile Include="LogList.aspx.cs">
+      <DependentUpon>LogList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogList.aspx.designer.cs">
+      <DependentUpon>LogList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogView.aspx.cs">
+      <DependentUpon>LogView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogView.aspx.designer.cs">
+      <DependentUpon>LogView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Nomatch.aspx.cs">
+      <DependentUpon>Nomatch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Nomatch.aspx.designer.cs">
+      <DependentUpon>Nomatch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ObjectHistoryLog.aspx.cs">
+      <DependentUpon>ObjectHistoryLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ObjectHistoryLog.aspx.designer.cs">
+      <DependentUpon>ObjectHistoryLog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="inc\PCService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="inc\PropertyEditorSceneAdapter.cs" />
+    <Compile Include="inc\SceneControl.cs" />
+    <Compile Include="inc\SceneUsageAttribute.cs" />
+    <Compile Include="SchemaAdmin\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SchemaAdmin\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SchemaAdmin\Maintain.aspx.cs">
+      <DependentUpon>Maintain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SchemaAdmin\Maintain.aspx.designer.cs">
+      <DependentUpon>Maintain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SchemaAdmin\Nomatch.aspx.cs">
+      <DependentUpon>Nomatch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SchemaAdmin\Nomatch.aspx.designer.cs">
+      <DependentUpon>Nomatch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SchemaAdmin\SchemaList.aspx.cs">
+      <DependentUpon>SchemaList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SchemaAdmin\SchemaList.aspx.designer.cs">
+      <DependentUpon>SchemaList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SchemaAdmin\SchemaRoleList.aspx.cs">
+      <DependentUpon>SchemaRoleList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SchemaAdmin\SchemaRoleList.aspx.designer.cs">
+      <DependentUpon>SchemaRoleList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SchemaAdmin\Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SchemaAdmin\Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUnitList.aspx.cs">
+      <DependentUpon>AdminUnitList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUnitList.aspx.designer.cs">
+      <DependentUpon>AdminUnitList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\CommonServices.asmx.cs">
+      <DependentUpon>CommonServices.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\ConditionSvc.asmx.cs">
+      <DependentUpon>ConditionSvc.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\Export.ashx.cs">
+      <DependentUpon>Export.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="TargetSelector.aspx.cs">
+      <DependentUpon>TargetSelector.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TargetSelector.aspx.designer.cs">
+      <DependentUpon>TargetSelector.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="inc\Util.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SchemaAdmin\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\AU\DeluxeGrid.skin" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Services\Export.ashx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v12.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>31204</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/MCSWebApp/AUCenter</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

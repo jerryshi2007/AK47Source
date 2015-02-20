@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>AccreditAdmin</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{c3139f3e-6a5f-4c17-9bd8-8bd06f5be631}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>AccreditAdmin</RootNamespace>
+    <AssemblyName>AccreditAdmin</AssemblyName>
+    <ModelCollation>2052,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>Chinese_PRC_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!-- VS10 without SP1 will not have VisualStudioVersion set, so do that here -->
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <!-- Default to the v10.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="Storage\" />
+    <Folder Include="Security\" />
+    <Folder Include="dbo\Functions\" />
+    <Folder Include="dbo\Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\WEB_READ_LOG.sql" />
+    <Build Include="dbo\Tables\ROLE_PROPERTIES_USER_CONTAINERS.sql" />
+    <Build Include="dbo\Tables\OU_USERS.sql" />
+    <Build Include="dbo\Tables\CRM_ALL_USERS.sql" />
+    <Build Include="dbo\Tables\CRM_MAPPED_USERS.sql" />
+    <Build Include="dbo\Tables\APPLICATIONS.sql" />
+    <Build Include="dbo\Tables\APPLICATIONS_DELETE.sql" />
+    <Build Include="dbo\Tables\DELEGATIONS.sql" />
+    <Build Include="dbo\Tables\DELEGATIONS_DELETE.sql" />
+    <Build Include="dbo\Tables\EXP_TO_SCOPES.sql" />
+    <Build Include="dbo\Tables\EXP_TO_SCOPES_DELETE.sql" />
+    <Build Include="dbo\Tables\EXPRESSIONS.sql" />
+    <Build Include="dbo\Tables\EXPRESSIONS_DELETE.sql" />
+    <Build Include="dbo\Tables\FUNC_SET_TO_FUNCS.sql" />
+    <Build Include="dbo\Tables\FUNC_SET_TO_FUNCS_DELETE.sql" />
+    <Build Include="dbo\Tables\FUNCTION_SETS.sql" />
+    <Build Include="dbo\Tables\FUNCTION_SETS_DELETE.sql" />
+    <Build Include="dbo\Tables\FUNCTIONS.sql" />
+    <Build Include="dbo\Tables\ORGANIZATIONS.sql" />
+    <Build Include="dbo\Tables\FUNCTIONS_DELETE.sql" />
+    <Build Include="dbo\Tables\OU_USERS1.sql" />
+    <Build Include="dbo\Tables\GROUP_USERS.sql" />
+    <Build Include="dbo\Tables\OU_USERS2.sql" />
+    <Build Include="dbo\Tables\GROUPS.sql" />
+    <Build Include="dbo\Tables\OU_USERS3.sql" />
+    <Build Include="dbo\Tables\PWD_ARITHMETIC.sql" />
+    <Build Include="dbo\Tables\RANK_DEFINE.sql" />
+    <Build Include="dbo\Tables\ROLE_TO_FUNCTIONS.sql" />
+    <Build Include="dbo\Tables\ROLE_TO_FUNCTIONS_DELETE.sql" />
+    <Build Include="dbo\Tables\ORGANIZATIONS_AD.sql" />
+    <Build Include="dbo\Tables\ROLES.sql" />
+    <Build Include="dbo\Tables\OU_USERS_AD.sql" />
+    <Build Include="dbo\Tables\ROLES_DELETE.sql" />
+    <Build Include="dbo\Tables\USERS_AD.sql" />
+    <Build Include="dbo\Tables\SCOPES.sql" />
+    <Build Include="dbo\Tables\SCOPES_DELETE.sql" />
+    <Build Include="dbo\Tables\SECRETARIES.sql" />
+    <Build Include="dbo\Tables\USERS.sql" />
+    <Build Include="dbo\Tables\SITE_VISIT_LOG.sql" />
+    <Build Include="dbo\Tables\PINYIN.sql" />
+    <Build Include="dbo\Tables\OBJECT_EXT_PROPERTIES.sql" />
+    <Build Include="dbo\Tables\ROLE_PROPERTIES_DEFINITIONS.sql" />
+    <Build Include="dbo\Tables\ROLE_PROPERTIES_ROWS.sql" />
+    <Build Include="dbo\Tables\ROLE_PROPERTIES_CELLS.sql" />
+    <Build Include="dbo\Tables\Birthday.sql" />
+    <Build Include="dbo\Views\SIMPLE_USER_VIEW_FOR_BI.sql" />
+    <Build Include="Storage\AccreditOUUser.sql" />
+    <Build Include="FullTextIndexes.sql" />
+    <Build Include="Security\NT AUTHORITY_SYSTEM.sql" />
+    <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="dbo\Functions\FindSepecialChar.sql" />
+    <Build Include="dbo\Functions\Get_StrArrayStrOfIndex.sql" />
+    <Build Include="dbo\Functions\GetParamValue.sql" />
+    <Build Include="dbo\Functions\SkipSpecialChar.sql" />
+    <Build Include="dbo\Stored Procedures\ResetPWD.sql" />
+    <Build Include="dbo\Stored Procedures\GET_INHERITED_SON_APPLICATIONS.sql" />
+    <Build Include="dbo\Stored Procedures\GET_INHERITED_APPLICATIONS.sql">
+      <QuotedIdentifier>Off</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Stored Procedures\dt_verstamp007.sql">
+      <QuotedIdentifier>Off</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Stored Procedures\UPDATE_APPLICATION_INHERITED_STATE.sql" />
+    <Build Include="dbo\Stored Procedures\COPY_APPLICATION_DATA.sql">
+      <AnsiNulls>Off</AnsiNulls>
+      <QuotedIdentifier>Off</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Stored Procedures\Add_approles.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AccreditAdmin.local.test.publish.xml" />
+  </ItemGroup>
+</Project>

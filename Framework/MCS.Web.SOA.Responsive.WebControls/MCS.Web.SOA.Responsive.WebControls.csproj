@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>../../../CIIC.HSR.TSP.Files/TSPLib.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3D91BCD9-C2DC-4005-ACD1-D4C9586BFAE7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MCS.Web.Responsive.WebControls</RootNamespace>
+    <AssemblyName>MCS.Web.SOA.Responsive.WebControls</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>MCS.Library.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MCS.Library">
+      <HintPath>..\..\Bin\MCS.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Data">
+      <HintPath>..\..\Bin\MCS.Library.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.OGUPermission, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.OGUPermission.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Passport">
+      <HintPath>..\..\Bin\MCS.Library.Passport.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.DataObjects">
+      <HintPath>..\..\Bin\MCS.Library.SOA.DataObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Library.Script.Json">
+      <HintPath>..\..\Bin\MCS.Web.Library.Script.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Responsive.Library">
+      <HintPath>..\..\Bin\MCS.Web.Responsive.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Responsive.WebControls">
+      <HintPath>..\..\Bin\MCS.Web.Responsive.WebControls.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Extensions.Design" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClientGrid\ClientGrid.cs" />
+    <Compile Include="ClientGrid\ClientGridColumn.cs" />
+    <Compile Include="ClientGrid\ClientGridColumnConverter.cs" />
+    <Compile Include="ClientGrid\ClientGridColumnEditMode.cs" />
+    <Compile Include="ClientGrid\ClientGridColumnEditTemplate.cs" />
+    <Compile Include="Common\CheckLockOperation.cs" />
+    <Compile Include="Common\Define.cs" />
+    <Compile Include="Common\DialogStartUpControlConverter.cs" />
+    <Compile Include="Common\FileUpload.cs" />
+    <Compile Include="Common\HiddenButtonWrapper.cs" />
+    <Compile Include="Common\OriginaUserOUControlQueryImpl.cs" />
+    <Compile Include="Common\UserOUControlSettings.cs" />
+    <Compile Include="Configuration\DropdownPropertyDataSourceConfigurationElement.cs" />
+    <Compile Include="Configuration\DropdownPropertyDataSourceSettings.cs" />
+    <Compile Include="ImageUploader\ImageUploader.cs" />
+    <Compile Include="ImageUploader\ImageUploaderDialog.cs" />
+    <Compile Include="ImageUploader\ImageUploadHandler.cs" />
+    <Compile Include="ImageUploader\ImageUploadHelper.cs" />
+    <Compile Include="OuUserInputControl\OuUserInputControl.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyEditorBase\BooleanPropertyEditor.cs" />
+    <Compile Include="PropertyEditorBase\ClientGridPropertyEditor.cs" />
+    <Compile Include="PropertyEditorBase\ClientPropertyEditorControlBaseResources.cs" />
+    <Compile Include="PropertyEditorBase\ControlPropertyDefineWrapper.cs" />
+    <Compile Include="PropertyEditorBase\DatePropertyEditor.cs" />
+    <Compile Include="PropertyEditorBase\DateTimePropertyEditor.cs" />
+    <Compile Include="PropertyEditorBase\EnumItemPropertyDescriptionConverter.cs" />
+    <Compile Include="PropertyEditorBase\EnumPropertyEditor.cs" />
+    <Compile Include="PropertyEditorBase\EnumTypeDescription.cs" />
+    <Compile Include="PropertyEditorBase\EnumTypePropertyDescription.cs" />
+    <Compile Include="PropertyEditorBase\ImageUploaderPropertyEditor.cs" />
+    <Compile Include="PropertyEditorBase\ImageUploaderPropertyEditorForGrid.cs" />
+    <Compile Include="PropertyEditorBase\MaterialPropertyEditor.cs" />
+    <Compile Include="PropertyEditorBase\ObjectPropertyEditor.cs" />
+    <Compile Include="PropertyEditorBase\OUUserInputPropertyEditor.cs" />
+    <Compile Include="PropertyEditorBase\PasswordConfirmationEditor.cs" />
+    <Compile Include="PropertyEditorBase\PropertyEditorBase.cs" />
+    <Compile Include="PropertyEditorBase\PropertyEditorControlBase.cs" />
+    <Compile Include="Configuration\PropertyEditorConfigurationSection.cs" />
+    <Compile Include="PropertyEditorBase\PropertyEditorHelper.cs" />
+    <Compile Include="PropertyEditorBase\RoleGraphPropertyEditor.cs" />
+    <Compile Include="PropertyEditorBase\StandardPropertyEditor.cs" />
+    <Compile Include="PropertyForm\PropertyEditorDescriptionAttrubite.cs" />
+    <Compile Include="PropertyForm\PropertyForm.cs" />
+    <Compile Include="PropertyGrid\PropertyGridDisplayOrder.cs" />
+    <Compile Include="PropertyGrid\PropertyGrid.cs" />
+    <Compile Include="Resources\ControlResources.cs" />
+    <Compile Include="RoleGraphControl\RoleGraphControl.cs" />
+    <Compile Include="RoleGraphControl\RoleGraphControlParams.cs" />
+    <Compile Include="UserControl\UserControlDefine.cs" />
+    <Compile Include="UserControl\UserControlParams.cs" />
+    <Compile Include="UserControl\UserOUGraphControl.cs" />
+    <Compile Include="UserPresence\UserPresence.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MCS.Library.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Images\activity.gif" />
+    <EmbeddedResource Include="Resources\Images\anchor.gif" />
+    <EmbeddedResource Include="Resources\Images\cancelled.gif" />
+    <EmbeddedResource Include="Resources\Images\completeActivity.gif" />
+    <EmbeddedResource Include="Resources\Images\delay.gif" />
+    <EmbeddedResource Include="Resources\Images\hourglass.gif" />
+    <EmbeddedResource Include="Resources\Images\initialActivity.gif" />
+    <EmbeddedResource Include="Resources\Images\roles.gif" />
+    <EmbeddedResource Include="UserControl\disabledGroup.gif" />
+    <EmbeddedResource Include="UserControl\disabledOu.gif" />
+    <EmbeddedResource Include="UserControl\disabledUser.gif" />
+    <EmbeddedResource Include="UserControl\group.gif" />
+    <EmbeddedResource Include="UserControl\ou.gif" />
+    <EmbeddedResource Include="UserControl\user.gif" />
+    <EmbeddedResource Include="UserControl\userOUDialogTemplate.htm" />
+    <EmbeddedResource Include="UserControl\UserOUGraphControl.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UserPresence\Resources\blank.gif" />
+    <EmbeddedResource Include="UserPresence\Resources\imnaway.png" />
+    <EmbeddedResource Include="UserPresence\Resources\imnawayoof.png" />
+    <EmbeddedResource Include="UserPresence\Resources\imnblocked.png" />
+    <EmbeddedResource Include="UserPresence\Resources\imnbusy.png" />
+    <EmbeddedResource Include="UserPresence\Resources\imnbusyoof.png" />
+    <EmbeddedResource Include="UserPresence\Resources\imndnd.png" />
+    <EmbeddedResource Include="UserPresence\Resources\imndndoof.png" />
+    <EmbeddedResource Include="UserPresence\Resources\imnhdr.gif" />
+    <EmbeddedResource Include="UserPresence\Resources\imnidle.png" />
+    <EmbeddedResource Include="UserPresence\Resources\imnidlebusy.png" />
+    <EmbeddedResource Include="UserPresence\Resources\imnidlebusyoof.png" />
+    <EmbeddedResource Include="UserPresence\Resources\imnidleoof.png" />
+    <EmbeddedResource Include="UserPresence\Resources\imnoff.png" />
+    <EmbeddedResource Include="UserPresence\Resources\imnoffoof.png" />
+    <EmbeddedResource Include="UserPresence\Resources\imnon.png" />
+    <EmbeddedResource Include="UserPresence\Resources\imnonoof.png" />
+    <EmbeddedResource Include="UserPresence\Resources\IMNStatus.js" />
+    <EmbeddedResource Include="UserPresence\Resources\status.css" />
+    <EmbeddedResource Include="UserPresence\Resources\uc.css" />
+    <EmbeddedResource Include="UserPresence\Resources\ucStatus.png" />
+    <EmbeddedResource Include="UserPresence\Resources\userPresenceInnerPage.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ClientGrid\ClientGrid.css" />
+    <EmbeddedResource Include="ClientGrid\ClientGrid.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="OuUserInputControl\checkUser.gif" />
+    <EmbeddedResource Include="OuUserInputControl\group.gif" />
+    <EmbeddedResource Include="OuUserInputControl\ou.gif" />
+    <EmbeddedResource Include="OuUserInputControl\OuUserInputControl.js" />
+    <EmbeddedResource Include="OuUserInputControl\OuUserInputDefaultCss.css" />
+    <EmbeddedResource Include="OuUserInputControl\propertyDialog.htm" />
+    <EmbeddedResource Include="OuUserInputControl\selectObjectDialog.htm" />
+    <EmbeddedResource Include="OuUserInputControl\user.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PropertyForm\PropertyForm.css" />
+    <EmbeddedResource Include="PropertyForm\PropertyForm.js" />
+    <EmbeddedResource Include="PropertyGrid\PropertyGrid.css" />
+    <EmbeddedResource Include="PropertyGrid\PropertyGrid.js" />
+    <EmbeddedResource Include="PropertyGrid\Sprites.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PropertyEditorBase\PropertyEditorControlBase.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ImageUploader\cannotShow.png" />
+    <EmbeddedResource Include="ImageUploader\defaultImage_bw.jpg" />
+    <EmbeddedResource Include="ImageUploader\ImageUploader.css" />
+    <EmbeddedResource Include="ImageUploader\ImageUploader.js" />
+    <EmbeddedResource Include="ImageUploader\ImageUploaderDialog.htm" />
+    <EmbeddedResource Include="ImageUploader\ImageUploaderDialog.js" />
+    <EmbeddedResource Include="ImageUploader\noLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PropertyEditorBase\InvalidLine.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RoleGraphControl\RoleGraphControl.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Common\MicrosoftAjax.debug.js" />
+    <Content Include="ImageUploader\blank.png" />
+    <Content Include="Resources\Images\pbarani.gif" />
+    <EmbeddedResource Include="RoleGraphControl\roleGraphDialogTemplate.htm" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>IF EXIST "$(ProjectDir)..\..\Bin\$(TargetFileName)" DEL "$(ProjectDir)..\..\Bin\$(TargetFileName)"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetName).pdb" DEL "$(ProjectDir)..\..\Bin\$(TargetName).pdb"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetName).xml" DEL "$(ProjectDir)..\..\Bin\$(TargetName).xml"</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>set path=%25path%25;C:\Windows\System32
+ 
+
+ XCOPY "$(TargetPath)"  "$(ProjectDir)..\..\Bin" /Y /D /R
+IF EXIST "$(TargetDir)$(TargetName).pdb" XCOPY "$(TargetDir)$(TargetName).pdb" "$(ProjectDir)..\..\Bin" /Y /D /R
+IF EXIST "$(TargetDir)$(TargetName).xml" XCOPY "$(TargetDir)$(TargetName).xml" "$(ProjectDir)..\..\Bin" /Y /D /R</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,142 @@
+﻿
+.tooltip-inner
+{
+    padding: 5px 9px;
+    border-radius: 0px;
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+    text-shadow: 1px 1px 0px rgba(42,45,50,0.5);
+    background-color: rgb(51, 51, 51);
+}
+
+.top.tooltip .tooltip-arrow
+{
+    border-top-color: rgb(51, 51, 51);
+}
+
+.right.tooltip .tooltip-arrow
+{
+    border-right-color: rgb(51, 51, 51);
+}
+
+.left.tooltip .tooltip-arrow
+{
+    border-left-color: rgb(51, 51, 51);
+}
+
+.bottom.tooltip .tooltip-arrow
+{
+    border-bottom-color: rgb(51, 51, 51);
+}
+
+.tooltip-error + .tooltip > .tooltip-inner
+{
+    border-radius: 0px;
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 0px rgba(100,60,20,0.3);
+    background-color: rgb(201, 77, 50);
+}
+
+.tooltip-error + .top.tooltip .tooltip-arrow
+{
+    border-top-color: rgb(201, 77, 50);
+}
+
+.tooltip-error + .right.tooltip .tooltip-arrow
+{
+    border-right-color: rgb(201, 77, 50);
+}
+
+.tooltip-error + .left.tooltip .tooltip-arrow
+{
+    border-left-color: rgb(201, 77, 50);
+}
+
+.tooltip-error + .bottom.tooltip .tooltip-arrow
+{
+    border-bottom-color: rgb(201, 77, 50);
+}
+
+.tooltip-success + .tooltip > .tooltip-inner
+{
+    border-radius: 0px;
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 0px rgba(60,100,20,0.3);
+    background-color: rgb(98, 155, 88);
+}
+
+.tooltip-success + .top.tooltip .tooltip-arrow
+{
+    border-top-color: rgb(98, 155, 88);
+}
+
+.tooltip-success + .right.tooltip .tooltip-arrow
+{
+    border-right-color: rgb(98, 155, 88);
+}
+
+.tooltip-success + .left.tooltip .tooltip-arrow
+{
+    border-left-color: rgb(98, 155, 88);
+}
+
+.tooltip-success + .bottom.tooltip .tooltip-arrow
+{
+    border-bottom-color: rgb(98, 155, 88);
+}
+
+.tooltip-warning + .tooltip > .tooltip-inner
+{
+    border-radius: 0px;
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 0px rgba(100,90,10,0.3);
+    background-color: rgb(237, 148, 33);
+}
+
+.tooltip-warning + .top.tooltip .tooltip-arrow
+{
+    border-top-color: rgb(237, 148, 33);
+}
+
+.tooltip-warning + .right.tooltip .tooltip-arrow
+{
+    border-right-color: rgb(237, 148, 33);
+}
+
+.tooltip-warning + .left.tooltip .tooltip-arrow
+{
+    border-left-color: rgb(237, 148, 33);
+}
+
+.tooltip-warning + .bottom.tooltip .tooltip-arrow
+{
+    border-bottom-color: rgb(237, 148, 33);
+}
+
+.tooltip-info + .tooltip > .tooltip-inner
+{
+    border-radius: 0px;
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 0px rgba(40,50,100,0.3);
+    background-color: rgb(75, 137, 170);
+}
+
+.tooltip-info + .top.tooltip .tooltip-arrow
+{
+    border-top-color: rgb(75, 137, 170);
+}
+
+.tooltip-info + .right.tooltip .tooltip-arrow
+{
+    border-right-color: rgb(75, 137, 170);
+}
+
+.tooltip-info + .left.tooltip .tooltip-arrow
+{
+    border-left-color: rgb(75, 137, 170);
+}
+
+.tooltip-info + .bottom.tooltip .tooltip-arrow
+{
+    border-bottom-color: rgb(75, 137, 170);
+}

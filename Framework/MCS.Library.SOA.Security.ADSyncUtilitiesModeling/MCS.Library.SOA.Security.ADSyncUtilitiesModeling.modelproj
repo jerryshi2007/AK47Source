@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{71ada0e7-736f-4c32-88d1-1adc61ca0c65}</ProjectGuid>
+    <ArchitectureToolsVersion>1.0.0.0</ArchitectureToolsVersion>
+    <Name>MCS.Library.SOA.Security.ADSyncUtilitiesModeling</Name>
+    <RootNamespace>MCS.Library.SOA.Security.ADSyncUtilitiesModeling</RootNamespace>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" />
+  <ItemGroup>
+    <Content Include="ADSyncBasic.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ADSyncBasic.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>ADSyncBasic.sequencediagram</DependentUpon>
+    </Content>
+    <Content Include="ProcessOrganization.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ProcessOrganization.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>ProcessOrganization.sequencediagram</DependentUpon>
+    </Content>
+    <Folder Include="ModelDefinition\" />
+    <Content Include="AdSyncPreparing.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="AdSyncPreparing.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>AdSyncPreparing.sequencediagram</DependentUpon>
+    </Content>
+    <Content Include="ModelDefinition\MCS.Library.SOA.Security.ADSyncUtilitiesModeling.uml">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MCS.Library.SOA.Security.ADSyncUtilities\MCS.Library.SOA.Security.ADSyncUtilities.csproj">
+      <Name>MCS.Library.SOA.Security.ADSyncUtilities</Name>
+      <Project>{6c750ef1-d01c-447a-9fed-c07744853c62}</Project>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

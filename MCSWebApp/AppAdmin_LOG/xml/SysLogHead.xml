@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ColumnTitle>	
+	<Column name="用户登录名" dataFld="USER_LOGONNAME" dataSrc="SYS_USER_LOGON" width="100" />
+	<Column name="用户IP" dataFld="HOST_IP" dataSrc="SYS_USER_LOGON" width="100" />
+	<Column name="用户机器名" dataFld="HOST_NAME" dataSrc="SYS_USER_LOGON" width="80"  />
+	<Column name="IE版本" dataFld="IE_VERSION" dataSrc="SYS_USER_LOGON" width="80" />
+	<Column name="WINDOWS版本" dataFld="WINDOWS_VERSION" dataSrc="SYS_USER_LOGON"/>
+	<Column name="杀毒版本" dataFld="KILL_VIRUS" dataSrc="SYS_USER_LOGON" width="80" />
+	<Column name="时间" dataFld="LOG_DATE" dataSrc="SYS_USER_LOGON" width="140"/>
+	<Column name="" dataFld="Detail" dataSrc="" width="40" />
+</ColumnTitle>

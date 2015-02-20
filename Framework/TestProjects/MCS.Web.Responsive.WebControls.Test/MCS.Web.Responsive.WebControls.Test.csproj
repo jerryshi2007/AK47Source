@@ -1,0 +1,448 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AF908226-3981-4D89-BE7E-092D7BE5958F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MCS.Web.Responsive.WebControls.Test</RootNamespace>
+    <AssemblyName>MCS.Web.Responsive.WebControls.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MCS.Library, Version=1.2.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\MCS.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Data">
+      <HintPath>..\..\..\Bin\MCS.Library.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\MCS-SampleDB.mdf" />
+    <Content Include="App_Data\MCS-SampleDB_log.ldf">
+      <DependentUpon>MCS-SampleDB.mdf</DependentUpon>
+    </Content>
+    <Content Include="AutoComplete\CommonAutoCompleteWithSelectorTest.aspx" />
+    <Content Include="AutoComplete\Test.aspx" />
+    <Content Include="bootstrap\css\bootstrap-theme.css" />
+    <Content Include="bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="bootstrap\css\bootstrap.css" />
+    <Content Include="bootstrap\css\bootstrap.min.css" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="bootstrap\js\bootstrap.js" />
+    <Content Include="bootstrap\js\bootstrap.min.js" />
+    <Content Include="c.html" />
+    <Content Include="CommandInput\CommandInputOpen.aspx" />
+    <Content Include="CommandInput\CommandInputTest.aspx" />
+    <Content Include="css\badge.css" />
+    <Content Include="css\button.css" />
+    <Content Include="css\color.css" />
+    <Content Include="css\dropdown.css" />
+    <Content Include="css\elements.css" />
+    <Content Include="css\form.css" />
+    <Content Include="css\layout.css" />
+    <Content Include="css\layout1.css" />
+    <Content Include="css\layout2.css" />
+    <Content Include="css\modalbox.css" />
+    <Content Include="css\poptip.css" />
+    <Content Include="css\progress.css" />
+    <Content Include="css\project.css" />
+    <Content Include="css\table.css" />
+    <Content Include="css\treeview.css" />
+    <Content Include="css\widget.css" />
+    <Content Include="DateTimePicker\DateTimePickerCloneTest.aspx" />
+    <Content Include="DateTimePicker\DateTimePickerTest.aspx" />
+    <Content Include="default.aspx" />
+    <Content Include="DeluxeGrid\DeluxeGridForObjectDataSourceControl.aspx" />
+    <Content Include="DeluxeMenu\DeluxeMenuTest.aspx" />
+    <Content Include="DeluxePager\PagerToDataList.aspx" />
+    <Content Include="DeluxeTree\closeImg.gif" />
+    <Content Include="DeluxeTree\LeftRightLayout.aspx" />
+    <Content Include="DeluxeTree\msn-icon4.gif" />
+    <Content Include="DeluxeTree\openImg.gif" />
+    <Content Include="DeluxeTree\SimpleTreeTest.aspx" />
+    <EmbeddedResource Include="DialogControl\CustomDialogContent.htm" />
+    <EmbeddedResource Include="DialogControl\CustomDialogControl.js" />
+    <Content Include="DialogControl\DialogControlTest.aspx" />
+    <Content Include="Font-awesome\css\font-awesome-ie7.css" />
+    <Content Include="Font-awesome\css\font-awesome-ie7.min.css" />
+    <Content Include="Font-awesome\css\font-awesome.css" />
+    <Content Include="Font-awesome\css\font-awesome.min.css" />
+    <Content Include="Font-awesome\font\fontawesome-webfont.svg" />
+    <Content Include="HBDropDownList\HBDropDownListTest.aspx" />
+    <Content Include="HBRadioButtonList\HBRadioButtonListTest.aspx" />
+    <Content Include="HBTextBox\HBTextBoxTest.aspx" />
+    <Content Include="jquery\jquery-1.10.2.js" />
+    <Content Include="jquery\jquery-1.10.2.min.js" />
+    <Content Include="jquery\jquery-2.0.3.js" />
+    <Content Include="jquery\jquery-2.0.3.min.js" />
+    <Content Include="jquery\jquery-migrate-1.2.1.js" />
+    <Content Include="jquery\jquery-migrate-1.2.1.min.js" />
+    <Content Include="ModalBox\ClientMsgTest.aspx" />
+    <Content Include="ModalBox\ModalBoxTest.aspx" />
+    <Content Include="ModalBox\stop.gif" />
+    <Content Include="ModuleTest\ExceptionTest.aspx" />
+    <Content Include="MVC\testControllerMethod.aspx" />
+    <Content Include="PlaceHolderTest\ControlPlaceHolderTest.aspx" />
+    <Content Include="PlaceHolderTest\SimplePlaceHolderTest.aspx" />
+    <Content Include="scripts\Jquery-ui\css\jquery-ui-1.10.0.custom.css" />
+    <Content Include="scripts\Jquery-ui\css\jquery-ui-1.10.0.custom.min.css" />
+    <Content Include="scripts\Jquery-ui\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="scripts\Jquery-ui\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="scripts\Jquery-ui\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="scripts\Jquery-ui\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="scripts\Jquery-ui\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="scripts\Jquery-ui\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="scripts\Jquery-ui\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="scripts\Jquery-ui\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="scripts\Jquery-ui\images\ui-icons_222222_256x240.png" />
+    <Content Include="scripts\Jquery-ui\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="scripts\Jquery-ui\images\ui-icons_454545_256x240.png" />
+    <Content Include="scripts\Jquery-ui\images\ui-icons_888888_256x240.png" />
+    <Content Include="scripts\Jquery-ui\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="scripts\Jquery-ui\js\jquery-ui-1.10.0.custom.js" />
+    <Content Include="scripts\Jquery-ui\js\jquery-ui-1.10.0.custom.min.js" />
+    <Content Include="scripts\modalbox.js" />
+    <Content Include="scripts\project.js" />
+    <Content Include="SubmitButton\FreeTest.aspx" />
+    <Content Include="SubmitButton\SubmitButtonInUpdatePanelMode.aspx" />
+    <Content Include="SubmitButton\SubmitButtonTestForm.aspx" />
+    <Content Include="SubmitButton\SubmitButtonWithProgress.aspx" />
+    <Content Include="Templates\HeaderControl.ascx" />
+    <Content Include="Templates\SimpleFooter.ascx" />
+    <Content Include="Templates\SimpleHeader.ascx" />
+    <Content Include="TextBox\inputChangeTest.aspx" />
+    <Content Include="TextBox\normalInput.aspx" />
+    <Content Include="WBWapperTest\WBWapperTest.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AutoComplete\CommonData.cs" />
+    <Compile Include="AutoComplete\CommonAutoCompleteWithSelectorTest.aspx.cs">
+      <DependentUpon>CommonAutoCompleteWithSelectorTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AutoComplete\CommonAutoCompleteWithSelectorTest.aspx.designer.cs">
+      <DependentUpon>CommonAutoCompleteWithSelectorTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AutoComplete\Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AutoComplete\Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CommandInput\CommandInputOpen.aspx.cs">
+      <DependentUpon>CommandInputOpen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommandInput\CommandInputOpen.aspx.designer.cs">
+      <DependentUpon>CommandInputOpen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CommandInput\CommandInputTest.aspx.cs">
+      <DependentUpon>CommandInputTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommandInput\CommandInputTest.aspx.designer.cs">
+      <DependentUpon>CommandInputTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DateTimePicker\DateTimePickerCloneTest.aspx.cs">
+      <DependentUpon>DateTimePickerCloneTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DateTimePicker\DateTimePickerCloneTest.aspx.designer.cs">
+      <DependentUpon>DateTimePickerCloneTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DateTimePicker\DateTimePickerTest.aspx.cs">
+      <DependentUpon>DateTimePickerTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DateTimePicker\DateTimePickerTest.aspx.designer.cs">
+      <DependentUpon>DateTimePickerTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeluxeGrid\DeluxeGridForObjectDataSourceControl.aspx.cs">
+      <DependentUpon>DeluxeGridForObjectDataSourceControl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeluxeGrid\DeluxeGridForObjectDataSourceControl.aspx.designer.cs">
+      <DependentUpon>DeluxeGridForObjectDataSourceControl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeluxeGrid\OrdersDataViewAdapter.cs" />
+    <Compile Include="DeluxeMenu\DeluxeMenuTest.aspx.cs">
+      <DependentUpon>DeluxeMenuTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeluxeMenu\DeluxeMenuTest.aspx.designer.cs">
+      <DependentUpon>DeluxeMenuTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeluxePager\PagerToDataList.aspx.cs">
+      <DependentUpon>PagerToDataList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeluxePager\PagerToDataList.aspx.designer.cs">
+      <DependentUpon>PagerToDataList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeluxeTree\LeftRightLayout.aspx.cs">
+      <DependentUpon>LeftRightLayout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeluxeTree\LeftRightLayout.aspx.designer.cs">
+      <DependentUpon>LeftRightLayout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeluxeTree\SimpleTreeTest.aspx.cs">
+      <DependentUpon>SimpleTreeTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeluxeTree\SimpleTreeTest.aspx.designer.cs">
+      <DependentUpon>SimpleTreeTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DialogControl\CustomDialogControl.cs" />
+    <Compile Include="DialogControl\DialogControlTest.aspx.cs">
+      <DependentUpon>DialogControlTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DialogControl\DialogControlTest.aspx.designer.cs">
+      <DependentUpon>DialogControlTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HBDropDownList\HBDropDownListTest.aspx.cs">
+      <DependentUpon>HBDropDownListTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HBDropDownList\HBDropDownListTest.aspx.designer.cs">
+      <DependentUpon>HBDropDownListTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HBRadioButtonList\HBRadioButtonListTest.aspx.cs">
+      <DependentUpon>HBRadioButtonListTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HBRadioButtonList\HBRadioButtonListTest.aspx.designer.cs">
+      <DependentUpon>HBRadioButtonListTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HBTextBox\HBTextBoxTest.aspx.cs">
+      <DependentUpon>HBTextBoxTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HBTextBox\HBTextBoxTest.aspx.designer.cs">
+      <DependentUpon>HBTextBoxTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\DbHelper.cs" />
+    <Compile Include="ModalBox\ClientMsgTest.aspx.cs">
+      <DependentUpon>ClientMsgTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalBox\ClientMsgTest.aspx.designer.cs">
+      <DependentUpon>ClientMsgTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalBox\ModalBoxTest.aspx.cs">
+      <DependentUpon>ModalBoxTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalBox\ModalBoxTest.aspx.designer.cs">
+      <DependentUpon>ModalBoxTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleTest\ExceptionTest.aspx.cs">
+      <DependentUpon>ExceptionTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuleTest\ExceptionTest.aspx.designer.cs">
+      <DependentUpon>ExceptionTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MVC\controllerMethodContainer.ashx.cs">
+      <DependentUpon>controllerMethodContainer.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="MVC\ParameterClass.cs" />
+    <Compile Include="MVC\testControllerMethod.aspx.cs">
+      <DependentUpon>testControllerMethod.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MVC\testControllerMethod.aspx.designer.cs">
+      <DependentUpon>testControllerMethod.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PlaceHolderTest\ControlPlaceHolderTest.aspx.cs">
+      <DependentUpon>ControlPlaceHolderTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PlaceHolderTest\ControlPlaceHolderTest.aspx.designer.cs">
+      <DependentUpon>ControlPlaceHolderTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PlaceHolderTest\SimplePlaceHolderTest.aspx.cs">
+      <DependentUpon>SimplePlaceHolderTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PlaceHolderTest\SimplePlaceHolderTest.aspx.designer.cs">
+      <DependentUpon>SimplePlaceHolderTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SubmitButton\FreeTest.aspx.cs">
+      <DependentUpon>FreeTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SubmitButton\FreeTest.aspx.designer.cs">
+      <DependentUpon>FreeTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SubmitButton\SubmitButtonInUpdatePanelMode.aspx.cs">
+      <DependentUpon>SubmitButtonInUpdatePanelMode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SubmitButton\SubmitButtonInUpdatePanelMode.aspx.designer.cs">
+      <DependentUpon>SubmitButtonInUpdatePanelMode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SubmitButton\SubmitButtonTestForm.aspx.cs">
+      <DependentUpon>SubmitButtonTestForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SubmitButton\SubmitButtonTestForm.aspx.designer.cs">
+      <DependentUpon>SubmitButtonTestForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SubmitButton\SubmitButtonWithProgress.aspx.cs">
+      <DependentUpon>SubmitButtonWithProgress.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SubmitButton\SubmitButtonWithProgress.aspx.designer.cs">
+      <DependentUpon>SubmitButtonWithProgress.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TextBox\inputChangeTest.aspx.cs">
+      <DependentUpon>inputChangeTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TextBox\inputChangeTest.aspx.designer.cs">
+      <DependentUpon>inputChangeTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TextBox\normalInput.aspx.cs">
+      <DependentUpon>normalInput.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TextBox\normalInput.aspx.designer.cs">
+      <DependentUpon>normalInput.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WBWapperTest\WBWapperTest.aspx.cs">
+      <DependentUpon>WBWapperTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WBWapperTest\WBWapperTest.aspx.designer.cs">
+      <DependentUpon>WBWapperTest.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="Font-awesome\font\fontawesome-webfont.eot" />
+    <None Include="Font-awesome\font\fontawesome-webfont.ttf" />
+    <None Include="Font-awesome\font\fontawesome-webfont.woff" />
+    <None Include="Font-awesome\font\FontAwesome.otf" />
+    <Content Include="MVC\controllerMethodContainer.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\MCS.Web.Responsive.Library\MCS.Web.Responsive.Library.csproj">
+      <Project>{31B6A252-182E-48C0-8D6A-56E3C2DD856F}</Project>
+      <Name>MCS.Web.Responsive.Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MCS.Web.Responsive.WebControls\MCS.Web.Responsive.WebControls.csproj">
+      <Project>{2C8CE11B-A81E-4F64-B038-6570F618FB3A}</Project>
+      <Name>MCS.Web.Responsive.WebControls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53529</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

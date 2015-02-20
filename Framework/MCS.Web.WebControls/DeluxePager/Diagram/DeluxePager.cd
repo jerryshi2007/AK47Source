@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Microsoft YaHei" Size="8.25" />
+  <Class Name="MCS.Web.WebControls.DeluxePager" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="1.25" Width="3" />
+    <TypeIdentifier>
+      <FileName>DeluxePager\DeluxePager.cs</FileName>
+      <HashCode>0A0AKRgAQAwDhxBIAMGgGQRCAmYAEExUABFREkZQClA=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MCS.Web.WebControls.RenderControllor">
+    <Position X="3.75" Y="6.5" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>DeluxePager\DeluxePager.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Web.WebControls.PagerSettings" BaseTypeListCollapsed="true">
+    <Position X="8.5" Y="1.25" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>DeluxePager\PagerSettings.cs</FileName>
+      <HashCode>AAAAAAAAAIAQEAAEMAAQABAAoEAgACIAQCAAQgASAAA=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MCS.Web.WebControls.DeluxePagerDesigner">
+    <Position X="3.75" Y="1.25" Width="2" />
+    <TypeIdentifier>
+      <FileName>DeluxePager\DeluxePagerDesigner.cs</FileName>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Web.WebControls.PageEventArgs" BaseTypeListCollapsed="true">
+    <Position X="6.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DeluxePager\PageEventArgs.cs</FileName>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MCS.Web.WebControls.PagerBoundControlStatus">
+    <Position X="3.75" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <FileName>DeluxePager\PagerBoundControlType.cs</FileName>
+      <HashCode>AABAAAAAAAAAAAAAAAQAAAAACAQAAEAEAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="MCS.Web.WebControls.PagerBoundControlType" BaseTypeListCollapsed="true">
+    <Position X="6.25" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <FileName>DeluxePager\PagerBoundControlType.cs</FileName>
+      <HashCode>AAAAQEAABAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="MCS.Web.WebControls.IPageEventArgs">
+    <Position X="3.75" Y="5" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>DeluxePager\IPageEventArgs.cs</FileName>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MCS.Web.WebControls.IPagerBoundControlType">
+    <Position X="6.25" Y="4.75" Width="2" />
+    <TypeIdentifier>
+      <FileName>DeluxePager\IPagerBoundControlType.cs</FileName>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="MCS.Web.WebControls.DataListControlType">
+    <Position X="6.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DeluxePager\DeluxePager.cs</FileName>
+      <HashCode>BKAAAAACAEAAAAAAAAAAQAAAAAAAAAAAABQAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+</ClassDiagram>

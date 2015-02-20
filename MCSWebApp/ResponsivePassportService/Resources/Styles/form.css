@@ -1,0 +1,390 @@
+﻿body
+{
+}
+
+.navbar-mcs
+{
+    background: rgb(247, 247, 247);
+    background: linear-gradient(rgb(255, 255, 255) 0px, rgb(238, 238, 238) 100%) repeat-x rgb(247, 247, 247) !important;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(221, 221, 221);
+    min-height: 50px;
+    padding-left:20px;
+    padding-right:20px;
+}
+
+.navbar-nav > li > a
+{
+
+}
+
+/*.navbar-nav > li > a:hover
+{
+    background-color: rgb(237, 243, 244);
+}
+
+.navbar-nav > li > a :focus
+{
+    background-color: rgb(237, 243, 244);
+}*/
+
+.container-mcs-form
+{
+    background-color: #ffffff;
+    margin-top: 52px;
+    border-radius: 5px;
+}
+
+.container-inner
+{
+    margin: 5px;
+    border: 2px solid #f3f7f8;
+    border-radius: 5px;
+}
+
+.container-footer
+{
+    height: 100px;
+}
+
+.form-header
+{
+    text-align: center;
+    vertical-align: middle;
+}
+
+/*表单申请信息*/
+
+.form-table
+{
+    margin: 20px 12px;
+    border: 1px solid rgb(220, 235, 247);
+    border-top: 0px;
+    border-collapse: collapse;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+}
+
+
+.form-table-row
+{
+    position: relative;
+    margin: 0px !important;
+    overflow: hidden;
+}
+
+    .form-table-row .form-control
+    {
+        width: 90%;
+    }
+
+    .form-table-row .form-table-name:first-child
+    {
+        border-left: 0px;
+    }
+
+.form-table-name
+{
+    text-align: right;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 100%; /* overflow: hidden padding-bottom:100% margin-bottom: -100% 决定div铺满row */
+    margin-bottom: -100%;
+    font-weight: normal;
+    height: 100%;
+    color: rgb(51, 97, 153);
+    background-color: rgb(237, 243, 244);
+    border-top: 1px solid rgb(213, 228, 241);
+    border-left: 1px solid rgb(213, 228, 241);
+    border-right: 1px solid rgb(213, 228, 241);
+}
+
+@media screen and (max-width:768px)
+{
+    .form-table-name
+    {
+        text-align: left;
+        border-right: 0px;
+        border-left: 0px;
+    }
+}
+
+.form-table-value
+{
+    padding: 6px 4px 6px 6px;
+    /*margin-left: 10.5%;*/
+    border-top: 1px solid rgb(220, 235, 247);
+}
+
+/*表单审批信息*/
+.container-approve /*审批意见最外层*/
+{
+    margin: 10px;
+    border: 1px solid rgb(213, 228, 241);
+    border-bottom: none;
+    background-color: rgb(237, 243, 244);
+}
+
+
+.approve-node
+{
+    border-bottom: 1px solid rgb(213, 228, 241);
+}
+
+    .approve-node .approve-section
+    {
+        margin: 0px;
+        background-color: rgb(237, 243, 244);
+        overflow: hidden;
+    }
+
+        .approve-node .approve-section .approve-name
+        {
+            background-color: rgb(237, 243, 244);
+            border-right: 1px solid rgb(213, 228, 241);
+            padding-bottom: 100%; /* overflow: hidden padding-bottom:100% margin-bottom: -100% 决定div铺满row */
+            margin-bottom: -100%;
+            padding-top: 10px;
+        }
+
+        .approve-node .approve-section:first-child .approve-name
+        {
+            padding-top: 30px;
+        }
+
+        .approve-node .approve-section:last-child .approve-name
+        {
+            margin-top: -20px;
+        }
+
+        .approve-node .approve-section .approve-name .approve-name-content
+        {
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .approve-node .approve-section .approve-name .btn-group
+        {
+            width: 100%;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+            .approve-node .approve-section .approve-name .btn-group a
+            {
+                width: 33.3333%;
+                font-size: 0.8em;
+                padding: 6px;
+            }
+
+        .approve-node .approve-section .approve-value
+        {
+            margin-top: -2px;
+        }
+
+        .approve-node .approve-section:first-child .approve-value
+        {
+            padding-top: 20px;
+        }
+
+
+        .approve-node .approve-section .approve-value .approve-value-content
+        {
+            padding-left: 10px;
+            padding-top: 5px;
+            padding-bottom: 25px;
+            padding-right: 5px;
+            min-height: 80px;
+            background-color: white;
+            border: 1px solid rgb(213, 228, 241);
+        }
+
+            .approve-node .approve-section .approve-value .approve-value-content .sign
+            {
+                float: right;
+                text-align: right;
+                padding-right: 5px;
+            }
+
+            .approve-node .approve-section .approve-value .approve-value-content .lync-status-icon
+            {
+                float: right;
+                margin-right: 5px;
+                margin-top: 5px;
+            }
+
+
+.approve-trace
+{
+}
+
+.process-trace
+{
+    list-style: none;
+    width: 100%;
+}
+
+    .process-trace > li
+    {
+        float: left;
+        display: inline-block;
+    }
+
+        .process-trace > li .trace-node
+        {
+            margin: 6px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border: 1px solid rgb(213, 228, 241);
+            border-radius: 5px;
+        }
+
+            .process-trace > li .trace-node .title
+            {
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-bottom: 5px;
+                text-align: center;
+                font-weight: 600;
+                border-bottom: 1px solid rgb(213, 228, 241);
+            }
+
+            .process-trace > li .trace-node .content
+            {
+                padding-left: 10px;
+            }
+
+        .process-trace > li .trace-transition
+        {
+        }
+
+            .process-trace > li .trace-transition .line
+            {
+
+            }
+
+            .process-trace > li .trace-transition .arrow
+            {
+
+            }
+
+.process-nav
+{
+    height: 80px;
+    overflow: hidden;
+}
+
+    .process-nav .process-nav-title
+    {
+        float:left;
+        padding-left:10px;
+        padding-right:10px;
+        font-weight:600;
+        background-color: rgb(237, 243, 244);
+        height:100%;        
+        line-height:70px;        
+    }
+
+    .process-nav .process-nav-left
+    {
+        float:left;        
+        height:100%;
+        padding-top:20px;
+    }
+
+    .process-nav .process-nav-right
+    {
+        float:right;
+        height:100%;
+        padding-top:20px;
+    }
+
+    .process-nav .process-nav-content
+    {
+        float: left;
+        height: 100%;
+        overflow-x:hidden;
+        
+    }
+
+    .process-nav .process-nav-nodes
+    {
+        list-style:none;
+        display:inline-block;
+        padding-top:14px;
+        margin-left:-30px;
+        min-width:800px;
+    }
+
+        .process-nav .process-nav-nodes > li
+        {
+            float: left;
+            display: inline-block;
+            margin-left: 5px;
+        }
+
+            .process-nav .process-nav-nodes > li > a
+            {
+                border: 1px solid rgb(213, 228, 241);
+                padding: 5px;
+            }
+
+            .process-nav .process-nav-nodes > li  > a.current
+            {
+                background-color: rgb(237, 243, 244);
+            }
+
+            .process-nav .process-nav-nodes > li > img
+            {               
+                padding: 0px 0px 5px 0px;
+            }
+
+        .process-nav .process-nav-nodes .sub-nav
+        {
+            float:left;
+            position:absolute;
+            margin-left:35px;
+            width:100%;
+            min-width:initial;
+        }
+
+@media only screen and (max-width:768px)
+{
+    .approve-node .approve-section .approve-value
+    {
+        padding-top: 20px;
+    }
+}
+
+.arrow-right
+{
+    margin-right: 32px;
+}
+
+    .arrow-right::before
+    {
+        top: 6px;
+        right: -26px;
+        position: absolute;
+        width: 20px;
+        height: 8px;
+        display: inline-block;
+        content: "";
+        background-color: rgb(171, 186, 195);
+    }
+
+    .arrow-right::after
+    {
+        top: 2px;
+        right: -36px;
+        position: absolute;
+        border-width: 8px 7px;
+        border-style: solid;
+        border-color: transparent transparent transparent rgb(171, 186, 195);
+        display: inline-block;
+        content: "";
+    }

@@ -1,0 +1,47 @@
+﻿
+/*徽章*/
+.badge
+{
+    line-height: 15px;
+    padding-top: 1px;
+    padding-bottom: 3px;
+    font-size: 12px;
+    font-weight: normal;
+    text-shadow: none;
+    background-color: rgb(171, 186, 195) !important;
+}
+
+.badge-transparent
+{
+    background-color: transparent !important;
+}
+
+.badge-important
+{
+    background-color: rgb(209, 91, 71) !important;
+}
+
+.badge-grey
+{
+    background-color: rgb(160, 160, 160) !important;
+}
+
+.badge-info
+{
+    background-color: rgb(58, 135, 173) !important;
+}
+
+.badge-primary
+{
+    background-color: rgb(66, 139, 202) !important;
+}
+
+.badge-success
+{
+    background-color: rgb(130, 175, 111) !important;
+}
+
+.badge-danger
+{
+    background-color: rgb(209, 91, 71) !important;
+}

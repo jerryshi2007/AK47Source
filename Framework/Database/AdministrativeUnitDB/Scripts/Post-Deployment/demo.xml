@@ -1,0 +1,49 @@
+﻿<?xml version="1.0"?>
+<!--商业式态服务包，仅供参考，不输出不生成，不反映实际状况的变更，请以最终事实为依据。-->
+<dom>
+  <category name="住宅开发销售" key="C6718357-882C-4336-ADC1-56DA18A9B93B">
+    <category name="住宅土地获取" key="ZZKFXX.ZZTDHQ">
+      <category name="土地获取" key="ZZKFXX.ZZTDHQ.TDHQ" />
+    </category>
+    <category name="住宅开发" key="ZZKFXX.ZZKF">
+      <category name="产品定义" key="ZZKFXX.ZZKF.CPDY" />
+      <category name="项目实施" key="ZZKFXX.ZZKF.XXSS" />
+      <category name="现场销售" key="ZZKFXX.ZZKF.XCXX" />
+      <category name="签约" key="ZZKFXX.ZZKF.QY" />
+      <category name="房屋交付" key="ZZKFXX.ZZKF.FWJF" />
+      <category name="产权办理" key="ZZKFXX.ZZKF.CQBL" />
+      <category name="集中整改" key="ZZKFXX.ZZKF.JZZG" />
+      <category name="投诉管理" key="ZZKFXX.ZZKF.TSGL" />
+    </category>
+    <category name="住宅建设" key="ZZKFXX.ZZJS">
+    </category>
+    <category name="住宅装饰" key="ZZKFXX.ZZZS">
+    </category>
+    <category name="住宅销售" key="ZZKFXX.ZZXS">
+    </category>
+    <category name="住宅物业服务" key="ZZKFXX.ZZWYFF">
+    </category>
+    <category name="住宅房地产金融" key="ZZKFXX.ZZFDCJR">
+    </category>
+    <category name="住宅综合管理" key="ZZKFXX.ZZZHGL">
+    </category>
+  </category>
+  <category name="写字楼开发运营" key="9B06153D-3BA3-44F7-8221-4137263BAA12">
+
+  </category>
+  <category name="商业开发运营" key="16C64119-BC1D-42BE-A3DB-AB1C4BC2879D">
+
+  </category>
+  <category name="酒店开发运营" key="505E0623-1534-4B5F-93F8-682AA575A471">
+
+  </category>
+  <category name="养老地产运营" key="7E90B730-8218-4BBC-AD7C-11979A761F02">
+
+  </category>
+  <category name="高尔夫地产开发运营" key="E1CC4EAD-B4D6-4DC1-B56C-DC0FC6FA17ED">
+
+  </category>
+  <category name="综合体开发运营" key="ACAE9178-A8DB-404A-87A6-F2BB59063E5C">
+
+  </category>
+</dom>

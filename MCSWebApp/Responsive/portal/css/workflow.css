@@ -1,0 +1,32 @@
+﻿.wf-status-icon
+{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+}
+
+.wf-status-completed
+{
+    background-image: url('../Images/completeActivity.gif');
+}
+
+.wf-status-aborted
+{
+    background: url('../Images/cancelled.gif');
+}
+
+.wf-status-maintaining
+{
+    background: url('../Images/hourglass.gif');
+}
+
+.wf-status-maintaining
+{
+    background: url('../Images/notrunning.gif');
+}
+
+.wf-status-running
+{
+    background: url('../Images/activity.gif');
+}

@@ -1,0 +1,56 @@
+﻿.search-panel
+{
+    /*padding: 10px;
+    margin-top: 0px;
+    margin-right: 0px;
+    min-height: 32px;*/
+}
+
+
+.search-group
+{
+    position: relative;
+    display: table;
+    width: 100%;
+    border-collapse: separate;
+    background-color: rgb(59, 144, 176);
+}
+
+.search-input
+{
+    display: table-cell;
+    height: 40px;
+    vertical-align: middle;
+    
+    padding: 5px 5px 5px 5px;
+}
+
+    .search-input > input
+    {
+        width: 100%;
+    }
+
+.search-btn
+{
+    display: table-cell;
+    width:35px;
+    height:40px;
+
+
+}
+
+.advance-btn
+{
+    display: table-cell;
+    width:60px;
+    height:40px;
+
+}
+
+
+.advance-panel
+{
+    min-height: 100px;
+    background-color: rgb(59, 144, 176);
+    border: rgb(176, 59, 59);
+}

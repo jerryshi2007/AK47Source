@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ORGAttributes>
+	<Attributes NAME="ORG_CLASS" DESCRIPTION="机构类别">
+		<Attribute ID="0"     NAME="--------" />
+		<Attribute ID="16"   NAME="总部编制" />
+		<Attribute ID="32"    NAME="大区编制" />
+		<Attribute ID="64"    NAME="分部编制" />
+		<Attribute ID="128"    NAME="二级地区编制" />	
+		<Attribute ID="256"   NAME="门店编制" />
+	</Attributes>
+	<Attributes NAME="ORG_TYPE" DESCRIPTION="机构属性">
+		<Attribute ID="0" NAME="--------" />
+		<Attribute ID="1" NAME="虚拟机构" />		
+		<Attribute ID="2" NAME="总部" />
+		<Attribute ID="4" NAME="大区" />
+		<Attribute ID="8" NAME="分部" />
+		<Attribute ID="16" NAME="一级门店" />
+		<Attribute ID="32" NAME="二级门店" />
+		<Attribute ID="64" NAME="一级职能" />
+		<Attribute ID="128" NAME="二级职能" />				
+	</Attributes>
+</ORGAttributes>

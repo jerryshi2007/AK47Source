@@ -1,0 +1,73 @@
+﻿/* 
+Create by FreezeSoul
+Blog:http://hi.baidu.com/freezesoul
+Time:2008-06-26
+ */
+/* table level rules */
+.deluxe-grid
+{
+    font-size: 12px;
+    border: solid 1px #7f7f7f;
+    border-collapse: collapse;
+    color: #333333;
+    width: 100%;
+    overflow: visible;
+    table-layout:fixed;
+}
+
+
+/* header column rules */
+.deluxe-grid th
+{
+   background: url(./gridimg/sprite.png) repeat-x 0px 0px;
+    border-color: #989898 #cbcbcb #989898 #989898;
+    border-style: solid solid solid none;
+    border-width: 1px 1px 1px medium;
+    color: #000;
+    padding: 4px 5px 4px 10px;
+    vertical-align: bottom;
+    text-align:center;
+    text-overflow: ellipsis;
+    overflow: visible;
+}
+
+.deluxe-grid th a
+{
+    color: #333333;
+    font-weight: bold;
+    text-decoration: none;
+    display: block;
+    padding-right: 10px;
+}
+
+/* data cell and data row rules */
+.deluxe-grid td
+{
+    color: #333333;
+    padding: 4px 10px 4px 10px;
+    border-bottom: solid 1px #BBD9EE;
+    text-overflow: ellipsis;
+}
+/* reset footer link*/
+.deluxe-grid .deluxe-grid-pager td
+{
+    padding: 4px 4px 4px 4px;
+    border: 0px;
+}
+.deluxe-grid .deluxe-altrow
+{
+    background-color: #EBF4FA;
+}
+
+.deluxe-grid .deluxe-row
+{
+    background-color: #fff;
+}
+
+.deluxe-grid .deluxe-rownum
+{
+    text-align: center;
+    padding-left: 0px;
+    font-weight: bold;
+    color: #333333;
+}

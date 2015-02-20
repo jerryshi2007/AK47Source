@@ -1,0 +1,268 @@
+body
+{
+	font-size: 9pt;
+	color: black;
+	font-family: SimSun;
+	background-color: #fbf8ee;
+}
+
+body.topFrame
+{
+	font-size: 9pt;
+	color: black;
+	font-family: SimSun;
+	background-color: #fea465;
+}
+
+div.topFrame
+{
+	font-size: 9pt;
+	color: black;
+	font-family: SimSun;
+	background-color: #fea465;
+}
+
+img.alpha
+{
+	filter:progid:DXImageTransform.Microsoft.Alpha( Opacity=100, FinishOpacity=50, Style=2, StartX=0,  FinishX=100, StartY=0, FinishY=100);
+}
+
+img.shadowAlpha
+{
+	filter:progid:DXImageTransform.Microsoft.Shadow(color='black', Direction=135, Strength=1)progid:DXImageTransform.Microsoft.Alpha( Opacity=100, FinishOpacity=50, Style=2, StartX=0,  FinishX=100, StartY=0, FinishY=100);
+}
+
+span
+{
+	filter:progid:DXImageTransform.Microsoft.Shadow(color='black', Direction=135, Strength=1)progid:DXImageTransform.Microsoft.Alpha( Opacity=100, FinishOpacity=50, Style=2, StartX=0,  FinishX=100, StartY=0, FinishY=100);
+}
+
+body.messageBox
+{
+	font-size: 9pt;
+	color: black;
+	font-family: SimSun;
+	background-color: wheat;
+}
+
+div.topBody
+{
+	font-size: 9pt;
+	color: black;
+	font-family: SimSun;
+	background-color: #faefc5;
+}
+
+div.subTitle
+{
+	font-size: 12pt;
+}
+
+div.flowNode
+{
+	font-size: 9pt;
+	background-color: #ccff99;
+}
+
+div.flowParentNode
+{
+	font-size: 9pt;
+	background-color: Aqua;
+}
+
+div.flowNodeSelected
+{
+	font-size: 9pt;
+	background-color: #33ccff;  
+}
+
+a:hover
+{
+    FONT-SIZE: 9pt;
+    COLOR: #ff0000;
+    FONT-FAMILY: ËÎÌו;
+    TEXT-DECORATION: underline
+}
+
+a:active
+{
+    FONT-SIZE: 9pt;
+    TEXT-DECORATION: none
+}
+
+a:link
+{
+    FONT-SIZE: 9pt;
+    COLOR: #0000ff;
+    TEXT-DECORATION: underline
+}
+
+a:visited
+{
+    FONT-SIZE: 9pt;
+    COLOR: #0000ff;
+    TEXT-DECORATION: underline
+}
+
+input, button, select, textarea {
+    font-family: SimSun;
+    font-size: 9pt;
+    BORDER-RIGHT: #c4c4c4 1px solid;
+    BORDER-TOP: #999999 1px solid;
+    BORDER-LEFT: #999999 1px solid;
+    BORDER-BOTTOM: #c4c4c4 1px solid
+}
+
+table
+{
+    BORDER-RIGHT: medium none;
+    BORDER-TOP: medium none;
+    FONT-SIZE: 9pt;
+    BORDER-LEFT: medium none;
+    BORDER-BOTTOM: medium none;
+}
+
+table.withoutBorder
+{
+	border-right: medium none;
+	border-top: medium none;
+	font-size: 9pt;
+	border-left: medium none;
+	border-bottom: medium none;
+	background-color: transparent;
+}
+
+tr
+{
+    BACKGROUND-COLOR: transparent
+}
+
+.readonly
+{
+    FONT-SIZE: 9pt;
+    BACKGROUND-COLOR: #cccccc
+}
+
+.activeElement
+{
+    BACKGROUND-COLOR: lightblue
+}
+
+.gridHead
+{
+    BORDER-RIGHT: medium none;
+    BORDER-TOP: medium none;
+    FONT-SIZE: 9pt;
+    BORDER-LEFT: medium none;
+    BORDER-BOTTOM: medium none;
+    BACKGROUND-COLOR: #cbc0b1;
+    FILTER: progid:DXImageTransform.Microsoft.Alpha( Opacity=100, FinishOpacity=50, Style=2, StartX=0,  FinishX=100, StartY=0, FinishY=100);
+}
+
+.gridHighlight
+{
+	background-color: #dcc3eb;
+}
+
+.gridSelectedHighlight
+{
+	BACKGROUND-COLOR: #b6bdd2;
+}
+
+.gridOddRow
+{
+	FONT-SIZE: 9pt;
+	BACKGROUND-COLOR: #e9e9e9
+}
+
+.gridEvenRow
+{
+    FONT-SIZE: 9pt;
+    BACKGROUND-COLOR: white
+}
+
+.userData 
+{
+	behavior:url(#default#userdata);
+}
+
+.saveHistory
+{
+	behavior:url(#default#savehistory);
+}
+
+.modalEditable
+{
+	font-size: 9pt;
+	color: black;
+	font-family: SimSun;
+	background-color:#ede8e0;
+}
+
+.modal
+{
+	font-size: 9pt;
+	color: black;
+	font-family: SimSun;
+	BACKGROUND-COLOR:#ddd8ce;
+}
+
+.toolbarPanel
+{
+	BACKGROUND-COLOR:#ddd8ce;
+}
+
+.toolButton
+{
+	filter:progid:DXImageTransform.Microsoft.Alpha( Opacity=100, FinishOpacity=50, Style=2, StartX=0,  FinishX=100, StartY=0, FinishY=100);
+	BORDER-RIGHT: 1px solid #faefc5;
+	BORDER-TOP: 1px solid #faefc5;
+	BORDER-LEFT: 1px solid #faefc5;
+	BORDER-BOTTOM: 1px solid #faefc5;
+}
+
+.toolSplit
+{
+	POSITION: relative; top:1px;
+	color: gray;
+}
+
+.mouseOver
+{
+	BORDER-RIGHT: 1px solid gray;
+	BORDER-TOP: 1px solid gray;
+	BORDER-LEFT: 1px solid gray;
+	BORDER-BOTTOM: 1px solid gray;
+	background-color: #b6bdd2;
+}
+
+.dropdownChecked
+{
+	background-color: #b6bdd2;
+}
+
+.mouseOver2
+{
+	BORDER-RIGHT: 1px solid black;
+	BORDER-TOP: 1px solid black;
+	BORDER-LEFT: 1px solid black;
+	BORDER-BOTTOM: 1px solid black;
+	background-color: #faefc5;
+}
+.mouseOverNoMove
+{
+	BORDER-RIGHT: 1px solid gray;
+	BORDER-TOP: 1px solid gray;
+	BORDER-LEFT: 1px solid gray;
+	BORDER-BOTTOM: 1px solid gray;
+	background-color: #b6bdd2;
+}
+.mouseOverNoBorder
+{
+	background-color: #b6bdd2;
+}
+.mouseOverButton
+{
+	CURSOR: hand;
+	color :Blue ;
+}

@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="MCS.Library.Compression.GenericZip" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Compression\GenericZip.cs</FileName>
+      <HashCode>AAIAAAAAAAAAAEAAiAAAAEAEAAAAIAAAAAAAAAEAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Compression.Crc32" Collapsed="true">
+    <Position X="1" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Compression\ZipFile\CRC32.cs</FileName>
+      <HashCode>AAQAAAAAIAAABAAAAAAAAAAAAAIAAAAACAAgAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Compression.ZipConstants" Collapsed="true">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Compression\ZipFile\ZipConstants.cs</FileName>
+      <HashCode>AAAAAAggIAAAACAAACIAAAgAAACEAAAAAAAAAAAAGAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Compression.ZipEntry" Collapsed="true">
+    <Position X="1" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Compression\ZipFile\ZipEntry.cs</FileName>
+      <HashCode>ABCAAAAQDAAEgAAAAoAAAAQAAAIEAAQCMgAAAAAAgAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Compression.ZipFile" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Compression\ZipFile\ZipFile.cs</FileName>
+      <HashCode>AAIAAAAAICgAAAAAAAAAAAAIBAAAAIAAAAAAAACAAIE=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MCS.Library.Compression.ZipReader" BaseTypeListCollapsed="true">
+    <Position X="4.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Compression\ZipFile\ZipReader.cs</FileName>
+      <HashCode>AIAACAgAACgAAiAAAAAAAIQAAAIAAIAACAAAAAAAAAE=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MCS.Library.Compression.ZipWriter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="1" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Compression\ZipFile\ZipWriter.cs</FileName>
+      <HashCode>AAKAAgACACAAACCAAAAgAkAAAAIAAIAAAAAAAAAAACg=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Enum Name="MCS.Library.Compression.CompressionError" Collapsed="true">
+    <Position X="1" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Compression\ZipFile\ZipConstants.cs</FileName>
+      <HashCode>AAEAYAAAAAAAAAAACAAAAAAAAAEAAAEAAAgAAAAAAAQ=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+</ClassDiagram>

@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="QueryTask">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tenantCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condition" type="tns:UserTaskQueryCondition" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="totalCount" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UserTaskQueryCondition">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TaskType" type="tns:TaskStatus" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProcessStatus" type="tns:WfProcessStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaskTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DepartmentCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApplicationName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProgramName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreatedFrom" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreatedTo" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatorUserId" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="TaskStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="All" />
+          <s:enumeration value="Unprocessed" />
+          <s:enumeration value="Processed" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="WfProcessStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="All" />
+          <s:enumeration value="NotRunning" />
+          <s:enumeration value="Running" />
+          <s:enumeration value="Completed" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="QueryTaskResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryTaskResult" type="tns:PagedCollectionOfUSER_TASKBO_PROCESS" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PagedCollectionOfUSER_TASKBO_PROCESS">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalItems" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Items" type="tns:ArrayOfUSER_TASKBO_PROCESS" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfUSER_TASKBO_PROCESS">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="USER_TASKBO_PROCESS" nillable="true" type="tns:USER_TASKBO_PROCESS" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="USER_TASKBO_PROCESS">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TASK_GUID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="APPLICATION_NAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PROGRAM_NAME" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TASK_LEVEL" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TASK_TITLE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RESOURCE_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PROCESS_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ACTIVITY_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="URL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DATA" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EMERGENCY" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PURPOSE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STATUS" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TASK_START_TIME" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EXPIRE_TIME" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="SOURCE_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SOURCE_NAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SEND_TO_USER" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SEND_TO_USER_NAME" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="READ_TIME" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CATEGORY_GUID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TOP_FLAG" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DRAFT_DEPARTMENT_NAME" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DELIVER_TIME" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="DRAFT_USER_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DRAFT_USER_NAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TenantCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaskType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DepartmentCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DepartmentName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PROCESS_KEY" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PROCESS_NAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PROCESS_STATUS" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Created" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTaskFromCache">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cacheKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tenantCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTaskFromCacheResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTaskFromCacheResult" type="tns:PagedCollectionOfUSER_TASKBO_PROCESS" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendUserTasks">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="josn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfDictionaryEntry" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDictionaryEntry">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DictionaryEntry" type="tns:DictionaryEntry" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DictionaryEntry">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Key" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SendUserTasksResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SetUserTasksAccomplished">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="josn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfDictionaryEntry" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetUserTasksAccomplishedResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteUserAccomplishedTasks">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="josn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfDictionaryEntry" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteUserAccomplishedTasksResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteUserTasks">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="josn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfDictionaryEntry" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteUserTasksResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SyncProcess">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="json" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SyncProcessResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="PagedCollectionOfUSER_TASKBO_PROCESS" nillable="true" type="tns:PagedCollectionOfUSER_TASKBO_PROCESS" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="QueryTaskSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryTask" />
+  </wsdl:message>
+  <wsdl:message name="QueryTaskSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTaskFromCacheSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTaskFromCache" />
+  </wsdl:message>
+  <wsdl:message name="GetTaskFromCacheSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTaskFromCacheResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendUserTasksSoapIn">
+    <wsdl:part name="parameters" element="tns:SendUserTasks" />
+  </wsdl:message>
+  <wsdl:message name="SendUserTasksSoapOut">
+    <wsdl:part name="parameters" element="tns:SendUserTasksResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetUserTasksAccomplishedSoapIn">
+    <wsdl:part name="parameters" element="tns:SetUserTasksAccomplished" />
+  </wsdl:message>
+  <wsdl:message name="SetUserTasksAccomplishedSoapOut">
+    <wsdl:part name="parameters" element="tns:SetUserTasksAccomplishedResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteUserAccomplishedTasksSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteUserAccomplishedTasks" />
+  </wsdl:message>
+  <wsdl:message name="DeleteUserAccomplishedTasksSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteUserAccomplishedTasksResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteUserTasksSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteUserTasks" />
+  </wsdl:message>
+  <wsdl:message name="DeleteUserTasksSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteUserTasksResponse" />
+  </wsdl:message>
+  <wsdl:message name="SyncProcessSoapIn">
+    <wsdl:part name="parameters" element="tns:SyncProcess" />
+  </wsdl:message>
+  <wsdl:message name="SyncProcessSoapOut">
+    <wsdl:part name="parameters" element="tns:SyncProcessResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTaskFromCacheHttpGetIn">
+    <wsdl:part name="cacheKey" type="s:string" />
+    <wsdl:part name="userId" type="s:string" />
+    <wsdl:part name="tenantCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTaskFromCacheHttpGetOut">
+    <wsdl:part name="Body" element="tns:PagedCollectionOfUSER_TASKBO_PROCESS" />
+  </wsdl:message>
+  <wsdl:message name="SyncProcessHttpGetIn">
+    <wsdl:part name="json" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SyncProcessHttpGetOut" />
+  <wsdl:message name="GetTaskFromCacheHttpPostIn">
+    <wsdl:part name="cacheKey" type="s:string" />
+    <wsdl:part name="userId" type="s:string" />
+    <wsdl:part name="tenantCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTaskFromCacheHttpPostOut">
+    <wsdl:part name="Body" element="tns:PagedCollectionOfUSER_TASKBO_PROCESS" />
+  </wsdl:message>
+  <wsdl:message name="SyncProcessHttpPostIn">
+    <wsdl:part name="json" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SyncProcessHttpPostOut" />
+  <wsdl:portType name="TaskPluginSoap">
+    <wsdl:operation name="QueryTask">
+      <wsdl:input message="tns:QueryTaskSoapIn" />
+      <wsdl:output message="tns:QueryTaskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskFromCache">
+      <wsdl:input message="tns:GetTaskFromCacheSoapIn" />
+      <wsdl:output message="tns:GetTaskFromCacheSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendUserTasks">
+      <wsdl:input message="tns:SendUserTasksSoapIn" />
+      <wsdl:output message="tns:SendUserTasksSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUserTasksAccomplished">
+      <wsdl:input message="tns:SetUserTasksAccomplishedSoapIn" />
+      <wsdl:output message="tns:SetUserTasksAccomplishedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserAccomplishedTasks">
+      <wsdl:input message="tns:DeleteUserAccomplishedTasksSoapIn" />
+      <wsdl:output message="tns:DeleteUserAccomplishedTasksSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserTasks">
+      <wsdl:input message="tns:DeleteUserTasksSoapIn" />
+      <wsdl:output message="tns:DeleteUserTasksSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SyncProcess">
+      <wsdl:input message="tns:SyncProcessSoapIn" />
+      <wsdl:output message="tns:SyncProcessSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="TaskPluginHttpGet">
+    <wsdl:operation name="GetTaskFromCache">
+      <wsdl:input message="tns:GetTaskFromCacheHttpGetIn" />
+      <wsdl:output message="tns:GetTaskFromCacheHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SyncProcess">
+      <wsdl:input message="tns:SyncProcessHttpGetIn" />
+      <wsdl:output message="tns:SyncProcessHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="TaskPluginHttpPost">
+    <wsdl:operation name="GetTaskFromCache">
+      <wsdl:input message="tns:GetTaskFromCacheHttpPostIn" />
+      <wsdl:output message="tns:GetTaskFromCacheHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SyncProcess">
+      <wsdl:input message="tns:SyncProcessHttpPostIn" />
+      <wsdl:output message="tns:SyncProcessHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TaskPluginSoap" type="tns:TaskPluginSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="QueryTask">
+      <soap:operation soapAction="http://tempuri.org/QueryTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskFromCache">
+      <soap:operation soapAction="http://tempuri.org/GetTaskFromCache" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendUserTasks">
+      <soap:operation soapAction="http://tempuri.org/SendUserTasks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetUserTasksAccomplished">
+      <soap:operation soapAction="http://tempuri.org/SetUserTasksAccomplished" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserAccomplishedTasks">
+      <soap:operation soapAction="http://tempuri.org/DeleteUserAccomplishedTasks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserTasks">
+      <soap:operation soapAction="http://tempuri.org/DeleteUserTasks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncProcess">
+      <soap:operation soapAction="http://tempuri.org/SyncProcess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TaskPluginSoap12" type="tns:TaskPluginSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="QueryTask">
+      <soap12:operation soapAction="http://tempuri.org/QueryTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskFromCache">
+      <soap12:operation soapAction="http://tempuri.org/GetTaskFromCache" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendUserTasks">
+      <soap12:operation soapAction="http://tempuri.org/SendUserTasks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetUserTasksAccomplished">
+      <soap12:operation soapAction="http://tempuri.org/SetUserTasksAccomplished" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserAccomplishedTasks">
+      <soap12:operation soapAction="http://tempuri.org/DeleteUserAccomplishedTasks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserTasks">
+      <soap12:operation soapAction="http://tempuri.org/DeleteUserTasks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncProcess">
+      <soap12:operation soapAction="http://tempuri.org/SyncProcess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TaskPluginHttpGet" type="tns:TaskPluginHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetTaskFromCache">
+      <http:operation location="/GetTaskFromCache" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncProcess">
+      <http:operation location="/SyncProcess" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TaskPluginHttpPost" type="tns:TaskPluginHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetTaskFromCache">
+      <http:operation location="/GetTaskFromCache" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncProcess">
+      <http:operation location="/SyncProcess" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TaskPlugin">
+    <wsdl:port name="TaskPluginSoap" binding="tns:TaskPluginSoap">
+      <soap:address location="http://localhost/MCSWebApp/CIIC.HSR.OMP.OmpOguService/TaskPlugin.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TaskPluginSoap12" binding="tns:TaskPluginSoap12">
+      <soap12:address location="http://localhost/MCSWebApp/CIIC.HSR.OMP.OmpOguService/TaskPlugin.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TaskPluginHttpGet" binding="tns:TaskPluginHttpGet">
+      <http:address location="http://localhost/MCSWebApp/CIIC.HSR.OMP.OmpOguService/TaskPlugin.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TaskPluginHttpPost" binding="tns:TaskPluginHttpPost">
+      <http:address location="http://localhost/MCSWebApp/CIIC.HSR.OMP.OmpOguService/TaskPlugin.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

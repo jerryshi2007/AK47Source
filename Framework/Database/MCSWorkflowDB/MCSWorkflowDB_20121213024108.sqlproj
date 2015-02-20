@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>MCSWorkflowDB</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{f3b77212-935c-4f10-b29d-b272b00ff90e}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql100DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>MCSWorkflowDB</RootNamespace>
+    <AssemblyName>MCSWorkflowDB</AssemblyName>
+    <ModelCollation>2052,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <DefaultCollation>Chinese_PRC_CI_AS</DefaultCollation>
+    <Containment>None</Containment>
+    <IsNestedTriggersOn>True</IsNestedTriggersOn>
+    <IsTransformNoiseWordsOn>False</IsTransformNoiseWordsOn>
+    <TwoDigitYearCutoff>2049</TwoDigitYearCutoff>
+    <NonTransactedFileStreamAccess>OFF</NonTransactedFileStreamAccess>
+    <TargetRecoveryTimePeriod>0</TargetRecoveryTimePeriod>
+    <TargetRecoveryTimeUnit>SECONDS</TargetRecoveryTimeUnit>
+    <IsChangeTrackingOn>False</IsChangeTrackingOn>
+    <IsChangeTrackingAutoCleanupOn>True</IsChangeTrackingAutoCleanupOn>
+    <ChangeTrackingRetentionPeriod>2</ChangeTrackingRetentionPeriod>
+    <ChangeTrackingRetentionUnit>Days</ChangeTrackingRetentionUnit>
+    <IsEncryptionOn>False</IsEncryptionOn>
+    <IsBrokerPriorityHonored>False</IsBrokerPriorityHonored>
+    <Trustworthy>False</Trustworthy>
+    <AutoUpdateStatisticsAsynchronously>False</AutoUpdateStatisticsAsynchronously>
+    <PageVerify>NONE</PageVerify>
+    <ServiceBrokerOption>DisableBroker</ServiceBrokerOption>
+    <DateCorrelationOptimizationOn>False</DateCorrelationOptimizationOn>
+    <Parameterization>SIMPLE</Parameterization>
+    <AllowSnapshotIsolation>False</AllowSnapshotIsolation>
+    <ReadCommittedSnapshot>False</ReadCommittedSnapshot>
+    <VardecimalStorageFormatOn>True</VardecimalStorageFormatOn>
+    <SupplementalLoggingOn>False</SupplementalLoggingOn>
+    <CompatibilityMode>100</CompatibilityMode>
+    <AnsiNullDefault>False</AnsiNullDefault>
+    <AnsiPadding>False</AnsiPadding>
+    <AnsiWarnings>False</AnsiWarnings>
+    <ArithAbort>False</ArithAbort>
+    <ConcatNullYieldsNull>False</ConcatNullYieldsNull>
+    <NumericRoundAbort>False</NumericRoundAbort>
+    <RecursiveTriggersEnabled>False</RecursiveTriggersEnabled>
+    <DatabaseChaining>False</DatabaseChaining>
+    <DatabaseState>ONLINE</DatabaseState>
+    <CloseCursorOnCommitEnabled>False</CloseCursorOnCommitEnabled>
+    <DefaultCursor>GLOBAL</DefaultCursor>
+    <AutoClose>False</AutoClose>
+    <AutoCreateStatistics>True</AutoCreateStatistics>
+    <AutoShrink>False</AutoShrink>
+    <AutoUpdateStatistics>True</AutoUpdateStatistics>
+    <TornPageDetection>False</TornPageDetection>
+    <DatabaseAccess>MULTI_USER</DatabaseAccess>
+    <Recovery>FULL</Recovery>
+    <EnableFullTextSearch>True</EnableFullTextSearch>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <CreateProjectFromDatabaseCompleted>True</CreateProjectFromDatabaseCompleted>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!-- VS10 without SP1 will not have VisualStudioVersion set, so do that here -->
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="WF\" />
+    <Folder Include="WF\Tables\" />
+    <Folder Include="MSG\" />
+    <Folder Include="MSG\Tables\" />
+    <Folder Include="KB\" />
+    <Folder Include="KB\Tables\" />
+    <Folder Include="WF\Views\" />
+    <Folder Include="Storage\" />
+    <Folder Include="Security\" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Functions\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="WF\Stored Procedures\" />
+    <Folder Include="Assemblies\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="WF\Tables\PROCESS_CURRENT_ACTIVITIES.sql" />
+    <Build Include="MSG\Tables\EMAIL_ATTACHMENTS.sql" />
+    <Build Include="MSG\Tables\EMAIL_ADDRESSES.sql" />
+    <Build Include="WF\Tables\JOBS.sql" />
+    <Build Include="WF\Tables\APPLICATIONS_COMMON_INFO.sql" />
+    <Build Include="WF\Tables\WORKFLOW_TASK_TEMPLATE_DETAIL.sql" />
+    <Build Include="WF\Tables\PROCESS_INSTANCES.sql" />
+    <Build Include="WF\Tables\USER_OPERATION_LOG.sql" />
+    <Build Include="WF\Tables\PENDING_ACTIVITIES.sql" />
+    <Build Include="WF\Tables\WORKFLOW_TASK.sql" />
+    <Build Include="WF\Tables\PROCESS_RELATIVE_PARAMS.sql" />
+    <Build Include="WF\Tables\WORKITEM_RELATED_PERSON.sql" />
+    <Build Include="WF\Tables\WORKITEM_RELATED_PERSON_STATUS.sql" />
+    <Build Include="WF\Tables\MATRIX_DIMENSION_DEFINITION.sql" />
+    <Build Include="WF\Tables\GENERIC_FORM_DATA.sql" />
+    <Build Include="WF\Tables\USER_TASK_CATEGORY.sql" />
+    <Build Include="WF\Tables\USER_TASK.sql" />
+    <Build Include="WF\Tables\ACTIVITY_TEMPLATE.sql" />
+    <Build Include="WF\Tables\USER_ACCOMPLISHED_TASK.sql" />
+    <Build Include="WF\Tables\USER_OPERATION_TASKS_LOG.sql" />
+    <Build Include="WF\Tables\IMAGE.sql" />
+    <Build Include="WF\Tables\MATERIAL.sql" />
+    <Build Include="WF\Tables\ACL.sql" />
+    <Build Include="WF\Tables\PROCESS_CURRENT_ASSIGNEES.sql" />
+    <Build Include="WF\Tables\JOB_START_WORKFLOW.sql" />
+    <Build Include="WF\Tables\PLAN.sql" />
+    <Build Include="WF\Tables\COUNTRYCODE.sql" />
+    <Build Include="WF\Tables\MATRIX_DEFINITION.sql" />
+    <Build Include="WF\Tables\DELEGATIONS.sql" />
+    <Build Include="WF\Tables\WORKFLOW_TASK_EXTERNALDATA.sql" />
+    <Build Include="WF\Tables\PROCESS_DESCRIPTORS.sql" />
+    <Build Include="WF\Tables\JOB_INVOKE_SERVICE.sql" />
+    <Build Include="WF\Tables\PENDING_ACTIVITIES_SERVICE.sql" />
+    <Build Include="WF\Tables\TASK_ASSIGNEES.sql" />
+    <Build Include="WF\Tables\GENERIC_FORM_RELATIVE_DATA.sql" />
+    <Build Include="WF\Tables\WORKFLOW_TASK_TEMPLATE.sql" />
+    <Build Include="WF\Tables\TASK_ASSIGNED_OBJECTS.sql" />
+    <Build Include="WF\Tables\WORKFLOW_TASK_VERSION.sql" />
+    <Build Include="WF\Tables\ACTIVE_USERS.sql" />
+    <Build Include="WF\Tables\MATRIX_MAIN.sql" />
+    <Build Include="WF\Tables\INVALID_ASSIGNEES.sql" />
+    <Build Include="WF\Tables\MATRIX_CELLS.sql" />
+    <Build Include="WF\Tables\WORKITEM.sql" />
+    <Build Include="WF\Tables\MATRIX_ROWS.sql" />
+    <Build Include="WF\Tables\UPLOAD_FILE_HISTORY.sql" />
+    <Build Include="WF\Tables\JOB_SCHEDULES.sql" />
+    <Build Include="KB\Tables\RELATIVE_LINK.sql" />
+    <Build Include="WF\Tables\GENERIC_OPINIONS.sql" />
+    <Build Include="WF\Tables\LOCK.sql" />
+    <Build Include="KB\Tables\RELATIVE_LINK_GROUP.sql" />
+    <Build Include="WF\Tables\RELATIVE_PROCESSES.sql" />
+    <Build Include="KB\Tables\TIP.sql" />
+    <Build Include="WF\Tables\GLOBAL_PARAMETERS.sql" />
+    <Build Include="WF\Tables\COUNTER.sql" />
+    <Build Include="WF\Tables\INITIALIZATION_USER_AD_IMAGE.sql" />
+    <Build Include="WF\Tables\PLAN_VERSION.sql" />
+    <Build Include="WF\Tables\JOB_SCHEDULE_DEF.sql" />
+    <Build Include="WF\Tables\PROCESS_DESCRIPTOR_CATEGORY.sql" />
+    <Build Include="WF\Tables\MATERIAL_CONTENT.sql" />
+    <Build Include="MSG\Tables\EMAIL_MESSAGES.sql" />
+    <Build Include="WF\Tables\WORKFLOW_TASK_RELATED_PERSON.sql" />
+    <Build Include="WF\Tables\WORKFLOW_TASK_RELATED_TASK.sql" />
+    <Build Include="MSG\Tables\SENT_EMAIL_MESSAGES.sql" />
+    <Build Include="WF\Views\PROCESS_CURRENT_INFO_VIEW.sql" />
+    <Build Include="WF\Views\BATCH_APPROVE_VIEW.sql" />
+    <Build Include="Storage\MCS_WORKFLOW.sql" />
+    <Build Include="FullTextIndexes.sql" />
+    <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="dbo\Functions\AboutCompression.sql" />
+    <Build Include="dbo\Functions\CompressString.sql" />
+    <Build Include="dbo\Functions\ExtractString.sql" />
+    <Build Include="dbo\Stored Procedures\CommonSplitPageQuery.sql" />
+    <Build Include="WF\Stored Procedures\ImportInvalidAssignees.sql" />
+    <Build Include="WF\Stored Procedures\SetLock.sql" />
+    <Build Include="WF\Stored Procedures\PeekCountValue.sql" />
+    <Build Include="WF\Stored Procedures\NewCountValue.sql" />
+    <Build Include="WF\Stored Procedures\SetCountValue.sql" />
+    <Build Include="WF\Stored Procedures\QueryUserTaskCount.sql" />
+    <Build Include="Security\KB.sql" />
+    <Build Include="Security\MSG.sql" />
+    <Build Include="Security\WF.sql" />
+    <Build Include="Security\msuser.sql" />
+    <Build Include="WF\Tables\COMMON_INFO_MAPPING.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assemblies\MCS.SqlServer.Compression.dll" />
+    <None Include="MCSWorkflowDB.publish.local.test..xml" />
+    <None Include="MCSWorkflowDB.publish.local..xml" />
+    <None Include="MCSWorkflowDB_DevTest.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="MCS.SqlServer.Compression">
+      <HintPath>Assemblies\MCS.SqlServer.Compression.dll</HintPath>
+      <SqlAssemblyName>MCSCompression</SqlAssemblyName>
+      <IsModelAware>True</IsModelAware>
+      <GenerateSqlClrDdl>False</GenerateSqlClrDdl>
+      <SqlOwnerName>dbo</SqlOwnerName>
+      <SqlPermissionSet>SAFE</SqlPermissionSet>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Script.PostDeployment.sql" />
+  </ItemGroup>
+</Project>

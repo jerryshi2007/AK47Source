@@ -1,0 +1,61 @@
+﻿.bubble_tooltip{
+	width:147px;
+	position:relative;
+	display:block;
+}
+.bubble_tooltip .bubble_middle span{
+	position:relative;
+	top:-8px;
+	font-family: Trebuchet MS, Lucida Sans Unicode, Arial, sans-serif;
+	font-size:12px;
+}
+.bubble_tooltip .bubble_top{
+	background-image: url(<%=WebResource("MCS.Web.WebControls.PopupTip.Images.down_bubble_top.gif")%>);
+	background-repeat:no-repeat;
+	height:16px;	
+}
+.bubble_tooltip .bubble_middle{
+	background-image: url(<%=WebResource("MCS.Web.WebControls.PopupTip.Images.down_bubble_middle.gif")%>);
+	background-repeat:repeat-y;	
+	background-position:bottom left;
+	padding-left:7px;
+	padding-right:7px;
+}
+.bubble_tooltip .bubble_bottom{
+	background-image: url(<%=WebResource("MCS.Web.WebControls.PopupTip.Images.down_bubble_bottom.gif")%>);
+	background-repeat:no-repeat;	
+	height:14px;
+	position:relative;
+	top:-6px;
+}
+/*bottom dialog*/
+.bubble_tooltip1{
+	width:147px;
+	position:relative;
+	display:block;
+}
+.bubble_tooltip1 .bubble_middle span{
+	position:relative;
+	top:-8px;
+	font-family: Trebuchet MS, Lucida Sans Unicode, Arial, sans-serif;
+	font-size:12px;
+}
+.bubble_tooltip1 .bubble_top{
+	background-image: url(<%=WebResource("MCS.Web.WebControls.PopupTip.Images.up_bubble_top.gif")%>);
+	background-repeat:no-repeat;
+	height:16px;	
+}
+.bubble_tooltip1 .bubble_middle{
+	background-image: url(<%=WebResource("MCS.Web.WebControls.PopupTip.Images.up_bubble_middle.gif")%>);
+	background-repeat:repeat-y;	
+	background-position:bottom left;
+	padding-left:7px;
+	padding-right:7px;
+}
+.bubble_tooltip1 .bubble_bottom{
+	background-image: url(<%=WebResource("MCS.Web.WebControls.PopupTip.Images.up_bubble_bottom.gif")%>);
+	background-repeat:no-repeat;	
+	height:14px;
+	position:relative;
+	top:-6px;
+}

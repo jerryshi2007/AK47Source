@@ -1,0 +1,30 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetDocLinks", "GetDocLinks.csproj", "{70CED353-8375-4836-A16D-54FC896868A6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7C4A48D0-DC9D-4F97-AE64-63F7EDCA4528} = {7C4A48D0-DC9D-4F97-AE64-63F7EDCA4528}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HtmlAgilityPack", "..\..\HtmlAgilityPack.csproj", "{7C4A48D0-DC9D-4F97-AE64-63F7EDCA4528}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{70CED353-8375-4836-A16D-54FC896868A6}.Debug.ActiveCfg = Debug|.NET
+		{70CED353-8375-4836-A16D-54FC896868A6}.Debug.Build.0 = Debug|.NET
+		{70CED353-8375-4836-A16D-54FC896868A6}.Release.ActiveCfg = Release|.NET
+		{70CED353-8375-4836-A16D-54FC896868A6}.Release.Build.0 = Release|.NET
+		{7C4A48D0-DC9D-4F97-AE64-63F7EDCA4528}.Debug.ActiveCfg = Debug|.NET
+		{7C4A48D0-DC9D-4F97-AE64-63F7EDCA4528}.Debug.Build.0 = Debug|.NET
+		{7C4A48D0-DC9D-4F97-AE64-63F7EDCA4528}.Release.ActiveCfg = Release|.NET
+		{7C4A48D0-DC9D-4F97-AE64-63F7EDCA4528}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

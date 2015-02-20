@@ -1,0 +1,222 @@
+﻿<script type="text/javascript">
+	var uploadButton = null;
+	window.returnValue = false;
+
+	function onUploadButtonClick() {
+		if (typeof (event) !== 'undefined')
+			uploadButton = event.srcElement;
+
+		var fileInput = $get("selectedFile");
+
+		var triggered = false;
+		if (fileInput.value == "") {
+			fileInput.click();
+			triggered = true;
+		}
+
+		if (fileInput.value != "") {
+			beforeProcess();
+			try {
+				$get("uploadFileBtn").click();
+			} catch (e) {
+				resetInterface();
+				if (triggered) {
+					alert('出错:' + e.message + "请手动点击浏览按钮选择文件。"); window.close();
+				} else {
+					alert('出错' + e.message);
+				}
+			}
+		}
+	}
+
+	function beforeProcess() {
+		$get("logPanel").style.visibility = "hidden";
+		if (uploadButton)
+			uploadButton.disabled = true;
+		$get("processList").style.width = "100%";
+		$get("processDescription").style.visibility = "visible";
+	}
+
+	function afterProcess() {
+		if (uploadButton)
+			uploadButton.disabled = false;
+	}
+
+	function resetInterface() {
+		if (uploadButton)
+			uploadButton.disabled = false;
+		$get("logPanel").style.visibility = "hidden";
+		$get("processList").style.width = "100%";
+		$get("progressBar").style.width = "0px"
+		$get("processDescription").style.visibility = "hidden";
+	}
+
+	function onProcessInfoChanged() {
+		var statusText = $get("processInfo").value;
+
+		var status = Sys.Serialization.JavaScriptSerializer.deserialize(statusText);
+
+		var percent = status.CurrentStep * 100 / (status.MaxStep - status.MinStep);
+
+		$get("progressBar").style.width = percent + "%";
+		$get("statusText").innerText = status.StatusText;
+	}
+
+	function onProcessCompleted() {
+		afterProcess();
+
+		var resultText = $get("processResult").value;
+		var result = Sys.Serialization.JavaScriptSerializer.deserialize(resultText);
+
+		var pText = $get("processList");
+
+		if (result.processLog != "") {
+			$get("logPanel").style.visibility = "visible";
+			pText.style.width = "99%";
+			pText.innerText = result.ProcessLog;
+		}
+
+		if (result.DataChanged)
+			top.returnValue = true;
+
+		if (result.CloseWindow)
+			top.close();
+	}
+
+	function getCurrentOptions() {
+		var copyMode = document.getElementById("rdoMode2").checked;
+		var acl = document.getElementById("optAcl").checked;
+		var op1 = document.getElementById("opt1").checked;
+		var op2 = document.getElementById("opt2").checked;
+		var op3 = document.getElementById("opt3").checked;
+		var obj = { copyMode: false, roles: false, funs: false, definitions: false };
+		var acl = document.getElementById("optAcl").checked;
+		obj.copyMode = (copyMode == true || copyMode == "checked");
+		obj.acl = (acl == true || acl == "checked");
+		obj.roles = (op1 == true || op1 == "checked");
+		obj.funs = (op2 == true || op2 == "checked");
+		obj.definitions = (op3 == true || op3 == "checked");
+		return obj;
+	}
+
+	function setCurrentOptions(obj) {
+		document.getElementById("rdoMode1").checked = !obj.copyMode;
+		document.getElementById("rdoMode2").checked = obj.copyMode;
+		document.getElementById("opt1").checked = obj.roles;
+		document.getElementById("opt2").checked = obj.funs;
+		document.getElementById("opt3").checked = obj.definitions;
+		document.getElementById("optAcl").checked = obj.acl;
+	}
+
+	function handleModeChange() {
+		op = getCurrentOptions();
+		if (!(op.roles && op.funs))
+			op.definitions = false;
+		if (op.copyMode)
+			op.acl = false;
+		setCurrentOptions(op);
+
+	}
+
+	function handleAcl() {
+		op = getCurrentOptions();
+		if (op.acl)
+			op.copyMode = false;
+		setCurrentOptions(op);
+	}
+
+	function handleCheck1() {
+		op = getCurrentOptions();
+		if (!(op.roles && op.funs))
+			op.definitions = false;
+		setCurrentOptions(op);
+	}
+
+	function handleCheck2() {
+		op = getCurrentOptions();
+		if (op.definitions) {
+			op.funs = true;
+			op.roles = true;
+		}
+		setCurrentOptions(op);
+	}
+
+	function handleFileChanged() {
+		document.getElementById("fileNamePan").value = document.getElementById("selectedFile").value;
+	}
+
+	function triggerBrowse() {
+		document.getElementById("selectedFile").click();
+	}
+
+</script>
+<div>
+	<iframe name="_innerFrame" id="innerFrame" style="display: none"></iframe>
+</div>
+<table cellpadding="0" cellspacing="0" style="width: 500px; height: 100%">
+	<tr>
+		<td style="vertical-align: middle; text-align: center">
+			<div style="display: none">
+				<input type="submit" id="uploadFileBtn" name="uploadFileBtn" value="Upload File"
+					style="display: none" />
+			</div>
+			<div style="position: relative; width: 100%">
+				<input type="file" id="selectedFile" name="selectedFile" style="width: 400px;" class="formButton" />
+			</div>
+			<div id="customZone">
+				<div>
+					<input id="opt1" type="checkbox" name="iRoles" value="iRoles" checked="checked" onclick="handleCheck1();" /><label
+						for="opt1">包含角色</label>
+					<input id="optAcl" type="checkbox" name="iAcl" value="iAcl" checked="checked" onclick="handleAcl();" /><label
+						for="optAcl">包含ACL</label>
+					<input id="opt2" type="checkbox" name="iFun" value="iFun" checked="checked" onclick="handleCheck1();" /><label
+						for="opt2">包含功能</label>
+				</div>
+				<div>
+					<input id="opt3" type="checkbox" name="iDef" value="iDef" checked="checked" onclick="handleCheck2();" /><label
+						for="opt3">包含角色功能定义</label>
+					<input id="opt4" type="checkbox" name="iRoleMembers" value="iRoleMembers" checked="checked" /><label
+						for="opt4">包含角色固定成员</label>
+					<input id="opt5" type="checkbox" name="iRoleConditions" value="iRoleConditions" checked="checked" /><label
+						for="opt5">包含角色条件</label></div>
+				<ul style="text-align: left; margin-top: 5px;">
+					<li>
+						<input type="radio" id="rdoMode1" name="mergeMode" value="mergeMode" checked="checked" /><label
+							for="rdoMode1" style="font-weight: bold">合并模式</label>
+						<span style="text-indent: 2em;">创建或合并到现有的应用（含成员）</span></li>
+					<li>
+						<input type="radio" id="rdoMode2" name="mergeMode" id="rdoMode2" value="copyMode"
+							onclick="handleModeChange();" /><label for="rdoMode2" style="font-weight: bold">副本模式</label>
+						<span style="text-indent: 2em;">创建新的应用和成员，自动指定新ID，导入后将自动命名(不支持ACL)</span></li>
+				</ul>
+			</div>
+			<div id="processDescription" style="visibility: hidden; text-align: left; width: 500px;
+				margin: auto; overflow: hidden;">
+				<div id="progressBarBorder" class="pc-progress-border">
+					<div id="statusText" class="pc-progress-prompt">
+						上传中
+					</div>
+					<div id="progressBar" class="pc-progress-bar">
+					</div>
+				</div>
+				<div id="logPanel">
+					<div style="margin-top: 5px; vertical-align: bottom">
+						<label runat="server" id="logLabel" text="日志" category="SOAWebControls">
+						</label>
+					</div>
+					<div>
+						<textarea id="processList" readonly="readonly" rows="3" cols="40" style="height: 60px;
+							overflow: auto; border: 1px solid silver"></textarea>
+					</div>
+				</div>
+			</div>
+			<div style="display: none">
+				<input id="processInfo" type="hidden" value="" />
+				<input id="processInfoChanged" type="button" onclick="onProcessInfoChanged();" />
+				<input id="processResult" type="hidden" value="" />
+				<input id="processResultButton" type="button" onclick="onProcessCompleted();" />
+				<input id="resetInterfaceButton" type="button" onclick="resetInterface();" />
+			</div>
+		</td>
+	</tr>
+</table>

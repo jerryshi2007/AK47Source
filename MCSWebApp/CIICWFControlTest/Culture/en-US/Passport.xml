@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dictionary sourceCulture="zh-CN" targetCulture="en-US">
+	<Item source="MCS.Library.Passport.Resources.signin.gif" target="MCS.Library.Passport.Resources.en-US.signin.gif"/>
+	<Item source="MCS.Library.Passport.Resources.signout.gif" target="MCS.Library.Passport.Resources.en_US.signout.gif"/>
+
+	<Item source="用户登录" target="User Login"/>
+	<Item source="登录名:" target="Login Name"/>
+	<Item source="密码:" target="Password"/>
+	<Item source="语言:" target="Language"/>
+	<Item source="请不要记录我的登录名" target="Do not remember my login name"/>
+	<Item source="自动登录" target="Auto Login"/>
+    <Item source="· 请使用您的ITCode和AD域用户密码登陆本系统" target="* Please use your ITCode and the AD domain user password to log on the system"/>
+    <Item source="· 忘记密码请点击此处重置" target="* Forgot your password reset, click here"/>
+	<Item source="· 人力资源数据和系统安全说明" target="* Notice of HR Data &amp; System Security for Users."/>
+	<Item source="登录" target="Login"/>
+	<Item source="点击此处展开详细的错误信息..." target="Click here to expand the detailed error message..."/>
+
+	<Item source="退出应用程序{0}" target="Exit the application:{0}"/>
+	<Item source="注销完成，点击这里返回应用" target="Log off successfully, click here to return to application"/>
+	<Item source="用户'{0}'认证失败，请检查用户名和密码是否正确。" target="User '{0}' Authentication failed, please check the user name and password are correct."/>
+	<Item source="不能根据登录名'{0}'找到用户" target="Can not find the user based on login name '{0}'"/>
+</Dictionary>

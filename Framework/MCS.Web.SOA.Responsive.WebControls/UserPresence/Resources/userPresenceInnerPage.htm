@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>User Presence内部页面</title>
+	<script type="text/javascript">
+		function onMonitorAddressesPropertyChange() {
+			if (event.propertyName == "value") {
+				if (event.srcElement.value != "") {
+					eval("var command = " + event.srcElement.value);
+
+					processIMNCommand(command);
+				}
+			}
+		}
+
+		function OuterProcessIMNCommand(commandStr) {
+			processIMNCommand(eval("(" + commandStr + ")"));
+		}
+
+		function processIMNCommand(command) {
+			switch (command.commandName) {
+				case "subscribe":
+					subscribeAddress(command.name, command.id);
+					break;
+				case "showOOUI":
+					if (IMNControlObj != null)
+						IMNControlObj.ShowOOUI(command.name, command.inputType, command.oouiX, command.oouiY);
+					break;
+				case "hideOOUI":
+					if (IMNControlObj != null)
+						IMNControlObj.HideOOUI();
+					break;
+			}
+		}
+
+		function subscribeAddress(name, id) {
+			if (EnsureIMNControl() && IMNControlObj.PresenceEnabled) {
+				var state = IMNControlObj.GetStatus(name, id);
+
+				IMNOnStatusChange(name, state, id);
+			}
+		}
+
+		function Browseris() {
+			var agt = navigator.userAgent.toLowerCase();
+			this.osver = 1.0;
+
+			if (agt) {
+				var stOSVer = agt.substring(agt.indexOf("windows ") + 11);
+				this.osver = parseFloat(stOSVer);
+			}
+
+			this.major = parseInt(navigator.appVersion);
+			this.nav = ((agt.indexOf('mozilla') != -1) && ((agt.indexOf('spoofer') == -1) && (agt.indexOf('compatible') == -1)));
+			this.nav6 = this.nav && (this.major == 5);
+			this.nav6up = this.nav && (this.major >= 5);
+			this.nav7up = false;
+
+			if (this.nav6up) {
+				var navIdx = agt.indexOf("netscape/");
+				if (navIdx >= 0)
+					this.nav7up = parseInt(agt.substring(navIdx + 9)) >= 7;
+			}
+			this.ie = (agt.indexOf("msie") != -1);
+			this.aol = this.ie && agt.indexOf(" aol ") != -1;
+			if (this.ie) {
+				var stIEVer = agt.substring(agt.indexOf("msie ") + 5);
+				this.iever = parseInt(stIEVer);
+				this.verIEFull = parseFloat(stIEVer);
+			}
+			else
+				this.iever = 0;
+			this.ie4up = this.ie && (this.major >= 4);
+			this.ie5up = this.ie && (this.iever >= 5);
+			this.ie55up = this.ie && (this.verIEFull >= 5.5);
+			this.ie6up = this.ie && (this.iever >= 6);
+			this.winnt = ((agt.indexOf("winnt") != -1) || (agt.indexOf("windows nt") != -1));
+			this.win32 = ((this.major >= 4) && (navigator.platform == "Win32")) ||
+					(agt.indexOf("win32") != -1) || (agt.indexOf("32bit") != -1);
+			this.mac = (agt.indexOf("mac") != -1);
+			this.w3c = this.nav6up;
+			this.safari = (agt.indexOf("safari") != -1);
+			this.safari125up = false;
+
+			if (this.safari && this.major >= 5) {
+				var navIdx = agt.indexOf("safari/");
+				if (navIdx >= 0)
+					this.safari125up = parseInt(agt.substring(navIdx + 7)) >= 125;
+			}
+		}
+
+		var browseris = new Browseris();
+		var IMNControlObj = null;
+		var bIMNControlInited = false;
+
+		function EnsureIMNControl() {
+			if (!bIMNControlInited) {
+				if (browseris.ie5up && browseris.win32) {
+					try {
+						IMNControlObj = new ActiveXObject("Name.NameCtrl.1");
+					}
+					catch (e) {
+					}
+
+					bIMNControlInited = true;
+
+					if (IMNControlObj) {
+						IMNControlObj.OnStatusChange = IMNOnStatusChange;
+					}
+				}
+			}
+
+			return IMNControlObj;
+		}
+
+		function IMNOnStatusChange(name, state, id) {
+			var notifier = parent.document.getElementById("userPresenceNotifier");
+
+			if (notifier != null)
+				notifier.value = name + ";" + state + ";" + id;
+
+			parent.NotifyIMNOnStatusChange(name, state, id);
+		}
+
+		function onDocumentLoad() {
+			EnsureIMNControl();
+		}
+	</script>
+</head>
+<body onload="onDocumentLoad();">
+	<input type="hidden" id="monitorAddresses" onpropertychange="onMonitorAddressesPropertyChange();"
+		oninput="onMonitorAddressesPropertyChange();" />
+</body>
+</html>

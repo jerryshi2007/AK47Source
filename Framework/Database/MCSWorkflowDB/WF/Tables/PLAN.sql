@@ -1,0 +1,43 @@
+﻿CREATE TABLE [WF].[PLAN] (
+    [ID]                    NVARCHAR (36) NOT NULL,
+    [SUBJECT]               NVARCHAR (64) NULL,
+    [PLAN_YEAR]             INT           NULL,
+    [PLAN_DURATION]         INT           NULL,
+    [PROCESS_ID]            NVARCHAR (36) NULL,
+    [DEPARTMENT_ID]         NVARCHAR (36) NULL,
+    [DEPARTMENT_NAME]       NVARCHAR (64) NULL,
+    [CREATOR_ID]            NVARCHAR (36) NULL,
+    [CREATOR_NAME]          NVARCHAR (64) NULL,
+    [PLAN_CATEGORY]         INT           NULL,
+    [CREATED_DATE]          DATETIME      NULL,
+    [EXECUTORMODIFY_DATE]   DATETIME      NULL,
+    [PLANMODIFY_DATE]       DATETIME      NULL,
+    [EDITTYPE]              INT           NULL,
+    [TOTAL_VERSION]         INT           NULL,
+    [PLAN_REGIONID]         NVARCHAR (36) NULL,
+    [PLAN_PROJECTCITYID]    NVARCHAR (36) NULL,
+    [PLAN_PROJECTID]        NVARCHAR (36) NULL,
+    [PLAN_KEYPOINTVALUE]    INT           NULL,
+    [PLAN_PROJECTNAME]      NVARCHAR (64) NULL,
+    [PLAN_PROJECTCITYNAME]  NVARCHAR (20) NULL,
+    [PLAN_STARTOPTION]      NCHAR (10)    NULL,
+    [IS_AUTOSTART]          BIT           NULL,
+    [APPROVER_ID]           NVARCHAR (36) NULL,
+    [APPROVER_NAME]         NVARCHAR (64) NULL,
+    [ARRANGEPRINCIPAL_ID]   NVARCHAR (36) NULL,
+    [ARRANGEPRINCIPAL_NAME] NVARCHAR (64) NULL,
+    [PDRM_ID]               NVARCHAR (36) NULL,
+    [PDRM_NAME]             NVARCHAR (64) NULL,
+    CONSTRAINT [PK_WF.PLAN] PRIMARY KEY CLUSTERED ([ID] ASC)
+);
+
+
+GO
+EXEC sp_addextendedproperty @name = N'MS_Description',
+    @value = N'基本不用了',
+    @level0type = N'SCHEMA',
+    @level0name = N'WF',
+    @level1type = N'TABLE',
+    @level1name = N'PLAN',
+    @level2type = NULL,
+    @level2name = NULL

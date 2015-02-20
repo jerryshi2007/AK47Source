@@ -1,0 +1,945 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>Sunny Luo</Author>
+  <LastAuthor>吕大良</LastAuthor>
+  <Created>1996-10-14T23:33:28Z</Created>
+  <LastSaved>2010-05-27T06:34:22Z</LastSaved>
+  <Version>12.00</Version>
+ </DocumentProperties>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>7155</WindowHeight>
+  <WindowWidth>12390</WindowWidth>
+  <WindowTopX>120</WindowTopX>
+  <WindowTopY>120</WindowTopY>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Arial" x:Family="Swiss"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="m71432160">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Interior ss:Color="#C0C0C0" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="m71432240">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Interior ss:Color="#FFFF99" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="m71432260">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Interior ss:Color="#FFFF99" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="m71432280">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Interior ss:Color="#FFFF99" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="m71432300">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Interior ss:Color="#FFFF99" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="m71432320">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Interior ss:Color="#FFFF99" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s62">
+   <Borders/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s63">
+   <Borders/>
+   <Interior/>
+   <NumberFormat ss:Format="yyyy/m/d;@"/>
+  </Style>
+  <Style ss:ID="s64">
+   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Borders/>
+   <Interior ss:Color="#C0C0C0" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="yyyy/m/d;@"/>
+  </Style>
+  <Style ss:ID="s65">
+   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Borders/>
+   <Interior ss:Color="#C0C0C0" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s73">
+   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="8"/>
+   <Interior ss:Color="#C0C0C0" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s75">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Interior ss:Color="#C0C0C0" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s76">
+   <Borders/>
+   <Interior ss:Color="#FFFF99" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s84">
+   <Borders/>
+   <Interior ss:Color="#FFFF99" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="yyyy/m/d;@"/>
+  </Style>
+  <Style ss:ID="s95">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s97">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders/>
+   <Interior ss:Color="#CCFFCC" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s98">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders/>
+   <Interior ss:Color="#FFFF99" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s99">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Interior ss:Color="#FFFF99" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s100">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders/>
+   <Interior ss:Color="#FFFF99" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="yyyy/m/d;@"/>
+  </Style>
+  <Style ss:ID="s101">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:Family="Swiss"/>
+   <Interior ss:Color="#FFFF99" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s102">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Interior ss:Color="#FFFF99" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s103">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Interior ss:Color="#FFFF99" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s104">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Interior ss:Color="#FFFF99" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s105">
+   <Borders/>
+   <Interior/>
+   <NumberFormat ss:Format="@"/>
+  </Style>
+  <Style ss:ID="s106">
+   <Borders/>
+   <Font ss:FontName="宋体" x:CharSet="134"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s107">
+   <Alignment ss:Vertical="Center"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s108">
+   <Alignment ss:Vertical="Center"/>
+   <Font ss:FontName="Arial" x:Family="Swiss"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s109">
+   <Alignment ss:Vertical="Center"/>
+   <Font ss:FontName="宋体" x:CharSet="134"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s110">
+   <Alignment ss:Vertical="Center"/>
+   <Interior ss:Color="#FFFF99" ss:Pattern="Solid"/>
+  </Style>
+ </Styles>
+ <Names>
+  <NamedRange ss:Name="BillToCompanyCode" ss:RefersTo="='PC Tracker Form'!R3C11"/>
+  <NamedRange ss:Name="BillToCountry" ss:RefersTo="='PC Tracker Form'!R3C10"/>
+  <NamedRange ss:Name="BusinessArea" ss:RefersTo="='PC Tracker Form'!R3C29"/>
+  <NamedRange ss:Name="BuyerName" ss:RefersTo="='PC Tracker Form'!R3C5"/>
+  <NamedRange ss:Name="Category" ss:RefersTo="='PC Tracker Form'!R3C22"/>
+  <NamedRange ss:Name="CostCenter" ss:RefersTo="='PC Tracker Form'!R3C27"/>
+  <NamedRange ss:Name="Currency" ss:RefersTo="='PC Tracker Form'!R3C16"/>
+  <NamedRange ss:Name="Description" ss:RefersTo="='PC Tracker Form'!R3C24"/>
+  <NamedRange ss:Name="DIV" ss:RefersTo="='PC Tracker Form'!R3C32"/>
+  <NamedRange ss:Name="EccLedgerCode" ss:RefersTo="='PC Tracker Form'!R3C26"/>
+  <NamedRange ss:Name="FinancePlaningApprover"
+   ss:RefersTo="='PC Tracker Form'!R3C8"/>
+  <NamedRange ss:Name="FirstApprover" ss:RefersTo="='PC Tracker Form'!R3C6"/>
+  <NamedRange ss:Name="LC" ss:RefersTo="='PC Tracker Form'!R3C31"/>
+  <NamedRange ss:Name="LCT" ss:RefersTo="='PC Tracker Form'!R3C30"/>
+  <NamedRange ss:Name="LERU" ss:RefersTo="='PC Tracker Form'!R3C36"/>
+  <NamedRange ss:Name="MAJ" ss:RefersTo="='PC Tracker Form'!R3C33"/>
+  <NamedRange ss:Name="MaterialID" ss:RefersTo="='PC Tracker Form'!R3C25"/>
+  <NamedRange ss:Name="MINOR" ss:RefersTo="='PC Tracker Form'!R3C34"/>
+  <NamedRange ss:Name="PaymentTerm" ss:RefersTo="='PC Tracker Form'!R3C20"/>
+  <NamedRange ss:Name="PCApproverCompletedDate"
+   ss:RefersTo="='PC Tracker Form'!R3C9"/>
+  <NamedRange ss:Name="PCItem" ss:RefersTo="='PC Tracker Form'!R3C21"/>
+  <NamedRange ss:Name="PCNetPriceAmount" ss:RefersTo="='PC Tracker Form'!R3C12"/>
+  <NamedRange ss:Name="PCNumber" ss:RefersTo="='PC Tracker Form'!R3C3"/>
+  <NamedRange ss:Name="ProfitCenter" ss:RefersTo="='PC Tracker Form'!R3C28"/>
+  <NamedRange ss:Name="RequestorName" ss:RefersTo="='PC Tracker Form'!R3C4"/>
+  <NamedRange ss:Name="SecondApprover" ss:RefersTo="='PC Tracker Form'!R3C7"/>
+  <NamedRange ss:Name="SubCategory" ss:RefersTo="='PC Tracker Form'!R3C23"/>
+  <NamedRange ss:Name="SUBMINOR" ss:RefersTo="='PC Tracker Form'!R3C35"/>
+  <NamedRange ss:Name="TotalPaymentAmount" ss:RefersTo="='PC Tracker Form'!R3C15"/>
+  <NamedRange ss:Name="TotalTaxAmount" ss:RefersTo="='PC Tracker Form'!R3C13"/>
+  <NamedRange ss:Name="VendorCodeECC" ss:RefersTo="='PC Tracker Form'!R3C18"/>
+  <NamedRange ss:Name="VendorCodeFDW" ss:RefersTo="='PC Tracker Form'!R3C19"/>
+  <NamedRange ss:Name="VendorName" ss:RefersTo="='PC Tracker Form'!R3C17"/>
+  <NamedRange ss:Name="WithholdingTax" ss:RefersTo="='PC Tracker Form'!R3C14"/>
+ </Names>
+ <Worksheet ss:Name="PC Tracker Form">
+  <Table ss:ExpandedColumnCount="36" ss:ExpandedRowCount="10" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s62" ss:DefaultColumnWidth="64.5">
+   <Column ss:StyleID="s62" ss:Hidden="1" ss:AutoFitWidth="0" ss:Width="26.25"/>
+   <Column ss:StyleID="s62" ss:Hidden="1" ss:AutoFitWidth="0" ss:Width="80.25"/>
+   <Column ss:StyleID="s62" ss:Width="58.5"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="51.75" ss:Span="4"/>
+   <Column ss:Index="9" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="96.75"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="96"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="82.5"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="80.25" ss:Span="2"/>
+   <Column ss:Index="15" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="57"/>
+   <Column ss:StyleID="s62" ss:Width="48.75"/>
+   <Column ss:StyleID="s62" ss:Width="67.5"/>
+   <Column ss:StyleID="s62" ss:Width="66" ss:Span="1"/>
+   <Column ss:Index="20" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="102.75"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="72"/>
+   <Column ss:StyleID="s62" ss:Width="47.25"/>
+   <Column ss:StyleID="s62" ss:Width="84.75"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="104.25"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="100.5"/>
+   <Column ss:StyleID="s62" ss:Width="90.75"/>
+   <Column ss:StyleID="s62" ss:Width="59.25"/>
+   <Column ss:StyleID="s62" ss:Width="61.5"/>
+   <Column ss:StyleID="s62" ss:Width="70.5"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="25.5"/>
+   <Column ss:StyleID="s62" ss:Width="20.25"/>
+   <Column ss:StyleID="s62" ss:Width="24.75"/>
+   <Column ss:StyleID="s62" ss:Width="27.75"/>
+   <Column ss:StyleID="s62" ss:Width="38.25"/>
+   <Column ss:StyleID="s62" ss:Width="91.5"/>
+   <Column ss:StyleID="s62" ss:Width="27.75"/>
+   <Row ss:AutoFitHeight="0" ss:Height="53.0625" ss:StyleID="s65">
+    <Cell ss:Index="4" ss:MergeAcross="4" ss:StyleID="m71432160"><Data
+      ss:Type="String">Pls input E-mail address</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">YYYY-MM-DD</Data></Cell>
+    <Cell><Data ss:Type="String">Eg: US</Data></Cell>
+    <Cell><Data ss:Type="String">Eg: US01/US03</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">Optional</Data></Cell>
+    <Cell><Data ss:Type="String">Optional</Data></Cell>
+    <Cell><Data ss:Type="String">D=A+B-C</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">The countries in ECC need input</Data></Cell>
+    <Cell><Data ss:Type="String">Only LA need input</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">If the Payment term in PC tracker confilict with ECC, comply with payment term in ECC</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Pls input only If there are multiple PC item in one PC form</Data></Cell>
+    <Cell ss:MergeAcross="3" ss:StyleID="s75"><Data ss:Type="String">Pls refer to &quot;Expense Category&quot; maintained in SRM</Data></Cell>
+    <Cell ss:MergeAcross="3" ss:StyleID="s75"><Data ss:Type="String">The countries in ECC need input</Data></Cell>
+    <Cell ss:MergeAcross="6" ss:StyleID="s75"><Data ss:Type="String">Only LA need input</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:MergeAcross="4" ss:StyleID="m71432240"><Data ss:Type="String">Requestor/Approver Information</Data></Cell>
+    <Cell ss:StyleID="s84"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:MergeAcross="3" ss:StyleID="m71432260"><Data ss:Type="String">PC Amount</Data></Cell>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:MergeAcross="3" ss:StyleID="m71432280"><Data ss:Type="String">Expense description</Data></Cell>
+    <Cell ss:MergeAcross="3" ss:StyleID="m71432300"><Data ss:Type="String">ECC Ledger Information</Data></Cell>
+    <Cell ss:MergeAcross="6" ss:StyleID="m71432320"><Data ss:Type="String">FDW information</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="51" ss:StyleID="s95">
+    <Cell ss:StyleID="s97"><Data ss:Type="String">Item</Data></Cell>
+    <Cell ss:StyleID="s97"><Data ss:Type="String">Upload requestor</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">PC Number</Data><NamedCell
+      ss:Name="PCNumber"/></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">Requestor Name</Data><NamedCell
+      ss:Name="RequestorName"/></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">Buyer Name</Data><NamedCell
+      ss:Name="BuyerName"/></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">1st approver</Data><NamedCell
+      ss:Name="FirstApprover"/></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">2nd approver</Data><NamedCell
+      ss:Name="SecondApprover"/></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">F&amp;P approver</Data><NamedCell
+      ss:Name="FinancePlaningApprover"/></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">PC approval completed date</Data><NamedCell
+      ss:Name="PCApproverCompletedDate"/></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">Bill to Country</Data><NamedCell
+      ss:Name="BillToCountry"/></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">Bill to Company Code</Data><NamedCell
+      ss:Name="BillToCompanyCode"/></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">(A)&#10;PC Net Price Amount</Data><NamedCell
+      ss:Name="PCNetPriceAmount"/></Cell>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">(B)&#10;Total Tax Amount (exclude withholding tax)</Data><NamedCell
+      ss:Name="TotalTaxAmount"/></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">( C ) Withholding Tax</Data><NamedCell
+      ss:Name="WithholdingTax"/></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">(D) Total Payment Amount</Data><NamedCell
+      ss:Name="TotalPaymentAmount"/></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">Currency</Data><NamedCell
+      ss:Name="Currency"/></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">Vendor Name</Data><NamedCell
+      ss:Name="VendorName"/></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">Vendor Code in ECC</Data><NamedCell
+      ss:Name="VendorCodeECC"/></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">Vendor Code in FDW</Data><NamedCell
+      ss:Name="VendorCodeFDW"/></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">Payment Term</Data><NamedCell
+      ss:Name="PaymentTerm"/></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">PC Item</Data><NamedCell
+      ss:Name="PCItem"/></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">Category</Data><NamedCell
+      ss:Name="Category"/></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">Sub-categoty</Data><NamedCell
+      ss:Name="SubCategory"/></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">Description (what is being purchased)</Data><NamedCell
+      ss:Name="Description"/></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">Material ID</Data><NamedCell
+      ss:Name="MaterialID"/></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">ECC Ledger Code</Data><NamedCell
+      ss:Name="EccLedgerCode"/></Cell>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">Cost Center</Data><NamedCell
+      ss:Name="CostCenter"/></Cell>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">Profit center</Data><NamedCell
+      ss:Name="ProfitCenter"/></Cell>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Business area</Data><NamedCell
+      ss:Name="BusinessArea"/></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">LCT</Data><NamedCell
+      ss:Name="LCT"/></Cell>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">LC</Data><NamedCell ss:Name="LC"/></Cell>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">DIV</Data><NamedCell
+      ss:Name="DIV"/></Cell>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">MAJ</Data><NamedCell
+      ss:Name="MAJ"/></Cell>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">MINOR</Data><NamedCell
+      ss:Name="MINOR"/></Cell>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">SMIN&#10;(SUBMINOR)</Data><NamedCell
+      ss:Name="SUBMINOR"/></Cell>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Leru</Data><NamedCell
+      ss:Name="LERU"/></Cell>
+   </Row>
+   <Row>
+    <Cell ss:Index="3"><Data ss:Type="Number">71000</Data></Cell>
+    <Cell><Data ss:Type="String">shen.zheng</Data></Cell>
+    <Cell><Data ss:Type="String">FeiFei Jiang</Data></Cell>
+    <Cell><Data ss:Type="String">zhangjing</Data></Cell>
+    <Cell><Data ss:Type="String">zhangyong</Data></Cell>
+    <Cell><Data ss:Type="String">zuoliangbin</Data></Cell>
+    <Cell><Data ss:Type="DateTime">2010-05-26T00:00:00.000</Data></Cell>
+    <Cell><Data ss:Type="String">CN</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">0010</Data></Cell>
+    <Cell><Data ss:Type="Number">100</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="Number">100</Data></Cell>
+    <Cell><Data ss:Type="String">RMB</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">天语手机</Data></Cell>
+    <Cell><Data ss:Type="Number">2000236</Data></Cell>
+    <Cell ss:Index="20"><Data ss:Type="Number">30</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Computer</Data></Cell>
+    <Cell><Data ss:Type="String">Laptop</Data></Cell>
+    <Cell><Data ss:Type="String">Lenovo T400</Data></Cell>
+    <Cell><Data ss:Type="String">#40089</Data></Cell>
+    <Cell><Data ss:Type="Number">9000</Data></Cell>
+    <Cell><Data ss:Type="Number">8090</Data></Cell>
+    <Cell><Data ss:Type="Number">8080</Data></Cell>
+    <Cell><Data ss:Type="String">World</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:Index="3"><Data ss:Type="Number">72000</Data></Cell>
+    <Cell><Data ss:Type="String">shen.rong</Data></Cell>
+    <Cell><Data ss:Type="String">Chen Zhang</Data></Cell>
+    <Cell><Data ss:Type="String">zhangjing</Data></Cell>
+    <Cell><Data ss:Type="String">zhangyong</Data></Cell>
+    <Cell><Data ss:Type="String">zuoliangbin</Data></Cell>
+    <Cell><Data ss:Type="DateTime">2010-05-26T00:00:00.000</Data></Cell>
+    <Cell><Data ss:Type="String">US</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">SG02</Data></Cell>
+    <Cell><Data ss:Type="Number">250</Data></Cell>
+    <Cell><Data ss:Type="Number">30</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
+    <Cell><Data ss:Type="Number">265</Data></Cell>
+    <Cell><Data ss:Type="String">USD</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Apple Inc</Data></Cell>
+    <Cell><Data ss:Type="Number">20202</Data></Cell>
+    <Cell ss:Index="20"><Data ss:Type="Number">30</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Computer</Data></Cell>
+    <Cell><Data ss:Type="String">Laptop</Data></Cell>
+    <Cell><Data ss:Type="String">Lenovo T400</Data></Cell>
+    <Cell><Data ss:Type="String">#40089</Data></Cell>
+    <Cell><Data ss:Type="Number">9809</Data></Cell>
+    <Cell><Data ss:Type="Number">900</Data></Cell>
+    <Cell><Data ss:Type="Number">7000</Data></Cell>
+    <Cell><Data ss:Type="String">Local</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:Index="3"><Data ss:Type="Number">73000</Data></Cell>
+    <Cell><Data ss:Type="String">shen.rong</Data></Cell>
+    <Cell><Data ss:Type="String">Chen Zhang</Data></Cell>
+    <Cell><Data ss:Type="String">zhangjing</Data></Cell>
+    <Cell><Data ss:Type="String">zhangyong</Data></Cell>
+    <Cell><Data ss:Type="String">zuoliangbin</Data></Cell>
+    <Cell><Data ss:Type="DateTime">2010-05-26T00:00:00.000</Data></Cell>
+    <Cell><Data ss:Type="String">AR</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">AR01</Data></Cell>
+    <Cell><Data ss:Type="Number">250</Data></Cell>
+    <Cell><Data ss:Type="Number">30</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
+    <Cell><Data ss:Type="Number">265</Data></Cell>
+    <Cell><Data ss:Type="String">USD</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Argentina football Inc</Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="Number">20202</Data></Cell>
+    <Cell><Data ss:Type="Number">30</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Computer</Data></Cell>
+    <Cell><Data ss:Type="String">Laptop</Data></Cell>
+    <Cell><Data ss:Type="String">Lenovo T400</Data></Cell>
+    <Cell><Data ss:Type="String">#40089</Data></Cell>
+    <Cell><Data ss:Type="Number">9809</Data></Cell>
+    <Cell><Data ss:Type="Number">900</Data></Cell>
+    <Cell><Data ss:Type="Number">7000</Data></Cell>
+    <Cell><Data ss:Type="String">Local</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:Index="3"><Data ss:Type="Number">73000</Data></Cell>
+    <Cell><Data ss:Type="String">shen.rong</Data></Cell>
+    <Cell><Data ss:Type="String">Chen Zhang</Data></Cell>
+    <Cell><Data ss:Type="String">zhangjing</Data></Cell>
+    <Cell><Data ss:Type="String">zhangyong</Data></Cell>
+    <Cell><Data ss:Type="String">error</Data></Cell>
+    <Cell><Data ss:Type="DateTime">2010-05-26T00:00:00.000</Data></Cell>
+    <Cell><Data ss:Type="String">AR</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">AR01</Data></Cell>
+    <Cell><Data ss:Type="Number">750</Data></Cell>
+    <Cell><Data ss:Type="Number">90</Data></Cell>
+    <Cell><Data ss:Type="Number">45</Data></Cell>
+    <Cell><Data ss:Type="Number">795</Data></Cell>
+    <Cell><Data ss:Type="String">USD</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Argentina football Inc</Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="Number">20202</Data></Cell>
+    <Cell><Data ss:Type="Number">30</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Computer</Data></Cell>
+    <Cell><Data ss:Type="String">Laptop</Data></Cell>
+    <Cell><Data ss:Type="String">Lenovo T400</Data></Cell>
+    <Cell><Data ss:Type="String">#40089</Data></Cell>
+    <Cell><Data ss:Type="Number">9809</Data></Cell>
+    <Cell><Data ss:Type="Number">900</Data></Cell>
+    <Cell><Data ss:Type="Number">7000</Data></Cell>
+    <Cell><Data ss:Type="String">Local</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:Index="11" ss:StyleID="s105"/>
+   </Row>
+   <Row>
+    <Cell ss:Index="3"><Data ss:Type="Number">74000</Data></Cell>
+    <Cell><Data ss:Type="String">shen.rong</Data></Cell>
+    <Cell><Data ss:Type="String">Chen Zhang</Data></Cell>
+    <Cell><Data ss:Type="String">zhangjing</Data></Cell>
+    <Cell><Data ss:Type="String">zhangyong</Data></Cell>
+    <Cell><Data ss:Type="String">zuoliangbin</Data></Cell>
+    <Cell><Data ss:Type="DateTime">2010-05-26T00:00:00.000</Data></Cell>
+    <Cell><Data ss:Type="String">US</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">SG02</Data></Cell>
+    <Cell><Data ss:Type="Number">250</Data></Cell>
+    <Cell><Data ss:Type="Number">30</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
+    <Cell><Data ss:Type="Number">265</Data></Cell>
+    <Cell><Data ss:Type="String">USD</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Apple Inc</Data></Cell>
+    <Cell><Data ss:Type="Number">20202</Data></Cell>
+    <Cell ss:Index="20"><Data ss:Type="Number">30</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Computer</Data></Cell>
+    <Cell><Data ss:Type="String">Laptop</Data></Cell>
+    <Cell><Data ss:Type="String">Lenovo T400</Data></Cell>
+    <Cell><Data ss:Type="String">#40089</Data></Cell>
+    <Cell><Data ss:Type="Number">9809</Data></Cell>
+    <Cell><Data ss:Type="Number">900</Data></Cell>
+    <Cell><Data ss:Type="Number">7000</Data></Cell>
+    <Cell><Data ss:Type="String">Local</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:Index="3"><Data ss:Type="Number">75000</Data></Cell>
+    <Cell><Data ss:Type="String">shen.rong</Data></Cell>
+    <Cell><Data ss:Type="String">Chen Zhang</Data></Cell>
+    <Cell><Data ss:Type="String">zhangjing</Data></Cell>
+    <Cell><Data ss:Type="String">zhangyong</Data></Cell>
+    <Cell><Data ss:Type="String">zuoliangbin</Data></Cell>
+    <Cell><Data ss:Type="DateTime">2010-05-26T00:00:00.000</Data></Cell>
+    <Cell><Data ss:Type="String">US</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">SG02</Data></Cell>
+    <Cell><Data ss:Type="Number">250</Data></Cell>
+    <Cell><Data ss:Type="Number">30</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
+    <Cell><Data ss:Type="Number">265</Data></Cell>
+    <Cell><Data ss:Type="String">USD</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Apple Inc</Data></Cell>
+    <Cell><Data ss:Type="Number">20202</Data></Cell>
+    <Cell ss:Index="20"><Data ss:Type="Number">30</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Computer</Data></Cell>
+    <Cell><Data ss:Type="String">Laptop</Data></Cell>
+    <Cell><Data ss:Type="String">Lenovo T400</Data></Cell>
+    <Cell><Data ss:Type="String">#40089</Data></Cell>
+    <Cell><Data ss:Type="Number">9809</Data></Cell>
+    <Cell><Data ss:Type="Number">900</Data></Cell>
+    <Cell><Data ss:Type="Number">7000</Data></Cell>
+    <Cell><Data ss:Type="String">Local</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
+   <Selected/>
+   <LeftColumnVisible>12</LeftColumnVisible>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>20</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="Company Code Vs Country">
+  <Names>
+   <NamedRange ss:Name="_FilterDatabase"
+    ss:RefersTo="='Company Code Vs Country'!R1C1:R44C6" ss:Hidden="1"/>
+  </Names>
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="49" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s107" ss:DefaultColumnWidth="46.5">
+   <Column ss:StyleID="s107" ss:Width="85.5"/>
+   <Column ss:StyleID="s107" ss:Width="108.75"/>
+   <Column ss:StyleID="s107" ss:AutoFitWidth="0" ss:Width="232.5"/>
+   <Column ss:StyleID="s107" ss:AutoFitWidth="0" ss:Width="106.5"/>
+   <Row ss:StyleID="s108">
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Country</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">ECC Company code</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Company Name</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">FDW Country Code</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Dubai</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">AE01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo (Singapore) Pte Lt</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Vienna</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">AT01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo Austria Branch</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Australia</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">AU01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo (Australia)Pty Ltd</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Brussels</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">BE01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo (Belgium) Sprl</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Toronto</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">CA01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo (Canada) Inc.,</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Zurich</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">CH01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo (Schweiz) GmbH</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">China</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">CN03</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo Information Products (Shenzhen) Co.,Ltd.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Prague</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">CZ01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo Organizacni Slozka</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Stuttgart</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">DE01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo (Deutschland) GmbH</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Lyngby-Taarbaek</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">DK01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo (Denmark) ApS</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Madrid</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">ES01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo (Spain) SRL</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Helsinki</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">FI01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo Finland Branch</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Courbevoie</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">FR01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo (France) SAS</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Basingstoke</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">GB01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo Technology(UK) Ltd</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Athens</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">GR01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo Greek Branch</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Hong Kong</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">HK01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo (Hong Kong) Ltd</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Budapest</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">HU01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo Hungary Branch</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Dublin</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">IE01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo Irish Branch</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">St. Petach Tikva</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">IL01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo (Israel) Ltd.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Milano</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">IT01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo (Italy) S.r.L.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Tokyo</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">JP01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo Japan Limited.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Seoul</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">KR01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo Korea LLC</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Apodaca</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">MX02</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">LENOVO-MX(LCT)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Petaling Jaya</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">MY01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Think Products Malaysia S</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Amsterdam</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">NL01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo(International)B.V.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Amsterdam</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">NL03</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo Technology B.V.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Kolbotn</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">NO01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo Norway Branch</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Auckland</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">NZ01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo (New Zealand) Ltd</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Warsaw</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">PL01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo Poland Branch</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">LISBOA</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">PT01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo (Spain) Sociedad U</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Bucharest</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">RO01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo Romania Branch</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Moscow</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">RU01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">LLC Lenovo (East Europe/A</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Stockholm</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">SE01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo (Sweden) AB</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Singapore</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">SG01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo (Singapore)Pte Ltd</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Singapore</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">SG03</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo MX(SMH)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Singapore</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">SG04</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo (Singapore) HQ</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Ljubljana</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">SI01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo Slovenia Branch</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Bratislava</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">SK01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">LENOVO (SLOVAKIA) S.R.O.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">BANGKOK</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">TH01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo (Thailand) Limited</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Istanbul</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">TR01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo Turkey Branch</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Taiwan</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">TW01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo Technology B.V., T</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Wilmington</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">US01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo (United States) In</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s108">
+    <Cell><Data ss:Type="String">Gauteng</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">ZA01</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Lenovo (South Africa)(Pty</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s110">
+    <Cell><Data ss:Type="String">Argentina</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Lenovo Spain S.L. Sucursal Argentina</Data></Cell>
+    <Cell><Data ss:Type="Number">613</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s110">
+    <Cell><Data ss:Type="String">PERU</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Lenovo (Asia Pacific) Limited Sucursal Del Peru</Data></Cell>
+    <Cell><Data ss:Type="Number">815</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s110">
+    <Cell><Data ss:Type="String">Colombia</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Lenovo Asia Pacific Limited Sucursal Colcmbia</Data></Cell>
+    <Cell><Data ss:Type="Number">661</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s110">
+    <Cell><Data ss:Type="String">Venezuela</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Lenovo (Venezuela), S.A.</Data></Cell>
+    <Cell><Data ss:Type="Number">871</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s110">
+    <Cell><Data ss:Type="String">Chile</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Lenovo Agencia En Chile</Data></Cell>
+    <Cell><Data ss:Type="Number">655</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <FreezePanes/>
+   <FrozenNoSplit/>
+   <SplitHorizontal>1</SplitHorizontal>
+   <TopRowBottomPane>25</TopRowBottomPane>
+   <ActivePane>2</ActivePane>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+    </Pane>
+    <Pane>
+     <Number>2</Number>
+     <ActiveRow>33</ActiveRow>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+  <AutoFilter x:Range="R1C1:R44C6"
+   xmlns="urn:schemas-microsoft-com:office:excel">
+  </AutoFilter>
+ </Worksheet>
+</Workbook>

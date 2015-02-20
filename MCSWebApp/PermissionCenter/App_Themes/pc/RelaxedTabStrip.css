@@ -1,0 +1,96 @@
+﻿.rpc-tabs-header{  padding:0; margin:0 ; margin-left:10px; width:700px; height:23px; }
+.rpc-tabs-header li{  background:transparent url('/MCSWebApp/images/tabs/tab-left.gif') no-repeat left bottom;  float: left; margin-right: 1px; list-style-type: none; height: 23px;  border-radius: 5px 5px 0 0; }
+.rpc-tabs-header li a{  padding-right: 10px; padding-left: 10px; background: url('/MCSWebApp/images/tabs/tab-right.gif') no-repeat right bottom; float: left; padding-bottom: 0px; color: #999; line-height: 23px; padding-top: 0px; height: 23px; text-decoration: none;}
+.rpc-tabs-header li.pc-active { background-position: left top; margin-bottom: -2px; position: relative; height: 25px; }
+.rpc-tabs-header li.pc-active a{  background-position: right top; color: #000; line-height: 25px; height: 25px; }
+
+.rpc-tabs-content { border-right: #aecbd4 1px solid;  padding-right: 1px; border-top: #aecbd4 1px solid; padding-left: 1px; padding-bottom: 1px; border-left: #aecbd4 1px solid; padding-top: 1px; border-bottom: #aecbd4 1px solid; background-color: #fff; display:none; }
+.rpc-tabs-content.pc-active { display:block; }
+
+/*
+
+OL li
+{
+    margin: 8px;
+}
+#con
+{
+    font-size: 12px;
+    margin: 0px auto;
+    width: 300px;
+}
+#tags
+{
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    margin: 0px 0px 0px 10px;
+    width: 700px;
+    padding-top: 0px;
+    height: 23px;
+}
+#tags li
+{
+    background: url(../images/tagleft.gif) no-repeat left bottom;
+    float: left;
+    margin-right: 1px;
+    list-style-type: none;
+    height: 23px;
+}
+#tags li A
+{
+    padding-right: 10px;
+    padding-left: 10px;
+    background: url(../images/tagright.gif) no-repeat right bottom;
+    float: left;
+    padding-bottom: 0px;
+    color: #999;
+    line-height: 23px;
+    padding-top: 0px;
+    height: 23px;
+    text-decoration: none;
+}
+#tags li.emptyTag
+{
+    background: none transparent scroll repeat 0% 0%;
+    width: 4px;
+}
+#tags li.selectTag
+{
+    background-position: left top;
+    margin-bottom: -2px;
+    position: relative;
+    height: 25px;
+}
+#tags li.selectTag A
+{
+    background-position: right top;
+    color: #000;
+    line-height: 25px;
+    height: 25px;
+}
+#tagContent
+{
+    border-right: #aecbd4 1px solid;
+    padding-right: 1px;
+    border-top: #aecbd4 1px solid;
+    padding-left: 1px;
+    padding-bottom: 1px;
+    border-left: #aecbd4 1px solid;
+    padding-top: 1px;
+    border-bottom: #aecbd4 1px solid;
+    background-color: #fff;
+}
+.tagContent
+{
+        BACKGROUND: url(../../../../images/bg.gif) repeat-x; 
+    display: none;
+    width: 576px;
+    color: #474747;
+}
+#tagContent div.selectTag
+{
+    display: block;
+}
+
+*/

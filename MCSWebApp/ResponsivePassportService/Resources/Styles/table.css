@@ -1,0 +1,451 @@
+﻿/*Table布局*/
+/*
+    Table 布局划分为4部分：Table标题部分、Table首部控制栏、Table部分、Table尾部控制栏
+    1. div class="table-header" table.css
+            div class="table-response" bootstrap.css
+                div class="dataTables_wrapper"  table.css
+    2.              div class="row" bootstrap.css
+    3.              table class="table table-striped table-bordered table-hover data-table" bootstraps.css 
+    4.              div class="row"
+    */
+/*Table*/
+
+
+.table-header /*Table 标题栏*/
+{
+    min-width: 486px;
+    line-height: 38px;
+    font-size: 14px;
+    background: rgb(247, 247, 247);
+    background: linear-gradient(rgb(255, 255, 255) 0px, rgb(238, 238, 238) 100%) repeat-x rgb(247, 247, 247);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(221, 221, 221);
+    border-bottom: none;
+    color: rgb(102, 159, 199);
+    padding-left: 12px;
+    position: relative;
+    min-height: 40px;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+    .table-header .close
+    {
+        margin-top: 0px;
+        margin-right: 8px;
+        opacity: 0.45;
+    }
+
+        .table-header .close:hover
+        {
+            opacity: 0.75;
+        }
+
+
+    .table-header .dataTables-title
+    {
+        font-size:1.2em;
+    }
+
+
+
+/*Table包装层 */
+
+.table-responsive
+{
+    min-width: 500px;
+}
+
+.dataTables_wrapper
+{
+    min-width: 100%;
+}
+
+    .dataTables_wrapper label
+    {
+        font-size: 1.1em;
+        display: inline-block;
+    }
+
+    .dataTables_wrapper input[type=text]
+    {
+        margin-top: 0px;
+        margin-right: 4px;
+        margin-bottom: 0px !important;
+        margin-left: 4px;
+    }
+
+    .dataTables_wrapper select
+    {
+        margin-top: 0px;
+        margin-right: 4px;
+        margin-bottom: 0px !important;
+        margin-left: 4px;
+    }
+
+    .dataTables_wrapper .row
+    {
+        margin: 0px;
+    }
+
+    .dataTables_wrapper :first-child.row
+    {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        border-color: rgb(221, 221, 221);
+        border-top-width: 1px;
+        border-top-style: solid;
+        border-left-width: 1px;
+        border-left-style: solid;
+        border-right-width: 1px;
+        border-right-style: solid;
+        height: 50px;
+        background-color: rgb(239, 243, 248);
+    }
+
+        .dataTables_wrapper :first-child.row + .dataTable
+        {
+            border-top-color: rgb(221, 221, 221);
+            border-bottom-color: rgb(221, 221, 221);
+            border-top-width: 1px;
+            border-bottom-width: 1px;
+            border-top-style: solid;
+            border-bottom-style: solid;
+        }
+
+    .dataTables_wrapper :last-child.row
+    {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        border-color: rgb(221, 221, 221);
+        border-left-width: 1px;
+        border-left-style: solid;
+        border-right-width: 1px;
+        border-right-style: solid;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        background-color: rgb(239, 243, 248);
+        height: 50px;
+    }
+
+
+.dataTables-filter
+{
+    float: right;
+    width: 100%;
+}
+
+
+    .dataTables-filter > ul
+    {
+        display: inline;
+        list-style: none;
+    }
+
+        .dataTables-filter > ul > li
+        {
+            float: right;
+            margin-right: 5px;
+        }
+
+    .dataTables-filter input[type=text]
+    {
+        padding: 4px 6px;
+        width: 125px;
+        height: 18px;
+        line-height: 18px;
+        box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        -webkit-box-sizing: content-box;
+    }
+
+    .dataTables-filter label
+    {
+        font-weight: normal;
+    }
+
+    .dataTables-filter img
+    {
+        cursor: pointer;
+    }
+
+.dataTables_info
+{
+    text-align: right;
+    width: 100%;
+}
+
+.dataTables_paginate
+{
+    display: inline;
+    text-align: center;
+    float: left;
+    width: 100%;
+    /*padding-left: 20px;*/
+}
+
+    .dataTables_paginate .input-group
+    {
+        width: 120px;
+        display: table !important;
+    }
+
+        .dataTables_paginate .input-group .form-control
+        {
+            height: 34px;
+        }
+
+
+        .dataTables_paginate .input-group .btn-default
+        {
+            margin: 0px;
+            padding: 5px;
+            height: 34px;
+        }
+
+.pagination
+{
+    display: inline;
+    margin: 0px;
+    width: 100%;
+    border-radius: initial;
+}
+
+
+    .pagination > li > a
+    {
+        border-color: rgb(224, 232, 235);
+        margin: 0px -1px 0px 0px;
+        color: rgb(34, 131, 197);
+    }
+
+        .pagination > li > a:hover
+        {
+            background-color: rgb(234, 239, 242);
+        }
+
+        .pagination > li > a:focus
+        {
+            background-color: rgb(234, 238, 242);
+        }
+
+    .pagination > li.disabled > a
+    {
+        border-color: rgb(217, 217, 217);
+        background-color: rgb(249, 249, 249);
+    }
+
+        .pagination > li.disabled > a:hover
+        {
+            border-color: rgb(217, 217, 217);
+            background-color: rgb(249, 249, 249);
+        }
+
+
+
+
+/*Table部分*/
+
+.dataTable
+{
+    margin-bottom: 0px;
+    border-radius: 0px !important;
+}
+
+    .dataTable thead tr
+    {
+        background: linear-gradient(rgb(248, 248, 248) 0px, rgb(236, 236, 236) 100%) repeat-x rgb(242, 242, 242);
+        color: rgb(112, 112, 112);
+        font-weight: normal;
+    }
+
+        .dataTable thead tr th
+        {
+            vertical-align: middle;
+            border-color: rgb(221, 221, 221);
+            border-bottom: 0px;
+            font-weight: bold;
+            border-radius: 0px !important;
+        }
+
+            .dataTable thead tr th.center /*针对 th的样式不可以加空格*/
+            {
+                text-align: center;
+            }
+
+            .dataTable thead tr th .lbl /*针对 th内部元素的样式必须要加空格*/
+            {
+                margin-bottom: 0px;
+            }
+
+            .dataTable thead tr th :only-child.lbl
+            {
+                vertical-align: top;
+            }
+
+            .dataTable thead tr th:first-child
+            {
+                border-left-color: rgb(221, 221, 221);
+            }
+
+            .dataTable thead tr th [class*='icon-']:first-child
+            {
+                margin-right: 2px;
+            }
+
+
+    .dataTable th[class*=sort]
+    {
+        cursor: pointer;
+    }
+
+        .dataTable th[class*=sort]::after
+        {
+            color: rgb(85, 85, 85);
+            font-family: FontAwesome;
+            font-size: 13px;
+            font-weight: normal;
+            margin-right: 4px;
+            float: right;
+            display: inline-block;
+            position: relative;
+            content: "\f0dc";
+        }
+
+        .dataTable th[class*=sort]:hover
+        {
+            color: rgb(84, 126, 168);
+        }
+
+    .dataTable th[class*=sorting_]
+    {
+        color: rgb(48, 126, 204);
+    }
+
+    .dataTable th.sorting_desc
+    {
+        background-image: linear-gradient(rgb(239, 243, 248) 0px, rgb(227, 231, 237) 100%);
+        background-repeat: repeat-x;
+    }
+
+    .dataTable th.sorting_asc
+    {
+        background-image: linear-gradient(rgb(239, 243, 248) 0px, rgb(227, 231, 237) 100%);
+        background-repeat: repeat-x;
+    }
+
+    .dataTable th.sorting_desc::after
+    {
+        top: -6px;
+        color: rgb(48, 126, 204);
+        content: "\f0dd";
+    }
+
+    .dataTable th.sorting_asc::after
+    {
+        top: 4px;
+        color: rgb(48, 126, 204);
+        content: "\f0de";
+    }
+
+    .dataTable th.sorting_disabled
+    {
+        cursor: inherit;
+    }
+
+        .dataTable th.sorting_disabled::after
+        {
+            display: none;
+        }
+
+
+    .dataTable tr td
+    {
+        border-radius: 0px !important;
+    }
+
+        .dataTable tr td.center
+        {
+            text-align: center;
+        }
+
+        .dataTable tr td .lbl
+        {
+            margin-bottom: 0px;
+        }
+
+        .dataTable tr td :only-child.lbl
+        {
+            vertical-align: top;
+        }
+
+@media screen and (max-width:768px)
+{
+    .hidden-768
+    {
+        display: none !important;
+    }
+
+    .dataTables-filter
+    {
+        display: none !important;
+    }
+
+    .dataTables_paginate .input-group
+    {
+        display: none !important;
+    }
+
+    .table-responsive
+    {
+        border:0px;
+        margin-bottom: 0px;
+    }
+}
+
+
+@media only screen and (max-width:480px)
+{
+    .hidden-480
+    {
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width:320px)
+{
+    .hidden-320
+    {
+        display: none !important;
+    }
+}
+
+/*为满足Pager放在Table中增加样式*/
+.pagertr
+{
+}
+
+    .pagertr td
+    {
+        padding: 0px !important;
+    }
+
+        .pagertr td div
+        {
+            border: 0 !important;
+        }
+
+
+.headertr
+{
+    background: linear-gradient(rgb(248, 248, 248) 0px, rgb(236, 236, 236) 100%) repeat-x rgb(242, 242, 242);
+    color: rgb(112, 112, 112);
+    font-weight: normal;
+}
+
+    .headertr th
+    {
+        vertical-align: middle;
+    }

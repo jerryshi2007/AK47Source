@@ -1,0 +1,57 @@
+.AutoComplete_ContextMenuPanel 
+{
+	border: 1px solid #868686;
+	z-index: 1000;
+	background: url(images/menu-bg.gif) repeat-y 0 0 #FAFAFA;
+	cursor: default;
+	padding: 1px 1px 0px 1px;
+	font-size: 11px;
+}
+
+.AutoComplete_ContextMenuBreak
+{
+	margin:1px 1px 1px 32px;
+	padding:0;
+	height:1px;
+	overflow:hidden;
+	display:block;
+	border-top: 1px solid #C5C5C5;	
+}
+
+.AutoComplete_ContextMenuItem
+{
+	margin: 1px 0 1px 0;
+	display: block;
+	text-decoration: none;
+	cursor: pointer;	
+	color : #000000;
+	padding: 2px 19px 2px 3px;
+	background-color : #FFFFFF;
+	border-color : #FFFFFF;
+	white-space: nowrap;
+}
+
+.AutoComplete_ContextMenuItem-Selected
+{
+	/*font-weight: bold;*/
+}
+
+.AutoComplete_ContextMenuItemhover
+{
+	margin: 1px 0 1px 0;
+	display: block;
+	text-decoration: none;
+	cursor: pointer;	
+	color : #000000;
+	padding: 2px 19px 2px 3px;
+	background-color: #FFE6A0;
+	border-color : #FFE6A0;
+	white-space: nowrap;
+	
+	/*
+	background-color: #FFE6A0;
+	border-color : #FFE6A0;
+	color: #000000;
+	border: 1px solid FFE6A0;
+	padding: 1px 18px 1px 2px;*/
+}

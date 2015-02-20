@@ -1,0 +1,5 @@
+﻿/*创建全文检索目录*/
+CREATE FULLTEXT CATALOG [SCFullTextIndex]
+    WITH ACCENT_SENSITIVITY = ON
+    AUTHORIZATION [dbo];
+

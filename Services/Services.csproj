@@ -1,0 +1,15 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <ItemGroup>
+    <ProjectItem Include="MCSPendingActService\MCSPendingActService.csproj" />
+    <ProjectItem Include="InvalidAssigneesNotificationService\InvalidAssigneesNotificationService.csproj" />
+    <ProjectItem Include="ActivateWfProcessService\ActivateWfProcessService.csproj" />
+    <ProjectItem Include="SyncEmployeePhotoService\SyncEmployeePhotoService.csproj" />
+    <ProjectItem Include="WfExtraBackgroundServices\WfExtraBackgroundServices.csproj" />
+    <ProjectItem Include="MCS.Services.Messages\MCS.Services.Messages.csproj" />
+    <ProjectItem Include="MCS.Services.AD2Accredit\MCS.Services.AD2Accredit.csproj" />
+    <ProjectItem Include="MCSServiceMain\MCSServiceMain.csproj" />
+  </ItemGroup>
+  <Target Name="BuildOtherProjects">
+    <MSBuild Projects="@(ProjectItem)" RebaseOutputs="True" />
+  </Target>
+</Project>

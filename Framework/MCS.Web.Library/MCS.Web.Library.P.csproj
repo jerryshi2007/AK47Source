@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{13C52DE4-BAFD-41E7-8D12-1C27221BACDD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MCS.Web.Library</RootNamespace>
+    <AssemblyName>MCS.Web.Library</AssemblyName>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>MCS.Library.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'DebugP|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\DebugPerformance\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\DebugPerformance\MCS.Web.Library.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Extensions.Design" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\AttributeAccessorControlTranslator.cs" />
+    <Compile Include="Common\AutoEncryptControlValueHelper.cs" />
+    <Compile Include="Common\ButtonControlTranslator.cs" />
+    <Compile Include="Common\CommonDefine.cs" />
+    <Compile Include="Common\ControlTranslatorBase.cs" />
+    <Compile Include="Common\Define.cs" />
+    <Compile Include="Common\GlobalizationUserControlBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\HtmlControlTranslator.cs" />
+    <Compile Include="Common\HtmlSelectControlTranslator.cs" />
+    <Compile Include="Common\ImageControlTranslator.cs" />
+    <Compile Include="Common\IPageModule.cs" />
+    <Compile Include="Common\ListControlTranslator.cs" />
+    <Compile Include="Common\PageContentModule.cs" />
+    <Compile Include="Common\PageRenderMode.cs" />
+    <Compile Include="Common\TextControlTranslator.cs" />
+    <Compile Include="Common\TranslatorControlHelper.cs" />
+    <Compile Include="Common\WindowFeature.cs" />
+    <Compile Include="Common\XmlDocumentCache.cs" />
+    <Compile Include="Configuration\ConfigSectionFactory.cs" />
+    <Compile Include="Configuration\ContentTypesSection.cs" />
+    <Compile Include="Configuration\CountersInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Configuration\CountersInstaller.designer.cs">
+      <DependentUpon>CountersInstaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\DeluxeWebSectionGroup.cs" />
+    <Compile Include="Configuration\PageContentSection.cs" />
+    <Compile Include="Configuration\PageModulesSection.cs" />
+    <Compile Include="Configuration\ScriptControlSection.cs" />
+    <Compile Include="Configuration\WebControlsSection.cs" />
+    <Compile Include="Configuration\WebTranslatorConfigSettings.cs" />
+    <Compile Include="Configuration\WindowFeatureElement.cs" />
+    <Compile Include="Globalization\DictionaryCache.cs" />
+    <Compile Include="Globalization\GlobalizationWebHelper.cs" />
+    <Compile Include="Globalization\NameTableContextCache.cs" />
+    <Compile Include="Globalization\WebTranslator.cs" />
+    <Compile Include="HttpModules\ApplicationErrorLogSection.cs" />
+    <Compile Include="HttpModules\ApplicationErrorModule.cs" />
+    <Compile Include="HttpModules\ControlStylePageModule.cs" />
+    <Compile Include="HttpModules\HttpEntryModule.cs" />
+    <Compile Include="HttpModules\PageModuleHttpModule.cs" />
+    <Compile Include="HttpModules\PageMonitorModule.cs" />
+    <Compile Include="Configuration\PageMonitorSettings.cs" />
+    <Compile Include="HttpModules\PMPerformanceCounters.cs" />
+    <Compile Include="MVC\ControllerHelper.cs" />
+    <Compile Include="MVC\ControllerInfo.cs" />
+    <Compile Include="MVC\ControllerMethodAttribute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\DeluxeScript.cs" />
+    <Compile Include="Resources\DeluxeWebResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DeluxeWebResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ClientMsg\ClientMsgResources.cs" />
+    <Compile Include="Resources\ImageContainer.cs" />
+    <Compile Include="Script\ControlBase\Constants.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Script\ControlBase\ClientCssResourceAttribute.cs" />
+    <Compile Include="Script\ControlBase\ClientPropertyNameAttribute.cs" />
+    <Compile Include="Script\ControlBase\ClientScriptResourceAttribute.cs" />
+    <Compile Include="Script\ControlBase\ComponentReferenceAttribute.cs" />
+    <Compile Include="Script\ControlBase\ConvertedScriptReferencesCache.cs" />
+    <Compile Include="Script\ControlBase\ScriptControlHelper.cs" />
+    <Compile Include="Script\ControlBase\ScriptGridViewBase.cs" />
+    <Compile Include="Script\ControlBase\ScriptListControlBase.cs" />
+    <Compile Include="Script\ControlBase\StaticCallBackProxy.cs" />
+    <Compile Include="Script\Resources\AnimationsScript.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Script\Resources\ControlBaseScript.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\WebUtility.cs" />
+    <Compile Include="Script\Serialization\InternalDateTimeConverter.cs" />
+    <Compile Include="WebControlBase\ControlRenderMode.cs" />
+    <Compile Include="WebControlBase\DataBoundControlInternal.cs" />
+    <Compile Include="Script\ControlBase\DataBoundExtenderControl.cs" />
+    <Compile Include="Script\ControlBase\DataBoundScriptControl.cs" />
+    <Compile Include="Script\ControlBase\Design\ExtendedTypeDescriptionProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Script\ControlBase\Design\ExtenderBaseDesignerHelpers.cs" />
+    <Compile Include="Script\ControlBase\Design\ExtenderControlBaseDesigner.cs" />
+    <Compile Include="Script\Serialization\DataRowConverter.cs" />
+    <Compile Include="Common\ClientCssManager.cs" />
+    <Compile Include="WebControlBase\DesignerBase.cs" />
+    <Compile Include="Script\ControlBase\Design\TypeControlIDConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Script\ControlBase\ElementReferenceAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Script\ControlBase\ExtenderControlBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Script\ControlBase\ProfilePropertyBinding.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Script\ControlBase\ProfilePropertyBindingCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Script\ControlBase\ScriptControlEventAttribute.cs" />
+    <Compile Include="Script\ControlBase\ScriptControlMethodAttribute.cs" />
+    <Compile Include="Script\ControlBase\ScriptControlBasePartialCode.cs" />
+    <Compile Include="Script\ControlBase\ScriptControlPropertyAttribute.cs" />
+    <Compile Include="Script\ControlBase\IClientStateManager.cs" />
+    <Compile Include="Script\ControlBase\IControlResolver.cs" />
+    <Compile Include="Script\Serialization\JavaScriptConverterAttribute.cs" />
+    <Compile Include="Script\ControlBase\RequiredPropertyAttribute.cs" />
+    <Compile Include="Script\ControlBase\RequiredScriptAttribute.cs" />
+    <Compile Include="Script\ControlBase\ResolveControlEventArgs.cs" />
+    <Compile Include="Script\ControlBase\ResolveControlEventHandler.cs" />
+    <Compile Include="Script\ControlBase\ScriptControlBase.cs" />
+    <Compile Include="Script\ControlBase\ScriptObjectBuilder.cs" />
+    <Compile Include="Script\ControlBase\ServicePathConverter.cs" />
+    <Compile Include="Script\Serialization\DefaultTypeResolver.cs" />
+    <Compile Include="Script\Serialization\JSONSerializerExecute.cs" />
+    <Compile Include="Script\Serialization\JSONSerializerFactory.cs" />
+    <Compile Include="Script\Serialization\StyleCollectionConverter.cs" />
+    <Compile Include="Script\Serialization\StyleConverter.cs" />
+    <Compile Include="WebControlBase\StyleSheetControl.cs" />
+    <Compile Include="WebControlBase\ViewSateItemInternal.cs" />
+    <Compile Include="WebControlBase\WebControlUtility.cs" />
+    <Compile Include="Common\WebControlTranslator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Configuration\CountersInstaller.resx">
+      <DependentUpon>CountersInstaller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\DeluxeWebResource.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DeluxeWebResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Script\Resources\Animations.js" />
+    <EmbeddedResource Include="Script\Resources\ControlBase.js" />
+    <EmbeddedResource Include="Script\Resources\ScriptResources.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Script\Resources\ScriptResources.zh-CHS.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Images\excel.gif" />
+    <EmbeddedResource Include="Resources\Images\htm.gif" />
+    <EmbeddedResource Include="Resources\Images\image.gif" />
+    <EmbeddedResource Include="Resources\Images\pdf.gif" />
+    <EmbeddedResource Include="Resources\Images\ppt.gif" />
+    <EmbeddedResource Include="Resources\Images\shusheng.gif" />
+    <EmbeddedResource Include="Resources\Images\sound.gif" />
+    <EmbeddedResource Include="Resources\Images\visio.gif" />
+    <EmbeddedResource Include="Resources\Images\winrar.gif" />
+    <EmbeddedResource Include="Resources\Images\winzip.gif" />
+    <EmbeddedResource Include="Resources\Images\wmp.gif" />
+    <EmbeddedResource Include="Resources\Images\word.gif" />
+    <EmbeddedResource Include="Resources\Images\wordpad.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ClientMsg\WebMsgBox.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ClientMsg\alert.gif" />
+    <EmbeddedResource Include="Resources\ClientMsg\confirm.gif" />
+    <EmbeddedResource Include="Resources\ClientMsg\inform.gif" />
+    <EmbeddedResource Include="Resources\ClientMsg\ClientMsg.js" />
+    <EmbeddedResource Include="Resources\ClientMsg\stop.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Deluxe.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MCS.Library.snk" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <!--<BinFiles Include="**/bin/Release/*.dll;**/bin/Release/*.pdb" Condition="'$(Configuration)' == 'Release'" />-->
+    <!--<BinFiles Include="bin\Debug\DeluxeWorks.Library.dll" />-->
+    <!--<BinFiles Include="bin\Debug\DeluxeWorks.Library.pdb" />-->
+    <!--<BinFiles Include="bin\Debug\DeluxeWorks.Web.Library.dll" />-->
+    <!--<BinFiles Include="bin\Debug\DeluxeWorks.Web.Library.pdb" />-->
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="HttpModules\ApplicationErrorModuleTemplate.htm" />
+    <EmbeddedResource Include="HttpModules\ApplicationErrorModuleTemplate_stopLogo-English.gif" />
+    <EmbeddedResource Include="HttpModules\ApplicationErrorModuleTemplate_stopLogo.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MCS.Library\MCS.Library.P.csproj">
+      <Project>{4077B0B7-062A-4F6D-8A45-A180A2ED3215}</Project>
+      <Name>MCS.Library.P</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Target Name="AfterBuild">
+    <!--<Copy SourceFiles="@(BinFiles)" DestinationFolder="..\..\Bin" SkipUnchangedFiles="True" />-->
+  </Target>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

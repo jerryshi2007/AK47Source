@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2B974479-EB50-46D1-A812-58BB45447D65}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MCS.Library.Passport</RootNamespace>
+    <AssemblyName>MCS.Library.Passport</AssemblyName>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>MCS.Library.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'DebugP|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\DebugPerformance\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\DebugPerformance\MCS.Library.Passport.xml</DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+    <CodeAnalysisRuleSet>Migrated rules for MCS.Library.Passport.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cache\PrincipalCache.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\AuthenticateException.cs" />
+    <Compile Include="Common\Define.cs" />
+    <Compile Include="Configuration\AuthenticateDirSettings.cs" />
+    <Compile Include="Configuration\DomainMappingSettings.cs" />
+    <Compile Include="Configuration\ImpersonateSettings.cs" />
+    <Compile Include="Configuration\PassportClientSettings.cs" />
+    <Compile Include="Configuration\PassportEncryptionSettings.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configuration\PassportSectionGroup.cs" />
+    <Compile Include="Configuration\PassportSignInSettings.cs" />
+    <Compile Include="Configuration\RolesDefineConfig.cs" />
+    <Compile Include="Controls\AccessTicketChecker.cs" />
+    <Compile Include="Controls\AccessTicketHtmlAnchor.cs" />
+    <Compile Include="Controls\ChangePasswordControl.cs" />
+    <Compile Include="Controls\PassportWebControlHelper.cs" />
+    <Compile Include="Controls\SignInContext.cs" />
+    <Compile Include="Controls\SignInControl.cs" />
+    <Compile Include="Controls\SignInLogoControl.cs" />
+    <Compile Include="Controls\SignInNotifyEventContainer.cs" />
+    <Compile Include="Controls\SignInPageData.cs" />
+    <Compile Include="Crypto\StringEncryptor.cs" />
+    <Compile Include="Crypto\TicketDesEncryptor.cs" />
+    <Compile Include="Crypto\TicketEncryptor.cs" />
+    <Compile Include="Common\Common.cs" />
+    <Compile Include="DataObjects\AccessTicket.cs" />
+    <Compile Include="DataObjects\DataAdapter.cs" />
+    <Compile Include="DataObjects\SignInInfo.cs" />
+    <Compile Include="DataObjects\Ticket.cs" />
+    <Compile Include="HttpModules\AuthenticationModuleBase.cs" />
+    <Compile Include="HttpModules\PassportAuthenticationModule.cs" />
+    <Compile Include="HttpModules\WindowsAuthenticationModule.cs" />
+    <Compile Include="Interfaces\AppLogOffCallBackUrl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Encryption.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Operations.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfaces\SignInInfoAndTicket.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mechanism\AccessTicketManager.cs" />
+    <Compile Include="Mechanism\ADSIUserUpdaterBase.cs" />
+    <Compile Include="Mechanism\DefaultAuthenticator.cs" />
+    <Compile Include="Mechanism\DefaultPrincipalBuilder.cs" />
+    <Compile Include="Mechanism\DomainUserUpdater.cs" />
+    <Compile Include="Mechanism\LocalUserUpdater.cs" />
+    <Compile Include="Mechanism\PassportManager.cs" />
+    <Compile Include="Mechanism\WindowsAuthenticator.cs" />
+    <Compile Include="Principal\DeluxeIdentity.cs" />
+    <Compile Include="Principal\DeluxePrincipal.cs" />
+    <Compile Include="Principal\PrincipalExtensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resource.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\signInControlScript.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\signin.gif" />
+    <EmbeddedResource Include="Resources\signout.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\success.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MCS.Library.snk" />
+    <None Include="Resources\fail.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\changePasswordScript.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\en-US\signout.gif" />
+    <EmbeddedResource Include="Resources\en-US\signin.gif" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <!--<BinFiles Include="**/bin/Debug/DeluxeWorks.Library.Passport.dll" Condition="'$(Configuration)' == 'Debug'" />-->
+    <!--<BinFiles Include="**/bin/Debug/DeluxeWorks.Library.Passport.pdb" Condition="'$(Configuration)' == 'Debug'" />-->
+    <!--<BinFiles Include="**/bin/Debug/DeluxeWorks.Library.Passport.xml" Condition="'$(Configuration)' == 'Debug'" />-->
+    <!--<BinFiles Include="**/bin/Release/DeluxeWorks.Library.Passport.dll" Condition="'$(Configuration)' == 'Release'" />-->
+    <!--<BinFiles Include="**/bin/TestDebug/DeluxeWorks.Library.Passport.dll" Condition="'$(Configuration)' == 'DELUXEWORKSTEST'" />-->
+    <!--<BinFiles Include="**/bin/TestDebug/DeluxeWorks.Library.Passport.pdb" Condition="'$(Configuration)' == 'DELUXEWORKSTEST'" />-->
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mechanism\afterSignInPost.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\AccessTicketScript.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MCS.Library.ADHelper\MCS.Library.ADHelper.P.csproj">
+      <Project>{2B0E10EE-F7E1-468B-84C0-ABD17A3A7319}</Project>
+      <Name>MCS.Library.ADHelper.P</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MCS.Library.Data\MCS.Library.Data.P.csproj">
+      <Project>{4313DE1E-738F-477D-B7FD-B237E9116670}</Project>
+      <Name>MCS.Library.Data.P</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MCS.Library.OGUPermission\MCS.Library.OGUPermission.P.csproj">
+      <Project>{6EA98729-9A07-4D1F-B389-07C6B9D43B1D}</Project>
+      <Name>MCS.Library.OGUPermission.P</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MCS.Library\MCS.Library.P.csproj">
+      <Project>{4077B0B7-062A-4F6D-8A45-A180A2ED3215}</Project>
+      <Name>MCS.Library.P</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+    <!--<Copy SourceFiles="@(BinFiles)" DestinationFolder="..\..\Bin" SkipUnchangedFiles="True" />-->
+  </Target>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

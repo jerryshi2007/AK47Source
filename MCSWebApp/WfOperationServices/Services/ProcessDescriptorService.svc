@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="WfOperationServices.Services.ProcessDescriptorService" CodeBehind="ProcessDescriptorService.svc.cs" Factory="MCS.Library.WcfExtensions.WfServiceHostFactory" %>

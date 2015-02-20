@@ -1,0 +1,9 @@
+﻿<%@ register assembly="MCS.Web.WebControls" namespace="MCS.Web.WebControls" tagprefix="MCS" %>
+<%@ register assembly="MCS.Library.SOA.Web.WebControls" namespace="MCS.Web.WebControls"
+	tagprefix="SOA" %>
+<soa:userselector runat="server" id="userSelector" multiselect="true" dialogheadertext="请选择人员"
+	dialogtitle="请选择人员" showingmode="Dialog" showopinioninput="false" listmask="Organization,User"
+	invokewithoutviewstate="true" />
+<soa:runtimeparametersviewer id="runtimeParametersViewer" runat="server" dialogtitle="查看流程参数"
+	dialogheadertext="查看流程参数" />
+<iframe name="innerFrame" style="display: none"></iframe>

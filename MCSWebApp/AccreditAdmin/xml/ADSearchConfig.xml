@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<Config>
+	<QueryOGU>true</QueryOGU>
+	<MultiSelect>false</MultiSelect>
+	<BottomRow>false</BottomRow>
+	<Caption>查找组织机构或用户</Caption>
+	<Logo>url(../images/32/searchgo.gif)</Logo>
+	<LogoWidth>45</LogoWidth>
+	<LogoHeight>42</LogoHeight>
+</Config>

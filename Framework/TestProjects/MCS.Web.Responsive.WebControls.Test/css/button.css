@@ -1,0 +1,2781 @@
+﻿
+/*按钮*/
+
+
+.btn
+{
+    margin: 0px;
+    border-radius: 0px;
+    border: 5px solid rgb(255, 255, 255);
+    transition: 0.15s;
+    color: rgb(255, 255, 255) !important;
+    vertical-align: middle;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    box-shadow: none !important;
+    text-shadow: 0px -1px 0px rgba(0,0,0,0.25) !important;
+    background-image: none !important;
+    -webkit-transition: all ease .15s;
+}
+
+.btn-lg
+{
+    border-width: 5px;
+    padding: 7px 16px;
+    line-height: 1.35;
+}
+
+.btn-sm
+{
+    border-width: 4px;
+    padding: 4px 9px;
+    line-height: 1.39;
+    font-size: 13px;
+}
+
+.btn-xs
+{
+    border-width: 3px;
+}
+
+.btn-minier
+{
+    border-width: 2px;
+    padding: 0px 4px;
+    line-height: 18px;
+    font-size: 12px;
+}
+
+button.btn:active
+{
+    left: 1px;
+    top: 1px;
+}
+
+/*.btn
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(171, 186, 195) !important;
+}
+
+.btn-default
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(171, 186, 195) !important;
+}
+
+.btn:focus
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(171, 186, 195) !important;
+}
+
+.btn-default:focus
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(171, 186, 195) !important;
+}
+
+.btn:hover
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(139, 154, 163) !important;
+}
+
+.btn-default:hover
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(139, 154, 163) !important;
+}*/
+
+.open .dropdown-toggle.btn
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(139, 154, 163) !important;
+}
+
+.open .dropdown-toggle.btn-default
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(139, 154, 163) !important;
+}
+
+.no-border.btn:hover
+{
+    border-color: rgb(139, 154, 163);
+}
+
+.no-border.btn-default:hover
+{
+    border-color: rgb(139, 154, 163);
+}
+
+.no-hover.btn:hover
+{
+    background-color: rgb(171, 186, 195) !important;
+}
+
+.no-hover.btn-default:hover
+{
+    background-color: rgb(171, 186, 195) !important;
+}
+
+.active.btn
+{
+    border-color: rgb(135, 153, 164);
+    background-color: rgb(155, 170, 179) !important;
+}
+
+.active.btn-default
+{
+    border-color: rgb(135, 153, 164);
+    background-color: rgb(155, 170, 179) !important;
+}
+
+.active.no-border.btn
+{
+    border-color: rgb(146, 163, 172);
+    background-color: rgb(146, 163, 172) !important;
+}
+
+.active.no-border.btn-default
+{
+    border-color: rgb(146, 163, 172);
+    background-color: rgb(146, 163, 172) !important;
+}
+
+.disabled.btn
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(171, 186, 195) !important;
+}
+
+.disabled.btn-default
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(171, 186, 195) !important;
+}
+
+[disabled].btn
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(171, 186, 195) !important;
+}
+
+[disabled].btn-default
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(171, 186, 195) !important;
+}
+
+fieldset[disabled] .btn
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(171, 186, 195) !important;
+}
+
+fieldset[disabled] .btn-default
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(171, 186, 195) !important;
+}
+
+.disabled.btn:hover
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(171, 186, 195) !important;
+}
+
+.disabled.btn-default:hover
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(171, 186, 195) !important;
+}
+
+[disabled].btn:hover
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(171, 186, 195) !important;
+}
+
+[disabled].btn-default:hover
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(171, 186, 195) !important;
+}
+
+fieldset[disabled] .btn:hover
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(171, 186, 195) !important;
+}
+
+fieldset[disabled] .btn-default:hover
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(171, 186, 195) !important;
+}
+
+.disabled.btn:focus
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(171, 186, 195) !important;
+}
+
+.disabled.btn-default:focus
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(171, 186, 195) !important;
+}
+
+[disabled].btn:focus
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(171, 186, 195) !important;
+}
+
+[disabled].btn-default:focus
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(171, 186, 195) !important;
+}
+
+fieldset[disabled] .btn:focus
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(171, 186, 195) !important;
+}
+
+fieldset[disabled] .btn-default:focus
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(171, 186, 195) !important;
+}
+
+.disabled.btn:active
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(171, 186, 195) !important;
+}
+
+.disabled.btn-default:active
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(171, 186, 195) !important;
+}
+
+[disabled].btn:active
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(171, 186, 195) !important;
+}
+
+[disabled].btn-default:active
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(171, 186, 195) !important;
+}
+
+fieldset[disabled] .btn:active
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(171, 186, 195) !important;
+}
+
+fieldset[disabled] .btn-default:active
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(171, 186, 195) !important;
+}
+
+.active.disabled.btn
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(171, 186, 195) !important;
+}
+
+.active.disabled.btn-default
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(171, 186, 195) !important;
+}
+
+[disabled].active.btn
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(171, 186, 195) !important;
+}
+
+[disabled].active.btn-default
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(171, 186, 195) !important;
+}
+
+fieldset[disabled] .active.btn
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(171, 186, 195) !important;
+}
+
+fieldset[disabled] .active.btn-default
+{
+    border-color: rgb(171, 186, 195);
+    background-color: rgb(171, 186, 195) !important;
+}
+
+/*.btn-primary
+{
+    border-color: rgb(66, 139, 202);
+    background-color: rgb(66, 139, 202) !important;
+}
+
+    .btn-primary:focus
+    {
+        border-color: rgb(66, 139, 202);
+        background-color: rgb(66, 139, 202) !important;
+    }
+
+    .btn-primary:hover
+    {
+        border-color: rgb(66, 139, 202);
+        background-color: rgb(27, 106, 170) !important;
+    }*/
+
+.open .dropdown-toggle.btn-primary
+{
+    border-color: rgb(66, 139, 202);
+    background-color: rgb(27, 106, 170) !important;
+}
+
+.no-border.btn-primary:hover
+{
+    border-color: rgb(27, 106, 170);
+}
+
+.no-hover.btn-primary:hover
+{
+    background-color: rgb(66, 139, 202) !important;
+}
+
+.active.btn-primary
+{
+    border-color: rgb(39, 104, 157);
+    background-color: rgb(47, 123, 186) !important;
+}
+
+.active.no-border.btn-primary
+{
+    border-color: rgb(43, 114, 174);
+    background-color: rgb(43, 114, 174) !important;
+}
+
+.disabled.btn-primary
+{
+    border-color: rgb(66, 139, 202);
+    background-color: rgb(66, 139, 202) !important;
+}
+
+[disabled].btn-primary
+{
+    border-color: rgb(66, 139, 202);
+    background-color: rgb(66, 139, 202) !important;
+}
+
+fieldset[disabled] .btn-primary
+{
+    border-color: rgb(66, 139, 202);
+    background-color: rgb(66, 139, 202) !important;
+}
+
+.disabled.btn-primary:hover
+{
+    border-color: rgb(66, 139, 202);
+    background-color: rgb(66, 139, 202) !important;
+}
+
+[disabled].btn-primary:hover
+{
+    border-color: rgb(66, 139, 202);
+    background-color: rgb(66, 139, 202) !important;
+}
+
+fieldset[disabled] .btn-primary:hover
+{
+    border-color: rgb(66, 139, 202);
+    background-color: rgb(66, 139, 202) !important;
+}
+
+.disabled.btn-primary:focus
+{
+    border-color: rgb(66, 139, 202);
+    background-color: rgb(66, 139, 202) !important;
+}
+
+[disabled].btn-primary:focus
+{
+    border-color: rgb(66, 139, 202);
+    background-color: rgb(66, 139, 202) !important;
+}
+
+fieldset[disabled] .btn-primary:focus
+{
+    border-color: rgb(66, 139, 202);
+    background-color: rgb(66, 139, 202) !important;
+}
+
+.disabled.btn-primary:active
+{
+    border-color: rgb(66, 139, 202);
+    background-color: rgb(66, 139, 202) !important;
+}
+
+[disabled].btn-primary:active
+{
+    border-color: rgb(66, 139, 202);
+    background-color: rgb(66, 139, 202) !important;
+}
+
+fieldset[disabled] .btn-primary:active
+{
+    border-color: rgb(66, 139, 202);
+    background-color: rgb(66, 139, 202) !important;
+}
+
+.active.disabled.btn-primary
+{
+    border-color: rgb(66, 139, 202);
+    background-color: rgb(66, 139, 202) !important;
+}
+
+[disabled].active.btn-primary
+{
+    border-color: rgb(66, 139, 202);
+    background-color: rgb(66, 139, 202) !important;
+}
+
+fieldset[disabled] .active.btn-primary
+{
+    border-color: rgb(66, 139, 202);
+    background-color: rgb(66, 139, 202) !important;
+}
+
+.btn-info
+{
+    border-color: rgb(111, 179, 224);
+    background-color: rgb(111, 179, 224) !important;
+}
+
+    .btn-info:focus
+    {
+        border-color: rgb(111, 179, 224);
+        background-color: rgb(111, 179, 224) !important;
+    }
+
+    .btn-info:hover
+    {
+        border-color: rgb(111, 179, 224);
+        background-color: rgb(79, 153, 198) !important;
+    }
+
+.open .dropdown-toggle.btn-info
+{
+    border-color: rgb(111, 179, 224);
+    background-color: rgb(79, 153, 198) !important;
+}
+
+.no-border.btn-info:hover
+{
+    border-color: rgb(79, 153, 198);
+}
+
+.no-hover.btn-info:hover
+{
+    background-color: rgb(111, 179, 224) !important;
+}
+
+.active.btn-info
+{
+    border-color: rgb(67, 150, 203);
+    background-color: rgb(95, 166, 211) !important;
+}
+
+.active.no-border.btn-info
+{
+    border-color: rgb(83, 159, 208);
+    background-color: rgb(83, 159, 208) !important;
+}
+
+.disabled.btn-info
+{
+    border-color: rgb(111, 179, 224);
+    background-color: rgb(111, 179, 224) !important;
+}
+
+[disabled].btn-info
+{
+    border-color: rgb(111, 179, 224);
+    background-color: rgb(111, 179, 224) !important;
+}
+
+fieldset[disabled] .btn-info
+{
+    border-color: rgb(111, 179, 224);
+    background-color: rgb(111, 179, 224) !important;
+}
+
+.disabled.btn-info:hover
+{
+    border-color: rgb(111, 179, 224);
+    background-color: rgb(111, 179, 224) !important;
+}
+
+[disabled].btn-info:hover
+{
+    border-color: rgb(111, 179, 224);
+    background-color: rgb(111, 179, 224) !important;
+}
+
+fieldset[disabled] .btn-info:hover
+{
+    border-color: rgb(111, 179, 224);
+    background-color: rgb(111, 179, 224) !important;
+}
+
+.disabled.btn-info:focus
+{
+    border-color: rgb(111, 179, 224);
+    background-color: rgb(111, 179, 224) !important;
+}
+
+[disabled].btn-info:focus
+{
+    border-color: rgb(111, 179, 224);
+    background-color: rgb(111, 179, 224) !important;
+}
+
+fieldset[disabled] .btn-info:focus
+{
+    border-color: rgb(111, 179, 224);
+    background-color: rgb(111, 179, 224) !important;
+}
+
+.disabled.btn-info:active
+{
+    border-color: rgb(111, 179, 224);
+    background-color: rgb(111, 179, 224) !important;
+}
+
+[disabled].btn-info:active
+{
+    border-color: rgb(111, 179, 224);
+    background-color: rgb(111, 179, 224) !important;
+}
+
+fieldset[disabled] .btn-info:active
+{
+    border-color: rgb(111, 179, 224);
+    background-color: rgb(111, 179, 224) !important;
+}
+
+.active.disabled.btn-info
+{
+    border-color: rgb(111, 179, 224);
+    background-color: rgb(111, 179, 224) !important;
+}
+
+[disabled].active.btn-info
+{
+    border-color: rgb(111, 179, 224);
+    background-color: rgb(111, 179, 224) !important;
+}
+
+fieldset[disabled] .active.btn-info
+{
+    border-color: rgb(111, 179, 224);
+    background-color: rgb(111, 179, 224) !important;
+}
+
+
+.btn-success
+{
+    border-color: rgb(135, 184, 127);
+    background-color: rgb(135, 184, 127) !important;
+}
+
+    .btn-success:focus
+    {
+        border-color: rgb(135, 184, 127);
+        background-color: rgb(135, 184, 127) !important;
+    }
+
+    .btn-success:hover
+    {
+        border-color: rgb(135, 184, 127);
+        background-color: rgb(98, 155, 88) !important;
+    }
+
+
+.open .dropdown-toggle.btn-success
+{
+    border-color: rgb(135, 184, 127);
+    background-color: rgb(98, 155, 88) !important;
+}
+
+.no-border.btn-success:hover
+{
+    border-color: rgb(98, 155, 88);
+}
+
+.no-hover.btn-success:hover
+{
+    background-color: rgb(135, 184, 127) !important;
+}
+
+.active.btn-success
+{
+    border-color: rgb(98, 153, 89);
+    background-color: rgb(117, 170, 108) !important;
+}
+
+.active.no-border.btn-success
+{
+    border-color: rgb(107, 164, 98);
+    background-color: rgb(107, 164, 98) !important;
+}
+
+.disabled.btn-success
+{
+    border-color: rgb(135, 184, 127);
+    background-color: rgb(135, 184, 127) !important;
+}
+
+[disabled].btn-success
+{
+    border-color: rgb(135, 184, 127);
+    background-color: rgb(135, 184, 127) !important;
+}
+
+fieldset[disabled] .btn-success
+{
+    border-color: rgb(135, 184, 127);
+    background-color: rgb(135, 184, 127) !important;
+}
+
+.disabled.btn-success:hover
+{
+    border-color: rgb(135, 184, 127);
+    background-color: rgb(135, 184, 127) !important;
+}
+
+[disabled].btn-success:hover
+{
+    border-color: rgb(135, 184, 127);
+    background-color: rgb(135, 184, 127) !important;
+}
+
+fieldset[disabled] .btn-success:hover
+{
+    border-color: rgb(135, 184, 127);
+    background-color: rgb(135, 184, 127) !important;
+}
+
+.disabled.btn-success:focus
+{
+    border-color: rgb(135, 184, 127);
+    background-color: rgb(135, 184, 127) !important;
+}
+
+[disabled].btn-success:focus
+{
+    border-color: rgb(135, 184, 127);
+    background-color: rgb(135, 184, 127) !important;
+}
+
+fieldset[disabled] .btn-success:focus
+{
+    border-color: rgb(135, 184, 127);
+    background-color: rgb(135, 184, 127) !important;
+}
+
+.disabled.btn-success:active
+{
+    border-color: rgb(135, 184, 127);
+    background-color: rgb(135, 184, 127) !important;
+}
+
+[disabled].btn-success:active
+{
+    border-color: rgb(135, 184, 127);
+    background-color: rgb(135, 184, 127) !important;
+}
+
+fieldset[disabled] .btn-success:active
+{
+    border-color: rgb(135, 184, 127);
+    background-color: rgb(135, 184, 127) !important;
+}
+
+.active.disabled.btn-success
+{
+    border-color: rgb(135, 184, 127);
+    background-color: rgb(135, 184, 127) !important;
+}
+
+[disabled].active.btn-success
+{
+    border-color: rgb(135, 184, 127);
+    background-color: rgb(135, 184, 127) !important;
+}
+
+fieldset[disabled] .active.btn-success
+{
+    border-color: rgb(135, 184, 127);
+    background-color: rgb(135, 184, 127) !important;
+}
+
+
+.btn-warning
+{
+    border-color: rgb(255, 183, 82);
+    background-color: rgb(255, 183, 82) !important;
+}
+
+    .btn-warning:focus
+    {
+        border-color: rgb(255, 183, 82);
+        background-color: rgb(255, 183, 82) !important;
+    }
+
+    .btn-warning:hover
+    {
+        border-color: rgb(255, 183, 82);
+        background-color: rgb(229, 151, 41) !important;
+    }
+
+.open .dropdown-toggle.btn-warning
+{
+    border-color: rgb(255, 183, 82);
+    background-color: rgb(229, 151, 41) !important;
+}
+
+.no-border.btn-warning:hover
+{
+    border-color: rgb(229, 151, 41);
+}
+
+.no-hover.btn-warning:hover
+{
+    background-color: rgb(255, 183, 82) !important;
+}
+
+.active.btn-warning
+{
+    border-color: rgb(240, 152, 28);
+    background-color: rgb(242, 167, 62) !important;
+}
+
+.active.no-border.btn-warning
+{
+    border-color: rgb(241, 160, 47);
+    background-color: rgb(241, 160, 47) !important;
+}
+
+.disabled.btn-warning
+{
+    border-color: rgb(255, 183, 82);
+    background-color: rgb(255, 183, 82) !important;
+}
+
+[disabled].btn-warning
+{
+    border-color: rgb(255, 183, 82);
+    background-color: rgb(255, 183, 82) !important;
+}
+
+fieldset[disabled] .btn-warning
+{
+    border-color: rgb(255, 183, 82);
+    background-color: rgb(255, 183, 82) !important;
+}
+
+.disabled.btn-warning:hover
+{
+    border-color: rgb(255, 183, 82);
+    background-color: rgb(255, 183, 82) !important;
+}
+
+[disabled].btn-warning:hover
+{
+    border-color: rgb(255, 183, 82);
+    background-color: rgb(255, 183, 82) !important;
+}
+
+fieldset[disabled] .btn-warning:hover
+{
+    border-color: rgb(255, 183, 82);
+    background-color: rgb(255, 183, 82) !important;
+}
+
+.disabled.btn-warning:focus
+{
+    border-color: rgb(255, 183, 82);
+    background-color: rgb(255, 183, 82) !important;
+}
+
+[disabled].btn-warning:focus
+{
+    border-color: rgb(255, 183, 82);
+    background-color: rgb(255, 183, 82) !important;
+}
+
+fieldset[disabled] .btn-warning:focus
+{
+    border-color: rgb(255, 183, 82);
+    background-color: rgb(255, 183, 82) !important;
+}
+
+.disabled.btn-warning:active
+{
+    border-color: rgb(255, 183, 82);
+    background-color: rgb(255, 183, 82) !important;
+}
+
+[disabled].btn-warning:active
+{
+    border-color: rgb(255, 183, 82);
+    background-color: rgb(255, 183, 82) !important;
+}
+
+fieldset[disabled] .btn-warning:active
+{
+    border-color: rgb(255, 183, 82);
+    background-color: rgb(255, 183, 82) !important;
+}
+
+.active.disabled.btn-warning
+{
+    border-color: rgb(255, 183, 82);
+    background-color: rgb(255, 183, 82) !important;
+}
+
+[disabled].active.btn-warning
+{
+    border-color: rgb(255, 183, 82);
+    background-color: rgb(255, 183, 82) !important;
+}
+
+fieldset[disabled] .active.btn-warning
+{
+    border-color: rgb(255, 183, 82);
+    background-color: rgb(255, 183, 82) !important;
+}
+
+.btn-danger
+{
+    border-color: rgb(209, 91, 71);
+    background-color: rgb(209, 91, 71) !important;
+}
+
+    .btn-danger:focus
+    {
+        border-color: rgb(209, 91, 71);
+        background-color: rgb(209, 91, 71) !important;
+    }
+
+    .btn-danger:hover
+    {
+        border-color: rgb(209, 91, 71);
+        background-color: rgb(183, 70, 53) !important;
+    }
+
+.open .dropdown-toggle.btn-danger
+{
+    border-color: rgb(209, 91, 71);
+    background-color: rgb(183, 70, 53) !important;
+}
+
+.no-border.btn-danger:hover
+{
+    border-color: rgb(183, 70, 53);
+}
+
+.no-hover.btn-danger:hover
+{
+    background-color: rgb(209, 91, 71) !important;
+}
+
+.active.btn-danger
+{
+    border-color: rgb(170, 68, 52);
+    background-color: rgb(196, 81, 62) !important;
+}
+
+.active.no-border.btn-danger
+{
+    border-color: rgb(186, 75, 57);
+    background-color: rgb(186, 75, 57) !important;
+}
+
+.disabled.btn-danger
+{
+    border-color: rgb(209, 91, 71);
+    background-color: rgb(209, 91, 71) !important;
+}
+
+[disabled].btn-danger
+{
+    border-color: rgb(209, 91, 71);
+    background-color: rgb(209, 91, 71) !important;
+}
+
+fieldset[disabled] .btn-danger
+{
+    border-color: rgb(209, 91, 71);
+    background-color: rgb(209, 91, 71) !important;
+}
+
+.disabled.btn-danger:hover
+{
+    border-color: rgb(209, 91, 71);
+    background-color: rgb(209, 91, 71) !important;
+}
+
+[disabled].btn-danger:hover
+{
+    border-color: rgb(209, 91, 71);
+    background-color: rgb(209, 91, 71) !important;
+}
+
+fieldset[disabled] .btn-danger:hover
+{
+    border-color: rgb(209, 91, 71);
+    background-color: rgb(209, 91, 71) !important;
+}
+
+.disabled.btn-danger:focus
+{
+    border-color: rgb(209, 91, 71);
+    background-color: rgb(209, 91, 71) !important;
+}
+
+[disabled].btn-danger:focus
+{
+    border-color: rgb(209, 91, 71);
+    background-color: rgb(209, 91, 71) !important;
+}
+
+fieldset[disabled] .btn-danger:focus
+{
+    border-color: rgb(209, 91, 71);
+    background-color: rgb(209, 91, 71) !important;
+}
+
+.disabled.btn-danger:active
+{
+    border-color: rgb(209, 91, 71);
+    background-color: rgb(209, 91, 71) !important;
+}
+
+[disabled].btn-danger:active
+{
+    border-color: rgb(209, 91, 71);
+    background-color: rgb(209, 91, 71) !important;
+}
+
+fieldset[disabled] .btn-danger:active
+{
+    border-color: rgb(209, 91, 71);
+    background-color: rgb(209, 91, 71) !important;
+}
+
+.active.disabled.btn-danger
+{
+    border-color: rgb(209, 91, 71);
+    background-color: rgb(209, 91, 71) !important;
+}
+
+[disabled].active.btn-danger
+{
+    border-color: rgb(209, 91, 71);
+    background-color: rgb(209, 91, 71) !important;
+}
+
+fieldset[disabled] .active.btn-danger
+{
+    border-color: rgb(209, 91, 71);
+    background-color: rgb(209, 91, 71) !important;
+}
+
+.btn-inverse
+{
+    border-color: rgb(85, 85, 85);
+    background-color: rgb(85, 85, 85) !important;
+}
+
+    .btn-inverse:focus
+    {
+        border-color: rgb(85, 85, 85);
+        background-color: rgb(85, 85, 85) !important;
+    }
+
+    .btn-inverse:hover
+    {
+        border-color: rgb(85, 85, 85);
+        background-color: rgb(48, 48, 48) !important;
+    }
+
+.open .dropdown-toggle.btn-inverse
+{
+    border-color: rgb(85, 85, 85);
+    background-color: rgb(48, 48, 48) !important;
+}
+
+.no-border.btn-inverse:hover
+{
+    border-color: rgb(48, 48, 48);
+}
+
+.no-hover.btn-inverse:hover
+{
+    background-color: rgb(85, 85, 85) !important;
+}
+
+.active.btn-inverse
+{
+    border-color: rgb(49, 49, 49);
+    background-color: rgb(67, 67, 67) !important;
+}
+
+.active.no-border.btn-inverse
+{
+    border-color: rgb(59, 59, 59);
+    background-color: rgb(59, 59, 59) !important;
+}
+
+.disabled.btn-inverse
+{
+    border-color: rgb(85, 85, 85);
+    background-color: rgb(85, 85, 85) !important;
+}
+
+[disabled].btn-inverse
+{
+    border-color: rgb(85, 85, 85);
+    background-color: rgb(85, 85, 85) !important;
+}
+
+fieldset[disabled] .btn-inverse
+{
+    border-color: rgb(85, 85, 85);
+    background-color: rgb(85, 85, 85) !important;
+}
+
+.disabled.btn-inverse:hover
+{
+    border-color: rgb(85, 85, 85);
+    background-color: rgb(85, 85, 85) !important;
+}
+
+[disabled].btn-inverse:hover
+{
+    border-color: rgb(85, 85, 85);
+    background-color: rgb(85, 85, 85) !important;
+}
+
+fieldset[disabled] .btn-inverse:hover
+{
+    border-color: rgb(85, 85, 85);
+    background-color: rgb(85, 85, 85) !important;
+}
+
+.disabled.btn-inverse:focus
+{
+    border-color: rgb(85, 85, 85);
+    background-color: rgb(85, 85, 85) !important;
+}
+
+[disabled].btn-inverse:focus
+{
+    border-color: rgb(85, 85, 85);
+    background-color: rgb(85, 85, 85) !important;
+}
+
+fieldset[disabled] .btn-inverse:focus
+{
+    border-color: rgb(85, 85, 85);
+    background-color: rgb(85, 85, 85) !important;
+}
+
+.disabled.btn-inverse:active
+{
+    border-color: rgb(85, 85, 85);
+    background-color: rgb(85, 85, 85) !important;
+}
+
+[disabled].btn-inverse:active
+{
+    border-color: rgb(85, 85, 85);
+    background-color: rgb(85, 85, 85) !important;
+}
+
+fieldset[disabled] .btn-inverse:active
+{
+    border-color: rgb(85, 85, 85);
+    background-color: rgb(85, 85, 85) !important;
+}
+
+.active.disabled.btn-inverse
+{
+    border-color: rgb(85, 85, 85);
+    background-color: rgb(85, 85, 85) !important;
+}
+
+[disabled].active.btn-inverse
+{
+    border-color: rgb(85, 85, 85);
+    background-color: rgb(85, 85, 85) !important;
+}
+
+fieldset[disabled] .active.btn-inverse
+{
+    border-color: rgb(85, 85, 85);
+    background-color: rgb(85, 85, 85) !important;
+}
+
+.btn-pink
+{
+    border-color: rgb(214, 72, 126);
+    background-color: rgb(214, 72, 126) !important;
+}
+
+    .btn-pink:focus
+    {
+        border-color: rgb(214, 72, 126);
+        background-color: rgb(214, 72, 126) !important;
+    }
+
+    .btn-pink:hover
+    {
+        border-color: rgb(214, 72, 126);
+        background-color: rgb(183, 55, 102) !important;
+    }
+
+.open .dropdown-toggle.btn-pink
+{
+    border-color: rgb(214, 72, 126);
+    background-color: rgb(183, 55, 102) !important;
+}
+
+.no-border.btn-pink:hover
+{
+    border-color: rgb(183, 55, 102);
+}
+
+.no-hover.btn-pink:hover
+{
+    background-color: rgb(214, 72, 126) !important;
+}
+
+.active.btn-pink
+{
+    border-color: rgb(175, 52, 98);
+    background-color: rgb(199, 64, 114) !important;
+}
+
+.active.no-border.btn-pink
+{
+    border-color: rgb(190, 56, 106);
+    background-color: rgb(190, 56, 106) !important;
+}
+
+.disabled.btn-pink
+{
+    border-color: rgb(214, 72, 126);
+    background-color: rgb(214, 72, 126) !important;
+}
+
+[disabled].btn-pink
+{
+    border-color: rgb(214, 72, 126);
+    background-color: rgb(214, 72, 126) !important;
+}
+
+fieldset[disabled] .btn-pink
+{
+    border-color: rgb(214, 72, 126);
+    background-color: rgb(214, 72, 126) !important;
+}
+
+.disabled.btn-pink:hover
+{
+    border-color: rgb(214, 72, 126);
+    background-color: rgb(214, 72, 126) !important;
+}
+
+[disabled].btn-pink:hover
+{
+    border-color: rgb(214, 72, 126);
+    background-color: rgb(214, 72, 126) !important;
+}
+
+fieldset[disabled] .btn-pink:hover
+{
+    border-color: rgb(214, 72, 126);
+    background-color: rgb(214, 72, 126) !important;
+}
+
+.disabled.btn-pink:focus
+{
+    border-color: rgb(214, 72, 126);
+    background-color: rgb(214, 72, 126) !important;
+}
+
+[disabled].btn-pink:focus
+{
+    border-color: rgb(214, 72, 126);
+    background-color: rgb(214, 72, 126) !important;
+}
+
+fieldset[disabled] .btn-pink:focus
+{
+    border-color: rgb(214, 72, 126);
+    background-color: rgb(214, 72, 126) !important;
+}
+
+.disabled.btn-pink:active
+{
+    border-color: rgb(214, 72, 126);
+    background-color: rgb(214, 72, 126) !important;
+}
+
+[disabled].btn-pink:active
+{
+    border-color: rgb(214, 72, 126);
+    background-color: rgb(214, 72, 126) !important;
+}
+
+fieldset[disabled] .btn-pink:active
+{
+    border-color: rgb(214, 72, 126);
+    background-color: rgb(214, 72, 126) !important;
+}
+
+.active.disabled.btn-pink
+{
+    border-color: rgb(214, 72, 126);
+    background-color: rgb(214, 72, 126) !important;
+}
+
+[disabled].active.btn-pink
+{
+    border-color: rgb(214, 72, 126);
+    background-color: rgb(214, 72, 126) !important;
+}
+
+fieldset[disabled] .active.btn-pink
+{
+    border-color: rgb(214, 72, 126);
+    background-color: rgb(214, 72, 126) !important;
+}
+
+.btn-purple
+{
+    border-color: rgb(149, 133, 191);
+    background-color: rgb(149, 133, 191) !important;
+}
+
+    .btn-purple:focus
+    {
+        border-color: rgb(149, 133, 191);
+        background-color: rgb(149, 133, 191) !important;
+    }
+
+    .btn-purple:hover
+    {
+        border-color: rgb(149, 133, 191);
+        background-color: rgb(116, 97, 170) !important;
+    }
+
+.open .dropdown-toggle.btn-purple
+{
+    border-color: rgb(149, 133, 191);
+    background-color: rgb(116, 97, 170) !important;
+}
+
+.no-border.btn-purple:hover
+{
+    border-color: rgb(116, 97, 170);
+}
+
+.no-hover.btn-purple:hover
+{
+    background-color: rgb(149, 133, 191) !important;
+}
+
+.active.btn-purple
+{
+    border-color: rgb(112, 92, 168);
+    background-color: rgb(133, 115, 181) !important;
+}
+
+.active.no-border.btn-purple
+{
+    border-color: rgb(124, 105, 175);
+    background-color: rgb(124, 105, 175) !important;
+}
+
+.disabled.btn-purple
+{
+    border-color: rgb(149, 133, 191);
+    background-color: rgb(149, 133, 191) !important;
+}
+
+[disabled].btn-purple
+{
+    border-color: rgb(149, 133, 191);
+    background-color: rgb(149, 133, 191) !important;
+}
+
+fieldset[disabled] .btn-purple
+{
+    border-color: rgb(149, 133, 191);
+    background-color: rgb(149, 133, 191) !important;
+}
+
+.disabled.btn-purple:hover
+{
+    border-color: rgb(149, 133, 191);
+    background-color: rgb(149, 133, 191) !important;
+}
+
+[disabled].btn-purple:hover
+{
+    border-color: rgb(149, 133, 191);
+    background-color: rgb(149, 133, 191) !important;
+}
+
+fieldset[disabled] .btn-purple:hover
+{
+    border-color: rgb(149, 133, 191);
+    background-color: rgb(149, 133, 191) !important;
+}
+
+.disabled.btn-purple:focus
+{
+    border-color: rgb(149, 133, 191);
+    background-color: rgb(149, 133, 191) !important;
+}
+
+[disabled].btn-purple:focus
+{
+    border-color: rgb(149, 133, 191);
+    background-color: rgb(149, 133, 191) !important;
+}
+
+fieldset[disabled] .btn-purple:focus
+{
+    border-color: rgb(149, 133, 191);
+    background-color: rgb(149, 133, 191) !important;
+}
+
+.disabled.btn-purple:active
+{
+    border-color: rgb(149, 133, 191);
+    background-color: rgb(149, 133, 191) !important;
+}
+
+[disabled].btn-purple:active
+{
+    border-color: rgb(149, 133, 191);
+    background-color: rgb(149, 133, 191) !important;
+}
+
+fieldset[disabled] .btn-purple:active
+{
+    border-color: rgb(149, 133, 191);
+    background-color: rgb(149, 133, 191) !important;
+}
+
+.active.disabled.btn-purple
+{
+    border-color: rgb(149, 133, 191);
+    background-color: rgb(149, 133, 191) !important;
+}
+
+[disabled].active.btn-purple
+{
+    border-color: rgb(149, 133, 191);
+    background-color: rgb(149, 133, 191) !important;
+}
+
+fieldset[disabled] .active.btn-purple
+{
+    border-color: rgb(149, 133, 191);
+    background-color: rgb(149, 133, 191) !important;
+}
+
+.btn-grey
+{
+    border-color: rgb(160, 160, 160);
+    background-color: rgb(160, 160, 160) !important;
+}
+
+    .btn-grey:focus
+    {
+        border-color: rgb(160, 160, 160);
+        background-color: rgb(160, 160, 160) !important;
+    }
+
+    .btn-grey:hover
+    {
+        border-color: rgb(160, 160, 160);
+        background-color: rgb(136, 136, 136) !important;
+    }
+
+.open .dropdown-toggle.btn-grey
+{
+    border-color: rgb(160, 160, 160);
+    background-color: rgb(136, 136, 136) !important;
+}
+
+.no-border.btn-grey:hover
+{
+    border-color: rgb(136, 136, 136);
+}
+
+.no-hover.btn-grey:hover
+{
+    background-color: rgb(160, 160, 160) !important;
+}
+
+.active.btn-grey
+{
+    border-color: rgb(130, 130, 130);
+    background-color: rgb(148, 148, 148) !important;
+}
+
+.active.no-border.btn-grey
+{
+    border-color: rgb(140, 140, 140);
+    background-color: rgb(140, 140, 140) !important;
+}
+
+.disabled.btn-grey
+{
+    border-color: rgb(160, 160, 160);
+    background-color: rgb(160, 160, 160) !important;
+}
+
+[disabled].btn-grey
+{
+    border-color: rgb(160, 160, 160);
+    background-color: rgb(160, 160, 160) !important;
+}
+
+fieldset[disabled] .btn-grey
+{
+    border-color: rgb(160, 160, 160);
+    background-color: rgb(160, 160, 160) !important;
+}
+
+.disabled.btn-grey:hover
+{
+    border-color: rgb(160, 160, 160);
+    background-color: rgb(160, 160, 160) !important;
+}
+
+[disabled].btn-grey:hover
+{
+    border-color: rgb(160, 160, 160);
+    background-color: rgb(160, 160, 160) !important;
+}
+
+fieldset[disabled] .btn-grey:hover
+{
+    border-color: rgb(160, 160, 160);
+    background-color: rgb(160, 160, 160) !important;
+}
+
+.disabled.btn-grey:focus
+{
+    border-color: rgb(160, 160, 160);
+    background-color: rgb(160, 160, 160) !important;
+}
+
+[disabled].btn-grey:focus
+{
+    border-color: rgb(160, 160, 160);
+    background-color: rgb(160, 160, 160) !important;
+}
+
+fieldset[disabled] .btn-grey:focus
+{
+    border-color: rgb(160, 160, 160);
+    background-color: rgb(160, 160, 160) !important;
+}
+
+.disabled.btn-grey:active
+{
+    border-color: rgb(160, 160, 160);
+    background-color: rgb(160, 160, 160) !important;
+}
+
+[disabled].btn-grey:active
+{
+    border-color: rgb(160, 160, 160);
+    background-color: rgb(160, 160, 160) !important;
+}
+
+fieldset[disabled] .btn-grey:active
+{
+    border-color: rgb(160, 160, 160);
+    background-color: rgb(160, 160, 160) !important;
+}
+
+.active.disabled.btn-grey
+{
+    border-color: rgb(160, 160, 160);
+    background-color: rgb(160, 160, 160) !important;
+}
+
+[disabled].active.btn-grey
+{
+    border-color: rgb(160, 160, 160);
+    background-color: rgb(160, 160, 160) !important;
+}
+
+fieldset[disabled] .active.btn-grey
+{
+    border-color: rgb(160, 160, 160);
+    background-color: rgb(160, 160, 160) !important;
+}
+
+.btn-yellow
+{
+    color: rgb(153, 102, 51) !important;
+    text-shadow: 0px -1px 0px rgba(255,255,255,0.4) !important;
+}
+
+.btn-yellow
+{
+    border-color: rgb(254, 225, 136);
+    background-color: rgb(254, 225, 136) !important;
+}
+
+    .btn-yellow:focus
+    {
+        border-color: rgb(254, 225, 136);
+        background-color: rgb(254, 225, 136) !important;
+    }
+
+    .btn-yellow:hover
+    {
+        border-color: rgb(254, 225, 136);
+        background-color: rgb(247, 208, 91) !important;
+    }
+
+.open .dropdown-toggle.btn-yellow
+{
+    border-color: rgb(254, 225, 136);
+    background-color: rgb(247, 208, 91) !important;
+}
+
+.no-border.btn-yellow:hover
+{
+    border-color: rgb(247, 208, 91);
+}
+
+.no-hover.btn-yellow:hover
+{
+    background-color: rgb(254, 225, 136) !important;
+}
+
+.active.btn-yellow
+{
+    border-color: rgb(249, 207, 79);
+    background-color: rgb(251, 217, 114) !important;
+}
+
+.active.no-border.btn-yellow
+{
+    border-color: rgb(250, 212, 99);
+    background-color: rgb(250, 212, 99) !important;
+}
+
+.disabled.btn-yellow
+{
+    border-color: rgb(254, 225, 136);
+    background-color: rgb(254, 225, 136) !important;
+}
+
+[disabled].btn-yellow
+{
+    border-color: rgb(254, 225, 136);
+    background-color: rgb(254, 225, 136) !important;
+}
+
+fieldset[disabled] .btn-yellow
+{
+    border-color: rgb(254, 225, 136);
+    background-color: rgb(254, 225, 136) !important;
+}
+
+.disabled.btn-yellow:hover
+{
+    border-color: rgb(254, 225, 136);
+    background-color: rgb(254, 225, 136) !important;
+}
+
+[disabled].btn-yellow:hover
+{
+    border-color: rgb(254, 225, 136);
+    background-color: rgb(254, 225, 136) !important;
+}
+
+fieldset[disabled] .btn-yellow:hover
+{
+    border-color: rgb(254, 225, 136);
+    background-color: rgb(254, 225, 136) !important;
+}
+
+.disabled.btn-yellow:focus
+{
+    border-color: rgb(254, 225, 136);
+    background-color: rgb(254, 225, 136) !important;
+}
+
+[disabled].btn-yellow:focus
+{
+    border-color: rgb(254, 225, 136);
+    background-color: rgb(254, 225, 136) !important;
+}
+
+fieldset[disabled] .btn-yellow:focus
+{
+    border-color: rgb(254, 225, 136);
+    background-color: rgb(254, 225, 136) !important;
+}
+
+.disabled.btn-yellow:active
+{
+    border-color: rgb(254, 225, 136);
+    background-color: rgb(254, 225, 136) !important;
+}
+
+[disabled].btn-yellow:active
+{
+    border-color: rgb(254, 225, 136);
+    background-color: rgb(254, 225, 136) !important;
+}
+
+fieldset[disabled] .btn-yellow:active
+{
+    border-color: rgb(254, 225, 136);
+    background-color: rgb(254, 225, 136) !important;
+}
+
+.active.disabled.btn-yellow
+{
+    border-color: rgb(254, 225, 136);
+    background-color: rgb(254, 225, 136) !important;
+}
+
+[disabled].active.btn-yellow
+{
+    border-color: rgb(254, 225, 136);
+    background-color: rgb(254, 225, 136) !important;
+}
+
+fieldset[disabled] .active.btn-yellow
+{
+    border-color: rgb(254, 225, 136);
+    background-color: rgb(254, 225, 136) !important;
+}
+
+.btn-light
+{
+    color: rgb(136, 136, 136) !important;
+    text-shadow: 0px -1px 0px rgba(250,250,250,0.25) !important;
+}
+
+.btn-light
+{
+    border-color: rgb(231, 231, 231);
+    background-color: rgb(231, 231, 231) !important;
+}
+
+    .btn-light:focus
+    {
+        border-color: rgb(231, 231, 231);
+        background-color: rgb(231, 231, 231) !important;
+    }
+
+    .btn-light:hover
+    {
+        border-color: rgb(231, 231, 231);
+        background-color: rgb(217, 217, 217) !important;
+    }
+
+.open .dropdown-toggle.btn-light
+{
+    border-color: rgb(231, 231, 231);
+    background-color: rgb(217, 217, 217) !important;
+}
+
+.no-border.btn-light:hover
+{
+    border-color: rgb(217, 217, 217);
+}
+
+.no-hover.btn-light:hover
+{
+    background-color: rgb(231, 231, 231) !important;
+}
+
+.active.btn-light
+{
+    border-color: rgb(206, 206, 206);
+    background-color: rgb(224, 224, 224) !important;
+}
+
+.active.no-border.btn-light
+{
+    border-color: rgb(216, 216, 216);
+    background-color: rgb(216, 216, 216) !important;
+}
+
+.disabled.btn-light
+{
+    border-color: rgb(231, 231, 231);
+    background-color: rgb(231, 231, 231) !important;
+}
+
+[disabled].btn-light
+{
+    border-color: rgb(231, 231, 231);
+    background-color: rgb(231, 231, 231) !important;
+}
+
+fieldset[disabled] .btn-light
+{
+    border-color: rgb(231, 231, 231);
+    background-color: rgb(231, 231, 231) !important;
+}
+
+.disabled.btn-light:hover
+{
+    border-color: rgb(231, 231, 231);
+    background-color: rgb(231, 231, 231) !important;
+}
+
+[disabled].btn-light:hover
+{
+    border-color: rgb(231, 231, 231);
+    background-color: rgb(231, 231, 231) !important;
+}
+
+fieldset[disabled] .btn-light:hover
+{
+    border-color: rgb(231, 231, 231);
+    background-color: rgb(231, 231, 231) !important;
+}
+
+.disabled.btn-light:focus
+{
+    border-color: rgb(231, 231, 231);
+    background-color: rgb(231, 231, 231) !important;
+}
+
+[disabled].btn-light:focus
+{
+    border-color: rgb(231, 231, 231);
+    background-color: rgb(231, 231, 231) !important;
+}
+
+fieldset[disabled] .btn-light:focus
+{
+    border-color: rgb(231, 231, 231);
+    background-color: rgb(231, 231, 231) !important;
+}
+
+.disabled.btn-light:active
+{
+    border-color: rgb(231, 231, 231);
+    background-color: rgb(231, 231, 231) !important;
+}
+
+[disabled].btn-light:active
+{
+    border-color: rgb(231, 231, 231);
+    background-color: rgb(231, 231, 231) !important;
+}
+
+fieldset[disabled] .btn-light:active
+{
+    border-color: rgb(231, 231, 231);
+    background-color: rgb(231, 231, 231) !important;
+}
+
+.active.disabled.btn-light
+{
+    border-color: rgb(231, 231, 231);
+    background-color: rgb(231, 231, 231) !important;
+}
+
+[disabled].active.btn-light
+{
+    border-color: rgb(231, 231, 231);
+    background-color: rgb(231, 231, 231) !important;
+}
+
+fieldset[disabled] .active.btn-light
+{
+    border-color: rgb(231, 231, 231);
+    background-color: rgb(231, 231, 231) !important;
+}
+
+.btn-xs.btn-light::after
+{
+    left: -2px;
+    top: -2px;
+    right: -2px;
+    bottom: -2px;
+}
+
+.btn-sm.btn-light::after
+{
+    left: -4px;
+    top: -4px;
+    right: -4px;
+    bottom: -4px;
+}
+
+.btn-large.btn-light::after
+{
+    left: -6px;
+    top: -6px;
+    right: -6px;
+    bottom: -6px;
+}
+
+.btn-white.btn
+{
+    border-width: 1px;
+    border-color: rgb(204, 204, 204);
+    color: rgb(68, 68, 68) !important;
+    text-shadow: none !important;
+    background-color: rgb(255, 255, 255) !important;
+}
+
+    .btn-white.btn:hover
+    {
+        background-color: rgb(235, 235, 235) !important;
+    }
+
+    .btn-white.btn:focus
+    {
+        background-color: rgb(235, 235, 235) !important;
+    }
+
+.no-border.btn-white.btn
+{
+    border-color: rgb(204, 204, 204);
+}
+
+.active.disabled.btn
+{
+    outline: 0px;
+}
+
+[disabled].active.btn
+{
+    outline: 0px;
+}
+
+.disabled.btn:focus
+{
+    outline: 0px;
+}
+
+[disabled].btn:focus
+{
+    outline: 0px;
+}
+
+.disabled.btn:active
+{
+    outline: 0px;
+}
+
+[disabled].btn:active
+{
+    outline: 0px;
+}
+
+.disabled.btn:active
+{
+    left: 0px;
+    top: 0px;
+}
+
+[disabled].btn:active
+{
+    left: 0px;
+    top: 0px;
+}
+
+.active.btn
+{
+    color: rgb(239, 229, 181);
+}
+
+    .active.btn::after
+    {
+        left: -4px;
+        right: -4px;
+        bottom: -4px;
+        border-bottom-color: rgb(239, 229, 181);
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        display: inline-block;
+        position: absolute;
+        content: "";
+    }
+
+.btn-sm.active.btn::after
+{
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+}
+
+.btn-large.active.btn::after
+{
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+}
+
+.btn-xs.active.btn::after
+{
+    left: -1px;
+    right: -1px;
+    bottom: -2px;
+}
+
+.btn-minier.active.btn::after
+{
+    left: -1px;
+    right: -1px;
+    bottom: -2px;
+}
+
+.btn-minier.active.btn::after
+{
+    bottom: -1px;
+}
+
+.btn-yellow.active.btn::after
+{
+    border-bottom-color: rgb(201, 99, 56);
+}
+
+.btn-light.active.btn
+{
+    color: rgb(81, 81, 81);
+}
+
+    .btn-light.active.btn::after
+    {
+        border-bottom-color: rgb(181, 181, 181);
+    }
+
+.btn > [class*='icon-']
+{
+    margin-right: 4px;
+    display: inline;
+}
+
+    .btn > [class*='icon-'].icon-on-right
+    {
+        margin-right: 0px;
+        margin-left: 4px;
+    }
+
+    .btn > [class*='icon-'].icon-only
+    {
+        margin: 0px;
+        padding: 0px;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+.btn-large > [class*='icon-']
+{
+    margin-right: 6px;
+}
+
+    .btn-large > [class*='icon-'].icon-on-right
+    {
+        margin-right: 0px;
+        margin-left: 6px;
+    }
+
+.btn-sm > [class*='icon-']
+{
+    margin-right: 3px;
+}
+
+    .btn-sm > [class*='icon-'].icon-on-right
+    {
+        margin-right: 0px;
+        margin-left: 3px;
+    }
+
+.btn-xs > [class*='icon-']
+{
+    margin-right: 2px;
+}
+
+.btn-minier > [class*='icon-']
+{
+    margin-right: 2px;
+}
+
+.btn-xs > [class*='icon-'].icon-on-right
+{
+    margin-right: 0px;
+    margin-left: 2px;
+}
+
+.btn-minier > [class*='icon-'].icon-on-right
+{
+    margin-right: 0px;
+    margin-left: 2px;
+}
+
+.btn-link.btn
+{
+    padding: 4px 12px !important;
+    border: currentColor !important;
+    color: rgb(0, 136, 204) !important;
+    line-height: 20px !important;
+    text-shadow: none !important;
+}
+
+    .btn-link.btn:hover
+    {
+        text-shadow: none !important;
+    }
+
+.active.btn-link.btn
+{
+    color: rgb(0, 156, 235) !important;
+    text-decoration: underline;
+}
+
+    .active.btn-link.btn::after
+    {
+        display: none;
+    }
+
+.disabled.btn-link.btn
+{
+    background: 0px;
+    opacity: 0.65;
+}
+
+[disabled].btn-link.btn
+{
+    background: 0px;
+    opacity: 0.65;
+}
+
+.disabled.btn-link.btn:hover
+{
+    text-decoration: none !important;
+}
+
+[disabled].btn-link.btn:hover
+{
+    text-decoration: none !important;
+}
+
+.btn-no-border.btn
+{
+    border-width: 0px !important;
+}
+
+.btn-group > .btn
+{
+    margin: 0px 1px 0px 0px;
+}
+
+    .btn-group > .btn + .btn
+    {
+        margin: 0px 1px 0px 0px;
+    }
+
+.btn-group > :first-child.btn
+{
+    margin: 0px 1px 0px 0px;
+}
+
+.btn-group > :first-child.btn
+{
+    border-radius: 0px;
+}
+
+.btn-group > :last-child.btn
+{
+    border-radius: 0px;
+}
+
+.btn-group > .btn > .caret
+{
+    border-width: 5px;
+    margin-top: 15px;
+    margin-left: 1px;
+    border-top-color: rgb(255, 255, 255);
+}
+
+.btn-group > .btn-sm.btn > .caret
+{
+    border-width: 4px;
+    margin-top: 10px;
+}
+
+.btn-group > .btn-large.btn > .caret
+{
+    border-width: 6px;
+    margin-top: 18px;
+}
+
+.btn-group > .btn-xs.btn > .caret
+{
+    border-width: 4px;
+    margin-top: 9px;
+}
+
+.btn-group > .btn-minier.btn > .caret
+{
+    border-width: 3px;
+    margin-top: 7px;
+}
+
+.btn-group > .btn + .dropdown-toggle.btn
+{
+    padding-right: 3px;
+    padding-left: 3px;
+}
+
+.btn-group > .btn + .dropdown-toggle.btn-large
+{
+    padding-right: 4px;
+    padding-left: 4px;
+}
+
+.btn-group .dropdown-toggle
+{
+    border-radius: 0px;
+}
+
+.btn-group > .btn
+{
+    border-width: 3px;
+    margin: 0px 1px 0px 0px;
+}
+
+.btn-group + .btn
+{
+    border-width: 3px;
+    margin: 0px 1px 0px 0px;
+}
+
+.btn-group > .active.btn::after
+{
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-bottom-width: 1px;
+}
+
+.btn-group + .active.btn::after
+{
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-bottom-width: 1px;
+}
+
+.btn-group > .btn-large
+{
+    border-width: 4px;
+}
+
+.btn-group + .btn-large
+{
+    border-width: 4px;
+}
+
+.btn-group > .active.btn-large::after
+{
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-bottom-width: 1px;
+}
+
+.btn-group + .active.btn-large::after
+{
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-bottom-width: 1px;
+}
+
+.btn-group > .btn-sm
+{
+    border-width: 2px;
+}
+
+.btn-group + .btn-sm
+{
+    border-width: 2px;
+}
+
+.btn-group > .active.btn-sm::after
+{
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    border-bottom-width: 1px;
+}
+
+.btn-group + .active.btn-sm::after
+{
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    border-bottom-width: 1px;
+}
+
+.btn-group > .btn-xs
+{
+    border-width: 1px;
+}
+
+.btn-group + .btn-xs
+{
+    border-width: 1px;
+}
+
+.btn-group > .active.btn-xs::after
+{
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    border-bottom-width: 1px;
+}
+
+.btn-group + .active.btn-xs::after
+{
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    border-bottom-width: 1px;
+}
+
+.btn-group > .btn-minier
+{
+    border-width: 1px;
+}
+
+.btn-group + .btn-minier
+{
+    border-width: 1px;
+}
+
+.btn-group > .active.btn-minier::after
+{
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    border-bottom-width: 1px;
+}
+
+.btn-group + .active.btn-minier::after
+{
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    border-bottom-width: 1px;
+}
+
+.btn-group > .btn
+{
+    border-radius: 0px !important;
+}
+
+.btn-group-vertical > .btn
+{
+    margin: 1px 0px 0px;
+}
+
+    .btn-group-vertical > .btn + .btn
+    {
+        margin: 1px 0px 0px;
+    }
+
+.btn-group-vertical > :first-child.btn
+{
+    margin-right: 0px;
+}
+
+.btn-app.btn
+{
+    margin: 2px;
+    padding: 12px 0px 8px;
+    border-radius: 12px;
+    border: 0px currentColor;
+    width: 100px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    line-height: 1.7;
+    font-size: 18px;
+    font-weight: normal;
+    display: inline-block;
+    position: relative;
+    text-shadow: none !important;
+}
+
+.btn-app
+{
+    background: linear-gradient(rgb(188, 201, 213) 0px, rgb(171, 186, 195) 100%) repeat-x rgb(180, 194, 204) !important;
+}
+
+.btn-default.btn-app
+{
+    background: linear-gradient(rgb(188, 201, 213) 0px, rgb(171, 186, 195) 100%) repeat-x rgb(180, 194, 204) !important;
+}
+
+.no-hover.btn-app:hover
+{
+    background: linear-gradient(rgb(188, 201, 213) 0px, rgb(171, 186, 195) 100%) repeat-x rgb(180, 194, 204) !important;
+}
+
+.no-hover.btn-default.btn-app:hover
+{
+    background: linear-gradient(rgb(188, 201, 213) 0px, rgb(171, 186, 195) 100%) repeat-x rgb(180, 194, 204) !important;
+}
+
+.disabled.btn-app:hover
+{
+    background: linear-gradient(rgb(188, 201, 213) 0px, rgb(171, 186, 195) 100%) repeat-x rgb(180, 194, 204) !important;
+}
+
+.disabled.btn-default.btn-app:hover
+{
+    background: linear-gradient(rgb(188, 201, 213) 0px, rgb(171, 186, 195) 100%) repeat-x rgb(180, 194, 204) !important;
+}
+
+.btn-app:hover
+{
+    background: linear-gradient(rgb(163, 181, 197) 0px, rgb(147, 166, 178) 100%) repeat-x rgb(155, 174, 188) !important;
+}
+
+.btn-default.btn-app:hover
+{
+    background: linear-gradient(rgb(163, 181, 197) 0px, rgb(147, 166, 178) 100%) repeat-x rgb(155, 174, 188) !important;
+}
+
+.btn-primary.btn-app
+{
+    background: linear-gradient(rgb(59, 152, 214) 0px, rgb(25, 126, 193) 100%) repeat-x rgb(42, 139, 204) !important;
+}
+
+.no-hover.btn-primary.btn-app:hover
+{
+    background: linear-gradient(rgb(59, 152, 214) 0px, rgb(25, 126, 193) 100%) repeat-x rgb(42, 139, 204) !important;
+}
+
+.disabled.btn-primary.btn-app:hover
+{
+    background: linear-gradient(rgb(59, 152, 214) 0px, rgb(25, 126, 193) 100%) repeat-x rgb(42, 139, 204) !important;
+}
+
+.btn-primary.btn-app:hover
+{
+    background: linear-gradient(rgb(38, 126, 184) 0px, rgb(19, 97, 148) 100%) repeat-x rgb(29, 111, 166) !important;
+}
+
+.btn-info.btn-app
+{
+    background: linear-gradient(rgb(117, 181, 230) 0px, rgb(91, 164, 213) 100%) repeat-x rgb(104, 173, 222) !important;
+}
+
+.no-hover.btn-info.btn-app:hover
+{
+    background: linear-gradient(rgb(117, 181, 230) 0px, rgb(91, 164, 213) 100%) repeat-x rgb(104, 173, 222) !important;
+}
+
+.disabled.btn-info.btn-app:hover
+{
+    background: linear-gradient(rgb(117, 181, 230) 0px, rgb(91, 164, 213) 100%) repeat-x rgb(104, 173, 222) !important;
+}
+
+.btn-info.btn-app:hover
+{
+    background: linear-gradient(rgb(74, 158, 222) 0px, rgb(52, 141, 201) 100%) repeat-x rgb(63, 150, 212) !important;
+}
+
+.btn-success.btn-app
+{
+    background: linear-gradient(rgb(142, 191, 96) 0px, rgb(125, 170, 80) 100%) repeat-x rgb(134, 181, 88) !important;
+}
+
+.no-hover.btn-success.btn-app:hover
+{
+    background: linear-gradient(rgb(142, 191, 96) 0px, rgb(125, 170, 80) 100%) repeat-x rgb(134, 181, 88) !important;
+}
+
+.disabled.btn-success.btn-app:hover
+{
+    background: linear-gradient(rgb(142, 191, 96) 0px, rgb(125, 170, 80) 100%) repeat-x rgb(134, 181, 88) !important;
+}
+
+.btn-success.btn-app:hover
+{
+    background: linear-gradient(rgb(116, 168, 68) 0px, rgb(100, 135, 64) 100%) repeat-x rgb(108, 152, 66) !important;
+}
+
+.btn-danger.btn-app
+{
+    background: linear-gradient(rgb(213, 91, 82) 0px, rgb(209, 39, 35) 100%) repeat-x rgb(211, 65, 59) !important;
+}
+
+.no-hover.btn-danger.btn-app:hover
+{
+    background: linear-gradient(rgb(213, 91, 82) 0px, rgb(209, 39, 35) 100%) repeat-x rgb(211, 65, 59) !important;
+}
+
+.disabled.btn-danger.btn-app:hover
+{
+    background: linear-gradient(rgb(213, 91, 82) 0px, rgb(209, 39, 35) 100%) repeat-x rgb(211, 65, 59) !important;
+}
+
+.btn-danger.btn-app:hover
+{
+    background: linear-gradient(rgb(196, 58, 48) 0px, rgb(165, 31, 28) 100%) repeat-x rgb(181, 44, 38) !important;
+}
+
+.btn-warning.btn-app
+{
+    background: linear-gradient(rgb(255, 191, 102) 0px, rgb(255, 168, 48) 100%) repeat-x rgb(255, 180, 75) !important;
+}
+
+.no-hover.btn-warning.btn-app:hover
+{
+    background: linear-gradient(rgb(255, 191, 102) 0px, rgb(255, 168, 48) 100%) repeat-x rgb(255, 180, 75) !important;
+}
+
+.disabled.btn-warning.btn-app:hover
+{
+    background: linear-gradient(rgb(255, 191, 102) 0px, rgb(255, 168, 48) 100%) repeat-x rgb(255, 180, 75) !important;
+}
+
+.btn-warning.btn-app:hover
+{
+    background: linear-gradient(rgb(255, 170, 51) 0px, rgb(252, 146, 0) 100%) repeat-x rgb(254, 158, 25) !important;
+}
+
+.btn-purple.btn-app
+{
+    background: linear-gradient(rgb(166, 150, 206) 0px, rgb(138, 124, 180) 100%) repeat-x rgb(152, 137, 193) !important;
+}
+
+.no-hover.btn-purple.btn-app:hover
+{
+    background: linear-gradient(rgb(166, 150, 206) 0px, rgb(138, 124, 180) 100%) repeat-x rgb(152, 137, 193) !important;
+}
+
+.disabled.btn-purple.btn-app:hover
+{
+    background: linear-gradient(rgb(166, 150, 206) 0px, rgb(138, 124, 180) 100%) repeat-x rgb(152, 137, 193) !important;
+}
+
+.btn-purple.btn-app:hover
+{
+    background: linear-gradient(rgb(137, 115, 190) 0px, rgb(109, 92, 161) 100%) repeat-x rgb(123, 104, 175) !important;
+}
+
+.btn-pink.btn-app
+{
+    background: linear-gradient(rgb(219, 94, 140) 0px, rgb(206, 57, 112) 100%) repeat-x rgb(213, 76, 126) !important;
+}
+
+.no-hover.btn-pink.btn-app:hover
+{
+    background: linear-gradient(rgb(219, 94, 140) 0px, rgb(206, 57, 112) 100%) repeat-x rgb(213, 76, 126) !important;
+}
+
+.disabled.btn-pink.btn-app:hover
+{
+    background: linear-gradient(rgb(219, 94, 140) 0px, rgb(206, 57, 112) 100%) repeat-x rgb(213, 76, 126) !important;
+}
+
+.btn-pink.btn-app:hover
+{
+    background: linear-gradient(rgb(210, 52, 110) 0px, rgb(170, 42, 89) 100%) repeat-x rgb(190, 47, 100) !important;
+}
+
+.btn-inverse.btn-app
+{
+    background: linear-gradient(rgb(85, 85, 85) 0px, rgb(51, 51, 51) 100%) repeat-x rgb(68, 68, 68) !important;
+}
+
+.no-hover.btn-inverse.btn-app:hover
+{
+    background: linear-gradient(rgb(85, 85, 85) 0px, rgb(51, 51, 51) 100%) repeat-x rgb(68, 68, 68) !important;
+}
+
+.disabled.btn-inverse.btn-app:hover
+{
+    background: linear-gradient(rgb(85, 85, 85) 0px, rgb(51, 51, 51) 100%) repeat-x rgb(68, 68, 68) !important;
+}
+
+.btn-inverse.btn-app:hover
+{
+    background: linear-gradient(rgb(59, 59, 59) 0px, rgb(26, 26, 26) 100%) repeat-x rgb(43, 43, 43) !important;
+}
+
+.btn-grey.btn-app
+{
+    background: linear-gradient(rgb(137, 137, 137) 0px, rgb(105, 105, 105) 100%) repeat-x rgb(121, 121, 121) !important;
+}
+
+.no-hover.btn-grey.btn-app:hover
+{
+    background: linear-gradient(rgb(137, 137, 137) 0px, rgb(105, 105, 105) 100%) repeat-x rgb(121, 121, 121) !important;
+}
+
+.disabled.btn-grey.btn-app:hover
+{
+    background: linear-gradient(rgb(137, 137, 137) 0px, rgb(105, 105, 105) 100%) repeat-x rgb(121, 121, 121) !important;
+}
+
+.btn-grey.btn-app:hover
+{
+    background: linear-gradient(rgb(124, 124, 124) 0px, rgb(92, 92, 92) 100%) repeat-x rgb(108, 108, 108) !important;
+}
+
+.btn-light.btn-app.btn
+{
+    color: rgb(90, 90, 90) !important;
+    text-shadow: 0px 1px 1px #eee !important;
+}
+
+.btn-light.btn-app.btn
+{
+    background: linear-gradient(rgb(244, 244, 244) 0px, rgb(230, 230, 230) 100%) repeat-x rgb(237, 237, 237) !important;
+}
+
+.no-hover.btn-light.btn-app.btn:hover
+{
+    background: linear-gradient(rgb(244, 244, 244) 0px, rgb(230, 230, 230) 100%) repeat-x rgb(237, 237, 237) !important;
+}
+
+.disabled.btn-light.btn-app.btn:hover
+{
+    background: linear-gradient(rgb(244, 244, 244) 0px, rgb(230, 230, 230) 100%) repeat-x rgb(237, 237, 237) !important;
+}
+
+.btn-light.btn-app.btn:hover
+{
+    background: linear-gradient(rgb(231, 231, 231) 0px, rgb(217, 217, 217) 100%) repeat-x rgb(224, 224, 224) !important;
+}
+
+.btn-yellow.btn-app.btn
+{
+    color: rgb(153, 102, 51) !important;
+    text-shadow: 0px -1px 0px rgba(255,255,255,0.4) !important;
+}
+
+.btn-yellow.btn-app.btn
+{
+    background: linear-gradient(rgb(255, 232, 165) 0px, rgb(252, 215, 106) 100%) repeat-x rgb(254, 224, 136) !important;
+}
+
+.no-hover.btn-yellow.btn-app.btn:hover
+{
+    background: linear-gradient(rgb(255, 232, 165) 0px, rgb(252, 215, 106) 100%) repeat-x rgb(254, 224, 136) !important;
+}
+
+.disabled.btn-yellow.btn-app.btn:hover
+{
+    background: linear-gradient(rgb(255, 232, 165) 0px, rgb(252, 215, 106) 100%) repeat-x rgb(254, 224, 136) !important;
+}
+
+.btn-yellow.btn-app.btn:hover
+{
+    background: linear-gradient(rgb(255, 225, 139) 0px, rgb(251, 208, 81) 100%) repeat-x rgb(253, 217, 110) !important;
+}
+
+.btn-sm.btn-app.btn
+{
+    border-radius: 10px;
+    width: 80px;
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+.btn-xs.btn-app.btn
+{
+    border-radius: 8px;
+    width: 64px;
+    line-height: 1.45;
+    padding-top: 8px;
+    padding-bottom: 7px;
+    font-size: 15px;
+}
+
+.btn-app.btn > [class*=icon]
+{
+    margin: 0px 0px 4px;
+    padding: 0px;
+    line-height: 36px;
+    font-size: 42px;
+    display: block;
+    min-width: 0px;
+}
+
+.btn-sm.btn-app.btn > [class*=icon]
+{
+    margin: 0px 0px 3px;
+    line-height: 30px;
+    font-size: 32px;
+    display: block;
+}
+
+.btn-xs.btn-app.btn > [class*=icon]
+{
+    margin: 0px;
+    line-height: 24px;
+    font-size: 24px;
+    display: block;
+}
+
+.no-radius.btn-app.btn
+{
+    border-radius: 0px;
+}
+
+.radius-4.btn-app.btn
+{
+    border-radius: 4px;
+}
+
+.btn-app.btn > .badge
+{
+    padding: 1px 3px;
+    top: -2px;
+    text-align: center;
+    right: -2px;
+    font-size: 12px;
+    position: absolute !important;
+}
+
+.btn-app.btn > .label
+{
+    padding: 1px 3px;
+    top: -2px;
+    text-align: center;
+    right: -2px;
+    font-size: 12px;
+    position: absolute !important;
+}
+
+.btn-app.btn > .badge-left.badge
+{
+    left: -2px;
+    right: auto;
+}
+
+.btn-app.btn > .badge-left.label
+{
+    left: -2px;
+    right: auto;
+}
+
+.btn-app.btn > .label-left.badge
+{
+    left: -2px;
+    right: auto;
+}
+
+.btn-app.btn > .label-left.label
+{
+    left: -2px;
+    right: auto;
+}
+
+.btn-app.btn > .label
+{
+    padding: 1px 6px 3px;
+    font-size: 13px;
+}
+
+.radius-4.btn-app.btn > .badge
+{
+    border-radius: 3px;
+}
+
+.no-radius.btn-app.btn > .badge
+{
+    border-radius: 3px;
+}
+
+.radius-4.btn-app.btn > .no-radius.badge
+{
+    border-radius: 0px;
+}
+
+.no-radius.btn-app.btn > .no-radius.badge
+{
+    border-radius: 0px;
+}
+
+.active.btn-app.btn
+{
+    color: rgb(255, 255, 255);
+}
+
+    .active.btn-app.btn::after
+    {
+        display: none;
+    }
+
+.btn-yellow.active.btn-app.btn
+{
+    border-color: rgb(254, 225, 136);
+    color: rgb(153, 102, 51);
+}
+
+.btn-light.active.btn-app.btn
+{
+    color: rgb(81, 81, 81);
+}
+
+.btn-light.btn-app.btn
+{
+    box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.08) !important;
+    -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08) inset;
+}
+
+.btn-yellow.btn-app.btn
+{
+    box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.08) !important;
+    -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08) inset;
+}

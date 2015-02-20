@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="MCS.Library.Services.DCSDocumentAnalyzeService" CodeBehind="DCSDocumentAnalyzeService.svc.cs" %>

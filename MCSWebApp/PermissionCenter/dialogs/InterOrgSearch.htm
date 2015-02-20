@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>正在跳转</title>
+	<base target="_self" />
+</head>
+<body onload="goAhead();">
+	<form action="OrgSearchDialog.aspx" method="post">
+	</form>
+	<script type="text/javascript">
+
+		function goAhead() {
+
+			var theForm = document.forms[0];
+			if (window.dialogArguments) {
+				if ("excludes" in window.dialogArguments) {
+					var e = window.dialogArguments.excludes;
+					for (var i = e.length - 1; i >= 0; i--) {
+						var node = document.createElement("input");
+						node.type = "hidden";
+						node.name = "excludes"
+						node.value = e[i];
+						theForm.appendChild(node);
+					}
+
+					node = null;
+				}
+			}
+
+			document.forms[0].action = "OrgSearchDialog.aspx" + window.location.search;
+			document.forms[0].submit();
+		}
+
+	</script>
+</body>
+</html>

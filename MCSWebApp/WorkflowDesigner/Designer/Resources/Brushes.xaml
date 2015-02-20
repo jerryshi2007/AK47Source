@@ -1,0 +1,52 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:go="clr-namespace:Northwoods.GoXam;assembly=Northwoods.GoSilverlight"
+    xmlns:local="clr-namespace:Designer">
+	<go:BooleanStringConverter x:Key="theMenuBtnContentConverter" TrueString="S" FalseString="*"></go:BooleanStringConverter>
+	<go:BooleanStringConverter x:Key="theReturnLineConverter" TrueString="2 2" FalseString=""/>
+	<go:BooleanBrushConverter x:Key="nodePortConverter" TrueBrush="DarkRed" FalseBrush="Transparent" />
+	<go:BooleanBrushConverter x:Key="theTranBrushConverter" TrueColor="Black" FalseColor="LightGray" />
+	<!--<go:BooleanBrushConverter x:Key="theActivityBrushConverter" TrueColor="#FFEEDC82" FalseColor="LightGray" />-->
+	<local:ActivityTemplateConverter x:Key="theActivityTemplateConverter"></local:ActivityTemplateConverter>
+
+	<local:BackgroundConverter x:Key="theActivityBrushConverter" />
+
+	<!--activities brush-->
+	<RadialGradientBrush x:Key="theGreenBrush" GradientOrigin="-0.2,-0.2">
+		<GradientStop Color="White" Offset="0.35" />
+		<GradientStop Color="Green" Offset="1" />
+	</RadialGradientBrush>
+	<RadialGradientBrush x:Key="theYellowBrush" GradientOrigin="-0.2,-0.2">
+		<GradientStop Color="White" Offset="0.35" />
+		<GradientStop Color="Yellow" Offset="1" />
+	</RadialGradientBrush>
+	<RadialGradientBrush x:Key="theBlueBrush" GradientOrigin="-0.2,-0.2">
+		<GradientStop Color="White" Offset="0.35" />
+		<GradientStop Color="SteelBlue" Offset="1" />
+	</RadialGradientBrush>
+	<RadialGradientBrush x:Key="thePinkBrush" GradientOrigin="-0.2,-0.2">
+		<GradientStop Color="White" Offset="0.35" />
+		<GradientStop Color="Pink" Offset="1" />
+	</RadialGradientBrush>
+	<RadialGradientBrush x:Key="theRedBrush" GradientOrigin="-0.2,-0.2">
+		<GradientStop Color="White" Offset="0.35" />
+		<GradientStop Color="Red" Offset="1" />
+	</RadialGradientBrush>
+
+	<RadialGradientBrush x:Key="dynamicActivityBrush" GradientOrigin="-0.2,-0.2">
+		<GradientStop Color="SkyBlue" Offset="0.35" />
+		<GradientStop Color="SkyBlue" Offset="1" />
+	</RadialGradientBrush>
+
+	<RadialGradientBrush x:Key="normalActivityBrush" GradientOrigin="-0.2,-0.2">
+		<GradientStop Color="#FFEEDC82" Offset="0.35" />
+		<GradientStop Color="#FFEEDC82" Offset="1" />
+	</RadialGradientBrush>
+
+	<RadialGradientBrush x:Key="enabledActivityBrush" GradientOrigin="-0.2,-0.2">
+		<GradientStop Color="LightGray" Offset="0.35" />
+		<GradientStop Color="LightGray" Offset="1" />
+	</RadialGradientBrush>
+
+</ResourceDictionary>

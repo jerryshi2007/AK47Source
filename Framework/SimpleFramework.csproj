@@ -1,0 +1,23 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectItem Include="MCS.Library\MCS.Library.csproj" />
+    <ProjectItem Include="MCS.Library.ADHelper\MCS.Library.ADHelper.csproj" />
+    <ProjectItem Include="MCS.Library.Data\MCS.Library.Data.csproj" />
+    <ProjectItem Include="MCS.Library.Office\MCS.Library.Office.csproj" />
+    <ProjectItem Include="MCS.Library.Office.OpenXml.Excel\MCS.Library.Office.OpenXml.Excel.csproj" />
+    <ProjectItem Include="MCS.Library.Office.OpenXml.Word\MCS.Library.Office.OpenXml.Word.csproj" />
+    <ProjectItem Include="MCS.Library.OGUPermission\MCS.Library.OGUPermission.csproj" />
+    <ProjectItem Include="MCS.Library.Passport\MCS.Library.Passport.csproj" />
+    <ProjectItem Include="MCS.Library.Passport.Social\MCS.Library.Passport.Social.csproj" />
+  </ItemGroup>
+  <Target Name="BuildOtherProjects">
+    <MSBuild Projects="@(ProjectItem)" RebaseOutputs="True" />
+  </Target>
+</Project>

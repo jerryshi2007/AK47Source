@@ -1,0 +1,326 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{35225D95-9765-4498-8624-9D10558AF01C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MCSResponsiveOAPortal</RootNamespace>
+    <AssemblyName>MCSResponsiveOAPortal</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>MCS.Library.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MCS.Library, Version=1.2.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Data">
+      <HintPath>..\..\Bin\MCS.Library.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.OGUPermission, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.OGUPermission.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Passport, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.Passport.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.DataObjects">
+      <HintPath>..\..\Bin\MCS.Library.SOA.DataObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Library.Script.Json, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Web.Library.Script.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Responsive.Library">
+      <HintPath>..\..\Bin\MCS.Web.Responsive.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Responsive.WebControls">
+      <HintPath>..\..\Bin\MCS.Web.Responsive.WebControls.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favicon.ico" />
+    <Content Include="Images\bell_iphone.ico" />
+    <Content Include="Images\task.ico" />
+    <Content Include="Task\ActivatedList.aspx" />
+    <Content Include="Search\AdvancedSearch.aspx" />
+    <Content Include="App_Data\DraftingData.xml" />
+    <Content Include="App_Data\SysAdminData.xml" />
+    <Content Include="Task\CompletedList.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="Task\DelegationList.aspx" />
+    <Content Include="Demo.aspx" />
+    <Content Include="Task\Drafting.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Help.aspx" />
+    <Content Include="Images\btnArrow.gif" />
+    <Content Include="Images\btnArrow.png" />
+    <Content Include="Images\checkUser.gif" />
+    <Content Include="Images\excel.gif" />
+    <Content Include="Images\group.gif" />
+    <Content Include="Images\icon_email.png" />
+    <Content Include="Images\ou.gif" />
+    <Content Include="Images\roles.gif" />
+    <Content Include="Images\word.gif" />
+    <Content Include="Images\xinxi01.gif" />
+    <Content Include="Task\PrivateAffairs.aspx" />
+    <Content Include="Profile.aspx" />
+    <Content Include="refreshBridge.htm" />
+    <Content Include="Scripts\CategoryLink.js" />
+    <Content Include="Scripts\AffairNotify.js" />
+    <Content Include="Search\SearchResult.aspx" />
+    <Content Include="Services\PortalServices.asmx" />
+    <Content Include="Admin\SystemAdmin.aspx" />
+    <Content Include="Task\TodoList.aspx" />
+    <Content Include="Task\TraceLog.aspx" />
+    <Content Include="Task\TraceLogDetail.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="inc\DataSources\WfApplicationDataSource.cs" />
+    <Compile Include="inc\PortalSiteMapProvider.cs" />
+    <Compile Include="Task\ActivatedList.aspx.cs">
+      <DependentUpon>ActivatedList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Task\ActivatedList.aspx.designer.cs">
+      <DependentUpon>ActivatedList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Search\AdvancedSearch.aspx.cs">
+      <DependentUpon>AdvancedSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Search\AdvancedSearch.aspx.designer.cs">
+      <DependentUpon>AdvancedSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Task\CompletedList.aspx.cs">
+      <DependentUpon>CompletedList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Task\CompletedList.aspx.designer.cs">
+      <DependentUpon>CompletedList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Task\DelegationList.aspx.cs">
+      <DependentUpon>DelegationList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Task\DelegationList.aspx.designer.cs">
+      <DependentUpon>DelegationList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Demo.aspx.cs">
+      <DependentUpon>Demo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Demo.aspx.designer.cs">
+      <DependentUpon>Demo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Task\Drafting.aspx.cs">
+      <DependentUpon>Drafting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Task\Drafting.aspx.designer.cs">
+      <DependentUpon>Drafting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Help.aspx.cs">
+      <DependentUpon>Help.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Help.aspx.designer.cs">
+      <DependentUpon>Help.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="inc\DataSources\ActivatedListDataSource.cs" />
+    <Compile Include="inc\DataSources\SearchSource.cs" />
+    <Compile Include="inc\DataSources\TodoListDataSource.cs" />
+    <Compile Include="inc\DataSources\UserOperationLogDataSource.cs" />
+    <Compile Include="inc\DataSources\UserOperationLogDetailDataSource.cs" />
+    <Compile Include="inc\DataSources\AdvancedSearchDataSource.cs" />
+    <Compile Include="inc\CategoryLink.cs" />
+    <Compile Include="inc\CategoryLinkAdapter.cs" />
+    <Compile Include="inc\FormQueryCondition.cs" />
+    <Compile Include="inc\LogOutLink.cs" />
+    <Compile Include="inc\ResSiteMenu.cs" />
+    <Compile Include="inc\ResSiteMapPath.cs" />
+    <Compile Include="inc\SimpleTask.cs" />
+    <Compile Include="inc\SR.cs" />
+    <Compile Include="inc\TaskQuery.cs" />
+    <Compile Include="inc\TaskQueryCondition.cs" />
+    <Content Include="App_Data\CategorySchema.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="inc\WfStatusControl.cs" />
+    <Compile Include="inc\LogQueryCondition.cs" />
+    <Compile Include="inc\Util.cs" />
+    <Compile Include="Task\PrivateAffairs.aspx.cs">
+      <DependentUpon>PrivateAffairs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Task\PrivateAffairs.aspx.designer.cs">
+      <DependentUpon>PrivateAffairs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Search\SearchResult.aspx.cs">
+      <DependentUpon>SearchResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Search\SearchResult.aspx.designer.cs">
+      <DependentUpon>SearchResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\JsonServices.ashx.cs">
+      <DependentUpon>JsonServices.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\PortalServices.asmx.cs">
+      <DependentUpon>PortalServices.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Admin\SystemAdmin.aspx.cs">
+      <DependentUpon>SystemAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\SystemAdmin.aspx.designer.cs">
+      <DependentUpon>SystemAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Task\TodoList.aspx.cs">
+      <DependentUpon>TodoList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Task\TodoList.aspx.designer.cs">
+      <DependentUpon>TodoList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Task\TraceLog.aspx.cs">
+      <DependentUpon>TraceLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Task\TraceLog.aspx.designer.cs">
+      <DependentUpon>TraceLog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Task\TraceLogDetail.aspx.cs">
+      <DependentUpon>TraceLogDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Task\TraceLogDetail.aspx.designer.cs">
+      <DependentUpon>TraceLogDetail.aspx</DependentUpon>
+    </Compile>
+    <Content Include="Breadcrumb.sitemap" />
+    <Content Include="Services\JsonServices.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Styles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\Default\DeluxeGrid.skin" />
+    <None Include="MCS.Library.snk" />
+    <Content Include="Web.sitemap" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Services\PortalServices.asmx.resx">
+      <DependentUpon>PortalServices.asmx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v12.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2481</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/MCSWebApp/MCSResponsiveOAPortal</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

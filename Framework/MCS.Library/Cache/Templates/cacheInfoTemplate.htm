@@ -1,0 +1,44 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="Content-Type"content="text/html;charset=utf-8"/>
+	<title>缓存使用信息</title>
+	<style type="text/css">
+		h1
+		{
+			font-size: 16px;
+		}
+		.queueInfoTitle
+		{
+			line-height: 24px;
+			background-color: #dddddd;
+			font-family: "Calibri";
+			margin-top: 4px;
+			margin-bottom: 4px;
+		}
+		.queueInfoDetail
+		{
+			line-height: 16px;
+			background-color: #ffffe8;
+			font-family: "Calibri";
+		}
+		.clearButton
+		{
+			margin-left: 8px;
+			margin-right: 8px;
+		}
+	</style>
+</head>
+<body>
+	<form method="post" action="DeluxeCacheInfo.axd">
+	<h1>
+		缓存使用信息$Summary$</h1>
+	<div>
+		<input type="hidden" name="cacheQueueTypeName" id="cacheQueueTypeName" />
+	</div>
+	<div>
+		$QueueInfoLines$
+	</div>
+	</form>
+</body>
+</html>

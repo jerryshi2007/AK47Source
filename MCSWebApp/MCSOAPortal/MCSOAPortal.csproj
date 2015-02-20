@@ -1,0 +1,559 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C9D50D54-9E5C-4053-A340-EC5CFBB77C07}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MCS.OA.Portal</RootNamespace>
+    <AssemblyName>MCSOAPortal</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MCS.Library">
+      <HintPath>..\..\Bin\MCS.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Data, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.OGUPermission, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.OGUPermission.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Passport, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.Passport.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.SOA.DataObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.Web.WebControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.SOA.Web.WebControls.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Library">
+      <HintPath>..\..\Bin\MCS.Web.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Library.Script.Json, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Web.Library.Script.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.WebControls, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Web.WebControls.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css.css" />
+    <Content Include="css\Ajax.css" />
+    <Content Include="css\basePortal.css" />
+    <Content Include="css\CalendarControl.css" />
+    <Content Include="css\Dialog.css" />
+    <Content Include="css\Document.css" />
+    <Content Include="css\Frame.css" />
+    <Content Include="css\Grid.css" />
+    <Content Include="css\htc.css" />
+    <Content Include="css\Input.css" />
+    <Content Include="css\ItemDetail.css" />
+    <Content Include="css\Login.css" />
+    <Content Include="css\Ont.css" />
+    <Content Include="css\Other.css" />
+    <Content Include="css\portalpage.css" />
+    <Content Include="css\style.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="frames\DrawDocument.aspx" />
+    <Content Include="frames\header.aspx" />
+    <Content Include="frames\left.aspx" />
+    <Content Include="frames\refreshBridge.htm" />
+    <Content Include="frames\SystemAdmin.aspx" />
+    <Content Include="images\01.gif" />
+    <Content Include="images\02.gif" />
+    <Content Include="images\03.gif" />
+    <Content Include="images\04.gif" />
+    <Content Include="images\07.gif" />
+    <Content Include="images\13.gif" />
+    <Content Include="images\16\Favorites16.gif" />
+    <Content Include="images\16\sort.gif" />
+    <Content Include="images\accomplished.gif" />
+    <Content Include="images\arrow21.gif" />
+    <Content Include="images\bangzhu.gif" />
+    <Content Include="images\banner.jpg" />
+    <Content Include="images\banner1.gif" />
+    <Content Include="images\banner_1.gif" />
+    <Content Include="images\banner_bg.jpg" />
+    <Content Include="images\banner_right.jpg" />
+    <Content Include="images\bg01.gif" />
+    <Content Include="images\bg01.jpg" />
+    <Content Include="images\bg02.jpg" />
+    <Content Include="images\bg03.gif" />
+    <Content Include="images\bg04.gif" />
+    <Content Include="images\bg05.gif" />
+    <Content Include="images\bg06.gif" />
+    <Content Include="images\bg07.gif" />
+    <Content Include="images\bg14.gif" />
+    <Content Include="images\bg19.jpg" />
+    <Content Include="images\bg_2.gif" />
+    <Content Include="images\bg_3.gif" />
+    <Content Include="images\bg_4.gif" />
+    <Content Include="images\bottom.gif" />
+    <Content Include="images\button-bg01.gif" />
+    <Content Include="images\caidan01.gif" />
+    <Content Include="images\caidan02.gif" />
+    <Content Include="images\calendar.GIF" />
+    <Content Include="images\canshuweihu.gif" />
+    <Content Include="images\captionBG.gif" />
+    <Content Include="images\captionFG.gif" />
+    <Content Include="images\chaxun.gif" />
+    <Content Include="images\chaxunku.gif" />
+    <Content Include="images\chaxunku1.gif" />
+    <Content Include="images\computer.gif" />
+    <Content Include="images\daiban-bg.gif" />
+    <Content Include="images\daiban.gif" />
+    <Content Include="images\daiban01.gif" />
+    <Content Include="images\daiban1.gif" />
+    <Content Include="images\daibansx01.jpg" />
+    <Content Include="images\daibansx02.gif" />
+    <Content Include="images\daiyue.gif" />
+    <Content Include="images\daiyue01.gif" />
+    <Content Include="images\daiyue1.gif" />
+    <Content Include="images\daiyuesx.jpg" />
+    <Content Include="images\daiziweihu.gif" />
+    <Content Include="images\dangan.gif" />
+    <Content Include="images\dangangmanage.gif" />
+    <Content Include="images\danganmanage.gif" />
+    <Content Include="images\dayingjiaojie.gif" />
+    <Content Include="images\ddArrow.gif" />
+    <Content Include="images\dduban.gif" />
+    <Content Include="images\dengji.gif" />
+    <Content Include="images\dfawen.gif" />
+    <Content Include="images\di1.gif" />
+    <Content Include="images\di2.gif" />
+    <Content Include="images\di3.gif" />
+    <Content Include="images\dialog_header.gif" />
+    <Content Include="images\dot.gif" />
+    <Content Include="images\dqianbao.gif" />
+    <Content Include="images\dshouwen.gif" />
+    <Content Include="images\dzwxx.gif" />
+    <Content Include="images\edit.gif" />
+    <Content Include="images\excel.gif" />
+    <Content Include="images\Favorites16.gif" />
+    <Content Include="images\fawen.jpg" />
+    <Content Include="images\findAnd.gif" />
+    <Content Include="images\findOr.gif" />
+    <Content Include="images\genduo.gif" />
+    <Content Include="images\gongzuoliudingy.gif" />
+    <Content Include="images\gongzuozhinan.gif" />
+    <Content Include="images\h2_icon.gif" />
+    <Content Include="images\head-right.gif" />
+    <Content Include="images\head01.gif" />
+    <Content Include="images\head02.jpg" />
+    <Content Include="images\head_01.gif" />
+    <Content Include="images\head_01.jpg" />
+    <Content Include="images\head_03.gif" />
+    <Content Include="images\home.gif" />
+    <Content Include="images\huiyi.gif" />
+    <Content Include="images\huiyishi.gif" />
+    <Content Include="images\icon_post.gif" />
+    <Content Include="images\id-bg.gif" />
+    <Content Include="images\import.gif" />
+    <Content Include="images\index05_01.jpg" />
+    <Content Include="images\index05_02.jpg" />
+    <Content Include="images\index_01.gif" />
+    <Content Include="images\index_02.jpg" />
+    <Content Include="images\index_03.jpg" />
+    <Content Include="images\info1.gif" />
+    <Content Include="images\info2.gif" />
+    <Content Include="images\jiantou01.gif" />
+    <Content Include="images\jiantou02.gif" />
+    <Content Include="images\jiaose.gif" />
+    <Content Include="images\jiupeizhi.gif" />
+    <Content Include="images\jiushouquan.gif" />
+    <Content Include="images\jiutongji.gif" />
+    <Content Include="images\jiyaolieb.gif" />
+    <Content Include="images\left.gif" />
+    <Content Include="images\left_bg.gif" />
+    <Content Include="images\leixingweihu.gif" />
+    <Content Include="images\leixingweihu1.gif" />
+    <Content Include="images\lianjie01.gif" />
+    <Content Include="images\lianjie02.gif" />
+    <Content Include="images\lianjie03.gif" />
+    <Content Include="images\liebiao.gif" />
+    <Content Include="images\line_latitude.gif" />
+    <Content Include="images\line_longititude.gif" />
+    <Content Include="images\lingdaojianz.gif" />
+    <Content Include="images\lishigonggao.gif" />
+    <Content Include="images\liuchengdingyi.gif" />
+    <Content Include="images\logo2.png" />
+    <Content Include="images\logo3.png" />
+    <Content Include="images\logobg.png" />
+    <Content Include="images\logout.gif" />
+    <Content Include="images\lo_2.gif" />
+    <Content Include="images\lo_3.gif" />
+    <Content Include="images\mail.gif" />
+    <Content Include="images\mail_none.gif" />
+    <Content Include="images\menuList.gif" />
+    <Content Include="images\menuListSelected.gif" />
+    <Content Include="images\menu_chuli.gif" />
+    <Content Include="images\menu_haiguanxinxi_2.gif" />
+    <Content Include="images\menu_weihu_2.gif" />
+    <Content Include="images\menu_wenhan.gif" />
+    <Content Include="images\menu_wo.gif" />
+    <Content Include="images\menu_zaiti.gif" />
+    <Content Include="images\more.gif" />
+    <Content Include="images\nianjie.jpg" />
+    <Content Include="images\nigao.gif" />
+    <Content Include="images\outlookCalendar.gif" />
+    <Content Include="images\outlookCalendarBig.gif" />
+    <Content Include="images\peizhi01.gif" />
+    <Content Include="images\peizhi02.gif" />
+    <Content Include="images\peizhi03.gif" />
+    <Content Include="images\peizhi04.gif" />
+    <Content Include="images\peizhi05.gif" />
+    <Content Include="images\point01.gif" />
+    <Content Include="images\point01.jpg" />
+    <Content Include="images\point02.gif" />
+    <Content Include="images\point03.gif" />
+    <Content Include="images\point04.gif" />
+    <Content Include="images\point07.gif" />
+    <Content Include="images\point08.gif" />
+    <Content Include="images\point09.gif" />
+    <Content Include="images\point10.gif" />
+    <Content Include="images\qanda.gif" />
+    <Content Include="images\qinjia.gif" />
+    <Content Include="images\rCollapse.gif" />
+    <Content Include="images\renwu01.gif" />
+    <Content Include="images\renwu02.gif" />
+    <Content Include="images\rExpand.gif" />
+    <Content Include="images\richangweihu.gif" />
+    <Content Include="images\right.gif" />
+    <Content Include="images\rizhi.gif" />
+    <Content Include="images\rizhi.jpg" />
+    <Content Include="images\search.gif" />
+    <Content Include="images\select.gif" />
+    <Content Include="images\shixiang_13.gif" />
+    <Content Include="images\shixiang_15.gif" />
+    <Content Include="images\shixiang_17.gif" />
+    <Content Include="images\shouquan.gif" />
+    <Content Include="images\shouquan2.gif" />
+    <Content Include="images\shouwentongji.gif" />
+    <Content Include="images\shuxinglieb.gif" />
+    <Content Include="images\sidebar_bg.jpg" />
+    <Content Include="images\taskPartCaptionBG.gif" />
+    <Content Include="images\taskPartCorner.gif" />
+    <Content Include="images\tianjia.gif" />
+    <Content Include="images\tixing.gif" />
+    <Content Include="images\tixing01.gif" />
+    <Content Include="images\tongzhiliebiao.gif" />
+    <Content Include="images\undoTaskBG.gif" />
+    <Content Include="images\undoTaskLeft.gif" />
+    <Content Include="images\undoTaskRight.gif" />
+    <Content Include="images\untitled.bmp" />
+    <Content Include="images\updown.gif" />
+    <Content Include="images\user.gif" />
+    <Content Include="images\waichu.jpg" />
+    <Content Include="images\wangluohuiyi.gif" />
+    <Content Include="images\weihu.gif" />
+    <Content Include="images\weizhaibianxinx.gif" />
+    <Content Include="images\wenjianjia.gif" />
+    <Content Include="images\wenzhongweihu.gif" />
+    <Content Include="images\Word.jpg" />
+    <Content Include="images\wulianwang.gif" />
+    <Content Include="images\xda.gif" />
+    <Content Include="images\xdb.gif" />
+    <Content Include="images\xfw.gif" />
+    <Content Include="images\xgl.gif" />
+    <Content Include="images\xifang.gif" />
+    <Content Include="images\xinfangdengj.gif" />
+    <Content Include="images\xinwen.gif" />
+    <Content Include="images\xinxi-bg.jpg" />
+    <Content Include="images\xinxi01.gif" />
+    <Content Include="images\xinxi_03.gif" />
+    <Content Include="images\xinxi_05.gif" />
+    <Content Include="images\xitongdingz.gif" />
+    <Content Include="images\xitongguanl.gif" />
+    <Content Include="images\xqianbao.gif" />
+    <Content Include="images\xsw.gif" />
+    <Content Include="images\xxx.gif" />
+    <Content Include="images\yiban.gif" />
+    <Content Include="images\yichangchuli.gif" />
+    <Content Include="images\yinyonglieb.gif" />
+    <Content Include="images\zaibian.gif" />
+    <Content Include="images\zhengwu.gif" />
+    <Content Include="images\zhiban.gif" />
+    <Content Include="images\zhibanguanli.gif" />
+    <Content Include="images\zhibantj.gif" />
+    <Content Include="images\ziyuan.gif" />
+    <Content Include="images\zsq.gif" />
+    <Content Include="images\zwjj.gif" />
+    <Content Include="images\zxxtj.gif" />
+    <Content Include="img\addressList.gif" />
+    <Content Include="img\bar.PNG" />
+    <Content Include="img\bg_bottom.gif" />
+    <Content Include="img\bg_btn15.gif" />
+    <Content Include="img\bg_grsw.gif" />
+    <Content Include="img\bg_header.gif" />
+    <Content Include="img\bg_header.jpg" />
+    <Content Include="img\bg_icon.gif" />
+    <Content Include="img\bg_li.gif" />
+    <Content Include="img\bg_li1.gif" />
+    <Content Include="img\bg_line.gif" />
+    <Content Include="img\bg_logo.jpg" />
+    <Content Include="img\bg_menu.jpg" />
+    <Content Include="img\bg_middle.gif" />
+    <Content Include="img\bg_title.gif" />
+    <Content Include="img\bg_title1.gif" />
+    <Content Include="img\bg_title2.gif" />
+    <Content Include="img\bg_title3.gif" />
+    <Content Include="img\bg_ul.gif" />
+    <Content Include="img\btn_Close.JPG" />
+    <Content Include="img\btn_Pass.JPG" />
+    <Content Include="img\btn_Save.JPG" />
+    <Content Include="img\btn_Send.JPG" />
+    <Content Include="img\exit.gif" />
+    <Content Include="img\head.gif" />
+    <Content Include="img\home.gif" />
+    <Content Include="img\icon1.gif" />
+    <Content Include="img\logoL.gif" />
+    <Content Include="img\logoL_cancel.jpg" />
+    <Content Include="img\logoR.jpg" />
+    <Content Include="img\logout.gif" />
+    <Content Include="img\logo_left.jpg" />
+    <Content Include="img\logo_right.jpg" />
+    <Content Include="img\save.gif" />
+    <Content Include="img\search.gif" />
+    <Content Include="img\search1.gif" />
+    <Content Include="img\WebResource%281%29.gif" />
+    <Content Include="img\WebResource%2810%29.gif" />
+    <Content Include="img\WebResource%282%29.gif" />
+    <Content Include="img\WebResource%283%29.gif" />
+    <Content Include="img\WebResource%284%29.gif" />
+    <Content Include="img\WebResource%285%29.gif" />
+    <Content Include="img\WebResource%286%29.gif" />
+    <Content Include="img\WebResource%287%29.gif" />
+    <Content Include="img\WebResource%288%29.gif" />
+    <Content Include="img\WebResource%289%29.gif" />
+    <Content Include="img\WebResource.gif" />
+    <Content Include="img\wt.gif" />
+    <Content Include="JavaScript\Grid.js" />
+    <Content Include="JavaScript\propertyEditors.js" />
+    <Content Include="JavaScript\replaceAssignee.js" />
+    <Content Include="JavaScript\taskLink.js" />
+    <Content Include="JavaScript\taskQuery.js" />
+    <Content Include="Mechanism\RemoveMechanismCache.aspx" />
+    <Content Include="ReplaceAssignee\ReplaceAssigneeList.aspx" />
+    <Content Include="Search\SearchList.aspx" />
+    <Content Include="Services\PortalServices.asmx" />
+    <Content Include="style.css" />
+    <Content Include="TaskList\CompletedTaskList.aspx" />
+    <Content Include="TaskList\UnCompletedTaskList.aspx" />
+    <Content Include="UserPanel\usersettings.js" />
+    <Content Include="UserPanel\UserSettingsManager.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="xml\functions.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\ApplicationNameDropDownList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\CategoryDropDownList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\CompleteListQuery.cs" />
+    <Compile Include="Common\ExtendedUserTask.cs" />
+    <Compile Include="Common\FullTextSearchApplicationDropDownList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\GetLastUserTaskQuery.cs" />
+    <Compile Include="Common\GridCommon.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\PortalDropDownListBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\ReplaceAssigneeHelper.cs" />
+    <Compile Include="Common\SearchFiles.cs" />
+    <Compile Include="Common\TaskQueryCondition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\UnCompleteListQuery.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frames\DrawDocument.aspx.cs">
+      <DependentUpon>DrawDocument.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frames\DrawDocument.aspx.designer.cs">
+      <DependentUpon>DrawDocument.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frames\header.aspx.cs">
+      <DependentUpon>header.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frames\header.aspx.designer.cs">
+      <DependentUpon>header.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frames\left.aspx.cs">
+      <DependentUpon>left.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frames\left.aspx.designer.cs">
+      <DependentUpon>left.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frames\SystemAdmin.aspx.cs">
+      <DependentUpon>SystemAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frames\SystemAdmin.aspx.designer.cs">
+      <DependentUpon>SystemAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mechanism\RemoveMechanismCache.aspx.cs">
+      <DependentUpon>RemoveMechanismCache.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mechanism\RemoveMechanismCache.aspx.designer.cs">
+      <DependentUpon>RemoveMechanismCache.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resource.Designer.cs" />
+    <Compile Include="PropertyEditor\EditorDefine.cs" />
+    <Compile Include="ReplaceAssignee\ReplaceAssigneeList.aspx.cs">
+      <DependentUpon>ReplaceAssigneeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReplaceAssignee\ReplaceAssigneeList.aspx.designer.cs">
+      <DependentUpon>ReplaceAssigneeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Search\SearchList.aspx.cs">
+      <DependentUpon>SearchList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Search\SearchList.aspx.designer.cs">
+      <DependentUpon>SearchList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\PortalServices.asmx.cs">
+      <DependentUpon>PortalServices.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TaskList\CompletedTaskList.aspx.cs">
+      <DependentUpon>CompletedTaskList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TaskList\CompletedTaskList.aspx.designer.cs">
+      <DependentUpon>CompletedTaskList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TaskList\UnCompletedTaskList.aspx.cs">
+      <DependentUpon>UnCompletedTaskList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TaskList\UnCompletedTaskList.aspx.designer.cs">
+      <DependentUpon>UnCompletedTaskList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserPanel\UserSettingsManager.aspx.cs">
+      <DependentUpon>UserSettingsManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserPanel\UserSettingsManager.aspx.designer.cs">
+      <DependentUpon>UserSettingsManager.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resource.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\PortalServices.asmx.resx">
+      <DependentUpon>PortalServices.asmx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v12.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1208</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/MCSWebApp/MCSOAPortal</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

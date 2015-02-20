@@ -1,0 +1,141 @@
+﻿/* File Created: 七月 18, 2014 */
+
+.clientgrid-group-inline
+{
+    white-space: nowrap;
+}
+
+.clientgrid-group-inline > input
+{
+    display: inline;
+}
+
+.clientgrid-maintable > thead > tr
+{
+    background: linear-gradient(rgb(248, 248, 248) 0px, rgb(236, 236, 236) 100%) repeat-x scroll 0 0 rgb(242, 242, 242);
+    color: rgb(112, 112, 112);
+    font-weight: normal;
+}
+
+.clientgrid-pagerrow
+{
+    background-color: rgb(239, 243, 248);
+    border-color: rgb(221, 221, 221);
+    border-left: 1px solid rgb(221, 221, 221);
+    border-right: 1px solid rgb(221, 221, 221);
+    border-top: 1px solid rgb(221, 221, 221);
+    height: 50px;
+    padding-bottom: 12px;
+    padding-top: 12px;
+}
+
+.clientgrid-caption
+{
+    background: linear-gradient(rgb(255, 255, 255) 0px, rgb(238, 238, 238) 100%) repeat-x scroll 0 0 rgb(247, 247, 247);
+    border-color: rgb(204, 204, 204) rgb(204, 204, 204) -moz-use-text-color;
+    border-style: solid solid none;
+    border-width: 1px 1px medium;
+    box-sizing: content-box;
+    color: rgb(102, 159, 199);
+    font-size: 14px;
+    line-height: 38px;
+    padding-left: 12px;
+    position: relative;
+}
+
+.clientgrid-pagination
+{
+    margin:0;
+}
+
+.clientgrid-pagination-group
+{
+    width: 150px;
+    padding-left:15px;
+}
+
+table.clientgrid-maintable 
+{
+    margin:0;
+}
+
+table.clientgrid-maintable > thead > tr >th.sorting
+{
+    cursor:pointer;
+}
+
+table.clientgrid-maintable > thead > tr >th[class*="sorting-"]:after
+{
+    color: rgb(85, 85, 85);
+    content: "";
+    display: inline-block;
+    float: right;
+    font-family: FontAwesome;
+    font-size: 13px;
+    font-weight: normal;
+    margin-right: 4px;
+    position: relative;
+}
+
+table.clientgrid-maintable > thead > tr >th[class*="sorting-"]:hover
+{
+    color: rgb(84, 126, 168);
+}
+
+table.clientgrid-maintable > thead > tr >th[class*="sorting"]
+{
+    color: rgb(48, 126, 204);
+}
+
+table.clientgrid-maintable > thead > tr >th.sorting-desc {
+    background-image: linear-gradient(rgb(239, 243, 248) 0px, rgb(227, 231, 237) 100%);
+    background-repeat: repeat-x;
+}
+
+table.clientgrid-maintable > thead > tr > th.sorting-asc {
+    background-image: linear-gradient(rgb(239, 243, 248) 0px, rgb(227, 231, 237) 100%);
+    background-repeat: repeat-x;
+}
+table.clientgrid-maintable > thead > tr > th.sorting-desc:after {
+    color: rgb(48, 126, 204);
+    content: "";
+    top: -6px;
+}
+table.clientgrid-maintable > thead > tr >th.sorting-asc:after {
+    color: rgb(48, 126, 204);
+    content: "";
+    top: 4px;
+}
+table.clientgrid-maintable > thead > tr >th.sorting-disabled {
+    cursor: inherit;
+}
+table.clientgrid-maintable > thead > tr >th.sorting-disabled:after {
+    display: none;
+}
+
+.clientgrid-table-left, .clientgrid-table-left
+{
+    table-layout:fixed;
+}
+
+.clientgrid-table-left
+{
+    width:100%;
+}
+
+td.clientgrid-splitter-cell
+{
+    padding:0;    
+}
+
+.clientgrid-column-check
+{
+    width:30px;
+    text-align:center;
+}
+
+.clientgrid-toolbar-standbuttons, .clientgrid-toolbar-custombuttons
+{
+    display:inline-block;
+	
+}

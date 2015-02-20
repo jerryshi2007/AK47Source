@@ -1,0 +1,945 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>批量上传文件</title>
+    <meta content="Microsoft Visual Studio .NET 7.1" name="GEstyleNERATOR" />
+    <meta content="C#" name="CODE_LANGUAGE" />
+    <meta content="JavaScript" name="vs_defaultClientScript" />
+    <meta content="http://schemas.microsoft.com/intellisense/ie5" name="vs_targetSchema" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
+
+    <script language="javascript" type="text/javascript"> 
+			function queryString(name)
+			{ 
+				var qs = name + "=";
+				var str = location.search;
+				
+				if(str.length>0)
+				{
+					begin=str.indexOf(qs);
+					if(begin!=-1)
+					{
+						begin+=qs.length;
+						end=str.indexOf("&",begin);
+						
+						if(end==-1)end=str.length;
+							return(str.substring(begin,end));
+					}
+				}
+				return null;
+			} 
+			   
+			   function createObject(strName, strDescription)
+				{
+					try
+					{
+						var stm = new ActiveXObject(strName);
+						return stm;
+					}
+					catch(e)
+					{
+						var strMsg = "您的计算机没有安装" + strName + "，或者您的浏览器为该网页没有设置本地访问权限";
+
+						if (strDescription)
+							strMsg += ", " + strDescription;
+						throw strMsg;
+					}
+				}
+
+				function getNewid()
+			   {
+				  var   guid   =  "";
+				 
+					for   (var   i   =   1;   i   <=   32;   i++)
+					  {
+						var   n   =   Math.floor(Math.random()   *   16.0).toString(16);
+						guid   +=   n;
+						
+						if   ((i   ==   8)   ||   (i   ==   12)   ||   (i   ==   16)   ||   (i   ==   20))
+						  guid   +=   "-";
+					  }
+					  
+					return  guid ;     
+			   }             
+
+				var innerFileOpXmlHttp = null;
+				var innerFileOpHandleStateChange = null;
+				var innerFileOpParam = null;
+				
+				var adTypeBinary = 1;
+				var adTypeText = 2; 
+				
+				//上载文件
+				function uploadFile(strPostURL, strLocalPath, strMethod, strDescription, callback, param)
+				{
+					var stm = createObject("ADODB.Stream", strDescription);
+
+					stm.type = adTypeBinary;
+					stm.open();
+
+					innerFileOpXmlHttp = createObject("Msxml2.XMLHTTP");
+
+					try
+					{
+						streamLoadFile(stm, strLocalPath);
+						stm.position = 0;
+
+						if (!strMethod)
+							strMethod = "put";
+
+						var bAysync = false;
+
+						if (callback)
+						{
+							bAysync = true;
+							innerFileOpXmlHttp.onreadystatechange = handleFileOpStateChange;
+							innerFileOpParam = param;
+							innerFileOpHandleStateChange = callback;
+						}
+
+						innerFileOpXmlHttp.open(strMethod, strPostURL, bAysync);
+						innerFileOpXmlHttp.send(stm); 
+		  
+						return innerFileOpXmlHttp;
+					}
+					finally
+					{
+						stm.close();
+					}
+				}
+
+				function getAppNameByFileName(strFileName)
+				{
+					var strType = getFileType(strFileName);
+					var strAppName = "";
+
+					switch(strType)
+					{
+						case "dot":
+						case "doc":
+									strAppName = "Microsoft Word";
+									break;
+						case "ppt":
+						case "pps":
+						case "ppa":
+									strAppName = "Microsoft PowerPoint";
+									break;
+						case "csv":
+						case "xla":
+						case "xls":
+						case "xlw":
+									strAppName = "Microsoft Excel";
+									break;
+					}
+
+					return strAppName;
+				}
+ 
+			function streamLoadFile(stream, strFile)
+			{
+				try
+				{
+					stream.loadFromFile(strFile);
+				}
+				catch(e)
+				{
+					var C_ERROR_FILE_NOT_OPEN = -2146825286;
+					var strAppName = getAppNameByFileName(strFile);
+
+					if (e.number == C_ERROR_FILE_NOT_OPEN)
+					{
+						var strError = "文件" + strFile + "不能打开";
+
+						if (strAppName.length > 0)
+							strError += "，请检查该文件是否被“" + strAppName + "”打开";
+						else
+							strError += "，请检查该文件是否被其它应用程序打开";
+
+						throw strError;
+					}
+					else
+						throw "请将http://" + document.location.host + "加入可信站点";
+				}
+			}  
+		
+			function getFileNameWithExt(strFile)
+			{
+				var nFileNameStart = strFile.lastIndexOf("\\");
+				return strFile.substring(nFileNameStart + 1, strFile.length);
+			}
+			
+			function getFileExt(strFile)
+			{
+				var nFileNameStart = strFile.lastIndexOf(".");
+				return strFile.substring(nFileNameStart + 1, strFile.length);
+			}
+		
+		    function allowUpload(strFile)
+		    {
+		         var  fileExt = getFileExt( strFile )  ;
+		        if (  window.dialogArguments._forbidUploadExpandName.toLowerCase().indexOf( fileExt.toLowerCase() )  !=  -1  ) 
+		        {
+		           alert( "不允许上传拓展名为" + fileExt  + "的文件。" ) ;
+		            return false ;
+		        }
+                else
+               { 
+                    return true ; 
+               }
+            }
+		    
+			function fileContains(iFileName)
+			{
+				var fileList = document.getElementById("FileList");
+				
+				if (fileList.length==0)
+					return false;
+				
+				for (var i=0; i < fileList.length; i++)
+				{
+					if (fileList.options[i].text == iFileName)
+					{
+						return true;
+					}
+				}				
+				return false;
+			}
+			
+			function addFiles()
+			{
+				var ActX = document.getElementById("ActX");
+				ActX.MultiSelect=true;
+				var R = ActX.OpenDialog();
+				var fileList = document.getElementById("FileList");
+				var Opt;
+				var FileNames;
+				
+				if (R)
+				{
+					FileNames = ActX.FileName.split('|');
+
+					if (FileNames.length == 1 && fileContains(FileNames[0]) == false)
+					{
+						Opt = fileList.document.createElement("Option")
+						Opt.text = FileNames[0];
+						Opt.value = getFileNameWithExt(FileNames[0]);
+						fileList.add(Opt);
+					}
+					else
+					{
+						for (var i = 1; i < FileNames.length; i++)
+						{
+							if (fileContains(FileNames[0] + "\\" + FileNames[i]) == false)
+							{
+								Opt = fileList.document.createElement("Option")
+								Opt.text = FileNames[0] + "\\" + FileNames[i];
+								Opt.value = FileNames[i];
+								fileList.add(Opt);
+							}
+						}
+					}
+				}
+				
+				ActX.FileName="";
+			}
+			
+			function removeFiles()
+			{
+				var fileList = document.getElementById("FileList");
+
+				for (var i=fileList.length-1; i >= 0; i--)
+				{
+					if (fileList.options[i].selected)
+						fileList.remove(i);						
+				}
+			}
+			
+			function uploadFiles()
+			{ 
+				var strFileNames = "";
+				var strFileFullNames = "";
+				var fileList = document.getElementById("FileList");
+				var Msg="文件上传完成!\n\n=========================\n";
+				var FinishFilesCount = 0;
+				var FinishFilesMsg = "";
+				var FiledFilesMsg = "";
+				
+				document.getElementById("lblUplaoding").value = "正在上传文件，请稍候..."
+				if (fileList.length==0)
+				{
+					alert("至少要选择一个上传文件！");
+					return;
+				}
+				 
+				var material ;
+				 
+				for (var i=0; i < fileList.length; i++)
+				{
+				    if( !allowUpload(fileList.options[i].value) ) 
+				    {   
+				        continue;   
+				    }
+					//获取本地文件完整路径，以及文件名，并拼成串（使用|分割）
+					try
+					{
+						var fileName = getNewid()  + "." +   getFileExt(fileList.options[i].value) ;
+						var url = unescape( queryString( "PostFileToPage" ) )  + "?_uploadFile=true&FileName=" + fileName ;
+						
+						uploadFile( url 	, fileList.options[i].text,"POST","",false);
+						FinishFilesMsg = FinishFilesMsg + "    " + fileList.options[i].value + "\n";
+						FinishFilesCount = FinishFilesCount + 1; 
+				  
+						material ={"ID": getNewid(),
+						"ResourceID": window.dialogArguments._resourceID,
+						 "SortID":getMaxSortID() + 1,
+						 "Class": window.dialogArguments._class ,
+						 "Title":fileList.options[i].value,
+						 "PageQuantity":1,
+						 "FilePath":fileName,
+						 "OriginalName":fileList.options[i].value} ; 
+					 
+						 materialList.push( material ) ; 				 
+					}
+					catch(e)
+					{
+						FiledFilesMsg = FiledFilesMsg + "    " + fileList.options[i].value + "\n";
+					}					
+				}
+				
+				Msg = Msg + "成功上传 " + FinishFilesCount + " 个文件：\n" + FinishFilesMsg + "\n";
+				Msg = Msg + "-------------------------\n";
+				Msg = Msg + "上传失败 " + (i - FinishFilesCount) + " 个文件：\n" + FiledFilesMsg;
+				
+				alert(Msg); 
+				 
+				 //清除列表
+				 var  cntOptions = fileList.options.length ;
+				 for ( var i =0 ; i< cntOptions ; i ++)
+				 {
+						fileList.remove(0) ;
+				 }
+				 
+				showMaterialList(); 
+			} 
+ 
+			function getMaxSortID()
+			{
+					var SortID = 1 ; 			        
+					for( var i =0 ; i< materialList.length ; i ++ )	
+					{
+						if( SortID <  parseInt( materialList[i].SortID) ) 
+							 SortID = parseInt( materialList[i].SortID)  ;
+					}			    	
+					return SortID ;
+			}
+			
+			function save()
+			{ 
+				window.returnValue = materialList  ; 
+				window.close() ; 
+			}
+			
+			function cancel()
+			{  
+				 window.returnValue = null ;
+				 window.close() ; 
+			}
+			
+			window.document.createStyleSheet(window.dialogArguments._cssUrl) ;
+
+    </script>
+
+</head>
+<body class="body">
+    <form id="CatalogForm" method="post">
+        <table style="width: 100%; height: 500px" cellspacing="0" cellpadding="0">
+            <tr>
+                <td style="height: 32px">
+                    <strong><font size="4">
+                        <object id="ActX" height="0" width="0" classid="CLSID:C86C48A2-0DAD-41B6-BB85-AAB912FEE3AB"
+                            viewastext="viewastext">
+                        </object>
+                    </font></strong><span id="logo" style="background-position: center center; background-attachment: fixed;
+                        background-image: url(../ImagesNew/Favorites32.gif); width: 32px; background-repeat: no-repeat;
+                        height: 32px"></span><font size="4"><strong id="Caption">批量上传文件</strong> </font>
+                    <hr />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table id="tableSelectFiles" style="width: 100%; height: 100%" cellspacing="5" cellpadding="0"
+                        border="0">
+                        <tbody style="width: 100%">
+                            <tr>
+                                <td colspan="3" style="font-weight: bold; font-size: 10pt">
+                                    已选择文件列表:
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" colspan="3">
+                                    <div style="height: 100%">
+                                        <select id="FileList" style="border-right: #000000 thin; border-top: #000000 thin;
+                                            border-left: #000000 thin; width: 100%; border-bottom: #000000 thin; height: 100%"
+                                            size="13">
+                                        </select>
+                                    </div>
+                                </td>
+                                <td valign="top" colspan="4" style="width: 88px">
+                                    <table width="100%" style="height: 100%">
+                                        <tr>
+                                            <td>
+                                                <input class="flatButton" id="btnAddFiles" style="width: 100%" onclick="addFiles();"
+                                                    type="button" value="选择文件(S)" accesskey="A" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input class="flatButton" id="btnRemoveFiles" style="width: 100%" onclick="removeFiles();"
+                                                    type="button" value="移除文件(R)" name="btnRemoveFiles" accesskey="R" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input class="flatButton" id="btnUpload" style="width: 100%" accesskey="O" onclick="uploadFiles();"
+                                                    type="button" value="上传文件(O)" name="btnUpload" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr id="trLine">
+                <td>
+                    <hr />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table id="tableFiles" style="width: 100%; height: 400px" cellspacing="5" cellpadding="0"
+                        border="0">
+                        <tbody style="width: 100%">
+                            <tr>
+                                <td valign="top" align="right" colspan="3" style="font-weight: bold; font-size: 10pt">
+                                    已经上传文件列表:
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" colspan="3">
+                                    <div style="height: 100%; overflow-y: auto">
+                                        <table id="tableMaterialList">
+                                            <tbody id="tableMaterialListContent">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                                <td valign="top" colspan="4" style="width: 88px">
+                                    <table width="100%" style="height: 100%">
+                                        <tr>
+                                            <td>
+                                                <input class="flatButton" id="btnMoveUp" style="width: 100%" onclick="moveFileUp();"
+                                                    type="button" value="上移(U)" accesskey="U" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input class="flatButton" id="btnMoveDown" style="width: 100%" onclick="moveFileDown();"
+                                                    type="button" value="下移(D)" name="btnRemoveFiles" accesskey="D" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input class="flatButton" id="btnDelete" style="width: 100%" accesskey="D" onclick="deleteFiles();"
+                                                    type="button" value="删除文件(K)" name="btnUpload" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input class="flatButton" id="btnOK" style="width: 100%" accesskey="S" onclick="save();"
+                                                    type="button" value="确定(S)" name="closeBtn" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input class="flatButton" id="btnCancel" style="width: 100%" accesskey="C" onclick="cancel();"
+                                                    type="button" value="关闭(C)" name="closeBtn" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td style="height: 40px">
+                    <table id="Table3" style="width: 100%; height: 100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td colspan="6" align="center">
+                                <div id="lblUplaoding" style="display: inline; width: 249px; height: 19px" align="center"
+                                    ms_positioning="FlowLayout">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 90px">
+                                &nbsp;</td>
+                            <td align="center">
+                            </td>
+                            <td align="center">
+                            </td>
+                            <td style="width: 90px">
+                                &nbsp;</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <script language="javascript" type="text/javascript">
+    
+            var editable  = window.dialogArguments._editable ;
+            var allowUpload  = window.dialogArguments._allowUpload ;
+              
+            if( !allowUpload )
+            {
+                var tableSelectFiles = window.document.getElementById("tableSelectFiles") ;
+                tableSelectFiles.style.display = "none" ; 
+               
+                var trLine = window.document.getElementById("trLine") ; 
+                trLine.style.display = "none" ; 
+               
+                var tableFiles = window.document.getElementById("tableFiles") ;
+                tableFiles.style.height = "550px" ; 
+            } 
+            
+            var allowDelete  = window.dialogArguments._allowDelete ;
+            if( !allowDelete )
+            {
+                var btnDelete = window.document.getElementById("btnDelete") ;
+                btnDelete.style.display = "none" ; 
+            }
+            
+            var allowAdjustOrder  = window.dialogArguments._allowAdjustOrder ;
+            if( !allowAdjustOrder )
+            {
+                var btnMoveUp = window.document.getElementById("btnMoveUp") ;
+                btnMoveUp.style.display = "none" ; 
+               
+                var btnMoveDown = window.document.getElementById("btnMoveDown") ;
+                btnMoveDown.style.display = "none" ;  
+            }
+            
+			var popUpBodyStyle   = window.dialogArguments._popUpBodyStyle ;
+			
+			if( popUpBodyStyle != null )  
+			    window.document.body.style =  window.dialogArguments._popUpBodyStyle ;
+			
+			var ActX = window.document.getElementById("ActX") ; 
+			ActX.codebase = window.dialogArguments._hBWebHelperControl ;  
+			 
+			var popUpMaterialTableCellInputStyle =  window.dialogArguments._popUpMaterialTableCellInputStyle ;  
+
+			//样式 
+			var popUpMaterialTableStyle = window.dialogArguments._popUpMaterialTableStyle ;
+			var popUpMaterialTableCellStyle = window.dialogArguments._popUpMaterialTableCellStyle ; 
+			var popUpMaterialTableHeadCellStyle = window.dialogArguments._popUpMaterialTableHeadCellStyle ; 
+			 
+			var tableMaterialList = window.document.getElementById("tableMaterialList") ;
+			
+			 if( popUpMaterialTableStyle == null  )
+					tableMaterialList.className = "PopUpMaterialTableCss"  ;
+			 else
+				   setStyle( tableMaterialList ,  popUpMaterialTableStyle  ) ; 
+			  
+			var tableMaterialListContent = window.document.getElementById("tableMaterialListContent") ;
+ 
+			//列表对象
+			var  materialList  = window.dialogArguments._materialList ;
+			
+			function setStyle( element , style  )
+			{
+					window.dialogArguments._setStyle( element , style ) ;
+			}
+		  
+			//添加单元格
+			function  addTableCell( row  , className ,style ,  width , innerHTML , childNode , canEdit , inputWidth , index  )
+			{ 
+				 var cell  =  window.document.createElement("td") ;
+				 cell = window.document.createElement("td") ;
+		  
+				  if( style == null  ) 
+					cell.className = className  ;
+				  else
+					setStyle( cell ,  style  ) ; 
+					
+				 if( width != null  )
+					cell.width = width  ;
+			   
+				 if( innerHTML != null  )
+					cell.innerHTML = innerHTML ;
+					
+				 if( childNode != null) 
+					cell.appendChild( childNode ) ;
+					
+				 row.appendChild(cell) ; 
+				 
+				 //显示编辑框
+				 if( canEdit == true )
+				 {
+					cell.title = "单击此处编辑" ;	
+					
+					cell.onclick =  function()
+					{ 
+						if( cell.firstChild  != null &&   cell.firstChild.tagName != null && cell.firstChild.tagName.toLowerCase() == "input"  )
+							return ;
+							
+					   var inputText =   window.document.createElement("input") ;
+					   inputText.type = "text" ; 
+					   inputText.value =  cell.innerHTML ; 
+					  inputText.title = "回车保存，ESC取消"; 
+					  
+					  if( inputWidth == "170" ) 
+	                     inputText.maxLength =  "255" ;
+	                  else
+	                     inputText.maxLength =  "4" ;
+	                    
+					   if( inputWidth != null )
+					     inputText.style.width = inputWidth ; 
+					  
+					   if(popUpMaterialTableCellInputStyle !=null ) 
+                         setStyle( inputText ,  popUpMaterialTableCellInputStyle  ) ;
+                       
+					   cell.innerHTML = ""; 	 
+							   
+						//光标离开
+						inputText.onblur = function()
+						{
+						   saveInput( index , this , inputWidth  ) ;
+						}
+					   
+						//回车和ESC事件
+						inputText.onkeydown = function()
+						{
+						   var keycode = event.keyCode;
+						   
+						   if( keycode ==13  ) 
+								saveInput( index , this  , inputWidth ) ;
+						   else if ( keycode ==27  ) 
+							   showMaterialList() ;
+						}
+						
+					   cell.appendChild( inputText ) ; 
+					  
+					   if( popUpMaterialTableCellInputStyle == null  )
+							inputText.className = "PopUpMaterialTableCellInputCss"  ;
+						else
+							setStyle( inputText ,  popUpMaterialTableCellInputStyle  ) ;
+						  
+					   inputText.focus() ;
+					}
+				 }
+				 
+				 return cell ;
+			}
+			
+				//保存修改   
+				function saveInput ( index , inputText , inputWidth )
+				 {
+					if(inputWidth == "170")
+					{
+					   materialList[index].Title =   inputText.value ;
+					} 
+				   else
+				   {    
+					  if (  isNaN( inputText.value ) ||  inputText.value.indexOf('.') != -1 ||  inputText.value.indexOf('-') != -1  ) 
+					  {
+						alert("页数必须为正整数") ;
+						inputText.value = materialList[index].PageQuantity ;
+						inputText.focus();
+						return ;
+					  }
+					  
+					  if ( inputText.value.replace( /(^\s*)|(\s*$)/g, "").replace( /(^　*)|(　*$)/g,"") == "" ) 
+							inputText.value = "0" ;
+						
+					  materialList[index].PageQuantity =   inputText.value ;　
+					}
+					
+					showMaterialList() ;
+			  }
+
+			function showMaterialList()
+			{   
+				var  TableRows = tableMaterialList.rows.length ;
+				 
+			   for( var i =0 ; i< TableRows ; i ++  ) 
+			   {
+					tableMaterialList.deleteRow( 0 ) ; 
+			   }
+	   
+				var row  ;
+				var checkBox ; 
+				var link  ; 
+				 
+				 //head
+				 row = window.document.createElement("tr") ;
+				 
+				 checkBox = window.document.createElement("input") ;
+				 checkBox.type = "checkbox" ;
+				 checkBox.id = "SelectAll" ;
+				 checkBox.onclick = function()
+				 {
+					for( var i = 1 ; i  < tableMaterialListContent.childNodes.length   ; i ++ ) 
+					{ 
+						tableMaterialListContent.childNodes[i].firstChild.firstChild.checked = this. checked;
+					} 
+				 } ;
+				 
+				 addTableCell( row , "PopUpMaterialTableHeadCellCss", popUpMaterialTableHeadCellStyle ,"22" , null  , checkBox ,false ) ; 		            
+				 addTableCell( row , "PopUpMaterialTableHeadCellCss",  popUpMaterialTableHeadCellStyle ,"180" ,"标题"  ,null,false) ;
+				 addTableCell( row , "PopUpMaterialTableHeadCellCss", popUpMaterialTableHeadCellStyle ,"135" ,"文件名" ,null ,false ) ;
+				 addTableCell( row , "PopUpMaterialTableHeadCellCss", popUpMaterialTableHeadCellStyle ,"35" ,"页数",null ,false ) ;
+					
+				 tableMaterialListContent.appendChild( row ) ;
+
+				//list                
+				for( var i =0  ; i <  materialList.length ; i ++ )
+			   {
+					if( materialList[i] == null )
+						continue; 
+							 
+					row = window.document.createElement("tr") ;
+					
+					//选择
+					checkBox = window.document.createElement("input") ;
+					checkBox.type = "checkbox" ;
+					checkBox.id = materialList[i].ID ;		  
+					checkBox.onclick = function()
+					{
+					   var isSelectAll = true   ;
+							   
+					  for( var i = 1 ; i  < tableMaterialListContent.childNodes.length   ; i ++ ) 
+					  { 
+						if ( tableMaterialListContent.childNodes[i].firstChild.firstChild.checked == false )
+								isSelectAll = false ;
+					  } 
+					  
+					  var SelectAll = window.document.getElementById("SelectAll") ;
+					  
+					  if(isSelectAll) 
+						  SelectAll.checked = true ;
+					   else
+						  SelectAll.checked = false ; 	                
+					} ;
+					
+					addTableCell( row , "PopUpMaterialTableCellCss"  , popUpMaterialTableCellStyle ,null ,null,checkBox,false ) ;  
+					
+					//标题
+					addTableCell( row , "PopUpMaterialTableCellCss"  ,popUpMaterialTableCellStyle ,null ,this.materialList[i].Title,null,editable ,"170",i) ; 
+					
+					//文件名		               
+					link = window.document.createElement("a") ;
+					link.href =  window.dialogArguments._fileUrlRoot   + "/" + materialList[i].FilePath;
+					link.target = "_blank" ;
+					link.innerHTML =   this.materialList[i].OriginalName ;		          
+					cell = addTableCell( row ,"PopUpMaterialTableCellCss"  , popUpMaterialTableCellStyle ,null ,null,link,false) ;
+					  
+					//页数
+				   cell =  addTableCell( row , "PopUpMaterialTableCellCss"  ,popUpMaterialTableCellStyle ,null , this.materialList[i].PageQuantity,null ,editable,"30",i ) ; 
+												
+				   tableMaterialListContent.appendChild( row ) ; 
+			   }		     
+			}
+		
+			function removeMaterial( material )
+			{
+				for ( var i=0 ; i < materialList.length ; ++i )
+				{
+					if ( materialList[i] == material )
+					{
+						if ( i > materialList.length/2 )
+						{
+							for ( var j=i ; j < materialList.length-1 ; ++j )
+							{
+								materialList[j] = materialList[j+1];
+							}
+							materialList.pop(); //从尾部删除
+						}
+						else
+						{
+							for ( var j=i ; j > 0 ; --j )
+							{
+								materialList[j] = materialList[j-1];
+							}
+							materialList.shift(); //从头部删除
+						}    
+						break;
+					}
+				}
+			} 
+   
+			//删除已经上传的文件,可以多选
+			function deleteFiles()
+			{ 
+				var SelectCount = 0 ; 
+				 
+			   for( var i=1 ; i  < tableMaterialListContent.childNodes.length   ; i ++ ) 
+			   {
+					if( tableMaterialListContent.childNodes[i].firstChild.firstChild.checked  )
+						SelectCount  +=1 ; 
+			   } 
+			   
+			   if( SelectCount == 0 ) 
+			   {
+					alert("请选择要删除的文件。") ;
+					return ;
+			   }
+				 
+				if( !window.confirm("您确定要删除选择的文件吗？") ) 		        
+				{
+					return ;
+				} 
+
+				var cntMaterials =   materialList.length ;
+				   
+				//跳过表头
+			   for( var i=1 ; i  < tableMaterialListContent.childNodes.length   ; i ++ ) 
+			   {
+					var checkbox = tableMaterialListContent.childNodes[i].firstChild.firstChild ;
+			   
+					if( checkbox.checked  )
+					{
+						   for( var j =0 ; j < cntMaterials ; j ++  )
+						   {     
+								if( materialList[ j ] !=null  &&  materialList[ j ].ID.toLowerCase() == checkbox.id.toLowerCase()  )
+									  removeMaterial(materialList[ j ]) ;
+						   }
+					}
+			   }
+			 
+			  showMaterialList() ;
+			}
+			
+			//获得单选的文件
+			function getSeletedID()
+			{
+				var SelectID  =null ;
+				var SelectCount = 0 ; 
+				 
+			   for( var i=1 ; i  < tableMaterialListContent.childNodes.length   ; i ++ ) 
+			   {
+					var checkbox = tableMaterialListContent.childNodes[i].firstChild.firstChild ;
+			   
+					if( checkbox.checked  )
+					{
+						SelectID = checkbox.id ;
+						SelectCount  +=1 ; 
+					}
+			   } 
+			   
+				if( SelectCount == 0  )  
+			   { 
+						alert('请选择要移动的文件。') ;
+					   return null ; 
+				}  
+			   
+				if(  SelectCount > 1  )  
+			   { 
+						alert('您每次只能移动一个文件。') ;
+						return null ; 
+			   } 
+				
+			   return SelectID ;
+			}
+ 
+			//移动文件
+			function moveFileUp(  )
+			{
+				var SelectID =  getSeletedID() ;
+				if( SelectID == null )  
+					return ;  
+				
+			   //第一个不能向上移动 
+			   for( var i = 1 ; i  < materialList.length   ; i ++ ) 
+			   {
+					if(   materialList[i].ID == SelectID  ) 
+						 MoveMaterial( i , i -1 ) ;
+			   }
+			   
+			   showMaterialList() ;		
+			}
+			
+			function moveFileDown(  )
+			{
+				var SelectID =  getSeletedID() ;
+				if( SelectID == null )  
+					return ; 
+ 
+			   //最后一个不能向下移动 
+			   for( var i = 0 ; i  < materialList.length  -1   ; i ++ ) 
+			   {
+					if(  materialList[i].ID == SelectID  ) 
+					   MoveMaterial( i , i + 1 ) ;
+			   }
+			   
+			   showMaterialList() ;			 
+			}
+			
+			//移动文件 
+			function MoveMaterial( fromIndex , toIndex )
+			{
+				var  materialID ; 
+				var  materialResourceID ; 
+				var  materialSortID ; 
+				var  materialClass ; 
+				var  materialTitle ; 
+				var  materialPageQuantity ; 
+				var  materialFilePath ; 
+				var  materialOriginalName ;  
+			   
+				//暂存
+				materialID = materialList[fromIndex].ID ;
+				materialResourceID = materialList[fromIndex].ResourceID ;
+				materialClass = materialList[fromIndex].Class ;
+				materialTitle = materialList[fromIndex].Title ;
+				materialPageQuantity = materialList[fromIndex].PageQuantity ;
+				materialFilePath = materialList[fromIndex].FilePath ;
+				materialOriginalName = materialList[fromIndex].OriginalName ;
+				
+				//toIndex的文件信息赋给当前的文件
+				materialList[fromIndex].ID  = materialList[toIndex].ID;
+				materialList[fromIndex].ResourceID =   materialList[toIndex].ResourceID   ;
+				materialList[fromIndex].Class = materialList[toIndex].Class ;
+				materialList[fromIndex].Title =  materialList[toIndex].Title ;
+				materialList[fromIndex].PageQuantity  =  materialList[toIndex].PageQuantity ;
+				materialList[fromIndex].FilePath = materialList[toIndex].FilePath  ;
+				materialList[fromIndex].OriginalName = materialList[toIndex].OriginalName ;
+				 
+				//当前文件信息赋给toIndex的文件 
+				materialList[toIndex].ID  =materialID;
+				materialList[toIndex].ResourceID = materialResourceID  ;
+				materialList[toIndex].Class = materialClass ;
+				materialList[toIndex].Title = materialTitle ;
+				materialList[toIndex].PageQuantity  =materialPageQuantity ;
+				materialList[toIndex].FilePath =materialFilePath ;
+				materialList[toIndex].OriginalName =materialOriginalName ;
+				
+			} 
+			 
+		if( materialList != null )
+			 this.showMaterialList();
+	   
+	   if(  materialList.length == null  ) 
+			materialList = new Array(); 
+			
+    </script>
+
+</body>
+</html>

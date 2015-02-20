@@ -1,0 +1,204 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:go="clr-namespace:Northwoods.GoXam;assembly=Northwoods.GoSilverlight"
+    xmlns:golayout="clr-namespace:Northwoods.GoXam.Layout;assembly=Northwoods.GoSilverlight"
+    xmlns:local="clr-namespace:Designer" >
+	<go:BooleanBrushConverter x:Key="theActivityFontConverter" TrueColor="White" FalseColor="Black" />
+
+	<Style x:Key="PaletteStyle" TargetType="go:Palette">
+		<Setter Property="Padding" Value="0,20,0,20"></Setter>
+		<Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+		<Setter Property="Background" Value="#FFE8F0F7"></Setter>
+	</Style>
+
+	<Style x:Key="GridLayoutStyle" TargetType="golayout:GridLayout">
+		<Setter Property="Sorting" Value="Forward"></Setter>
+		<Setter Property="Alignment" Value="Position"></Setter>
+		<Setter Property="CellSize" Value="75 5"></Setter>
+		<Setter Property="Spacing" Value="5 5"></Setter>
+	</Style>
+
+	<Style x:Key="TreeLayoutStyle" TargetType="golayout:TreeLayout">
+		<Setter Property="Angle" Value="90"></Setter>
+		<Setter Property="Alignment" Value="CenterChildren"></Setter>
+		<Setter Property="NodeSpacing" Value="20"></Setter>
+		<Setter Property="LayerSpacing" Value="50"></Setter>
+		<Setter Property="RowSpacing" Value="25"></Setter>
+	</Style>
+
+	<Style x:Key="SpotPanelStyle" TargetType="go:SpotPanel" >
+		<Setter Property="go:Part.SelectionAdorned" Value="True" />
+		<Setter Property="go:Node.LocationSpot" Value="Center" />
+	</Style>
+
+	<Style x:Key="NodePanelStyle" TargetType="go:NodePanel" >
+		<Setter Property="Sizing" Value="Auto" />
+		<Setter Property="go:SpotPanel.Main" Value="True" />
+	</Style>
+
+	<Style x:Key="NodeContentHeaderStyle" TargetType="StackPanel">
+		<Setter Property="Background" Value="#e2d8ff"></Setter>
+		<Setter Property="Orientation" Value="Horizontal"></Setter>
+	</Style>
+	<Style x:Key="NodeContentBorderStyle" TargetType="Border">
+		<Setter Property="BorderThickness" Value="2"></Setter>
+		<Setter Property="CornerRadius" Value="3"></Setter>
+	</Style>
+	<Style x:Key="NodeContentBodyStyle" TargetType="StackPanel">
+		<Setter Property="Background" Value="White"></Setter>
+		<Setter Property="Orientation" Value="Horizontal"></Setter>
+	</Style>
+	<Style x:Key="NodeTextBlockStyle" TargetType="TextBlock">
+		<Setter Property="MinHeight" Value="20"></Setter>
+		<Setter Property="MinWidth" Value="20"></Setter>
+		<Setter Property="Padding" Value="5 5 5 5"></Setter>
+	</Style>
+
+	<Style x:Key="EllipseStyle" TargetType="Ellipse">
+		<Setter Property="Width" Value="7" />
+		<Setter Property="Height" Value="7" />
+		<Setter Property="Cursor" Value="Hand" />
+		<Setter Property="Fill" Value="Transparent" />
+		<Setter Property="go:Node.LinkableFrom" Value="True" />
+		<Setter Property="go:Node.LinkableTo" Value="True" />
+	</Style>
+
+	<Style x:Name="CommonBorderStyle" TargetType="Border">
+		<Setter Property="Background" Value="WhiteSmoke"></Setter>
+		<Setter Property="HorizontalAlignment" Value="Right"></Setter>
+		<Setter Property="VerticalAlignment" Value="Bottom"></Setter>
+		<Setter Property="BorderBrush" Value="Black"></Setter>
+		<Setter Property="BorderThickness" Value="1"></Setter>
+	</Style>
+
+	<Style x:Name="LinkPanelStyle" TargetType="go:LinkPanel">
+		<Setter Property="go:Part.SelectionAdorned" Value="True"></Setter>
+		<Setter Property="go:Link.SelectionElementName" Value="Path"></Setter>
+	</Style>
+
+	<Style x:Key="MenuButton" TargetType="Button">
+		<Setter Property="Content" Value="*"></Setter>
+		<Setter Property="Width" Value="20"></Setter>
+		<Setter Property="Height" Value="20"></Setter>
+	</Style>
+
+	<Style x:Key="menuButton" TargetType="HyperlinkButton">
+		<Setter Property="Margin" Value="10 5 10 5"></Setter>
+		<Setter Property="Foreground" Value="Black"></Setter>
+	</Style>
+
+
+	<Style TargetType="Path" x:Key="NodeShapeStyle">
+		<Setter Property="Fill">
+			<Setter.Value>
+				<RadialGradientBrush GradientOrigin="-0.2,-0.2">
+					<GradientStop Color="White" Offset="0.35" />
+					<GradientStop Color="SkyBlue" Offset="1" />
+				</RadialGradientBrush>
+			</Setter.Value>
+		</Setter>
+		<!--<Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect Color="Gray" />
+            </Setter.Value>
+        </Setter>-->
+	</Style>
+
+	<Style TargetType="TextBlock" x:Key="TextBlockStyle">
+		<Setter Property="TextWrapping" Value="Wrap" />
+		<Setter Property="TextAlignment" Value="Center" />
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="HorizontalAlignment" Value="Center" />
+		<Setter Property="Margin" Value="5" />
+		<Setter Property="go:Part.TextEditable" Value="True" />
+	</Style>
+
+	<Style TargetType="Rectangle" x:Key="RectangleStyle">
+		<Setter Property="Width" Value="7" />
+		<Setter Property="Height" Value="7" />
+		<Setter Property="Fill" Value="Transparent" />
+		<Setter Property="go:Node.LinkableFrom" Value="False" />
+		<Setter Property="go:Node.LinkableTo" Value="False" />
+	</Style>
+
+
+	<Style TargetType="Button" x:Key="ClosedBtnStyle">
+		<Setter Property="Content" Value="X" ></Setter>
+		<Setter Property="Cursor" Value="Hand"></Setter>
+		<Setter Property="FontFamily" Value="Courier"></Setter>
+		<Setter Property="FontSize" Value="9"></Setter>
+		<Setter Property="FontWeight" Value="Bold"></Setter>
+		<Setter Property="Margin" Value="0,1,0,0"></Setter>
+		<Setter Property="Padding" Value="0"></Setter>
+		<Setter Property="VerticalContentAlignment" Value="Bottom"></Setter>
+		<Setter Property="Width" Value="16"></Setter>
+		<Setter Property="Height" Value="16"></Setter>
+	</Style>
+
+	<ControlTemplate x:Key="ClosedBtn" TargetType="Button">
+		<Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="15" Height="14" Background="#02FFFFFF" x:Name="grid">
+			<VisualStateManager.VisualStateGroups>
+				<VisualStateGroup x:Name="CommonStates">
+					<VisualState x:Name="Normal" />
+					<VisualState x:Name="MouseOver">
+						<Storyboard>
+							<ObjectAnimationUsingKeyFrames Storyboard.TargetName="X_Fuzz2" Storyboard.TargetProperty="Visibility">
+								<DiscreteObjectKeyFrame KeyTime="0" Value="Visible" />
+							</ObjectAnimationUsingKeyFrames>
+							<ObjectAnimationUsingKeyFrames Storyboard.TargetName="X_Fuzz1" Storyboard.TargetProperty="Visibility">
+								<DiscreteObjectKeyFrame KeyTime="0" Value="Visible" />
+							</ObjectAnimationUsingKeyFrames>
+							<ObjectAnimationUsingKeyFrames Storyboard.TargetName="X_Fuzz0" Storyboard.TargetProperty="Visibility">
+								<DiscreteObjectKeyFrame KeyTime="0" Value="Visible" />
+							</ObjectAnimationUsingKeyFrames>
+							<DoubleAnimation Duration="0" Storyboard.TargetName="X" Storyboard.TargetProperty="Opacity" To="0.95" />
+						</Storyboard>
+					</VisualState>
+					<VisualState x:Name="Pressed">
+						<Storyboard>
+							<DoubleAnimation Duration="0" Storyboard.TargetName="X" Storyboard.TargetProperty="Opacity" To="0.85" />
+							<ObjectAnimationUsingKeyFrames Storyboard.TargetName="X_Fuzz2" Storyboard.TargetProperty="Visibility">
+								<DiscreteObjectKeyFrame KeyTime="0" Value="Visible" />
+							</ObjectAnimationUsingKeyFrames>
+							<ObjectAnimationUsingKeyFrames Storyboard.TargetName="X_Fuzz1" Storyboard.TargetProperty="Visibility">
+								<DiscreteObjectKeyFrame KeyTime="0" Value="Visible" />
+							</ObjectAnimationUsingKeyFrames>
+							<ObjectAnimationUsingKeyFrames Storyboard.TargetName="X_Fuzz0" Storyboard.TargetProperty="Visibility">
+								<DiscreteObjectKeyFrame KeyTime="0" Value="Visible" />
+							</ObjectAnimationUsingKeyFrames>
+						</Storyboard>
+					</VisualState>
+					<VisualState x:Name="Disabled">
+						<Storyboard>
+							<DoubleAnimation Duration="0" Storyboard.TargetName="X" Storyboard.TargetProperty="Opacity" To="0.5" />
+						</Storyboard>
+					</VisualState>
+				</VisualStateGroup>
+			</VisualStateManager.VisualStateGroups>
+			<Path HorizontalAlignment="Center" Margin="0,-1,0,0" Width="9" Fill="#14C51900" Stretch="Fill" Data="F1 M 6.742676,3.852539 L 9.110840,1.559570 L 8.910645,0.500000 L 6.838379,0.500000 L 4.902832,2.435547 L 2.967285,0.500000 L 0.895020,0.500000 L 0.694824,1.559570 L 3.062988,3.852539 L 0.527832,6.351563 L 0.689941,7.600586 L 2.967285,7.600586 L 4.897949,5.575195 L 6.854004,7.600586 L 9.115723,7.600586 L 9.277832,6.351563 L 6.742676,3.852539 Z" x:Name="X_Fuzz2" Stroke="#14C51900" Height="8" VerticalAlignment="Center" Opacity="1" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
+				<Path.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform ScaleX="1.3" ScaleY="1.3" />
+					</TransformGroup>
+				</Path.RenderTransform>
+			</Path>
+			<Path HorizontalAlignment="Center" Margin="0,-1,0,0" Width="9" Fill="#1EC51900" Stretch="Fill" Data="F1 M 6.742676,3.852539 L 9.110840,1.559570 L 8.910645,0.500000 L 6.838379,0.500000 L 4.902832,2.435547 L 2.967285,0.500000 L 0.895020,0.500000 L 0.694824,1.559570 L 3.062988,3.852539 L 0.527832,6.351563 L 0.689941,7.600586 L 2.967285,7.600586 L 4.897949,5.575195 L 6.854004,7.600586 L 9.115723,7.600586 L 9.277832,6.351563 L 6.742676,3.852539 Z" x:Name="X_Fuzz1" Stroke="#1EC51900" Height="8" VerticalAlignment="Center" Opacity="1" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
+				<Path.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform ScaleX="1.1" ScaleY="1.1" />
+					</TransformGroup>
+				</Path.RenderTransform>
+			</Path>
+			<Path HorizontalAlignment="Center" Margin="0,-1,0,0" Width="9" Fill="#FFC51900" Stretch="Fill" Data="F1 M 6.742676,3.852539 L 9.110840,1.559570 L 8.910645,0.500000 L 6.838379,0.500000 L 4.902832,2.435547 L 2.967285,0.500000 L 0.895020,0.500000 L 0.694824,1.559570 L 3.062988,3.852539 L 0.527832,6.351563 L 0.689941,7.600586 L 2.967285,7.600586 L 4.897949,5.575195 L 6.854004,7.600586 L 9.115723,7.600586 L 9.277832,6.351563 L 6.742676,3.852539 Z" x:Name="X_Fuzz0" Stroke="#FFC51900" Height="8" VerticalAlignment="Center" Opacity="1" Visibility="Collapsed" />
+			<Path HorizontalAlignment="Center" Margin="0,-1,0,0" Width="9" Fill="#FFFFFFFF" Stretch="Fill" Data="F1 M 6.742676,3.852539 L 9.110840,1.559570 L 8.910645,0.500000 L 6.838379,0.500000 L 4.902832,2.435547 L 2.967285,0.500000 L 0.895020,0.500000 L 0.694824,1.559570 L 3.062988,3.852539 L 0.527832,6.351563 L 0.689941,7.600586 L 2.967285,7.600586 L 4.897949,5.575195 L 6.854004,7.600586 L 9.115723,7.600586 L 9.277832,6.351563 L 6.742676,3.852539 Z" x:Name="X" Height="8" VerticalAlignment="Center" Opacity="0.7">
+				<Path.Stroke>
+					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+						<GradientStop Color="#FF313131" Offset="1" />
+						<GradientStop Color="#FF8E9092" Offset="0" />
+					</LinearGradientBrush>
+				</Path.Stroke>
+			</Path>
+		</Grid>
+	</ControlTemplate>
+</ResourceDictionary>

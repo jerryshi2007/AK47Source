@@ -1,0 +1,94 @@
+﻿<script type="text/javascript">
+	function onDialogConfirm() {
+		try {
+			var dialog = $find("activityEditorDialog");
+			var inputControlID = dialog.get_userInputClientID();
+			var userInput = $find(inputControlID);
+
+			userInput.checkData();
+
+			var actInfo = dialog.get_activityDescriptorInfo();
+
+			window.returnValue = Sys.Serialization.JavaScriptSerializer.serialize(actInfo);
+			window.close();
+		}
+		catch (e) {
+			alert(e);
+		}
+	}
+
+	function onApplicationLoad() {
+		var inputControlID = $find("activityEditorDialog").get_userInputClientID();
+
+		$find(inputControlID).focusInputArea();
+	}
+
+	Sys.Application.add_load(onApplicationLoad);
+</script>
+
+<style type="text/css">
+	.containerTable
+	{
+		width: 100%;
+		height: 100%;
+		padding: 8px;
+	}
+	.label
+	{
+		font-size: 12px;
+		font-weight: bold;
+		width: 100px;
+		height: 24px;
+		text-align: center;
+	}
+	.content
+	{
+		font-size: 12px;
+		text-align: left;
+	}
+</style>
+<table class="containerTable" cellpadding="0" cellspacing="0">
+	<tr>
+		<td class="label">
+			<span runat="server" category="SOAWebControls">环节名称</span>
+		</td>
+		<td>
+			<input type="text" class="flatInput" id="actName" runat="server" maxlength="64" />
+		</td>
+	</tr>
+	<tr id="variableRow" runat="server">
+		<td class="label" style="vertical-align: top">
+			<span runat="server" category="SOAWebControls">环节选项</span>
+		</td>
+		<td style="height: 100px; vertical-align: top">
+			<div style="width: 100%; height: 100%; overflow: auto; border: 1px solid silver">
+				<ul runat="server" id="variableList">
+				</ul>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		</td>
+		<td style="height: 24px;">
+			<input runat="server" id="allAgreeWhenConsignCheckbox" type="checkbox" /><label id="allAgreeWhenConsignLabel"
+				runat="server" for="allAgreeWhenConsignCheckbox" category="SOAWebControls">会签时，所有用户通过后流转到下一步</label>
+		</td>
+	</tr>
+	<tr>
+		<td class="label" style="vertical-align: top">
+			<div style="padding-top: 4px;">
+				<span runat="server" category="SOAWebControls">办理人</span></div>
+		</td>
+		<td runat="server" style="vertical-align: top" id="resourceContainer">
+		</td>
+	</tr>
+	<tr runat="server" id="circulateRow">
+		<td class="label" style="vertical-align: top">
+			<div style="padding-top: 4px;">
+				<span runat="server" category="SOAWebControls">阅知人</span></div>
+		</td>
+		<td runat="server" style="vertical-align: top" id="circulateContainer">
+		</td>
+	</tr>
+</table>

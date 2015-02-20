@@ -1,0 +1,158 @@
+﻿html {	
+	overflow-x: hidden;
+}
+body 
+{
+	height: 2000px;		
+}
+.container {
+	color: #0a6bb7;
+	width:282px;
+}
+.container:link {
+	font-size: 12px;
+	color: #0a6bb7;
+}
+.container:hover {
+	color: #F90;
+}
+.titleRelativeLink {
+	float: left;
+	width: 32px;
+	margin: 0;
+	padding: 0;
+}
+.rightTitleRelativeLink {
+	float: right;
+	width: 32px;
+	margin: 0;
+	padding: 0;
+}
+.boxR {
+	width: 250px;
+	height: 168px;
+	padding: 0;
+	margin-left: 32px;
+}
+.rightBoxR {
+	width:250px;
+	height:168px;
+	padding:0;
+	margin-right:32px;
+	z-index:1;
+}
+.standardLRelativeLink {	
+	width: 5px;
+	height: 168px;
+	float: left;
+	margin: 0;
+	background: url('<%=WebResource("MCS.Web.WebControls.RelativeLink.Images.standard_l.png")%>') top left no-repeat;
+}
+.rightStandardLRelativeLink {	
+	width: 10px;
+	height: 168px;
+	float: left;
+	margin: 0;
+	background: url('<%=WebResource("MCS.Web.WebControls.RelativeLink.Images.standard_r1.png")%>') top left no-repeat;
+}
+.standardM 	
+{	
+	height: 168px;
+	margin-right: 10px;
+	margin: 0;
+	background: url('<%=WebResource("MCS.Web.WebControls.RelativeLink.Images.standard_m.png")%>') top left repeat-x;
+}
+.standardR{	
+	width: 10px;
+	height: 168px;
+	float: right;
+	margin-top: -168px;
+	background: url('<%=WebResource("MCS.Web.WebControls.RelativeLink.Images.standard_r.png")%>') top left no-repeat;
+}
+.rightStandardR {	
+	width: 5px;
+	height: 168px;
+	float: right;
+	margin-top: -168px;
+	background: url('<%=WebResource("MCS.Web.WebControls.RelativeLink.Images.standard_l1.png")%>') top left no-repeat;
+}
+.content {
+	width: 210px;
+	margin: 0 auto;
+	padding-left: 30px;
+	padding-top: 30px;
+	padding-right: 30px;
+}
+ol.olContent, ul.ulContent {
+	margin: 0 0 5px 0;
+	padding: 0;
+}
+li.liContent {
+	line-height: 20px;
+	color: #0a6bb7;
+	font-size: 12px;
+}
+.aContent:link{
+	font-size: 12px;
+	color: #0a6bb7;
+}
+.aContent:hover
+{
+    font-size: 12px;
+	color: #F90;
+}
+
+ .titlepan {
+	font-weight: bold;
+	padding-left: 40px;
+	padding-top: 25px;
+	font-size: 14px;
+	color: #0a6bb7;
+	background: url('<%=WebResource("MCS.Web.WebControls.RelativeLink.Images.icon1.png")%>') 10px 23px no-repeat;
+}
+.line {	
+	height: 2px;
+	margin-left: -20px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	background: url('<%=WebResource("MCS.Web.WebControls.RelativeLink.Images.line.png")%>') no-repeat;
+}
+.more {
+	text-align: right;
+	margin-right: 20px;
+	font-size: 12px;
+	margin-top: -4px;
+}
+.amore:link
+{
+	font-size: 12px;
+	color: #0a6bb7;
+}
+.amore:hover
+{
+	font-size: 12px;
+	color: #F90;
+}
+
+ .grab_btn {
+	float:right;
+	margin-right:5px;
+	margin-top:-10px;
+	*margin-top:-28px;	
+	width:21px;
+	height:21px;
+	right:2px;
+	padding:1px;
+	background: url('<%=WebResource("MCS.Web.WebControls.RelativeLink.Images.grap_bg.png")%>') no-repeat;
+}
+.grab_btn a {
+	height:5px;
+	width:21px;
+	display:block;
+	padding:0px 0 1px;
+	margin:0 auto;
+	text-align:center;
+}
+.grab_btn a img {
+	border:0;
+}

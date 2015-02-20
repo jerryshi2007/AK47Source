@@ -1,0 +1,64 @@
+#outer { width: 100%; position: absolute; height: 100%; }
+#top { left: 0px; width: 100%; }
+#bottom { left: 0px; width: 100%; }
+
+a.addfile { background-position: -823px -17px; margin-top: -1px; display: block; float: left; width: 15px; background-repeat: no-repeat; top: 0pt; height: 20px; text-decoration: none; }
+input.addfile { z-index: -1; filter: alpha(opacity=0); left: -13px; width: 1px; cursor: pointer !important; position: absolute; top: 5px; height: 18px; }
+.formTitle { height: 50px; text-align: center; color: #2A4CA5; font-size: 20px; font-weight: 600; line-height: 50px; }
+.Title { border-width: 1px; font-weight: normal; font-size: 11pt; border-color: #999; color: #333; height: 24px; background-color: #a4b9d7; text-align: center; text-decoration: none; }
+.line { height: 3px; background-color: #d4d4d4; }
+.outerTable { border: #fff 0px solid; width: 90%; border-collapse: collapse; text-align: left; border-spacing: 0px; }
+.commonTable { width: 100%; background-color: #c0c0c0; text-align: left; }
+.commonTable1 { border: #c3c3c3 1px solid; width: 100%; border-collapse: collapse; text-align: left; border-spacing: 0px; }
+.commonTable1 TD { border-color: #c3c3c3; }
+.printTable { border: solid 1px #000; border-collapse: collapse; }
+.printTable TD { border: solid 1px #000; border-collapse: collapse; }
+.printTable TH { border: solid 1px #000; border-collapse: collapse; }
+.printheadTable { border: solid 1px #000; border-collapse: collapse; }
+.printheadTable TH { border: solid 1px #000; border-collapse: collapse; }
+.commonRow { background-color: #FFF; }
+.TitleRow { background-color: #e7e6e6; }
+.TitleRow TD { height: 28px; }
+.text { border: none; border-bottom: #e0e0e0 1px solid; }
+.borderText { border-width: 1px; border-color: #09f; }
+
+.fieldName { height: 28px; background-color: #f0f0f0; text-align: center; }
+.listbox { border: solid 1px #2a4ca5; }
+.linkbtn { font-weight: 800; font-size: 11pt; color: #333; text-decoration: none; }
+.smalllinkbtn { font-weight: 800; font-size: 9pt; color: #333; text-decoration: none; }
+.childTbFieldCell { border-right: silver 1px groove; height: 35px; background-color: #f0f0f0; }
+.childTbCell { border-right: silver 1px groove; }
+.wordBreak { word-break: break-all; word-wrap: break-word; }
+.wordNoBreak { white-space: nowrap; }
+.wftoolbar { border: #b2b2b2 1px solid; background: url(img/toolbar.png) repeat-x; vertical-align: middle; width: 100%; height: 60px; text-align: center; }
+.wftoolbar .bar { width: 100%; line-height: 26px; height: 100%; }
+.wftoolbar .enable { padding: 0; font-weight: bold; font-size: 14px; color: #000; }
+.wftoolbar .enable B { padding: 0; }
+.wftoolbar .enable I { padding-right: 10px; padding-left: 12px; padding-bottom: 3px; padding-top: 6px; font-style: normal; }
+.wftoolbar .enable:hover { background: url(img/MenuButtonEnable.png) repeat-x left top; }
+.wftoolbar .enable:hover B { background: url(img/MenuButtonEnable.png) no-repeat left -25px; }
+.wftoolbar .enable:hover I { background: url(img/MenuButtonEnable.png) no-repeat right -50px; }
+.wftoolbar .disable { font-weight: normal; font-size: 14px; cursor: text; color: #bbb; }
+.wftoolbar .disable B { font-weight: normal; }
+.wftoolbar .disable I { font-style: normal; }
+.opinionListView { font-weight: normal; font-size: 12px; background: #f9f9f9; width: 100%; color: #000; }
+.opinionListView TD { border-top: #c3c3c3 1px solid; }
+.opinionListView .activity { border-right: #c3c3c3 1px solid; padding: 10px 2px; width: 22%; text-align: center; min-width: 150px; }
+.opinionListView .activity .actName { font-weight: bold; margin: 5px 0px; }
+.actName { background: url(img/bg_line.gif) center bottom no-repeat; padding-bottom: 8px; }
+.opinionListView .activity .opDept { font-weight: bold; margin: 5px 0px; }
+.opinionListView .activity .opName { margin: 5px 0px; color: #e07e00; display: none; }
+.opinionListView .activity .command { margin: 5px 0px; }
+.opinionListView .activity .command .btn { display: none; background: url(img/RoundButton.png); margin: 0px 2px; width: 44px; padding-top: 3px; height: 20px; }
+.opinionListView .activity .command .btn:hover { background: url(img/RoundButtonHover.png); }
+.opinionListView .opinions { padding-right: 20px; padding-left: 15px; font-weight: normal; font-size: 12px; padding-bottom: 8px; padding-top: 8px; font-style: normal; text-align: left; }
+.opinionListView .opinions TD { border: none; }
+
+/*//LDM IE6下添加该样式，使起稿时的意见区域的分隔线条显示正常 */
+.opinionListView .opinions span { border: solid 0px #ddd; }
+
+.opinionListView .opinions .opinion { border: #aaa 1px solid; padding-right: 8px; padding-left: 8px; background: #fff 0px 0px; padding-bottom: 6px; margin-left: -8px; padding-top: 6px; }
+.opinionListView .opinions .opinion .text { border: none; }
+.opinionListView .opinions .opinion .signName { text-align: right; }
+.opinionListView .opinions .opinion .signDate { text-align: right; }
+.radioBtnGrp INPUT { vertical-align: middle; }

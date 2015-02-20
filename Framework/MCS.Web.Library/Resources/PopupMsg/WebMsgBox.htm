@@ -1,0 +1,279 @@
+﻿
+<HTML>
+	<HEAD>
+		<META NAME="GENERATOR" Content="Microsoft Visual Studio 7.0">
+		<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+		<script language="javascript" type="text/javascript">
+		    document.writeln("<Title>" + document.URL.split("&title=")[1].split("&")[0] + "</Title>");
+		</script>		
+		<style>
+		body
+		{
+			background-color:#ECE9D8;
+		}
+		table
+		{
+			font-size:12px;
+		}
+		.msgBtn
+		{
+			font-size:12px;
+			width:70px;
+		}
+		</style>
+		<script language="javascript">
+			var m_msgFontPx = 0;
+			var m_detailMsgTitleFontPx = 0;
+			var m_detailMsgFontPx = 0;
+			
+			function onDetailMsgTitleClick()
+			{
+				if (detailMsgDiv.style.display == "none")
+				{
+					setWindowWidth(m_msgFontPx, m_detailMsgTitleFontPx, m_detailMsgFontPx);
+					detailMsgDiv.style.display = "inline";
+					detailMsgTitle.innerText = "点击此处关闭详细信息...";
+				}
+				else
+				{
+					setWindowWidth(m_msgFontPx, m_detailMsgTitleFontPx);
+					detailMsgDiv.style.display = "none";
+					detailMsgTitle.innerText = "点击此处展开详细信息...";
+				}
+
+				event.returnValue = false;
+				setWindowHeight();
+			}
+			
+			function onDocumentLoad()
+			{
+				var arg = window.dialogArguments;
+				
+				var msgType = arg.msgType;
+				var msg = arg.msg;
+				var imageUrl = arg.imgUrl;
+				var detailMsg = arg.detailMsg;
+				var okBtnText = arg.okBtnText;
+				var cancelBtnText = arg.cancelBtnText;
+
+				setClickElement(msgLogoImg);
+				m_msgFontPx = getStrPx(msg);
+
+				if (detailMsg)
+				{
+					m_detailMsgFontPx = getStrPx(detailMsg);
+					m_detailMsgTitleFontPx = getStrPx(detailMsgTitle.innerText + "    ");
+				}
+				
+				setWindowWidth(m_msgFontPx, m_detailMsgTitleFontPx);
+				
+				switch (msgType.toLowerCase())
+				{
+					case "alert":
+						cancelBtn.style.display = "none";
+						break;
+					case "stop":
+						cancelBtn.style.display = "none";
+						break;
+					case "inform":
+						cancelBtn.style.display = "none";
+						break;
+					case "confirm":
+						cancelBtn.style.display = "inline";
+						break;						
+				}
+				msgLogoImg.src = imageUrl;
+				msgDiv.innerText = msg;
+								
+				if (detailMsg)
+				{
+					detailMsgContainer.style.display = "inline";
+					detailMsgDiv.innerText = detailMsg;
+				}
+				else
+					detailMsgContainer.style.display = "none";
+				
+				if (okBtnText) okBtn.value = okBtnText;
+				if (cancelBtnText) cancelBtn.value = cancelBtnText;
+				
+				setWindowHeight();
+				okBtn.focus();
+			}
+
+			function onOKBtnClick()
+			{
+				window.returnValue = true;				
+				window.close();
+			}
+			
+			function onCancelBtnClick()
+			{
+				window.returnValue = false;				
+				window.close();
+			}
+			
+			function onCopyMsgClick()
+			{
+				var selection = document.selection;
+				selection.empty();
+
+				var r = document.body.createControlRange();
+				r.add(msgTable);
+				r.select();
+
+				r.execCommand("Copy");
+				selection.empty();
+			}
+			
+			function setWindowWidth(fontPx1, fontPx2, fontPx3)
+			{
+				var width = fontPx1;
+				
+				if (fontPx2)
+					width = width > fontPx2 ? width : fontPx2;
+				if (fontPx3)
+					width = width > fontPx3 ? width : fontPx3;
+				width += 90;
+				
+				var minWidth = 209;	
+				var maxWidth = window.screen.width * 0.6;
+				if (width < minWidth) width = minWidth;
+				else
+					if (width > maxWidth) width = maxWidth;
+
+				window.dialogWidth = width + "px";
+				window.dialogLeft = (window.screen.width - width)/2;
+				
+				var minHeight = "126px";				
+				window.dialogHeight = minHeight;
+			}			
+			
+			function setWindowHeight()
+			{				
+				var height = document.body.scrollHeight + 30;
+				
+				window.dialogHeight = height + "px";
+				
+				window.dialogTop = (window.screen.height - height)/2;
+			}
+			
+			//只适用于font-size:12px
+			function getStrPx(str)
+			{
+				var px = 0;
+				
+				if (str)
+				{
+					for (var i = 0; i < str.length; i++)
+					{
+						if (str.charCodeAt(i) < 256)
+							px += 6;
+						else
+							px += 12;					
+					}
+				}
+				
+				return px;
+			}
+			
+			function setClickElement(elem)
+			{
+				elem.onmouseover = onClickElemMouseOver;
+				elem.onmouseout = onClickElemMouseOut;
+				elem.onmousedown = onClickElemMouseDown;
+				elem.onmouseup = onClickElemMouseUp;
+			}
+			
+			function onClickElemMouseOver()
+			{
+				var elem = event.srcElement;
+				elem.style.border = "#316AC5 1px solid";
+				elem.style.backgroundColor = "#C1D2EE";
+				elem.style.position = "relative";
+				elem.style.top = -1;
+			}
+
+			function onClickElemMouseOut()
+			{
+				var elem = event.srcElement;
+				elem.style.backgroundColor = "transparent";
+				elem.style.border = "none";
+				elem.style.top = 0;
+			}
+
+			function onClickElemMouseDown()
+			{
+				var elem = event.srcElement;
+				elem.style.top = 1;
+			}
+
+			function onClickElemMouseUp()
+			{
+				var elem = event.srcElement;
+				elem.style.top = -1;
+			}
+		</script>
+	</HEAD>
+	<BODY topmargin="10" onload="onDocumentLoad()">
+		<table style="width:100%;height:100%" cellpadding="0" cellspacing="0">
+			<tr>
+				<td valign="top">
+					<table style="width:100%;" cellpadding="0" cellspacing="0">
+						<tr>
+							<td valign="top" width="60px" align="center">
+								<table>
+									<tr>
+										<td>
+											<img id="msgLogoImg" src="?_resource=HB/Framework/Web/resource/images/alert.gif" onclick="onCopyMsgClick();" title="复制信息">
+										</td>
+									</tr>
+								</table>
+							</td>
+							<td>
+								<table style="width:100%" id="msgTable">
+									<tr>
+										<td>
+											<table cellpadding="0" cellspacing="0">
+												<tr>
+													<td>
+														<div id="msgDiv"></div>
+													</td>
+													<td width="5px" align="right" valign="top"></td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									<tbody id="detailMsgContainer">
+										<tr>
+											<td>
+												<a id="detailMsgTitle" href="#" onclick="onDetailMsgTitleClick()">点击此处展开详细信息...</a>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<table cellpadding="0" cellspacing="0" ID="Table1">
+													<tr>
+														<td>
+															<div id="detailMsgDiv" style="display:none"></div>
+														</td>
+														<td width="5px">&nbsp;</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<input type="button" accesskey="O" id="okBtn" value="确定(O)" class="msgBtn" onclick="onOKBtnClick()">
+					<input type="button" accesskey="C" id="cancelBtn" value="取消(C)" class="msgBtn" onclick="onCancelBtnClick()">
+				</td>
+			</tr>
+		</table>
+	</BODY>
+</HTML>

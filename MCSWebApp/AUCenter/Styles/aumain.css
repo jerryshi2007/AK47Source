@@ -1,0 +1,65 @@
+﻿*{ margin: 0; padding: 0; }
+html, body { margin: 0; padding: 0; overflow: hidden; }
+body{ height: 100%; margin: 0; padding: 0; border: solid 0px #FF0000; overflow:auto; }
+
+img{ margin: 0px; padding: 0px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; }
+
+div{ margin: 0px; padding: 0px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; }
+
+td{ font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #666; text-decoration: none; }
+
+lt{ float: left; }
+
+body.au-full{ height:100%; overflow:auto; }
+
+.au-catenode{ cursor:pointer; }
+
+.au-progress{ background:url('../images/progress.gif') repeat-x scroll left center; display:block;  width:100%; height:5px; line-height:5px; display:none; }
+
+.au-prompt{ position:absolute; border:1px solid #ff9933; color:#000000; padding:2px 5px; max-height:100%; overflow:auto; background:#ffffff; }
+
+.au-deleted-row{ color:#ff0000; }
+
+ul.au-selectable-list { list-style:none; }
+ul.au-selectable-list li.au-row{ cursor:pointer; line-height:25px; margin:5px; border:1px solid #ffaabb; padding:5px 5px 5px 30px; }
+ul.au-selectable-list li.au-row .au-title,ul.au-selectable-list li.au-row .au-description { display:block; display:inline-block;  zoom:1; padding:5px; }
+ul.au-selectable-list li.au-row .au-title { color:#000000; font-weight:bold; }
+ul.au-selectable-list li.au-selected { background:url('../images/check.png') no-repeat scroll; }
+
+/* ---------------------------------------------------toast */
+
+.au-toast { padding: 8px 35px 8px 14px; margin-bottom: 8px; text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5); border: 2px solid; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; box-shadow:#999 0 0 8px; }
+.au-toast:hover { cursor: pointer; box-shadow:#666 0 0 8px; }
+
+.au-toast-container { width: 300px; top: 12px; left: 12px; position: fixed; z-index: 9999; }
+
+.au-toast-title { font-weight: bold; }
+
+.au-toast-message { }
+
+.au-toast-success { color: #468847; background-color: #dff0d8; border-color: #d6e9c6; }
+
+.au-toast-error { color: #b94a48; background-color: #f2dede; border-color: #eed3d7; }
+
+.au-toast-info { color: #3a87ad; background-color: #d9edf7; border-color: #bce8f1; }
+
+.au-toast-warning { color: #c09853; background-color: #fcf8e3; border-color: #fbeed5; }
+
+.pc-nav-path-important{ font-weight:bold; }
+
+ul.au-pop-menu{ border:2px solid #000000; width:150px; padding:1px; background:#ffffff; }
+ul.au-pop-menu li.au-item { display:block; line-height:25px; text-align:left; padding:0 0 1px; }
+ul.au-pop-menu li.au-item a{ display:block; width:100%; }
+ul.au-pop-menu li.au-item a:hover{ background:#efefef; color:#0000ff; text-decoration:none; }
+
+ul.au-scope-menu { list-style:none; border:1px solid #0066dd; width:auto; margin-bottom:15px; }
+ul.au-scope-menu li.au-item { float:left; display:block; line-height:25px; width:auto; padding:2px 10px; border:none; }
+ul.au-scope-menu li.au-item:hover,ul.au-scope-menu li.active { background:#0066dd; color:#ffffff; }
+ul.au-scope-menu li.active a{ color:#ffffff; }
+
+div.au-pop-container{ position:relative; }
+div.au-pop-sub { position:absolute; right:0; overflow:visible; display:none; }
+ul.au-pop-list { list-style:none; display:block; width:200px; border:1px solid #cccccc; padding:2px; background:#ffffff; }
+ul.au-pop-list li { line-height:10px; padding:0; border-bottom:1px dotted #efefef; }
+ul.au-pop-list li button { width:100%; margin:0; border:none; text-align:left; }
+

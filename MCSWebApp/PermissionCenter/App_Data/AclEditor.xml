@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Acts>
+	<Act actID="AclEdit">
+		<Scene sceneID="Normal">
+			<Item controlID="roleGrid" readOnly="false" enabled="true"/>
+			<Item controlID="permissionGrid" readOnly="false" enabled="true"/>
+			<Item controlID="btnAddRole" readOnly="false" visible="true"/>
+			<Item controlID="buttonOverride" readOnly="false" visible="true"/>
+			<Item controlID="buttonOverrideAll" readOnly="false" visible="true"/>
+			<Item controlID="buttonSave" readOnly="false" visible="true"/>
+			<Item controlID="ppcOverride" readOnly="false" visible="true"/>
+			<Item controlID="ppcOverrideAll" readOnly="false" visible="true"/>
+			<Item controlID="chkInherit" readOnly="false" visible="true"/>
+			<Item controlID="btPostSave" enabled="true"/>
+		</Scene>
+		<Scene sceneID="NormalNoChild">
+			<Item controlID="roleGrid" readOnly="false" enabled="true"/>
+			<Item controlID="permissionGrid" readOnly="false" enabled="true"/>
+			<Item controlID="btnAddRole" readOnly="false" visible="true"/>
+			<Item controlID="buttonOverride" readOnly="false" visible="false"/>
+			<Item controlID="buttonOverrideAll" readOnly="false" visible="false"/>
+			<Item controlID="buttonSave" readOnly="false" visible="true"/>
+			<Item controlID="ppcOverride" readOnly="false" enabled="false" visible="false"/>
+			<Item controlID="ppcOverrideAll" readOnly="false" enabled="false" visible="false"/>
+			<Item controlID="chkInherit" readOnly="true" visible="false"/>
+			<Item controlID="btPostSave" enabled="true"/>
+		</Scene>
+		<Scene sceneID="ReadOnly">
+			<Item controlID="roleGrid" readOnly="true" enabled="true"/>
+			<Item controlID="permissionGrid" readOnly="true" enabled="false" />
+			<Item controlID="btnAddRole" readOnly="true" enabled="false" visible="false"/>
+			<Item controlID="buttonOverride" readOnly="true" enabled="false" visible="false"/>
+			<Item controlID="buttonOverrideAll" readOnly="true" enabled="false" visible="false"/>
+			<Item controlID="buttonSave" readOnly="true" enabled="false" visible="false"/>
+			<Item controlID="ppcOverride" readOnly="true" enabled="false"/>
+			<Item controlID="ppcOverrideAll" readOnly="true" enabled="false"/>
+			<Item controlID="chkInherit" readOnly="true" visible="true" enabled="false"/>
+			<Item controlID="btPostSave" enabled="false"/>
+		</Scene>
+		<Scene sceneID="ReadOnlyNoChild">
+			<Item controlID="roleGrid" readOnly="true" enabled="true"/>
+			<Item controlID="permissionGrid" readOnly="true" enabled="false" />
+			<Item controlID="btnAddRole" readOnly="true" enabled="false" visible="false"/>
+			<Item controlID="buttonOverride" readOnly="true" enabled="false" visible="false"/>
+			<Item controlID="buttonOverrideAll" readOnly="true" enabled="false" visible="false"/>
+			<Item controlID="buttonSave" readOnly="true" enabled="false" visible="false"/>
+			<Item controlID="ppcOverride" readOnly="true" enabled="false"/>
+			<Item controlID="ppcOverrideAll" readOnly="true" enabled="false"/>
+			<Item controlID="chkInherit" readOnly="true" visible="false"/>
+			<Item controlID="btPostSave" enabled="false"/>
+		</Scene>
+	</Act>
+</Acts>
+

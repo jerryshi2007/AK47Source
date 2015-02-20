@@ -1,0 +1,881 @@
+<html>
+<head>
+	<style type="text/css">
+			<!--
+	.tvNode 
+	{  	
+		cursor:hand  
+	}
+//--></style>
+	<public:component tagname="hTree">
+			<public:attach event="oncontentready" onevent="Init();" />
+			<public:attach event="onunload" onevent="onWinUnload();" for="window" />
+			<public:attach event="ondetach" onevent="Detach();" />
+			<public:property name="rootDir" get="getRootDir" put="setRootDir" />
+			<public:property name="Nodes" get="getNodes" />
+			<public:property name="selectedItem" get="getSelectedItem" put="setSelectedItem" />
+			<public:property name="rootObject" get="getRootObject" />
+			<public:method name="getItemByKey" />
+			<public:method name="selectNode" />
+			<public:event name="onNodeDoubleClick" id="eventNodeDoubleClick" />
+			<public:event name="onNodeRightClick" id="eventNodeRightClick" />
+			<public:event name="onNodeSelected" id="eventNodeSelected" />
+			<public:event name="onNodeExpand" id="eventNodeExpand" />
+			<public:event name="onNodeCollapse" id="eventNodeCollapse" />
+			<public:event name="onNodeCreated" id="eventNodeCreated" />
+			<public:event name="ondragstart" id="eventOnDragStart" />
+			<public:method name="clearRef" />
+		</public:component>
+
+	<script type="text/javascript" language="javascript" src="../Script/ApplicationRoot.js"></script>
+
+	<script type="text/javascript" language="javascript">
+var root = null;
+var curSelectNode = null;
+var rootUl = null;
+var vNodes = new Array();
+var autoKeyCount = 0;
+//var dicNodesWithKey=new ActiveXObject("Scripting.Dictionary");
+var dicNodesWithKey = new Array();
+var nodeKeys = new Array();
+var strRootDir = C_ACCREDIT_ADMIN_ROOT_URI;
+//var imgPlus = "../images/icon/plus.gif";
+//var imgMinus = "../images/icon/minus.gif";
+
+function getRootObject()
+{
+	return rootUl;
+}
+
+function getRootDir()
+{
+	return strRootDir;
+}
+
+function setRootDir(s)
+{
+	strRootDir = s;
+
+	var strPrefix = "";
+
+	if (s.length > 0)
+		strPrefix = "/";
+
+	imgPlus = strPrefix + s + "../images/icon/plus.gif";	
+	imgMinus = strPrefix + s + "../images/icon/minus.gif";
+}
+
+function getItemByKey(key)
+{
+	var keyNode = null;
+
+	for (var i = 0; i < Nodes.length; i++)
+	{
+		if (Nodes[i].key == key)
+		{
+			keyNode = Nodes[i];
+			break;
+		}
+	}
+
+	return keyNode;
+}
+
+function onElementSelectStart()
+{
+	event.returnValue = false;
+}
+
+function Detach()
+{
+	clearRef();
+}
+
+function onWinUnload()
+{
+	clearRef();
+}
+
+function Init()
+{
+	element.onselectstart = onElementSelectStart;
+	rootUl = element.document.createElement("ul");
+
+	with (rootUl)
+	{
+		style.listStyleType = "none";
+		style.marginLeft = "15px";
+		ondragstart = dStart;
+		onmousemove = tv_OnMouseMove;
+		onselectstart = onElementSelectStart;
+		onmousedown = tv_OnMouseDown;
+		ondblclick = tv_OnMouseDblClick;
+		onmouseup = tv_OnMouseUp;
+	}
+
+	element.appendChild(rootUl);
+
+	//defaults.viewLink=document;
+	vNodes.add = Nodes_add;
+	vNodes.remove = Nodes_remove;
+	vNodes.clear = Nodes_clear;
+
+	dicNodesWithKey.Item = Dic_Item;
+	dicNodesWithKey.Remove = Dic_Remove;
+	dicNodesWithKey.Exists = Dic_Exists;
+	dicNodesWithKey.RemoveAll = Dic_RemoveAll;
+	dicNodesWithKey.Add = Dic_Add;
+}
+
+function Dic_ItemIndex(key)
+{
+	for(var i = 0; i < nodeKeys.length; i++)
+	{
+		if (nodeKeys[i] == key)
+			return i;
+	}
+
+	return -1;
+}
+
+function Dic_Item(key)
+{
+	var idx = Dic_ItemIndex(key);
+
+	if (idx >= 0)
+	{
+		return dicNodesWithKey[i];
+	}
+	else
+	{
+		return null;
+	}
+}
+
+function Dic_Remove(key)
+{
+	var idx = Dic_ItemIndex(key);
+
+	if (idx >= 0)
+	{
+		dicNodesWithKey.splice(idx, 1);
+		nodeKeys.splice(idx, 1);
+	}
+	else
+	{
+	}
+}
+
+function Dic_Exists(key)
+{
+	var idx = Dic_ItemIndex(key);
+
+	if (idx >= 0)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+function Dic_RemoveAll()
+{
+	for(var i = 0; i < dicNodesWithKey.length; i++)
+	{
+		dicNodesWithKey.pop();
+	}
+
+	for (var i = 0; i < nodeKeys.length; i++)
+	{
+		nodeKeys.pop();
+	}
+}
+function Dic_Add(key,item)
+{
+	if(Dic_Exists(key))
+	{
+		alert("key exists.");
+	}
+	else
+	{
+		dicNodesWithKey.push(item);
+		nodeKeys.push(item);
+	}
+}
+
+function clearRef()
+{
+	for(var i = 0;i<vNodes.length;i++)
+	{
+		vNodes[i].clearRef();
+	}
+
+	while(vNodes.length > 0)
+	{
+		vNodes.pop();
+	}
+
+	dicNodesWithKey.RemoveAll();
+	curSelectNode = null;
+	vRoot = null;
+	vRootLast = null;
+}
+
+function imgClick()
+{
+	var n = event.srcElement;
+
+	while(!n.node)
+		n = n.parentElement;
+
+	if (n)
+	{
+		n = n.node;
+		n.setExpanded(!n.getExpanded(), true);
+	}
+}
+
+function node(text)
+{
+	var doc = element.document;
+	var li = doc.createElement("li");
+	var div = doc.createElement("div");
+
+	var strHTML = "<span style=\"filter:;visibility=hidden;font-family:Arial;font-size:8pt;width:9px;height:9px;overflow:hidden;cursor:default;" +
+					"border:1px solid #c0c0c0;margin-right:2px;vertical-align:middle\"></span>";			
+
+	var img = doc.createElement(strHTML);
+
+	strHTML = "<span style=\"filter:;width:16px;height:16px;font-family:Symbol;font-size:9px;position:relative;text-align:center;left:-4px;top:-3px\">+</span>";
+	var imgSpan = doc.createElement(strHTML);
+
+	img.appendChild(imgSpan);
+	img.imgSpan = imgSpan;
+
+	img.onclick = imgClick;
+
+	strHTML = "<input type=\"checkbox\" style=\"border-style:none\">";
+	var checkbox = doc.createElement(strHTML);
+
+	strHTML = "<span style=\"width:16px;height:16px;display:none;background-position:center center;background-repeat:no-repeat;vertical-align:baseline\"></span>";
+	var imgIcon = doc.createElement(strHTML);
+
+	var strHTML = "<span class=\"tvNode\" style=\"margin-left:4px;cursor:hand\"></span>";
+	var span = doc.createElement(strHTML);
+
+	with (span)
+	{
+		innerText = text;
+		title = text;
+	}
+
+	var strHTML = "<ul style=\"display:none;list-style-type:none;margin-left:15px\"></ul>";
+	var ul = doc.createElement(strHTML);
+
+	li.appendChild(div);
+	li.appendChild(ul);
+
+	with (div)
+	{
+		noWrap = true;
+		appendChild(img);
+		appendChild(checkbox);
+		appendChild(imgIcon);
+		appendChild(span);
+	}
+
+	li.node = this;
+	
+	this.children = 0;
+	
+	this.xData = new Object();
+	
+	this.li = li;
+	this.span = span;
+	this.ul = ul;
+	this.img = img;
+	this.checkbox = checkbox;
+	this.imgIcon = imgIcon;
+
+	this.setCheckbox(false);
+	this.setExpanded(false, false);
+
+	var oEvent = createEventObject();
+
+	oEvent.node = this;
+	eventNodeCreated.fire(oEvent);
+}
+
+node.prototype.getText = Node_getText;
+node.prototype.putText = Node_setText;
+node.prototype.getIndex = Node_getIndex;
+node.prototype.getRoot = getRoot;
+node.prototype.getParent = Node_getParent;
+node.prototype.getNext = Node_getNext;
+node.prototype.getLastSibling = Node_getLastSibling;
+node.prototype.getFirstSibling = Node_getFirstSibling;
+node.prototype.getChildren = Node_getChildren;
+node.prototype.getChild = Node_getChild;
+node.prototype.clearRef = Node_clearRef;
+node.prototype.getChecked = Node_getChecked;
+node.prototype.setChecked = Node_setChecked;
+node.prototype.getCheckbox = Node_getCheckbox;
+node.prototype.setCheckbox = Node_setCheckbox;
+node.prototype.getExpanded = Node_getExpanded;
+node.prototype.setExpanded = Node_setExpanded;
+node.prototype.getIcon = Node_getIcon;
+node.prototype.setIcon = Node_setIcon;
+node.prototype.remove = Node_remove;
+node.prototype.removeChildren = Node_removeChildren;
+node.prototype.add = Node_add;
+
+function Node_add(relationship, key, text, icon)
+{
+	return(Nodes_add(this, relationship, key, text, icon));
+}
+
+function Node_clearRef()
+{
+	this.xData = null;
+	this.li.node = null;
+	this.li = null;
+	this.span = null
+	this.ul = null
+	this.img = null;
+	this.checkbox = null;
+	this.imgIcon = null;
+	
+	this.previous = null;
+	this.next = null;
+	this.firstChild = null;
+	this.lastChild = null;
+	this.parent = null;
+}
+
+function Node_getIcon()
+{
+	return this.imgIcon.style.backgroundImage;
+}
+
+function Node_setIcon(s)
+{
+	if (s)
+	{
+		this.imgIcon.style.backgroundImage = "url(" + s + ")";
+		this.imgIcon.style.display="inline";
+	}
+}
+
+function Node_getExpanded()
+{
+	if(this.ul.style.display=="none")
+		return false;
+
+	return true;
+}
+
+function Node_setExpanded(v, bFromClick)
+{
+	var oEvent = createEventObject();
+
+	oEvent.node = this;
+	oEvent.fromClick = bFromClick;
+
+	if(v)
+	{
+		this.ul.style.display="block";
+		this.img.imgSpan.innerText = "-";
+
+		eventNodeExpand.fire(oEvent);
+	}
+	else
+	{
+		this.ul.style.display = "none";
+		this.img.imgSpan.innerText = "+";
+		
+		eventNodeCollapse.fire(oEvent);
+	}
+}
+
+function Node_getCheckbox()
+{
+	if (this.checkbox.style.display == "none")
+		return false;
+	else
+		return true;
+}
+
+function Node_setCheckbox(v)
+{
+	if (v)
+		this.checkbox.style.display = "inline";
+	else
+		this.checkbox.style.display = "none";
+}
+
+function Node_setChecked(v)
+{
+	this.checkbox.checked = v;
+}
+
+function Node_getChecked()
+{
+	return this.checkbox.checked;
+}
+
+function Node_getChild()
+{
+	return this.firstChild;
+}
+
+function Node_getChildren()
+{	
+	return this.children;
+}
+
+function Node_getFirstSibling()
+{
+	if(this.parent)
+	{
+		return this.parent.firstChild;
+	}else
+	{
+		return vRoot;
+	}
+}
+
+function Node_getLastSibling()
+{
+	if(this.parent)
+		return this.parent.lastChild;
+	else
+		return vRootLast;
+}
+
+function Node_getNext()
+{
+	return this.next;
+}
+
+function Node_getPrevious()
+{
+	return this.previous;
+}
+
+function Node_getParent()
+{
+	return this.parent;
+}
+
+function Node_getText()
+{
+	return(this.span.innerText);
+}
+
+function Node_setText(t)
+{
+	this.span.innerHTML = t;
+}
+
+function Node_getIndex()
+{
+	for(var i = 0; i < Nodes.length; i++)
+	{
+		if (this == Nodes[i])
+			return i;
+	}
+}
+
+function Node_removeChildren()
+{
+	while(this.children > 0)
+	{
+		Nodes_remove(this.firstChild.getIndex());
+	}
+}
+
+function Node_remove()
+{
+	Nodes_remove(this.getIndex());
+}
+
+var vRoot,vRootLast;
+
+function getRoot()
+{
+	return vRoot;
+}
+
+function Nodes_clear()
+{
+	dicNodesWithKey.RemoveAll();
+	curSelectNode = null;
+	vRoot = null;
+	vRootLast = null;
+
+	for(var i = 0; i < vNodes.length; i++)
+		vNodes[i].clearRef();
+
+	while(vNodes.length > 0)
+		vNodes.pop();
+
+	while(rootUl.children.length > 0)
+		rootUl.removeChild(rootUl.children[0]);
+}
+
+function Nodes_remove(idx)
+{
+	if (idx >= 0 && idx < vNodes.length)
+	{
+		var n = vNodes[idx];
+
+		if (n == curSelectNode)		//ZWD modified
+			curSelectNode = curSelectNode.parent;
+
+		while(n.children > 0)
+			Nodes_remove(n.firstChild.getIndex());	
+
+		if (n.key)
+		{
+			if(dicNodesWithKey.Exists(n.key))
+				dicNodesWithKey.Remove(n.key);
+		}
+
+		if (n.previous)
+			n.previous.next = n.next;
+		if (n.next)
+			n.next.previous = n.previous;
+
+		if (n.parent)
+		{
+			n.parent.ul.removeChild(n.li);
+
+			if (n.parent.firstChild == n)
+				n.parent.firstChild = n.next;
+
+			if (n.parent.lastChild == n)
+				n.parent.lastChild = n.previous;
+
+			n.parent.children--;
+
+			if(n.parent.children == 0) 
+			{
+				n.parent.img.style.visibility="hidden";
+			}
+		}
+		else
+		{
+			rootUl.removeChild(n.li);
+
+			if(vRoot == n)
+				vRoot = n.next;
+			if(vRootLast == n)
+				vRoot = n.previous;
+		}
+
+		vNodes.splice(idx, 1);
+		n.clearRef();
+	}
+}
+
+function Nodes_add(relative, relationship, key, text, icon)
+{
+	var relativeNode = null;
+	var n = new node(text);
+	var newLevel = 0;
+
+	if (key)
+	{
+		if (dicNodesWithKey.Exists(key))
+		{
+			alert("key alerady exists.");
+			return;
+		}
+	}
+
+	if (relative)
+	{
+		var relType = typeof(relative);
+		
+		if (relType == "string")
+		{
+			if (dicNodesWithKey.Exists(relative))
+				relativeNode = dicNodesWithKey.Item(relative);
+		}
+		else
+		if (relType == "number"){
+			if (round(relative) < Nodes.length)
+				relativeNode = Nodes[round(relative)];
+		}
+		else
+		if (relType == "object")
+		{
+			if (relative instanceof node)
+			{
+				if (Nodes.length > 0)
+					if (relative.getRoot() == vRoot)
+						relativeNode = relative;
+			}
+		}
+
+		if (relativeNode){
+			switch(relationship) {
+				case "tvwFirst":
+					if (relativeNode.parent)
+					{
+						relativeNode = relativeNode.parent;
+						n.parent = relativeNode;
+						n.next = relativeNode.firstChild;
+						relativeNode.firstChild.previous = n;
+						relativeNode.firstChild = n;
+						relativeNode.children++;
+						relativeNode.ul.insertBefore(n.li, relativeNode.ul.children[0]);
+					}
+					else
+					{
+						n.next = vRoot;
+						vRoot.previous = n;
+						vRoot = n;
+						rootUl.insertBefore(n.li, rootUl.children[0]);
+					}
+					newLevel = relativeNode.level;
+					break;
+				case "tvwLast":
+					if (relativeNode.parent)
+					{
+						relativeNode = relativeNode.parent;
+						n.parent = relativeNode;
+						n.previous = relativeNode.lastChild;
+						relativeNode.lastChild.next = n;
+						relativeNode.lastChild = n;
+						relativeNode.children++;
+						relativeNode.ul.appendChild(n.li);
+					}
+					else
+					{
+						n.previous = vRootLast;
+						vRootLast.next = n;
+						nRootLast = n;
+						rootUl.appendChild(n.li);
+					}
+					newLevel = relativeNode.level;
+					break;
+				case "tvwNext":
+					n.previouse = relativeNode;
+					if (relativeNode.parent)
+					{
+						if (relativeNode.next)
+							relativeNode.next.previous = n;
+						else
+							relativeNode.parent.lastChild = n;
+
+						relativeNode.parent.children++;
+					}
+					else
+					{
+						if (relativeNode.next)
+							relativeNode.next.previous = n;
+						else
+							vRootLast = n;
+					}
+					relativeNode.next = n;
+					relativeNode.li.insertAdjacentElement("afterEnd", n.li);
+					newLevel = relativeNode.level;
+					break;
+				case "tvwPrevious":
+					n.next = relativeNode;
+					if (relativeNode.parent)
+					{
+						if (relativeNode.previous)
+							relativeNode.previous.next = n;
+						else
+							relativeNode.parent.firstChild = n;
+
+						relativeNode.parent.children++;
+					}
+					else
+					{
+						if (relativeNode.previous)
+							relativeNode.previous.next = n;
+						else
+							vRoot = n;
+					}
+
+					relativeNode.previous = n;
+					relativeNode.li.insertAdjacentElement("beforeBegin",n.li);
+					newLevel = relativeNode.level;
+					break;
+				case "tvwChild":
+					
+					n.parent = relativeNode;
+					if (relativeNode.children > 0)
+					{
+						n.previous = relative.lastChild;
+						relative.lastChild.next = n;
+						relative.lastChild = n;
+					}
+					else
+					{
+						relative.firstChild = n;
+						relative.lastChild = n;
+					}
+
+					relativeNode.children++;
+					relativeNode.img.style.visibility = "visible";
+					relativeNode.ul.appendChild(n.li);
+					newLevel = relativeNode.level + 1;
+					break;
+				default :
+					alert("relationship error");
+					return;
+			}
+		}
+		else
+		{
+			return;
+		}
+	}
+	else
+	{
+		if (vNodes.length > 0)
+		{
+			n.previous = vRootLast;
+			vRootLast.next = n;
+			vRootLast = n;
+		}
+		else
+		{
+			vRoot = n;
+			vRootLast = n;
+		}
+		rootUl.appendChild(n.li);		
+	}
+
+	Nodes.push(n);
+
+	if (key) 
+	{
+		n.key = key;
+		dicNodesWithKey.Add(key, n);
+	}
+
+	if (icon)
+		n.setIcon(icon);
+
+	n.level = newLevel;
+
+	return n;
+}
+
+
+function getNodes()
+{
+	return vNodes;
+}
+
+function getSelectedItem()
+{		
+	return curSelectNode;
+}
+
+function setSelectedItem(n)
+{
+	if (curSelectNode)
+	{
+		if (curSelectNode == n)
+			return;
+
+		curSelectNode.span.style.backgroundColor = "transparent";
+		curSelectNode.span.style.color = "black";
+	}
+	
+	curSelectNode = n;
+	
+	if (curSelectNode != null)
+	{
+		curSelectNode.span.style.backgroundColor="blue";
+		curSelectNode.span.style.color="white";
+	}
+}
+
+function selectNode(n)
+{
+	var oEvent = createEventObject();
+	oEvent.node = n;
+	oEvent.returnValue = true;
+
+	eventNodeSelected.fire(oEvent);
+
+	if (oEvent.returnValue)
+		setSelectedItem(n);
+
+	return oEvent.returnValue;
+}
+
+var mouseDownNode;
+
+function tv_OnMouseDown()
+{
+	if (event.button == 1 && window.event.srcElement.className == "tvNode")
+	{
+		var n = event.srcElement.parentElement.parentElement.node;
+
+		selectNode(n);
+		mouseDownNode = n;
+	}	
+}
+
+function tv_OnMouseDblClick()
+{
+	var n = event.srcElement.parentElement.parentElement.node;
+
+	if (n)
+	{
+		var oEvent = createEventObject();
+		oEvent.node = n;
+		oEvent.returnValue = true;
+
+		eventNodeDoubleClick.fire(oEvent);
+
+		if (oEvent.returnValue)
+			n.setExpanded(!n.getExpanded(), true);
+	}
+}
+
+function tv_OnMouseMove()
+{
+	if (event.button == 1 && window.event.srcElement.className == "tvNode") 
+	{
+		//event.returnValue=false;
+		mouseDownNode = null;
+		rootUl.dragDrop();
+	}
+}
+
+function tv_OnMouseUp()
+{
+	if (window.event.srcElement.className == "tvNode" && event.button == 2)
+	{
+		var n = event.srcElement.parentElement.parentElement.node;
+		oEvent = createEventObject();
+		oEvent.node = n;
+
+		eventNodeRightClick.fire(oEvent);
+	}
+}
+
+function dStart()
+{
+	var oEvent;
+	
+	oEvent = createEventObject();
+	eventOnDragStart.fire(oEvent);
+}	
+	</script>
+
+</head>
+<body>
+</body>
+</html>

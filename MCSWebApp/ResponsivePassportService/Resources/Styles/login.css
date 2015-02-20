@@ -1,0 +1,234 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors Your Name (you@example.org)
+ * @date    2014-01-17 03:23:17
+ * @version $Id$
+ */
+ html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Microsoft YaHei', arial, sans-serif
+}
+ body{ background: #F7F7F7 url(../../images/bgimg_main01.jpg) no-repeat center center fixed;       
+  -webkit-background-size: cover;     
+   -moz-background-size: cover;    
+     -o-background-size: cover;     
+      background-size: cover;     }
+
+
+      body:before {      content: "";      position: fixed;      top: -10px;      left: 0;      width: 100%;      height: 10px;       -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.8);      -moz-box-shadow: 0px 0px 10px rgba(0,0,0,.8);      box-shadow: 0px 0px 10px rgba(0,0,0,.8);      z-index: 100;  } 
+@media (max-width: 767px) {
+      .login-hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+}
+ul li{list-style: none;}
+.login-news{line-height: 30px;color:#666;}
+.login-news span{margin-right: 10px; color:#005BAC; font-size: 10px;}
+.form-check{padding-left: 30px;}
+.container{   margin:  0 auto; margin-top: 15px;
+max-width:768px; }
+@media (min-width: 768px){
+.container {
+margin-top: 150px;
+}
+}
+.container .panel { 
+  margin-bottom: 20px;
+  background-color: #DAF3E5;
+  border: none;
+  border-radius: 4px;
+  background: none !important;
+background-image: -webkit-gradient(linear,left top,left bottom,from(rgba(255,255,255,.70)),to(rgba(255,255,255,.70))) !important;
+background-image: -moz-linear-gradient(rgba(255,255,255,.70) 0,rgba(255,255,255,.70) 100%) !important;
+background-image: -ms-linear-gradient(rgba(255,255,255,.70) 0,rgba(255,255,255,.70) 100%) !important;
+background-image: -o-linear-gradient(rgba(255,255,255,.70) 0,rgba(255,255,255,.70) 100%) !important;
+background-image: linear-gradient(rgba(255,255,255,.70) 0,rgba(255,255,255,.70) 100%) !important;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#B3FFFFFF',endColorstr='#B3FFFFFF') !important;
+
+}
+.container .panel-body {
+  padding: 0px;
+
+
+}
+.container .panel-footer {
+  padding: 10px 15px;
+  background-color: #f5f5f5;
+  border-top: 5px solid #005BAC;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.container .panel-footer .line{background:Orange; position:relative; top:-15px;left:-15px; height: 5px; width:30%;}
+/*tabs*/
+.nav-tabs {
+  border-bottom: 1px solid #CDD4CA;
+  /* */
+}
+.nav-tabs.nav-tabs-title{color:#fff;background:#005BAC;padding-left:15px;}
+.nav-tabs.nav-tabs-title h4{padding-top:18px; padding-left:6px;padding-bottom: 15px;}
+.nav-tabs > li {
+    width:50%;
+  float: left;
+  margin-bottom: -1px;
+}
+
+.nav-tabs > li > a {
+  margin-right: 0px;
+  line-height: 1.428571429;
+  border: 1px solid transparent;
+  border-radius:0;
+
+}
+
+.nav-tabs > li > a:hover {
+  border-color: #eeeeee #eeeeee #dddddd;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  color: #555555;
+  cursor: default;
+  background-color: #fff;
+  border: 1px solid #dddddd;
+  border-bottom-color: transparent;
+}
+
+.nav-tabs.nav-justified {
+  width: 100%;
+  border-bottom: 0;
+}
+
+.nav-tabs.nav-justified > li {
+  float: none;
+}
+
+.nav-tabs.nav-justified > li > a {
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.nav-tabs.nav-justified > .dropdown .dropdown-menu {
+  top: auto;
+  left: auto;
+}
+.container  .tab-content .relative{ position:relative;}
+.container  .tab-content .absolute{position:absolute; left:0; top:0; width:55%;}
+.margin-bottom{margin-bottom: 0;}
+.margin-top{margin-top:10px;}
+.container .tab-content > .tab-pane {
+  display: none;
+  border: none;
+  border-top:none;
+    padding: 18px;
+/*    background: #fff ;*/
+background: none !important;
+background-image: -webkit-gradient(linear,left top,left bottom,from(rgba(255,255,255,.70)),to(rgba(255,255,255,.100))) !important;
+background-image: -moz-linear-gradient(rgba(255,255,255,.70) 0,rgba(255,255,255,.100) 100%) !important;
+background-image: -ms-linear-gradient(rgba(255,255,255,.70) 0,rgba(255,255,255,.100) 100%) !important;
+background-image: -o-linear-gradient(rgba(255,255,255,.70) 0,rgba(255,255,255,.100) 100%) !important;
+background-image: linear-gradient(rgba(255,255,255,.70) 0,rgba(255,255,255,.100) 100%) !important;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#B3FFFFFF',endColorstr='#B3FFFFFF') !important;
+
+}
+
+.container .tab-content > .active {
+  display: block;
+}
+
+.container .tab-content .form-group {
+  margin-bottom: 10px;
+}
+.help {
+  display: block;
+  color: #737373;
+}
+
+/*表单*/
+.input-group-addon {
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1;
+  color: #E7E7E7;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+}
+.container .form-control {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #555555;
+  vertical-align: middle;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+          transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+
+
+.container .form-control:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+.container .form-control:-moz-placeholder {
+  color: #999999;
+}
+
+.container .form-control::-moz-placeholder {
+  color: #999999;
+  opacity: 1;
+}
+
+.container .form-control:-ms-input-placeholder {
+  color: #999999;
+}
+
+.container .form-control::-webkit-input-placeholder {
+  color: #999999;
+}
+
+.container .form-control[disabled],
+.container .form-control[readonly],
+.container fieldset[disabled] .form-control {
+  cursor: not-allowed;
+  background-color: #eeeeee;
+}
+
+.container textarea.form-control {
+  height: auto;
+}
+.container .btn-success {
+  color: #ffffff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  padding:5px 30px;
+}
+.container .btn-default {
+  color: #333333;
+  background-color: #ffffff;
+  border-color: #cccccc;
+    padding:5px 30px;
+}
+

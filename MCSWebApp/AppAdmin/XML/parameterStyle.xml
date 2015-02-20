@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="gb2312" ?>
+<!-- insert，增加角色，功能，功能集合时需要调用对话框，同时需要传入参数过来，
+增加角色与功能对应关系，功能和功能集合的关系，插入委派时可以直接调用XmlRFDWriteRequest.aspx,不用调用对话框，格式如下 -->
+<!--增加角色		type="ROLES"		op="insert" appID=".." appResLevel=".." classify="n/y" inherited="n/y" -->
+<!--增加功能		type="FUNCTIONS"	op="insert" appID=".." appResLevel=".." classify="n/y" inherited="n/y" -->
+<!--增加功能集合 type="FUNCTION_SETS"	op="insert" appID=".." appResLevel=".." classify="n/y" inherited="n/y"  ResLevel=".."
+appID是应用id，appResLevel是应用的resource_level，ResLevel是父集合的resource_level,无父集合时为空-->
+<ROLES />
+<FUNCTIONS />
+<FUNCTION_SETS />
+<!--插入角色与功能的对应关系，<INHERITED>节点可以没有，没有时默认不继承 
+<Insert>
+	<ROLE_TO_FUNCTIONS>
+		<SET>
+			<ROLE_ID>XXXXX</ROLE_ID>
+			<FUNC_ID>XXXXX</FUNC_ID>
+			<INHEIRTED>nnn</INHEIRTED>
+		</SET>
+	</ROLE_TO_FUNCTIONS>
+</Insert>
+-->
+<!-- 插入功能与功能集合的对应关系，<func_set_id>节点只有一个，<func_id>节点可以有多个，方便批处理
+<Insert>
+	<FUNC_SET_TO_FUNCS>
+		<SET>
+			<FUNC_SET_ID>XXXXX</FUNC_SET_ID>
+			<FUNC_ID>XXXXX</FUNC_ID>
+			<FUNC_ID>XXXX</FUNC_ID>
+			......
+		</SET>
+	</FUNC_SET_TO_FUNCS>
+</Insert>
+-->
+<!-- 插入委派 -->
+<Insert>
+	<DELEGATIONS>
+		<SET>
+			<SOURCE_ID>XXX</SOURCE_ID>
+			<TARGET_ID>XXX</TARGET_ID>
+			<ROLE_ID>XXXX</ROLE_ID>
+			<START_TMIE>nnnnn</START_TMIE>
+			<END_TIME>nnnnnnnn</END_TIME>
+		</SET>
+	</DELEGATIONS>
+</Insert>
+<!-- update， 只有角色、功能和功能集合需要进行属性修改，更新操作需要调用对话框，
+
+除了<ID>节点是必须的，其他节点根据修改情况添加，只有属性值进行了修改才将对应的节点加入update --->
+<!-- 调用对话框时需要传递的参数，type="ROLES"|"FUNCTIONS"|"FUNCTION_SETS" op="update" id="nnnn" -->
+<!-- 修改角色 -->
+<Update>
+	<ROLES>
+		<SET>
+			<NAME>...</NAME>
+			...
+		</SET>
+		<WHERE>
+			<ID>..</ID>
+		</WHERE>
+	</ROLES>
+</Update>
+<!-- 修改功能 -->
+<Update>
+	<FUNCTIONS>
+		<SET>
+			<NAME>...</NAME>
+			...
+		</SET>
+		<WHERE>
+			<ID>..</ID>
+		</WHERE>
+	</FUNCTIONS>
+</Update>
+<!-- 修改功能集合 -->
+<Update>
+	<FUNCTION_SETS>
+		<SET>
+			<NAME>...</NAME>
+			....
+		</SET>
+		<WHERE>
+			<ID>..</ID>
+		</WHERE>
+	</FUNCTION_SETS>
+</Update>
+<!-- delete，可以直接调用XmlRFDWriteRequest.aspx,不需要调用对话框，xmlsend的参数xmlDoc的格式如下，
+deleteSubApp表示是否删除子应用继承的对象，sureDelete表示对象是继承的时是否确认删除，value为"y"或"n"
+如果节点不存在则默认不删除子应用继承的对象，不删除继承的对象 -->
+<!--在执行delete操作时可以先查询该角色是否是继承的，并且是否有继承的子应用，来得到节点的属性值 -->
+<!-- 删除角色 -->
+<Delete deleteSubApp="y/n" sureDelete="y/n">
+	<ROLES>
+		<WHERE>
+			<ID operator="=">..</ID>
+		</WHERE>
+	</ROLES>
+	<ROLES>
+		<WHERE>
+			<ID  operator="=">..</ID>
+		</WHERE>
+	</ROLES>
+</Delete>
+<!-- 删除功能 -->
+<Delete deleteSubApp="y/n" sureDelete="y/n">
+	<FUNCTIONS>
+		<WHERE>
+			<ID  operator="=">..</ID>
+		</WHERE>
+	</FUNCTIONS>
+	<FUNCTIONS>
+		<WHERE>
+			<ID  operator="=">..</ID>
+		</WHERE>
+	</FUNCTIONS>
+</Delete>
+<!-- 删除功能集合 -->
+<Delete deleteSubApp="y/n" sureDelete="y/n">
+	<FUNCTION_SETS>
+		<WHERE>
+			<ID  operator="=">..</ID>
+		</WHERE>
+	</FUNCTION_SETS>
+	<FUNCTION_SETS>
+		<WHERE>
+			<ID  operator="=">..</ID>
+		</WHERE>
+	</FUNCTION_SETS>
+</Delete>
+<!-- 删除角色与功能的对应关系
+<Delete deleteSubApp="y/n">
+	<ROLE_TO_FUNCTIONS>
+		<WHERE>
+			<ROLE_ID>..</ROLE_ID>
+			<FUNC_ID>..</FUNC_ID>
+		</WHERE>
+	</ROLE_TO_FUNCTIONS>
+</Delete>
+ -->
+<!-- 删除功能与功能集合的对应关系 
+<Delete deleteSubApp="y/n">
+	<FUNC_SET_TO_FUNCS>
+		<WHERE>
+			<FUNC_SET_ID>..</FUNC_SET_ID>
+			<FUNC_ID>..</FUNC_ID>
+		</WHERE>
+	</FUNC_SET_TO_FUNCS>
+</Delete>
+-->
+<!-- 删除委派-->
+<Delete>
+	<DELEGATIONS>
+		<WHERE>
+			<SOURCE_ID>..</SOURCE_ID>
+			<TARGET_ID>..</TARGET_ID>
+			<ROLE_ID>..</ROLE_ID>
+		</WHERE>
+	</DELEGATIONS>
+</Delete>
+<!--------------------------------------------------------->
+<!--  insert and delete role_to_functions, the relation between roles and function-->
+<RTF  deleteSubApp="y/n">
+	<Insert>
+		<ROLE_TO_FUNCTIONS>
+			<SET>
+				<ROLE_ID>..</ROLE_ID>
+				<FUNC_ID>..</FUNC_ID>
+				<INHERITED>..</INHERITED>
+			</SET>
+		</ROLE_TO_FUNCTIONS>
+		<ROLE_TO_FUNCTIONS>
+			<SET>
+				<ROLE_ID>..</ROLE_ID>
+				<FUNC_ID>..</FUNC_ID>
+				<INHERITED>..</INHERITED>
+			</SET>
+		</ROLE_TO_FUNCTIONS>
+	</Insert>
+	<Delete deleteSubApp="y/n">
+		<ROLE_TO_FUNCTIONS>
+			<WHERE>
+				<ROLE_ID>..</ROLE_ID>
+				<FUNC_ID>..</FUNC_ID>
+			</WHERE>
+		</ROLE_TO_FUNCTIONS>
+		<ROLE_TO_FUNCTIONS>
+			<WHERE>
+				<ROLE_ID>..</ROLE_ID>
+				<FUNC_ID>..</FUNC_ID>
+			</WHERE>
+		</ROLE_TO_FUNCTIONS>
+	</Delete>
+</RTF>
+<!-- insert or delete the relation between roles and function-set-->
+<RTFS  deleteSubApp="y/n">
+	<Insert>
+		<ROLE_TO_FUNCTIONS>
+			<SET>
+				<ROLE_ID>..</ROLE_ID>
+				<FUNC_SET_ID>..</FUNC_SET_ID>
+			</SET>
+		</ROLE_TO_FUNCTIONS>	
+		<ROLE_TO_FUNCTIONS>
+			<SET>
+				<ROLE_ID>..</ROLE_ID>
+				<FUNC_SET_ID>..</FUNC_SET_ID>
+			</SET>
+		</ROLE_TO_FUNCTIONS>		
+	</Insert>
+	<Delete>
+		<ROLE_TO_FUNCTIONS>
+			<WHERE>
+				<ROLE_ID>..</ROLE_ID>
+				<FUNC_SET_ID>..</FUNC_SET_ID>
+			</WHERE>
+		</ROLE_TO_FUNCTIONS>
+		<ROLE_TO_FUNCTIONS>
+			<WHERE>
+				<ROLE_ID>..</ROLE_ID>
+				<FUNC_SET_ID>..</FUNC_SET_ID>
+			</WHERE>
+		</ROLE_TO_FUNCTIONS>
+	</Delete>
+</RTFS>
+<!-- insert and delete func_set_to_funcs, the relation between functionSet and functions-->
+<FSTF  deleteSubApp="y/n">
+	<Insert>
+		<FUNC_SET_TO_FUNCS>
+			<SET>
+				<FUNC_SET_ID>..</FUNC_SET_ID>
+				<FUNC_ID>..</FUNC_ID>				
+			</SET>
+		</FUNC_SET_TO_FUNCS>
+		<FUNC_SET_TO_FUNCS>
+			<SET>
+				<FUNC_SET_ID>..</FUNC_SET_ID>
+				<FUNC_ID>..</FUNC_ID>				
+			</SET>
+		</FUNC_SET_TO_FUNCS>
+	</Insert>
+	<Delete>
+		<FUNC_SET_TO_FUNCS>
+			<WHERE>
+				<FUNC_SET_ID>..</FUNC_SET_ID>
+				<FUNC_ID>..</FUNC_ID>
+			</WHERE>
+		</FUNC_SET_TO_FUNCS>
+		<FUNC_SET_TO_FUNCS>
+			<WHERE>
+				<FUNC_SET_ID>..</FUNC_SET_ID>
+				<FUNC_ID>..</FUNC_ID>
+			</WHERE>
+		</FUNC_SET_TO_FUNCS>
+	</Delete>
+</FSTF>

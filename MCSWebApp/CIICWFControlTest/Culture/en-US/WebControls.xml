@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dictionary sourceCulture="zh-CN" targetCulture="en-US">
+	<Item source="跳转到" target="Go To"/>
+	<Item source="上一页" target="Prev Page" />
+	<Item source="下一页" target="Next Page" />
+
+	<Item source="总记录数{0:#,##0}" target="Record Count: {0:#,##0}" />
+	<Item source="{0:#,##0}/页" target="{0:#,##0}/Per Page" />
+	<Item source="第{0:#,##0}页" target="Page: {0:#,##0}" />
+	<Item source="共{0:#,##0}页" target="Page Count: {0:#,##0}" />
+
+	<Item source="非法字符，请输入整数数字" target="Invalid char. Please input integer number." />
+	<Item source="没有此页码，请输入1－' + pageCount + '之间的数字" target="Invalid page number. Page number must between 1 and ' + pageCount + '" />
+
+	<Item source="提示" target="Prompt" />
+	<Item source="警告" target="Warning" />
+	<Item source="错误" target="Error" />
+	<Item source="选择" target="Select" />
+
+	<Item source="点击此处关闭详细信息..." target="Click here to collapse details..." />
+	<Item source="点击此处展开详细信息..." target="Click here to expand details..." />
+	<Item source="复制信息" target="Copy" />
+	<Item source="复制信息完成" target="The messages have been copied" />
+	<Item source="确定(O)" target="OK" />
+	<Item source="取消(C)" target="Cancel" />
+	
+	<Item source="请输入正确的日期！" target="Please enter the correct date!" />
+	<Item source="输入框内的格式转换时间无效！" target="The date format is invalid !" />
+	
+	<Item source="正在加载..." target="Loading..." />
+	<Item source="检查..." target="Check..."/>
+	<Item source="正在检查" target="Checking"/>
+
+	<Item source="模拟时间" target="Simulated time"/>
+</Dictionary>

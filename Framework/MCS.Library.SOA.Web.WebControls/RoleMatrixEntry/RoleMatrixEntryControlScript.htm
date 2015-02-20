@@ -1,0 +1,67 @@
+﻿<style type="text/css">
+	.roleMatrixIcon
+	{
+		border: none;
+	}
+	
+	.roleMatrixLink
+	{
+		border: none;
+	}
+</style>
+<script type="text/javascript">
+	function onRoleMatrixEditPropertiesClick(anchor) {
+		if (!anchor) {
+			anchor = event.srcElement;
+			event.returnValue = false;
+		}
+
+		anchor = findRoleMatrixAnchor(anchor);
+
+		if (anchor && !anchor.disabled) {
+			var sFeature = "dialogWidth:400px; dialogHeight:300px;center:yes;help:no;resizable:yes;scroll:no;status:no";
+
+			var objParam = {};
+
+			objParam.id = anchor.roleID;
+			objParam.appID = anchor.appID;
+			objParam.App_CodeName = anchor.appCodeName;
+			objParam.App_Name = anchor.appName;
+			objParam.Role_Name = anchor.roleName;
+			objParam.Role_CodeName = anchor.roleCodeName;
+			objParam.Role_Description = anchor.roleDescription;
+			objParam.definitionID = anchor.definitionID;
+			objParam.editMode = anchor.readOnlyMode == 'enabled' ? "readOnly" : "normal";
+
+			try {
+				window.showModalDialog(anchor.href, objParam, sFeature);
+			} catch (e) {
+				alert('发生了错误：' + e.message + '。\r\n是否因为启用了弹出窗口阻止程序？');
+			}
+		}
+
+		return false;
+	}
+
+	function onRoleMatrixEditMatrixClick(anchor) {
+		if (!anchor) {
+			anchor = event.srcElement;
+			event.returnValue = false;
+		}
+		anchor = findRoleMatrixAnchor(anchor);
+
+		if (anchor && !anchor.disabled) {
+			window.open(anchor, "_blank");
+		}
+
+		return false;
+	}
+
+	function findRoleMatrixAnchor(elem) {
+		while (elem != null && elem.tagName.toUpperCase() != "A") {
+			elem = elem.parentNode;
+		}
+
+		return elem;
+	}
+</script>

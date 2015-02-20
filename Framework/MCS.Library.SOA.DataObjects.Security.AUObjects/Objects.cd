@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MCS.Library.SOA.DataObjects.Security.AUObjects.AdminUnit">
+    <Position X="0.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAABAAAAAIAAAA=</HashCode>
+      <FileName>AdminUnit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DataObjects.Security.AUObjects.AUSchema">
+    <Position X="3.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAiAAAAAAIAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AUSchema.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="SchemaRoles" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MCS.Library.SOA.DataObjects.Security.AUObjects.AUObjectEditableKeyedCollectionBase&lt;T, TFilterResult&gt;" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAgQAAAAAAAAA=</HashCode>
+      <FileName>AUObjectEditableKeyedCollectionBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DataObjects.Security.AUObjects.AURole" Collapsed="true">
+    <Position X="5.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AURole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DataObjects.Security.AUObjects.AUSchemaRole" Collapsed="true">
+    <Position X="7.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AUSchemaRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DataObjects.Security.AUObjects.AUSchemaRoleCollection" Collapsed="true">
+    <Position X="5.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACACAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>AUSchemaRoleCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.SOA.DataObjects.Security.AUObjects.AURoleCollection" Collapsed="true">
+    <Position X="2.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>AURoleCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>

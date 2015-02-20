@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Acts>
+	<Act actID="DynamicFormProcess">
+    <Scene sceneID="First_Default">
+    </Scene >
+    <Scene sceneID="Normal">
+      <Item controlID="propertyForm" readOnly="true" >
+      </Item>
+    </Scene >
+	</Act >
+</Acts >

@@ -1,0 +1,15 @@
+﻿body
+{
+	text-align:center;
+}
+
+.mainbody
+{
+	min-height: 800px;
+	background-color: whitesmoke;
+	padding: 15px 35px 15px 115px;
+	border: 1px solid rgb(216, 216, 216);
+	height: 88%;
+	width: 70%;
+	text-align: left;
+}

@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4513F90C-07E2-47C4-871C-43FDA4F66767}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MCS.Library.Workflow</RootNamespace>
+    <AssemblyName>MCS.Library.Workflow</AssemblyName>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>MCS.Library.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'DELUXEWORKSTEST|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\TestDebug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DELUXEWORKSTEST;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MCS.Library, Version=1.2.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Data, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.OGUPermission, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.OGUPermission.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Passport, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.Passport.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configuration\WorkflowSettings.cs" />
+    <Compile Include="Descriptors\Interfaces\IWfDescriptor.cs" />
+    <Compile Include="Descriptors\Interfaces\IWfOperationDescriptor.cs" />
+    <Compile Include="Descriptors\Interfaces\IWfProcessDescriptor.cs" />
+    <Compile Include="Descriptors\Interfaces\IWfProcessDescriptorManager.cs" />
+    <Compile Include="Descriptors\Interfaces\IWfActivityDescriptor.cs" />
+    <Compile Include="Descriptors\Interfaces\IWfTransitionDescriptor.cs" />
+    <Compile Include="Descriptors\WfActivityDescriptor.cs" />
+    <Compile Include="Descriptors\WfActivityLevelGroupCollection.cs" />
+    <Compile Include="Descriptors\WfCollectionBase.cs" />
+    <Compile Include="Descriptors\WfConditionDescriptor.cs" />
+    <Compile Include="Descriptors\WfContextDictionaryBase.cs" />
+    <Compile Include="Descriptors\WfDescriptorBase.cs" />
+    <Compile Include="Descriptors\WfDescriptorException.cs" />
+    <Compile Include="Descriptors\WfExtendedPropertyDictionary.cs" />
+    <Compile Include="Descriptors\WfActivityLevelGroup.cs" />
+    <Compile Include="Descriptors\WfOperationDescriptor.cs" />
+    <Compile Include="Descriptors\WfProcessDescriptor.cs" />
+    <Compile Include="Descriptors\WfResourceDescriptor.cs" />
+    <Compile Include="Descriptors\WfSimpleActivityDescriptorCollection.cs" />
+    <Compile Include="Descriptors\WfTransitionDescriptor.cs" />
+    <Compile Include="Descriptors\WfVariableDescriptor.cs" />
+    <Compile Include="Engine\Context.cs" />
+    <Compile Include="Engine\Define.cs" />
+    <Compile Include="Engine\Interfaces\IPersistProcess.cs" />
+    <Compile Include="Engine\Interfaces\IWfAnchorActivity.cs" />
+    <Compile Include="Engine\Interfaces\IWfFactory.cs" />
+    <Compile Include="Engine\Interfaces\IWfOperation.cs" />
+    <Compile Include="Engine\Interfaces\IWfProcess.cs" />
+    <Compile Include="Engine\Interfaces\IWfActivity.cs" />
+    <Compile Include="Engine\Interfaces\IWfTransition.cs" />
+    <Compile Include="Engine\Interfaces\IWorkflowReader.cs" />
+    <Compile Include="Engine\Interfaces\IWorkflowWriter.cs" />
+    <Compile Include="Engine\WfActivityCollection.cs" />
+    <Compile Include="Engine\WfAdjustOperationParams.cs" />
+    <Compile Include="Engine\WfAnchorActivity.cs" />
+    <Compile Include="Engine\WfAssigneeCollection.cs" />
+    <Compile Include="Engine\WfBranchProcessInfo.cs" />
+    <Compile Include="Engine\WfBranchProcessInfoCollection.cs" />
+    <Compile Include="Engine\WfEngineException.cs" />
+    <Compile Include="Engine\WfFactory.cs" />
+    <Compile Include="Engine\WfKeyedCollectionBase.cs" />
+    <Compile Include="Engine\WfOperation.cs" />
+    <Compile Include="Engine\WfPrincipal.cs" />
+    <Compile Include="Engine\WfActivity.cs" />
+    <Compile Include="Engine\WfActivityBase.cs" />
+    <Compile Include="Engine\WfContext.cs" />
+    <Compile Include="Engine\WfProcess.cs" />
+    <Compile Include="Engine\WfOperationCollection.cs" />
+    <Compile Include="Engine\WfProcessCache.cs" />
+    <Compile Include="Engine\WfProcessCollection.cs" />
+    <Compile Include="Engine\WfProcessStartupParams.cs" />
+    <Compile Include="Engine\WfRunningObjectBase.cs" />
+    <Compile Include="Engine\WfRuntime.cs" />
+    <Compile Include="Engine\WfRuntimeException.cs" />
+    <Compile Include="Engine\WfTransferParams.cs" />
+    <Compile Include="Engine\WfTransition.cs" />
+    <Compile Include="Engine\Interfaces\IBatchCommit.cs" />
+    <Compile Include="OguObjects\WfOguGroup.cs" />
+    <Compile Include="OguObjects\WfOguObject.cs" />
+    <Compile Include="OguObjects\WfOguOrganization.cs" />
+    <Compile Include="OguObjects\WfOguRole.cs" />
+    <Compile Include="OguObjects\WfOguUser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="WorkItem\IWorkItemWriter.cs" />
+    <Compile Include="WorkItem\WorkItemBase.cs" />
+    <Compile Include="WorkItem\WorkItemQueue.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resource.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Diagram\Descriptors.cd" />
+    <None Include="MCS.Library.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <!--<BinFiles Include="**/bin/Debug/*.dll;**/bin/Debug/*.pdb" Condition="'$(Configuration)' == 'Debug'" />-->
+    <!--<BinFiles Include="**/bin/Release/*.dll;**/bin/Release/*.pdb" Condition="'$(Configuration)' == 'Release'" />-->
+  </ItemGroup>
+  <Target Name="AfterBuild">
+    <!--<Copy SourceFiles="@(BinFiles)" DestinationFolder="..\..\Bin" SkipUnchangedFiles="True" />-->
+  </Target>
+  <PropertyGroup>
+    <PreBuildEvent>IF EXIST "$(ProjectDir)..\..\Bin\$(TargetFileName)" DEL "$(ProjectDir)..\..\Bin\$(TargetFileName)"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetName).pdb" DEL "$(ProjectDir)..\..\Bin\$(TargetName).pdb"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetName).xml" DEL "$(ProjectDir)..\..\Bin\$(TargetName).xml"</PreBuildEvent>
+    <PostBuildEvent>XCOPY "$(TargetPath)"  "$(ProjectDir)..\..\Bin" /Y /D /R
+IF EXIST "$(TargetDir)$(TargetName).pdb" XCOPY "$(TargetDir)$(TargetName).pdb" "$(ProjectDir)..\..\Bin" /Y /D /R
+IF EXIST "$(TargetDir)$(TargetName).xml"  XCOPY "$(TargetDir)$(TargetName).xml" "$(ProjectDir)..\..\Bin" /Y /D /R</PostBuildEvent>
+  </PropertyGroup>
+</Project>

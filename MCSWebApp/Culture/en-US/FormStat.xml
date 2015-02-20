@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dictionary sourceCulture="zh-CN" targetCulture="en-US">
+	<Item source="表单查询" target="Form Query" />
+	<Item source="表单类型" target="Form categories" />
+	<Item source="表单状态" target="Form status" />
+	<Item source="表单列表" target="Form List" />
+	<Item source="申请人" target="Requestor" />
+	<Item source="申请部门" target="Requestor department" />
+	<Item source="审批人" target="Approver" />
+	<Item source="是否审批" target="Is approval" />
+	<Item source="全部" target="All" />
+	<Item source="已审批" target="Approved" />
+	<Item source="未审批" target="Not approval" />
+	<Item source="运行中" target="Running" />
+	<Item source="已完成" target="Completed" />
+	<Item source="被中止" target="Aborted" />
+	<Item source="未运行" target="NotRunning" />
+	<Item source="标题" target="Title" />
+	<Item source="起草时间" target="Draft time" />
+	<Item source="处理人/状态" target="Approver/Status" />
+	<Item source="创建时间" target="Created time" />
+	<Item source="缓急" target="Emergency" />
+	<Item source="未知" target="Unknow" />
+	<Item source="暂时没有您需要的数据" target="No data found" />
+</Dictionary>

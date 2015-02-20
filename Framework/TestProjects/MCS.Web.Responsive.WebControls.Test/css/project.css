@@ -1,0 +1,43 @@
+body {
+  font-size: 14px;
+  font-family:  "Microsoft YaHei",Arial,Helvetica,sans-serif,"宋体";
+  line-height: 1.428571429;
+  color: #333333;
+  background-color: #ffffff;
+}
+.bs-docs-nav {
+text-shadow: 0 -1px 0 rgba(0,0,0,.15);
+background-color: #563d7c;
+border-color: #463265;
+box-shadow: 0 1px 0 rgba(255,255,255,.1);
+}
+.navbar-default{ background-color:#563d7c; }
+.navbar-default .navbar-brand {
+  color: #cdbfe3;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #fff;
+  background-color: transparent;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #cdbfe3;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #fff;
+  background-color: transparent;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #fff;
+  background-color: #463265;
+}
+.jumbotron{background-color: rgb(86, 61, 124); color:#fff;}
+    .slider{margin-top: 50px;margin-bottom: 10px;}
+    .sidebar{width:200px;background-color: rgb(242, 242, 242);font-weight:bold;float:left;*margin-left: -3px;height: 500px;}
+    .main-content{margin-left: 210px;*margin-left: 207px;}

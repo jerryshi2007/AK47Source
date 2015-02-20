@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<data>
+	<event
+        start="Dec 28 2012 09:00:00 GMT"
+        end="Dec 29 2012 09:00:00 GMT"
+        isDuration="false"
+        title="这是什么"
+        image="http://simile.mit.edu/images/csail-logo.gif"
+        >
+		搞什么 <a href="http://simile.mit.edu/timeline/">Timeline</a>.
+	</event>
+
+	<event
+        start="Dec 30 2012 00:00:00 GMT"
+        end="Dec 31 2012 00:00:00 GMT"
+        title="Friend's wedding"
+        >
+		I'm not sure precisely when my friend's wedding is.
+	</event>
+
+	<event
+        start="Aug 28 2012 00:00:00 GMT"
+        title="Trip to Beijing"
+        link="http://travel.yahoo.com/"
+        >
+		Woohoo!
+	</event>
+</data>

@@ -1,0 +1,62 @@
+<div style="display: none">
+	<script type="text/javascript">
+		function onNotifyTextChanged() {
+			$get("prepareDataStatus").innerText = $get("notifyText").value;
+		}
+
+		function onPrepareDataRaiseError() {
+			var serializedError = $get("prepareDataError").value;
+
+			var errorObj = Sys.Serialization.JavaScriptSerializer.deserialize(serializedError);
+
+			$showError(errorObj);
+		}
+
+		function onPrepareDataFinished() {
+			var ctrl = $find(m_controlID);
+
+			if (ctrl)
+				ctrl._doSteps();
+		}
+	</script>
+	<iframe name="innerFrame"></iframe>
+	<input type="hidden" id="notifyText" />
+	<input type="button" id="changeTextBtn" onclick="onNotifyTextChanged()" />
+	<input type="button" id="prepareDataError" />
+	<input type="button" id="raiseErrorBtn" onclick="onPrepareDataRaiseError()" />
+	<input type="hidden" id="c" name="preparedData" />
+	<input type="button" id="prepareDataFinished" onclick="onPrepareDataFinished()" />
+</div>
+<table style="width: 100%; height: 100%;" cellpadding="0" cellspacing="0">
+	<tr>
+		<td style="width: 10%;">
+			&nbsp;
+		</td>
+		<td style="text-align: left; width: 80%; height: 24px">
+			<div id="prepareDataStatus">
+			</div>
+			<div style="width: 100%; height: 24px; background-color: Gray; border-style: groove;">
+				<div id="progressBar" style="background-color: Blue; width: 0%; height: 100%">
+				</div>
+			</div>
+		</td>
+		<td style="width: 10%;">
+			&nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align: center; height: 16px" colspan="3">
+			<b id="succeed" style="font-size: x-small; max-height: 10;"></b>/<b id="allsteps"
+				style="font-size: x-small; max-height: 10;"></b>
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align: center" colspan="3">
+			<textarea id="errorMessages" style="text-align: left; width: 80%; height: 99%; border: 1px silver solid;
+				overflow: auto" readonly runat="server" />
+		</td>
+	</tr>
+</table>
+<script type="text/javascript">
+
+</script>

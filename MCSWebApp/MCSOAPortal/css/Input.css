@@ -1,0 +1,487 @@
+/*文档基本定义*/
+body
+{
+	font-size: 12px;
+	color: black;
+	font-family: SimSun;
+}
+
+.readonly
+{
+	font-size: 12px;
+	background-color: #cccccc;
+}
+
+/*
+.activeElement
+{
+	background-color: lightblue;
+}
+*/
+
+.modalEditable /*定义弹出式信息显示窗口背景(编辑或显示区域颜色)*/ /*定义弹出式信息显示窗口背景(编辑或显示区域颜色)*/
+{
+	font-size: 12px;
+	color: black;
+	font-family: SimSun;
+	background-color: #FFFFFF;
+}
+
+.modal /*定义弹出式信息显示窗口背景(边缘颜色)*/ /*定义弹出式信息显示窗口背景(边缘颜色)*/
+{
+	font-size: 12px;
+	color: black;
+	font-family: SimSun;
+	background-color: #fefae4;
+}
+
+.viewContent /*定义弹出式信息显示窗口背景(单色)*/ /*定义弹出式信息显示窗口背景(单色)*/
+{
+	font-size: 12px;
+	color: black;
+	font-family: SimSun;
+	background-color: #F7F7F7;
+}
+
+.contentHeader
+{
+	background-color: #ddd8ce;
+	color:black;
+	/*
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=50, style=1, finishOpacity=100, startx=0, starty=0, finishx=0, finishy=1024);
+	*/
+	border-right: #c4c4c4 1px solid;
+	border-top: #ffffff 1px solid;
+	border-left: #ffffff 1px solid;
+	border-bottom: #c4c4c4 1px solid;
+}
+
+.contentHeaderText
+{
+	color:black;
+	font-size:14px;
+}
+
+.contentPanel
+{
+	border-right: #c4c4c4 1px solid;
+	border-top: #999999 1px solid;
+	border-left: #999999 1px solid;
+	border-bottom: #c4c4c4 1px solid background-color: transparent;
+}
+
+.alpha
+{
+	filter: progid:DXImageTransform.Microsoft.Alpha( Opacity=100, FinishOpacity=50, Style=2, StartX=0, FinishX=100, StartY=0, FinishY=100);
+}
+
+.alphaShadow
+{
+	filter: progid:DXImageTransform.Microsoft.Shadow(color= 'black' , Direction=135, Strength=1)progid:DXImageTransform.Microsoft.Alpha( Opacity=100, FinishOpacity=50, Style=2, StartX=0, FinishX=100, StartY=0, FinishY=100);
+}
+
+/*表格类的定义*/
+table
+{
+	border-right: medium none;
+	border-top: medium none;
+	font-size: 12px;
+	border-left: medium none;
+	border-bottom: medium none;
+}
+
+table.withoutBorder /*定义无边框的表格*/ /*定义无边框的表格*/
+{
+	border-right: medium none;
+	border-top: medium none;
+	font-size: 12px;
+	border-left: medium none;
+	border-bottom: medium none;
+	background-color: #F7F7F7;
+}
+
+table.bgwithoutBorder
+{
+	font-size: 12px;
+	background-color: #C40000;
+}
+
+tr
+{
+	background-color: transparent;
+}
+
+.tr_bg1
+{
+	background-color: #F7F7F7;
+}
+
+table.blackline /*定义有边框的表格（黑）*/ /*定义有边框的表格（黑）*/
+{
+	border-color: #c4c4c4;
+	border-style: solid;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+}
+
+table.title-bg /*定义有灰边框背景为主色的表格*/ /*定义有灰边框背景为主色的表格*/
+{
+	font-size: 12px;
+	border-color: #c4c4c4;
+	border-style: solid;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	background-color: #C40000;
+}
+
+table.grayline /*定义有边框的表格(灰)*/ /*定义有边框的表格(灰)*/
+{
+	font-size: 12px;
+	border-color: #c4c4c4;
+	border-style: solid;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+}
+
+a:link
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+a:visited
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+a:hover
+{
+	color: #cc0066;
+	font-family: 宋体;
+	text-decoration: underline;
+}
+
+a:active
+{
+	text-decoration: none;
+}
+
+a.new:link
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+a.new:visited
+{
+	color: #800080; /*0092DF*/
+	text-decoration: none;
+}
+
+a.new:hover
+{
+	color: #cc0066;
+	font-family: 宋体;
+	text-decoration: underline;
+}
+
+a.new:active
+{
+	text-decoration: none;
+}
+
+.gridHead /*定义表头*/ /*定义表头*/
+{
+	color: White;
+	border-right: medium none;
+	border-top: medium none;
+	border-left: medium none;
+	border-bottom: medium none;
+	background-color: #C40000;
+	height: 20px;
+	/*
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=50, style=1, finishOpacity=100, startx=0, starty=0, finishx=0, finishy=1024);
+	*/
+	font-size: 12px;
+}
+
+.gridHeadLink:link
+{
+	color:Black;
+}
+
+.gridHeadLink:hover
+{
+	color: Black;
+	text-decoration: underline;
+}
+
+.gridHeadLink:visited
+{
+	color: Black;
+}
+
+.gridHeadRed /*定义其它颜色地表头*/ /*定义其它颜色地表头*/
+{
+	color: WHITE;
+	border-right: medium none;
+	border-top: medium none;
+	border-left: medium none;
+	border-bottom: medium none;
+	background-color: #C40000;
+	font-size: 12px;
+}
+
+.gridHighlight /*定义鼠标放置于对应行的背景颜色*/ /*定义鼠标放置于对应行的背景颜色*/
+{
+	background-color: #E6F2FF;
+}
+
+.gridSelectedHighlight /*定义选定行的背景颜色*/ /*定义选定行的背景颜色*/
+{
+	background-color: #E6E6E6;
+}
+
+.gridOddRow /*定义奇行的字体和背景颜色*/ /*定义奇行的字体和背景颜色*/
+{
+	font-size: 12px;
+	background-color: #F9FCFF; /*#F9FCFF #F7F7F7*/
+}
+
+.gridEvenRow /*定义偶行的字体和背景颜色*/ /*定义偶行的字体和背景颜色*/
+{
+	font-size: 12px;
+	background-color: white;
+}
+
+/*字体、标题及链接的定义*/
+
+.high
+{
+	font-size: 12px;
+	line-height: 140%;
+}
+
+.high1 /*定义新闻类显示文字大小及间距*/ /*定义新闻类显示文字大小及间距*/
+{
+	font-size: 10.5pt;
+	line-height: 140%;
+}
+
+.title /*定义一级标题大小*/ /*定义一级标题大小*/
+{
+	font-size: 13.5pt;
+	color: red;
+	font-weight: bold;
+}
+
+.title1 /*定义有下拉菜单的导航标题样式及大小*/ /*定义有下拉菜单的导航标题样式及大小*/
+{
+	color: WHITE;
+	border-right: medium none;
+	border-top: medium none;
+	border-left: medium none;
+	border-bottom: medium none;
+	background-color: #C40000;
+	font-size: 10.5pt;
+	font-weight: bold;
+	cursor: hand;
+}
+
+.title2 /*定义无下拉菜单的导航标题样式及大小*/ /*定义无下拉菜单的导航标题样式及大小*/
+{
+	color: white;
+	border-right: medium none;
+	border-top: medium none;
+	border-left: medium none;
+	border-bottom: medium none;
+	background-color: #C40000;
+	font-size: 10.5pt;
+	font-weight: bold;
+}
+
+/*表单Forms的定义*/
+.flatInput
+{
+	font-family: SimSun;
+	font-size: 12px;
+	border-right: #c4c4c4 1px solid;
+	border-top: #999999 1px solid;
+	border-left: #999999 1px solid;
+	border-bottom: #c4c4c4 1px solid;
+}
+
+.flatButton
+{
+	padding-top: 2px;
+	font-family: SimSun;
+	font-size: 12px;
+	background-color: silver;
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=50, style=1, finishOpacity=100, startx=0, starty=0, finishx=0, finishy=1024);
+	border-right: #c4c4c4 1px solid;
+	border-top: #ffffff 1px solid;
+	border-left: #ffffff 1px solid;
+	border-bottom: #c4c4c4 1px solid;
+}
+
+select
+{
+	font-family: SimSun;
+	font-size: 12px;
+}
+
+/*Page Persist*/
+.userData
+{
+	behavior: url(#default#userdata);
+}
+
+.saveHistory
+{
+	behavior: url(#default#savehistory);
+}
+
+/*工具栏和鼠标移动*/
+.toolbarPanel
+{
+	background-color: transparent;
+}
+
+.toolbarPanelGray
+{
+	background-color: :#ddd8ce;
+}
+
+.toolButton
+{
+	/*filter: progid:DXImageTransform.Microsoft.Alpha( Opacity=100, FinishOpacity=50, Style=2, StartX=0, FinishX=100, StartY=0, FinishY=100);
+	*/
+	border-right: 1px solid #faefc5;
+	border-top: 1px solid #faefc5;
+	border-left: 1px solid #faefc5;
+	border-bottom: 1px solid #faefc5;
+	background: #C4A0A0;
+}
+
+.toolSplit
+{
+	position: relative;
+	top: 1px;
+	color: gray;
+}
+
+.mouseOver
+{
+	border-right: 1px solid gray;
+	border-top: 1px solid gray;
+	border-left: 1px solid gray;
+	border-bottom: 1px solid gray;
+	background-color: #b6bdd2;
+}
+
+.mouseOverMenu
+{
+	border-right: 1px solid black;
+	border-top: 1px solid black;
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+	background-color: #b6bdd2;
+}
+
+.dropdownChecked
+{
+	background-color: #b6bdd2;
+}
+
+.mouseOver2
+{
+	border-right: 1px solid black;
+	border-top: 1px solid black;
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+	background-color: #faefc5;
+}
+.mouseOverNoMove
+{
+	border-right: 1px solid gray;
+	border-top: 1px solid gray;
+	border-left: 1px solid gray;
+	border-bottom: 1px solid gray;
+	background-color: #b6bdd2;
+}
+.mouseOverNoBorder
+{
+	background-color: #b6bdd2;
+}
+.mouseOverButton
+{
+	cursor: hand;
+	color: Blue;
+}
+
+/*Table Strip styles*/
+.tabStripBackground
+{
+	font-size: 12px;
+	background-color: Transparent;
+}
+.tabStripBand
+{
+	font-size: 12px;
+	border-bottom: solid #eeeeee 1px;
+}
+.tabStrip
+{
+	font-size: 12px;
+	background-color: white;
+	border-top: solid white 1px;
+	border-bottom: solid black 1px;
+}
+.tabStripSelected
+{
+	font-size: 12px;
+	font-weight: BOLD;
+	background-color: #eeeeee;
+	border-left: solid white 1px;
+	border-top: solid white 1px;
+	border-right: solid black 1px;
+	border-bottom: solid #eeeeee 1px;
+}
+.tabStripText
+{
+	width: 100%;
+	border-right: solid #cccccc 1px;
+}
+
+.tabStripTextSelected
+{
+	width: 100%;
+}
+
+.checkbox
+{
+	border-right: medium none;
+	border-top: medium none;
+	border-left: medium none;
+	border-bottom: medium none;
+}
+
+.radio
+{
+	border-right: medium none;
+	border-top: medium none;
+	border-left: medium none;
+	border-bottom: medium none;
+}
+
+.menuLeftBar
+{
+	background-color:Gray;
+}

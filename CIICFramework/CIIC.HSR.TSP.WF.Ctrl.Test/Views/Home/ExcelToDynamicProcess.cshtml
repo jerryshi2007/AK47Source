@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "ExcelToDynamicProcess";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script>
+    function beforeClick(sender, progressbar) {
+        var frmValid = $('#expenseForm').valid();
+        if (frmValid) {
+            var data = $('#expenseForm').serialize();
+            return data;
+        }
+        else {
+            return false;
+        }
+    }
+    $(document).ready(function () {
+        $("#files").kendoUpload({
+            multiple: false
+        });
+    });
+
+    function ExportExcelTemplateHandler() {
+        var url = "../Content/a86cf8e8-0004-9972-457a-ce919355297e.xlsx";
+        var w = window.open(url, '_blank');
+        w.location.href = url;
+
+    }
+    function ExportExcelHandler() {
+        var processKey = "a86cf8e8-0004-9972-457a-ce919355297e";//需要导出的流程KEY
+        var $url = "@Url.Action("ExportDynamicProcess", "Home")?processKey=" + processKey;
+        window.open($url, '_blank');
+    }
+    function BuildProcessExportExcelHandler()
+    {
+        var processKey = "a86cf8e8-0004-9972-457a-ce919355297e";//需要导出的流程KEY
+        var $url = "@Url.Action("BuildProcess", "Home")?processKey=" + processKey;
+        window.open($url, '_blank');
+    }
+    function LoadProcess()
+    {
+        var processKey = "a86cf8e8-0004-9972-457a-ce919355297e";//需要导出的流程KEY
+        var $url = "@Url.Action("LoadProcess", "Home")?processKey=" + processKey;
+        window.open($url, '_blank');
+    }
+</script>
+ 
+<h2>上传EXCEL创建3个节点的活动流程定义</h2>
+<div class="container">
+    <ol class="breadcrumb">
+        <li><a href="#" target="_parent">首页</a></li>     
+        <li>Excel创建流程定义</li>
+    </ol>
+    <div class="panel panel-default">
+        <div class="panel-heading clearfix panel-title"> 
+           Excel创建流程定义  
+            <div class="btn-group pull-right">  
+                    @(
+ Html.HSRUI().Button().Text("导出Excel模版").ClientClick("ExportExcelTemplateHandler").Name("ExportExcelTemplate") 
+                   )
+                @(
+ Html.HSRUI().Button().Text("导出流程").ClientClick("ExportExcelHandler").Name("ExportExcel")
+                )
+                @(
+ Html.HSRUI().Button().Text("动态生成并导出流程").ClientClick("BuildProcessExportExcelHandler").Name("BuildProcessExportExcel")
+                )
+                @(
+ Html.HSRUI().Button().Text("加载动态流程").ClientClick("LoadProcess").Name("LoadProcess")
+                )
+                    <a href="#" class="btn btn-default" target="_parent">返回</a>
+                </div>
+
+        </div>
+        <div class="panel-body"> 
+            @using(Html.BeginForm("ExcelToDynamicProcess","Home",FormMethod.Post,new {id="expenseForm"}))
+            {
+           
+                <div class="row">
+                    <input name="files" id="files" type="file" accept=".xlsx" />
+                    @(
+                Html.HSRUI().Button().ButtonType(p => p.Submit()).Name("btnSubmit").Text("生成").ProgressBar(true) 
+                    ) 
+                </div>           
+            }
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+

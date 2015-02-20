@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>../../../CIIC.HSR.TSP.Files/TSPLib.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E24FAE52-428F-4B6E-8D9D-B24E7EE0A940}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MCS.Library.WF.Contracts</RootNamespace>
+    <AssemblyName>MCS.Library.WF.Contracts</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>MCS.Library.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MCS.Library">
+      <HintPath>..\..\Bin\MCS.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Define.cs" />
+    <Compile Include="Ogu\ClientOguSchemaType.cs" />
+    <Compile Include="Ogu\WfClientOguObjectExtenstions.cs" />
+    <Compile Include="Operations\IWfClientProcessRuntimeService.cs" />
+    <Compile Include="Query\ClientPageQueryResultBase.cs" />
+    <Compile Include="Workflow\Builders\WfClientDynamicProcessBuilder.cs" />
+    <Compile Include="Workflow\Builders\WfClientProcessBuilderBase.cs" />
+    <Compile Include="Workflow\DataObjects\WfClientDelegation.cs" />
+    <Compile Include="Workflow\DataObjects\WfClientNextStep.cs" />
+    <Compile Include="Workflow\DataObjects\WfClientOpinion.cs" />
+    <Compile Include="Workflow\DataObjects\WfClientRolePropertyDefinition.cs" />
+    <Compile Include="Workflow\DataObjects\WfClientRolePropertyRow.cs" />
+    <Compile Include="Workflow\DataObjects\WfClientRolePropertyValue.cs" />
+    <Compile Include="Workflow\Descriptors\ResourceDescriptors\WfClientActivityAssigneesResourceDescriptor.cs" />
+    <Compile Include="Workflow\Descriptors\ResourceDescriptors\WfClientActivityMatrixResourceDescriptor.cs" />
+    <Compile Include="Workflow\Descriptors\ResourceDescriptors\WfClientActivityOperatorResourceDescriptor.cs" />
+    <Compile Include="Workflow\Descriptors\ResourceDescriptors\WfClientActivityResourceDescriptorBase.cs" />
+    <Compile Include="Ogu\WfClientGroup.cs" />
+    <Compile Include="Ogu\WfClientOguObjectBase.cs" />
+    <Compile Include="Ogu\WfClientOrganization.cs" />
+    <Compile Include="Ogu\WfClientRole.cs" />
+    <Compile Include="Ogu\WfClientUser.cs" />
+    <Compile Include="Operations\IWfClientProcessDescriptorServices.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyDefine\ClientPropertyDefine.cs" />
+    <Compile Include="PropertyDefine\ClientPropertyExtensions.cs" />
+    <Compile Include="PropertyDefine\ClientPropertyValue.cs" />
+    <Compile Include="PropertyDefine\ClientPropertyValueCollection.cs" />
+    <Compile Include="Workflow\Descriptors\Enumerations.cs" />
+    <Compile Include="Workflow\Descriptors\ResourceDescriptors\WfClientAURoleResourceDescriptor.cs" />
+    <Compile Include="Workflow\Descriptors\ResourceDescriptors\WfClientDepartmentResourceDescriptor.cs" />
+    <Compile Include="Workflow\Descriptors\ResourceDescriptors\WfClientDynamicResourceDescriptor.cs" />
+    <Compile Include="Workflow\Descriptors\ResourceDescriptors\WfClientGroupResourceDescriptor.cs" />
+    <Compile Include="Workflow\Descriptors\ResourceDescriptors\WfClientResourceDescriptor.cs" />
+    <Compile Include="Workflow\Descriptors\ResourceDescriptors\WfClientRoleResourceDescriptor.cs" />
+    <Compile Include="Workflow\Descriptors\ResourceDescriptors\WfClientUserResourceDescriptor.cs" />
+    <Compile Include="Workflow\Descriptors\WfClientExportProcessDescriptorParams.cs" />
+    <Compile Include="Workflow\Descriptors\WfClientMainStreamActivityDescriptor.cs" />
+    <Compile Include="Workflow\Descriptors\WfClientProcessDescriptorBase.cs" />
+    <Compile Include="Workflow\Descriptors\WfClientProcessDescriptorInfo.cs" />
+    <Compile Include="Workflow\Descriptors\WfClientRelativeLinkDescriptor.cs" />
+    <Compile Include="Workflow\Descriptors\WfClientActivityDescriptor.cs" />
+    <Compile Include="Workflow\Descriptors\WfClientBranchProcessTemplateDescriptor.cs" />
+    <Compile Include="Workflow\Descriptors\WfClientConditionDescriptor.cs" />
+    <Compile Include="Workflow\Descriptors\WfClientKeyedDescriptorBase.cs" />
+    <Compile Include="Workflow\Descriptors\WfClientKeyedDescriptorCollectionBase.cs" />
+    <Compile Include="Workflow\Descriptors\WfClientProcessDescriptor.cs" />
+    <Compile Include="Workflow\Descriptors\WfClientTransitionDescriptor.cs" />
+    <Compile Include="Workflow\Descriptors\WfClientVariableDescriptor.cs" />
+    <Compile Include="Workflow\Descriptors\WfCreateClientDynamicProcessParams.cs" />
+    <Compile Include="Workflow\Runtime\Enumerations.cs" />
+    <Compile Include="Workflow\Runtime\WfClientAuthorizationInfo.cs" />
+    <Compile Include="Workflow\Runtime\WfClientBranchProcessTransferParams.cs" />
+    <Compile Include="Workflow\Runtime\WfClientActivity.cs" />
+    <Compile Include="Workflow\Runtime\WfClientAssignee.cs" />
+    <Compile Include="Workflow\Runtime\WfClientBranchProcessStartupParams.cs" />
+    <Compile Include="Workflow\Runtime\WfClientNextActivity.cs" />
+    <Compile Include="Workflow\Runtime\WfClientProcess.cs" />
+    <Compile Include="Workflow\Runtime\WfClientProcessCurrentInfo.cs" />
+    <Compile Include="Workflow\Runtime\WfClientProcessCurrentInfoPageQueryResult.cs" />
+    <Compile Include="Workflow\Runtime\WfClientProcessInfoBase.cs" />
+    <Compile Include="Workflow\Runtime\WfClientProcessStartupParams.cs" />
+    <Compile Include="Workflow\Runtime\WfClientProcessInfo.cs" />
+    <Compile Include="Workflow\Runtime\WfClientRuntimeContext.cs" />
+    <Compile Include="Workflow\Runtime\WfClientTransferParams.cs" />
+    <Compile Include="Workflow\Runtime\WfClientTransferParamsBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MCS.Library.snk" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>IF NOT EXIST "$(ProjectDir)..\..\Bin" MD "$(ProjectDir)..\..\Bin"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetFileName)" DEL "$(ProjectDir)..\..\Bin\$(TargetFileName)"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetName).pdb" DEL "$(ProjectDir)..\..\Bin\$(TargetName).pdb"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetName).xml" DEL "$(ProjectDir)..\..\Bin\$(TargetName).xml"</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>set path=%25path%25;C:\Windows\System32
+ 
+
+XCOPY "$(TargetPath)"  "$(ProjectDir)..\..\Bin" /Y /D /R
+IF EXIST "$(TargetDir)$(TargetName).pdb" XCOPY "$(TargetDir)$(TargetName).pdb" "$(ProjectDir)..\..\Bin" /Y /D /R
+IF EXIST "$(TargetDir)$(TargetName).xml"  XCOPY "$(TargetDir)$(TargetName).xml" "$(ProjectDir)..\..\Bin" /Y /D /R</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

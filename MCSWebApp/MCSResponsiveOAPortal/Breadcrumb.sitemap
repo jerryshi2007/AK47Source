@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="~/Default.aspx" title="流程中心"  description="流程中心" iconCss="">
+    <siteMapNode url="~/Task/Drafting.aspx" title="拟单" description="拟单" iconCss="glyphicon glyphicon-edit" />
+    <siteMapNode url="~/Task/ToDoList.aspx" title="待办"  description="待办" iconCss="glyphicon glyphicon-refresh" badge="true" dataAttribute=""/>
+    <siteMapNode url="~/Task/ActivatedList.aspx" title="流转中"  description="流转中" iconCss="glyphicon glyphicon-saved" />
+    <siteMapNode url="~/Task/CompletedList.aspx" title="已办结"  description="已办结" iconCss="glyphicon glyphicon-flag" />
+    <siteMapNode url="~/Task/TraceLog.aspx" title="操作日志"  description="操作日志"  />
+    <siteMapNode url="~/Task/DelegationList.aspx" title="授权委派"  description="授权委派" iconCss="glyphicon glyphicon-user" />
+    <siteMapNode url="~/Profile.aspx" title="个人设置"  description="个人设置" iconCss="glyphicon glyphicon-hand-right" target="_blank" />
+    <siteMapNode url="~/Help.aspx" title="帮助"  description="帮助" iconCss="glyphicon glyphicon-cog" />
+    <siteMapNode url="~/Admin/SystemAdmin.aspx" title="系统设置"  description="系统设置" iconCss="glyphicon glyphicon-wrench" />
+    <siteMapNode url="~/Search/SearchResult.aspx" title="搜索结果" description="搜索结果" />
+    <siteMapNode url="~/Search/AdvancedSearch.aspx" title="高级查询" description="高级查询" />
+  </siteMapNode>
+</siteMap>
+

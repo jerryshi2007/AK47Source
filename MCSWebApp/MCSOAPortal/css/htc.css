@@ -1,0 +1,30 @@
+INPUT.cssFlat {
+	BORDER-RIGHT: gray 1px solid; BORDER-TOP: gray 1px solid; BEHAVIOR: url(InfoWeb?haviorlurTextBox.htc); BORDER-LEFT: gray 1px solid; PADDING-TOP: 3px; BORDER-BOTTOM: gray 1px solid; HEIGHT: 22px
+}
+TEXTAREA.cssFlat {
+	BORDER-RIGHT: gray 1px solid; BORDER-TOP: gray 1px solid; BORDER-LEFT: gray 1px solid; PADDING-TOP: 3px; BORDER-BOTTOM: gray 1px solid; HEIGHT: 40px
+}
+INPUT.ObjectPicker {
+	BEHAVIOR: url(../App_Themes/default/HTC/ObjectPicker.htc)
+}
+TEXTAREA.TypePicker {
+	BEHAVIOR: url(InfoWeb?haviorTypePicker.htc)
+}
+INPUT.cssDoubleFlat {
+	BORDER-RIGHT: gray 1px solid; BORDER-TOP: gray 1px solid; IME-MODE: disabled; BEHAVIOR: url(../App_Themes/Default/HTC/BlurNumberTextBox.htc); BORDER-LEFT: gray 1px solid; PADDING-TOP: 3px; BORDER-BOTTOM: gray 1px solid; HEIGHT: 22px
+}
+INPUT.cssNumber {
+	BORDER-RIGHT: gray 1px solid; BORDER-TOP: gray 1px solid; IME-MODE: disabled; BEHAVIOR: url(InfoWeb?haviorlurNumberTextBox.htc); BORDER-LEFT: gray 1px solid; PADDING-TOP: 3px; BORDER-BOTTOM: gray 1px solid; HEIGHT: 22px
+}
+INPUT.textbox_cal {
+	BORDER-RIGHT: #7f9db9 1px solid; BORDER-TOP: #7f9db9 1px solid; FONT-SIZE: 9pt; BEHAVIOR: url(../App_Themes/Default/HTC/Calendar.htc); BORDER-LEFT: #7f9db9 1px solid; CURSOR: hand; PADDING-TOP: 3px; BORDER-BOTTOM: #7f9db9 1px solid
+}
+INPUT.Calendar {
+	BORDER-RIGHT: #7f9db9 1px solid; BORDER-TOP: #7f9db9 1px solid; FONT-SIZE: 9pt; BEHAVIOR: url(Calendar.htc); BORDER-LEFT: #7f9db9 1px solid; CURSOR: hand; PADDING-TOP: 3px; BORDER-BOTTOM: #7f9db9 1px solid
+}
+INPUT.lineText {
+	FONT-SIZE: 11px; BEHAVIOR: url(InfoWeb?haviorLineTextBox.htc); FONT-FAMILY: "Verdana" , "Arial" , "Helvetica" , "sans-serif"; HEIGHT: 22px; TEXT-DECORATION: none
+}
+.LineBox {
+	BORDER-RIGHT: 1px; BORDER-TOP: 1px; FONT-SIZE: 11px; BEHAVIOR: url(InfoWeb?haviorLineBox.htc); BORDER-LEFT: 1px; BORDER-BOTTOM: #999999 1px solid
+}

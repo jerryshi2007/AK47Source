@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Acts>
+  <Act actID="ExpressionEditor">
+    <Scene sceneID="Normal">
+      <Item controlID="okButton" readOnly="false" enabled="true" visible="true"/>
+      <Item controlID="txtDesc" readOnly="false" enabled="true"/>
+      <Item controlID="txtExp" readOnly="false" enabled="true"/>
+    </Scene>
+    <Scene sceneID="ReadOnly">
+      <Item controlID="okButton" readOnly="true" enabled="false" visible="false"/>
+      <Item controlID="txtDesc" readOnly="true" enabled="false"/>
+      <Item controlID="txtExp" readOnly="true" enabled="false"/>
+    </Scene>
+  </Act>
+</Acts>
+

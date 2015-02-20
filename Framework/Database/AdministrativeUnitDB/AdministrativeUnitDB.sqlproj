@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">10.0</VisualStudioVersion>
+    <PostConversionRemoveFromScc>
+    </PostConversionRemoveFromScc>
+    <PostConversionAddToScc>
+    </PostConversionAddToScc>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>AdministrativeUnitDB</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.0</ProjectVersion>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql100DatabaseSchemaProvider</DSP>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <ShowWizard>False</ShowWizard>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <IncludeSchemaNameInFileName>True</IncludeSchemaNameInFileName>
+    <ModelCollation>2052,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <LoadSqlClrTypes>True</LoadSqlClrTypes>
+    <RootNamespace>AdministrativeUnitDB</RootNamespace>
+    <DefaultSchema>SC</DefaultSchema>
+    <PreviousProjectVersion>4.0</PreviousProjectVersion>
+    <ValidateCasingOnIdentifiers>True</ValidateCasingOnIdentifiers>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0bd981b6-6597-4867-90e8-3fc30038c05e}</ProjectGuid>
+    <GenerateDatabaseFile>False</GenerateDatabaseFile>
+    <GenerateCreateScript>False</GenerateCreateScript>
+    <TargetLanguage>CS</TargetLanguage>
+    <DefaultCollation>Chinese_PRC_CI_AS</DefaultCollation>
+    <AnsiNullDefault>True</AnsiNullDefault>
+    <AnsiNulls>True</AnsiNulls>
+    <AnsiPadding>True</AnsiPadding>
+    <AnsiWarnings>True</AnsiWarnings>
+    <ArithAbort>True</ArithAbort>
+    <ConcatNullYieldsNull>True</ConcatNullYieldsNull>
+    <QuotedIdentifier>True</QuotedIdentifier>
+    <NumericRoundAbort>False</NumericRoundAbort>
+    <RecursiveTriggersEnabled>False</RecursiveTriggersEnabled>
+    <DatabaseState>ONLINE</DatabaseState>
+    <UpdateOptions>READ_WRITE</UpdateOptions>
+    <CloseCursorOnCommitEnabled>False</CloseCursorOnCommitEnabled>
+    <DefaultCursor>LOCAL</DefaultCursor>
+    <AutoClose>False</AutoClose>
+    <AutoCreateStatistics>True</AutoCreateStatistics>
+    <AutoShrink>False</AutoShrink>
+    <AutoUpdateStatistics>True</AutoUpdateStatistics>
+    <TornPageDetection>False</TornPageDetection>
+    <DatabaseAccess>MULTI_USER</DatabaseAccess>
+    <Recovery>FULL</Recovery>
+    <EnableFullTextSearch>True</EnableFullTextSearch>
+    <DatabaseChaining>False</DatabaseChaining>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <Trustworthy>False</Trustworthy>
+    <AutoUpdateStatisticsAsynchronously>False</AutoUpdateStatisticsAsynchronously>
+    <PageVerify>NONE</PageVerify>
+    <ServiceBrokerOption>DisableBroker</ServiceBrokerOption>
+    <DateCorrelationOptimizationOn>False</DateCorrelationOptimizationOn>
+    <Parameterization>SIMPLE</Parameterization>
+    <AllowSnapshotIsolation>False</AllowSnapshotIsolation>
+    <ReadCommittedSnapshot>False</ReadCommittedSnapshot>
+    <VardecimalStorageFormatOn>True</VardecimalStorageFormatOn>
+    <SupplementalLoggingOn>False</SupplementalLoggingOn>
+    <DefaultFileStreamFilegroup />
+    <IsChangeTrackingOn>False</IsChangeTrackingOn>
+    <IsChangeTrackingAutoCleanupOn>True</IsChangeTrackingAutoCleanupOn>
+    <ChangeTrackingRetentionPeriod>2</ChangeTrackingRetentionPeriod>
+    <ChangeTrackingRetentionUnit>Days</ChangeTrackingRetentionUnit>
+    <IsEncryptionOn>False</IsEncryptionOn>
+    <IsBrokerPriorityHonored>False</IsBrokerPriorityHonored>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>.\sql\release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetDatabase>
+    </TargetDatabase>
+    <TreatTSqlWarningsAsErrors>False</TreatTSqlWarningsAsErrors>
+    <SuppressTSqlWarnings />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>.\sql\debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetDatabase>
+    </TargetDatabase>
+    <TreatTSqlWarningsAsErrors>False</TreatTSqlWarningsAsErrors>
+    <SuppressTSqlWarnings />
+  </PropertyGroup>
+  <!--Import the settings-->
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Scripts" />
+    <Folder Include="Scripts\Pre-Deployment" />
+    <Folder Include="Scripts\Post-Deployment" />
+    <Folder Include="Data Generation Plans" />
+    <Folder Include="Schema Comparisons" />
+    <Folder Include="Properties\" />
+    <Folder Include="Schema Objects\" />
+    <Folder Include="Schema Objects\Schemas\" />
+    <Folder Include="Schema Objects\Database Level Objects\" />
+    <Folder Include="Schema Objects\Database Level Objects\Assemblies\" />
+    <Folder Include="Schema Objects\Database Level Objects\Database Triggers\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Schemas\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Users\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Certificates\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Asymmetric Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Master Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Signatures\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Symmetric Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Database Encryption Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Database Audit Specification\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Roles\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Roles\Application Roles\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Roles\Database Roles\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Broker Priorities\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Contracts\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Event Notifications\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Message Types\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Remote Service Binding\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Routes\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Services\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Full Text Stoplists\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Filegroups\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Files\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Full Text Catalogs\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Partition Functions\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Partition Schemes\" />
+    <Folder Include="Schema Objects\Schemas\SC" />
+    <Folder Include="Schema Objects\Schemas\SC\Tables" />
+    <Folder Include="Schema Objects\Schemas\SC\Programmability" />
+    <Folder Include="Schema Objects\Schemas\SC\Programmability\Functions" />
+    <Folder Include="Schema Objects\Schemas\SC\Programmability\Stored Procedures" />
+    <Folder Include="Schema Objects\Schemas\SC\Programmability\Types" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Full Text Indexes" />
+    <Folder Include="Schema Objects\Schemas\SC\Views" />
+    <Folder Include="Schema Objects\Schemas\SC\Types" />
+  </ItemGroup>
+  <ItemGroup>
+    <BuildContributorArgument Include="OutDir=$(OutDir)" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Debug.publish.xml" />
+    <None Include="Release.publish.xml" />
+    <None Include="Scripts\Post-Deployment\Script.NoAutoGenerations.sql" />
+    <None Include="Scripts\Post-Deployment\demo.xml" />
+    <None Include="AdministrativeUnitDBDev.publish.xml" />
+    <None Include="Schema Objects\Schemas\SC\Types\ObjectWithParentTable.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Programmability\Stored Procedures\SC.ExecuteJobList.sql" />
+    <None Include="AdministrativeUnitDBDev.local.test.publish.xml" />
+    <None Include="AdministrativeUnitDBDev.local.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PreDeploy Include="Scripts\Pre-Deployment\Script.PreDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\Post-Deployment\Script.PostDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Permissions.sql" />
+    <Build Include="Schema Objects\Database Level Objects\Security\Schemas\SC.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Tables\SC.SchemaObject.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Tables\SC.Acl.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Tables\SC.SchemaMembers.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Tables\SC.ConditionCalculateResults.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Tables\SC.Conditions.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Tables\SC.OperationLog.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Tables\SC.SchemaPropertyDefinitions.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Tables\SC.SchemaRelationObjects.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Tables\SC.AdminUnitSnapshot.sql" />
+    <Build Include="Schema Objects\Database Level Objects\Storage\Full Text Stoplists\SCFullTextStoplist.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Tables\SC.AUSchemaSnapshot.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Tables\SC.Categories.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Tables\SC.AUAdminScopeSnapshot.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Tables\SC.AUAdminScopeItemSnapshot.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Tables\SC.AUSchemaRoleSnapshot.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Tables\SC.AURoleSnapshot.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Tables\SC.AUAdminScopeTypes.sql" />
+    <None Include="Schema Objects\Schemas\SC\Tables\SC.AUSchemaAndScopeTypeSnapshot.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Tables\SC.Pinyin.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Programmability\Stored Procedures\SC.ClearAllData.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Programmability\Stored Procedures\SC.GenerateAllSchemaSnapshot.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Programmability\Stored Procedures\SC.GenerateSchemaSnapshot.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Programmability\Stored Procedures\SC.GenerateSchemaTableSnapshot.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Programmability\Functions\SC.ConvertPropertyValue.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Programmability\Functions\SC.FormatInteger.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Programmability\Functions\SC.GetSchemaPropertySearchSnapshotFields.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Programmability\Functions\SC.GetSchemaPropertySnapshotFields.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Programmability\Functions\SC.GetSchemaPropertyValueSnapshotFields.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Programmability\Types\SC.ObjectWithParentTable.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Tables\SC.UserAndContainerSnapshot.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Tables\SC.SchemaObjectSnapshot.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Views\SC.AdminUnitSnapshot_Current.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Views\SC.AUAdminScopeItemSnapshot_Current.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Views\SC.AUAdminScopeSnapshot_Current.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Views\SC.AURoleSnapshot_Current.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Views\SC.AUSchemaRoleSnapshot_Current.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Views\SC.AUSchemaSnapshot_Current.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Views\SC.Conditions_Current.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Views\SC.SchemaObjectSnapshot_Current.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Views\SC.SchemaRelationObjects_Current.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Views\SC.UserAndContainerSnapshot_Current.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Views\SC.Acl_Current.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Tables\SC.SchemaRelationObjectsSnapshot.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Tables\SC.SchemaMembersSnapshot.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Views\SC.SchemaRelationObjectsSnapshot_Current.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Views\SC.SchemaMembersSnapshot_Current.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Tables\SC.CompletedJobList.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Tables\SC.ToDoJobList.sql" />
+    <Build Include="Schema Objects\Database Level Objects\Storage\Full Text Indexes\SCFullTextIndex.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Programmability\Stored Procedures\SC.GenerateFullPaths.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Programmability\Stored Procedures\SC.UpdateFullPaths.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Programmability\Stored Procedures\SC.GenerateUserAndContainerSnapshot.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Views\SC.SchemaObjectAndParentView.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Tables\SC.SchemaDefine.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Tables\SC.SCOperationSnapshot.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Tables\SC.ItemAndContainerSnapshot.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Views\SC.ItemAndContainerSnapshot_Current.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Programmability\Stored Procedures\SC.GenerateItemAndContainerSnapshot.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Tables\SC.Locks.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Tables\SC.SchemaPermissionSnapshot.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Programmability\Stored Procedures\SC.GenerateCategories.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Programmability\Stored Procedures\SC.QueryObjectsByFullPath.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Programmability\Stored Procedures\SC.QueryObjectsByMultiFullPath.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Programmability\Stored Procedures\SC.InitializeSampleData.sql" />
+    <Build Include="Schema Objects\Schemas\SC\Tables\SC.SchemaPropertyExtensions.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="AdministrativeUnitDB.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="TaskJobName">
+      <DefaultValue>au_execute_job_list</DefaultValue>
+      <Value>$(SqlCmdVar__1)</Value>
+    </SqlCmdVariable>
+  </ItemGroup>
+</Project>

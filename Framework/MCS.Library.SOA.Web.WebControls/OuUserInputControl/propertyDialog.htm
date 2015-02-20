@@ -1,0 +1,50 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=5" />
+	<title>请选择机构人员</title>
+
+	<script language="javascript" type="text/javascript">
+		var $get = document.getElementById;
+		var $NT = { category: {} };
+
+		$NT.getText = function(category, sourceText) {
+			var targetText = sourceText;
+
+			if ($NT.category[category]) {
+				if ($NT.category[category][sourceText]) {
+					targetText = $NT.category[category][sourceText];
+				}
+			}
+
+			return targetText;
+		}
+
+		var args = window.dialogArguments;
+
+		if (args) {
+			initNameTable(args.nameTable.category);
+
+			document.writeln("<title>" + $NT.getText("SOAWebControls", "请选择机构人员") + "</title>");
+		}
+
+		function getQuery(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);
+			if (r != null) return unescape(r[2]); return null;
+		}
+	</script>
+
+</head>
+<body onload="document.all('lblName').innerText=getQuery('Name');document.all('lblPath').innerText=getQuery('Path');">
+	<span id="nameSpan">名称：</span><label id="lblName"></label><br />
+	<span id="positionSpan">位置：</span><label id="lblPath"></label><br />
+	<input value="关闭(C)" type="button" onclick="window.close();" id="cancelButton" />
+
+	<script language="javascript" type="text/javascript">
+		$get("nameSpan").innerText = $NT.getText("SOAWebControls", "名称：");
+		$get("positionSpan").innerText = $NT.getText("SOAWebControls", "位置：");
+		$get("cancelButton").value = $NT.getText("SOAWebControls", "关闭(C)");
+	</script>
+</body>
+</html>

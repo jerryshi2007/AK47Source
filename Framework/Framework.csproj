@@ -1,0 +1,61 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectItem Include="MCS.Library\MCS.Library.csproj" />
+    <ProjectItem Include="MCS.Web.Library.Script.Json\MCS.Web.Library.Script.Json.csproj" />
+    <ProjectItem Include="MCS.Library.Compression\MCS.Library.Compression.csproj" />
+    <ProjectItem Include="MCS.Library.Services.Contracts\MCS.Library.Services.Contracts.csproj" />
+    <ProjectItem Include="MCS.Library.WF.Contracts\MCS.Library.WF.Contracts.csproj" />
+    
+    <ProjectItem Include="MCS.Library.ADHelper\MCS.Library.ADHelper.csproj" />
+    <ProjectItem Include="MCS.Library.Data\MCS.Library.Data.csproj" />
+    <ProjectItem Include="MCS.Library.Office\MCS.Library.Office.csproj" />
+    <ProjectItem Include="MCS.Library.Office.OpenXml.Excel\MCS.Library.Office.OpenXml.Excel.csproj" />
+    <ProjectItem Include="MCS.Library.SOA.DocServiceContract\MCS.Library.SOA.DocServiceContract.csproj" />
+    <ProjectItem Include="MCS.Library.Office.OpenXml.Word\MCS.Library.Office.OpenXml.Word.csproj" />
+    <ProjectItem Include="MCS.Web.Library\MCS.Web.Library.csproj" />
+    <ProjectItem Include="MCS.Web.Responsive.Library\MCS.Web.Responsive.Library.csproj" />
+    <ProjectItem Include="MCS.Web.Responsive.WebControls\MCS.Web.Responsive.WebControls.csproj" />
+    <ProjectItem Include="MCS.Web.WebControls\MCS.Web.WebControls.csproj" />
+    <ProjectItem Include="MCS.Library.OGUPermission\MCS.Library.OGUPermission.csproj" />
+    <ProjectItem Include="MCS.Library.Passport\MCS.Library.Passport.csproj" />
+    <ProjectItem Include="MCS.Library.Passport.Social\MCS.Library.Passport.Social.csproj" />
+    <ProjectItem Include="MCS.Library.ServiceBase\MCS.Library.ServiceBase.csproj" />
+    <ProjectItem Include="MCS.Library.WcfExtensions\MCS.Library.WcfExtensions.csproj" />
+
+    <ProjectItem Include="MCS.Library.SOA.DataObjects.Schemas.Client\MCS.Library.SOA.DataObjects.Schemas.Client.csproj" />
+    <ProjectItem Include="MCS.Library.SOA.DataObjects.Security.Client\MCS.Library.SOA.DataObjects.Security.Client.csproj" />
+    <ProjectItem Include="MCS.Library.SOA.DataObjects.Security.AUClient\MCS.Library.SOA.DataObjects.Security.AUClient.csproj" />
+    <ProjectItem Include="MCS.Library.SOA.DataObjects\MCS.Library.SOA.DataObjects.csproj" />   
+    <ProjectItem Include="MCS.Library.SOA.DocServiceClient\MCS.Library.SOA.DocServiceClient.csproj" />
+
+    <ProjectItem Include="MCS.Library.WF.Contracts\MCS.Library.WF.Contracts.csproj" />
+    <ProjectItem Include="MCS.Library.WF.Contracts.Converters\MCS.Library.WF.Contracts.Converters.csproj" />
+    <ProjectItem Include="MCS.Library.WF.Contracts.Json\MCS.Library.WF.Contracts.Json.csproj" />
+    <ProjectItem Include="MCS.Library.WF.Contracts.Proxies\MCS.Library.WF.Contracts.Proxies.csproj" />
+
+    <ProjectItem Include="MCS.Library.SOA.Web.WebControls\MCS.Library.SOA.Web.WebControls.csproj" />
+    <ProjectItem Include="MCS.Web.SOA.Responsive.WebControls\MCS.Web.SOA.Responsive.WebControls.csproj" />
+    <ProjectItem Include="MCS.Library.SOA.Web.SilverlightControls\WorkflowRuntime\WorkflowRuntime.csproj" />
+    <ProjectItem Include="MCS.Library.SOA.DataObjects.Schemas\MCS.Library.SOA.DataObjects.Schemas.csproj" />
+    <ProjectItem Include="MCS.Library.SOA.DataObjects.Security\MCS.Library.SOA.DataObjects.Security.csproj" />
+    <ProjectItem Include="MCS.Library.SOA.Security.ADSyncUtilities\MCS.Library.SOA.Security.ADSyncUtilities.csproj" />
+    <ProjectItem Include="MCS.Library.PermissionBridge\MCS.Library.PermissionBridge.csproj" />
+    <ProjectItem Include="MCS.Library.SOA.DataObjects.Security.AUObjects\MCS.Library.SOA.DataObjects.Security.AUObjects.csproj" />
+
+    <ProjectItem Include="MCS.Library.AccreditSync\MCS.Library.AccreditSync.csproj" />
+    <ProjectItem Include="MCS.Library.Utilities\MCS.Library.Utilities.csproj" />
+    <ProjectItem Include="MCS.Library.Accredit\MCS.Library.Accredit.csproj" />
+    <ProjectItem Include="MCS.SqlServer.Compression\MCS.SqlServer.Compression.csproj" />
+    <!--<ProjectItem Include="MCS.Library.STS.SessionAuthenticationModule\MCS.Library.STS.SessionAuthenticationModule.csproj" />-->
+  </ItemGroup>
+  <Target Name="BuildOtherProjects">
+    <MSBuild Projects="@(ProjectItem)" RebaseOutputs="True" />
+  </Target>
+</Project>

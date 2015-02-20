@@ -1,0 +1,588 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3FE17BD2-CEA0-4F4E-8E0E-46A0DF8C0306}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <AssemblyName>AppAdmin</AssemblyName>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>MCS.Applications.AppAdmin</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>Properties\AppAdmin.Key.pfx</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags></FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation></UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile></ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE;GTNet40</DefineConstants>
+    <DocumentationFile></DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn></NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile></ConfigurationOverrideFile>
+    <DefineConstants>TRACE;GTNet40</DefineConstants>
+    <DocumentationFile></DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn></NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'DELUXEWORKSTEST|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;GTNet40</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MCS.Library, Version=1.2.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Accredit, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.Accredit.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Data, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Office">
+      <HintPath>..\..\Framework\MCS.Library.Office\bin\Debug\MCS.Library.Office.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.OGUPermission, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Framework\MCS.Library.OGUPermission\bin\Debug\MCS.Library.OGUPermission.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Passport, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.Passport.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.DataObjects">
+      <HintPath>..\..\Framework\MCS.Library.SOA.DataObjects\bin\Debug\MCS.Library.SOA.DataObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.Web.WebControls">
+      <HintPath>..\..\Framework\MCS.Library.SOA.Web.WebControls\bin\Debug\MCS.Library.SOA.Web.WebControls.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Library, Version=1.2.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Framework\MCS.Web.Library\bin\Debug\MCS.Web.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.WebControls, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Framework\MCS.Web.WebControls\bin\Debug\MCS.Web.WebControls.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services">
+      <Name>System.Web.Services</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AppAdmin.aspx" />
+    <Content Include="AppAdmin.js" />
+    <Content Include="Css\Input.css" />
+    <Content Include="Dialogs\editAppObjects.htm" />
+    <Content Include="Dialogs\editAppObjects.js" />
+    <Content Include="Dialogs\EditObjAttr.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Dialogs\editObjAttr.js" />
+    <Content Include="Dialogs\editScope1.htm" />
+    <Content Include="Dialogs\editScope1.js" />
+    <Content Include="Dialogs\FunctionForRole.aspx" />
+    <Content Include="Dialogs\FunctionForRole.js" />
+    <Content Include="Dialogs\QueryUserAppRoles.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Dialogs\QueryUserAppRoles.js" />
+    <Content Include="exports\AppSecurityCheckService.asmx" />
+    <Content Include="exports\delegationForm.aspx" />
+    <Content Include="exports\delegationForm.js" />
+    <Content Include="FederationMetadata\2007-06\FederationMetadata.xml" />
+    <Content Include="Global.asax" />
+    <Content Include="htc\Calendar.htc" />
+    <Content Include="htc\hMenu.htc" />
+    <Content Include="htc\hTree.htc" />
+    <Content Include="htc\OGUInput.htc" />
+    <Content Include="images\32\application.gif" />
+    <Content Include="images\32\computer.gif" />
+    <Content Include="images\32\conference.gif" />
+    <Content Include="images\32\customs.gif" />
+    <Content Include="images\32\delegation.gif" />
+    <Content Include="images\32\function.gif" />
+    <Content Include="images\32\functionSet.gif" />
+    <Content Include="images\32\group.gif" />
+    <Content Include="images\32\help.gif" />
+    <Content Include="images\32\jiaoban.gif" />
+    <Content Include="images\32\keys.gif" />
+    <Content Include="images\32\organization.gif" />
+    <Content Include="images\32\ou.gif" />
+    <Content Include="images\32\receiveDoc.gif" />
+    <Content Include="images\32\ResourceFile.gif" />
+    <Content Include="images\32\ResourceFolder.gif" />
+    <Content Include="images\32\ResourceItem.gif" />
+    <Content Include="images\32\role.gif" />
+    <Content Include="images\32\schedule.gif" />
+    <Content Include="images\32\searchgo.gif" />
+    <Content Include="images\32\stopLogo.gif" />
+    <Content Include="images\32\user.gif" />
+    <Content Include="images\a.ico" />
+    <Content Include="images\AD.gif" />
+    <Content Include="images\application.gif" />
+    <Content Include="images\b.ico" />
+    <Content Include="images\calenderDrop.gif" />
+    <Content Include="images\checkUser.gif" />
+    <Content Include="images\computer.gif" />
+    <Content Include="images\Copy.gif" />
+    <Content Include="images\customs.gif" />
+    <Content Include="images\delete.gif" />
+    <Content Include="images\domain.gif" />
+    <Content Include="images\drct.gif" />
+    <Content Include="images\find.gif" />
+    <Content Include="images\folder.gif" />
+    <Content Include="images\ForbiddenUser.gif" />
+    <Content Include="images\function.gif" />
+    <Content Include="images\functionSet.gif" />
+    <Content Include="images\go.gif" />
+    <Content Include="images\group.gif" />
+    <Content Include="images\hlp.gif" />
+    <Content Include="images\icon\checked.gif" />
+    <Content Include="images\icon\excel.gif" />
+    <Content Include="images\icon\key.ico" />
+    <Content Include="images\icon\KeyIcon.gif" />
+    <Content Include="images\icon\key_32.ico" />
+    <Content Include="images\icon\minus.gif" />
+    <Content Include="images\icon\plus.gif" />
+    <Content Include="images\icon\today.gif" />
+    <Content Include="images\icon\word.gif" />
+    <Content Include="images\insert.gif" />
+    <Content Include="images\insertCopy.gif" />
+    <Content Include="images\insertCopy3.gif" />
+    <Content Include="images\insertFunc.gif" />
+    <Content Include="images\insertFunc.ico" />
+    <Content Include="images\insertFuncCopy.gif" />
+    <Content Include="images\move.gif" />
+    <Content Include="images\newgroup.gif" />
+    <Content Include="images\newou.gif" />
+    <Content Include="images\newScope2.gif" />
+    <Content Include="images\newScope2copy.gif" />
+    <Content Include="images\newuser.gif" />
+    <Content Include="images\organization.gif" />
+    <Content Include="images\ou.gif" />
+    <Content Include="images\property.gif" />
+    <Content Include="images\refresh.gif" />
+    <Content Include="images\ResourceFile.gif" />
+    <Content Include="images\ResourceFolder.gif" />
+    <Content Include="images\ResourceItem.gif" />
+    <Content Include="images\Role.gif" />
+    <Content Include="images\roles.gif" />
+    <Content Include="images\save.gif" />
+    <Content Include="images\scope1.gif" />
+    <Content Include="images\scope2.gif" />
+    <Content Include="images\sort.gif" />
+    <Content Include="images\trash.gif" />
+    <Content Include="images\user.gif" />
+    <Content Include="itemList\appObjectList.aspx" />
+    <Content Include="itemList\appObjectList.js" />
+    <Content Include="LogonImages\bg.gif" />
+    <Content Include="LogonImages\denglu.gif" />
+    <Content Include="LogonImages\denglu01_03.gif" />
+    <Content Include="LogonImages\denglu01_05.jpg" />
+    <Content Include="LogonImages\denglu01_07.gif" />
+    <Content Include="LogonImages\denglu01_08.gif" />
+    <Content Include="PassportLogon.aspx" />
+    <Content Include="script\appCommon.js" />
+    <Content Include="script\ApplicationRoot.js" />
+    <Content Include="script\appQuery.js" />
+    <Content Include="script\dbGrid.js" />
+    <Content Include="script\htcCommon.js" />
+    <Content Include="script\organizeTree.js" />
+    <Content Include="script\splitter.js" />
+    <Content Include="script\uiScript.js" />
+    <Content Include="script\validate.js" />
+    <Content Include="script\xmlHttp.js" />
+    <Content Include="script\xsdAccess.js" />
+    <Content Include="Template\PassportLogonUC.ascx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="XmlRequestService\XmlAOSWriteRequest.aspx" />
+    <Content Include="XmlRequestService\XmlReadRequest.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="XmlRequestService\XmlRFDWriteRequest.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="XML\HideTypes.xml" />
+    <Content Include="XML\ImpersonateUser.xml" />
+    <Content Include="XML\parameterStyle.xml" />
+    <Content Include="XML\preDefineObj.xml" />
+    <Content Include="XSD\APPLICATIONS.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="XSD\DELEGATIONS.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="XSD\EXPRESSIONS.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="XSD\EXP_TO_SCOPES.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="XSD\FUNCTIONS.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="XSD\FUNCTION_SETS.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="XSD\FUNC_SET_TO_FUNCS.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="XSD\GROUPS.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="XSD\GROUP_USERS.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="XSD\ORGANIZATIONS.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="XSD\OU_USERS.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="XSD\PWD_ARITHMETIC.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="XSD\RANK_DEFINE.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="XSD\ROLES.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="XSD\ROLE_TO_FUNCTIONS.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="XSD\SCOPES.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="XSD\SECRETARYS.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="XSD\USERS.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Compile Include="..\AccreditAdmin\classLib\AccreditWebInstaller.cs">
+      <Link>Common\AccreditWebInstaller.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\AccreditAdmin\classLib\AccreditWebInstaller.Designer.cs">
+      <Link>Common\AccreditWebInstaller.Designer.cs</Link>
+      <DependentUpon>AccreditWebInstaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppAdmin.aspx.cs">
+      <DependentUpon>AppAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppAdmin.aspx.designer.cs">
+      <DependentUpon>AppAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\InheritedState.cs" />
+    <Compile Include="Common\LogOpType.cs" />
+    <Compile Include="PassportLogon.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>PassportLogon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PassportLogon.aspx.designer.cs">
+      <DependentUpon>PassportLogon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AppResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\InnerCommon.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dialogs\EditObjAttr.aspx.cs">
+      <DependentUpon>EditObjAttr.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dialogs\EditObjAttr.aspx.designer.cs">
+      <DependentUpon>EditObjAttr.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\FunctionForRole.aspx.cs">
+      <DependentUpon>FunctionForRole.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dialogs\FunctionForRole.aspx.designer.cs">
+      <DependentUpon>FunctionForRole.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\QueryUserAppRoles.aspx.cs">
+      <DependentUpon>QueryUserAppRoles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dialogs\QueryUserAppRoles.aspx.designer.cs">
+      <DependentUpon>QueryUserAppRoles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="exports\AppSecurityCheckService.asmx.cs">
+      <DependentUpon>AppSecurityCheckService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="exports\delegationForm.aspx.cs">
+      <DependentUpon>delegationForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="exports\delegationForm.aspx.designer.cs">
+      <DependentUpon>delegationForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="itemList\appObjectList.aspx.cs">
+      <DependentUpon>appObjectList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="itemList\appObjectList.aspx.designer.cs">
+      <DependentUpon>appObjectList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Template\PassportLogonUC.ascx.cs">
+      <DependentUpon>PassportLogonUC.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Template\PassportLogonUC.ascx.designer.cs">
+      <DependentUpon>PassportLogonUC.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="XmlRequestService\XmlAOSWriteRequest.aspx.cs">
+      <DependentUpon>XmlAOSWriteRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="XmlRequestService\XmlAOSWriteRequest.aspx.designer.cs">
+      <DependentUpon>XmlAOSWriteRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="XmlRequestService\XmlReadRequest.aspx.cs">
+      <DependentUpon>XmlReadRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="XmlRequestService\XmlReadRequest.aspx.designer.cs">
+      <DependentUpon>XmlReadRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="XmlRequestService\XmlRFDWriteRequest.aspx.cs">
+      <DependentUpon>XmlRFDWriteRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="XmlRequestService\XmlRFDWriteRequest.aspx.designer.cs">
+      <DependentUpon>XmlRFDWriteRequest.aspx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AppAdmin.aspx.resx">
+      <DependentUpon>AppAdmin.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\AppResource.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\EditObjAttr.aspx.resx">
+      <DependentUpon>EditObjAttr.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\FunctionForRole.aspx.resx">
+      <DependentUpon>FunctionForRole.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\QueryUserAppRoles.aspx.resx">
+      <DependentUpon>QueryUserAppRoles.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="exports\AppSecurityCheckService.asmx.resx">
+      <DependentUpon>AppSecurityCheckService.asmx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="exports\delegationForm.aspx.resx">
+      <DependentUpon>delegationForm.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Global.asax.resx">
+      <DependentUpon>Global.asax.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="itemList\appObjectList.aspx.resx">
+      <DependentUpon>appObjectList.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XmlRequestService\XmlAOSWriteRequest.aspx.resx">
+      <DependentUpon>XmlAOSWriteRequest.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XmlRequestService\XmlReadRequest.aspx.resx">
+      <DependentUpon>XmlReadRequest.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XmlRequestService\XmlRFDWriteRequest.aspx.resx">
+      <DependentUpon>XmlRFDWriteRequest.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="WebConfig\%28Local%29Web.config" />
+    <None Include="WebConfig\%28Passport%29Web.config" />
+    <None Include="WebConfig\%28AD%29Web.config" />
+    <None Include="Properties\AppAdmin.Key.pfx" />
+    <None Include="XSD\APPLICATIONS.xsx">
+      <DependentUpon>APPLICATIONS.xsd</DependentUpon>
+    </None>
+    <None Include="XSD\DELEGATIONS.xsx">
+      <DependentUpon>DELEGATIONS.xsd</DependentUpon>
+    </None>
+    <None Include="XSD\EXPRESSIONS.xsx">
+      <DependentUpon>EXPRESSIONS.xsd</DependentUpon>
+    </None>
+    <None Include="XSD\EXP_TO_SCOPES.xsx">
+      <DependentUpon>EXP_TO_SCOPES.xsd</DependentUpon>
+    </None>
+    <None Include="XSD\FUNCTIONS.xsx">
+      <DependentUpon>FUNCTIONS.xsd</DependentUpon>
+    </None>
+    <None Include="XSD\FUNCTION_SETS.xsx">
+      <DependentUpon>FUNCTION_SETS.xsd</DependentUpon>
+    </None>
+    <None Include="XSD\FUNC_SET_TO_FUNCS.xsx">
+      <DependentUpon>FUNC_SET_TO_FUNCS.xsd</DependentUpon>
+    </None>
+    <None Include="XSD\GROUPS.xsx">
+      <DependentUpon>GROUPS.xsd</DependentUpon>
+    </None>
+    <None Include="XSD\GROUP_USERS.xsx">
+      <DependentUpon>GROUP_USERS.xsd</DependentUpon>
+    </None>
+    <None Include="XSD\ORGANIZATIONS.xsx">
+      <DependentUpon>ORGANIZATIONS.xsd</DependentUpon>
+    </None>
+    <None Include="XSD\OU_USERS.xsx">
+      <DependentUpon>OU_USERS.xsd</DependentUpon>
+    </None>
+    <None Include="XSD\PWD_ARITHMETIC.xsx">
+      <DependentUpon>PWD_ARITHMETIC.xsd</DependentUpon>
+    </None>
+    <None Include="XSD\RANK_DEFINE.xsx">
+      <DependentUpon>RANK_DEFINE.xsd</DependentUpon>
+    </None>
+    <None Include="XSD\ROLES.xsx">
+      <DependentUpon>ROLES.xsd</DependentUpon>
+    </None>
+    <None Include="XSD\ROLE_TO_FUNCTIONS.xsx">
+      <DependentUpon>ROLE_TO_FUNCTIONS.xsd</DependentUpon>
+    </None>
+    <None Include="XSD\SCOPES.xsx">
+      <DependentUpon>SCOPES.xsd</DependentUpon>
+    </None>
+    <None Include="XSD\SECRETARYS.xsx">
+      <DependentUpon>SECRETARYS.xsd</DependentUpon>
+    </None>
+    <None Include="XSD\USERS.xsx">
+      <DependentUpon>USERS.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent></PreBuildEvent>
+    <PostBuildEvent>set path=%25path%25;C:\Windows\System32
+ 
+
+
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v12.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53301</DevelopmentServerPort>
+          <DevelopmentServerVPath>/Appadmin/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/MCSWebApp/Appadmin/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl></CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PreBuildEvent>IF EXIST "$(TargetDir)DeluxeWorks.Library.dll" DEL "$(TargetDir)DeluxeWorks.Library.dll"
+IF EXIST "$(TargetDir)DeluxeWorks.Library.Data.dll" DEL "$(TargetDir)DeluxeWorks.Library.Data.dll"
+IF EXIST "$(TargetDir)DeluxeWorks.Library.OGUPermission.dll" DEL "$(TargetDir)DeluxeWorks.Library.OGUPermission.dll"
+IF EXIST "$(TargetDir)DeluxeWorks.Library.Passport.dll" DEL "$(TargetDir)DeluxeWorks.Library.Passport.dll"</PreBuildEvent>
+    <PostBuildEvent>set path=%25path%25;C:\Windows\System32 IF EXIST "$(ProjectDir)\..\..\Framework\Bin\DeluxeWorks.Library.dll" COPY "$(ProjectDir)\..\..\Framework\Bin\DeluxeWorks.Library.dll" "$(TargetDir)"
+IF EXIST "$(ProjectDir)\..\..\Framework\Bin\DeluxeWorks.Library.Data.dll" COPY "$(ProjectDir)\..\..\Framework\Bin\DeluxeWorks.Library.Data.dll" "$(TargetDir)"
+IF EXIST "$(ProjectDir)\..\..\Framework\Bin\DeluxeWorks.Library.OGUPermission.dll" COPY "$(ProjectDir)\..\..\Framework\Bin\DeluxeWorks.Library.OGUPermission.dll" "$(TargetDir)"
+IF EXIST "$(ProjectDir)\..\..\Framework\Bin\DeluxeWorks.Library.Passport.dll" COPY "$(ProjectDir)\..\..\Framework\Bin\DeluxeWorks.Library.Passport.dll" "$(TargetDir)"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

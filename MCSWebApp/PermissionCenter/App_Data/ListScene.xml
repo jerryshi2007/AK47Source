@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Acts>
+	<Act actID="AllApps">
+		<Scene sceneID="Normal">
+			<Item controlID="lnkNewApp" readOnly="false" enabled="true"/>
+			<Item controlID="lnkMultiProperty" readOnly="false" enabled="true"/>
+			<Item controlID="btnDeleteSelected" readOnly="false" enabled="true"/>
+			<Item controlID="btnImport" readOnly="false"/>
+			<Item controlID="btnExport" readOnly="true"/>
+		</Scene>
+		<Scene sceneID="ReadOnly">
+			<Item controlID="lnkNewApp" readOnly="true" enabled="false"/>
+			<Item controlID="lnkMultiProperty" readOnly="true" enabled="false"/>
+			<Item controlID="btnDeleteSelected" readOnly="true" enabled="false"/>
+			<Item controlID="btnImport" readOnly="true" enabled="false"/>
+			<Item controlID="btnExport" readOnly="true" enabled="true"/>
+		</Scene>
+	</Act>
+	<Act actID="AllGroups">
+		<Scene sceneID="Normal">
+			<Item controlID="lnkMultiProperty" readOnly="false" enabled="true"/>
+			<Item controlID="btnDeleteSelected" readOnly="false" enabled="true"/>
+			<Item controlID="btnMoveToGroup" readOnly="false" enabled="true"/>
+			<Item controlID="btnImport" readOnly="false" enabled="true"/>
+			<Item controlID="btnExport" readOnly="false" enabled="true"/>
+		</Scene>
+		<Scene sceneID="ReadOnly">
+			<Item controlID="lnkMultiProperty" readOnly="true" enabled="false"/>
+			<Item controlID="btnDeleteSelected" readOnly="true" enabled="false"/>
+			<Item controlID="btnMoveToGroup" readOnly="true" enabled="false"/>
+			<Item controlID="btnImport" readOnly="true" enabled="false"/>
+			<Item controlID="btnExport" readOnly="true" enabled="true"/>
+		</Scene>
+	</Act>
+	<Act actID="AllMembers">
+		<Scene sceneID="Normal">
+			<Item controlID="lnkNew" readOnly="false" enabled="true"/>
+			<Item controlID="batchAttribute" readOnly="false" enabled="true"/>
+			<Item controlID="btnDeleteSelected" readOnly="false" enabled="true"/>
+			<Item controlID="btnMoveToGroup" readOnly="false" enabled="true"/>
+			<Item controlID="btnMoveToOrg" readOnly="false" enabled="true"/>
+			<Item controlID="btnImport" readOnly="false" enabled="true"/>
+			<Item controlID="btnExport" readOnly="false" enabled="true"/>
+			<Item controlID="shortcut" visible="true" />
+		</Scene>
+		<Scene sceneID="ReadOnly">
+			<Item controlID="lnkNew" readOnly="true" enabled="false"/>
+			<Item controlID="batchAttribute" readOnly="true" enabled="false"/>
+			<Item controlID="btnDeleteSelected" readOnly="true" enabled="false"/>
+			<Item controlID="btnMoveToGroup" readOnly="true" enabled="false"/>
+			<Item controlID="btnMoveToOrg" readOnly="true" enabled="false"/>
+			<Item controlID="btnImport" readOnly="true" enabled="false"/>
+			<Item controlID="btnExport" readOnly="true" enabled="true"/>
+			<Item controlID="shortcut" visible="false" />
+		</Scene>
+	</Act>
+	<Act actID="DissociatedList">
+		<Scene sceneID="Normal">
+			<Item controlID="lnkNew" readOnly="false" enabled="true"/>
+			<Item controlID="batchAttribute" readOnly="false" enabled="true"/>
+			<Item controlID="btnDeleteSelected" readOnly="false" enabled="true"/>
+			<Item controlID="btnMoveToGroup" readOnly="false" enabled="true"/>
+			<Item controlID="btnMoveToOrg" readOnly="false" enabled="true"/>
+			<Item controlID="btnImport" readOnly="false" enabled="true"/>
+			<Item controlID="btnExport" readOnly="false" enabled="true"/>
+			<Item controlID="shortcut" visible="true" />
+		</Scene>
+		<Scene sceneID="ReadOnly">
+			<Item controlID="lnkNew" readOnly="true" enabled="false"/>
+			<Item controlID="batchAttribute" readOnly="true" enabled="false"/>
+			<Item controlID="btnDeleteSelected" readOnly="true" enabled="false"/>
+			<Item controlID="btnMoveToGroup" readOnly="true" enabled="false"/>
+			<Item controlID="btnMoveToOrg" readOnly="true" enabled="false"/>
+			<Item controlID="btnImport" readOnly="true" enabled="false"/>
+			<Item controlID="btnExport" readOnly="true" enabled="true"/>
+			<Item controlID="shortcut" visible="false" />
+		</Scene>
+	</Act>
+	<Act actID="DeletedMemberList">
+		<Scene sceneID="Normal">
+			<Item controlID="shortcut" visible="true" />
+		</Scene>
+		<Scene sceneID="ReadOnly">
+			<Item controlID="shortcut" visible="false" />
+		</Scene>
+	</Act>
+
+	<Act actID="AppActiveMatrix">
+		<Scene sceneID="Normal">
+			<Item controlID="tabStrip" readOnly="false"/>
+		</Scene>
+		<Scene sceneID="ReadOnly">
+
+		</Scene>
+	</Act>
+	<Act actID="AppFunctions">
+		<Scene sceneID="Normal">
+			<Item controlID="lnkNewFun" readOnly="false" enabled="true"/>
+			<Item controlID="lnkMultiProperty" readOnly="false" enabled="true"/>
+			<Item controlID="btnDeleteSelected" readOnly="false" enabled="true"/>
+			<Item controlID="btnImport" readOnly="false" enabled="true"/>
+			<Item controlID="btnExport" readOnly="false" enabled="true"/>
+		</Scene>
+		<Scene sceneID="ReadOnly">
+			<Item controlID="lnkNewFun" readOnly="true" enabled="false"/>
+			<Item controlID="lnkMultiProperty" readOnly="true" enabled="false"/>
+			<Item controlID="btnDeleteSelected" readOnly="true" enabled="false"/>
+			<Item controlID="btnImport" readOnly="true" enabled="false"/>
+			<Item controlID="btnExport" readOnly="true" enabled="true"/>
+		</Scene>
+	</Act>
+	<Act actID="AppRoleMembers">
+		<Scene sceneID="Normal">
+			<Item controlID="lnkAddMember" readOnly="false" enabled="true"/>
+			<Item controlID="lnkAddAny" readOnly="false" enabled="true"/>
+			<Item controlID="lnkNewOrg" readOnly="false" enabled="true"/>
+			<Item controlID="lnkNewGroup" readOnly="false" enabled="true"/>
+			<Item controlID="btnDeleteSelected" readOnly="false" enabled="true"/>
+			<Item controlID="btnImport" readOnly="false" enabled="true"/>
+			<Item controlID="btnExport" readOnly="false" enabled="true"/>
+		</Scene>
+		<Scene sceneID="ReadOnly">
+			<Item controlID="lnkAddMember" readOnly="true" enabled="false"/>
+			<Item controlID="lnkAddAny" readOnly="true" enabled="false"/>
+			<Item controlID="lnkNewOrg" readOnly="true" enabled="false"/>
+			<Item controlID="lnkNewGroup" readOnly="true" enabled="false"/>
+			<Item controlID="btnDeleteSelected" readOnly="true" enabled="false"/>
+			<Item controlID="btnImport" readOnly="true" enabled="false"/>
+			<Item controlID="btnExport" readOnly="true" enabled="true"/>
+		</Scene>
+	</Act>
+	<Act actID="AppRoleConditionMembers">
+		<Scene sceneID="Normal">
+			<Item controlID="btnSave" readOnly="false" enabled="true"/>
+			<Item controlID="gridMain" readOnly="false" enabled ="true" />
+		</Scene>
+		<Scene sceneID="ReadOnly">
+			<Item controlID="btnSave" readOnly="true" enabled="false"/>
+			<Item controlID="gridMain" readOnly="true" enabled ="false" />
+
+		</Scene>
+	</Act>
+	<Act actID="UserSecretary">
+		<Scene sceneID="Normal">
+			<Item controlID="lnkAddMember" readOnly="false" enabled="true"/>
+			<Item controlID="lnkMultiProperty" readOnly="false" enabled="true"/>
+			<Item controlID="btnDeleteSelected" readOnly="false" enabled="true"/>
+			<Item controlID="btnImport" readOnly="false" enabled="true"/>
+			<Item controlID="btnExport" readOnly="false" enabled="true"/>
+		</Scene>
+		<Scene sceneID="ReadOnly">
+			<Item controlID="lnkAddMember" readOnly="true" enabled="false"/>
+			<Item controlID="lnkMultiProperty" readOnly="true" enabled="false"/>
+			<Item controlID="btnDeleteSelected" readOnly="true" enabled="false"/>
+			<Item controlID="btnImport" readOnly="true" enabled="false"/>
+			<Item controlID="btnExport" readOnly="true" enabled="true"/>
+		</Scene>
+	</Act>
+	<Act actID="AppRoles">
+		<Scene sceneID="Normal">
+			<Item controlID="lnkNewRole" readOnly="false" enabled="true"/>
+			<Item controlID="lnkMultiProperty" readOnly="false" enabled="true"/>
+			<Item controlID="btnDeleteSelected" readOnly="false" enabled="true"/>
+			<Item controlID="btnImport" readOnly="false" enabled="true"/>
+			<Item controlID="btnExport" readOnly="false" enabled="true"/>
+		</Scene>
+		<Scene sceneID="ReadOnly">
+			<Item controlID="lnkNewRole" readOnly="true" enabled="false"/>
+			<Item controlID="lnkMultiProperty" readOnly="true" enabled="false"/>
+			<Item controlID="btnDeleteSelected" readOnly="true" enabled="false"/>
+			<Item controlID="btnImport" readOnly="true" enabled="false"/>
+			<Item controlID="btnExport" readOnly="true" enabled="true"/>
+		</Scene>
+	</Act>
+	<Act actID="GroupConstMembers">
+		<Scene sceneID="Normal">
+			<Item controlID="lnkAddMember" readOnly="false" enabled="true"/>
+			<Item controlID="lnkAddAny" readOnly="false" enabled="true"/>
+			<Item controlID="lnkMultiProperty" readOnly="false" enabled="true"/>
+			<Item controlID="btnDeleteSelected" readOnly="false" enabled="true"/>
+			<Item controlID="btnImport" readOnly="false" enabled="true"/>
+			<Item controlID="btnExport" readOnly="false" enabled="true"/>
+		</Scene>
+		<Scene sceneID="ReadOnly">
+			<Item controlID="lnkAddMember" readOnly="true" enabled="false"/>
+			<Item controlID="lnkAddAny" readOnly="true" enabled="false"/>
+			<Item controlID="lnkMultiProperty" readOnly="true" enabled="false"/>
+			<Item controlID="btnDeleteSelected" readOnly="true" enabled="false"/>
+			<Item controlID="btnImport" readOnly="true" enabled="false"/>
+			<Item controlID="btnExport" readOnly="true" enabled="true"/>
+		</Scene>
+	</Act>
+	<Act actID="GroupDynamicMembers">
+		<Scene sceneID="Normal">
+			<Item controlID="btnSave" readOnly="false" enabled="true"/>
+			<Item controlID="gridMain" readOnly="false" enabled ="true" />
+		</Scene>
+		<Scene sceneID="ReadOnly">
+			<Item controlID="btnSave" readOnly="true" enabled="false"/>
+			<Item controlID="gridMain" readOnly="true" enabled ="true" />
+		</Scene>
+	</Act>
+	<Act actID="GroupMembersView">
+		<Scene sceneID="Normal">
+			<Item controlID="btnRecalc" readOnly="false" enabled="true"/>
+			<Item controlID="btnRecalcAll" readOnly="false" enabled ="true" />
+			<Item controlID="calcProgress" readOnly="false" enabled="true"/>
+			<Item controlID="calcProgressAll" readOnly="false" enabled ="true" />
+		</Scene>
+		<Scene sceneID="ReadOnly">
+			<Item controlID="btnRecalc" readOnly="true" enabled="false"/>
+			<Item controlID="btnRecalcAll" readOnly="true" enabled ="false" />
+			<Item controlID="calcProgress" readOnly="true" enabled="false"/>
+			<Item controlID="calcProgressAll" readOnly="true" enabled ="false" />
+		</Scene>
+	</Act>
+	<Act actID="MemberGrpView">
+		<Scene sceneID="Normal">
+		</Scene>
+		<Scene sceneID="ReadOnly">
+
+		</Scene>
+	</Act>
+	<Act actID="MemberOrgView">
+		<Scene sceneID="Normal">
+			<Item controlID="changeable" readOnly="false" enabled="true"/>
+			<Item controlID="lnkChangeOrg" readOnly="false" enabled="true"/>
+		</Scene>
+		<Scene sceneID="ReadOnly">
+			<Item controlID="changeable" readOnly="true" enabled="false"/>
+			<Item controlID="lnkChangeOrg" readOnly="true" enabled="false"/>
+		</Scene>
+	</Act>
+	<Act actID="MemberRoleView">
+		<Scene sceneID="Normal">
+
+		</Scene>
+		<Scene sceneID="ReadOnly">
+
+		</Scene>
+	</Act>
+	<Act actID="AppRoleMembersView">
+		<Scene sceneID="Normal">
+			<Item controlID="btnRecalc" readOnly="false" enabled="true"/>
+			<Item controlID="btnRecalcAll" readOnly="false" enabled ="true" />
+			<Item controlID="calcProgress" readOnly="false" enabled="true"/>
+			<Item controlID="calcProgressAll" readOnly="false" enabled ="true" />
+		</Scene>
+		<Scene sceneID="ReadOnly">
+			<Item controlID="btnRecalc" readOnly="true" enabled="false"/>
+			<Item controlID="btnRecalcAll" readOnly="true" enabled ="false" />
+			<Item controlID="calcProgress" readOnly="true" enabled="false"/>
+			<Item controlID="calcProgressAll" readOnly="true" enabled ="false" />
+		</Scene>
+	</Act>
+	<Act actID="OUExplorerView">
+		<Scene sceneID="RootNormal">
+			<Item controlID="lnkNew" readOnly="false" enabled="true"/>
+			<Item controlID="lnkAddExistsMembers" readOnly="false" enabled="true"/>
+			<Item controlID="lnkNewOrg" readOnly="false" enabled="true"/>
+			<Item controlID="lnkNewGroup" readOnly="true" enabled="false"/>
+			<Item controlID="btnDeleteSelected" readOnly="false" enabled="true"/>
+			<Item controlID="btnDeleteSelectedFull" readOnly="false" enabled="true"/>
+			<Item controlID="transfer" readOnly="true" enabled="true"/>
+			<Item controlID="btnImport" readOnly="false" enabled="true"/>
+			<Item controlID="btnImportThis" readOnly="false" enabled="true"/>
+			<Item controlID="btnImportAll" readOnly="false" enabled="true"/>
+			<Item controlID="btnExport" readOnly="false" enabled="true"/>
+			<Item controlID="shortCuts" visible="true" />
+		</Scene>
+		<Scene sceneID="OrgNormal">
+			<Item controlID="lnkNew" readOnly="false" enabled="true"/>
+			<Item controlID="lnkAddExistsMembers" readOnly="false" enabled="true"/>
+			<Item controlID="lnkNewOrg" readOnly="false" enabled="true"/>
+			<Item controlID="lnkNewGroup" readOnly="false" enabled="true"/>
+			<Item controlID="btnDeleteSelected" readOnly="false" enabled="true"/>
+			<Item controlID="btnDeleteSelectedFull" readOnly="false" enabled="true"/>
+			<Item controlID="transfer" readOnly="false" enabled="true"/>
+			<Item controlID="btnImport" readOnly="false" enabled="true"/>
+			<Item controlID="btnImportThis" readOnly="false" enabled="true"/>
+			<Item controlID="btnImportAll" readOnly="false" enabled="true"/>
+			<Item controlID="btnExport" readOnly="false" enabled="true"/>
+			<Item controlID="shortCuts" visible="true" />
+		</Scene>
+		<Scene sceneID="ReadOnly">
+			<Item controlID="lnkNew" readOnly="true" enabled="false"/>
+			<Item controlID="lnkAddExistsMembers" readOnly="true" enabled="false"/>
+			<Item controlID="lnkNewOrg" readOnly="true" enabled="false"/>
+			<Item controlID="lnkNewGroup" readOnly="true" enabled="false"/>
+			<Item controlID="btnDeleteSelected" readOnly="true" enabled="false"/>
+			<Item controlID="btnDeleteSelectedFull" readOnly="true" enabled="false"/>
+			<Item controlID="transfer" readOnly="true" enabled="false"/>
+			<Item controlID="btnImport" readOnly="true" enabled="false"/>
+			<Item controlID="btnImportThis" readOnly="true" enabled="false"/>
+			<Item controlID="btnImportAll" readOnly="true" enabled="false"/>
+			<Item controlID="btnExport" readOnly="true" enabled="true"/>
+			<Item controlID="shortCuts" visible="false" />
+		</Scene>
+	</Act>
+	<Act actID="RoleDefinition">
+		<Scene sceneID="Normal">
+			<Item controlID="btnSave" readOnly="false" enabled="true"/>
+		</Scene>
+		<Scene sceneID="ReadOnly">
+			<Item controlID="btnSave" readOnly="true" enabled="false"/>
+		</Scene>
+	</Act>
+	<Act actID="RootSchemas">
+		<Scene sceneID="Normal">
+			<Item controlID="btnNewRoot" readOnly="false" enabled="true"/>
+			<Item controlID="btnDeleteSelected" readOnly="false" enabled="true"/>
+			<Item controlID="btnImport" readOnly="false" enabled="true"/>
+			<Item controlID="btnExport" readOnly="false" enabled="true"/>
+		</Scene>
+		<Scene sceneID="ReadOnly">
+			<Item controlID="btnNewRoot" readOnly="true" enabled="false"/>
+			<Item controlID="btnDeleteSelected" readOnly="true" enabled="false"/>
+			<Item controlID="btnImport" readOnly="true" enabled="false"/>
+			<Item controlID="btnExport" readOnly="true" enabled="true"/>
+		</Scene>
+	</Act>
+</Acts>

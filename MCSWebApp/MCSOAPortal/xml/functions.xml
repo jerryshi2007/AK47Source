@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+	<Item name="系统管理" id="subCompayManagement" target="content" visible="true" url="/MCSWebApp/MCSOAPortal/frames/SystemAdmin.aspx" appAndRoles="OAPORTAL:PORTAL_ADMIN" />
+	<Item name="配置中心" id="configManagement" target="_blank" visible="true" url="/MCSWebApp/ConfigManager/Application.aspx" appAndRoles="OAPORTAL:PORTAL_ADMIN" />
+	<Item name="监控中心" id="monitorManagement" target="_blank" visible="true" url="http://10.0.9.74:51908/default.aspx" appAndRoles="OAPORTAL:PORTAL_ADMIN" />
+	<Item name="关系人管理" id="mappingManagement" target="_blank" visible="true" url="/MCSWebApp/OACommonPages/UserMapping/UserMappingManager.aspx" appAndRoles="OAPORTAL:PORTAL_ADMIN" />
+</Root>

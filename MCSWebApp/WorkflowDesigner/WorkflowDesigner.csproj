@@ -1,0 +1,800 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7F8BBB79-726D-443B-AF9F-575662186F13}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WorkflowDesigner</RootNamespace>
+    <AssemblyName>WorkflowDesigner</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <SilverlightApplicationList>{9EB45ACC-52B7-4EAD-B1EB-D4BC23155678}|Designer\Designer.csproj|ClientBin|False</SilverlightApplicationList>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MCS.Library, Version=1.2.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Compression, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7c704e212d216b47, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.Compression.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Data, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Office">
+      <HintPath>..\..\Bin\MCS.Library.Office.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Office.OpenXml.Excel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.Office.OpenXml.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.OGUPermission, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.OGUPermission.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Passport, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.Passport.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.SOA.DataObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.DataObjects.Schemas.Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.SOA.DataObjects.Schemas.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.DataObjects.Security.AUClient, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.SOA.DataObjects.Security.AUClient.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Library, Version=1.2.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Web.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Library.Script.Json">
+      <HintPath>..\..\Bin\MCS.Web.Library.Script.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.WebControls, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Web.WebControls.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\Designer.xap" />
+    <Content Include="css\dlg.css" />
+    <Content Include="css\Input.css" />
+    <Content Include="css\ListBosStyle.css" />
+    <Content Include="css\StyleSheet1.css" />
+    <Content Include="css\baseForm.css" />
+    <Content Include="DesignerTestPage.aspx" />
+    <Content Include="DesignerTestPage.html" />
+    <Content Include="ExternalDialogs\AddActivityDialog.aspx" />
+    <Content Include="ExternalDialogs\AddTransitionDialog.aspx" />
+    <Content Include="ExternalDialogs\AdminAutoMoveToDialog.aspx" />
+    <Content Include="ExternalDialogs\DeleteObjectDialog.aspx" />
+    <Content Include="ExternalDialogs\DescriptorEditor.ascx" />
+    <Content Include="ExternalDialogs\EditProperties.aspx" />
+    <Content Include="ExternalDialogs\OperationEditor.ascx" />
+    <Content Include="images\accomplished.gif" />
+    <Content Include="images\arrow_toleft.gif" />
+    <Content Include="images\arrow_toright.gif" />
+    <Content Include="images\blocks.png" />
+    <Content Include="images\computer.gif" />
+    <Content Include="images\document_new.png" />
+    <Content Include="images\edit.gif" />
+    <Content Include="images\icon_01.gif" />
+    <Content Include="images\icon_02.png" />
+    <Content Include="images\icon_03.gif" />
+    <Content Include="images\icon_04.gif" />
+    <Content Include="images\login_03.gif" />
+    <Content Include="images\login_05.jpg" />
+    <Content Include="images\login_06.jpg" />
+    <Content Include="images\login_07.gif" />
+    <Content Include="images\login_btn.gif" />
+    <Content Include="images\pop_01.jpg" />
+    <Content Include="images\pop_02.jpg" />
+    <Content Include="images\pop_03.jpg" />
+    <Content Include="images\role.gif" />
+    <Content Include="images\role16.gif" />
+    <Content Include="images\shield_yellow.png" />
+    <Content Include="images\task_01.png" />
+    <Content Include="images\task_03.jpg" />
+    <Content Include="images\task_04.png" />
+    <Content Include="images\task_06.jpg" />
+    <Content Include="images\task_08.gif" />
+    <Content Include="images\task_13.png" />
+    <Content Include="images\task_15.gif" />
+    <Content Include="images\wenhao.gif" />
+    <Content Include="images\workflow_01.jpg" />
+    <Content Include="images\workflow_02.jpg" />
+    <Content Include="images\workflow_05.jpg" />
+    <Content Include="Introduction\img\image001.jpg" />
+    <Content Include="Introduction\img\image002.jpg" />
+    <Content Include="Introduction\img\image003.png" />
+    <Content Include="Introduction\img\image004.jpg" />
+    <Content Include="Introduction\img\image005.png" />
+    <Content Include="Introduction\img\image006.jpg" />
+    <Content Include="Introduction\img\image007.png" />
+    <Content Include="Introduction\img\image008.jpg" />
+    <Content Include="Introduction\img\image009.png" />
+    <Content Include="Introduction\img\image010.jpg" />
+    <Content Include="Introduction\IntroductionIndex.aspx" />
+    <Content Include="Introduction\StyleSheet1.css" />
+    <Content Include="Introduction\主流程和分支流程（子流程）.htm" />
+    <Content Include="Introduction\流程导入-导出.htm" />
+    <Content Include="js\BranchProcessPropertyEditor.js" />
+    <Content Include="js\common.js" />
+    <Content Include="js\jquery-1.4.3.js" />
+    <Content Include="js\jquery.json-2.2.js" />
+    <Content Include="js\jquery.validate.js" />
+    <Content Include="js\ListBox.js" />
+    <Content Include="js\wfdesigner.js" />
+    <Content Include="js\WFObjectListPropertyEditor.js" />
+    <Content Include="js\wfweb.js" />
+    <Content Include="MatrixModalDialog\DownloadMatrix.aspx" />
+    <Content Include="MatrixModalDialog\EditMatrix.aspx" />
+    <Content Include="MatrixModalDialog\EditRoleProperty.aspx" />
+    <Content Include="MatrixModalDialog\ExportMatrix.aspx" />
+    <Content Include="MatrixModalDialog\ExportRoleProperty.aspx" />
+    <Content Include="MatrixModalDialog\ImportWfMatrix.aspx" />
+    <Content Include="MatrixModalDialog\RolePropertyDefine.aspx" />
+    <Content Include="MatrixModalDialog\RolePropertyExtension.aspx" />
+    <Content Include="MatrixModalDialog\RolePropertyTemplate.xml" />
+    <Content Include="MatrixModalDialog\Test\roleMatrixDialogTest.aspx" />
+    <Content Include="MatrixModalDialog\WfMatrixTest.aspx" />
+    <Content Include="MatrixModalDialog\MatrixDimensionDefinitionEditor.aspx" />
+    <Content Include="MatrixModalDialog\WfMatrixDefinitionList.aspx" />
+    <Content Include="MatrixModalDialog\WfProcessMatrix.aspx" />
+    <Content Include="ModalDialog\ActivityKeyEditor.aspx" />
+    <Content Include="ModalDialog\BranchProcessTemplateEditorNew.aspx" />
+    <Content Include="ModalDialog\CanActivityKeysEditor.aspx" />
+    <Content Include="ModalDialog\CreateRelativeLink.aspx" />
+    <Content Include="ModalDialog\DownloadActivityMatrixExcel.aspx" />
+    <Content Include="ModalDialog\ExportWfProcesses.aspx" />
+    <Content Include="ModalDialog\ExtGlobalParametersEditor.aspx" />
+    <Content Include="ModalDialog\GlobalParametersEditor.aspx" />
+    <Content Include="ModalDialog\images\delete.gif" />
+    <Content Include="ModalDialog\images\insert.gif" />
+    <Content Include="ModalDialog\images\newuser.gif" />
+    <Content Include="ModalDialog\ImportWfProcesses.aspx" />
+    <Content Include="ModalDialog\NetworkCredentialEditor.aspx" />
+    <Content Include="ModalDialog\NetworkCredentialList.aspx" />
+    <Content Include="ModalDialog\WFParametersNeedToBeCollected.aspx" />
+    <Content Include="ModalDialog\ProcessKeyEditor.aspx" />
+    <Content Include="ModalDialog\ServicesAddressEditor.aspx" />
+    <Content Include="ModalDialog\ServicesAddressList.aspx" />
+    <Content Include="ModalDialog\WFParametersNeedToBeCollectedEditor.aspx" />
+    <Content Include="ModalDialog\WfRoleResourceEditor.aspx" />
+    <Content Include="ModalDialog\SelectOUUser.aspx" />
+    <Content Include="ModalDialog\WfConditionEditor.aspx" />
+    <Content Include="ModalDialog\WfBranchProcessTemplates.aspx" />
+    <Content Include="ModalDialog\WfExternalUserEditor.aspx" />
+    <Content Include="ModalDialog\WfExternalUsers.aspx" />
+    <Content Include="ModalDialog\WfInternalRelativeUsers.aspx" />
+    <Content Include="ModalDialog\WfRelativeLinkEditor.aspx" />
+    <Content Include="ModalDialog\WfResourceEditor.aspx" />
+    <Content Include="ModalDialog\WfProcessDescriptorInformationList.aspx" />
+    <Content Include="js\Silverlight.js" />
+    <Content Include="Default.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppObjs\EnumTypes.cs" />
+    <Compile Include="CommonHttpHandler.ashx.cs">
+      <DependentUpon>CommonHttpHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ExternalDialogs\AddActivityDialog.aspx.cs">
+      <DependentUpon>AddActivityDialog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExternalDialogs\AddActivityDialog.aspx.designer.cs">
+      <DependentUpon>AddActivityDialog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExternalDialogs\AddTransitionDialog.aspx.cs">
+      <DependentUpon>AddTransitionDialog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExternalDialogs\AddTransitionDialog.aspx.designer.cs">
+      <DependentUpon>AddTransitionDialog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExternalDialogs\AdminAutoMoveToDialog.aspx.cs">
+      <DependentUpon>AdminAutoMoveToDialog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExternalDialogs\AdminAutoMoveToDialog.aspx.designer.cs">
+      <DependentUpon>AdminAutoMoveToDialog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExternalDialogs\DeleteObjectDialog.aspx.cs">
+      <DependentUpon>DeleteObjectDialog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExternalDialogs\DeleteObjectDialog.aspx.designer.cs">
+      <DependentUpon>DeleteObjectDialog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExternalDialogs\DeleteObjectHelper.cs" />
+    <Compile Include="ExternalDialogs\DescriptorEditor.ascx.cs">
+      <DependentUpon>DescriptorEditor.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExternalDialogs\DescriptorEditor.ascx.designer.cs">
+      <DependentUpon>DescriptorEditor.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ExternalDialogs\EditProcessPropertiesHelper.cs" />
+    <Compile Include="ExternalDialogs\EditProperties.aspx.cs">
+      <DependentUpon>EditProperties.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExternalDialogs\EditProperties.aspx.designer.cs">
+      <DependentUpon>EditProperties.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExternalDialogs\ExternalPropertyEditorBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExternalDialogs\OperationEditor.ascx.cs">
+      <DependentUpon>OperationEditor.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExternalDialogs\OperationEditor.ascx.designer.cs">
+      <DependentUpon>OperationEditor.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Introduction\IntroductionIndex.aspx.cs">
+      <DependentUpon>IntroductionIndex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Introduction\IntroductionIndex.aspx.designer.cs">
+      <DependentUpon>IntroductionIndex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MatrixModalDialog\DownloadMatrix.aspx.cs">
+      <DependentUpon>DownloadMatrix.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MatrixModalDialog\DownloadMatrix.aspx.designer.cs">
+      <DependentUpon>DownloadMatrix.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MatrixModalDialog\EditMatrix.aspx.cs">
+      <DependentUpon>EditMatrix.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MatrixModalDialog\EditMatrix.aspx.designer.cs">
+      <DependentUpon>EditMatrix.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MatrixModalDialog\EditRoleProperty.aspx.cs">
+      <DependentUpon>EditRoleProperty.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MatrixModalDialog\EditRoleProperty.aspx.designer.cs">
+      <DependentUpon>EditRoleProperty.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MatrixModalDialog\ExportMatrix.aspx.cs">
+      <DependentUpon>ExportMatrix.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MatrixModalDialog\ExportMatrix.aspx.designer.cs">
+      <DependentUpon>ExportMatrix.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MatrixModalDialog\ExportRoleProperty.aspx.cs">
+      <DependentUpon>ExportRoleProperty.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MatrixModalDialog\ExportRoleProperty.aspx.designer.cs">
+      <DependentUpon>ExportRoleProperty.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MatrixModalDialog\ExportSOARolePropertyDefinitionHandler.ashx.cs">
+      <DependentUpon>ExportSOARolePropertyDefinitionHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="MatrixModalDialog\ImportWfMatrix.aspx.cs">
+      <DependentUpon>ImportWfMatrix.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MatrixModalDialog\ImportWfMatrix.aspx.designer.cs">
+      <DependentUpon>ImportWfMatrix.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MatrixModalDialog\RolePropertyDefine.aspx.cs">
+      <DependentUpon>RolePropertyDefine.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MatrixModalDialog\RolePropertyDefine.aspx.designer.cs">
+      <DependentUpon>RolePropertyDefine.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MatrixModalDialog\RolePropertyExtension.aspx.cs">
+      <DependentUpon>RolePropertyExtension.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MatrixModalDialog\RolePropertyExtension.aspx.designer.cs">
+      <DependentUpon>RolePropertyExtension.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MatrixModalDialog\Test\roleMatrixDialogTest.aspx.cs">
+      <DependentUpon>roleMatrixDialogTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MatrixModalDialog\Test\roleMatrixDialogTest.aspx.designer.cs">
+      <DependentUpon>roleMatrixDialogTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MatrixModalDialog\Test\TestConst.cs" />
+    <Compile Include="MatrixModalDialog\WfMatrixTest.aspx.cs">
+      <DependentUpon>WfMatrixTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MatrixModalDialog\WfMatrixTest.aspx.designer.cs">
+      <DependentUpon>WfMatrixTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MatrixModalDialog\MatrixDefinitionQuery.cs" />
+    <Compile Include="MatrixModalDialog\MatrixDimensionDefinitionEditor.aspx.cs">
+      <DependentUpon>MatrixDimensionDefinitionEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MatrixModalDialog\MatrixDimensionDefinitionEditor.aspx.designer.cs">
+      <DependentUpon>MatrixDimensionDefinitionEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MatrixModalDialog\WfMatrixDefinitionList.aspx.cs">
+      <DependentUpon>WfMatrixDefinitionList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MatrixModalDialog\WfMatrixDefinitionList.aspx.designer.cs">
+      <DependentUpon>WfMatrixDefinitionList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MatrixModalDialog\WfProcessMatrix.aspx.cs">
+      <DependentUpon>WfProcessMatrix.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MatrixModalDialog\WfProcessMatrix.aspx.designer.cs">
+      <DependentUpon>WfProcessMatrix.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialog\BranchProcessTemplateEditorNew.aspx.cs">
+      <DependentUpon>BranchProcessTemplateEditorNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalDialog\BranchProcessTemplateEditorNew.aspx.designer.cs">
+      <DependentUpon>BranchProcessTemplateEditorNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialog\CanActivityKeysEditor.aspx.cs">
+      <DependentUpon>CanActivityKeysEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalDialog\CanActivityKeysEditor.aspx.designer.cs">
+      <DependentUpon>CanActivityKeysEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialog\DownloadActivityMatrixExcel.aspx.cs">
+      <DependentUpon>DownloadActivityMatrixExcel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalDialog\DownloadActivityMatrixExcel.aspx.designer.cs">
+      <DependentUpon>DownloadActivityMatrixExcel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialog\ExportWfProcessAsZip.ashx.cs">
+      <DependentUpon>ExportWfProcessAsZip.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialog\ExtGlobalParametersEditor.aspx.cs">
+      <DependentUpon>ExtGlobalParametersEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalDialog\ExtGlobalParametersEditor.aspx.designer.cs">
+      <DependentUpon>ExtGlobalParametersEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialog\GlobalParametersEditor.aspx.cs">
+      <DependentUpon>GlobalParametersEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalDialog\GlobalParametersEditor.aspx.designer.cs">
+      <DependentUpon>GlobalParametersEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialog\NetworkCredentialEditor.aspx.cs">
+      <DependentUpon>NetworkCredentialEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalDialog\NetworkCredentialEditor.aspx.designer.cs">
+      <DependentUpon>NetworkCredentialEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialog\NetworkCredentialList.aspx.cs">
+      <DependentUpon>NetworkCredentialList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalDialog\NetworkCredentialList.aspx.designer.cs">
+      <DependentUpon>NetworkCredentialList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialog\WFParametersNeedToBeCollected.aspx.cs">
+      <DependentUpon>WFParametersNeedToBeCollected.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalDialog\WFParametersNeedToBeCollected.aspx.designer.cs">
+      <DependentUpon>WFParametersNeedToBeCollected.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialog\QueryUserRoleHelper.cs" />
+    <Compile Include="ModalDialog\ServicesAddressEditor.aspx.cs">
+      <DependentUpon>ServicesAddressEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalDialog\ServicesAddressEditor.aspx.designer.cs">
+      <DependentUpon>ServicesAddressEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialog\ServicesAddressList.aspx.cs">
+      <DependentUpon>ServicesAddressList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalDialog\ServicesAddressList.aspx.designer.cs">
+      <DependentUpon>ServicesAddressList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialog\WFParametersNeedToBeCollectedEditor.aspx.cs">
+      <DependentUpon>WFParametersNeedToBeCollectedEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalDialog\WFParametersNeedToBeCollectedEditor.aspx.designer.cs">
+      <DependentUpon>WFParametersNeedToBeCollectedEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialog\WfRoleResourceEditor.aspx.cs">
+      <DependentUpon>WfRoleResourceEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalDialog\WfRoleResourceEditor.aspx.designer.cs">
+      <DependentUpon>WfRoleResourceEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialog\WfAUSchemaRoleEditor.aspx.cs">
+      <DependentUpon>WfAUSchemaRoleEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalDialog\WfAUSchemaRoleEditor.aspx.designer.cs">
+      <DependentUpon>WfAUSchemaRoleEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialog\WfServiceOperationDefEditor.aspx.cs">
+      <DependentUpon>WfServiceOperationDefEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalDialog\WfServiceOperationDefEditor.aspx.designer.cs">
+      <DependentUpon>WfServiceOperationDefEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialog\WfServiceOperationDefList.aspx.cs">
+      <DependentUpon>WfServiceOperationDefList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalDialog\WfServiceOperationDefList.aspx.designer.cs">
+      <DependentUpon>WfServiceOperationDefList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppObjs\WfProcessDescHelper.cs" />
+    <Compile Include="AppObjs\ZipPackageExporter.cs" />
+    <Compile Include="PlanScheduleDialog\JobEditor.aspx.cs">
+      <DependentUpon>JobEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PlanScheduleDialog\JobEditor.aspx.designer.cs">
+      <DependentUpon>JobEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PlanScheduleDialog\JobList.aspx.cs">
+      <DependentUpon>JobList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PlanScheduleDialog\JobList.aspx.designer.cs">
+      <DependentUpon>JobList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PlanScheduleDialog\JobQuery.cs" />
+    <Compile Include="PlanScheduleDialog\JobScheduleQuery.cs" />
+    <Compile Include="PlanScheduleDialog\ScheduleDataSource.cs" />
+    <Compile Include="PlanScheduleDialog\ScheduleEditor.aspx.cs">
+      <DependentUpon>ScheduleEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PlanScheduleDialog\ScheduleEditor.aspx.designer.cs">
+      <DependentUpon>ScheduleEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PlanScheduleDialog\ScheduleList.aspx.cs">
+      <DependentUpon>ScheduleList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PlanScheduleDialog\ScheduleList.aspx.designer.cs">
+      <DependentUpon>ScheduleList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PlanScheduleDialog\ScheduleQuery.cs" />
+    <Compile Include="PlanScheduleDialog\TaskAchived.aspx.cs">
+      <DependentUpon>TaskAchived.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PlanScheduleDialog\TaskAchived.aspx.designer.cs">
+      <DependentUpon>TaskAchived.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PlanScheduleDialog\TaskAccomplishedSource.cs" />
+    <Compile Include="PlanScheduleDialog\TaskAchivedDetail.aspx.cs">
+      <DependentUpon>TaskAchivedDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PlanScheduleDialog\TaskAchivedDetail.aspx.designer.cs">
+      <DependentUpon>TaskAchivedDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PlanScheduleDialog\TaskMonitor.aspx.cs">
+      <DependentUpon>TaskMonitor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PlanScheduleDialog\TaskMonitor.aspx.designer.cs">
+      <DependentUpon>TaskMonitor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PlanScheduleDialog\TaskQuerySource.cs" />
+    <Compile Include="PropertyEditor\BranchProcessTemplateEmums.cs" />
+    <Compile Include="PropertyEditor\ReceiversObjectListPropertyEditor.cs" />
+    <Compile Include="SaveActivityTemplate.ashx.cs">
+      <DependentUpon>SaveActivityTemplate.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialog\ActivityKeyEditor.aspx.cs">
+      <DependentUpon>ActivityKeyEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalDialog\ActivityKeyEditor.aspx.designer.cs">
+      <DependentUpon>ActivityKeyEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialog\CreateRelativeLink.aspx.cs">
+      <DependentUpon>CreateRelativeLink.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalDialog\CreateRelativeLink.aspx.designer.cs">
+      <DependentUpon>CreateRelativeLink.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialog\ExportWfProcesses.aspx.cs">
+      <DependentUpon>ExportWfProcesses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalDialog\ExportWfProcesses.aspx.designer.cs">
+      <DependentUpon>ExportWfProcesses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialog\ImportWfProcesses.aspx.cs">
+      <DependentUpon>ImportWfProcesses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalDialog\ImportWfProcesses.aspx.designer.cs">
+      <DependentUpon>ImportWfProcesses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialog\ProcessKeyEditor.aspx.cs">
+      <DependentUpon>ProcessKeyEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalDialog\ProcessKeyEditor.aspx.designer.cs">
+      <DependentUpon>ProcessKeyEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialog\SelectOUUser.aspx.cs">
+      <DependentUpon>SelectOUUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalDialog\SelectOUUser.aspx.designer.cs">
+      <DependentUpon>SelectOUUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialog\WfConditionEditor.aspx.cs">
+      <DependentUpon>WfConditionEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalDialog\WfConditionEditor.aspx.designer.cs">
+      <DependentUpon>WfConditionEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialog\WfBranchProcessTemplates.aspx.cs">
+      <DependentUpon>WfBranchProcessTemplates.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalDialog\WfBranchProcessTemplates.aspx.designer.cs">
+      <DependentUpon>WfBranchProcessTemplates.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialog\WfExternalUserEditor.aspx.cs">
+      <DependentUpon>WfExternalUserEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalDialog\WfExternalUserEditor.aspx.designer.cs">
+      <DependentUpon>WfExternalUserEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialog\WfExternalUsers.aspx.cs">
+      <DependentUpon>WfExternalUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalDialog\WfExternalUsers.aspx.designer.cs">
+      <DependentUpon>WfExternalUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialog\WfInternalRelativeUsers.aspx.cs">
+      <DependentUpon>WfInternalRelativeUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalDialog\WfInternalRelativeUsers.aspx.designer.cs">
+      <DependentUpon>WfInternalRelativeUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialog\WfRelativeLinkEditor.aspx.cs">
+      <DependentUpon>WfRelativeLinkEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalDialog\WfRelativeLinkEditor.aspx.designer.cs">
+      <DependentUpon>WfRelativeLinkEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialog\WfResourceEditor.aspx.cs">
+      <DependentUpon>WfResourceEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalDialog\WfResourceEditor.aspx.designer.cs">
+      <DependentUpon>WfResourceEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialog\WfVariableEditor.aspx.cs">
+      <DependentUpon>WfVariableEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalDialog\WfVariableEditor.aspx.designer.cs">
+      <DependentUpon>WfVariableEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialog\WfVariables.aspx.cs">
+      <DependentUpon>WfVariables.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalDialog\WfVariables.aspx.designer.cs">
+      <DependentUpon>WfVariables.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SaveWorkflow.ashx.cs">
+      <DependentUpon>SaveWorkflow.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialog\ProcessDescriptorInfoQuery.cs" />
+    <Compile Include="ModalDialog\WfProcessDescriptorInformationList.aspx.cs">
+      <DependentUpon>WfProcessDescriptorInformationList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalDialog\WfProcessDescriptorInformationList.aspx.designer.cs">
+      <DependentUpon>WfProcessDescriptorInformationList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppObjs\ZipPackageImporter.cs" />
+    <Compile Include="Services\ServiceForClient.asmx.cs">
+      <DependentUpon>ServiceForClient.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\WorkflowParser.aspx.cs">
+      <DependentUpon>WorkflowParser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Services\WorkflowParser.aspx.designer.cs">
+      <DependentUpon>WorkflowParser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PlanScheduleDialog\TaskPendingDetail.aspx.cs">
+      <DependentUpon>TaskPendingDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PlanScheduleDialog\TaskPendingDetail.aspx.designer.cs">
+      <DependentUpon>TaskPendingDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Simulation\WorkflowSimulation.aspx.cs">
+      <DependentUpon>WorkflowSimulation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Simulation\WorkflowSimulation.aspx.designer.cs">
+      <DependentUpon>WorkflowSimulation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Simulation\WorkflowSimulationService.asmx.cs">
+      <DependentUpon>WorkflowSimulationService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ModalDialog\WfAUSchemaRoleEditor.aspx" />
+    <Content Include="ModalDialog\WfServiceOperationDefEditor.aspx" />
+    <Content Include="ModalDialog\WfServiceOperationDefList.aspx" />
+    <Content Include="ModalDialog\WfVariableEditor.aspx" />
+    <Content Include="ModalDialog\WfVariables.aspx" />
+    <Content Include="PlanScheduleDialog\JobEditor.aspx" />
+    <Content Include="PlanScheduleDialog\JobEditor.js" />
+    <Content Include="PlanScheduleDialog\JobList.aspx" />
+    <Content Include="PlanScheduleDialog\ScheduleEditor.aspx" />
+    <Content Include="PlanScheduleDialog\ScheduleList.aspx" />
+    <Content Include="ModalDialog\ExportWfProcessAsZip.ashx" />
+    <Content Include="MatrixModalDialog\ExportSOARolePropertyDefinitionHandler.ashx" />
+    <Content Include="MatrixModalDialog\Templates\EditRowTemplate.xlsx" />
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <Content Include="PlanScheduleDialog\TaskAchived.aspx" />
+    <Content Include="PlanScheduleDialog\TaskAchivedDetail.aspx" />
+    <Content Include="PlanScheduleDialog\TaskMonitor.aspx" />
+    <Content Include="Services\ServiceForClient.asmx" />
+    <Content Include="Services\WorkflowParser.aspx" />
+    <Content Include="PlanScheduleDialog\TaskPendingDetail.aspx" />
+    <Content Include="Silverlight.js" />
+    <Content Include="Simulation\WorkflowSimulation.aspx" />
+    <Content Include="Simulation\WorkflowSimulation.js" />
+    <Content Include="Simulation\WorkflowSimulationService.asmx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="TestFiles\ActivityMatrix.xlsx" />
+    <Content Include="TestFiles\NoOperatorActivityMatrix.xlsx" />
+    <Content Include="TestFiles\NoOperatorTypeActivityMatrix.xlsx" />
+    <Content Include="TestFiles\MergeRequestorMatrix.xlsx" />
+    <Content Include="TestFiles\SampleActivityMatrix.xlsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SaveWorkflow.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SaveActivityTemplate.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CommonHttpHandler.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Framework\MCS.Library.SOA.Web.WebControls\MCS.Library.SOA.Web.WebControls.csproj">
+      <Project>{42c6d301-8ccb-4cbd-bc20-250d98a4c369}</Project>
+      <Name>MCS.Library.SOA.Web.WebControls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v12.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>5968</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/MCSWebApp/WorkflowDesigner</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

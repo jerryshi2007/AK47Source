@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>../../../CIIC.HSR.TSP.Files/TSPLib.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A0C83465-A516-4C7E-A630-E1D6205B75C4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MCS.Library.SOA.Contracts</RootNamespace>
+    <AssemblyName>MCS.Library.SOA.Contracts</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MCS.Library">
+      <HintPath>..\MCS.Library\bin\Debug\MCS.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.DataObjects">
+      <HintPath>..\MCS.Library.SOA.DataObjects\bin\Debug\MCS.Library.SOA.DataObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataObjects\Common\Enumerations.cs" />
+    <Compile Include="DataObjects\ObjectModel\ClientCollectionBase.cs" />
+    <Compile Include="DataObjects\Ogu\ClientOguGroup.cs" />
+    <Compile Include="DataObjects\Ogu\ClientOguOrganization.cs" />
+    <Compile Include="DataObjects\Ogu\ClientOguRole.cs" />
+    <Compile Include="DataObjects\Ogu\ClientOguUser.cs" />
+    <Compile Include="DataObjects\Ogu\ClientOguObjectBase.cs" />
+    <Compile Include="DataObjects\ObjectModel\DataObjectCollectionBase.cs" />
+    <Compile Include="DataObjects\Ogu\Enumerations.cs" />
+    <Compile Include="DataObjects\Ogu\IClientGroup.cs" />
+    <Compile Include="DataObjects\Ogu\IClientOguObject.cs" />
+    <Compile Include="DataObjects\Ogu\IClientOrganization.cs" />
+    <Compile Include="DataObjects\Ogu\IClientUser.cs" />
+    <Compile Include="DataObjects\Ogu\ClientOguDataCollection.cs" />
+    <Compile Include="DataObjects\PropertyDefine\ClientPropertyDataType.cs" />
+    <Compile Include="DataObjects\PropertyDefine\ClientPropertyDefine.cs" />
+    <Compile Include="DataObjects\PropertyDefine\ClientPropertyDefineCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataObjects\PropertyDefine\ClientPropertyValue.cs" />
+    <Compile Include="DataObjects\PropertyDefine\ClientPropertyValueCollection.cs" />
+    <Compile Include="DataObjects\Workflow\Actions\IWfClientAction.cs" />
+    <Compile Include="DataObjects\Workflow\Descriptor\WfClientActivityAssigneesResourceDescriptor.cs" />
+    <Compile Include="DataObjects\Workflow\Descriptor\WfClientActivityOperatorResourceDescriptor.cs" />
+    <Compile Include="DataObjects\Workflow\Descriptor\WfClientBranchProcessTemplateDescriptor.cs" />
+    <Compile Include="DataObjects\Workflow\Descriptor\WfClientDepartmentResourceDescriptor.cs" />
+    <Compile Include="DataObjects\Workflow\Descriptor\WfClientDynamicResourceDescriptor.cs" />
+    <Compile Include="DataObjects\Workflow\Descriptor\WfClientRelativeLinkDescriptor.cs" />
+    <Compile Include="DataObjects\Workflow\Descriptor\WfClientConditonDescriptor.cs" />
+    <Compile Include="DataObjects\Workflow\Descriptor\WfClientActivityDescriptor..cs" />
+    <Compile Include="DataObjects\Workflow\Descriptor\WfClientKeyedDescriptorBase.cs" />
+    <Compile Include="DataObjects\Workflow\Descriptor\WfClientProcessDescriptor.cs" />
+    <Compile Include="DataObjects\Workflow\Descriptor\WfClientResourceDescriptor.cs" />
+    <Compile Include="DataObjects\Workflow\Descriptor\WfClientTransitionDescriptor.cs" />
+    <Compile Include="DataObjects\Workflow\Descriptor\WfClientVariableDescriptor.cs" />
+    <Compile Include="DataObjects\Workflow\Enumerations.cs" />
+    <Compile Include="DataObjects\Workflow\ExternalUser\WfClientExternalUser.cs" />
+    <Compile Include="DataObjects\Workflow\Runtime\ClientUserTaskCollection.cs" />
+    <Compile Include="DataObjects\Workflow\Runtime\WfClientAclItem.cs" />
+    <Compile Include="DataObjects\Workflow\Runtime\WfClientActivityCollection.cs" />
+    <Compile Include="DataObjects\Workflow\Runtime\WfClientActivityBase.cs" />
+    <Compile Include="DataObjects\Workflow\Runtime\WfClientActivityChangingContext.cs" />
+    <Compile Include="DataObjects\Workflow\Runtime\WfClientActivityDescriptorCreateParams.cs" />
+    <Compile Include="DataObjects\Workflow\Runtime\WfClientApplicationRumtimeParameters.cs" />
+    <Compile Include="DataObjects\Workflow\Runtime\WfClientAssignee.cs" />
+    <Compile Include="DataObjects\Workflow\Runtime\WfClientBranchProcessGroup.cs" />
+    <Compile Include="DataObjects\Workflow\Runtime\WfClientBranchProcessStartupParams.cs" />
+    <Compile Include="DataObjects\Workflow\Runtime\WfClientCompletedActivity.cs" />
+    <Compile Include="DataObjects\Workflow\Runtime\WfClientContextDictionaryBase.cs" />
+    <Compile Include="DataObjects\Workflow\Runtime\WfClientProcessActionContext.cs" />
+    <Compile Include="DataObjects\Workflow\Runtime\WfClientProcessStartupParams.cs" />
+    <Compile Include="DataObjects\Workflow\Runtime\WfClientRuntimeException.cs" />
+    <Compile Include="DataObjects\Workflow\Runtime\WfClientProcess.cs" />
+    <Compile Include="DataObjects\Workflow\Runtime\WfClientRuntimeParameters.cs" />
+    <Compile Include="DataObjects\Workflow\Runtime\WfClientNormalActivity.cs" />
+    <Compile Include="DataObjects\Workflow\Runtime\WfClientTransferParamsBase.cs" />
+    <Compile Include="DataObjects\Workflow\Runtime\WfClientInitialActivity.cs" />
+    <Compile Include="Helper\DataConverter.cs" />
+    <Compile Include="Helper\ExceptionHelper.cs" />
+    <Compile Include="Helper\ReturnCondition.cs" />
+    <Compile Include="Helper\SOASupportException.cs" />
+    <Compile Include="Interfaces\IBaseTypeService.cs" />
+    <Compile Include="Interfaces\IWfExecutorService.cs" />
+    <Compile Include="Interfaces\IWfProcessDescriptorService.cs" />
+    <Compile Include="Interfaces\IWfProcessRuntimeService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestLog\FileOperator.cs" />
+    <Compile Include="TestLog\LogManager.cs" />
+    <Compile Include="Test\Test1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataObjects\Workflow\Common\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataObjects\Workflow\Descriptor\ClassDiagram1.cd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>IF NOT EXIST "$(ProjectDir)..\..\Bin" MD "$(ProjectDir)..\..\Bin"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetFileName)" DEL "$(ProjectDir)..\..\Bin\$(TargetFileName)"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetName).pdb" DEL "$(ProjectDir)..\..\Bin\$(TargetName).pdb"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetName).xml" DEL "$(ProjectDir)..\..\Bin\$(TargetName).xml"</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>set path=%25path%25;C:\Windows\System32
+ 
+
+ XCOPY "$(TargetPath)"  "$(ProjectDir)..\..\Bin" /Y /D /R
+IF EXIST "$(TargetDir)$(TargetName).pdb" XCOPY "$(TargetDir)$(TargetName).pdb" "$(ProjectDir)..\..\Bin" /Y /D /R
+IF EXIST "$(TargetDir)$(TargetName).xml"  XCOPY "$(TargetDir)$(TargetName).xml" "$(ProjectDir)..\..\Bin" /Y /D /R</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

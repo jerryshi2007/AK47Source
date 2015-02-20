@@ -1,0 +1,892 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D2C038D6-6DE8-4A6D-9F43-AF6E9886FFDC}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PermissionCenter</RootNamespace>
+    <AssemblyName>PermissionCenter</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MCS.Library">
+      <HintPath>..\..\Bin\MCS.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Data">
+      <HintPath>..\..\Bin\MCS.Library.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.OGUPermission">
+      <HintPath>..\..\Bin\MCS.Library.OGUPermission.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Passport">
+      <HintPath>..\..\Bin\MCS.Library.Passport.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.PermissionBridge, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.PermissionBridge.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.DataObjects">
+      <HintPath>..\..\Bin\MCS.Library.SOA.DataObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.DataObjects.Schemas">
+      <HintPath>..\..\Bin\MCS.Library.SOA.DataObjects.Schemas.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.DataObjects.Security">
+      <HintPath>..\..\Bin\MCS.Library.SOA.DataObjects.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.Web.WebControls">
+      <HintPath>..\..\Bin\MCS.Library.SOA.Web.WebControls.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Library">
+      <HintPath>..\..\Bin\MCS.Web.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Library.Script.Json">
+      <HintPath>..\..\Bin\MCS.Web.Library.Script.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.WebControls, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Web.WebControls.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\ExpEditor.xml" />
+    <Content Include="App_Data\ListScene.xml" />
+    <Content Include="App_Data\PropertyEditScene.xml" />
+    <Content Include="App_Data\AclEditor.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Themes\pc\DeluxeGrid.css" />
+    <Content Include="App_Themes\pc\RelaxedTabStrip.css" />
+    <Content Include="default.aspx" />
+    <Content Include="dialogs\AclEdit.aspx" />
+    <Content Include="dialogs\AclEdit.js" />
+    <Content Include="dialogs\ADReverseSync.aspx" />
+    <Content Include="dialogs\BatchEditor.aspx" />
+    <Content Include="dialogs\BatchEditorIntro.htm" />
+    <Content Include="dialogs\BatchMove.aspx" />
+    <Content Include="dialogs\ConditionHistory.aspx" />
+    <Content Include="dialogs\EditorPassword.aspx" />
+    <Content Include="dialogs\ExpressionEditor.aspx" />
+    <Content Include="dialogs\ExpressionHint.aspx" />
+    <Content Include="dialogs\FrontDeleteDialog.aspx" />
+    <Content Include="dialogs\GroupSearchDialog.aspx" />
+    <Content Include="dialogs\InterOrgSearch.htm" />
+    <Content Include="dialogs\Maintain.aspx" />
+    <Content Include="dialogs\ADSync.aspx" />
+    <Content Include="dialogs\MemberSchemaPicker.aspx" />
+    <Content Include="dialogs\MemberSearchDialog.aspx" />
+    <Content Include="dialogs\MoveRouter.htm" />
+    <Content Include="dialogs\OrgSearchDialog.aspx" />
+    <Content Include="dialogs\Profile.aspx" />
+    <Content Include="dialogs\PropertyView.aspx" />
+    <Content Include="dialogs\RoleSearchDialog.aspx" />
+    <Content Include="dialogs\showObjectInfo.aspx" />
+    <Content Include="dialogs\TimePicker.aspx" />
+    <Content Include="dialogs\UnitBrowseDialog.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Handlers\exampleTimeline.xml" />
+    <Content Include="images\ad.png" />
+    <Content Include="images\ajax-loader.gif" />
+    <Content Include="images\ajax-loader2.gif" />
+    <Content Include="images\arrowwhite.png" />
+    <Content Include="images\artwork\check.png" />
+    <Content Include="images\artwork\Cube.png" />
+    <Content Include="images\artwork\Folder.png" />
+    <Content Include="images\artwork\Group.png" />
+    <Content Include="images\artwork\Hierarchies.png" />
+    <Content Include="images\artwork\History.png" />
+    <Content Include="images\artwork\Login.png" />
+    <Content Include="images\bannerbg.gif" />
+    <Content Include="images\bg17.gif" />
+    <Content Include="images\bg_lead.png" />
+    <Content Include="images\common_bg_x.png" />
+    <EmbeddedResource Include="CommonResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CommonResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="images\artwork\disabledGroup.gif" />
+    <EmbeddedResource Include="images\artwork\disabledOu.gif" />
+    <EmbeddedResource Include="images\artwork\disabledUser.gif" />
+    <Content Include="images\defaultphoto.jpg" />
+    <Content Include="images\detailtoggle.png" />
+    <Content Include="images\file_path.png" />
+    <EmbeddedResource Include="images\artwork\group.gif" />
+    <Content Include="images\flow.jpg" />
+    <Content Include="images\h2_icon.gif" />
+    <Content Include="images\Help.png" />
+    <Content Include="images\HomeHS.png" />
+    <Content Include="images\key.png" />
+    <Content Include="images\loading_animation.gif" />
+    <Content Include="images\Login\login_03.gif" />
+    <Content Include="images\Login\login_05.jpg" />
+    <Content Include="images\Login\login_06.jpg" />
+    <Content Include="images\Login\login_07.gif" />
+    <Content Include="images\Login\login_btn.gif" />
+    <Content Include="images\Login\login_btn_shadow.gif" />
+    <Content Include="images\logo.png" />
+    <EmbeddedResource Include="images\artwork\ou.gif" />
+    <Content Include="images\pbar-ani.gif" />
+    <Content Include="images\photo.jpg" />
+    <Content Include="images\RecycleBin.png" />
+    <Content Include="images\result.png" />
+    <Content Include="images\sorttag.png" />
+    <Content Include="images\sprites.png" />
+    <Content Include="images\tl.png" />
+    <Content Include="images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="images\ui-icons_888888_256x240.png" />
+    <Content Include="images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="images\unknown.png" />
+    <EmbeddedResource Include="images\artwork\user.gif" />
+    <Content Include="images\bgw.png" />
+    <Content Include="images\Windows\left-corners.png" />
+    <Content Include="images\Windows\left-right.png" />
+    <Content Include="images\Windows\right-corners.png" />
+    <Content Include="images\Windows\top-bottom.png" />
+    <Content Include="inc\CommonUploadTemplate.htm" />
+    <Content Include="inc\AppUploadTemplate.htm" />
+    <Content Include="inc\RoleUploadTemplate.htm" />
+    <Content Include="inc\PermissionUploadTemplate.htm" />
+    <Content Include="inc\AllMembersUploadTemplate.htm" />
+    <Content Include="inc\OUUploadTemplate.htm" />
+    <Content Include="inc\WebControls\Banner.ascx" />
+    <Content Include="inc\WebControls\Footer.ascx" />
+    <EmbeddedResource Include="PcGridHoverBehavior.js" />
+    <Content Include="inc\CommonMemberUploadTemplate.htm" />
+    <Content Include="inc\AllGroupUploadTemplate.htm" />
+    <Content Include="inc\RootOUUploadTemplate.htm" />
+    <Content Include="lists\ADLog.aspx" />
+    <Content Include="lists\ADLogDetail.aspx" />
+    <Content Include="lists\ADReverseLog.aspx" />
+    <Content Include="lists\AllApps.aspx" />
+    <Content Include="lists\AllGroups.aspx" />
+    <Content Include="lists\AllMembers.aspx" />
+    <Content Include="lists\AppFunctions.aspx" />
+    <Content Include="lists\AppRoleConditionMembers.aspx" />
+    <Content Include="lists\AppRoleMembers.aspx" />
+    <Content Include="lists\AppRoles.aspx" />
+    <Content Include="lists\DeletedMemberList.aspx" />
+    <Content Include="lists\DissociatedList.aspx" />
+    <Content Include="lists\GroupConstMembers.aspx" />
+    <Content Include="lists\GroupDynamicMembers.aspx" />
+    <Content Include="lists\GroupMembersView.aspx" />
+    <Content Include="lists\LogList.aspx" />
+    <Content Include="lists\LogView.aspx" />
+    <Content Include="lists\MemberGrpView.aspx" />
+    <Content Include="lists\MemberMatrix.aspx" />
+    <Content Include="lists\MemberOrgView.aspx" />
+    <Content Include="lists\MemberRoleView.aspx" />
+    <Content Include="lists\ObjectHistoryLog.aspx" />
+    <Content Include="lists\ObjectHistoryTimeline.aspx" />
+    <Content Include="lists\OUExplorer.aspx" />
+    <Content Include="dialogs\RoleDefinition.aspx" />
+    <Content Include="lists\AppRoleMembersView.aspx" />
+    <Content Include="lists\OUNotFound.aspx" />
+    <Content Include="lists\OUSearch.aspx" />
+    <Content Include="lists\FlowList.aspx" />
+    <Content Include="lists\RootSchemas.aspx" />
+    <Content Include="lists\OUExplorerView.aspx" />
+    <Content Include="lists\UserSecretary.aspx" />
+    <Content Include="lists\ADReverseLogDetail.aspx" />
+    <Content Include="scripts\BannerNotice.js" />
+    <Content Include="scripts\jquery-1.7.2.min.js" />
+    <Content Include="scripts\MicrosoftAjax.debug.js" />
+    <Content Include="scripts\pc.js" />
+    <Content Include="scripts\PermissionPropertyEditors.js" />
+    <Content Include="scripts\RelaxedTabStrip.js" />
+    <Content Include="scripts\timeline_2.3.0\CHANGES.txt" />
+    <Content Include="scripts\timeline_2.3.0\LICENSE.txt" />
+    <Content Include="scripts\timeline_2.3.0\README.txt" />
+    <Content Include="scripts\timeline_2.3.0\timeline_ajax\content\history.html" />
+    <Content Include="scripts\timeline_2.3.0\timeline_ajax\images\bubble-arrow-point-down.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_ajax\images\bubble-arrow-point-left.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_ajax\images\bubble-arrow-point-right.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_ajax\images\bubble-arrow-point-up.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_ajax\images\bubble-bottom-left.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_ajax\images\bubble-bottom-right.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_ajax\images\bubble-bottom.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_ajax\images\bubble-left.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_ajax\images\bubble-right.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_ajax\images\bubble-top-left.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_ajax\images\bubble-top-right.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_ajax\images\bubble-top.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_ajax\images\close-button.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_ajax\images\copy.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_ajax\images\message-bottom-left.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_ajax\images\message-bottom-right.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_ajax\images\message-left.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_ajax\images\message-right.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_ajax\images\message-top-left.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_ajax\images\message-top-right.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_ajax\scripts\signal.js" />
+    <Content Include="scripts\timeline_2.3.0\timeline_ajax\simile-ajax-api.js" />
+    <Content Include="scripts\timeline_2.3.0\timeline_ajax\simile-ajax-bundle.js" />
+    <Content Include="scripts\timeline_2.3.0\timeline_ajax\styles\graphics-ie6.css" />
+    <Content Include="scripts\timeline_2.3.0\timeline_ajax\styles\graphics.css" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\images\blue-circle.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\images\bubble-bottom-arrow.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\images\bubble-bottom-left.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\images\bubble-bottom-right.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\images\bubble-bottom.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\images\bubble-left-arrow.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\images\bubble-left.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\images\bubble-right-arrow.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\images\bubble-right.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\images\bubble-top-arrow.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\images\bubble-top-left.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\images\bubble-top-right.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\images\bubble-top.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\images\close-button.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\images\copyright-vertical.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\images\copyright.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\images\dark-blue-circle.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\images\dark-green-circle.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\images\dark-red-circle.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\images\dull-blue-circle.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\images\dull-green-circle.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\images\dull-red-circle.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\images\gray-circle.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\images\green-circle.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\images\message-bottom-left.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\images\message-bottom-right.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\images\message-left.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\images\message-right.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\images\message-top-left.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\images\message-top-right.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\images\progress-running.gif" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\images\red-circle.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\images\top-bubble.png" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\scripts\l10n\cs\labellers.js" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\scripts\l10n\cs\timeline.js" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\scripts\l10n\de\labellers.js" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\scripts\l10n\de\timeline.js" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\scripts\l10n\en\labellers.js" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\scripts\l10n\en\timeline.js" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\scripts\l10n\es\labellers.js" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\scripts\l10n\es\timeline.js" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\scripts\l10n\fr\labellers.js" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\scripts\l10n\fr\timeline.js" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\scripts\l10n\it\labellers.js" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\scripts\l10n\it\timeline.js" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\scripts\l10n\nl\labellers.js" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\scripts\l10n\nl\timeline.js" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\scripts\l10n\ru\labellers.js" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\scripts\l10n\ru\timeline.js" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\scripts\l10n\se\labellers.js" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\scripts\l10n\se\timeline.js" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\scripts\l10n\tr\labellers.js" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\scripts\l10n\tr\timeline.js" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\scripts\l10n\vi\labellers.js" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\scripts\l10n\vi\timeline.js" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\scripts\l10n\zh\labellers.js" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\scripts\l10n\zh\timeline.js" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\timeline-api.js" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\timeline-bundle.css" />
+    <Content Include="scripts\timeline_2.3.0\timeline_js\timeline-bundle.js" />
+    <Content Include="Services\CommonService.asmx" />
+    <Content Include="Services\ConditionSvc.asmx" />
+    <Content Include="styles\dlg.css" />
+    <Content Include="styles\home.css" />
+    <Content Include="styles\pccom.css" />
+    <Content Include="styles\pccssreform.css" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommonResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommonResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\AclEdit.aspx.cs">
+      <DependentUpon>AclEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dialogs\AclEdit.aspx.designer.cs">
+      <DependentUpon>AclEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\ADReverseSync.aspx.cs">
+      <DependentUpon>ADReverseSync.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dialogs\ADReverseSync.aspx.designer.cs">
+      <DependentUpon>ADReverseSync.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\BatchEditor.aspx.cs">
+      <DependentUpon>BatchEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dialogs\BatchEditor.aspx.designer.cs">
+      <DependentUpon>BatchEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\BatchMove.aspx.cs">
+      <DependentUpon>BatchMove.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dialogs\BatchMove.aspx.designer.cs">
+      <DependentUpon>BatchMove.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\ClientSchemaPropertyValue.cs" />
+    <Compile Include="dialogs\ConditionHistory.aspx.cs">
+      <DependentUpon>ConditionHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dialogs\ConditionHistory.aspx.designer.cs">
+      <DependentUpon>ConditionHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\EditorPassword.aspx.cs">
+      <DependentUpon>EditorPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dialogs\EditorPassword.aspx.designer.cs">
+      <DependentUpon>EditorPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\ExpressionEditor.aspx.cs">
+      <DependentUpon>ExpressionEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dialogs\ExpressionEditor.aspx.designer.cs">
+      <DependentUpon>ExpressionEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\ExpressionHint.aspx.cs">
+      <DependentUpon>ExpressionHint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dialogs\ExpressionHint.aspx.designer.cs">
+      <DependentUpon>ExpressionHint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\FrontDeleteDialog.aspx.cs">
+      <DependentUpon>FrontDeleteDialog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dialogs\FrontDeleteDialog.aspx.designer.cs">
+      <DependentUpon>FrontDeleteDialog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\GroupSearchDialog.aspx.cs">
+      <DependentUpon>GroupSearchDialog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dialogs\GroupSearchDialog.aspx.designer.cs">
+      <DependentUpon>GroupSearchDialog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\Maintain.aspx.cs">
+      <DependentUpon>Maintain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dialogs\Maintain.aspx.designer.cs">
+      <DependentUpon>Maintain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\MaintainMaster.Master.cs">
+      <DependentUpon>MaintainMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dialogs\MaintainMaster.Master.designer.cs">
+      <DependentUpon>MaintainMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\ADSync.aspx.cs">
+      <DependentUpon>ADSync.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dialogs\ADSync.aspx.designer.cs">
+      <DependentUpon>ADSync.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\MemberSchemaPicker.aspx.cs">
+      <DependentUpon>MemberSchemaPicker.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dialogs\MemberSchemaPicker.aspx.designer.cs">
+      <DependentUpon>MemberSchemaPicker.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\MemberSearchDialog.aspx.cs">
+      <DependentUpon>MemberSearchDialog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dialogs\MemberSearchDialog.aspx.designer.cs">
+      <DependentUpon>MemberSearchDialog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\OrgSearchDialog.aspx.cs">
+      <DependentUpon>OrgSearchDialog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dialogs\OrgSearchDialog.aspx.designer.cs">
+      <DependentUpon>OrgSearchDialog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dialogs\Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\PropertyEditorSceneAdapter.cs" />
+    <Compile Include="dialogs\PropertyView.aspx.cs">
+      <DependentUpon>PropertyView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dialogs\PropertyView.aspx.designer.cs">
+      <DependentUpon>PropertyView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\RoleSearchDialog.aspx.cs">
+      <DependentUpon>RoleSearchDialog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dialogs\RoleSearchDialog.aspx.designer.cs">
+      <DependentUpon>RoleSearchDialog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\showObjectInfo.aspx.cs">
+      <DependentUpon>showObjectInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dialogs\showObjectInfo.aspx.designer.cs">
+      <DependentUpon>showObjectInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\TimePicker.aspx.cs">
+      <DependentUpon>TimePicker.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dialogs\TimePicker.aspx.designer.cs">
+      <DependentUpon>TimePicker.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\UnitBrowseDialog.aspx.cs">
+      <DependentUpon>UnitBrowseDialog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dialogs\UnitBrowseDialog.aspx.designer.cs">
+      <DependentUpon>UnitBrowseDialog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\AdSync.ashx.cs">
+      <DependentUpon>AdSync.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\ObjectExport.ashx.cs">
+      <DependentUpon>ObjectExport.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\TimelineData.ashx.cs">
+      <DependentUpon>TimelineData.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\Toggle.ashx.cs">
+      <DependentUpon>Toggle.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\Transfer.ashx.cs">
+      <DependentUpon>Transfer.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\UserPhoto.ashx.cs">
+      <DependentUpon>UserPhoto.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="inc\AdditionOperation.cs" />
+    <Compile Include="inc\BatchErrorAdapter.cs" />
+    <Compile Include="inc\DataSources\ProcessTemplateSource.cs" />
+    <Compile Include="inc\DataSources\ScheduleDataSource.cs" />
+    <Compile Include="inc\GroupConstMembersExportAction.cs" />
+    <Compile Include="inc\ImportService.cs" />
+    <Compile Include="inc\DbUtil.cs" />
+    <Compile Include="inc\ManageAclStatus.cs" />
+    <Compile Include="inc\AllGroupsExportAction.cs" />
+    <Compile Include="inc\AllUserExportAction.cs" />
+    <Compile Include="inc\AppExportAction.cs" />
+    <Compile Include="inc\AppImportAction.cs" />
+    <Compile Include="inc\BatchExecutor.cs" />
+    <Compile Include="inc\BatchTransferExecutor.cs" />
+    <Compile Include="inc\DataSources\AppDataSource.cs" />
+    <Compile Include="inc\DataSources\SchemaDataSource.cs" />
+    <Compile Include="inc\ExportAction.cs" />
+    <Compile Include="inc\IconSizeType.cs" />
+    <Compile Include="inc\ImportExecutor.cs" />
+    <Compile Include="inc\AllGroupImportAction.cs" />
+    <Compile Include="inc\ISceneDescriptor.cs" />
+    <Compile Include="inc\ManageRoleNotExistException.cs" />
+    <Compile Include="inc\OguExportActions.cs" />
+    <Compile Include="inc\OguFullExportAction.cs" />
+    <Compile Include="inc\OguFullImportAction.cs" />
+    <Compile Include="inc\OguGroupImportAction.cs" />
+    <Compile Include="inc\OguImportAction.cs" />
+    <Compile Include="inc\OguOrganizationImportAction.cs" />
+    <Compile Include="inc\OguUserImportAction.cs" />
+    <Compile Include="inc\AllUserImportAction.cs" />
+    <Compile Include="inc\PermissionExportAction.cs" />
+    <Compile Include="inc\PermissionImportAction.cs" />
+    <Compile Include="inc\ProfileConfig.cs" />
+    <Compile Include="inc\ProfileUtil.cs" />
+    <Compile Include="inc\RoleConstMembersExportAction.cs" />
+    <Compile Include="inc\RoleExportAction.cs" />
+    <Compile Include="inc\RoleImportAction.cs" />
+    <Compile Include="inc\SceneControlAttribute.cs" />
+    <Compile Include="inc\SerializableEditableKeyedDataObjectCollectionBase.cs" />
+    <Compile Include="inc\SubTemplateField.cs" />
+    <Compile Include="inc\WebControls\ADResultIcon.cs" />
+    <Compile Include="inc\WebControls\CollapseHandleField.cs" />
+    <Compile Include="inc\WebControls\SceneControl.cs" />
+    <Compile Include="inc\SchemaToSimpleEnumerator.cs" />
+    <Compile Include="inc\GroupConstMembersImportAction.cs" />
+    <Compile Include="inc\RoleConstMembersImportAction.cs" />
+    <Compile Include="inc\OguAclImportAction.cs" />
+    <Compile Include="inc\WebControls\SchemaHyperLink.cs" />
+    <Compile Include="inc\OguFullImportAction.HierarchicalAction.cs" />
+    <Compile Include="inc\WebControls\SubRowBoundField.cs" />
+    <Compile Include="lists\ADLog.aspx.cs">
+      <DependentUpon>ADLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lists\ADLog.aspx.designer.cs">
+      <DependentUpon>ADLog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lists\ADLogDetail.aspx.cs">
+      <DependentUpon>ADLogDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lists\ADLogDetail.aspx.designer.cs">
+      <DependentUpon>ADLogDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lists\ADReverseLog.aspx.cs">
+      <DependentUpon>ADReverseLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lists\ADReverseLog.aspx.designer.cs">
+      <DependentUpon>ADReverseLog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lists\DeletedMemberList.aspx.cs">
+      <DependentUpon>DeletedMemberList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lists\DeletedMemberList.aspx.designer.cs">
+      <DependentUpon>DeletedMemberList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lists\DissociatedList.aspx.cs">
+      <DependentUpon>DissociatedList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lists\DissociatedList.aspx.designer.cs">
+      <DependentUpon>DissociatedList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lists\MemberMatrix.aspx.cs">
+      <DependentUpon>MemberMatrix.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lists\MemberMatrix.aspx.designer.cs">
+      <DependentUpon>MemberMatrix.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lists\OUNotFound.aspx.cs">
+      <DependentUpon>OUNotFound.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lists\OUNotFound.aspx.designer.cs">
+      <DependentUpon>OUNotFound.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lists\OUSearch.aspx.cs">
+      <DependentUpon>OUSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lists\OUSearch.aspx.designer.cs">
+      <DependentUpon>OUSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lists\FlowList.aspx.cs">
+      <DependentUpon>FlowList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lists\FlowList.aspx.designer.cs">
+      <DependentUpon>FlowList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lists\TransferTypes.cs" />
+    <Compile Include="inc\Util.cs" />
+    <Compile Include="inc\WebControls\Banner.ascx.cs">
+      <DependentUpon>Banner.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="inc\WebControls\Banner.ascx.designer.cs">
+      <DependentUpon>Banner.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="inc\WebControls\DeluxeGridHoverExtender.cs" />
+    <Compile Include="inc\WebControls\Footer.ascx.cs">
+      <DependentUpon>Footer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="inc\WebControls\Footer.ascx.designer.cs">
+      <DependentUpon>Footer.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="inc\WebControls\BannerNotice.cs" />
+    <Compile Include="inc\WebControls\HeaderControl.cs" />
+    <Compile Include="inc\WebControls\LogOperationLabel.cs" />
+    <Compile Include="lists\AllApps.aspx.cs">
+      <DependentUpon>AllApps.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lists\AllApps.aspx.designer.cs">
+      <DependentUpon>AllApps.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lists\AllGroups.aspx.cs">
+      <DependentUpon>AllGroups.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lists\AllGroups.aspx.designer.cs">
+      <DependentUpon>AllGroups.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lists\AllMembers.aspx.cs">
+      <DependentUpon>AllMembers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lists\AllMembers.aspx.designer.cs">
+      <DependentUpon>AllMembers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lists\AppFunctions.aspx.cs">
+      <DependentUpon>AppFunctions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lists\AppFunctions.aspx.designer.cs">
+      <DependentUpon>AppFunctions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lists\AppRoleConditionMembers.aspx.cs">
+      <DependentUpon>AppRoleConditionMembers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lists\AppRoleConditionMembers.aspx.designer.cs">
+      <DependentUpon>AppRoleConditionMembers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lists\AppRoleMembers.aspx.cs">
+      <DependentUpon>AppRoleMembers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lists\AppRoleMembers.aspx.designer.cs">
+      <DependentUpon>AppRoleMembers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lists\AppRoles.aspx.cs">
+      <DependentUpon>AppRoles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lists\AppRoles.aspx.designer.cs">
+      <DependentUpon>AppRoles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lists\GroupConstMembers.aspx.cs">
+      <DependentUpon>GroupConstMembers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lists\GroupConstMembers.aspx.designer.cs">
+      <DependentUpon>GroupConstMembers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lists\GroupDynamicMembers.aspx.cs">
+      <DependentUpon>GroupDynamicMembers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lists\GroupDynamicMembers.aspx.designer.cs">
+      <DependentUpon>GroupDynamicMembers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lists\GroupMembersView.aspx.cs">
+      <DependentUpon>GroupMembersView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lists\GroupMembersView.aspx.designer.cs">
+      <DependentUpon>GroupMembersView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lists\LogList.aspx.cs">
+      <DependentUpon>LogList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lists\LogList.aspx.designer.cs">
+      <DependentUpon>LogList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lists\LogView.aspx.cs">
+      <DependentUpon>LogView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lists\LogView.aspx.designer.cs">
+      <DependentUpon>LogView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lists\MemberGrpView.aspx.cs">
+      <DependentUpon>MemberGrpView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lists\MemberGrpView.aspx.designer.cs">
+      <DependentUpon>MemberGrpView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lists\MemberOrgView.aspx.cs">
+      <DependentUpon>MemberOrgView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lists\MemberOrgView.aspx.designer.cs">
+      <DependentUpon>MemberOrgView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lists\MemberRoleView.aspx.cs">
+      <DependentUpon>MemberRoleView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lists\MemberRoleView.aspx.designer.cs">
+      <DependentUpon>MemberRoleView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lists\ObjectHistoryLog.aspx.cs">
+      <DependentUpon>ObjectHistoryLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lists\ObjectHistoryLog.aspx.designer.cs">
+      <DependentUpon>ObjectHistoryLog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lists\ObjectHistoryTimeline.aspx.cs">
+      <DependentUpon>ObjectHistoryTimeline.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lists\ObjectHistoryTimeline.aspx.designer.cs">
+      <DependentUpon>ObjectHistoryTimeline.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lists\OUExplorer.aspx.cs">
+      <DependentUpon>OUExplorer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lists\OUExplorer.aspx.designer.cs">
+      <DependentUpon>OUExplorer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lists\OUExplorerView.aspx.designer.cs">
+      <DependentUpon>OUExplorerView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\RoleDefinition.aspx.cs">
+      <DependentUpon>RoleDefinition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dialogs\RoleDefinition.aspx.designer.cs">
+      <DependentUpon>RoleDefinition.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lists\AppRoleMembersView.aspx.cs">
+      <DependentUpon>AppRoleMembersView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lists\AppRoleMembersView.aspx.designer.cs">
+      <DependentUpon>AppRoleMembersView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lists\RootSchemas.aspx.cs">
+      <DependentUpon>RootSchemas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lists\RootSchemas.aspx.designer.cs">
+      <DependentUpon>RootSchemas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lists\OUExplorerView.aspx.cs">
+      <DependentUpon>OUExplorerView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lists\UserSecretary.aspx.cs">
+      <DependentUpon>UserSecretary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lists\UserSecretary.aspx.designer.cs">
+      <DependentUpon>UserSecretary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lists\ADReverseLogDetail.aspx.cs">
+      <DependentUpon>ADReverseLogDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lists\ADReverseLogDetail.aspx.designer.cs">
+      <DependentUpon>ADReverseLogDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyEditors\CodeNameUniqueEditor.cs" />
+    <Compile Include="Services\CommonService.asmx.cs">
+      <DependentUpon>CommonService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\ConditionSvc.asmx.cs">
+      <DependentUpon>ConditionSvc.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Handlers\ObjectExport.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\pc\DeluxeGrid.skin" />
+    <Content Include="App_Themes\pc\RelaxedTabStrip.skin" />
+    <Content Include="Handlers\UserPhoto.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Handlers\TimelineData.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Handlers\AdSync.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Handlers\Toggle.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dialogs\MaintainMaster.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Handlers\Transfer.ashx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v12.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1306</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/MCSWebApp/PermissionCenter</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

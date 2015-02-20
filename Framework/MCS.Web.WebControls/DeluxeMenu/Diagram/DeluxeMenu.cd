@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Microsoft YaHei" Size="8.25" />
+  <Class Name="MCS.Web.WebControls.DeluxeMenu">
+    <Position X="0.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>DeluxeMenu\DeluxeMenu.cs</FileName>
+      <HashCode>CgFFAAiAAQAACAAAAAgAADgRCAwAAoUAAhAEAKAEhAg=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Web.WebControls.MenuCollectionItemsEditor">
+    <Position X="6.25" Y="4.25" Width="2" />
+    <TypeIdentifier>
+      <FileName>DeluxeMenu\MenuCollectionItemsEditor.cs</FileName>
+      <HashCode>AAAAAAAAAgAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Web.WebControls.MenuItem" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>DeluxeMenu\MenuItem.cs</FileName>
+      <HashCode>AgAAQAAAAAAAAgBAAAIQSDgAqCAABKAIAgAgKgIAAAI=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MCS.Web.WebControls.MenuItemCollection">
+    <Position X="6" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>DeluxeMenu\MenuItem.cs</FileName>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAQAAAAAAEABAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Web.WebControls.MenuItemsDesigner">
+    <Position X="8.75" Y="6.75" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>DeluxeMenu\MenuItemsDesigner.cs</FileName>
+      <HashCode>AAAQAAACAAAAAAAIAAAAAAQAAAAAAAAACAABAAAAgAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Web.WebControls.MenuItemsEditor">
+    <Position X="6.25" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <FileName>DeluxeMenu\MenuItemsEditor.cs</FileName>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Web.WebControls.MenuItemsEditorForm">
+    <Position X="3.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>DeluxeMenu\MenuItemsEditorForm.cs</FileName>
+      <HashCode>AAFkAAkZQDAQKAEGAFHAIAACNAIYAQAQgGAAAAAABGA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Web.WebControls.PopupMenuDesigner">
+    <Position X="0.5" Y="8.5" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>DeluxeMenu\PopupMenuDesigner.cs</FileName>
+      <HashCode>AAAQAAAAAAAAABAIAAAAAAAAAAQEAgAAAAABACAAgAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="MCS.Web.WebControls.MenuOrientation">
+    <Position X="6.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DeluxeMenu\DeluxeMenu.cs</FileName>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+</ClassDiagram>

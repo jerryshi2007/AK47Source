@@ -1,0 +1,52 @@
+<script language="javascript" type="text/javascript">
+	function onWfOperationNotifierPropertyChange() {
+		var elem = event.srcElement;
+
+		if (event.propertyName == "value") {
+			var frameContainer = $get("wfExternalFrameContainer");
+			var originalFrame = $get("wfExternalFrame");
+			var oldReadyStateChange = null;
+
+			if (originalFrame)
+				oldReadyStateChange = originalFrame.onreadystatechange;
+
+			if (frameContainer) {
+				window.setTimeout(function () {
+					frameContainer.innerHTML = "<iframe id='wfExternalFrame' name='wfExternalFrame' style='display:none'></iframe>";
+					frameContainer.style.display = "none";
+
+					originalFrame = $get("wfExternalFrame");
+
+					if (originalFrame) {
+						window.setTimeout(function () { originalFrame.onreadystatechange = oldReadyStateChange; }, 100);
+					}
+				}, 100);
+			}
+
+			if (elem.value != "") {
+				var messageArray = elem.value.split("^");
+				var ctrlID = messageArray[0];
+				var err = null
+
+				if (messageArray.length > 1) {
+					err = new Object();
+					err.message = messageArray[1];
+
+					if (messageArray.length > 2)
+						err.description = messageArray[2];
+					else
+						err.description = "";
+				}
+
+				var wCtrl = $find(ctrlID);
+				wCtrl.raiseOperationComplete(err);
+
+				elem.value = "";
+			}
+
+			if (typeof (SubmitButton) != "undefined")
+				SubmitButton.resetAllStates();
+		}
+	}
+</script>
+<input type="hidden" id="wfOperationNotifier" onpropertychange="onWfOperationNotifierPropertyChange();" />

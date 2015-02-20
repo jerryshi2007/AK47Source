@@ -1,0 +1,78 @@
+﻿/*itemCssClass默认的样式*/
+.popupMenu_Default_Item
+{
+	height: 30px;
+}
+/*enable时的样式*/
+.popupMenu_Default_Item_Enable
+{
+	height: 30px;
+}
+
+.popupMenu_Default_ItemSelected
+{
+	height: 30px; /*和没选中时一样*/
+}
+
+.popupMenu_Default_ImageCol
+{
+	/*background-color: #bbbbbb;*/
+	text-align: center;
+	width: 24px;
+}
+
+.popupMenu_Fixed_ImageCol
+{
+	width: 29px; /*	background-image:url(../../Images/menuback.gif);	*/
+}
+/*整个table，菜单项的样式*/
+.popupMenu_Default
+{
+	background-color: #b9e0ff;
+}
+/*popup取popupMenu_Default body不设*/
+.popupMenu_Default_PopBody
+{
+	background-color: #dddddd;
+}
+
+.popupMenu_Default_ItemHover
+{
+	/*	BACKGROUND-COLOR:#e5e5e5;*/ /* 	border-top-width: 1px; 	border-right-width: 0px; 	border-bottom-width: 1px; 	border-left-width: 0px; 	border-top-style: dashed; 	border-right-style: dashed; 	border-bottom-style: dashed; 	border-left-style: dashed; 	border-top-color: #f7a81c; 	border-right-color: #f7a81c; 	border-bottom-color: #f7a81c; 	border-left-color: #f7a81c;*/ /*	color:#e50c1b;*/
+	text-decoration: none;
+	color: Red;
+	background-image: url(../../Images/DeluxeMenu/index_18.gif);
+	background-position: left top;
+	background-repeat: repeat-x; /* 	 	border-left:solid 1px #e1f7ff; 	border-right:solid 1px #e1f7ff;     border-top:solid 1px #f0fbff;     border-bottom:solid 1px #8ebdfd;  */
+}
+
+.popupMenu_Default_Image
+{
+}
+
+.popupMenu_Default_Separator
+{
+	background-color: silver;
+	height: 1px;
+	width: 80%;
+	margin-right: 8px;
+}
+
+.popupMenu_Back
+{
+	width: 24px;
+	background-image: url(<%=WebResource("ChinaCustoms.Framework.DeluxeWorks.Web.WebControls.PopupMenu.back.gif")%>);
+	background-repeat: repeat-y;
+	height: auto;
+	width: 20px;
+}
+
+.popupMenu_Border
+{
+	border: solid 1px #3796f3;
+}
+.imgright
+{
+	text-align: right;
+	float: right;
+}

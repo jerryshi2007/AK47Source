@@ -1,0 +1,55 @@
+﻿<script type="text/javascript">
+	function onDialogConfirm() {
+		try {
+			var poDialog = $find("PredefinedOpinionDialog");
+			if (!poDialog)
+				return;
+
+			var predefinedOpinion = poDialog.get_predefinedOpinion();
+
+			var retVal = predefinedOpinion.replace(/\s+/g, " ").replace(/\s+/g, " ");
+
+			if (retVal.length > 200) {
+				throw new Error(200, $NT.getText("SOAWebControls", "内容不能超过200个字"));
+			}
+
+			var err = poDialog.save(retVal);
+
+			if (err)
+				throw err;
+
+			window.returnValue = retVal;
+			window.close();
+		}
+		catch (e) {
+			$showError(e);
+		}
+	}
+</script>
+
+<style type="text/css">
+	.containerTable
+	{
+		width: 100%;
+		height: 100%;
+		padding: 4px 8px 2px;
+	}
+	.content
+	{
+		font-size: 12px;
+		text-align: left;
+	}
+</style>
+<table class="containerTable" cellpadding="0" cellspacing="0">
+	<tr>
+		<td style="height: 144px; vertical-align: top">
+			<textarea runat="server" id="opinionText" style="width: 99%; height: 99%; border: 1px solid silver"></textarea>
+		</td>
+	</tr>
+	<tr>
+		<td class="content">
+			&nbsp;-&nbsp;&nbsp;<span runat="server" category="SOAWebControls">多条意见之间请使用英文空格或回车分隔；</span><br />
+			&nbsp;-&nbsp;&nbsp;<span runat="server" category="SOAWebControls">所有意见（包含分隔符）的总长度不能超过200个字。</span>
+		</td>
+	</tr>
+</table>

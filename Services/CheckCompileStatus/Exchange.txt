@@ -1,0 +1,18 @@
+﻿{System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 10.0.8.10:25
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.ServicePoint.GetConnection(PooledStream PooledStream, Object owner, Boolean async, IPAddress& address, Socket& abortSocket, Socket& abortSocket6, Int32 timeout)
+   at System.Net.PooledStream.Activate(Object owningObject, Boolean async, Int32 timeout, GeneralAsyncDelegate asyncCallback)
+   at System.Net.PooledStream.Activate(Object owningObject, GeneralAsyncDelegate asyncCallback)
+   at System.Net.ConnectionPool.GetConnection(Object owningObject, GeneralAsyncDelegate asyncCallback, Int32 creationTimeout)
+   at System.Net.Mail.SmtpConnection.GetConnection(ServicePoint servicePoint)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)}
+
+   {System.Net.Mail.SmtpException: Mailbox unavailable. The server response was: 5.7.1 Client does not have permissions to send as this sender
+   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at CheckCompileStatus.MailHelper.SendMail(String mailFrom, List`1 mailTo, String mailCC, String mailSubject, String mailBody) in C:\Seagull2Collection\MCSFramework\02.Develop\Services\CheckCompileStatus\MailHelper.cs:line 169
+   at CheckCompileStatus.MailHelper.Send(String mailFrom, String mailCC, String workspaceServerPath, DateTime startTime, DateTime endTime, String timeElapsed, Collection`1 errors, Collection`1 warnings) in C:\Seagull2Collection\MCSFramework\02.Develop\Services\CheckCompileStatus\MailHelper.cs:line 143
+   at CheckCompileStatus.Program.Main(String[] args) in C:\Seagull2Collection\MCSFramework\02.Develop\Services\CheckCompileStatus\Program.cs:line 58}

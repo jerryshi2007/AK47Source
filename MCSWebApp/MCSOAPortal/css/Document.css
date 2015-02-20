@@ -1,0 +1,29 @@
+/*一般公文的定义*/
+H1
+{
+	COLOR: red
+}
+
+TABLE
+{
+	COLOR: red
+}
+
+TD
+{
+	FONT-SIZE: 16px;
+	COLOR:Black;
+}
+
+.DocumentInput
+{
+	BORDER-RIGHT: medium none;
+	BORDER-TOP: medium none;
+	BORDER-LEFT: medium none;
+	BORDER-BOTTOM: solid silver 1px; font-size: 16px
+}
+
+.DottedUnderline
+{
+	BORDER-BOTTOM: red 1pt dotted;
+}

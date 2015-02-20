@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>../../../../CIIC.HSR.TSP.Files/TSPLib.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FBC41A65-B9F4-4C5F-BD75-BC5A80FF9F49}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WfDemoServiceTest</RootNamespace>
+    <AssemblyName>WfDemoServiceTest</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ConfigurationService.ClientComponent">
+      <HintPath>..\..\..\..\..\SOAPlatform\02.Code\MCSFrameworkLib\ConfigurationService.ClientComponent.dll</HintPath>
+    </Reference>
+    <Reference Include="ConfigurationService.Common">
+      <HintPath>..\..\..\..\..\SOAPlatform\02.Code\MCSFrameworkLib\ConfigurationService.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ConfigurationService.ServiceComponent">
+      <HintPath>..\..\..\..\..\SOAPlatform\02.Code\MCSFrameworkLib\ConfigurationService.ServiceComponent.dll</HintPath>
+    </Reference>
+    <Reference Include="ConfigurationService.ServiceStoreReader">
+      <HintPath>..\..\..\..\..\SOAPlatform\02.Code\MCSFrameworkLib\ConfigurationService.ServiceStoreReader.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.ESB.Policies">
+      <HintPath>..\..\..\..\..\SOAPlatform\02.Code\MCSFrameworkLib\MCS.Library.SOA.ESB.Policies.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.ESB.Proxy">
+      <HintPath>..\..\..\..\..\SOAPlatform\02.Code\MCSFrameworkLib\MCS.Library.SOA.ESB.Proxy.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\DataSources\ConfigurationService.Common.ConfigurationSectionResponse.datasource" />
+    <None Include="Properties\DataSources\WfDemoService.DemoOrderData.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WfDemoService.csproj">
+      <Project>{FDEC4315-DC8F-4BE2-B04E-53D6783783E6}</Project>
+      <Name>WfDemoService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

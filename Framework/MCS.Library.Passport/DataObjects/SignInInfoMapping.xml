@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ORMapping>
+  <Item propertyName="UserID" dataFieldName="USER_ID" />
+  <Item propertyName="Domain" dataFieldName="DOMAIN" />
+  <Item propertyName="SignInSessionID" dataFieldName="SIGNIN_ID" primaryKey="True" bindingFlags="13" />
+  <Item propertyName="SignInTime" dataFieldName="SIGNIN_TIME" defaultExpression="GETDATE()" />
+  <Item propertyName="SignInTimeout" dataFieldName="SIGNIN_TIMEOUT" />
+  <Item propertyName="AuthenticateServer" dataFieldName="AUTHENTICATE_SERVER" />
+</ORMapping>

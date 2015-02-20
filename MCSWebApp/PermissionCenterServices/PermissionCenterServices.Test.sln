@@ -1,0 +1,174 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PermissionCenterServices", "PermissionCenterServices.csproj", "{1B601749-C27A-40E6-8F5C-00E2E1E92AA2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5818CF12-2F5D-4B41-836B-DD10E120C533} = {5818CF12-2F5D-4B41-836B-DD10E120C533}
+		{4313DE1E-738F-477D-B7FD-B237E9116670} = {4313DE1E-738F-477D-B7FD-B237E9116670}
+		{6EA98729-9A07-4D1F-B389-07C6B9D43B1D} = {6EA98729-9A07-4D1F-B389-07C6B9D43B1D}
+		{7905642F-4630-4D16-AF40-CB1FB70D516F} = {7905642F-4630-4D16-AF40-CB1FB70D516F}
+		{CC48CF62-E205-4C41-8EC4-6E75A424C755} = {CC48CF62-E205-4C41-8EC4-6E75A424C755}
+		{E06BFB86-31B4-44CD-8976-901EB7DD1AA9} = {E06BFB86-31B4-44CD-8976-901EB7DD1AA9}
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215} = {4077B0B7-062A-4F6D-8A45-A180A2ED3215}
+		{2B0E10EE-F7E1-468B-84C0-ABD17A3A7319} = {2B0E10EE-F7E1-468B-84C0-ABD17A3A7319}
+		{6C750EF1-D01C-447A-9FED-C07744853C62} = {6C750EF1-D01C-447A-9FED-C07744853C62}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library.SOA.DataObjects.Security", "..\..\Framework\MCS.Library.SOA.DataObjects.Security\MCS.Library.SOA.DataObjects.Security.csproj", "{5818CF12-2F5D-4B41-836B-DD10E120C533}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6EA98729-9A07-4D1F-B389-07C6B9D43B1D} = {6EA98729-9A07-4D1F-B389-07C6B9D43B1D}
+		{7905642F-4630-4D16-AF40-CB1FB70D516F} = {7905642F-4630-4D16-AF40-CB1FB70D516F}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library.OGUPermission", "..\..\Framework\MCS.Library.OGUPermission\MCS.Library.OGUPermission.csproj", "{6EA98729-9A07-4D1F-B389-07C6B9D43B1D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4313DE1E-738F-477D-B7FD-B237E9116670} = {4313DE1E-738F-477D-B7FD-B237E9116670}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library.Data", "..\..\Framework\MCS.Library.Data\MCS.Library.Data.csproj", "{4313DE1E-738F-477D-B7FD-B237E9116670}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215} = {4077B0B7-062A-4F6D-8A45-A180A2ED3215}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library", "..\..\Framework\MCS.Library\MCS.Library.csproj", "{4077B0B7-062A-4F6D-8A45-A180A2ED3215}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library.ADHelper", "..\..\Framework\MCS.Library.ADHelper\MCS.Library.ADHelper.csproj", "{2B0E10EE-F7E1-468B-84C0-ABD17A3A7319}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215} = {4077B0B7-062A-4F6D-8A45-A180A2ED3215}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library.SOA.DataObjects.Security.Client", "..\..\Framework\MCS.Library.SOA.DataObjects.Security.Client\MCS.Library.SOA.DataObjects.Security.Client.csproj", "{CC48CF62-E205-4C41-8EC4-6E75A424C755}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E06BFB86-31B4-44CD-8976-901EB7DD1AA9} = {E06BFB86-31B4-44CD-8976-901EB7DD1AA9}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library.SOA.Security.ADSyncUtilities", "..\..\Framework\MCS.Library.SOA.Security.ADSyncUtilities\MCS.Library.SOA.Security.ADSyncUtilities.csproj", "{6C750EF1-D01C-447A-9FED-C07744853C62}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5818CF12-2F5D-4B41-836B-DD10E120C533} = {5818CF12-2F5D-4B41-836B-DD10E120C533}
+		{4313DE1E-738F-477D-B7FD-B237E9116670} = {4313DE1E-738F-477D-B7FD-B237E9116670}
+		{6EA98729-9A07-4D1F-B389-07C6B9D43B1D} = {6EA98729-9A07-4D1F-B389-07C6B9D43B1D}
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215} = {4077B0B7-062A-4F6D-8A45-A180A2ED3215}
+		{2B0E10EE-F7E1-468B-84C0-ABD17A3A7319} = {2B0E10EE-F7E1-468B-84C0-ABD17A3A7319}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library.SOA.DataObjects.Schemas.Client", "..\..\Framework\MCS.Library.SOA.DataObjects.Schemas.Client\MCS.Library.SOA.DataObjects.Schemas.Client.csproj", "{E06BFB86-31B4-44CD-8976-901EB7DD1AA9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6EA98729-9A07-4D1F-B389-07C6B9D43B1D} = {6EA98729-9A07-4D1F-B389-07C6B9D43B1D}
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215} = {4077B0B7-062A-4F6D-8A45-A180A2ED3215}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library.SOA.DataObjects", "..\..\Framework\MCS.Library.SOA.DataObjects\MCS.Library.SOA.DataObjects.csproj", "{7905642F-4630-4D16-AF40-CB1FB70D516F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4313DE1E-738F-477D-B7FD-B237E9116670} = {4313DE1E-738F-477D-B7FD-B237E9116670}
+		{6EA98729-9A07-4D1F-B389-07C6B9D43B1D} = {6EA98729-9A07-4D1F-B389-07C6B9D43B1D}
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215} = {4077B0B7-062A-4F6D-8A45-A180A2ED3215}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 11
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://shsvr9141tfs.ciicsh.local:8080/tfs/rhso
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ..\\..\\Framework\\MCS.Library.ADHelper\\MCS.Library.ADHelper.csproj
+		SccProjectName1 = ../../Framework/MCS.Library.ADHelper
+		SccLocalPath1 = ..\\..\\Framework\\MCS.Library.ADHelper
+		SccProjectUniqueName2 = ..\\..\\Framework\\MCS.Library.Data\\MCS.Library.Data.csproj
+		SccProjectName2 = ../../Framework/MCS.Library.Data
+		SccLocalPath2 = ..\\..\\Framework\\MCS.Library.Data
+		SccProjectUniqueName3 = ..\\..\\Framework\\MCS.Library.OGUPermission\\MCS.Library.OGUPermission.csproj
+		SccProjectName3 = ../../Framework/MCS.Library.OGUPermission
+		SccLocalPath3 = ..\\..\\Framework\\MCS.Library.OGUPermission
+		SccProjectUniqueName4 = ..\\..\\Framework\\MCS.Library.SOA.DataObjects.Schemas.Client\\MCS.Library.SOA.DataObjects.Schemas.Client.csproj
+		SccProjectName4 = ../../Framework/MCS.Library.SOA.DataObjects.Schemas.Client
+		SccLocalPath4 = ..\\..\\Framework\\MCS.Library.SOA.DataObjects.Schemas.Client
+		SccProjectUniqueName5 = ..\\..\\Framework\\MCS.Library.SOA.DataObjects.Security.Client\\MCS.Library.SOA.DataObjects.Security.Client.csproj
+		SccProjectName5 = ../../Framework/MCS.Library.SOA.DataObjects.Security.Client
+		SccLocalPath5 = ..\\..\\Framework\\MCS.Library.SOA.DataObjects.Security.Client
+		SccProjectUniqueName6 = ..\\..\\Framework\\MCS.Library.SOA.DataObjects.Security\\MCS.Library.SOA.DataObjects.Security.csproj
+		SccProjectName6 = ../../Framework/MCS.Library.SOA.DataObjects.Security
+		SccLocalPath6 = ..\\..\\Framework\\MCS.Library.SOA.DataObjects.Security
+		SccProjectUniqueName7 = ..\\..\\Framework\\MCS.Library.SOA.DataObjects\\MCS.Library.SOA.DataObjects.csproj
+		SccProjectName7 = ../../Framework/MCS.Library.SOA.DataObjects
+		SccLocalPath7 = ..\\..\\Framework\\MCS.Library.SOA.DataObjects
+		SccProjectUniqueName8 = ..\\..\\Framework\\MCS.Library.SOA.Security.ADSyncUtilities\\MCS.Library.SOA.Security.ADSyncUtilities.csproj
+		SccProjectName8 = ../../Framework/MCS.Library.SOA.Security.ADSyncUtilities
+		SccLocalPath8 = ..\\..\\Framework\\MCS.Library.SOA.Security.ADSyncUtilities
+		SccProjectUniqueName9 = ..\\..\\Framework\\MCS.Library\\MCS.Library.csproj
+		SccProjectName9 = ../../Framework/MCS.Library
+		SccLocalPath9 = ..\\..\\Framework\\MCS.Library
+		SccProjectUniqueName10 = PermissionCenterServices.csproj
+		SccLocalPath10 = .
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		DELUXEWORKSTEST|Any CPU = DELUXEWORKSTEST|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1B601749-C27A-40E6-8F5C-00E2E1E92AA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B601749-C27A-40E6-8F5C-00E2E1E92AA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B601749-C27A-40E6-8F5C-00E2E1E92AA2}.DELUXEWORKSTEST|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B601749-C27A-40E6-8F5C-00E2E1E92AA2}.DELUXEWORKSTEST|Any CPU.Build.0 = Debug|Any CPU
+		{1B601749-C27A-40E6-8F5C-00E2E1E92AA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B601749-C27A-40E6-8F5C-00E2E1E92AA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5818CF12-2F5D-4B41-836B-DD10E120C533}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5818CF12-2F5D-4B41-836B-DD10E120C533}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5818CF12-2F5D-4B41-836B-DD10E120C533}.DELUXEWORKSTEST|Any CPU.ActiveCfg = Debug|Any CPU
+		{5818CF12-2F5D-4B41-836B-DD10E120C533}.DELUXEWORKSTEST|Any CPU.Build.0 = Debug|Any CPU
+		{5818CF12-2F5D-4B41-836B-DD10E120C533}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5818CF12-2F5D-4B41-836B-DD10E120C533}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EA98729-9A07-4D1F-B389-07C6B9D43B1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EA98729-9A07-4D1F-B389-07C6B9D43B1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EA98729-9A07-4D1F-B389-07C6B9D43B1D}.DELUXEWORKSTEST|Any CPU.ActiveCfg = DELUXEWORKSTEST|Any CPU
+		{6EA98729-9A07-4D1F-B389-07C6B9D43B1D}.DELUXEWORKSTEST|Any CPU.Build.0 = DELUXEWORKSTEST|Any CPU
+		{6EA98729-9A07-4D1F-B389-07C6B9D43B1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EA98729-9A07-4D1F-B389-07C6B9D43B1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4313DE1E-738F-477D-B7FD-B237E9116670}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4313DE1E-738F-477D-B7FD-B237E9116670}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4313DE1E-738F-477D-B7FD-B237E9116670}.DELUXEWORKSTEST|Any CPU.ActiveCfg = DELUXEWORKSTEST|Any CPU
+		{4313DE1E-738F-477D-B7FD-B237E9116670}.DELUXEWORKSTEST|Any CPU.Build.0 = DELUXEWORKSTEST|Any CPU
+		{4313DE1E-738F-477D-B7FD-B237E9116670}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4313DE1E-738F-477D-B7FD-B237E9116670}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.DELUXEWORKSTEST|Any CPU.ActiveCfg = DELUXEWORKSTEST|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.DELUXEWORKSTEST|Any CPU.Build.0 = DELUXEWORKSTEST|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B0E10EE-F7E1-468B-84C0-ABD17A3A7319}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B0E10EE-F7E1-468B-84C0-ABD17A3A7319}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B0E10EE-F7E1-468B-84C0-ABD17A3A7319}.DELUXEWORKSTEST|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B0E10EE-F7E1-468B-84C0-ABD17A3A7319}.DELUXEWORKSTEST|Any CPU.Build.0 = Debug|Any CPU
+		{2B0E10EE-F7E1-468B-84C0-ABD17A3A7319}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B0E10EE-F7E1-468B-84C0-ABD17A3A7319}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC48CF62-E205-4C41-8EC4-6E75A424C755}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC48CF62-E205-4C41-8EC4-6E75A424C755}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC48CF62-E205-4C41-8EC4-6E75A424C755}.DELUXEWORKSTEST|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC48CF62-E205-4C41-8EC4-6E75A424C755}.DELUXEWORKSTEST|Any CPU.Build.0 = Debug|Any CPU
+		{CC48CF62-E205-4C41-8EC4-6E75A424C755}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC48CF62-E205-4C41-8EC4-6E75A424C755}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C750EF1-D01C-447A-9FED-C07744853C62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C750EF1-D01C-447A-9FED-C07744853C62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C750EF1-D01C-447A-9FED-C07744853C62}.DELUXEWORKSTEST|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C750EF1-D01C-447A-9FED-C07744853C62}.DELUXEWORKSTEST|Any CPU.Build.0 = Debug|Any CPU
+		{6C750EF1-D01C-447A-9FED-C07744853C62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C750EF1-D01C-447A-9FED-C07744853C62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E06BFB86-31B4-44CD-8976-901EB7DD1AA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E06BFB86-31B4-44CD-8976-901EB7DD1AA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E06BFB86-31B4-44CD-8976-901EB7DD1AA9}.DELUXEWORKSTEST|Any CPU.ActiveCfg = Debug|Any CPU
+		{E06BFB86-31B4-44CD-8976-901EB7DD1AA9}.DELUXEWORKSTEST|Any CPU.Build.0 = Debug|Any CPU
+		{E06BFB86-31B4-44CD-8976-901EB7DD1AA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E06BFB86-31B4-44CD-8976-901EB7DD1AA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7905642F-4630-4D16-AF40-CB1FB70D516F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7905642F-4630-4D16-AF40-CB1FB70D516F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7905642F-4630-4D16-AF40-CB1FB70D516F}.DELUXEWORKSTEST|Any CPU.ActiveCfg = Debug|Any CPU
+		{7905642F-4630-4D16-AF40-CB1FB70D516F}.DELUXEWORKSTEST|Any CPU.Build.0 = Debug|Any CPU
+		{7905642F-4630-4D16-AF40-CB1FB70D516F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7905642F-4630-4D16-AF40-CB1FB70D516F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

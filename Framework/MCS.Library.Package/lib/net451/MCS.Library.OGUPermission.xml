@@ -1,0 +1,3713 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MCS.Library.OGUPermission</name>
+    </assembly>
+    <members>
+        <member name="T:MCS.Library.OGUPermission.Commands.GetPermissionRelativeRoles">
+            <summary>
+            得到权限的相关角色
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetPermissionRelativeRoles.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetPermissionRelativeRoles.Execute(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="argument"></param>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.Commands.GetPermissionRelativeRoles.HelperString">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.Commands.GetUserDetailCommand">
+            <summary>
+            得到用户的详细信息，包括Properties集合中的每一项
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetUserDetailCommand.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetUserDetailCommand.Execute(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="argument"></param>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.Commands.GetUserDetailCommand.HelperString">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.Commands.RemovePermissionCache">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.RemovePermissionCache.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.RemovePermissionCache.Execute(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="argument"></param>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.Commands.RemovePermissionCache.HelperString">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.Commands.GetAllChildren">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetAllChildren.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetAllChildren.Execute(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="argument"></param>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.Commands.GetAllChildren.HelperString">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.Commands.GetUserPermissions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetUserPermissions.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetUserPermissions.Execute(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="argument"></param>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.Commands.GetUserPermissions.HelperString">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.Commands.GetApplications">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetApplications.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetApplications.Execute(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="argument"></param>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.Commands.GetApplications.HelperString">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.Commands.GetGroupUsers">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetGroupUsers.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetGroupUsers.Execute(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="argument"></param>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.Commands.GetGroupUsers.HelperString">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.Commands.GetObjectByFullPath">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetObjectByFullPath.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetObjectByFullPath.Execute(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="argument"></param>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.Commands.GetObjectByFullPath.HelperString">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.Commands.GetObjectByIDCommand">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetObjectByIDCommand.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetObjectByIDCommand.Execute(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="argument"></param>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.Commands.GetObjectByIDCommand.HelperString">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.Commands.GetPermissions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetPermissions.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetPermissions.Execute(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="argument"></param>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.Commands.GetPermissions.HelperString">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.Commands.GetRoles">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetRoles.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetRoles.Execute(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="argument"></param>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.Commands.GetRoles.HelperString">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.Commands.GetRoot">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetRoot.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetRoot.Execute(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="argument"></param>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.Commands.GetRoot.HelperString">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.Commands.GetUserCommand">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetUserCommand.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetUserCommand.Execute(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="argument"></param>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.Commands.GetUserCommand.HelperString">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.Commands.GetUserGroups">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetUserGroups.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetUserGroups.Execute(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="argument"></param>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.Commands.GetUserGroups.HelperString">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.Commands.GetUserLeaders">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetUserLeaders.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetUserLeaders.Execute(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="argument"></param>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.Commands.GetUserLeaders.HelperString">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.Commands.GetUserParentCommand">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetUserParentCommand.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetUserParentCommand.Execute(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="argument"></param>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.Commands.GetUserParentCommand.HelperString">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.Commands.GetUserRoles">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetUserRoles.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetUserRoles.Execute(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="argument"></param>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.Commands.GetUserRoles.HelperString">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.Commands.GetUserSecretaries">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetUserSecretaries.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetUserSecretaries.Execute(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="argument"></param>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.Commands.GetUserSecretaries.HelperString">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.Commands.GetUserSiblings">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetUserSiblings.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetUserSiblings.Execute(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="argument"></param>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.Commands.GetUserSiblings.HelperString">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.Commands.GetUserTopOUCommand">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetUserTopOUCommand.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.GetUserTopOUCommand.Execute(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="argument"></param>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.Commands.GetUserTopOUCommand.HelperString">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.Commands.HelpCommand">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.HelpCommand.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.HelpCommand.Execute(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="argument"></param>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.Commands.HelpCommand.HelperString">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.Commands.OguCommandHelper">
+            <summary>
+            Ogu相关命令的帮助类，帮助注册
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.OguCommandHelper.RegisterAllCommands">
+            <summary>
+            注册所有的命令
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.Commands.OutputHelper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.OutputHelper.OutputObjectInfo(MCS.Library.OGUPermission.IOguObject)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.OutputHelper.OutputObjectDetailInfo(MCS.Library.OGUPermission.IOguObject)">
+            <summary>
+            输出对象的详细信息
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.OutputHelper.OutputUserDetailInfo(System.Collections.Generic.IEnumerable{MCS.Library.OGUPermission.IUser})">
+            <summary>
+            输出用户的详细信息，包括每一个属性的信息
+            </summary>
+            <param name="users"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.OutputHelper.OutputObjectInfo(System.Collections.Generic.IEnumerable{MCS.Library.OGUPermission.IOguObject})">
+            <summary>
+            
+            </summary>
+            <param name="objs"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.OutputHelper.OutputUserInfo(System.Collections.Generic.IEnumerable{MCS.Library.OGUPermission.IUser})">
+            <summary>
+            
+            </summary>
+            <param name="users"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.OutputHelper.OutputUserInfo(MCS.Library.OGUPermission.IUser)">
+            <summary>
+            
+            </summary>
+            <param name="user"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.OutputHelper.OutputPermissionInfo(MCS.Library.OGUPermission.IPermissionObject)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.Commands.RemoveOguCache">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.RemoveOguCache.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.Commands.RemoveOguCache.Execute(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="argument"></param>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.Commands.RemoveOguCache.HelperString">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.OguPermissionSettings">
+            <summary>
+            »ú¹¹ÈËÔ±ºÍÊÚÈ¨¹ÜÀíÏà¹ØÅäÖÃÐÅÏ¢
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguPermissionSettings.GetConfig">
+            <summary>
+            »ñÈ¡ÅäÖÃÐÅÏ¢
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguPermissionSettings.DeserializeElement(System.Xml.XmlReader,System.Boolean)">
+            <summary>
+            ¸ÃÅäÖÃ½ÚµÄÐòÁÐ»¯¹ý³Ì£¬µ±ÇÒ½öµ±µÚÒ»´Î¼ÓÔØ»òÕßÅäÖÃÎÄ¼þ¸Ä±äÊ±¡£ÕâÊ±Ó¦¸ÃÉèÖÃneedReloadDataÊôÐÔÍ¨Öªµ½×Ó½ÚµãÖØÐÂÐòÁÐ»¯¡£
+            </summary>
+            <param name="reader"></param>
+            <param name="serializeCollectionKey"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguPermissionSettings.OnDeserializeUnrecognizedAttribute(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguPermissionSettings.TopOUMapping">
+            <summary>
+            »ñÈ¡¶¥¼¶²¿ÃÅÓ³ÉäµÄÅäÖÃ
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguPermissionSettings.RootOUPath">
+            <summary>
+            Ó¦ÓÃµÄ¸ùÂ·¾¶
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguPermissionSettings.OguServiceAddress">
+            <summary>
+            »ú¹¹ÈËÔ±¹ÜÀíµÄWebServiceµÄµØÖ·
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguPermissionSettings.RoleRelatedUserParentDept">
+            <summary>
+            ½ÇÉ«ÊÇ·ñºÍÓÃ»§µÄ×éÖ¯Ïà¹Ø
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguPermissionSettings.AppAdminServiceAddress">
+            <summary>
+            ÊÚÈ¨¹ÜÀíµÄWebServiceµÄµØÖ·
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguPermissionSettings.Timeout">
+            <summary>
+            Á¬½ÓWebServiceµÄ³¬Ê±Ê±¼ä
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguPermissionSettings.UseLocalCache">
+            <summary>
+            ÊÇ·ñÊ¹ÓÃ¶ÔÏóµÄ±¾µØ»º´æ
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguPermissionSettings.UseServerCache">
+            <summary>
+            ÊÇ·ñÊ¹ÓÃ·þÎñÆ÷¶Ë»º´æ¡£ÕâÐèÒª·þÎñ·½Ö§³Ö¡£´ËÊôÐÔ»áÍ¨¹ýServiceBrokerSoapHeader·ÅÖÃÔÚSoapHeaderÖÐ
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguPermissionSettings.OguFactory">
+            <summary>
+            ÊµÏÖ»ú¹¹ÈËÔ±²Ù×÷µÄ¹¤³§Àà
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguPermissionSettings.PermissionFactory">
+            <summary>
+            ÊµÏÖÊÚÈ¨²Ù×÷µÄ¹¤³§Àà
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguPermissionSettings.OguObjectImpls">
+            <summary>
+            ×éÖ¯»ú¹¹¶ÔÏóÄÚ²¿Âß¼­µÄÊµÏÖÀà
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguPermissionSettings.PermissionObjectImpls">
+            <summary>
+            ÊÚÈ¨¶ÔÏóÄÚ²¿Âß¼­µÄÊµÏÖÀà
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguPermissionSettings.OguObjectFactory">
+            <summary>
+            ÊµÏÖ´´½¨»ú¹¹ÈËÔ±¶ÔÏóµÄ¹¤³§Àà
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguPermissionSettings.PermissionObjectFactory">
+            <summary>
+            ÊµÏÖ´´½¨ÊÚÈ¨¶ÔÏóµÄ¹¤³§Àà
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguPermissionSettings.ConnectionMappings">
+            <summary>
+            ¿Í»§¶Ë´«µÝµ½Web·þÎñµÄÁ¬½Ó´®Ó³ÉäÐÅÏ¢¼¯ºÏ
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.OrganizationMappingElementCollection">
+            <summary>
+            ¶¥¼¶²¿ÃÅÓ³ÉäµÄÅäÖÃÐÅÏ¢
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OrganizationMappingElementCollection.DeserializeElement(System.Xml.XmlReader,System.Boolean)">
+            <summary>
+            ÖØÔØÐòÁÐ»¯ElementµÄ´úÂë¡£³õÊ¼»¯LevelµÈÊôÐÔ
+            </summary>
+            <param name="reader"></param>
+            <param name="serializeCollectionKey"></param>
+            <remarks>
+            ±¾À´LevelÊôÐÔÊÇ¿ÉÒÔÍ¨¹ýÔÚÀàÊôÐÔÉÏÌí¼Ó[ConfigurationProperty("level", DefaultValue = 3)]À´ÊµÏÖµÄ£¬
+            µ«ÊÇ£¬ÎÒÃÇ·¢ÏÖÔÚÈ«¾ÖÅäÖÃÎÄ¼þÖÐ£¬ÕâÑù±àÂë£¬Ã»ÓÐÈÎºÎÐ§¹û£¨ÐÞ¸ÄÁËÅäÖÃÎÄ¼þÖÐ£¬³ÌÐòÖÐ²»»áÈ¡µ½ÐÂµÄÖµ£©£¬
+            Ä¿Ç°·¢ÏÖÕâÖÖBug³öÏÖÔÚConfigurationElementCollectionµÄÅÉÉúÀàÖÐ¡£
+            ÎªÁË½â¾ö´ËÎÊÌâ£¬ÎÒÃÇÖ»ÄÜÍ¨¹ýÖØÔØDeserializeElement£¬ÔÚÐòÁÐ»¯Õâ¸ö½ÚµãµÄ¹ý³ÌÖÐ£¬ÎªÕâ¸öÀàÌí¼ÓlevelÊôÐÔ£¬
+            ²¢ÇÒÉèÖÃ³õÊ¼Öµ¡£
+            Õâ¸ö·½·¨»á±»µ÷ÓÃ¶à´Î£¬Í¨¹ý¾²Ì¬ÊôÐÔneedReloadDataÀ´ÅÐ¶ÏÊÇ·ñÐèÒª³õÊ¼»¯levelÊôÐÔ¡£
+            needReloadData¿ÉÒÔÓÉ¸¸½ÚµãµÄÐòÁÐ»¯À´ÉèÖÃ¡£
+            </remarks>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OrganizationMappingElementCollection.GetMappedPath(System.String,System.String@)">
+            <summary>
+            µÃµ½Â·¾¶Ó³ÉäµÄ½á¹û
+            </summary>
+            <param name="sourcePath">Ô´Â·¾¶</param>
+            <param name="destPath">Ó³ÉäºóµÄÂ·¾¶£¬Èç¹ûÃ»ÓÐÓ³Éä£¬Ôò·µ»ØÔ´Â·¾¶</param>
+            <returns>ÊÇ·ñÓ³Éä</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OrganizationMappingElementCollection.GetElementKey(System.Configuration.ConfigurationElement)">
+            <summary>
+            
+            </summary>
+            <param name="element"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OrganizationMappingElementCollection.CreateNewElement">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OrganizationMappingElementCollection.Level">
+            <summary>
+            È±Ê¡µÄ¶¥¼¶²¿ÃÅµÄ¼¶±ð
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.OrganizationMappingElement">
+            <summary>
+            ¶¥¼¶²¿ÃÅµÄÓ³ÉäÅäÖÃÏî
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OrganizationMappingElement.SourcePath">
+            <summary>
+            Ô´Â·¾¶
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OrganizationMappingElement.DestinationPath">
+            <summary>
+            Ä¿±êÂ·¾¶
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.OguConnectionMappingElement">
+            <summary>
+            ¿Í»§¶Ë´«µÝµ½Web·þÎñµÄÁ¬½Ó´®Ó³ÉäÐÅÏ¢
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguConnectionMappingElement.Destination">
+            <summary>
+            Ä¿±êÁ¬½Ó´®
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.OguConnectionMappingElementCollection">
+            <summary>
+            ¿Í»§¶Ë´«µÝµ½Web·þÎñµÄÁ¬½Ó´®Ó³ÉäÐÅÏ¢¼¯ºÏ
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.IApplicationMemberPropertyAccessible">
+            <summary>
+            表示应用的成员对象所须有的方法
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.IPermissionPropertyAccessible">
+            <summary>
+            表示Permission对象的属性访问功能
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IPermissionPropertyAccessible.CodeName">
+            <summary>
+            获取或设置代码名称
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IPermissionPropertyAccessible.Description">
+            <summary>
+            获取或设置描述
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IPermissionPropertyAccessible.ID">
+            <summary>
+            获取或设置ID
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IPermissionPropertyAccessible.Name">
+            <summary>
+            获取或设置名称
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IApplicationMemberPropertyAccessible.Application">
+            <summary>
+            获取应用
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.IPermissionMechanism">
+            <summary>
+            授权系统的操作接口
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.IPermissionMechanism.GetAllApplications">
+            <summary>
+            得到所有应用对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.IPermissionMechanism.GetApplications(System.String[])">
+            <summary>
+            得到指定名称的应用对象
+            </summary>
+            <param name="codeNames">应用的名称</param>
+            <returns>应用对象集合</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.IPermissionMechanism.GetRolesObjects(MCS.Library.OGUPermission.RoleCollection,MCS.Library.OGUPermission.OguObjectCollection{MCS.Library.OGUPermission.IOrganization},System.Boolean)">
+            <summary>
+            得到指定角色下，某些部门内的所有授权人员
+            </summary>
+            <param name="roles">角色集合。</param>
+            <param name="depts">组织机构集合。</param>
+            <param name="recursively">是否递归。</param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.IPermissionMechanism.RemoveAllCache">
+            <summary>
+            清除所有Cache
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.IPermissionImplInterface">
+            <summary>
+            授权系统对象实现需要实现的接口
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.IPermissionImplInterface.GetUserRoles(MCS.Library.OGUPermission.IApplication,MCS.Library.OGUPermission.IUser)">
+            <summary>
+            得到用户的角色
+            </summary>
+            <param name="application"></param>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.IPermissionImplInterface.GetUserPermissions(MCS.Library.OGUPermission.IApplication,MCS.Library.OGUPermission.IUser)">
+            <summary>
+            得到用户的权限
+            </summary>
+            <param name="application"></param>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.IPermissionImplInterface.GetRoles(MCS.Library.OGUPermission.IApplication)">
+            <summary>
+            得到应用的角色
+            </summary>
+            <param name="application"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.IPermissionImplInterface.GetPermissions(MCS.Library.OGUPermission.IApplication)">
+            <summary>
+            得到应用的权限
+            </summary>
+            <param name="application"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.AppAdminMechanism.RemoveAllCache">
+            <summary>
+            清除所有的缓存
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.IOguImplInterface">
+            <summary>
+            机构人员对象实现时所用到的方法
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.IOguImplInterface.GetChildren``1(MCS.Library.OGUPermission.IOrganization,System.Boolean,MCS.Library.OGUPermission.SearchLevel)">
+            <summary>
+            返回机构对象的子对象
+            </summary>
+            <typeparam name="T">期望返回的结果对象的类型，IOrganization、IUser、IGroup或IOguObject</typeparam>
+            <param name="parent">父机构对象</param>
+            <param name="includeSideline">对象的类型</param>
+            <param name="searchLevel">查询的深度，单级或所有子对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.IOguImplInterface.QueryChildren``1(MCS.Library.OGUPermission.IOrganization,System.String,System.Boolean,MCS.Library.OGUPermission.SearchLevel,System.Int32)">
+            <summary>
+            在子对象进行查询（所有级别深度）
+            </summary>
+            <typeparam name="T">期望的类型</typeparam>
+            <param name="parent">父机构对象</param>
+            <param name="matchString">模糊查询的字符串</param>
+            <param name="includeSideLine">是否包含兼职的人员</param>
+            <param name="level">查询的深度</param>
+            <param name="returnCount">返回的记录数</param>
+            <returns>得到查询的子对象</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.IOguImplInterface.InitAncestorOUs(MCS.Library.OGUPermission.IOguObject)">
+            <summary>
+            初始化祖先的OUs
+            </summary>
+            <param name="currentObj"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.IOguImplInterface.GetAllRelativeUserInfo(MCS.Library.OGUPermission.IUser)">
+            <summary>
+            得到某用户的所有相关用户信息，包括主职和兼职的
+            </summary>
+            <param name="user">用户对象</param>
+            <returns>所有相关用户信息，包括主职和兼职的</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.IOguImplInterface.GetGroupsOfUser(MCS.Library.OGUPermission.IUser)">
+            <summary>
+            得到某用户属于的所有组
+            </summary>
+            <param name="user">用户对象</param>
+            <returns>用户属于的组</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.IOguImplInterface.GetGroupMembers(MCS.Library.OGUPermission.IGroup)">
+            <summary>
+            得到组当中的用户
+            </summary>
+            <param name="group">组对象</param>
+            <returns>组当中的用户</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.IOguImplInterface.GetSecretaries(MCS.Library.OGUPermission.IUser)">
+            <summary>
+            得到某个用户的秘书
+            </summary>
+            <param name="user">某个用户</param>
+            <returns>用户的秘书</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.IOguImplInterface.GetSecretaryOf(MCS.Library.OGUPermission.IUser)">
+            <summary>
+            得到某个用户，属于谁的秘书
+            </summary>
+            <param name="user">某个用户</param>
+            <returns>是谁的秘书</returns>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.OguObjectCacheBase">
+            <summary>
+            机构人员的对象缓存
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguObjectCacheBase.GetInstance(MCS.Library.OGUPermission.SearchOUIDType)">
+            <summary>
+            根据ID类型得到Cache实例
+            </summary>
+            <param name="idType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguObjectCacheBase.AddObjectsToCache``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            添加对象到Cache
+            </summary>
+            <param name="objs"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguObjectCacheBase.GetObjectsInCache``1(System.String[],System.String[]@)">
+            <summary>
+            收集在Cache已经存在的对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="ids"></param>
+            <param name="notInCacheIds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguObjectCacheBase.AddOneObjectToCache``1(``0)">
+            <summary>
+            添加单个对象到Cache
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguObjectCacheBase.CreateDependency">
+            <summary>
+            得到Cache项的Dependency
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.OguObjectCollection`1">
+            <summary>
+            机构、人员和组的对象集合
+            </summary>
+            <typeparam name="T">期望的类型。</typeparam>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguObjectCollection`1.#ctor(System.Collections.Generic.IList{`0})">
+            <summary>
+            初始化类的新实例
+            </summary>
+            <param name="list"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguObjectCollection`1.#ctor(`0[])">
+            <summary>
+            初始化类的新实例。
+            </summary>
+            <param name="objs">机构、人员和组的对象数组。</param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguObjectCollection`1.Sort(MCS.Library.OGUPermission.OrderByPropertyType,MCS.Library.OGUPermission.SortDirectionType)">
+            <summary>
+            排序
+            </summary>
+            <param name="orderByProperty">排序属性，<seealso cref="T:MCS.Library.OGUPermission.OrderByPropertyType"/>。</param>
+            <param name="direction">排序方式，<seealso cref="T:MCS.Library.OGUPermission.SortDirectionType"/>。</param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguObjectCollection`1.FilterUniqueSidelineUsers(MCS.Library.OGUPermission.IOrganization)">
+            <summary>
+            根据机构过滤人员的兼职信息。如果同一集合中含有多个人员信息，那么根据传入的机构进行筛选，如果还剩下多条记录，根据主职进行调整。
+            </summary>
+            <param name="parent"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguObjectCollection`1.Find(System.Predicate{`0})">
+            <summary>
+            查找对象
+            </summary>
+            <param name="match"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguObjectCollection`1.ToIDList">
+            <summary>
+            将所有对象的ID转换成ID的集合
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguObjectCollection`1.GetRemovedDuplicateDeletedObjectCollection">
+            <summary>
+            得到ID唯一的记录集合。同一个对象仅出现一次。如果出现当前的和已删除的并存，仅保留当前的。如果只有
+            已经删除的，则保留已删除的。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguObjectCollection`1.Item(System.Int32)">
+            <summary>
+            索引器。
+            </summary>
+            <param name="index">索引。</param>
+            <returns>集合中与指定索引匹配的对象。</returns>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.PermissionObjectCollection`1">
+            <summary>
+            权限集合。
+            </summary>
+            <typeparam name="T">期望的类型。</typeparam>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.PermissionObjectCollection`1.innerDict">
+            <summary>
+            内部字典。
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.PermissionObjectCollection`1.#ctor(`0[])">
+            <summary>
+            初始化类的新实例。
+            </summary>
+            <param name="objs">指定的权限对象数组。</param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.PermissionObjectCollection`1.ContainsKey(System.String)">
+            <summary>
+            判断是否含有指定的代码。
+            </summary>
+            <param name="codeName">指定的代码</param>
+            <returns>含有指定的代码，返回 True；否则，返回 False。</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.PermissionObjectCollection`1.TryGetValue(System.String,`0@)">
+            <summary>
+            尝试获取指定代码的权限。
+            </summary>
+            <param name="codeName">指定的代码</param>
+            <param name="app">权限对象</param>
+            <returns>是否成功获取。</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.PermissionObjectCollection`1.ForEach(System.Action{`0})">
+            <summary>
+            迭代处理每一个元素
+            </summary>
+            <param name="action"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.PermissionObjectCollection`1.Exists(System.Predicate{`0})">
+            <summary>
+            判断集合中是否存在某元素
+            </summary>
+            <param name="match"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.PermissionObjectCollection`1.TrueForAll(System.Predicate{`0})">
+            <summary>
+            判断集合中每个元素是否都满足某条件
+            </summary>
+            <param name="match"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.PermissionObjectCollection`1.Find(System.Predicate{`0})">
+            <summary>
+            在集合中查找满足匹配条件的第一个元素
+            </summary>
+            <param name="match"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.PermissionObjectCollection`1.FindLast(System.Predicate{`0})">
+            <summary>
+            从后向前查找，找到第一个匹配的元素
+            </summary>
+            <param name="match"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.PermissionObjectCollection`1.FindAll(System.Predicate{`0})">
+            <summary>
+            找到满足匹配条件的所有元素
+            </summary>
+            <param name="match"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.PermissionObjectCollection`1.InitDictionary">
+            <summary>
+            根据集合的内容初始化CodeName的字典
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.PermissionObjectCollection`1.Item(System.String)">
+            <summary>
+            索引器。
+            </summary>
+            <param name="codeName">索引名称。</param>
+            <returns>指定索引对应的权限对象。</returns>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.ApplicationCollection`1">
+            <summary>
+            应用的集合。
+            </summary>
+            <typeparam name="T">应用的类型。</typeparam>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.ApplicationCollection">
+            <summary>
+            应用的集合
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.ApplicationCollection.#ctor(MCS.Library.OGUPermission.IApplication[])">
+            <summary>
+            初始化 <see cref="T:MCS.Library.OGUPermission.ApplicationCollection"/> 类的新实例。
+            </summary>
+            <param name="objs"><see cref="T:MCS.Library.OGUPermission.IApplication"/>对象。</param>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.UserPermissionObjectCollectionBase">
+            <summary>
+            用户的角色和权限信息的基类
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.UserPermissionObjectCollectionBase.#ctor(MCS.Library.OGUPermission.IUser)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="user"><see cref="T:MCS.Library.OGUPermission.IUser"/>对象。</param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.UserPermissionObjectCollectionBase.GetApplication(System.String)">
+            <summary>
+            根据codeName得到应用对象
+            </summary>
+            <param name="codeName">应用的codeName</param>
+            <returns>应用对象</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.UserPermissionObjectCollectionBase.GetApplication(System.String,System.Boolean)">
+            <summary>
+            根据codeName得到应用对象
+            </summary>
+            <param name="codeName">应用的codeName</param>
+            <param name="throwNotExistsApp">不存在App时，是否抛出异常</param>
+            <returns>应用对象</returns>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.UserPermissionObjectCollectionBase.User">
+            <summary>
+            用户对象
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.UserRoleCollection">
+            <summary>
+            用户的角色集合
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.UserRoleCollection.#ctor(MCS.Library.OGUPermission.IUser)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="user"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.UserRoleCollection.ContainsApp(System.String)">
+            <summary>
+            是否包含某个应用
+            </summary>
+            <param name="appCodeName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.UserRoleCollection.GetAllAppRoles">
+            <summary>
+            得到所有的应用角色
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.UserRoleCollection.GetAllRoles">
+            <summary>
+            得到所有的角色。返回类型和GetAllAppRoles不一样。是一次性查询出所有角色，但是通过Application属性获取应用时，逐一获取。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.UserRoleCollection.Item(System.String,System.String)">
+            <summary>
+            根据应用的codeName和角色的codeName得到角色对象
+            </summary>
+            <param name="appCodeName">应用的codeName</param>
+            <param name="roleCodeName">角色的codeName</param>
+            <returns>角色对象</returns>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.UserRoleCollection.Item(System.String)">
+            <summary>
+            根据应用的codeName和角色的codeName得到角色集合
+            </summary>
+            <param name="appCodeName">应用的codeName</param>
+            <returns>角色集合</returns>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.UserPermissionCollection">
+            <summary>
+            用户的权限集合
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.UserPermissionCollection.#ctor(MCS.Library.OGUPermission.IUser)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="user"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.UserPermissionCollection.GetAllAppPermissions">
+            <summary>
+            得到所有应用的权限集合
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.UserPermissionCollection.Item(System.String,System.String)">
+            <summary>
+            根据应用的codeName和权限的codeName得到权限对象
+            </summary>
+            <param name="appCodeName">应用的codeName</param>
+            <param name="permissionCodeName">权限的codeName</param>
+            <returns>权限对象</returns>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.UserPermissionCollection.Item(System.String)">
+            <summary>
+            根据应用的codeName和权限的codeName得到权限集合
+            </summary>
+            <param name="appCodeName">应用的codeName</param>
+            <returns>权限集合</returns>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.RoleCollection">
+            <summary>
+            角色的集合
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.RoleCollection.#ctor(MCS.Library.OGUPermission.IRole[])">
+            <summary>
+            初始化 <see cref="T:MCS.Library.OGUPermission.RoleCollection"/> 类的新实例。
+            </summary>
+            <param name="objs">传入的 <see cref="T:MCS.Library.OGUPermission.IRole"/> 对象数组。</param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.RoleCollection.GetSpecifiedRoles(System.String[])">
+            <summary>
+            获取指定的角色。
+            </summary>
+            <param name="codeNames">代码名称</param>
+            <returns><see cref="T:MCS.Library.OGUPermission.RoleCollection"/>对象。</returns>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.PermissionCollection">
+            <summary>
+            权限集合。
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.PermissionCollection.#ctor(MCS.Library.OGUPermission.IPermission[])">
+            <summary>
+            初始化 <see cref="T:MCS.Library.OGUPermission.PermissionCollection"/> 类的新实例。
+            </summary>
+            <param name="objs">传入的 <see cref="T:MCS.Library.OGUPermission.IPermission"/> 对象数组。</param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.PermissionCollection.GetSpecifiedPermissions(System.String[])">
+            <summary>
+            获取指定的权限。
+            </summary>
+            <param name="codeNames">制定的代码</param>
+            <returns><see cref="T:MCS.Library.OGUPermission.PermissionCollection"/>对象。</returns>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.DefaultOguObjectFactory">
+            <summary>
+            缺省的OguObjectFactory
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.IOguObjectFactory">
+            <summary>
+            机构人员、组对象的实例创建的工厂接口
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.IOguObjectFactory.CreateObject(MCS.Library.OGUPermission.SchemaType)">
+            <summary>
+            根据接口类型创建对象
+            </summary>
+            <param name="type">需要创建的对象类型</param>
+            <returns>对象实例</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.DefaultOguObjectFactory.CreateObject(MCS.Library.OGUPermission.SchemaType)">
+            <summary>
+            创建机构人员组对象
+            </summary>
+            <param name="type">需要创建的对象类型</param>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.SearchOUIDType">
+            <summary>
+            进行机构人员查询时，提供的ID的类型
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.SearchOUIDType.None">
+            <summary>
+            空设置
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.SearchOUIDType.Guid">
+            <summary>
+            按照ID来进行查询(Guid)
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.SearchOUIDType.FullPath">
+            <summary>
+            按照对象的全路径来进行查询
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.SearchOUIDType.LogOnName">
+            <summary>
+            按照用户的登录名称来进行查询
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.SearchLevel">
+            <summary>
+            查询子对象的深度
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.SearchLevel.SubTree">
+            <summary>
+            查询所有子对象
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.SearchLevel.OneLevel">
+            <summary>
+            仅查询一级
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.ListObjectMask">
+            <summary>
+            列出对象的条件掩码
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.ListObjectMask.None">
+            <summary>
+            无
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.ListObjectMask.Common">
+            <summary>
+            查询正常使用的数据对象
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.ListObjectMask.DirectDeleted">
+            <summary>
+            直接删除的对象
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.ListObjectMask.DeletedByOrganization">
+            <summary>
+            因部门导致数据逻辑删除对象
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.ListObjectMask.DeletedByUser">
+            <summary>
+            因人员导致数据逻辑删除对象
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.ListObjectMask.All">
+            <summary>
+            全部条件
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.OrderByPropertyType">
+            <summary>
+            排序对象的排序条件
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.OrderByPropertyType.None">
+            <summary>
+            空设置
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.OrderByPropertyType.GlobalSortID">
+            <summary>
+            按照GlobalSortID属性排序
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.OrderByPropertyType.FullPath">
+            <summary>
+            按照FullPath排序
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.OrderByPropertyType.Name">
+            <summary>
+            按照名字排序
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.SortDirectionType">
+            <summary>
+            排序对象的升降序
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.SortDirectionType.None">
+            <summary>
+            空设置
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.SortDirectionType.Ascending">
+            <summary>
+            升序
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.SortDirectionType.Descending">
+            <summary>
+            降序
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.SchemaType">
+            <summary>
+            对象的类型
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.SchemaType.Unspecified">
+            <summary>
+            未指定
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.SchemaType.Organizations">
+            <summary>
+            组织机构
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.SchemaType.Users">
+            <summary>
+            用户
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.SchemaType.Groups">
+            <summary>
+            组
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.SchemaType.Sideline">
+            <summary>
+            兼职
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.SchemaType.OrganizationsInRole">
+            <summary>
+            角色中的机构
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.SchemaType.All">
+            <summary>
+            所有条件
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.UserRankType">
+            <summary>
+            人员和部门的级别
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.UserRankType.Unspecified">
+            <summary>
+            敏感级别
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.UserRankType.MinGanJiBie">
+            <summary>
+            敏感级别
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.UserRankType.GongRen">
+            <summary>
+            工人
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.UserRankType.YiBanRenYuan">
+            <summary>
+            一般人员
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.UserRankType.FuKeji">
+            <summary>
+            副科级
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.UserRankType.ZhengKeJi">
+            <summary>
+            正科级
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.UserRankType.FuChuJi">
+            <summary>
+            副处级
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.UserRankType.ZhengChuJi">
+            <summary>
+            正处级
+            </summary>
+            
+        </member>
+        <member name="F:MCS.Library.OGUPermission.UserRankType.FuJuJi">
+            <summary>
+            副局级
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.UserRankType.ZhengJuJi">
+            <summary>
+            正局级
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.UserRankType.FuBuJi">
+            <summary>
+            副部级
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.UserRankType.ZhengBuJi">
+            <summary>
+            正部级
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.DepartmentRankType">
+            <summary>
+            部门的级别
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.DepartmentRankType.None">
+            <summary>
+            空设置
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.DepartmentRankType.MinGanJiBie">
+            <summary>
+            敏感级别
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.DepartmentRankType.YiBanBuMen">
+            <summary>
+            一般部门
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.DepartmentRankType.FuKeji">
+            <summary>
+            副科级
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.DepartmentRankType.ZhengKeJi">
+            <summary>
+            正科级
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.DepartmentRankType.FuChuJi">
+            <summary>
+            副处级
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.DepartmentRankType.ZhengChuJi">
+            <summary>
+            正处级
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.DepartmentRankType.FuJuJi">
+            <summary>
+            副局级
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.DepartmentRankType.ZhengJuJi">
+            <summary>
+            正局级
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.DepartmentRankType.FuBuJi">
+            <summary>
+            副部级
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.DepartmentRankType.ZhengBuJi">
+            <summary>
+            正部级
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.DepartmentClassType">
+            <summary>
+            部门的分类，如:32隶属海关、64派驻机构...
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.DepartmentClassType.Unspecified">
+            <summary>
+            未指定
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.DepartmentClassType.LiShuHaiGuan">
+            <summary>
+            隶属海关
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.DepartmentClassType.PaiZhuJiGou">
+            <summary>
+            派驻机构
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.DepartmentClassType.NeiSheJiGou">
+            <summary>
+            内设机构
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.DepartmentClassType.QiTaJiGou">
+            <summary>
+            其它机构
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.DepartmentTypeDefine">
+            <summary>
+            部门的一些特殊属性（1虚拟机构、2一般部门、4办公室（厅）、8综合处）
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.DepartmentTypeDefine.Unspecified">
+            <summary>
+            未指定
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.DepartmentTypeDefine.XuNiJiGou">
+            <summary>
+            虚拟机构
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.DepartmentTypeDefine.YiBanBuMen">
+            <summary>
+            一般部门
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.DepartmentTypeDefine.BanGongShi">
+            <summary>
+            办公室（厅）
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.DepartmentTypeDefine.ZongHeChu">
+            <summary>
+            综合处
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.DepartmentTypeDefine.JiSiJu">
+            <summary>
+            缉私局
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.UserAttributesType">
+            <summary>
+            用户的一些特殊属性（党组成员1、署管干部2、交流干部4、借调干部8）
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.UserAttributesType.Unspecified">
+            <summary>
+            未指定
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.UserAttributesType.DangZuChengYuan">
+            <summary>
+            党组成员
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.UserAttributesType.ShuGuanGanBu">
+            <summary>
+            署管干部
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.UserAttributesType.JiaoLiuGanBu">
+            <summary>
+            交流干部
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.UserAttributesType.JieDiaoGanBu">
+            <summary>
+            借调干部
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.DistinctReserveType">
+            <summary>
+            在消除重复用户对象时，消除主职，还是兼职
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.DistinctReserveType.None">
+            <summary>
+            空设置
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.DistinctReserveType.KeepMasterOccupation">
+            <summary>
+            保留主职
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.DistinctReserveType.KeepSidelineOccupation">
+            <summary>
+            保留兼职
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.IApplicationPropertyAccessible">
+            <summary>
+            表示Application对象的属性访问功能
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IApplicationPropertyAccessible.Permissions">
+            <summary>
+            获取权限的集合
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IApplicationPropertyAccessible.ResourceLevel">
+            <summary>
+            获取或设置资源级别
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IApplicationPropertyAccessible.Roles">
+            <summary>
+            获取角色的集合
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.IOguPropertyAccessible">
+            <summary>
+            表示OGU对象的属性访问器
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOguPropertyAccessible.Description">
+            <summary>
+            获取或设置描述
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOguPropertyAccessible.DisplayName">
+            <summary>
+            获取或设置显示名称
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOguPropertyAccessible.FullPath">
+            <summary>
+            获取或设置全路径
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOguPropertyAccessible.GlobalSortID">
+            <summary>
+            获取或设置全局排序ID
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOguPropertyAccessible.ID">
+            <summary>
+            获取或设置ID
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOguPropertyAccessible.Levels">
+            <summary>
+            获取级别
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOguPropertyAccessible.Name">
+            <summary>
+            获取或设置名称
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOguPropertyAccessible.ObjectType">
+            <summary>
+            获取或设置对象类型
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOguPropertyAccessible.Parent">
+            <summary>
+            获取父级
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOguPropertyAccessible.Properties">
+            <summary>
+            获取属性的集合
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOguPropertyAccessible.SortID">
+            <summary>
+            获取或设置排序ID
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOguPropertyAccessible.TopOU">
+            <summary>
+            获取或设置顶级OU
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.IOrganizationPropertyAccessible">
+            <summary>
+            表示Organization对象的属性访问功能
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOrganizationPropertyAccessible.Children">
+            <summary>
+            获取一个集合，表示机构的子级对象
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOrganizationPropertyAccessible.CustomsCode">
+            <summary>
+            或取或设置关区号
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOrganizationPropertyAccessible.DepartmentClass">
+            <summary>
+            获取或设置部门分类
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOrganizationPropertyAccessible.DepartmentType">
+            <summary>
+            获取或设置部门的特殊属性
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOrganizationPropertyAccessible.IsTopOU">
+            <summary>
+            获取一个值，表示此组织是否顶级组织
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOrganizationPropertyAccessible.Rank">
+            <summary>
+            获取或设置
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.IUserPropertyAccessible">
+            <summary>
+            表示IUser对象的属性访问器
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IUserPropertyAccessible.AllRelativeUserInfo">
+            <summary>
+            获取一个集合，表示用户的相关兼职信息
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IUserPropertyAccessible.Attributes">
+            <summary>
+            获取或设置用户的干部属性。
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IUserPropertyAccessible.Email">
+            <summary>
+            获取或设置Email
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IUserPropertyAccessible.IsSideline">
+            <summary>
+            获取或设置一个值，表示此用户是否为兼职
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IUserPropertyAccessible.LogOnName">
+            <summary>
+            获取或设置用户的登录名
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IUserPropertyAccessible.MemberOf">
+            <summary>
+            获取一个集合，表示用户的群组
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IUserPropertyAccessible.Occupation">
+            <summary>
+            获取或设置表示用户的职位的字符串
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IUserPropertyAccessible.Permissions">
+            <summary>
+            获取一个集合，表示用户所拥有的功能
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IUserPropertyAccessible.Rank">
+            <summary>
+            获取或设置用户的级别
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IUserPropertyAccessible.Roles">
+            <summary>
+            获取一个集合，表示用户拥有的角色
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IUserPropertyAccessible.Secretaries">
+            <summary>
+            获取一个集合，表示用户的秘书
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IUserPropertyAccessible.SecretaryOf">
+            <summary>
+            获取一个集合，表示此用户是谁的秘书
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.OguGroupImpl">
+            <summary>
+            组的实现类
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.OguBaseImpl">
+            <summary>
+            缺省的机构人员实现类的基类
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.IOguObject">
+            <summary>
+            人员和部门接口的基类
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.IOguObject.IsChildrenOf(MCS.Library.OGUPermission.IOrganization)">
+            <summary>
+            判断当前对象是否是parent对象的子孙对象
+            </summary>
+            <param name="parent">某个机构对象</param>
+            <returns>是否属于某机构</returns>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOguObject.ID">
+            <summary>
+            对象的ID
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOguObject.Name">
+            <summary>
+            对象的名称
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOguObject.DisplayName">
+            <summary>
+            对象的显示名称
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOguObject.Description">
+            <summary>
+            描述信息
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOguObject.FullPath">
+            <summary>
+            对象在系统中的全部路径
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOguObject.ObjectType">
+            <summary>
+            对象的类型
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOguObject.Parent">
+            <summary>
+            父部门
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOguObject.SortID">
+            <summary>
+            在部门内的排序号
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOguObject.GlobalSortID">
+            <summary>
+            在整个机构中的排序号
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOguObject.TopOU">
+            <summary>
+            用户的缺省顶级部门
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOguObject.Levels">
+            <summary>
+            对象在组织机构树上的层次
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOguObject.Properties">
+            <summary>
+            属性集合
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguBaseImpl.IsChildrenOf(MCS.Library.OGUPermission.IOrganization)">
+            <summary>
+            是否属于某个机构
+            </summary>
+            <param name="parentDept"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguBaseImpl.InitProperties(System.Data.DataRow)">
+            <summary>
+            初始化属性
+            </summary>
+            <param name="row"></param>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguBaseImpl.ID">
+            <summary>
+            对象的ID
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguBaseImpl.Name">
+            <summary>
+            对象的名称
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguBaseImpl.DisplayName">
+            <summary>
+            对象的显示名称
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguBaseImpl.Description">
+            <summary>
+            对象的描述
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguBaseImpl.FullPath">
+            <summary>
+            对象的全路径
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguBaseImpl.ObjectType">
+            <summary>
+            对象的类型
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguBaseImpl.Parent">
+            <summary>
+            父对象
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguBaseImpl.SortID">
+            <summary>
+            对象的内部排序号
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguBaseImpl.GlobalSortID">
+            <summary>
+            对象的全局排序号
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguBaseImpl.TopOU">
+            <summary>
+            对象的顶级部门
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguBaseImpl.Levels">
+            <summary>
+            对象的层次级别
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguBaseImpl.Properties">
+            <summary>
+            扩展属性
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.IGroup">
+            <summary>
+            用户组的接口
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IGroup.Members">
+            <summary>
+            组内的人员
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguGroupImpl.#ctor">
+            <summary>
+            构造方法
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguGroupImpl.Members">
+            <summary>
+            组成员
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.OguObjectHelper">
+            <summary>
+            OguObject的辅助方法
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguObjectHelper.GetSchemaTypeFromInterface``1">
+            <summary>
+            根据IOguObject的类型得到SchemaType
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.IOguSimpleObject">
+            <summary>
+            最简单的机构人员对象
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOguSimpleObject.ID">
+            <summary>
+            对象的ID
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOguSimpleObject.DisplayName">
+            <summary>
+            对象的显示名称
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOguSimpleObject.FullPath">
+            <summary>
+            对象在系统中的全部路径
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.IUser">
+            <summary>
+            用户的接口
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.IUser.IsInGroups(MCS.Library.OGUPermission.IGroup[])">
+            <summary>
+            用户是否属于某一个或几个组
+            </summary>
+            <param name="groups">一个或几个组</param>
+            <returns>是否属于某一个或几个组</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.IUser.IsChildrenOf(MCS.Library.OGUPermission.IOrganization,System.Boolean)">
+            <summary>
+            判断用户是否是某个机构对象的子孙对象，用户信息可以包含所有兼职信息
+            </summary>
+            <param name="parent">机构对象</param>
+            <param name="includeSideline">是否判断兼职对象</param>
+            <returns>是否属于某机构</returns>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IUser.LogOnName">
+            <summary>
+            登录名称
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IUser.Email">
+            <summary>
+            用户的邮件地址
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IUser.Occupation">
+            <summary>
+            用户的职位
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IUser.Rank">
+            <summary>
+            人员的级别
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IUser.Attributes">
+            <summary>
+            用户的属性
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IUser.MemberOf">
+            <summary>
+            用户所属的组
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IUser.IsSideline">
+            <summary>
+            是否是兼职的用户信息
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IUser.AllRelativeUserInfo">
+            <summary>
+            所有相关的，包括兼职和主职的用户信息
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IUser.Secretaries">
+            <summary>
+            当前用户的秘书
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IUser.SecretaryOf">
+            <summary>
+            当前用户是谁的秘书
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IUser.Roles">
+            <summary>
+            用户的角色
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IUser.Permissions">
+            <summary>
+            用户的权限
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.IOrganization">
+            <summary>
+            组织机构的接口
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.IOrganization.GetAllChildren``1(System.Boolean)">
+            <summary>
+            得到所有的子对象（所有级别深度）
+            </summary>
+            <typeparam name="T">期望的类型</typeparam>
+            <param name="includeSideLine">是否包含兼职的人员</param>
+            <returns>得到所有的子对象（所有级别深度）</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.IOrganization.QueryChildren``1(System.String,System.Boolean,MCS.Library.OGUPermission.SearchLevel,System.Int32)">
+            <summary>
+            在子对象进行查询（所有级别深度）
+            </summary>
+            <typeparam name="T">期望的类型</typeparam>
+            <param name="matchString">模糊查询的字符串</param>
+            <param name="includeSideLine">是否包含兼职的人员</param>
+            <param name="level">查询的深度</param>
+            <param name="returnCount">返回的行数</param>
+            <returns>得到查询的子对象</returns>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOrganization.CustomsCode">
+            <summary>
+            关区代码
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOrganization.DepartmentType">
+            <summary>
+            部门的类型
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOrganization.DepartmentClass">
+            <summary>
+            部门的类别
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOrganization.Rank">
+            <summary>
+            部门的级别
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOrganization.IsTopOU">
+            <summary>
+            该部门是否是顶级部门
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOrganization.Children">
+            <summary>
+            该部门的下一级子对象
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.IVirtualOrganization">
+            <summary>
+            虚拟组织应该提供的功能
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IVirtualOrganization.ExcludeVirtualDepartment">
+            <summary>
+            获取或设置一个值，表示子部门是否排除虚拟部门
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.IOrganizationInRole">
+            <summary>
+            在角色中组织机构的接口
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IOrganizationInRole.AccessLevel">
+            <summary>
+            机构中的人员级别限制
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.OguMechanismFactory">
+            <summary>
+            »ú¹¹ÈËÔ±¹¤³§Àà
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguMechanismFactory.GetMechanism">
+            <summary>
+            µÃµ½»ú¹¹ÈËÔ±µÄÊµÏÖÀà
+            </summary>
+            <returns>IOrganizationMechanismµÄÊµÏÖÀà</returns>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.PermissionMechanismFactory">
+            <summary>
+            ÊÚÈ¨¹¤³§Àà
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.PermissionMechanismFactory.GetMechanism">
+            <summary>
+            µÃµ½ÊÚÈ¨ÊµÏÖÀà
+            </summary>
+            <returns>IPermissionMechanismµÄÊµÏÖÀà</returns>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.IOrganizationMechanism">
+            <summary>
+            机构人员的操作接口
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.IOrganizationMechanism.GetObjects``1(MCS.Library.OGUPermission.SearchOUIDType,System.String[])">
+            <summary>
+            得到机构或人员对象
+            </summary>
+            <typeparam name="T">期望返回的结果对象的类型，IOrganization、IUser、IGroup或IOguObject</typeparam>
+            <param name="idType">查询时使用的ID类型，GUID，LogonName或FullPath</param>
+            <param name="ids">ID数组</param>
+            <returns>对象集合</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.IOrganizationMechanism.GetRoot">
+            <summary>
+            返回根机构的对象。取决于配置文件
+            </summary>
+            <returns>根机构对象</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.IOrganizationMechanism.AuthenticateUser(MCS.Library.Core.LogOnIdentity)">
+            <summary>
+            用户认证，通常是判断用户的用户名和口令是否正确
+            </summary>
+            <param name="identity">用户的登录名、口令和域</param>
+            <returns>是否认证成功</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.IOrganizationMechanism.RemoveAllCache">
+            <summary>
+            清除所有Cache
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguAdminMechanism.AuthenticateUser(MCS.Library.Core.LogOnIdentity)">
+            <summary>
+            用户认证，通常是判断用户的用户名和口令是否正确
+            </summary>
+            <param name="identity">用户的登录名、口令和域</param>
+            <returns>是否认证成功</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguAdminMechanism.RemoveAllCache">
+            <summary>
+            清除所有的缓存
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguAdminMechanism.GetChildren``1(MCS.Library.OGUPermission.IOrganization,System.Boolean,MCS.Library.OGUPermission.SearchLevel)">
+            <summary>
+            返回机构对象的子对象
+            </summary>
+            <typeparam name="T">期望返回的结果对象的类型，IOrganization、IUser、IGroup或IOguObject</typeparam>
+            <param name="parent">父机构对象</param>
+            <param name="includeSideline">对象的类型</param>
+            <param name="searchLevel">查询的深度，单级或所有子对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguAdminMechanism.QueryChildren``1(MCS.Library.OGUPermission.IOrganization,System.String,System.Boolean,MCS.Library.OGUPermission.SearchLevel,System.Int32)">
+            <summary>
+            在子对象进行查询（所有级别深度）
+            </summary>
+            <typeparam name="T">期望的类型</typeparam>
+            <param name="parent">父机构对象</param>
+            <param name="matchString">模糊查询的字符串</param>
+            <param name="includeSideLine">是否包含兼职的人员</param>
+            <param name="level">查询的深度</param>
+            <param name="returnCount">返回的记录数</param>
+            <returns>得到查询的子对象</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguAdminMechanism.InitAncestorOUs(MCS.Library.OGUPermission.IOguObject)">
+            <summary>
+            初始化祖先的OUs
+            </summary>
+            <param name="current"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguAdminMechanism.GetAllRelativeUserInfo(MCS.Library.OGUPermission.IUser)">
+            <summary>
+            得到某用户的所有相关用户信息，包括主职和兼职的
+            </summary>
+            <param name="user">用户对象</param>
+            <returns>所有相关用户信息，包括主职和兼职的</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguAdminMechanism.GetGroupsOfUser(MCS.Library.OGUPermission.IUser)">
+            <summary>
+            得到某用户属于的所有组
+            </summary>
+            <param name="user">用户对象</param>
+            <returns>用户属于的组</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguAdminMechanism.GetGroupMembers(MCS.Library.OGUPermission.IGroup)">
+            <summary>
+            得到组当中的用户
+            </summary>
+            <param name="group">组对象</param>
+            <returns>组当中的用户</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguAdminMechanism.GetSecretaries(MCS.Library.OGUPermission.IUser)">
+            <summary>
+            得到某个用户的秘书
+            </summary>
+            <param name="user">某个用户</param>
+            <returns>用户的秘书</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguAdminMechanism.GetSecretaryOf(MCS.Library.OGUPermission.IUser)">
+            <summary>
+            得到某个用户，属于谁的秘书
+            </summary>
+            <param name="user">某个用户</param>
+            <returns>是谁的秘书</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguAdminMechanism.RemoveParentDeptRow(System.Data.DataRowCollection,MCS.Library.OGUPermission.IOguObject)">
+            <summary>
+            如果结果集中的第一行和父部门相同，则删除之。如此做的原因和袁勇机构人员查询的特殊行为有关，有疑问请直接问他，MP:13911568920
+            </summary>
+            <param name="rows"></param>
+            <param name="parent"></param>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.OguOrganizationImpl">
+            <summary>
+            机构对象的缺省实现类
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguOrganizationImpl.#ctor">
+            <summary>
+            构造方法
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguOrganizationImpl.GetAllChildren``1(System.Boolean)">
+            <summary>
+            部门的所有子成员(递归)
+            </summary>
+            <typeparam name="T">子成员的类型</typeparam>
+            <param name="includeSideLine">是否包含兼职</param>
+            <returns>部门的所有子成员</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguOrganizationImpl.QueryChildren``1(System.String,System.Boolean,MCS.Library.OGUPermission.SearchLevel,System.Int32)">
+            <summary>
+            查询子成员
+            </summary>
+            <typeparam name="T">子成员的类型</typeparam>
+            <param name="matchString">查询串</param>
+            <param name="includeSideLine">是否包含兼职</param>
+            <param name="level">是否递归查找</param>
+            <param name="returnCount">返回的记录数</param>
+            <returns>查询结果</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguOrganizationImpl.InitProperties(System.Data.DataRow)">
+            <summary>
+            初始化属性
+            </summary>
+            <param name="row"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguOrganizationImpl.GetChildren``1(System.Boolean,MCS.Library.OGUPermission.SearchLevel)">
+            <summary>
+            得到该部门的子成员
+            </summary>
+            <typeparam name="T">子成员的类型</typeparam>
+            <param name="includeSideLine">是否包含兼职</param>
+            <param name="searchLevel">是否递归</param>
+            <returns>该部门的子成员</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguOrganizationImpl.NormalizeChildrenFullPath``1(MCS.Library.OGUPermission.IOrganization,MCS.Library.OGUPermission.OguObjectCollection{``0})">
+            <summary>
+            填充子对象的FullPath属性。
+            有些情况下，子对象没有FullPath。当它没有时，可以根据父对象的FullPath和自身的名字拼接出来
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="parent"></param>
+            <param name="children"></param>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguOrganizationImpl.CustomsCode">
+            <summary>
+            关区号
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguOrganizationImpl.DepartmentType">
+            <summary>
+            部门的类型
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguOrganizationImpl.DepartmentClass">
+            <summary>
+            部门的类别
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguOrganizationImpl.Rank">
+            <summary>
+            部门的级别
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguOrganizationImpl.IsTopOU">
+            <summary>
+            是否是顶级部门
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguOrganizationImpl.Children">
+            <summary>
+            部门的第一级子成员
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.OguOrganizationInRoleImpl">
+            <summary>
+            角色中的机构信息
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguOrganizationInRoleImpl.#ctor">
+            <summary>
+            构造方法
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguOrganizationInRoleImpl.InitProperties(System.Data.DataRow)">
+            <summary>
+            初始化属性
+            </summary>
+            <param name="row"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguOrganizationInRoleImpl.GetChildren``1(System.Boolean,MCS.Library.OGUPermission.SearchLevel)">
+            <summary>
+            得到该部门的子成员
+            </summary>
+            <typeparam name="T">子成员的类型</typeparam>
+            <param name="includeSideLine">是否包含兼职</param>
+            <param name="searchLevel">是否递归</param>
+            <returns>该部门的子成员</returns>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguOrganizationInRoleImpl.AccessLevel">
+            <summary>
+            访问级别
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.OguUserImpl">
+            <summary>
+            用户对象的实现类
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguUserImpl.#ctor">
+            <summary>
+            构造方法
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguUserImpl.IsInGroups(MCS.Library.OGUPermission.IGroup[])">
+            <summary>
+            是否属于某些组
+            </summary>
+            <param name="groups"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguUserImpl.IsChildrenOf(MCS.Library.OGUPermission.IOrganization,System.Boolean)">
+            <summary>
+            是否是某个机构的子成员
+            </summary>
+            <param name="parent">机构</param>
+            <param name="includeSideline">是否判断兼职信息</param>
+            <returns>是否是某个机构的子成员</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguUserImpl.InitProperties(System.Data.DataRow)">
+            <summary>
+            初始化属性
+            </summary>
+            <param name="row"></param>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguUserImpl.LogOnName">
+            <summary>
+            登录名
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguUserImpl.Email">
+            <summary>
+            邮件地址
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguUserImpl.Occupation">
+            <summary>
+            职务
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguUserImpl.Rank">
+            <summary>
+            用户的级别
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguUserImpl.Attributes">
+            <summary>
+            用户属性
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguUserImpl.MemberOf">
+            <summary>
+            属于哪些组
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguUserImpl.IsSideline">
+            <summary>
+            是否是兼职的用户信息
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguUserImpl.Secretaries">
+            <summary>
+            该用户的秘书
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguUserImpl.SecretaryOf">
+            <summary>
+            是谁的秘书
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguUserImpl.AllRelativeUserInfo">
+            <summary>
+            同一用户ID的所有相关信息（所有主职和兼职信息）
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguUserImpl.Roles">
+            <summary>
+            用户的角色
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguUserImpl.Permissions">
+            <summary>
+            用户的功能
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.PermissionObjectExtensions">
+            <summary>
+            Ogu或授权对象的扩展方法
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.PermissionObjectExtensions.ToApplicationIDs(System.Collections.Generic.Dictionary{MCS.Library.OGUPermission.IApplication,MCS.Library.OGUPermission.RoleCollection})">
+            <summary>
+            转换为AppID的集合
+            </summary>
+            <param name="appRoles"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.PermissionObjectExtensions.ToApplicationIDs(System.Collections.Generic.Dictionary{MCS.Library.OGUPermission.IApplication,MCS.Library.OGUPermission.PermissionCollection})">
+            <summary>
+            转换为AppID的集合
+            </summary>
+            <param name="appPermissions"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.PermissionObjectExtensions.ToRoleIDs(System.Collections.Generic.Dictionary{MCS.Library.OGUPermission.IApplication,MCS.Library.OGUPermission.RoleCollection})">
+            <summary>
+            转换为角色ID的集合
+            </summary>
+            <param name="appRoles"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.PermissionObjectExtensions.ToPermissionIDs(System.Collections.Generic.Dictionary{MCS.Library.OGUPermission.IApplication,MCS.Library.OGUPermission.PermissionCollection})">
+            <summary>
+            转换为权限ID的集合
+            </summary>
+            <param name="appPermissions"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.IPermissionObject">
+            <summary>
+            授权对象接口的公共基类
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IPermissionObject.ID">
+            <summary>
+            对象的ID
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IPermissionObject.Name">
+            <summary>
+            对象的名称
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IPermissionObject.CodeName">
+            <summary>
+            对象的英文标识
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IPermissionObject.Description">
+            <summary>
+            对象的描述
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.IApplication">
+            <summary>
+            授权系统中，应用的接口定义
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IApplication.ResourceLevel">
+            <summary>
+            应用的级别深度
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IApplication.Roles">
+            <summary>
+            应用中的角色
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IApplication.Permissions">
+            <summary>
+            应用中的功能
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.IApplicationObject">
+            <summary>
+            授权系统中，应用中所包含的对象的接口定义
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IApplicationObject.Application">
+            <summary>
+            对象所属的应用程序
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IApplicationObject.FullCodeName">
+            <summary>
+            包含AppCode的全CodeName，格式如AppCode:CodeName
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.IRole">
+            <summary>
+            授权系统中，角色的接口定义
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IRole.ObjectsInRole">
+            <summary>
+            角色中的对象
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.IPermission">
+            <summary>
+            授权系统中，功能的接口定义
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.IPermission.RelativeRoles">
+            <summary>
+            得到相关的角色
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.IPermissionObjectFactory">
+            <summary>
+            通用授权对象的实例创建的工厂接口
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.IPermissionObjectFactory.CreateObject(System.Type)">
+            <summary>
+            根据接口类型创建对象
+            </summary>
+            <param name="type">需要创建的对象类型</param>
+            <returns>对象实例</returns>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.PermissionObjBaseImpl">
+            <summary>
+            授权系统对象的基类
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.PermissionObjBaseImpl.InitProperties(System.Data.DataRow)">
+            <summary>
+            初始化属性
+            </summary>
+            <param name="row"></param>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.PermissionObjBaseImpl.ID">
+            <summary>
+            对象的ID
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.PermissionObjBaseImpl.Name">
+            <summary>
+            对象的名称
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.PermissionObjBaseImpl.CodeName">
+            <summary>
+            对象的英文名称
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.PermissionObjBaseImpl.Description">
+            <summary>
+            对象的描述
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.AppMemberPermissionObjBaseImpl">
+            <summary>
+            应用相关的对象的基类，例如角色（Role）和权限（Permission）
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.AppMemberPermissionObjBaseImpl.InitProperties(System.Data.DataRow)">
+            <summary>
+            初始化属性
+            </summary>
+            <param name="row"></param>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.AppMemberPermissionObjBaseImpl.AppID">
+            <summary>
+            应用ID
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.AppMemberPermissionObjBaseImpl.Application">
+            <summary>
+            所属的应用程序
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.ApplicationImpl">
+            <summary>
+            应用程序类的实现
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.ApplicationImpl.roles">
+            <summary>
+            角色集合
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.ApplicationImpl.permissions">
+            <summary>
+            功能（权限集合）
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.ApplicationImpl.#ctor">
+            <summary>
+            构造方法
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.ApplicationImpl.InitProperties(System.Data.DataRow)">
+            <summary>
+            初始化属性
+            </summary>
+            <param name="row"></param>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.ApplicationImpl.ResourceLevel">
+            <summary>
+            应用的级别
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.ApplicationImpl.Roles">
+            <summary>
+            包含的角色
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.ApplicationImpl.Permissions">
+            <summary>
+            包含的功能（权限）
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.RoleImpl">
+            <summary>
+            角色对象的实现
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.RoleImpl.#ctor">
+            <summary>
+            构造方法
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.RoleImpl.GetUsersFromRoles(System.String,System.String,System.String,MCS.Library.OGUPermission.DelegationMaskType,MCS.Library.OGUPermission.SidelineMaskType,System.String)">
+            <summary>
+            查询指定部门范围下，指定应用系统中，指定角色下的所有人员
+            </summary>
+            <param name="orgRoot">部门范围的全路径，空串时不做限制，多个时用逗号分隔</param>
+            <param name="appCodeName">应用的英文标识</param>
+            <param name="roleCodeNames">角色的英文标识，多个时用逗号分隔</param>
+            <param name="delegationMask">权限委派类型</param>
+            <param name="sidelineMask">人员职位类型</param>
+            <param name="extAttr">要求获取的扩展属性</param>
+            <returns>指定部门范围下，指定应用系统中，指定角色下的所有人员</returns>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.RoleImpl.FullCodeName">
+            <summary>
+            全路径的CodeName（AppCodeName\RoleCodeName）
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.RoleImpl.ObjectsInRole">
+            <summary>
+            角色中的对象
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.PermissionImpl">
+            <summary>
+            权限的实现类
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.PermissionImpl.#ctor">
+            <summary>
+            构造方法
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.PermissionImpl.GetRelativeRoles">
+            <summary>
+            得到相关的角色
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.PermissionImpl.FullCodeName">
+            <summary>
+            全路径的CodeName（AppCodeName\PermissionCodeName）
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.PermissionImpl.RelativeRoles">
+            <summary>
+            得到相关的角色
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.DefaultPermissionObjectFactory">
+            <summary>
+            缺省的OguObjectFactory
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.DefaultPermissionObjectFactory.CreateObject(System.Type)">
+            <summary>
+            创建对象
+            </summary>
+            <param name="type">授权对象的接口类型</param>
+            <returns>授权对象</returns>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.Properties.Resource">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.Properties.Resource.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.Properties.Resource.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.Properties.Resource.CanNotFindObject">
+            <summary>
+              Looks up a localized string similar to 不能找到对象&quot;{0}&quot;.
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.Properties.Resource.CanNotFindRootOU">
+            <summary>
+              Looks up a localized string similar to 不能找到根机构，路径为&quot;{0}&quot;.
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.Properties.Resource.InvalidObjectTypeCreation">
+            <summary>
+              Looks up a localized string similar to 目前不支持这种类型的对象的构造{0}.
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.Properties.Resource.OnlyUserCanUserLogOnNameQuery">
+            <summary>
+              Looks up a localized string similar to 只有查询用户时，才能使用LogOnName作为查询条件.
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.RightMaskType">
+            <summary>
+            授权类型。
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.RightMaskType.Self">
+            <summary>
+            自授权。
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.RightMaskType.App">
+            <summary>
+            应用授权。
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.RightMaskType.All">
+            <summary>
+            全部，包括 自授权 和 应用授权。
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.DelegationMaskType">
+            <summary>
+            权限委派类型。
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.DelegationMaskType.Original">
+            <summary>
+            原始权限。
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.DelegationMaskType.Delegated">
+            <summary>
+            被委派权限。
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.DelegationMaskType.All">
+            <summary>
+            全部，包括 原始权限 和 被委派权限。
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.SidelineMaskType">
+            <summary>
+            兼职类型。
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.SidelineMaskType.NotSideline">
+            <summary>
+            不兼职。
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.SidelineMaskType.Sideline">
+            <summary>
+            兼职。
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.SidelineMaskType.All">
+            <summary>
+            全部。
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.UserValueType">
+            <summary>
+            身份标志类型。
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.UserValueType.LogonName">
+            <summary>
+            登录名
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.UserValueType.AllPath">
+            <summary>
+            人员全路径
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.UserValueType.PersonID">
+            <summary>
+            人员编号
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.UserValueType.ICCode">
+            <summary>
+            IC卡号
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.UserValueType.Guid">
+            <summary>
+            人员Guid值
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.UserValueType.Identity">
+            <summary>
+            根据唯一索引查询(为配合南京海关统一平台切换，新增加字段ID[自增唯一字段])
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.ScopeMaskType">
+            <summary>
+            权限服务范围类型。
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.ScopeMaskType.OrgScope">
+            <summary>
+            机构范围。
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.ScopeMaskType.DataScope">
+            <summary>
+            数据范围
+            </summary>
+        </member>
+        <member name="F:MCS.Library.OGUPermission.ScopeMaskType.All">
+            <summary>
+            全部
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.AppAdminServiceBroker">
+            <summary>
+            授权管理WebService的代理
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.AppAdminServiceBroker.GetApplications">
+            <summary>
+            获得所有应用系统的基本信息。
+            </summary>
+            <returns>所有应用系统的基本信息。</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.AppAdminServiceBroker.GetRoles(System.String,MCS.Library.OGUPermission.RightMaskType)">
+            <summary>
+            查询指定应用系统中，指定类别的所有角色
+            </summary>
+            <param name="appCodeName">应用的英文标识</param>
+            <param name="rightMask">权限授权类型</param>
+            <returns>指定应用系统中，指定类别的所有角色</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.AppAdminServiceBroker.GetFunctions(System.String,MCS.Library.OGUPermission.RightMaskType)">
+            <summary>
+            查询指定应用系统中，指定类别的所有功能
+            </summary>
+            <param name="appCodeName">应用的英文标识</param>
+            <param name="rightMask">权限授权类型</param>
+            <returns>指定应用系统中，指定类别的所有功能</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.AppAdminServiceBroker.GetRolesUsers(System.String,System.String,System.String,MCS.Library.OGUPermission.DelegationMaskType,MCS.Library.OGUPermission.SidelineMaskType,System.String)">
+            <summary>
+            查询指定部门范围下，指定应用系统中，指定角色下的所有人员
+            </summary>
+            <param name="orgRoot">部门范围的全路径，空串时不做限制，多个时用逗号分隔</param>
+            <param name="appCodeName">应用的英文标识</param>
+            <param name="roleCodeNames">角色的英文标识，多个时用逗号分隔</param>
+            <param name="delegationMask">权限委派类型</param>
+            <param name="sidelineMask">人员职位类型</param>
+            <param name="extAttr">要求获取的扩展属性</param>
+            <returns>指定部门范围下，指定应用系统中，指定角色下的所有人员</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.AppAdminServiceBroker.GetDepartmentAndUserInRoles(System.String,System.String,System.String,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            查询指定部门下，指定应用系统中，指定角色的所有机构和人员
+            </summary>
+            <param name="orgRoot">部门范围的全路径，空串时不做限制，多个时用逗号分隔</param>
+            <param name="appCodeName">应用的英文标识</param>
+            <param name="roleCodeNames">角色的英文标识，多个时用逗号分隔</param>
+            <param name="doesMixSort">是否采用混合排序，true:机构、人员混排，false:先机构，后人员</param>
+            <param name="doesSortRank">是否排序级别，true:先级别，后层次 false:只排层次</param>
+            <param name="includeDelegate">是否包括委派权限的被授权对象，true:包括 false:不包括</param>
+            <returns>指定部门下，指定应用系统中，指定角色的所有机构和人员</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.AppAdminServiceBroker.GetChildrenInRoles(System.String,System.String,System.String,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            查询指定部门下，指定应用系统中，指定角色的所有被授权对象
+            </summary>
+            <param name="orgRoot">部门范围的全路径，空串时不做限制，多个时用逗号分隔</param>
+            <param name="appCodeName">应用的英文标识</param>
+            <param name="roleCodeNames">角色的英文标识，多个时用逗号分隔</param>
+            <param name="doesMixSort">是否采用混合排序，true:机构、组、人员混排，false:先机构，再组，后人员</param>
+            <param name="doesSortRank">是否排序级别，true:先级别，后层次 false:只排层次</param>
+            <param name="includeDelegate">是否包括委派权限的被授权对象，true:包括 false:不包括</param>
+            <returns>指定部门下，指定应用系统中，指定角色的所有被授权对象</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.AppAdminServiceBroker.GetFunctionsRoles(System.String,System.String)">
+            <summary>
+            查找指定应用系统中，具有指定功能的角色
+            </summary>
+            <param name="appCodeName">应用的英文标识</param>
+            <param name="funcCodeNames">功能的英文标识，多个时用逗号分隔</param>
+            <returns>指定应用系统中，具有指定功能的角色</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.AppAdminServiceBroker.GetFunctionsUsers(System.String,System.String,System.String,MCS.Library.OGUPermission.DelegationMaskType,MCS.Library.OGUPermission.SidelineMaskType,System.String)">
+            <summary>
+            查询指定部门范围下，指定应用系统中，拥有指定功能的所有人员
+            </summary>
+            <param name="orgRoot">部门范围的全路径，空串时不限制</param>
+            <param name="appCodeName">应用的英文标识</param>
+            <param name="funcCodeNames">功能的英文标识，多个时用逗号分隔</param>
+            <param name="delegationMask">权限委派类型</param>
+            <param name="sidelineMask">人员职位类型</param>
+            <param name="extAttr">要求获取的扩展属性</param>
+            <returns>指定部门范围下，指定应用系统中，拥有指定功能的所有人员</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.AppAdminServiceBroker.IsUserInRoles(System.String,System.String,System.String,MCS.Library.OGUPermission.UserValueType,MCS.Library.OGUPermission.DelegationMaskType)">
+            <summary>
+            判断人员是否在指定应用系统的指定角色中
+            </summary>
+            <param name="userValue">用户身份标识（由userValueType参数指定类型）</param>
+            <param name="appCodeName">应用的英文标识</param>
+            <param name="roleCodeNames">角色的英文标识，多个时用逗号分隔</param>
+            <param name="userValueType">人员标识类型</param>
+            <param name="delegationMask">权限委派类型</param>
+            <returns>人员是否在指定应用系统的指定角色中</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.AppAdminServiceBroker.IsUserInAllRoles(System.String,System.String,System.String,MCS.Library.OGUPermission.UserValueType,MCS.Library.OGUPermission.DelegationMaskType)">
+            <summary>
+            判断人员是否在指定应用系统，指定的所有角色中
+            </summary>
+            <param name="userValue">用户身份标识（由userValueType参数指定类型）</param>
+            <param name="appCodeName">应用的英文标识</param>
+            <param name="roleCodeNames">角色的英文标识，多个时用逗号分隔</param>
+            <param name="userValueType">人员标识类型</param>
+            <param name="delegationMask">权限委派类型</param>
+            <returns>人员是否在指定应用系统，指定的所有角色中</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.AppAdminServiceBroker.DoesUserHasPermissions(System.String,System.String,System.String,MCS.Library.OGUPermission.UserValueType,MCS.Library.OGUPermission.DelegationMaskType)">
+            <summary>
+            查询指定人员，在指定应用系统中，是否拥有指定的功能权限(有一个即可)
+            </summary>
+            <param name="userValue">用户身份标识（由userValueType参数指定类型）</param>
+            <param name="appCodeName">应用的英文标识</param>
+            <param name="funcCodeNames">功能的英文标识，多个时用逗号分隔</param>
+            <param name="userValueType">人员标识类型</param>
+            <param name="delegationMask">权限委派类型</param>
+            <returns>指定人员，在指定应用系统中，是否拥有指定的功能权限(有一个即可)</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.AppAdminServiceBroker.DoesUserHasAllPermissions(System.String,System.String,System.String,MCS.Library.OGUPermission.UserValueType,MCS.Library.OGUPermission.DelegationMaskType)">
+            <summary>
+            查询指定人员，在指定应用系统中，是否拥有指定的功能权限(拥有全部功能)
+            </summary>
+            <param name="userValue">用户身份标识（由userValueType参数指定类型）</param>
+            <param name="appCodeName">应用的英文标识</param>
+            <param name="funcCodeNames">功能的英文标识，多个时用逗号分隔</param>
+            <param name="userValueType">人员标识类型</param>
+            <param name="delegationMask">权限委派类型</param>
+            <returns>指定人员，在指定应用系统中，是否拥有指定的功能权限(拥有全部功能)</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.AppAdminServiceBroker.GetUserRoles(System.String,System.String,MCS.Library.OGUPermission.UserValueType,MCS.Library.OGUPermission.RightMaskType,MCS.Library.OGUPermission.DelegationMaskType)">
+            <summary>
+            查询指定用户，在指定应用系统中所拥有的角色
+            </summary>
+            <param name="userValue">用户身份标识（由userValueType参数指定类型）</param>
+            <param name="appCodeName">应用的英文标识</param>
+            <param name="userValueType">人员标识类型</param>
+            <param name="rightMask">权限授权类型</param>
+            <param name="delegationMask">权限委派类型</param>
+            <returns>指定用户，在指定应用系统中所拥有的角色</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.AppAdminServiceBroker.GetUserPermissions(System.String,System.String,MCS.Library.OGUPermission.UserValueType,MCS.Library.OGUPermission.RightMaskType,MCS.Library.OGUPermission.DelegationMaskType)">
+            <summary>
+            查询指定人员，在指定应用系统具有的权限（功能）
+            </summary>
+            <param name="userValue">用户身份标识（由userValueType参数指定类型）</param>
+            <param name="appCodeName">应用的英文标识</param>
+            <param name="userValueType">人员标识类型</param>
+            <param name="rightMask">权限授权类型</param>
+            <param name="delegationMask">权限委派类型</param>
+            <returns>指定人员，在指定应用系统具有的权限（功能）</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.AppAdminServiceBroker.GetUserApplicationsRoles(System.String,MCS.Library.OGUPermission.UserValueType,MCS.Library.OGUPermission.RightMaskType,MCS.Library.OGUPermission.DelegationMaskType)">
+            <summary>
+            查询指定人员所涉及的所有应用系统的角色信息
+            </summary>
+            <param name="userValue">用户身份标识（由userValueType参数指定类型）</param>
+            <param name="userValueType">人员标识类型</param>
+            <param name="rightMask">权限授权类型</param>
+            <param name="delegationMask">权限委派类型</param>
+            <returns>指定人员所涉及的所有应用系统的角色信息</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.AppAdminServiceBroker.GetUserApplications(System.String,MCS.Library.OGUPermission.UserValueType,MCS.Library.OGUPermission.RightMaskType,MCS.Library.OGUPermission.DelegationMaskType)">
+            <summary>
+            查询指定人员所涉及的所有应用系统的基本信息
+            </summary>
+            <param name="userValue">用户身份标识（由userValueType参数指定类型）</param>
+            <param name="userValueType">人员标识类型</param>
+            <param name="rightMask">权限授权类型</param>
+            <param name="delegationMask">权限委派类型</param>
+            <returns>指定人员所涉及的所有应用系统的基本信息</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.AppAdminServiceBroker.GetUserRolesScopes(System.String,System.String,System.String,MCS.Library.OGUPermission.UserValueType,MCS.Library.OGUPermission.DelegationMaskType,MCS.Library.OGUPermission.ScopeMaskType)">
+            <summary>
+            查询指定人员，在指定应用系统，指定功能下所拥有的服务范围
+            </summary>
+            <param name="userValue">用户身份标识（由userValueType参数指定类型）</param>
+            <param name="appCodeName">应用的英文标识</param>
+            <param name="roleCodeNames">角色的英文标识，多个时用逗号分隔</param>
+            <param name="userValueType">人员身份标识类型</param>
+            <param name="delegationMask">权限委派类型</param>
+            <param name="scopeMask">服务范围类型</param>
+            <returns>指定人员，在指定应用系统，指定功能下所拥有的服务范围</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.AppAdminServiceBroker.GetUserFunctionsScopes(System.String,System.String,System.String,MCS.Library.OGUPermission.UserValueType,MCS.Library.OGUPermission.DelegationMaskType,MCS.Library.OGUPermission.ScopeMaskType)">
+            <summary>
+            查询指定人员，在指定应用系统，指定角色下所拥有的服务范围
+            </summary>
+            <param name="userValue">用户身份标识（由userValueType参数指定类型）</param>
+            <param name="appCodeName">应用的英文标识</param>
+            <param name="funcCodeNames">功能的英文标识，多个时用逗号分隔</param>
+            <param name="userValueType">人员身份标识类型</param>
+            <param name="delegationMask">权限委派类型</param>
+            <param name="scopeMask">服务范围类型</param>
+            <returns>指定人员，在指定应用系统，指定角色下所拥有的服务范围</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.AppAdminServiceBroker.GetOriginalUser(System.String,System.String,System.String,MCS.Library.OGUPermission.UserValueType,System.Boolean)">
+            <summary>
+            查询指定人员在指定应用系统中，指定角色的原有委派者
+            </summary>
+            <param name="userValue">用户身份标识（由userValueType参数指定类型）</param>
+            <param name="appCodeName">应用的英文标识</param>
+            <param name="roleCodeNames">角色的英文标识，多个时用逗号分隔</param>
+            <param name="userValueType">人员标识类型</param>
+            <param name="includeDisabled">是否包括无效的委派</param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.AppAdminServiceBroker.GetAllOriginalUser(System.String,MCS.Library.OGUPermission.UserValueType,System.Boolean)">
+            <summary>
+            查询指定人员在所有涉及的应用系统中，所有被委派角色的原有委派者
+            </summary>
+            <param name="userValue">用户身份标识（由userValueType参数指定类型）</param>
+            <param name="userValueType">人员标识类型</param>
+            <param name="includeDisabled">是否包括无效的委派</param>
+            <returns>指定人员在所有涉及的应用系统中，所有被委派角色的原有委派者</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.AppAdminServiceBroker.GetDelegatedUser(System.String,System.String,System.String,MCS.Library.OGUPermission.UserValueType,System.Boolean)">
+            <summary>
+            查询指定人员，在指定应用系统中，指定角色的被委派者
+            </summary>
+            <param name="userValues">用户身份标识（由userValueType参数指定类型）</param>
+            <param name="appCodeName">应用的英文标识</param>
+            <param name="roleCodeNames">角色的英文标识，多个时用逗号分隔</param>
+            <param name="userValueType">人员标识类型</param>
+            <param name="includeDisabled">是否包括无效的委派</param>
+            <returns>指定人员，在指定应用系统中，指定角色的被委派者</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.AppAdminServiceBroker.GetAllDelegatedUser(System.String,MCS.Library.OGUPermission.UserValueType,System.Boolean)">
+            <summary>
+            查询指定人员，在所有涉及的应用系统中，所有角色的被委派者
+            </summary>
+            <param name="userValues">用户身份标识（由userValueType参数指定类型）</param>
+            <param name="userValueType">人员标识类型</param>
+            <param name="includeDisabled">是否包括无效的委派</param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.AppAdminServiceBroker.GetUserAllowDelegteRoles(System.String,System.String,MCS.Library.OGUPermission.UserValueType,MCS.Library.OGUPermission.RightMaskType)">
+            <summary>
+            查询指定用户，在指定应用中所拥有的，可进行委派的角色
+            </summary>
+            <param name="userValue">用户身份标识（由userValueType参数指定类型）</param>
+            <param name="appCodeName">应用的英文标识</param>
+            <param name="userValueType">人员标识类型</param>
+            <param name="rightMask">权限授权类型</param>
+            <returns>指定用户，在指定应用中所拥有的，可进行委派的角色</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.AppAdminServiceBroker.RemoveAllCache">
+            <summary>
+            去除所有的缓存。
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.AppAdminServiceBroker.Instance">
+            <summary>
+            授权管理WebService的代理实例
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.OguReaderServiceBroker">
+            <summary>
+            机构人员服务的WebService代理
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguReaderServiceBroker.GetOrganizationChildren(System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.String,System.String,System.String)">
+            <summary>
+            按照一定的查询条件查询系统中的数据对象
+            </summary>
+            <param name="strOrgValues">要求查询的部门对象(父部门标识,多个之间采用","分隔)</param>
+            <param name="iSoc">查询要求的查询列名称（0、空；1、GUID；2、USER_GUID；3、ORIGINAL_SORT；4、GLOBAL_SORT；5、ALL_PATH_NAME；6、LOGON_NAME；）［该参数配合strOrgValues使用，用于指定strOrgValues对应数据库的中字段名称］</param>
+            <param name="iLot">要求查询的数据对象类型（机构、组、人员、兼职对象）</param>
+            <param name="iLod">是否包含被逻辑删除的成员</param>
+            <param name="iDepth">要求查询的层次（最少一层）（0代表全部子对象）</param>
+            <param name="strOrgRankCodeName">查询中要求的机构对象级别</param>
+            <param name="strUserRankCodeName">查询中要求的人员对象级别</param>
+            <param name="strHideType">查询中要求屏蔽的数据(对应于配置文件HideTypes.xml中的配置)</param>
+            <param name="strAttrs">查询中要求获取数据对象的属性类型</param>
+            <returns>查询结果。</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguReaderServiceBroker.IsUserInObjects(System.String,System.Int32,System.String,System.Xml.XmlNode,System.Int32,System.Int32,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            判断一个用户是否存在于指定的多个部门之中
+            </summary>
+            <param name="strUserValue">用户的属性数据值</param>
+            <param name="iSocu">用户的属性名称（ＧＵＩＤ、ＵＳＥＲ＿ＧＵＩＤ、ＬＯＧＯＮ＿ＮＡＭＥ、ＯＲＩＧＩＮＡＬ＿ＳＯＲＴ、ＧＬＯＢＡＬ＿ＳＯＲＴ、ＡＬＬ＿ＰＡＴＨ＿ＮＡＭＥ）</param>
+            <param name="strUserParentGuid">指定用户所在的父部门标识（可空）</param>
+            <param name="objectXmlDoc">判断对象的属性数据值</param>
+            <param name="iSoco">机构的属性名称（ＧＵＩＤ、ＯＲＩＧＩＮＡＬ＿ＳＯＲＴ、ＧＬＯＢＡＬ＿ＳＯＲＴ、ＡＬＬ＿ＰＡＴＨ＿ＮＡＭＥ）</param>
+            <param name="iLod">是否包含被逻辑删除的成员</param>
+            <param name="strHideType">查询中要求屏蔽的数据(对应于配置文件HideTypes.xml中的配置)</param>
+            <param name="bDirect">是否直接从属（无中间部门）</param>
+            <param name="bFitAll">是否要求完全匹配（存在于指定的每一个部门中）</param>
+            <returns>用户是否存在于指定的多个部门之中</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguReaderServiceBroker.CheckUserInObjects(System.Xml.XmlNode,System.Int32,System.Xml.XmlNode,System.Int32,System.Int32,System.String,System.Boolean)">
+            <summary>
+            判断用户群是否存在于指定的多个部门之中
+            </summary>
+            <param name="xmlUserDoc">用户群标识（多个之间采用","分隔）</param>
+            <param name="iSocu">用户的属性名称（ＧＵＩＤ、ＵＳＥＲ＿ＧＵＩＤ、ＬＯＧＯＮ＿ＮＡＭＥ、ＯＲＩＧＩＮＡＬ＿ＳＯＲＴ、ＧＬＯＢＡＬ＿ＳＯＲＴ、ＡＬＬ＿ＰＡＴＨ＿ＮＡＭＥ）</param>
+            <param name="xmlObjDoc">机构群（采用XML方式）</param>
+            <param name="iSoc">机构的属性名称（ＧＵＩＤ、ＯＲＩＧＩＮＡＬ＿ＳＯＲＴ、ＧＬＯＢＡＬ＿ＳＯＲＴ、ＡＬＬ＿ＰＡＴＨ＿ＮＡＭＥ）</param>
+            <param name="iLod">是否包含被逻辑删除的成员</param>
+            <param name="strHideType">查询中要求屏蔽的数据(对应于配置文件HideTypes.xml中的配置)</param>
+            <param name="bDirect">是否直接从属（无中间部门）</param>
+            <returns>用户群是否存在于指定的多个部门之中</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguReaderServiceBroker.GetAllUsersInAllObjects(System.Xml.XmlNode,System.Int32,System.String,System.Int32,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            获取指定对象中的所有用户对象
+            </summary>
+            <param name="xmlObjDoc">要求被查询的数据对象</param>
+            <param name="iSoc">查询要求的查询列名称（ＧＵＩＤ、ＵＳＥＲ＿ＧＵＩＤ、ＬＯＧＯＮ＿ＮＡＭＥ、ＯＲＩＧＩＮＡＬ＿ＳＯＲＴ、ＧＬＯＢＡＬ＿ＳＯＲＴ、ＡＬＬ＿ＰＡＴＨ＿ＮＡＭＥ）</param>
+            <param name="strOrgLimitValues">要求对象所在机构的范围内（如果没有将采用系统配置数据，可空）</param>
+            <param name="iSoco">要求所在机构的范围的查询列名称（ＧＵＩＤ、ＵＳＥＲ＿ＧＵＩＤ、ＬＯＧＯＮ＿ＮＡＭＥ、ＯＲＩＧＩＮＡＬ＿ＳＯＲＴ、ＧＬＯＢＡＬ＿ＳＯＲＴ、ＡＬＬ＿ＰＡＴＨ＿ＮＡＭＥ）</param>
+            <param name="iLot">要求被查询的数据对象类型（主要是用于辨别是否要求查询兼职人员）</param>
+            <param name="iLod">系统中被逻辑删除对象是否查询取出</param>
+            <param name="strHideType">要求隐藏的设置类型</param>
+            <param name="strAttrs">要求获得的数据属性</param>
+            <returns>指定对象中的所有用户对象</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguReaderServiceBroker.GetObjectsDetail(System.String,System.String,System.Int32,System.String,System.Int32,System.String)">
+            <summary>
+            获取指定对象的详细属性数据
+            </summary>
+            <param name="strObjType">要求查询对象的类型(可以为空，空则采用混合查询)</param>
+            <param name="strObjValues">要求查询对象数据的标识(多个之间用","分隔开)</param>
+            <param name="iSoc">查询要求的查询列名称（ＧＵＩＤ、ＵＳＥＲ＿ＧＵＩＤ、ＬＯＧＯＮ＿ＮＡＭＥ、ＯＲＩＧＩＮＡＬ＿ＳＯＲＴ、ＧＬＯＢＡＬ＿ＳＯＲＴ、ＡＬＬ＿ＰＡＴＨ＿ＮＡＭＥ）</param>
+            <param name="strParentValues">对象所在的机构标识（在对象为人员对象的时候有效，一般都为空）</param>
+            <param name="iSoco">查询要求的查询列名称（ＧＵＩＤ、ＵＳＥＲ＿ＧＵＩＤ、ＬＯＧＯＮ＿ＮＡＭＥ、ＯＲＩＧＩＮＡＬ＿ＳＯＲＴ、ＧＬＯＢＡＬ＿ＳＯＲＴ、ＡＬＬ＿ＰＡＴＨ＿ＮＡＭＥ）</param>
+            <param name="strExtAttrs">所需要的扩展属性（仅仅用于strObjType为空时）</param>
+            <returns>指定对象的详细属性数据</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguReaderServiceBroker.GetRankDefine(System.Int32,System.Int32)">
+            <summary>
+            获取行政级别定义的所有数据
+            </summary>
+            <param name="iObjType">查询行政级别信息上的类别(1、机构级别；2、人员级别)</param>
+            <param name="iShowHidden">是否展现系统中的隐藏个人级别信息（有些级别信息是不能做展现的，默认情况下为0）</param>
+            <returns>行政级别定义的所有数据</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguReaderServiceBroker.QueryOGUByCondition(System.String,System.Int32,System.String,System.Boolean,System.Boolean,System.String,System.String,System.String,System.Int32,System.Int32,System.String)">
+            <summary>
+            按照不同的要求查询系统中的所有符合条件的数据
+            </summary>
+            <param name="strOrgValues">指定父机构（多个之间采用","分隔,空就采用默认）</param>
+            <param name="iSoc">查询要求的查询列名称（ＧＵＩＤ、ＵＳＥＲ＿ＧＵＩＤ、ＬＯＧＯＮ＿ＮＡＭＥ、ＯＲＩＧＩＮＡＬ＿ＳＯＲＴ、ＧＬＯＢＡＬ＿ＳＯＲＴ、ＡＬＬ＿ＰＡＴＨ＿ＮＡＭＥ）</param>
+            <param name="strLikeName">名称中的（模糊匹配对象）</param>
+            <param name="bLike">是否采用模糊匹配</param>
+            <param name="bFirstPerson">要求一把手与否</param>
+            <param name="strOrgRankCodeName">要求查询的机构上的行政级别设置</param>
+            <param name="strUserRankCodeName">要求查询上的用户的行政级别设置</param>
+            <param name="strAttr">要求获取的字段</param>
+            <param name="iListObjType">要求查询的对象类型</param>
+            <param name="iDep">查询深度</param>
+            <param name="strHideType">要求屏蔽的类型设置</param>
+            <returns>查询结果</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguReaderServiceBroker.QueryOGUByCondition2(System.String,System.Int32,System.String,System.Boolean,System.String,System.Int32,System.Int32,System.String,System.Int32)">
+            <summary>
+            按照不同的要求查询系统中的所有符合条件的数据
+            </summary>
+            <param name="strOrgValues">指定父机构（多个之间采用","分隔,空就采用默认）</param>
+            <param name="iSoc">查询要求的查询列名称（ＧＵＩＤ、ＵＳＥＲ＿ＧＵＩＤ、ＬＯＧＯＮ＿ＮＡＭＥ、ＯＲＩＧＩＮＡＬ＿ＳＯＲＴ、ＧＬＯＢＡＬ＿ＳＯＲＴ、ＡＬＬ＿ＰＡＴＨ＿ＮＡＭＥ）</param>
+            <param name="strLikeName">名称中的（模糊匹配对象）</param>
+            <param name="bLike">是否采用模糊匹配</param>
+            <param name="strAttr">要求获取的字段</param>
+            <param name="iListObjType">要求查询的对象类型</param>
+            <param name="iDep">查询深度</param>
+            <param name="strHideType">要求屏蔽的类型设置</param>
+            <param name="rtnRowLimit">返回的记录数</param>
+            <returns>查询结果</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguReaderServiceBroker.QueryOGUByCondition3(System.String,System.Int32,System.String,System.Boolean,System.String,System.Int32,System.Int32,System.Int32,System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="strOrgValues"></param>
+            <param name="iSoc"></param>
+            <param name="strLikeName"></param>
+            <param name="bLike"></param>
+            <param name="strAttr"></param>
+            <param name="iListObjType"></param>
+            <param name="iLod"></param>
+            <param name="iDep"></param>
+            <param name="strHideType"></param>
+            <param name="rtnRowLimit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguReaderServiceBroker.GetUsersInGroups(System.String,System.Int32,System.String,System.String,System.Int32,System.String,System.Int32)">
+            <summary>
+            获取指定人员组中的所有成员（注意其中逻辑删除的数据对象）
+            </summary>
+            <param name="strGroupValues">要求查询的人员组对象标识（多个之间采用","分隔）</param>
+            <param name="iSocg">查询要求的查询列名称（ＧＵＩＤ、ＵＳＥＲ＿ＧＵＩＤ、ＬＯＧＯＮ＿ＮＡＭＥ、ＯＲＩＧＩＮＡＬ＿ＳＯＲＴ、ＧＬＯＢＡＬ＿ＳＯＲＴ、ＡＬＬ＿ＰＡＴＨ＿ＮＡＭＥ）</param>
+            <param name="strAttrs">要求在本次查询中获取对象的字段名称</param>
+            <param name="strOrgValues">要求查询数据的机构范围(多个之间采用","分隔， 空的时候表示无机构要求)</param>
+            <param name="iSoco">查询要求的查询列名称（ＧＵＩＤ、ＵＳＥＲ＿ＧＵＩＤ、ＬＯＧＯＮ＿ＮＡＭＥ、ＯＲＩＧＩＮＡＬ＿ＳＯＲＴ、ＧＬＯＢＡＬ＿ＳＯＲＴ、ＡＬＬ＿ＰＡＴＨ＿ＮＡＭＥ）</param>
+            <param name="strUserRankCodeName">对人员要求的最低行政级别</param>
+            <param name="iLod">本次查询中要求查询对象的状态信息数据（是否包含逻辑删除对象）</param>
+            <returns>指定人员组中的所有成员</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguReaderServiceBroker.GetGroupsOfUsers(System.String,System.Int32,System.String,System.Int32,System.String,System.Int32)">
+            <summary>
+            获取指定用户所从属的"人员组"集合
+            </summary>
+            <param name="strUserValues">指定的用户标识（多个之间采用“,”分隔）</param>
+            <param name="iSocu">查询要求的查询列名称（ＧＵＩＤ、ＵＳＥＲ＿ＧＵＩＤ、ＬＯＧＯＮ＿ＮＡＭＥ、ＯＲＩＧＩＮＡＬ＿ＳＯＲＴ、ＧＬＯＢＡＬ＿ＳＯＲＴ、ＡＬＬ＿ＰＡＴＨ＿ＮＡＭＥ）</param>
+            <param name="strParentValue">指定的用户所在部门（用于区别兼职问题）</param>
+            <param name="iSoco">查询要求的查询列名称（ＧＵＩＤ、ＵＳＥＲ＿ＧＵＩＤ、ＬＯＧＯＮ＿ＮＡＭＥ、ＯＲＩＧＩＮＡＬ＿ＳＯＲＴ、ＧＬＯＢＡＬ＿ＳＯＲＴ、ＡＬＬ＿ＰＡＴＨ＿ＮＡＭＥ）</param>
+            <param name="strAttrs">所要求获取的属性信息</param>
+            <param name="iLod">本次查询中要求查询对象的状态信息数据（是否包含逻辑删除对象）</param>
+            <returns>指定用户所从属的"人员组"集合</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguReaderServiceBroker.GetSecretariesOfLeaders(System.String,System.Int32,System.String,System.Int32)">
+            <summary>
+            获取指定领导的所有秘书人成员
+            </summary>
+            <param name="strLeaderValues">指定领导的标识（多个之间采用","分隔）</param>
+            <param name="iSoc">查询要求的查询列名称（ＧＵＩＤ、ＵＳＥＲ＿ＧＵＩＤ、ＬＯＧＯＮ＿ＮＡＭＥ、ＯＲＩＧＩＮＡＬ＿ＳＯＲＴ、ＧＬＯＢＡＬ＿ＳＯＲＴ、ＡＬＬ＿ＰＡＴＨ＿ＮＡＭＥ）</param>
+            <param name="strAttrs">要求在本次查询中获取对象的字段名称</param>
+            <param name="iLod">本次查询中要求查询对象的状态信息数据（是否包含逻辑删除对象）</param>
+            <returns>指定领导的所有秘书人成员</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguReaderServiceBroker.GetLeadersOfSecretaries(System.String,System.Int32,System.String,System.Int32)">
+            <summary>
+            获取指定秘书的所有领导人成员
+            </summary>
+            <param name="strSecValues">指定秘书的标识（多个之间采用","分隔）</param>
+            <param name="iSoc">查询要求的查询列名称（ＧＵＩＤ、ＵＳＥＲ＿ＧＵＩＤ、ＬＯＧＯＮ＿ＮＡＭＥ、ＯＲＩＧＩＮＡＬ＿ＳＯＲＴ、ＧＬＯＢＡＬ＿ＳＯＲＴ、ＡＬＬ＿ＰＡＴＨ＿ＮＡＭＥ）</param>
+            <param name="strAttrs">要求在本次查询中获取对象的字段名称</param>
+            <param name="iLod">本次查询中要求查询对象的状态信息数据（是否包含逻辑删除对象）</param>
+            <returns>指定秘书的所有领导人成员</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguReaderServiceBroker.GetObjectParentOrgs(System.String,System.String,System.Int32,System.Boolean,System.Boolean,System.String,System.String)">
+            <summary>
+            获取指定对象的父机构对象（GROUPS、USERS或者是ORGANIZATIONS的父部门）
+            </summary>
+            <param name="strObjType">要查询自身的对象（GROUPS、USERS或者ORGANIZATIONS）</param>
+            <param name="strObjValues">自身所具有的数据值</param>
+            <param name="iSoc">查询要求的查询列名称（ＧＵＩＤ、ＵＳＥＲ＿ＧＵＩＤ、ＬＯＧＯＮ＿ＮＡＭＥ、ＯＲＩＧＩＮＡＬ＿ＳＯＲＴ、ＧＬＯＢＡＬ＿ＳＯＲＴ、ＡＬＬ＿ＰＡＴＨ＿ＮＡＭＥ）</param>
+            <param name="bOnlyDirectly">是否仅仅获取最接近的机构对象</param>
+            <param name="bWithVisiual">是否要求忽略虚拟部门</param>
+            <param name="strOrgRankCodeName">要求最低的机构行政级别</param>
+            <param name="strAttrs">要求获取的数据字段</param>
+            <returns>指定对象的父机构对象</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguReaderServiceBroker.GetObjectDepOrgs(System.String,System.String,System.Int32,System.Int32,System.String)">
+            <summary>
+            获取指定对象的父机构对象（GROUPS、USERS或者是ORGANIZATIONS的父部门(指定层次)）
+            </summary>
+            <param name="strObjType">要查询自身的对象（GROUPS、USERS或者ORGANIZATIONS）</param>
+            <param name="strObjValues">自身所具有的数据值</param>
+            <param name="iSoc">查询要求的查询列名称（ＧＵＩＤ、ＵＳＥＲ＿ＧＵＩＤ、ＬＯＧＯＮ＿ＮＡＭＥ、ＯＲＩＧＩＮＡＬ＿ＳＯＲＴ、ＧＬＯＢＡＬ＿ＳＯＲＴ、ＡＬＬ＿ＰＡＴＨ＿ＮＡＭＥ）</param>
+            <param name="iDep">要求获取的深度</param>
+            <param name="strAttrs">要求获取的数据字段</param>
+            <returns>指定对象的父机构对象</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguReaderServiceBroker.GetRootDSE">
+            <summary>
+            获取系统指定的根部门对象
+            </summary>
+            <returns>系统指定的根部门对象</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguReaderServiceBroker.SignInCheck(System.String,System.String)">
+            <summary>
+            登录。
+            </summary>
+            <param name="strLogonName">登录名称。</param>
+            <param name="strUserPwd">密码。</param>
+            <returns>登录是否成功。</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguReaderServiceBroker.UpdateUserPwd(System.String,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            修改密码。
+            </summary>
+            <param name="strUserValue">指定的用户标识</param>
+            <param name="iSoc">查询要求的查询列名称（ＧＵＩＤ、ＵＳＥＲ＿ＧＵＩＤ、ＬＯＧＯＮ＿ＮＡＭＥ、ＯＲＩＧＩＮＡＬ＿ＳＯＲＴ、ＧＬＯＢＡＬ＿ＳＯＲＴ、ＡＬＬ＿ＰＡＴＨ＿ＮＡＭＥ）</param>
+            <param name="strOldPwd">旧密码</param>
+            <param name="strNewPwd">新密码</param>
+            <param name="strConfirmPwd">确认密码</param>
+            <returns>是否修改成功</returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.OguReaderServiceBroker.RemoveAllCache">
+            <summary>
+            去除所有缓存。
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguReaderServiceBroker.Instance">
+            <summary>
+            机构人员服务的WebService代理实例
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.OguReaderServiceBroker.Url">
+            <summary>
+            Web Service 地址。
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.ServiceBrokerContext">
+            <summary>
+            调用服务的上下文
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.ServiceBrokerContextBase`1">
+            <summary>
+            人员和授权访问客户端服务代理的基类
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.ServiceBrokerContextBase`1.SaveContextStates">
+            <summary>
+            保存状态
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.ServiceBrokerContextBase`1.RestoreSavedStates">
+            <summary>
+            恢复状态
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.ServiceBrokerContextBase`1.InitWebClientProtocol(System.Web.Services.Protocols.WebClientProtocol)">
+            <summary>
+            
+            </summary>
+            <param name="protocol"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.ServiceBrokerContextBase`1.InitProperties">
+            <summary>
+            初始化刚创建的代理类的属性
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.ServiceBrokerContextBase`1.Current">
+            <summary>
+            得到上下文
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.ServiceBrokerContextBase`1.UseLocalCache">
+            <summary>
+            是否使用本地缓存
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.ServiceBrokerContextBase`1.UseServerCache">
+            <summary>
+            是否使用服务器端缓存。这需要服务方支持。此属性会通过ServiceBrokerSoapHeader放置在SoapHeader中
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.ServiceBrokerContextBase`1.TimePoint">
+            <summary>
+            穿梭时间点
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.ServiceBrokerContextBase`1.Timeout">
+            <summary>
+            超时时间
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.ServiceBrokerContextBase`1.ConnectionMappings">
+            <summary>
+            连接串映射
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.ServiceBrokerContextBase`1.Context">
+            <summary>
+            上下文信息
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.ServiceBrokerContext.InitProperties">
+            <summary>
+            初始化Broker的属性
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.ServiceBrokerContext.ListObjectCondition">
+            <summary>
+            查询删除对象的掩码
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.ServiceBrokerExtension">
+            <summary>
+            定制的SoapExtension，用于Client调用
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.ServiceBrokerExtensionBase`1">
+            <summary>
+            定制的SoapExtension基类，用于Client调用
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.ServiceBrokerExtensionBase`1.GetInitializer(System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="serviceType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.ServiceBrokerExtensionBase`1.GetInitializer(System.Web.Services.Protocols.LogicalMethodInfo,System.Web.Services.Protocols.SoapExtensionAttribute)">
+            <summary>
+            
+            </summary>
+            <param name="methodInfo"></param>
+            <param name="attribute"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.ServiceBrokerExtensionBase`1.Initialize(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="initializer"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.ServiceBrokerExtensionBase`1.ProcessMessage(System.Web.Services.Protocols.SoapMessage)">
+            <summary>
+            客户端的调用时序是：
+            BeforeSerilize
+            AfterSerilize
+            BeforeDeserialize
+            AfterDeserialize
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.ServiceBrokerExtensionBase`1.GetSerivceBrokerContext">
+            <summary>
+            得到服务代理
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.ServiceBrokerExtension.GetSerivceBrokerContext">
+            <summary>
+            得到代理扩展的实例
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.ServiceBrokerExtensionAttribute">
+            <summary>
+            用于ServiceBroker使用的SoapExtension的属性定义
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.ServiceBrokerExtensionAttribute.ExtensionType">
+            <summary>
+            SoapExtension的类型
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.ServiceBrokerExtensionAttribute.Priority">
+            <summary>
+            优先级
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.ServiceBrokerSoapHeader">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.ServiceBrokerSoapHeader.UseServerCache">
+            <summary>
+            是否使用服务端缓存
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.ServiceBrokerSoapHeader.TimePoint">
+            <summary>
+            是否使用时光穿梭
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.ServiceBrokerSoapHeader.ConnectionMappings">
+            <summary>
+            连接映射
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.ServiceBrokerSoapHeader.Context">
+            <summary>
+            上下文信息
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.SoapHeaderContextItem">
+            <summary>
+            Soap Header中的上下文字典项
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.SoapHeaderContextItem.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.SoapHeaderContextItem.#ctor(System.String,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.SoapHeaderContextItem.Key">
+            <summary>
+            上下文的Key
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.SoapHeaderContextItem.Value">
+            <summary>
+            上下文的值
+            </summary>
+        </member>
+        <member name="T:MCS.Library.OGUPermission.SoapHeaderConnectionMappingItem">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.SoapHeaderConnectionMappingItem.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.OGUPermission.SoapHeaderConnectionMappingItem.#ctor(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="source"></param>
+            <param name="destination"></param>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.SoapHeaderConnectionMappingItem.Source">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Library.OGUPermission.SoapHeaderConnectionMappingItem.Destination">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,428 @@
+﻿<?xml version="1.0" encoding="utf-8"  ?>
+<!-- 请使用Xsd检查此文档的结构符合要求 -->
+<r:category name="Root"  title="Root" xmlns:r="CategorySchema.xsd">
+  <r:group name="ServiceProcess" title="服务流程">
+    <r:category name="SecretarialServices" title="秘书服务">
+      <!-- 注意，如果包含feature属性，为一个逗号分隔的元素字符串。按以下依次排列：高度，宽度，左边位置，顶端位置，大小可变,带滚动条，显示地址栏，显示状态栏，显示菜单栏，标题栏，剧院模式，全屏。其余值为1时有效。-->
+      <r:item name="Sign"  title="签报" href="/MCSWebApp/SinoOcean.OA.BizProcesses/SinoOceanForms/SignReportFrontController.aspx?appName=ADMINISTRATION&amp;programName=QIANBAO" feature="640,480"  />
+      <r:item name="IncomingDispatches"  title="收文" href="/MCSWebApp/SinoOcean.OA.BizProcesses/SinoOceanForms/ReceiveFrontController.aspx?appName=ADMINISTRATION&amp;programName=SHOUWEN"  />
+      <r:item name="Letter" title="函" href="/MCSWebApp/SinoOcean.OA.BizProcesses/SinoOceanForms/DispatchFrontController.aspx?appName=ADMINISTRATION&amp;programName=FAWEN_HAN"  />
+      <r:item name="OfficialDocuments"  title="正式发文" href="/MCSWebApp/SinoOcean.OA.BizProcesses/SinoOceanForms/DispatchFrontController.aspx?appName=ADMINISTRATION&amp;programName=FAWEN" />
+    </r:category>
+    <r:category name="EmploymentRelations" title="员工关系管理" >
+      <r:item name="LeaveApplication" title="请假申请" href="/MCSWebApp/SinoOcean.OA.BizProcesses/SinoOceanForms/LeaveApplicationFormController.aspx?appName=HUMANRESOURCES&amp;programName=LEAVE"  />
+      <r:item  name="OvertimeApplication" title="加班申请" href="/MCSWebApp/SinoOcean.OA.BizProcesses/SinoOceanForms/OverTimeApplicationFormController.aspx?appName=HUMANRESOURCES&amp;programName=OVERTIME"  />
+      <r:item name="WeUse" title="调休申请" href="/MCSWebApp/SinoOcean.OA.BizProcesses/SinoOceanForms/AdjustmentVacationFormController.aspx?appName=HUMANRESOURCES&amp;programName=ADJUSTMENTVACATIOIN"    />
+      <r:item name="BusinessApplication" title="公出申请" href="/MCSWebApp/SinoOcean.OA.BizProcesses/SinoOceanForms/PublicTravelApplicationFormController.aspx?appName=HUMANRESOURCES&amp;programName=PUBLICTRAVEL"     />
+      <r:item name="ApplicationForTravel" title="出差申请" href="/MCSWebApp/SinoOcean.OA.BizProcesses/SinoOceanForms/TravelApplicationFormController.aspx?appName=HUMANRESOURCES&amp;programName=TRAVEL"      />
+      <r:item name="ApplicationForTravelUP" title="出差申请（集团总部人员专用）"  href="/MCSWebApp/SinoOcean.OA.BizProcesses/SinoOceanForms/TravelApplicationCtripFrontController.aspx?appName=HUMANRESOURCES&amp;programName=TRAVELCTRIP"     />
+      <r:item  name="JobChangeRequest" title="工作变动申请" href="/MCSWebApp/SinoOcean.OA.BizProcesses/SinoOceanForms/JobReassignmentFormController.aspx?appName=HUMANRESOURCES&amp;programName=JOBRESS"  />
+      <r:item name="StaffApplication" title="员工转正申请" href="/MCSWebApp/SinoOcean.OA.BizProcesses/SinoOceanForms/BoardingFrontController.aspx?appName=HUMANRESOURCES&amp;programName=Boarding"  />
+    </r:category>
+    <r:category name="AdministrativeServices" title="行政服务">
+      <r:item name="FixedAssets" title="固定资产申请" href="/MCSWebApp/SinoOcean.OA.BizProcesses/SinoOceanForms/AssetApplicationFormController.aspx?appName=ADMINISTRATIVE&amp;programName=ASSETAPP"  />
+      <r:item name="NotebookComputer" title="笔记本电脑申请" href="/MCSWebApp/SinoOcean.OA.BizProcesses/SinoOceanForms/LaptopApplicationFrontController.aspx?appName=ADMINISTRATIVE&amp;programName=LAPTOPAPP"  />
+      <r:item name="MonthlyPurchase" title="月度采购" href="/MCSWebApp/SinoOcean.OA.BizProcesses/SinoOceanForms/MonthlyPurchaseFrontController.aspx?appName=ADMINISTRATIVE&amp;programName=MonthlyPurchase"    />
+      <r:item name="BorrowBooks" title="图书借阅" href="/MCSWebApp/SinoOcean.Seagull2.BooksLending/BooksLending/BooksLendingHomeView.aspx"    />
+    </r:category>
+    <r:category name="GovernmentRelations" title="政府关系" visible="false">
+
+    </r:category>
+    <r:category name="MediaRelations" title="媒体关系" visible="false">
+
+    </r:category>
+    <r:category name="IncentiveServices" title="人员激励服务" visible="false">
+
+    </r:category>
+    <r:category name="StaffAppraisal" title="人员考核">
+      <r:item name="MaintainGeneralCriteria" title="维护通用评分标准" href="/MCSWebApp/SinoOcean.Seagull2.EmployeeAssess/GeneralScoringCriteria/GeneralScoringCriteriaApply/GeneralScoringCriteriaApplyController.ashx?processDescKey=EmpAssess_GeneralScoringCriteria"  />
+      <r:item name="DistributingsCompulsively" title="维护强制结果分布" href="/MCSWebApp/SinoOcean.Seagull2.EmployeeAssess/ForceDistributionRules/ForceDistributionRulesApply/ForceDistributionRulesApplyController.ashx?processDescKey=EmpAssess_ForceDistributionRules"  />
+      <r:item name="DesignEvaluationModel" title="设计考核模型"  href="/MCSWebApp/SinoOcean.Seagull2.EmployeeAssess/AssessmentModel/AssessmentModelApply/AssessmentModelApplyController.ashx?processDescKey=EmpAssess_AssessmentModel"  />
+      <r:item name="MaintenanceInspectionPlan" title="维护考核方案" href="/MCSWebApp/SinoOcean.Seagull2.EmployeeAssess/AssessmentSchemes/SchemesSelection.aspx" />
+      <r:item name="ToDevelopAssessmentTable" title="制定考核表" href="/MCSWebApp/SinoOcean.Seagull2.EmployeeAssess/MakeAssessmentTable/PreMakeAssessmentTable.aspx"  />
+      <r:item name="EvaluationIndex" title="调整考核指标" href="/MCSWebApp/SinoOcean.Seagull2.EmployeeAssess/MakeAssessmentTable/PreAdjustAssessmentTable.aspx"  />
+      <r:item name="AssessmentAndEvaluation" title="考核评价" href="/MCSWebApp/SinoOcean.Seagull2.EmployeeAssess/AssessmentProcess/PreAssessmentProcess.aspx"  />
+      <r:item name="TheCheck" title="考核申诉" href="/MCSWebApp/SinoOcean.Seagull2.EmployeeAssess/AssessmentAppeal/PreAssessmentAppeal.aspx"  />
+      <r:item name="ExaminationAndInterview" title="考核面谈" href="/MCSWebApp/SinoOcean.Seagull2.EmployeeAssess/AssessmentInterview/PreAssessmentInterview.aspx"  />
+
+    </r:category>
+    <r:category name="StaffAccessToServices" title="人员获取服务" visible="false" role="">
+
+    </r:category>
+    <r:category name="CorporateCulture" title="企业文化" visible="false">
+
+    </r:category>
+    <r:category name="BoardService" title="董事会服务" visible="false">
+
+    </r:category>
+    <r:category name="CashManagement" title="现金管理" >
+      <r:item name="BankSelection" title="新银行选择" href="/MCSWebApp/SinoOcean.Seagull2.Funds/Funds/BankRelationship/BankSelect.aspx"  />
+      <r:item name="BankSurvey" title="银行考察" href="/MCSWebApp/SinoOcean.Seagull2.Funds/Funds/BankInvestigation/ChooseInvestigatorController.ashx?processDescKey=Funds_BankManager_BankInvestigation"  />
+      <r:item name="OpenAnAccount" title="开立账户" href="/MCSWebApp/SinoOcean.Seagull2.Funds/Funds/OpenAccount/OpenAccountController.ashx?processDescKey=Funds_AccountManager_OpenAccount"  />
+      <r:item name="CancellationOfAccounts" title="撤销账户" href="/MCSWebApp/SinoOcean.Seagull2.Funds/Funds/CancelAccount/CancelAccountController.ashx?processDescKey=Funds_AccountManager_CancelAccount" />
+      <r:item name="InformationChange" title="银行账户信息变更" href="/MCSWebApp/SinoOcean.Seagull2.Funds/Funds/ModifyAccount/ModifyAccountController.ashx?processDescKey=Funds_AccountManager_ModifyAccount" />
+      <r:item name="Deposit" title="境内非现金池内部转存款" href="/MCSWebApp/SinoOcean.Seagull2.Funds/Funds/InternalTransfer/InternalTransferController.ashx?processDescKey=Funds_Allocate_InternalTransfer"   />
+      <r:item name="TurnedIn" title="境内非现金池子公司申请资金上缴" href="/MCSWebApp/SinoOcean.Seagull2.Funds/Funds/FundsTurnoverApply/TurnoverApplyController.ashx?processDescKey=Funds_Allocate_Turnover"   />
+      <r:item name="OverAppropriation" title="境内非现金池子公司申请资金上缴下拨" href="/MCSWebApp/SinoOcean.Seagull2.Funds/Funds/FundsTurnoverApply/TurnoverApplyController.ashx?processDescKey=Funds_Allocate_AppropriatedApply"   />
+      <r:item name="AllocationOfFunds" title="资金调拨支付" href="/MCSWebApp/SinoOcean.Seagull2.Funds/Funds/FundsAppropriate/Default.aspx"   />
+      <r:item name="CapitalPaid" title="境内非现金池子公司申请资金上缴" href="/MCSWebApp/SinoOcean.Seagull2.Funds/WebControls/CorporationSelector/CorporationSelector.aspx?title=境内非现金池子公司申请资金上缴前置页面&amp;processDescKey=Funds_Allocate_TurnoverToPay&amp;redirectUrl=/MCSWebApp/SinoOcean.Seagull2.Funds/Funds/FundsTurnoverToPay/FundsTurnoverToPayController.ashx&amp;roleKey=FUND:JSJZ_XJGLZY" />
+      <r:item name="TheLord" title="现金池主账户参数设置" href="/MCSWebApp/SinoOcean.Seagull2.Funds/Funds/CashPoolMasterAccountAdjustment/MasterAccountAdjustmentIndex.aspx"  />
+      <r:item name="Sub" title="现金池子账户参数设置" href="/MCSWebApp/SinoOcean.Seagull2.Funds/Funds/CashPoolSubAccountAdjustment/SubAccountAdjustmentIndex.aspx"  />
+      <r:item name="InformationMaintenance" title="资金关键信息维护" href="/MCSWebApp/SinoOcean.Seagull2.Funds/Funds/BaseInfo/BaseInfoController.ashx?processDescKey=Funds_Parameter_Setting"  />
+      <r:item name="Summary" title="模拟发起页面汇总" href="/MCSWebApp/SinoOcean.Seagull2.Funds.ExtendService/MockStartup/Default.aspx"  />
+    </r:category>
+    <r:category name="TaxManagement" title="税费管理">
+
+      <r:item name="ApplicationForRegistration" title="票据领购登记" href="/MCSWebApp/SinoOcean.Seagull2.Taxes/WebControls/CorporationSelector/CorporationSelector.aspx?title=票据领购登记前置页面&amp;roleKey=Taxes:InvoiceExecutive&amp;processDescKey=Taxes_TicketReceivingPurchasing&amp;redirectUrl=/McsWebApp/SinoOcean.Seagull2.Taxes/Invoice/Register/RegisterController.ashx" />
+      <r:item name="TheUseUfRegistration" title="票据使用登记" href="/MCSWebApp/SinoOcean.Seagull2.Taxes/WebControls/CorporationSelector/CorporationSelector.aspx?title=票据使用登记前置页面&amp;roleKey=Taxes:BusinessPersonnel&amp;processDescKey=Taxes_TicketUseRegister&amp;redirectUrl=/McsWebApp/SinoOcean.Seagull2.Taxes/Invoice/CheckOut/CheckOutViewController.ashx" />
+      <r:item name="VerificationOfRegistration" title="票据核销登记" href="/MCSWebApp/SinoOcean.Seagull2.Taxes/WebControls/CorporationSelector/CorporationSelector.aspx?title=票据核销登记前置页面&amp;roleKey=Taxes:InvoiceExecutive&amp;processDescKey=Taxes_TicketCancelAfterVerification&amp;redirectUrl=/McsWebApp/SinoOcean.Seagull2.Taxes/Invoice/WriteOff/WriteOffController.ashx" />
+      <r:item name="ReturnLoss" title="资产申报损失" href="/MCSWebApp/SinoOcean.Seagull2.Taxes/WebControls/CorporationSelector/CorporationSelector.aspx?title=申报资产损失前置页面&amp;processDescKey=Taxes_AssetsLoss&amp;redirectUrl=/McsWebApp/SinoOcean.Seagull2.Taxes/Assets/LossOfAssets/LossOfAssetsController.ashx&amp;roleKey=Taxes:TaxExecutive" />
+      <r:item name="GeneralTax" title="通用税务基本信息维护" href="/MCSWebApp/SinoOcean.Seagull2.Taxes/Taxes/GeneralSetting/GeneralSettingController.ashx?processDescKey=Taxes_GeneralSetting_FillIn&amp;NationCode=CHN" />
+      <r:item name="RegionalTax" title="区域税务基本信息维护" href="/MCSWebApp/SinoOcean.Seagull2.Taxes/WebControls/CityAreaWithFormSelector/CityAreaWithFormSelector.aspx?title=区域税务基本信息维护前置页面&amp;processDescKey=Taxes_AreaSetting_FillIn&amp;redirectUrl=/MCSWebApp/SinoOcean.Seagull2.Taxes/Taxes/AreaSetting/AreaSettingController.ashx&amp;roleKey=Taxes:TaxExecutive&amp;NationCode=CHN" />
+      <r:item name="IncorporatedCompany" title="法人公司税务基本信息维护" href="/MCSWebApp/SinoOcean.Seagull2.Taxes/WebControls/CorporationSelector/CorporationSelector.aspx?title=法人公司税务基本信息维护前置页面&amp;roleKey=Taxes:CorporationSetting_DraftReceipt&amp;processDescKey=Taxes_CorporationTaxesInformationSafeguard_FillIn&amp;redirectUrl=/McsWebApp/SinoOcean.Seagull2.Taxes/Taxes/CorporationSetting/CorporationSettingController.ashx" />
+      <r:item name="TheNormalReturn" title="税费计算及支付申请(正常申报)" href="/MCSWebApp/SinoOcean.Seagull2.Taxes/WebControls/TaxComputeSelector/TaxComputeSelector.aspx?title=税费计算及支付申请(正常申报)前置页面&amp;roleKey=Taxes:TaxExecutive&amp;processDescKey=Taxes_ComputeTaxes&amp;declaretypecode=1&amp;redirectUrl=/McsWebApp/SinoOcean.Seagull2.Taxes/Taxes/ComputeTaxes/ComputeTaxesController.ashx" />
+      <r:item name="TheInterimReport" title="税费计算及支付申请(临时申报)" href="/MCSWebApp/SinoOcean.Seagull2.Taxes/WebControls/TaxComputeSelector/TaxComputeSelector.aspx?title=税费计算及支付申请(临时申报)前置页面&amp;roleKey=Taxes:TaxExecutive&amp;processDescKey=Taxes_ComputeTaxesTemporary&amp;declaretypecode=2&amp;redirectUrl=/McsWebApp/SinoOcean.Seagull2.Taxes/Taxes/ComputeTaxes/ComputeTaxesController.ashx" />
+      <r:item name="TaxRebate" title="退税" href="/MCSWebApp/SinoOcean.Seagull2.Taxes/WebControls/TaxComputeSelector/TaxComputeSelector.aspx?title=退税&amp;roleKey=Taxes:TaxExecutive&amp;processDescKey=Taxes_CorporationRefundTaxes&amp;redirectUrl=/McsWebApp/SinoOcean.Seagull2.Taxes/Taxes/CorporationRefundTaxes/CorporationRefundTaxesController.ashx" />
+      <r:item name="Settlement" title="企业增值税汇算清缴" href="/MCSWebApp/SinoOcean.Seagull2.Taxes/WebControls/TaxComputeSelector/TaxComputeSelector.aspx?title=企业所得税汇算清缴前置页面&amp;roleKey=Taxes:TaxExecutive&amp;processDescKey=Taxes_ComputeTaxesSum&amp;redirectUrl=/McsWebApp/SinoOcean.Seagull2.Taxes/Taxes/ComputeTaxesSum/ComputeTaxesSumController.ashx" />
+      <r:item name="Liquidation" title="土地增值税清算" href="/MCSWebApp/SinoOcean.Seagull2.Taxes/WebControls/TaxComputeSelector/TaxComputeSelector.aspx?title=土地增值税清算前置页面&amp;roleKey=Taxes:TaxExecutive&amp;processDescKey=Taxes_ComputeTaxesLAT&amp;redirectUrl=/McsWebApp/SinoOcean.Seagull2.Taxes/Taxes/ComputeTaxesLAT/ComputeTaxesLATController.ashx" />
+      <r:item name="Withhold" title="税费代扣代缴" href="/MCSWebApp/SinoOcean.Seagull2.Taxes/WebControls/TaxComputeSelector/TaxComputeSelector.aspx?title=税费代扣代缴&amp;roleKey=Taxes:TaxExecutive&amp;processDescKey=Taxes_WithholdAndRemitTaxes&amp;redirectUrl=/McsWebApp/SinoOcean.Seagull2.Taxes/Taxes/WithholdAndRemitTaxes/WithholdAndRemitTaxesController.ashx" />
+      <r:item name="Fine" title="缴纳滞纳金及罚款" href="/MCSWebApp/SinoOcean.Seagull2.Taxes/WebControls/TaxComputeSelector/TaxComputeSelector.aspx?title=缴纳滞纳金及罚款&amp;roleKey=Taxes:TaxExecutive&amp;processDescKey=Taxes_OverduePaymentAndPenalty&amp;redirectUrl=/McsWebApp/SinoOcean.Seagull2.Taxes/Taxes/OverduePaymentAndPenalty/OverduePaymentAndPenaltyController.ashx" />
+    </r:category>
+    <r:category name="FinancialAccounts" title="财务账务" visible="false">
+
+    </r:category>
+    <r:category name="FixedAssetManagement" title="固定资产管理" >
+      <r:item name="Key1" title="固定资产信息收集" href="/MCSWebApp/SinoOcean.Seagull2.FixedAssets/FixedAssets/FixedAssetRegister/AssetInfoFrontPage.aspx" />
+      <r:item name="Key2" title="资产申请" href="/MCSWebApp/SinoOcean.Seagull2.FixedAssets/FixedAssets/ModalDialog/RequestTypeSelector.aspx" />
+      <r:item name="Key3" title="资产采购" href="/MCSWebApp/SinoOcean.Seagull2.FixedAssets/FixedAssets/ModalDialog/PurchaseTypeSelector.aspx" />
+      <r:item name="Key4" title="资产转交" href="/MCSWebApp/SinoOcean.Seagull2.FixedAssets/FixedAssets/HandOver/AssetHandOverController.ashx?processDescKey=FixedAssets_HandOver" />
+      <r:item name="Key5" title="资产维修" href="/MCSWebApp/SinoOcean.Seagull2.FixedAssets/FixedAssets/Maintain/AssetMaintainController.ashx?processDescKey=FixedAssets_Maintain" />
+      <r:item name="Key6" title="资产报废" href="/MCSWebApp/SinoOcean.Seagull2.FixedAssets/FixedAssets/AssetScrap/AssetScrapController.ashx?processDescKey=FixedAssetsScrap" />
+      <r:item name="Key7" title="资产盘点" href="/MCSWebApp/SinoOcean.Seagull2.FixedAssets/FixedAssets/AssetCheck/AssetCheckCompanySelector.aspx" />
+      <r:item name="Key8" title="物品规格配置模版维护"  href="/MCSWebApp/SinoOcean.Seagull2.FixedAssets/FixedAssets/ConfigurationManage/AssetConfigModelPage.aspx" />
+      <r:item name="Key9" title="物品存放地点维护"  href="/MCSWebApp/SinoOcean.Seagull2.FixedAssets/FixedAssets/ConfigurationManage/AssetStorageManagePage.aspx" />
+      <r:item name="Key10" title="固定资产信息维护" href="/MCSWebApp/SinoOcean.Seagull2.FixedAssets/FixedAssets/AssetInfomationMaintain/AssetInfomationMaintainController.ashx?processDescKey=FixedAssets_InfoMaintain" />
+    </r:category>
+    <r:category name="FinanceInternalAudit" title="财务内审" visible="false">
+
+    </r:category>
+    <r:category name="BrandManagement" title="品牌管理" visible="false">
+
+    </r:category>
+    <r:category name="OperatingHandleAualification" title="经营性资质办理" >
+      <r:item name="Key1" title="模板变更" href="/MCSWebApp/SinoOcean.Seagull2.Qualification/Qualification/QualificationTemplateChange/QualificationTemplateChangeIndex.aspx?processDescKey=QualificationTemplateManage"  />
+      <r:item name="Key2" title="年检资质" href="/MCSWebApp/SinoOcean.Seagull2.Qualification/Qualification/QualificationAnnualInspection/QualificationAnnualInspectionIndex.aspx?processDescKey=QualificationAnnualInspection"  />
+    </r:category>
+    <r:category name="ProcessManagement" title="流程管理" >
+      <r:item name="Key1" title="流程编制" href="/MCSWebApp/SinoOcean.Seagull2.ProcessManagement/FrontPage/ProcessComposition.aspx"  />
+      <r:item name="Key2" title="流程评估和发布" href="/MCSWebApp/SinoOcean.Seagull2.ProcessManagement/FrontPage/ProcessComposition.aspx"  />
+      <r:item name="Key3" title="流程评估和优化" href="/MCSWebApp/SinoOcean.Seagull2.ProcessManagement/FrontPage/ProcessComposition.aspx"  />
+    </r:category>
+    <r:category name="KnowledgeManagement" title="知识管理" visible="false">
+
+    </r:category>
+    <r:category name="InternalAudit" title="内部审计" >
+      <r:item name="Key1" title="离任审计" href="/MCSWebApp/SinoOcean.Seagull2.InternalAudit/InternalAudit/DepartureAuditTest/DepartureAuditTestController.ashx?processDescKey=DepartureAuditTest" />
+      <r:item name="Key2" title="内控审计" href="/MCSWebApp/SinoOcean.Seagull2.InternalAudit/InternalAudit/AuditStartInternal/InternalControlAuditController.ashx?processDescKey=Internal_Control_Audit" />
+      <r:item name="Key3" title="预算审计" href="/MCSWebApp/SinoOcean.Seagull2.InternalAudit/InternalAudit/SimulationLaunchTest/LaunchAuditProjectBudgetController.ashx?processDescKey=AuditProject_LaunchTest" />
+      <r:item name="Key4" title="结算审计" href="/MCSWebApp/SinoOcean.Seagull2.InternalAudit/InternalAudit/SimulationLaunchTest/LaunchAuditProjectSettlementController.ashx?processDescKey=AuditProjectSettlement_LaunchTest" />
+      <r:item name="Key5" title="资料清单维护" href="/MCSWebApp/SinoOcean.Seagull2.InternalAudit/InternalAudit/AuditInfoManagement/AuditInfoManagementViewFront.aspx" />
+    </r:category>
+    <r:category name="InformationManagementServices" title="信息管理服务" visible="false">
+
+    </r:category>
+    <r:category name="DataManagement" title="资料管理" >
+
+      <r:item name="DataCollection" title="资料征集" href="/MCSWebApp/SinoOcean.Seagull2.Archive/Material/Collect/MaterialCollectController.ashx?processDescKey=Material_Collect&amp;programName=资料征集&amp;appName=资料管理" />
+      <r:item name="DataInStorage" title="归资料库" href="/MCSWebApp/SinoOcean.Seagull2.Archive/Material/Filling/MaterialFillingController.ashx?processDescKey=Material_Filling&amp;programName=归资料库&amp;appName=资料管理" />
+      <r:item name="DirectDataStorage" title="直接入库" href="/MCSWebApp/SinoOcean.Seagull2.Archive/Material/AdminKeeping/MaterialAdminKeepingController.ashx?processDescKey=Material_Admin_Keeping&amp;programName=直接入库&amp;appName=资料管理"  />
+      <r:item name="DataArrangement" title="资料整理" href="/MCSWebApp/SinoOcean.Seagull2.Archive/Material/Sorting/MaterialSortingController.ashx?processDescKey=Material_Arrange&amp;programName=资料整理&amp;appName=资料管理"  />
+      <r:item name="DataRent" title="资料借阅" href="/MCSWebApp/SinoOcean.Seagull2.Archive/Material/Use/MaterialUseController.ashx?processDescKey=Material_Use_Apply&amp;programName=资料借阅&amp;appName=资料管理"  />
+      <r:item name="DataReceive" title="资料归还" href="/MCSWebApp/SinoOcean.Seagull2.Archive/Material/Return/MaterialReturnController.ashx?processDescKey=Material_Use_Return&amp;programName=资料归还&amp;appName=资料管理"  />
+      <r:item name="DataReminder" title="资料催还" href="/MCSWebApp/SinoOcean.Seagull2.Archive/Material/UrgeReturn/MaterialUrgeReturnController.ashx?processDescKey=Material_Use_Urge&amp;programName=资料催还&amp;appName=资料管理" />
+      <r:item name="DataToArchivement" title="资料转档案" href="/MCSWebApp/SinoOcean.Seagull2.Archive/Material/Convert/MaterialConvertController.ashx?processDescKey=Material_Transfer_Archive&amp;programName=资料转档案&amp;appName=资料管理" />
+      <r:item name="DataDestroy" title="资料销毁" href="/MCSWebApp/SinoOcean.Seagull2.Archive/Material/Destroy/MaterialDestroyController.ashx?processDescKey=Material_Destroy&amp;programName=资料销毁&amp;appName=资料管理"  />
+      <r:item name="EngDocAccept" title="工程档案竣工预验收" href="/MCSWebApp/SinoOcean.Seagull2.Archive/Material/Check/MaterialCheckController.ashx?processDescKey=Material_Check&amp;programName=工程档案竣工预验收&amp;appName=资料管理"  />
+      <r:item name="EngDocArchival" title="工程档案竣工备案" href="/MCSWebApp/SinoOcean.Seagull2.Archive/Material/Record/MaterialRecordController.ashx?processDescKey=Material_Record&amp;programName=工程档案竣工备案&amp;appName=资料管理"  />
+    </r:category>
+    <r:category name="FileManagement" title="档案管理" >
+      <r:item name="Key1" title="工作场地准备" href="/MCSWebApp/SinoOcean.Seagull2.Archive/Archive/Prepare/ArchivePrepareController.ashx?processDescKey=Archive_Prepare&amp;programName=工作场地准备&amp;appName=档案管理" />
+      <r:item name="Key2" title="档案征集" href="/MCSWebApp/SinoOcean.Seagull2.Archive/Archive/Collect/ArchiveCollectController.ashx?processDescKey=Archive_Collect&amp;programName=档案征集&amp;appName=档案管理"  />
+      <r:item name="Key3" title="归档案库" href="/MCSWebApp/SinoOcean.Seagull2.Archive/Archive/Filling/ArchiveFillingController.ashx?processDescKey=Archive_Filling&amp;programName=归档案库&amp;appName=档案管理"  />
+      <r:item name="Key4" title="直接归档" href="/MCSWebApp/SinoOcean.Seagull2.Archive/Archive/AdminFilling/ArchiveAdminFillingController.ashx?processDescKey=Archive_Admin_Filling&amp;programName=直接归档&amp;appName=档案管理"  />
+      <r:item name="Key5" title="档案整理" href="/MCSWebApp/SinoOcean.Seagull2.Archive/Archive/Sorting/ArchiveSortingController.ashx?processDescKey=Archive_Arrange&amp;programName=档案整理&amp;appName=档案管理"  />
+      <r:item name="Key6" title="档案室管理" href="/MCSWebApp/SinoOcean.Seagull2.Archive/Archive/Check/ArchiveCheckController.ashx?processDescKey=Archive_Check&amp;programName=档案室管理&amp;appName=档案管理"  />
+      <r:item name="Key7" title="档案借阅" href="/MCSWebApp/SinoOcean.Seagull2.Archive/Archive/Use/ArchiveUseController.ashx?processDescKey=Archive_Use_Apply&amp;programName=档案借阅&amp;appName=档案管理"  />
+      <r:item name="Key8" title="档案归还" href="/MCSWebApp/SinoOcean.Seagull2.Archive/Archive/Return/ArchiveReturnController.ashx?processDescKey=Archive_Use_Return&amp;programName=档案归还&amp;appName=档案管理"  />
+      <r:item name="Key9" title="档案催还" href="/MCSWebApp/SinoOcean.Seagull2.Archive/Archive/UrgeReturn/ArchiveUrgeReturnController.ashx?processDescKey=Archive_Use_Urge&amp;programName=档案催还&amp;appName=档案管理"  />
+      <r:item name="Key10" title="档案编研" href="/MCSWebApp/SinoOcean.Seagull2.Archive/Archive/Edit/ArchiveEditController.ashx?processDescKey=Archive_Edit&amp;programName=档案编研&amp;appName=档案管理"  />
+      <r:item name="Key11" title="档案移交" href="/MCSWebApp/SinoOcean.Seagull2.Archive/Archive/Transfer/ArchiveTransferController.ashx?processDescKey=Archive_Transfer&amp;programName=档案移交&amp;appName=档案管理"  />
+      <r:item name="Key12" title="档案销毁" href="/MCSWebApp/SinoOcean.Seagull2.Archive/Archive/Destroy/ArchiveDestroyController.ashx?processDescKey=Archive_Destroy&amp;programName=档案销毁&amp;appName=档案管理"  />
+      <r:item name="Key13" title="竣工档案登记" href="/MCSWebApp/SinoOcean.Seagull2.Archive/Archive/Register/RequestArchiveController.ashx?processDescKey=Archive_Register&amp;programName=竣工档案登记&amp;appName=档案管理"  />
+    </r:category>
+    <r:category name="InvestorRelations" title="投资者关系" visible="false">
+
+    </r:category>
+    <r:category name="SupplierRelationships" title="供应商关系" visible="false">
+
+    </r:category>
+
+    <r:category name="AllianceMerchant" title="联盟商家" visible="false">
+
+    </r:category>
+    <r:category name="EducationalInstitutions" title="教育机构管理" visible="false">
+
+    </r:category>
+    <r:category name="MemberRelations" title="会员关系" visible="false">
+
+    </r:category>
+    <r:category name="CustomerSatisfaction" title="客户满意度" >
+      <r:item name="Key" title="发起客户满意度调查" href="/MCSWebApp/SinoOcean.Seagull2.ConsumerSatisfaction/Survey/TargetCategory.aspx" />
+    </r:category>
+    <r:category name="PartsAndMaterialsManagement" title="部品材料管理" visible="false">
+
+    </r:category>
+    <r:category name="CasesHandled" title="案件办理" visible="false">
+
+    </r:category>
+    <r:category name="EquityManagement" title="股权管理" >
+
+      <r:item name="Key1" title="法人公司信息收集" href="/MCSWebApp/SinoOcean.Seagull2.Equity/Equity/CompanyInfoCollect/CompanyInfoCollectController.ashx?processDescKey=CompanyInfoCollect"  />
+      <r:item name="Key2" title="股权变更" href="/MCSWebApp/SinoOcean.Seagull2.Equity/Equity/ChangeEquity/PreparationProgramControler.ashx?processDescKey=ChangeOfEquity"  />
+      <r:item name="Key3" title="股权支付计划变更" href="#" />
+      <r:item name="Key4" title="股权范本管理" href="/MCSWebApp/SinoOcean.Seagull2.Contract/ContractManagement/TemplateModify/TemplateCategoryModifyView.aspx?TemplateCategoryID=4"  />
+
+    </r:category>
+    <r:category name="CareerDevelopmentPlan" title="职业发展规划" visible="false">
+
+    </r:category>
+    <r:category name="Management" title="经营管理" visible="false">
+
+    </r:category>
+    <r:category name="DesignChangesAndVisa" title="设计变更与签证" >
+
+      <r:item name="Key" title="设计变更审批单" href="/MCSWebApp/SinoOcean.OA.BizProcesses/SinoOc
+                            eanForms/DesignChangeFrontController.aspx?appName=DesignChangeAndVisa&amp;programName=DesignChange" />
+      <r:item name="Key1" title="洽商记录审批单" href="/MCSWebApp/SinoOcean.OA.BizProcesses/SinoOceanForms/NegotiationRecordsFrontController.aspx?appName=DesignChangeAndVisa&amp;programName=NegotiationRecords" />
+    </r:category>
+    <r:category name="Payment" title="支付" >
+
+
+      <r:item name="Key1" title="支付申请单" href="/Finance/Payment/Index.aspx" />
+      <r:item name="Key2" title="借款申请单" href="/Finance/LoanForm/Index.aspx" />
+      <r:item name="Key3" title="生成凭证" href="/Finance/Payment/GenerateCertificate/CertificateListView.aspx" />
+      <r:item name="Key4" title="往来款" href="/Finance/Payment/ModalDialog/CurrentPreselection.aspx" />
+      <r:item name="Key5" title="支出凭单" href="/Finance/Payment/Index.aspx?applicationCategoryCode=012" />
+      <r:item name="Key6" title="笔记本设备申请单" href="/Finance/Payment/ModalDialog/ComputerPreselection.aspx" />
+    </r:category>
+    <r:category name="Charge" title="收费" >
+      <r:item name="Key1" title="票据兑换" href="/MCSWebApp/SinoOcean.Seagull2.Charging/InvoiceManager/PropertyDevelopment/ToRetrieveNotes.aspx" />
+      <r:item name="Key2" title="按揭款到账" href="/MCSWebApp/SinoOcean.Seagull2.Charging/Charging/MortgageRepayment/MortgageRepaymentController.ashx?processDescKey=Charge_MortgageRepayment" />
+      <r:item name="Key3" title="物业服务业主收费记账" href="/MCSWebApp/SinoOcean.Seagull2.Charging/Charging/MortgageRepayment/MortgageRepaymentController.ashx?processDescKey=Charge_MortgageRepayment" />
+      <r:item name="Key4" title="销售回款日报" href="/MCSWebApp/SinoOcean.Seagull2.Charging/Dashboard/ReporEntrance/PropertyDevelopment/SalesReceivedPaymentDailyReportQueryView.aspx" />
+      <r:item name="Key5" title="销售回款月报季报年报" href="/MCSWebApp/SinoOcean.Seagull2.Charging/Dashboard/ReporEntrance/PropertyDevelopment/SalesReceivedPaymentMonthlyAndQuarterlyReportQueryView.aspx" />
+    </r:category>
+    <r:category name="HumanResources" title="人力资源" >
+      <r:item name="Key1" title="员工信息收集" href="/HumanResource/Employ/LaunchInitial/LaunchInitialController.ashx?processDescKey=LaunchInitial"  />
+      <r:item name="Key2" title="员工入职" href="/HumanResource/EmployeeEntry/EmployeeEntryMain.aspx" />
+      <r:item name="Key3" title="员工调动(批量)" href="/MCSWebApp/SinoOcean.Seagull2.JobTransfer/EmployeeJobTransfer/JobTransferApply/JobTransferApplyController.ashx?processDescKey=HR_JOBTRANSFER"  />
+      <r:item name="Key4" title="员工调动" href="/MCSWebApp/SinoOcean.Seagull2.JobTransfer/EmployeeJobTransfer/JobTransferApply/JobTransferFrontPage.aspx" />
+      <r:item name="Key5" title="离职申请" href="/HumanResource/Dismission/DismissionApply/ResignationApplyController.ashx?processDescKey=HR_DISMISSION"  />
+      <r:item name="Key6" title="被动离职申请" href="/HumanResource/Dismission/DismissionApply/Preselection.aspx" />
+      <r:item name="Key7" title="退休申请" href="/HumanResource/Dismission/DismissionApply/RetiredApplyController.ashx?processDescKey=HR_DISMISSION"  />
+      <r:item name="Key8" title="离职申请(结算)" href="/HumanResource/Dismission/DismissionApply/PreselectionDimissionSettlement.aspx" />
+      <r:item name="Key9" title="工资核发" href="/MCSWebApp/SinoOcean.Seagull2.SalaryCheck/SalaryCheck/SalaryCheckStart/SalaryCheckStartController.ashx?processDescKey=HR_SalaryCheck&amp;relativeParams=ProjectName%3d流程-2011" />
+      <r:item name="Key10" title="工资核发(新)" href="/MCSWebApp/SinoOcean.Seagull2.SalaryCheckNew/SalaryCheckNew/Defalut.aspx" />
+      <r:item name="Key11" title="福利缴纳" href="/MCSWebApp/SinoOcean.Seagull2.WelfarePayment/Entry/entry.html" />
+      <r:item name="Key12" title="社保公积金缴纳" href="/MCSWebApp/SinoOcean.Seagull2.WelfarePaymentF/WelfarePaymentF/PreposePage.aspx" />
+      <r:item name="Key13" title="个人信息调整" href="/HumanResource/EmployeeInformationModify/EmployeeInformationModifyForEmployee/EmployeeeInformationModifyController.ashx?processDescKey=EmployeeInformationModify" />
+      <r:item name="Key14" title="员工信息调整" href="/HumanResource/EmployeeInformationModify/EmployeeInformationModifyFromHRStart/EmployeeInformationModifyFromHRStartController.ashx?processDescKey=EmployeeInformationModifyFromHRStart" />
+      <r:item name="Key15" title="合同变更" href="/MCSWebApp/SinoOcean.Seagull2.EmployeeContract/ContractUpdate/ContractUpdateStartView.aspx" />
+      <r:item name="Key16" title="合同续签" href="/MCSWebApp/SinoOcean.Seagull2.EmployeeContract/RenewalContract/RenewalPortal.aspx" />
+      <r:item name="Key17" title="日历表设置" href="/MCSWebApp/SinoOcean.Seagull2.EmployeeContract/RenewalContract/RenewalPortal.aspx"  />
+      <r:item name="Key18" title="考勤周期设置" href="/MCSWebApp/SinoOcean.Seagull2.Attendence/Attendence/CycleAndDaytimeSet/CycleSetStartView.aspx" />
+      <r:item name="Key19" title="考勤班次设置" href="/MCSWebApp/SinoOcean.Seagull2.Attendence/Attendence/CycleAndDaytimeSet/DaytimeSetStartView.aspx" />
+      <r:item name="Key20" title="考勤项设置" href="/MCSWebApp/SinoOcean.Seagull2.Attendence/Attendence/AttendenceItem/AttendenceItemController.ashx?processDescKey=Att_Item" />
+      <r:item name="Key21" title="申请加班" href="/MCSWebApp/SinoOcean.Seagull2.Attendence/Attendence/OverTimeApply/OverTimeApplyController.ashx?processDescKey=Att_OverTime" />
+      <r:item name="Key22" title="员工考勤参数设置" href="/MCSWebApp/SinoOcean.Seagull2.Attendence/Attendence/EmployeeInfoSet/FrontPage.aspx" />
+      <r:item name="Key23" title="员工考勤参数调整" href="/MCSWebApp/SinoOcean.Seagull2.Attendence/Attendence/EmployeeInfoBatchSet/FrontPage.aspx"  />
+      <r:item name="Key24" title="请休假申请" href="/MCSWebApp/SinoOcean.Seagull2.Attendence/Attendence/LeaveApply/LeaveApplyController.ashx?processDescKey=Att_Leave" />
+      <r:item name="Key25" title="请休假变更" href="/MCSWebApp/SinoOcean.Seagull2.Attendence/Attendence/LeaveChange/FrontPage.aspx" />
+      <r:item name="Key26" title="打卡明细导入" href="/MCSWebApp/SinoOcean.Seagull2.Attendence/Attendence/Appeal/ImportCardView.aspx" />
+      <r:item name="Key27" title="计算考勤结果" href="/MCSWebApp/SinoOcean.Seagull2.Attendence/Attendence/Appeal/ComputeAttendenceResultView.aspx" />
+      <r:item name="Key28" title="考勤异常申诉" href="/MCSWebApp/SinoOcean.Seagull2.Attendence/Attendence/Appeal/FrontPage.aspx" />
+      <r:item name="Key29" title="月度考勤情况汇总表计算" href="/MCSWebApp/SinoOcean.Seagull2.Attendence/Attendence/Summary/FrontPage.aspx"  />
+      <r:item name="Key30" title="月度考勤情况汇总表查询" href="/MCSWebApp/SinoOcean.Seagull2.Attendence/Attendence/Summary/SummaryView.aspx" />
+      <r:item name="Key31" title="非正式员工入职" href="/MCSWebApp/SinoOcean.Seagull2.HumanResource.Unofficial/Entry/EmployeeEntryMain.aspx" />
+      <r:item name="Key32" title="非正式员工离职" href="/MCSWebApp/SinoOcean.Seagull2.HumanResource.Unofficial/UnofDismission/UnofDismissionApply/Preselection.aspx"  />
+      <r:item name="Key33" title="非正式员工主动离职" href="/MCSWebApp/SinoOcean.Seagull2.HumanResource.Unofficial/UnofDismission/UnofDismissionApply/UnofDismissionApplyController.ashx?processDescKey=UnofDISMISSION" />
+      <r:item name="Key34" title="员工转正" href="/MCSWebApp/SinoOcean.Seagull2.HR.EmployeeRegular/EmployeeRegular/Preselection.aspx?IsT=true"  />
+      <r:item name="Key35" title="设置补偿金政策参数" href="/HumanResource/DimissionSettlement/DimissionSettlementMain.aspx"  />
+      <r:item name="Key36" title="社保公积金明细表" href="/MCSWebApp/SinoOcean.Seagull2.WelfarePayment/WelfarePaymentF/WelfareReport/WelfareDetail/WelfareDetailEntry.aspx" />
+      <r:item name="Key37" title="社保公积金缴纳汇总表" href="/MCSWebApp/SinoOcean.Seagull2.WelfarePayment/WelfarePaymentF/WelfareReport/WelfareSum/WelfareSumEntry.aspx"  />
+      <r:item name="Key38" title="社保公积金汇总（业务组织）表" href="/MCSWebApp/SinoOcean.Seagull2.WelfarePayment/WelfarePaymentF/WelfareReport/WelfareSumOrg/WelfareSumOrgEntry.aspx" />
+      <r:item name="Key39" title="工资明细表" href="/MCSWebApp/SinoOcean.Seagull2.SalaryCheck/SalaryCheck/SalaryCheckReportF/SalaryCheckDetail/SalaryCheckDetailEntry.aspx" />
+      <r:item name="Key40" title="工资汇总表" href="/MCSWebApp/SinoOcean.Seagull2.SalaryCheck/SalaryCheck/SalaryCheckReportF/SalaryCheckSum/SalaryCheckSumEntry.aspx" />
+      <r:item name="Key41" title="工资汇总（汇总）表" href="/MCSWebApp/SinoOcean.Seagull2.SalaryCheck/SalaryCheck/SalaryCheckReportF/SalaryCheckSumOrg/SalaryCheckSumOrgEntry.aspx" />
+      <r:item name="Key42" title="计划维护" href="/MCSWebApp/SinoOcean.Seagull2.Excitation/Excitation/PlanBatch/PlanCreateController.ashx?processDescKey=Excitation_PlanManage" />
+      <r:item name="Key43" title="薪酬方案设置" href="/MCSWebApp/SinoOcean.Seagull2.SalaryPlan/SalaryPlan/SalaryPlanSettings/SalaryPlanSettingsController.ashx?processDescKey=HR_SalaryPlan_Settings&amp;relativeParams=ProjectName%3d流程-2011" />
+      <r:item name="Key44" title="员工工资基础信息" href="/MCSWebApp/SinoOcean.Seagull2.SalaryPlan/SalaryPlan/EmployeeBaseInfo/SelectEmployee.aspx"   />
+      <r:item name="Key45" title="月度工资配置" href="/MCSWebApp/SinoOcean.Seagull2.SalaryPlan/SalaryPlan/MonthSalaryConfig/MonthSalaryConfig/chooseHRMgmtUnit.aspx" />
+      <r:item name="Key46" title="限制性股票过户" href="/MCSWebApp/SinoOcean.Seagull2.Excitation/Excitation/RestrictedStockTransfer/RestrictedStockTransferStartView.aspx" />
+      <r:item name="Key47" title="批次人维护" href="/MCSWebApp/SinoOcean.Seagull2.Excitation/Excitation/PlanBatch/PlanSelect.aspx" />
+      <r:item name="Key48" title="购股权行权及兑现" href="/MCSWebApp/SinoOcean.Seagull2.Excitation/Excitation/ExecuteAndSelling/VestStartView.aspx" />
+      <r:item name="Key49" title="限制性股票过户" href="/MCSWebApp/SinoOcean.Seagull2.Excitation/Excitation/RestrictedStockTransfer/RestrictedStockTransferStartView.aspx" />
+      <r:item name="Key50" title="对账" href="/MCSWebApp/SinoOcean.Seagull2.Excitation/Excitation/Check/UploadCheckDataController.ashx?processDescKey=Excitation_Reconciliation" />
+      <r:item name="Key51" title="生成离职报表" href="/MCSWebApp/SinoOcean.Seagull2.Excitation/Excitation/DismissionReport/DismissionReportFrontPage.aspx"  />
+      <r:item name="Key52" title="延迟生效" href="/MCSWebApp/SinoOcean.Seagull2.Excitation/Excitation/DelayEffect/SignatureController.ashx?processDescKey=Excitation_DelayEffect&amp;appName=HUMANRESOURCES&amp;programName=长期激励&amp;batch=1" />
+      <r:item name="Key53" title="可行权变更" href="/MCSWebApp/SinoOcean.Seagull2.Excitation/Excitation/VestChange/VestChangeController.ashx?processDescKey=Excitation_ChangeDetails"  />
+      <r:item name="Key54" title="绩效达标确认" href="/MCSWebApp/SinoOcean.Seagull2.Excitation/Excitation/ExecuteAndSelling/VestTranferStart.aspx" />
+    </r:category>
+    <r:category name="PurchasingManagement" title="采购管理" >
+      <r:item name="Key1" title="询价" href="/MCSWebApp/SinoOcean.Seagull2.Tender/Tender/ModalDialog/InquiryPriceFrontPage.aspx" />
+      <r:item name="Key2" title="招投标" href="/MCSWebApp/SinoOcean.Seagull2.Tender/Tender/ModalDialog/BiddingFrontPage.aspx" />
+      <r:item name="Key3" title="战略采购" href="/MCSWebApp/SinoOcean.Seagull2.Tender/Tender/ModalDialog/StrategyPurchaseFrontPage.aspx" />
+      <r:item name="Key4" title="招标范本管理" href="/MCSWebApp/SinoOcean.Seagull2.Contract/ContractManagement/TemplateModify/TemplateCategoryModifyView.aspx?TemplateCategoryID=2" />
+    </r:category>
+    <r:category name="Personnel" title="人员提供" >
+
+      <r:item name="Key1" title="岗位说明书" href="/MCSWebApp/SinoOcean.Seagull2.EmpProvider/EmpProvide/StationInstruction/StationInstructionMaintainFrontPage.aspx " />
+      <r:item name="Key2" title="岗位说明书（录入专员入口）" href="/MCSWebApp/SinoOcean.Seagull2.EmpProvider/EmpProvide/StationInstruction/RedirectorController.ashx?processDescKey=StationInstructionMaintainProc" />
+      <r:item name="Key3" title="招聘申请" href="/MCSWebApp/SinoOcean.Seagull2.EmpProvider/EmpProvide/RecruitRequest/RecruitRquestFontPage.aspx" />
+      <r:item name="Key4" title="内部应聘" href="/MCSWebApp/SinoOcean.Seagull2.EmpProvider/EmpProvide/InternalApplyRequest/InternalRecruitRequestFront.aspx " />
+      <r:item name="Key5" title="内部推荐" href="/MCSWebApp/SinoOcean.Seagull2.EmpProvider/EmpProvide/InternalRecommendRequest/InternalRecommendRequestFront.aspx " />
+      <r:item name="Key6" title="简历筛选" href="/MCSWebApp/SinoOcean.Seagull2.EmpProvider/EmpProvide/ResumeCheck/Entry.aspx" />
+      <r:item name="Key7" title="录用洽谈"  href="/MCSWebApp/SinoOcean.Seagull2.EmpProvider/EmpProvide/EmployeExecute/EmployeExecuteDiscussController.ashx?processDescKey=StationInstructionMaintainProc" />
+      <r:item name="Key8" title="职位招聘状态维护" href="/MCSWebApp/SinoOcean.Seagull2.EmpProvider/EmpProvide/RecruitStateMaintain/Entry.aspx" />
+      <r:item name="Key9" title="远洋外网招聘" href="/MCSWebApp/SinoOcean.Seagull2.EmpProvider.OutSite/Recruit/Default.aspx" />
+      <r:item name="Key10" title="编制人力需求计划" href="/MCSWebApp/SinoOcean.Seagull2.EmpProvider/EmpProvide/ManpowerRequirePlan/MakeManpowerRequirePlan/MakeManpowerRequirePlanController.ashx?processDescKey=MakeManpowerRequirePlan" />
+      <r:item name="Key11" title="调整人力需求计划" href="/MCSWebApp/SinoOcean.Seagull2.EmpProvider/EmpProvide/ManpowerRequirePlan/AdjustManpowerRequirePlan/AdjustManpowerRequirePlanController.ashx?processDescKey=AdjustManpowerRequirePlan" />
+    </r:category>
+    <r:category name="Incentive" title="人员激励" >
+      <r:item name="Key1" title="固浮比设置" href="/MCSWebApp/SinoOcean.Seagull2.EmployeeEncourage/SalarySchema/SalarySchemaFixedRatioSetting/SalarySchemaFixedRatioEntry.aspx" />
+      <r:item name="Key2" title="岗位类别固浮比设置" href="/MCSWebApp/SinoOcean.Seagull2.EmployeeEncourage/SalarySchema/SalarySchemaSpecializationFixedRatioSetting/SalarySchemaSpecializationFixedRatioEntry.aspx" />
+      <r:item name="Key3" title="城市薪酬系数设置" href="/MCSWebApp/SinoOcean.Seagull2.EmployeeEncourage/SalarySchema/SalarySchemaCityFactorSetting/SalarySchemaCityFactorEntry.aspx"  />
+      <r:item name="Key4" title="薪酬水平架构设置" href="/MCSWebApp/SinoOcean.Seagull2.EmployeeEncourage/SalarySchema/SalarySchemaSetting/SalarySchemaEntry.aspx" />
+      <r:item name="Key5" title="默认薪酬水平架构设置" href="/MCSWebApp/SinoOcean.Seagull2.EmployeeEncourage/SalarySchema/DefaultSalarySchemaSetting/DefaultSalarySchemaEntry.aspx"  />
+      <r:item name="Key6" title="薪酬结构项设置" href="/MCSWebApp/SinoOcean.Seagull2.EmployeeEncourage/SalaryPlan/SalaryBusinessFieldItem/Entry.aspx"  />
+      <r:item name="Key7" title="添加薪酬模板" href="/MCSWebApp/SinoOcean.Seagull2.EmployeeEncourage/SalaryPlan/SalaryTemplateItem/EntryAdd.aspx"  />
+      <r:item name="Key8" title="修改薪酬模板" href="/MCSWebApp/SinoOcean.Seagull2.EmployeeEncourage/SalaryPlan/SalaryTemplateItem/EntryModify.aspx"  />
+      <r:item name="Key9" title="工资核发单元设置" href="/MCSWebApp/SinoOcean.Seagull2.EmployeeEncourage/SalaryPlan/SalaryCheckUnitSetting/SalaryCheckUnitMainEntry.aspx"  />
+      <r:item name="Key10" title="周期性数据输入" href="/MCSWebApp/SinoOcean.Seagull2.EmployeeEncourage/SalaryPlan/SalaryEmployeeCyclistDatum/SalaryEmployeeCyclistDatumMainEntry.aspx"  />
+      <r:item name="Key11" title="周期性数据调整" href="/MCSWebApp/SinoOcean.Seagull2.EmployeeEncourage/SalaryPlan/SalaryEmployeeCyclistDatumAdjust/SalaryEmployeeCyclistDatumAdjustMainEntry.aspx"  />
+      <r:item name="Key12" title="员工发薪签报" href="/MCSWebApp/SinoOcean.Seagull2.EmployeeEncourage/SalaryPlan/SalaryPaySign/EmployeeSalaryPaySignController.ashx?processDescKey=EmpEncourage_SalaryPaySign"  />
+      <r:item name="Key13" title="个税税档设置" href="/MCSWebApp/SinoOcean.Seagull2.EmployeeEncourage/SalaryPlan/SalaryTaxGradeSetting/SalaryTaxGradeController.ashx?processDescKey=EmpEncourage_SalaryTaxRuleCfg"  />
+      <r:item name="Key14" title="员工薪酬参数设置" href="/MCSWebApp/SinoOcean.Seagull2.EmployeeEncourage/SalaryPlan/SalaryEmpCfg/SalaryEmpCfgFrontPage.aspx"  />
+      <r:item name="Key15" title="员工薪酬参数初始化" href="/MCSWebApp/SinoOcean.Seagull2.EmployeeEncourage/SalaryPlan/SalaryEmpCfgInit/SalaryEmpCfgInitFrontPage.aspx"  />
+      <r:item name="Key16" title="人工成本预算" href="/MCSWebApp/SinoOcean.Seagull2.EmployeeEncourage/EmpCostPredict/Entry.aspx"  />
+      <r:item name="Key17" title="宽带制薪酬调整" href="/MCSWebApp/SinoOcean.Seagull2.EmployeeEncourage/SalaryAdjust/BroadBand/SalaryAdjustBroadBandEntry.aspx"  />
+      <r:item name="Key18" title="档级制薪酬调整" href="/MCSWebApp/SinoOcean.Seagull2.EmployeeEncourage/SalaryAdjust/Grade/SalaryAdjustGradeRedirectController.ashx?processDescKey=EmpEncourage_SalaryAdjustGrade"  />
+      <r:item name="Key19" title="即时调薪" href="/MCSWebApp/SinoOcean.Seagull2.EmployeeEncourage/SalaryAdjust/ImmediateAdjustSalary/Entry.aspx" />
+      <r:item name="Key20" title="考核结果导入" href="/MCSWebApp/SinoOcean.Seagull2.BonusDistribute/BonusDistribute/EmpAssessScoreImport/ScoreImportFront.aspx"  />
+      <r:item name="Key21" title="设置奖金分配公式" href="/MCSWebApp/SinoOcean.Seagull2.BonusDistribute/BonusDistribute/BonusPerformanceFormula/RedictorController.ashx?processDescKey=BonusDistribute_BonusPerformanceFormula" />
+      <r:item name="Key22" title="UBI绩效奖金集团下达" href="/MCSWebApp/SinoOcean.Seagull2.BonusDistribute/BonusDistribute/BonusPerformanceGroupDown/GroupDownFront.aspx" />
+      <r:item name="Key23" title="UBI绩效奖金组织下达" href="/MCSWebApp/SinoOcean.Seagull2.BonusDistribute/BonusDistribute/BonusPerformanceORGDown/UBIPerformanceBonusIssueFront.aspx" />
+      <r:item name="Key24" title="UBI绩效奖金分配" href="/MCSWebApp/SinoOcean.Seagull2.BonusDistribute/BonusDistribute/UBI_Performance_Distribute/UBIDistributeFront.aspx" />
+      <r:item name="Key25" title="UBI特殊奖金分配" href="/MCSWebApp/SinoOcean.Seagull2.BonusDistribute/BonusDistribute/UBI_Special_Distribute/UBISpecialDistributeFront.aspx"  />
+      <r:item name="Key26" title="RBI和CBI绩效奖金分配" href="/MCSWebApp/SinoOcean.Seagull2.BonusDistribute/BonusDistribute/RBI_CBI_Performance_Distribute/RBIDistributeFront.aspx" />
+      <r:item name="Key27" title="RBI和CBI其它奖金分配" href="/MCSWebApp/SinoOcean.Seagull2.BonusDistribute/BonusDistribute/RBI_CBI_SpecialAndBasic_Distribute/RBIOtherDistributeFront.aspx" />
+      <r:item name="Key28" title="年终奖分期发放" href="/MCSWebApp/SinoOcean.Seagull2.EmployeeEncourage/SalaryPlan/BonusDivide/YearlyBonusDivide/YearlyBonusDivideFront.aspx"  />
+      <r:item name="Key29" title="其他奖金分期发放" href="/MCSWebApp/SinoOcean.Seagull2.EmployeeEncourage/SalaryPlan/BonusDivide/GenericBonusDivide/GenericBonusDivideView.aspx"  />
+      <r:item name="Key30" title="奖金分期数据调整" href="/MCSWebApp/SinoOcean.Seagull2.BonusDistribute/SalaryPlan/BonusDivide/BonusDivideAdjust/BonusDivideAdjustFront.aspx"  />
+    </r:category>
+  </r:group>
+  <r:group  name="MainlineProcess" title="主线流程" >
+    <r:category name="StrategicPositioning" title="战略定位" visible="false">
+
+    </r:category>
+    <r:category name="StrategicPlanning" title="战略规划" visible="false">
+    </r:category>
+    <r:category name="PerformancePlanning" title="绩效规划" >
+      <r:item name="MaintainPIdb" title="维护绩效指标库"  href="/MCSWebApp/SinoOcean.Seagull2.PerformancePlan/PerformanceIndicatorMaintain/PerformanceIndicatorMaintainPreposePage.aspx"  />
+      <r:item name="MaintainBenchmark" title="维护评分标准" href="/MCSWebApp/SinoOcean.Seagull2.PerformancePlan/ScoringStandardMaintain/ScoringStandardMaintainController.ashx?processDescKey=ScoringStandardMaintain"  />
+      <r:item name="PISystem" title="构建绩效指标体系" href="/MCSWebApp/SinoOcean.Seagull2.PerformancePlan/BuildYearPerformanceIndicatorSystem/StartProcessPage.aspx"  />
+      <r:item name="PIAdjust" title="绩效指标调整" href="/MCSWebApp/SinoOcean.Seagull2.PerformancePlan/PerformanceIndicatorAdjust/PerformanceIndicatorAdjustPreposePage.aspx"  />
+    </r:category>
+    <r:category name="ProductlineResearch" title="产品线研究" visible="false">
+
+    </r:category>
+    <r:category name="FinancingManage" title="融资管理">
+      <r:item name="Key1" title="融资合同签订" href="/MCSWebApp/SinoOcean.Seagull2.Financing/Portal/CorporationPortal.aspx?title=合同签订前置页面&amp;roleKey=Financing:JSJZ_FRGSRZZY&amp;processDescKey=Financing_ContractSign&amp;redirectUrl=/McsWebApp/SinoOcean.Seagull2.Financing/Financing/ContractSigning/ContractSigningViewController.ashx"  />
+      <r:item name="Key2" title="融资提款" href="/MCSWebApp/SinoOcean.Seagull2.Financing/Portal/ContractSearch.aspx?title=融资提款前置页面&amp;roleKey=Financing:JSJZ_FRGSRZZY&amp;processDescKey=Financing_Drawdown&amp;redirectUrl=/McsWebApp/SinoOcean.Seagull2.Financing/Financing/Drawdown/DrawdownController.ashx"  />
+      <r:item name="Key3" title="融资还款及息费支出" href="/MCSWebApp/SinoOcean.Seagull2.Financing/Portal/ContractSearch.aspx?title=融资还款及息费支出前置页面&amp;roleKey=Financing:JSJZ_FRGSRZZY&amp;processDescKey=Financing_Payment&amp;redirectUrl=/McsWebApp/SinoOcean.Seagull2.Financing/Financing/Payment/AffirmPaymentController.ashx"  />
+      <r:item name="Key4" title="融资合同变更" href="/MCSWebApp/SinoOcean.Seagull2.Financing/Portal/ContractFamilySelector.aspx?title=合同变更前置页面&amp;roleKey=Financing:JSJZ_FRGSRZZY&amp;processDescKey=Financing_ContractChanging&amp;redirectUrl=/McsWebApp/SinoOcean.Seagull2.Financing/Financing/ContractChange/ContractChangeViewController.ashx"  />
+    </r:category>
+    <r:category name="LandExpand" title="土地拓展">
+      <r:item name="Key" title="土地拓展" href="/MCSWebApp/SinoOcean.OA.BizProcesses/SinoOceanForms/PropertyEvaluationFrontController.aspx?appName=PropertyObtain&amp;programName=PropertyEvaluation"  />
+    </r:category>
+    <r:category name="ProjectDefinition" title="项目定义">
+      <r:item name="Key1" title="图纸会审" href="/MCSWebApp/SinoOcean.OA.BizProcesses/SinoOceanForms/PropertyEvaluationFrontController.aspx?appName=PropertyObtain&amp;programName=propertyevaluation"  />
+      <r:item name="Key2" title="图纸发放" href="/MCSWebApp/SinoOcean.OA.BizProcesses/SinoOceanForms/DrawingHandoutsFrontController.aspx?appName=ProductsDefine&amp;programName=DrawingHandouts"  />
+    </r:category>
+    <r:category name="ProjectImplementation" title="项目实施" >
+      <r:item name="Key1" title="工作联系单" href="/MCSWebApp/SinoOcean.OA.BizProcesses/SinoOceanForms/WorkContactsFrontController.aspx?appName=ProjectImplement&amp;programName=WorkContacts"   />
+    </r:category>
+    <r:category name="FieldSales" title="现场销售">
+      <r:item name="Key1" title="维护置业顾问团队"  href="/MCSWebApp/SinoOcean.Seagull2.FieldSale/Sale/SaleTeam/SaleTeamEditAndApprovalController.ashx?processDescKey=sale_SaleTeamEdit" />
+      <r:item name="Key2" title="价格管理" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale/Sale/PriceManagement/PrePriceManagement.aspx" />
+      <r:item name="Key3" title="锁定或解锁房源" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale/Sale/RentalSaleResource/RentalSaleResourceLock/RentalSaleResourcePrepose.aspx" />
+      <r:item name="Key4" title="录入客户信息" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale/Sale/CustomerAdmit/CustomerAdmitInfoPrepose.aspx" />
+      <r:item name="Key5" title="认筹" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale/Sale/InformationPort/RecognitionChips/RecognitionChips/RecognitionPrepose.aspx"/>
+      <r:item name="Key6" title="退认筹" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale/Sale/InformationPort/RecognitionChips/ReturnRecognitionChips/ReturnRecognitionChipsPrepose.aspx"/>
+      <r:item name="Key7" title="房屋销售" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale/Sale/InformationPort/InformationPortPrepose.aspx"/>
+      <r:item name="Key8" title="分配客户" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale/Sale/CustomerAllocation/CustomerAllocationController.ashx?processDescKey=sale_CustomerAssignation"  />
+      <r:item name="Key9" title="分配客户" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale/Sale/CustomerAllocation/FontPage.aspx"  />
+      <r:item name="Key10" title="编制项目营销大纲" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale2/Sale2/MarketingProgram/FrontPage.aspx" />
+      <r:item name="Key11" title="编制推广计划" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale2/Sale2/SalePromotionPlan/PromotionPlan.aspx" />
+      <r:item name="Key12" title="编制开盘筹备报告" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale2/Sale2/OpeningPreparation/OpeningPreparation.aspx" />
+      <r:item name="Key13" title="编制定价及实施报告" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale2/Sale2/PriceDetermine/FrontPage.aspx" />
+      <r:item name="Key14" title="销售合同模板设置" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale2/Sale2/ContractTemplate/SalesContract/FrontPage.aspx "  />
+      <r:item name="Key15" title="精装修协议模板设置" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale2/Sale2/ContractTemplate/DecorationContract/FrontPage.aspx " />
+      <r:item name="Key16" title="认购书模板设置" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale2/Sale2/ContractTemplate/SubscriptionAgreement/FrontPage.aspx "     />
+      <r:item name="Key17" title="认筹协议模板设置" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale2/Sale2/ContractTemplate/RecognitionChipsContract/FrontPage.aspx "    />
+      <r:item name="Key18" title="预售证办理" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale2/Sale2/SaleCertificate/SaleCertificateFrontPage.aspx" />
+      <r:item name="Key19" title="按揭银行" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale2/Sale2/MortgageBank/FrontPage.aspx" />
+      <r:item name="Key20" title="示范区包装方案" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale2/Sale2/Packaging/FrontPage.aspx" />
+      <r:item name="Key21" title="销售案场公示" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale2/Sale2/SaleAnnouncement/FrontPage.aspx" />
+      <r:item name="Key22" title="销售面积预测及备案" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale2/Sale2/SaleAreaPredict/SaleAreaPredictFrontPage.aspx" />
+      <r:item name="Key23" title="筹备销售道具工作指引" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale2/Sale2/PrepartorySalesProps/PrepartorySalesPropsDefault.aspx " />
+      <r:item name="Key24" title="组织销前集中培训工作指引" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale2/Sale2/MarketingTraining/FrontPage.aspx " />
+      <r:item name="Key25" title="组织销前单独培训工作指引" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale2/Sale2/MarketingTraining/SingleFrontPage.aspx " />
+      <r:item name="Key26" title="开盘风险检查" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale2/Sale2/OpenRiskCheck/FrontPage.aspx" />
+      <r:item name="Key27" title="开放前风险检查" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale2/Sale2/BeforeShowRiskCheck/FrontPage.aspx" />
+      <r:item name="Key28" title="签约催告函" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale2/Sale2/SendLetter/SignSummon/FrontPage.aspx" />
+      <r:item name="Key29" title="认购书解除" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale2/Sale2/SendLetter/SubscribeCancel/FrontPage.aspx" />
+      <r:item name="Key30" title="逾期付款通知书" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale2/Sale2/SendLetter/OverduePay/FrontPage.aspx" />
+      <r:item name="Key31" title="解约通知书" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale2/Sale2/SendLetter/TerminateContract/FrontPage.aspx" />
+      <r:item name="Key32" title="前期物业合同" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale2/Sale2/PropertyContract/FrontPage.aspx" />
+      <r:item name="Key33" title="销售示范区物业服务" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale2/Sale2/PropertyServiceContract/Default.aspx" />
+      <r:item name="Key34" title="结案报告" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale2/Sale2/MarketingComplete/FrontPage.aspx" />
+      <r:item name="Key35" title="月度佣金核算" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale2/Sale2/CommissionCheck/FrontPage.aspx" />
+      <r:item name="Key36" title="客户问卷调查" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale2/Sale2/Questionnaire/FrontPage.aspx"/>
+
+      <r:item name="Key37" title="佣金结算外网" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale2/Sale2/CommissionCheck/FrontPageOutSide.aspx"/>
+    </r:category>
+    <r:category name="Contracting" title="签约">
+      <r:item name="Key1" title="缴纳余款" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale/Sale/SurplusMoneyPayment/SurplusMoneyPaymentPrepose.aspx"  />
+      <r:item name="Key2" title="签约变更" href="/MCSWebApp/SinoOcean.Seagull2.FieldSale/Sale/ContractChange/ContractChangePrepose.aspx"  />
+    </r:category>
+    <r:category name="Partnership" title="入伙管理" visible="false"></r:category>
+    <r:category name="PropertyFound" title="产权办理" visible="false"></r:category>
+    <r:category name="Rectify" title="集中整改" visible="false" ></r:category>
+    <r:category name="CustomerService" title="公司客服" >
+      <r:item name="Key1" title="倾听之窗论坛客户意见处理" href="/MCSWebApp/SinoOcean.OA.BizProcesses/SinoOceanForms/ListeningWindowsFrontController.aspx?appName=CustomerService&amp;programName=ListeningWindows"  />
+      <r:item name="Key2" title="项目客户投诉处理" href="/MCSWebApp/SinoOcean.OA.BizProcesses/SinoOceanForms/ComplainFrontController.aspx?appName=CustomerService&amp;programName=Complain"  />
+      <r:item name="Key3" title="服务监督系统客户投诉处理" href="/MCSWebApp/SinoOcean.OA.BizProcesses/SinoOceanForms/ComplainFrontController.aspx?appName=CustomerService&amp;programName=ComplainSurveillance "  />
+    </r:category>
+    <r:category name="PropertyServices" title="物业服务" visible="false">
+
+    </r:category>
+    <r:category name="test" title="测试">
+      <r:item name="Key1" title="临时流程演示" href="/WebTestProject/WFDemo/TempProcessController.ashx?relativeParams=ProjectName%3d临时流程-2011"  />
+      <r:item name="Key2" title="计划流程" href="/WebTestProject/WorkItemDemo/NewForms/PlanDesign.ashx?processDescKey=PlanDesign&amp;appName=演示流程&amp;programName=制定计划&amp;relativeParams=ProjectName%3d临时流程-2011"  />
+      <r:item name="Key3" title="常规流程-合同流程演示" href="/WebTestProject/WFDemo/DemoOrderController.ashx?processDescKey=WfDemoOrderProcess&amp;appName=演示流程&amp;programName=合同流程&amp;relativeParams=ProjectName%3d常规流程-2011"  />
+      <r:item name="Key4" title="常规流程-支付流程演示" href="/WebTestProject/WFDemo/DemoPaymentController.ashx?processDescKey=WfDemoPamentProcess&amp;appName=演示流程&amp;programName=支付流程&amp;relativeParams=ProjectName%3d常规流程-2011"  />
+      <r:item name="Key5" title="计划流程-制定计划" href="/WebTestProject/WorkItemDemo/NewForms/PlanDesign.ashx?processDescKey=MakePlanProcess&amp;appName=演示流程&amp;programName=制定计划&amp;relativeParams=ProjectName%3d临时流程-2011"  />
+    </r:category>
+  </r:group>
+</r:category>

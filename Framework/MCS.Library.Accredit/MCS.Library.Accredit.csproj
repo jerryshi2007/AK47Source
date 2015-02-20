@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EC4DEE0F-0EB7-42D9-B4ED-6590E70BD879}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MCS.Library.Accredit</RootNamespace>
+    <AssemblyName>MCS.Library.Accredit</AssemblyName>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>MCS.Library.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags></FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation></UpgradeBackupLocation>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\MCS.Library.Accredit.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'DELUXEWORKSTEST|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\DELUXEWORKSTEST\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DELUXEWORKSTEST;GTNet40</DefineConstants>
+    <DocumentationFile>bin\Debug\DeluxeWorks.Library.Accredit.XML</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MCS.Library, Version=1.2.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\MCS.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Data, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MCS.Library.Data\bin\Debug\MCS.Library.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppAdmin\Caching\CommonCoreQueue.cs" />
+    <Compile Include="AppAdmin\Caching\DoesUserHasAllPermissionsQueue.cs" />
+    <Compile Include="AppAdmin\Caching\DoesUserHasPermissionsQueue.cs" />
+    <Compile Include="AppAdmin\Caching\GetAllDelegatedUserQueue.cs" />
+    <Compile Include="AppAdmin\Caching\GetAllOriginalUserQueue.cs" />
+    <Compile Include="AppAdmin\Caching\GetApplicationsQueue.cs" />
+    <Compile Include="AppAdmin\Caching\GetChildrenInRolesQueue.cs" />
+    <Compile Include="AppAdmin\Caching\GetDelegatedUserQueue.cs" />
+    <Compile Include="AppAdmin\Caching\GetDepartmentAndUserInRolesQueue.cs" />
+    <Compile Include="AppAdmin\Caching\GetFunctionsQueue.cs" />
+    <Compile Include="AppAdmin\Caching\GetFunctionsRolesQueue.cs" />
+    <Compile Include="AppAdmin\Caching\GetFunctionsUsersQueue.cs" />
+    <Compile Include="AppAdmin\Caching\GetOriginalUserQueue.cs" />
+    <Compile Include="AppAdmin\Caching\GetRolesQueue.cs" />
+    <Compile Include="AppAdmin\Caching\GetRolesUsersQueue.cs" />
+    <Compile Include="AppAdmin\Caching\GetUserAllowDelegteRolesQueue.cs" />
+    <Compile Include="AppAdmin\Caching\GetUserApplicationsForDelegationQueue.cs" />
+    <Compile Include="AppAdmin\Caching\GetUserApplicationsQueue.cs" />
+    <Compile Include="AppAdmin\Caching\GetUserApplicationsRolesQueue.cs" />
+    <Compile Include="AppAdmin\Caching\GetUserFunctionsScopesQueue.cs" />
+    <Compile Include="AppAdmin\Caching\GetUserPermissionsQueue.cs" />
+    <Compile Include="AppAdmin\Caching\GetUserRolesQueue.cs" />
+    <Compile Include="AppAdmin\Caching\GetUserRolesScopesQueue.cs" />
+    <Compile Include="AppAdmin\Caching\IsAdminUserQueue.cs" />
+    <Compile Include="AppAdmin\Caching\IsUserInAllRolesQueue.cs" />
+    <Compile Include="AppAdmin\Caching\IsUserInRolesQueue.cs" />
+    <Compile Include="AppAdmin\DelegationMaskType.cs" />
+    <Compile Include="AppAdmin\ExtSecurityCheck.cs" />
+    <Compile Include="AppAdmin\FunctionNames.cs" />
+    <Compile Include="AppAdmin\RightMaskType.cs" />
+    <Compile Include="AppAdmin\ScopeMaskType.cs" />
+    <Compile Include="AppAdmin\SecurityCheck.cs" />
+    <Compile Include="AppAdmin\SidelineMaskType.cs" />
+    <Compile Include="AppAdmin\UserValueType.cs" />
+    <Compile Include="Common\InnerCacheHelper.cs" />
+    <Compile Include="Common\InnerCommon.cs" />
+    <Compile Include="Configuration\BaseWebSection.cs" />
+    <Compile Include="Configuration\OguDataOperationSettings.cs" />
+    <Compile Include="ExpParsing\DoExpParsing.cs" />
+    <Compile Include="ExpParsing\EXP_TreeNode.cs" />
+    <Compile Include="ExpParsing\IExpEditor.cs" />
+    <Compile Include="ExpParsing\IExpParsing.cs" />
+    <Compile Include="ExpParsing\Operation_IDs.cs" />
+    <Compile Include="ExpParsing\ParamObject.cs" />
+    <Compile Include="ExpParsing\ParseExpression.cs" />
+    <Compile Include="ExpParsing\ParseIdentifier.cs" />
+    <Compile Include="ExpParsing\Parse_Error.cs" />
+    <Compile Include="ExpParsing\ParsingException.cs" />
+    <Compile Include="Interfaces\Interfaces.cs" />
+    <Compile Include="OguAdmin\Caching\SignInCheckQueue.cs" />
+    <Compile Include="OperationImpls\OguDataWriter.cs" />
+    <Compile Include="OperationImpls\OguDBInsert.cs" />
+    <Compile Include="OperationImpls\OguDBDelete.cs" />
+    <Compile Include="OperationImpls\OguDBMove.cs" />
+    <Compile Include="OperationImpls\OguDBOperation.cs" />
+    <Compile Include="OperationImpls\OguDBPassword.cs" />
+    <Compile Include="OperationImpls\OguDBSecsToLeader.cs" />
+    <Compile Include="OperationImpls\OguDBSort.cs" />
+    <Compile Include="Properties\ExpResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExpResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="OguAdmin\Caching\CheckUserInObjectsQueue.cs" />
+    <Compile Include="OguAdmin\Caching\GetAllUsersInAllObjectsQueue.cs" />
+    <Compile Include="OguAdmin\Caching\GetDirectCustomsQueue.cs" />
+    <Compile Include="OguAdmin\Caching\GetGroupsOfUsersQueue.cs" />
+    <Compile Include="OguAdmin\Caching\GetIndependOrganizationOfUserQueue.cs" />
+    <Compile Include="OguAdmin\Caching\GetLeadersOfSecretariesQueue.cs" />
+    <Compile Include="OguAdmin\Caching\GetObjectDepOrgsQueue.cs" />
+    <Compile Include="OguAdmin\Caching\GetObjectParentOrgsQueue.cs" />
+    <Compile Include="OguAdmin\Caching\GetObjectsDetailQueue.cs" />
+    <Compile Include="OguAdmin\Caching\GetObjectsSortQueue.cs" />
+    <Compile Include="OguAdmin\Caching\GetOrganizationChildrenQueue.cs" />
+    <Compile Include="OguAdmin\Caching\GetRankDefineQueue.cs" />
+    <Compile Include="OguAdmin\Caching\GetRootDSEQueue.cs" />
+    <Compile Include="OguAdmin\Caching\GetSecretariesOfLeadersQueue.cs" />
+    <Compile Include="OguAdmin\Caching\GetSubjectionCustomsQueue.cs" />
+    <Compile Include="OguAdmin\Caching\GetUsersInGroupsQueue.cs" />
+    <Compile Include="OguAdmin\Caching\IsUserInObjectsQueue.cs" />
+    <Compile Include="OguAdmin\Caching\LogOnUserInfoQueue.cs" />
+    <Compile Include="OguAdmin\Caching\QueryOGUByConditionQueue.cs" />
+    <Compile Include="Properties\CommonResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommonResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\AccreditCollection.cs" />
+    <Compile Include="Configuration\AccreditElement.cs" />
+    <Compile Include="Configuration\AccreditSection.cs" />
+    <Compile Include="LogAdmin\CommonDefine.cs" />
+    <Compile Include="LogAdmin\SysDataWrite.cs" />
+    <Compile Include="LogAdmin\UserDataWrite.cs" />
+    <Compile Include="OguAdmin\DatabaseSchema.cs" />
+    <Compile Include="OguAdmin\Interfaces\ILogOnUserInfo.cs" />
+    <Compile Include="OguAdmin\Interfaces\IOuUsers.cs" />
+    <Compile Include="OguAdmin\Interfaces\IRankDefine.cs" />
+    <Compile Include="OguAdmin\LogonType.cs" />
+    <Compile Include="OguAdmin\LogOnUserInfo.cs" />
+    <Compile Include="OguAdmin\OuUsers.cs" />
+    <Compile Include="OguAdmin\RankDefine.cs" />
+    <Compile Include="OguAdmin\SecurityCalculate.cs" />
+    <Compile Include="OguAdmin\ListObjectDelete.cs" />
+    <Compile Include="OguAdmin\ListObjectType.cs" />
+    <Compile Include="OguAdmin\OGUCommonDefine.cs" />
+    <Compile Include="OguAdmin\OGUControler.cs" />
+    <Compile Include="OguAdmin\OGULogDefine.cs" />
+    <Compile Include="OguAdmin\OGUReader.cs" />
+    <Compile Include="OguAdmin\SearchObjectColumn.cs" />
+    <Compile Include="OguAdmin\SearchOrgChildrenCondition.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SoapControl\SoapRecorder.cs" />
+    <Compile Include="SoapControl\SoapTraceExtension.cs" />
+    <Compile Include="SoapControl\SoapTraceExtensionAttribute.cs" />
+    <Compile Include="WebBase\CommonDefine.cs" />
+    <Compile Include="WebBase\GlobalInfo.cs" />
+    <Compile Include="WebBase\HttpEnvInfo.cs" />
+    <Compile Include="WebBase\Interfaces\IHttpEnvInterface.cs" />
+    <Compile Include="WebBase\Interfaces\IPageInterface.cs" />
+    <Compile Include="WebBase\TransExceptionInfo.cs" />
+    <Compile Include="WebBase\WebBaseClass.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebBase\WebUserBaseClass.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebBase\XmlRequestUserWebClass.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebBase\XmlRequestWebClass.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\CommonResource.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CommonResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\ExpResource.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ExpResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WebBase\ErrorTemplate.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="WebBase\stopLogo.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AppAdmin\SQL\修改应用的INHERITED_STATE.sql" />
+    <None Include="AppAdmin\SQL\修改应用的INHERITED_STATE%28PROC%29.sql" />
+    <None Include="AppAdmin\SQL\获得在继承链中的应用%28PROC%29.sql" />
+    <None Include="AppAdmin\SQL\获得在继承链中的第一级子应用%28PROC%29.sql" />
+    <None Include="AppAdmin\SQL\插入应用时的继承处理.sql" />
+    <None Include="AppAdmin\SQL\插入应用时的继承处理%28PROC%29.sql" />
+    <None Include="AppAdmin\SQL\try.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MCS.Library.snk" />
+    <EmbeddedResource Include="XSD\GROUPS.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="XSD\GROUPS.xsx">
+      <DependentUpon>GROUPS.xsd</DependentUpon>
+    </None>
+    <None Include="XSD\GROUP_USERS.xsx">
+      <DependentUpon>GROUP_USERS.xsd</DependentUpon>
+    </None>
+    <None Include="XSD\ORGANIZATIONS.xsx">
+      <DependentUpon>ORGANIZATIONS.xsd</DependentUpon>
+    </None>
+    <None Include="XSD\OU_USERS.xsx">
+      <DependentUpon>OU_USERS.xsd</DependentUpon>
+    </None>
+    <None Include="XSD\USERS.xsx">
+      <DependentUpon>USERS.xsd</DependentUpon>
+    </None>
+    <EmbeddedResource Include="XSD\USERS.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XSD\OU_USERS.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XSD\ORGANIZATIONS.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XSD\GROUP_USERS.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XML\DataExtraCheck.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PreBuildEvent>IF NOT EXIST "$(ProjectDir)..\..\Bin" MD "$(ProjectDir)..\..\Bin"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetFileName)" DEL "$(ProjectDir)..\..\Bin\$(TargetFileName)"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetName).pdb" DEL "$(ProjectDir)..\..\Bin\$(TargetName).pdb"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetName).xml" DEL "$(ProjectDir)..\..\Bin\$(TargetName).xml"
+		</PreBuildEvent>
+    <PostBuildEvent>set path=%25path%25;C:\Windows\System32
+ 
+
+ XCOPY "$(TargetPath)"  "$(ProjectDir)..\..\Bin" /Y /D /R
+IF EXIST "$(TargetDir)$(TargetName).pdb" XCOPY "$(TargetDir)$(TargetName).pdb" "$(ProjectDir)..\..\Bin" /Y /D /R
+IF EXIST "$(TargetDir)$(TargetName).xml"  XCOPY "$(TargetDir)$(TargetName).xml" "$(ProjectDir)..\..\Bin" /Y /D /R
+		</PostBuildEvent>
+  </PropertyGroup>
+</Project>

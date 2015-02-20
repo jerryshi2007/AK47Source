@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>../../../CIIC.HSR.TSP.Files/TSPLib.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{10980F12-BC10-4372-996A-7285992AB86B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MCS.Library.SOA.DocServiceContract</RootNamespace>
+    <AssemblyName>MCS.Library.SOA.DocServiceContract</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>MCS.Library.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MCS.Library">
+      <HintPath>..\..\Bin\MCS.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Services.Contracts">
+      <HintPath>..\..\Bin\MCS.Library.Services.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CamlBuilder\Caml.cs" />
+    <Compile Include="CamlBuilder\CamlAnd.cs" />
+    <Compile Include="CamlBuilder\CamlEmpty.cs" />
+    <Compile Include="CamlBuilder\CamlEqual.cs" />
+    <Compile Include="CamlBuilder\CamlExpression.cs" />
+    <Compile Include="CamlBuilder\CamlFieldRef.cs" />
+    <Compile Include="CamlBuilder\CamlOr.cs" />
+    <Compile Include="CamlBuilder\CamlQueryContainer.cs" />
+    <Compile Include="CamlBuilder\CamlValue.cs" />
+    <Compile Include="CamlBuilder\CamlView.cs" />
+    <Compile Include="CamlBuilder\CamlWhere.cs" />
+    <Compile Include="DataObjects\Attributes\WordPropertyAttribute.cs" />
+    <Compile Include="DataObjects\BaseCollection.cs" />
+    <Compile Include="DataObjects\DCTCheckinType.cs" />
+    <Compile Include="DataObjects\DCTCheckOutType.cs" />
+    <Compile Include="DataObjects\DCTContentType.cs" />
+    <Compile Include="DataObjects\DCTFieldInfo.cs" />
+    <Compile Include="DataObjects\DCTFieldType.cs" />
+    <Compile Include="DataObjects\DCTFile.cs" />
+    <Compile Include="DataObjects\DCTFileField.cs" />
+    <Compile Include="DataObjects\DCTFileVersion.cs" />
+    <Compile Include="DataObjects\DCTFolder.cs" />
+    <Compile Include="DataObjects\GeneralParser.cs" />
+    <Compile Include="DataObjects\DCTGroup.cs" />
+    <Compile Include="DataObjects\DCTPermission.cs" />
+    <Compile Include="DataObjects\DCTPrincipal.cs" />
+    <Compile Include="DataObjects\DCTPrincipalType.cs" />
+    <Compile Include="DataObjects\DCTPrivilegeLevel.cs" />
+    <Compile Include="DataObjects\DCTRoleAssignment.cs" />
+    <Compile Include="DataObjects\DCTRoleDefinition.cs" />
+    <Compile Include="DataObjects\DCTSearchResult.cs" />
+    <Compile Include="DataObjects\DCTStorageObject.cs" />
+    <Compile Include="DataObjects\DCTUser.cs" />
+    <Compile Include="DataObjects\DCTWordObjectBuilder.cs" />
+    <Compile Include="DataObjects\Word\CopyTableRowProperty.cs" />
+    <Compile Include="DataObjects\Word\DCTComplexProperty.cs" />
+    <Compile Include="DataObjects\Word\DCTDataProperty.cs" />
+    <Compile Include="DataObjects\Word\DCTSimpleProperty.cs" />
+    <Compile Include="DataObjects\Word\DCTWordDataObject.cs" />
+    <Compile Include="DataObjects\Word\DCTWordDataObjectCollection.cs" />
+    <Compile Include="DataObjects\Word\DCTWordPropertyType.cs" />
+    <Compile Include="Exceptions\ErrorProcessor.cs" />
+    <Compile Include="Exceptions\FieldAlreadyExistException.cs" />
+    <Compile Include="Exceptions\FileCheckedOutException.cs" />
+    <Compile Include="Exceptions\FileContentIsEmptyException.cs" />
+    <Compile Include="Exceptions\FileIsNotCheckedOutException.cs" />
+    <Compile Include="Exceptions\FolderAlreadyExistException.cs" />
+    <Compile Include="Exceptions\InvalidFilenameException.cs" />
+    <Compile Include="Exceptions\RoleAlreadyExistException.cs" />
+    <Compile Include="Exceptions\TargetNotFoundException.cs" />
+    <Compile Include="Interfaces\IDCSDocumentAnalyzeService.cs" />
+    <Compile Include="Interfaces\IDCSDocumentBuilderService.cs" />
+    <Compile Include="Interfaces\IDCSFetchService.cs" />
+    <Compile Include="Interfaces\IDCSStorageService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Configuration\" />
+    <Folder Include="DataObjects\Collection\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataObjects.cd" />
+    <None Include="MCS.Library.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>IF EXIST "$(ProjectDir)..\..\Bin\$(TargetFileName)" DEL "$(ProjectDir)..\..\Bin\$(TargetFileName)"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetName).pdb" DEL "$(ProjectDir)..\..\Bin\$(TargetName).pdb"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetName).xml" DEL "$(ProjectDir)..\..\Bin\$(TargetName).xml"</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>set path=%25path%25;C:\Windows\System32
+ 
+
+ XCOPY "$(TargetPath)" "$(ProjectDir)..\..\Bin" /Y /D /R
+IF EXIST "$(TargetDir)$(TargetName).pdb" XCOPY "$(TargetDir)$(TargetName).pdb" "$(ProjectDir)..\..\Bin" /Y /D /R
+IF EXIST "$(TargetDir)$(TargetName).xml"  XCOPY "$(TargetDir)$(TargetName).xml" "$(ProjectDir)..\..\Bin" /Y /D /R</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

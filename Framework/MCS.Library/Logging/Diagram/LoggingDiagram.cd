@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="SimSun" Size="9" />
+  <Class Name="MCS.Library.Logging.PriorityLogFilter" Collapsed="true">
+    <Position X="1.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Logging\Filters\PriorityLogFilter.cs</FileName>
+      <HashCode>AAASAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Logging.LogFilter" Collapsed="true">
+    <Position X="1.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Logging\Filters\LogFilter.cs</FileName>
+      <HashCode>AAACIAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MCS.Library.Logging.LogFilterFactory" Collapsed="true">
+    <Position X="3.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Logging\Filters\LogFilterFactory.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAgAAAAAgAAAAI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Logging.LogFilterPipeline" Collapsed="true">
+    <Position X="5.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Logging\Filters\LogFilterPipeline.cs</FileName>
+      <HashCode>AAICAAAAAAAAAAAACAAABABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Logging.XmlLogFormatter" Collapsed="true">
+    <Position X="2.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Logging\Formatters\XmlLogFormatter.cs</FileName>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAhAAAAABAAAAAABAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Logging.LogFormatter" Collapsed="true">
+    <Position X="1.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Logging\Formatters\LogFormatter.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAgEAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MCS.Library.Logging.LogFormatterFactory" Collapsed="true">
+    <Position X="4.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Logging\Formatters\LogFormatterFactory.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Logging.TextLogFormatter" Collapsed="true">
+    <Position X="0.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Logging\Formatters\TextFormatter.cs</FileName>
+      <HashCode>AAAiCEAIAEAAAABAAAAAAAAAAIwAABBAAAAEJgAABAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Logging.TokenFunction" Collapsed="true">
+    <Position X="4" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Logging\Formatters\TokenFunctions.cs</FileName>
+      <HashCode>AAAAAACAAAAAQAAgAAAAAAAAAAgAAAAAAAAAAAAAgAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Logging.TimeStampToken" Collapsed="true">
+    <Position X="5.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Logging\Formatters\TokenFunctions.cs</FileName>
+      <HashCode>AAAAAACIAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Logging.DictionaryToken" Collapsed="true">
+    <Position X="7.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Logging\Formatters\TokenFunctions.cs</FileName>
+      <HashCode>AAAAAACAAAAAAAAAQAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Logging.ReflectedPropertyToken" Collapsed="true">
+    <Position X="0.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Logging\Formatters\TokenFunctions.cs</FileName>
+      <HashCode>AAAAAACAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Logging.KeyValueToken" Collapsed="true">
+    <Position X="3" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Logging\Formatters\TokenFunctions.cs</FileName>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Logging.CustomTraceListener" Collapsed="true">
+    <Position X="5.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Logging\Listeners\CustomTraceListener.cs</FileName>
+      <HashCode>AAAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Logging.TraceListenerFactory" Collapsed="true">
+    <Position X="7" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Logging\Listeners\TraceListenerFactory.cs</FileName>
+      <HashCode>AAAgAAAAAAAAAAAAACAAACAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Logging.FlatFileTraceListener" Collapsed="true">
+    <Position X="2.75" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Logging\Listeners\FlatFileTraceListener.cs</FileName>
+      <HashCode>AAACEAQABAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Logging.FormattedEventLogTraceListener" Collapsed="true">
+    <Position X="0.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Logging\Listeners\FormattedEventLogTraceListener.cs</FileName>
+      <HashCode>AAEBEAAAAAABAAAAAAAAAAAAAAEAAAAAAAAAEAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Logging.FormattedTextWriterTraceListener" Collapsed="true">
+    <Position X="2.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Logging\Listeners\FormattedTextWriterTraceListener.cs</FileName>
+      <HashCode>AAACEAAABAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Logging.FormattedTraceListenerBase" Collapsed="true">
+    <Position X="1.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Logging\Listeners\FormattedTraceListenerBase.cs</FileName>
+      <HashCode>AAACAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Logging.FormattedTraceListenerWrapperBase" Collapsed="true">
+    <Position X="1.75" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Logging\Listeners\FormattedTraceListenerWrapperBase.cs</FileName>
+      <HashCode>AAACAAAAACAAIAAIACAAAAAAAAAAAAAAAAAAIAEIAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Logging.LogEntity" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="1" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Logging\LogEntity.cs</FileName>
+      <HashCode>AKAABACgwgQAAkIEAgJAAAAgAAAAAAABBAAAIAACADQ=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MCS.Library.Logging.LogException" Collapsed="true">
+    <Position X="2.75" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Logging\LogException.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Logging.Logger" Collapsed="true">
+    <Position X="4.5" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Logging\Logger.cs</FileName>
+      <HashCode>AAQAAKAAAAAAAAAAACAAAAQAAAIAAACgAAAAAAEFAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Logging.LoggerFactory" Collapsed="true">
+    <Position X="1" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Logging\LoggerFactory.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAABAAAEAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Library.Logging.ObjectBuilder" Collapsed="true">
+    <Position X="2.75" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Logging\LogObjectBuilder.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="MCS.Library.Logging.ILogFilter" Collapsed="true">
+    <Position X="3.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Logging\Filters\ILogFilter.cs</FileName>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MCS.Library.Logging.ILogFormatter" Collapsed="true">
+    <Position X="4.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Logging\Formatters\ILogFormatter.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="MCS.Library.Logging.LogPriority" Collapsed="true">
+    <Position X="4.75" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Logging\TypeDefine.cs</FileName>
+      <HashCode>AAAAAAAAAAEAAAAAAAAAAAAAAAAIAAgAAACAAAQAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+</ClassDiagram>

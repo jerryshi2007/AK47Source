@@ -1,0 +1,106 @@
+﻿html
+{
+    margin: 0;
+    overflow: hidden;
+    _padding: 30px 0px 30px 0; /*IE6下通过设置上下的填充来给上下固定部分腾出空间*/
+    _border: 0;
+}
+body
+{
+    margin: 0;
+    height: 100%;
+    border: 0;
+    position:static !important;
+    overflow:hidden;
+    min-height:0 !important;
+    min-width:0 !important;
+}
+
+.pcdlg{ min-height:0 !important; min-width:0 !important;}
+.pcdlg-content
+{
+    margin: 0; /*公共*/
+    width: 100%;
+    position: fixed; /*FF IE7 SF*/
+    top: 32px;
+    bottom: 32px;
+    overflow: auto !important;
+    _position: relative; /**IE6***/
+    _top: 0px;
+    _overflow-y: auto;
+    _overflow-x: auto;
+    scrollbar-face-color: #EEEEEE; /*设置IE下滚动条颜色*/
+    scrollbar-highlight-color: #ffffff;
+    scrollbar-shadow-color: #919192;
+    scrollbar-3dlight-color: #ffffff;
+    scrollbar-arrow-color: #919192;
+    scrollbar-track-color: #ffffff;
+    scrollbar-darkshadow-color: #ffffff;
+    _height: 100%;
+}
+.pcdlg-sky
+{
+    position: absolute; /*公共*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 32px;
+    padding: 0;
+    background-color: #EFEFEF;
+    background-image: url("../images/bannerbg.gif");
+    background-repeat: repeat-x;
+    background-attachment: scroll;
+    overflow: hidden;
+    scrollbar-face-color: #EEEEEE; /*设置IE下滚动条颜色*/
+    scrollbar-highlight-color: #ffffff;
+    scrollbar-shadow-color: #919192;
+    scrollbar-3dlight-color: #ffffff;
+    scrollbar-arrow-color: #919192;
+    scrollbar-track-color: #ffffff;
+    scrollbar-darkshadow-color: #ffffff;
+}
+
+.pcdlg-floor
+{
+    position: absolute; /*公共*/
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 32px;
+    background-color: #EFEFEF;
+    overflow: hidden !important; /*overflow:auto !important;*/ /*FF*/
+    _overflow-y: hidden; /*IE6*/
+    _overflow-x: auto;
+    scrollbar-face-color: #EEEEEE; /*设置IE下滚动条颜色*/
+    scrollbar-highlight-color: #ffffff;
+    scrollbar-shadow-color: #919192;
+    scrollbar-3dlight-color: #ffffff;
+    scrollbar-arrow-color: #919192;
+    scrollbar-track-color: #ffffff;
+    scrollbar-darkshadow-color: #ffffff;
+    text-align: center;
+}
+
+.pcdlg-button-bar
+{
+    display: inline;
+    width: auto;
+    vertical-align: middle;
+    line-height: 30px;
+}
+.pcdlg-button
+{
+    margin-right: 15px;
+    background: url("../images/bg17.gif") repeat-x scroll 0 0 transparent;
+    border: 1px solid #B5B3B3;
+    color: black;
+    font-weight: normal;
+    height: 24px;
+    letter-spacing: 3px;
+    line-height: 22px;
+    margin-left: 10px;
+    margin-top: 3px;
+    min-width: 80px;
+    padding: 0 2px;
+    text-align: center;
+}

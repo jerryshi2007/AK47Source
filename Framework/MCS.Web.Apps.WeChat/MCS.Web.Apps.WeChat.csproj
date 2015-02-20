@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>../../../CIIC.HSR.TSP.Files/TSPLib.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{669A9A28-8A18-4878-BB6C-3F50FEA98B7B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MCS.Web.Apps.WeChat</RootNamespace>
+    <AssemblyName>MCS.Web.Apps.WeChat</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>MCS.Library.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MCS.Library">
+      <HintPath>..\..\Bin\MCS.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Data">
+      <HintPath>..\..\Bin\MCS.Library.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.DataObjects">
+      <HintPath>..\..\Bin\MCS.Library.SOA.DataObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Library">
+      <HintPath>..\..\Bin\MCS.Web.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Library.Script.Json">
+      <HintPath>..\..\Bin\MCS.Web.Library.Script.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Adapters\AccountInfoAdapter.cs" />
+    <Compile Include="Adapters\ConditionalGroupAdapter.cs" />
+    <Compile Include="Adapters\WeChatAppMessageAdapter.cs" />
+    <Compile Include="Adapters\WeChatFriendAdapter.cs" />
+    <Compile Include="Adapters\WeChatGroupAdapter.cs" />
+    <Compile Include="Adapters\WeChatGroupAdapterBase.cs" />
+    <Compile Include="Adapters\WeChatIncomeMessageAdapter.cs" />
+    <Compile Include="Adapters\WeChatRecentMessageAdapter.cs" />
+    <Compile Include="Adapters\MemberAdapter.cs" />
+    <Compile Include="Adapters\GroupAndMemberAdapter.cs" />
+    <Compile Include="Commands\AddGroupCommand.cs" />
+    <Compile Include="Commands\ChangeFriendsGroupCommand.cs" />
+    <Compile Include="Commands\DeleteGroupCommand.cs" />
+    <Compile Include="Commands\RenameGroupCommand.cs" />
+    <Compile Include="Commands\MassSendAppMessageCommand.cs" />
+    <Compile Include="Commands\MassSendImageMessageCommand.cs" />
+    <Compile Include="Commands\SingleSendAppMessageCommand.cs" />
+    <Compile Include="Commands\SingleSendImageMessageCommand.cs" />
+    <Compile Include="Commands\SingleSendTextMessageCommand.cs" />
+    <Compile Include="Commands\GetAppMessagesCommand.cs" />
+    <Compile Include="Commands\UpdateAppMessageCommand.cs" />
+    <Compile Include="Commands\UploadFileCommand.cs" />
+    <Compile Include="Commands\MassSendTextMessageCommand.cs" />
+    <Compile Include="Commands\GetFriendMessagesCommand.cs" />
+    <Compile Include="Commands\GetGroupMembersCommand.cs" />
+    <Compile Include="Commands\GetAllGroupsCommand.cs" />
+    <Compile Include="Commands\GetRecentMessagesCommand.cs" />
+    <Compile Include="Commands\HelpCommand.cs" />
+    <Compile Include="Commands\OutputHelper.cs" />
+    <Compile Include="Commands\WeChatCommandHelper.cs" />
+    <Compile Include="Common.cs" />
+    <Compile Include="Common\ConnectionDefine.cs" />
+    <Compile Include="Converters\WeChatAppMessageConverter.cs" />
+    <Compile Include="Converters\WeChatBaseResponseConverter.cs" />
+    <Compile Include="Converters\WeChatConverterHelper.cs" />
+    <Compile Include="Converters\WeChatFriendConverter.cs" />
+    <Compile Include="Converters\WeChatGroupConverter.cs" />
+    <Compile Include="Converters\WeChatLoginRetInfoConverter.cs" />
+    <Compile Include="Converters\WeChatRecentMessageConverter.cs" />
+    <Compile Include="Converters\WeChatRetInfoWithBaseResponseConverter.cs" />
+    <Compile Include="Converters\WeChatSingleSendMessageRetInfoConverter.cs" />
+    <Compile Include="Converters\WeChatUploadFileRetInfoConverter.cs" />
+    <Compile Include="DataObjects\AccountInfo.cs" />
+    <Compile Include="DataObjects\ConditionalGroup.cs" />
+    <Compile Include="DataObjects\Member.cs" />
+    <Compile Include="DataObjects\WeChatAppMessage.cs" />
+    <Compile Include="DataObjects\WeChatChangeFriendsRetInfo.cs" />
+    <Compile Include="DataObjects\WeChatIncomeMessageCreator.cs" />
+    <Compile Include="DataObjects\WeChatLinkIncomeMessage.cs" />
+    <Compile Include="DataObjects\WeChatLocationIncomeMessage.cs" />
+    <Compile Include="DataObjects\WeChatModifyGroupRetInfo.cs" />
+    <Compile Include="DataObjects\WeChatRetInfoWithBaseResponse.cs" />
+    <Compile Include="DataObjects\WeChatSingleSendMessageRetInfo.cs" />
+    <Compile Include="DataObjects\WeChatUploadFileRetInfo.cs" />
+    <Compile Include="DataObjects\WeChatVideoIncomeMessage.cs" />
+    <Compile Include="DataObjects\WeChatVoiceIncomeMessage.cs" />
+    <Compile Include="DataObjects\WeChatImageIncomeMessage.cs" />
+    <Compile Include="DataObjects\Enumerations.cs" />
+    <Compile Include="DataObjects\WeChatBaseResponse.cs" />
+    <Compile Include="DataObjects\WeChatFriend.cs" />
+    <Compile Include="DataObjects\WeChatIncomeMessageBase.cs" />
+    <Compile Include="DataObjects\WeChatRecentMessage.cs" />
+    <Compile Include="DataObjects\WeChatTextIncomeMessage.cs" />
+    <Compile Include="DataObjects\GroupAndMember.cs" />
+    <Compile Include="DataSources\ConditionalGroupQueryAdapter.cs" />
+    <Compile Include="DataSources\GroupMembersQueryAdapter.cs" />
+    <Compile Include="Executors\WeChatAddGroupExecutor.cs" />
+    <Compile Include="Executors\WeChatChangeFriendsGroupExecutor.cs" />
+    <Compile Include="Executors\WeChatDeleteGroupExecutor.cs" />
+    <Compile Include="Executors\WeChatGetAppMessagesExecutor.cs" />
+    <Compile Include="Executors\WeChatGetFriendMessagesExecutor.cs" />
+    <Compile Include="Executors\WeChatAuthenticatedExecutorBase.cs" />
+    <Compile Include="Executors\WeChatExecutorBase.cs" />
+    <Compile Include="Executors\WeChatGetAllGroupsExecutor.cs" />
+    <Compile Include="Executors\WeChatGetGroupMembersExecutor.cs" />
+    <Compile Include="Executors\WeChatGetLoginInExtraInfoExecutor.cs" />
+    <Compile Include="Executors\WeChatGetRecentMessagesExecutor.cs" />
+    <Compile Include="Executors\WeChatLoginExecutor.cs" />
+    <Compile Include="Executors\WeChatMassSendAppMessageExecutor.cs" />
+    <Compile Include="Executors\WeChatMassSendImageMessageExecutor.cs" />
+    <Compile Include="Executors\WeChatMassSendMessageExecutorBase.cs" />
+    <Compile Include="Executors\WeChatMassSendTextMessageExecutor.cs" />
+    <Compile Include="Executors\WeChatRenameGroupExecutor.cs" />
+    <Compile Include="Executors\WeChatModifyGroupExecutorBase.cs" />
+    <Compile Include="Executors\WeChatSingleSendAppMessageExecutor.cs" />
+    <Compile Include="Executors\WeChatSingleSendImageMessageExecutor.cs" />
+    <Compile Include="Executors\WeChatSingleSendTextMessageExecutor.cs" />
+    <Compile Include="Executors\WeChatSingleSendMessageExecutorBase.cs" />
+    <Compile Include="Executors\WeChatUpdateAppMessageExecutor.cs" />
+    <Compile Include="Executors\WeChatUploadFileExecutor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DataObjects\WeChatGroup.cs" />
+    <Compile Include="WeChatHelper.cs" />
+    <Compile Include="DataObjects\WeChatLoginInfo.cs" />
+    <Compile Include="DataObjects\WeChatLoginRetInfo.cs" />
+    <Compile Include="DataObjects\WeChatMessageType.cs" />
+    <Compile Include="WeChatRequestContext.cs" />
+    <Compile Include="DataObjects\WeChatSendMessageRetInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MCS.Library.snk" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>IF NOT EXIST "$(ProjectDir)..\..\Bin" MD "$(ProjectDir)..\..\Bin"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetFileName)" DEL "$(ProjectDir)..\..\Bin\$(TargetFileName)"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetName).pdb" DEL "$(ProjectDir)..\..\Bin\$(TargetName).pdb"
+IF EXIST "$(ProjectDir)..\..\Bin\$(TargetName).xml" DEL "$(ProjectDir)..\..\Bin\$(TargetName).xml"</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>set path=%25path%25;C:\Windows\System32
+ 
+
+ XCOPY "$(TargetPath)" "$(ProjectDir)..\..\Bin" /Y /D /R
+IF EXIST "$(TargetDir)$(TargetName).pdb" XCOPY "$(TargetDir)$(TargetName).pdb" "$(ProjectDir)..\..\Bin" /Y /D /R
+IF EXIST "$(TargetDir)$(TargetName).xml"  XCOPY "$(TargetDir)$(TargetName).xml" "$(ProjectDir)..\..\Bin" /Y /D /R</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

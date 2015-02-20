@@ -1,0 +1,35 @@
+﻿
+
+.relativeTable
+{
+    width: 100%;
+}
+
+.relativeTableContainer
+{
+   width: 100%;
+   height: 100%;
+   border: 1px solid #ccc;
+   margin: 5px;
+}
+
+.titleSpan
+{
+     font-weight: bold;
+     font-size: 16px;
+     margin-left: 5px;
+    }
+
+
+.linkCell
+{
+    height: 20px;
+    width: 100%;
+    padding-left: 10px;
+    text-align: left;
+}
+
+.footerCell
+{
+    text-align:right;    
+}

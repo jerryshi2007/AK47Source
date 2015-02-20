@@ -1,0 +1,26 @@
+HKCR
+{
+	DeluxeWebHelperControl.DialogHelper.1 = s 'DialogHelper Class'
+	{
+		CLSID = s '{ED8B69F0-6563-472C-8177-C9ACDC26B2DC}'
+	}
+	DeluxeWebHelperControl.DialogHelper = s 'DialogHelper Class'
+	{		
+		CurVer = s 'DeluxeWebHelperControl.DialogHelper.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {ED8B69F0-6563-472C-8177-C9ACDC26B2DC} = s 'DialogHelper Class'
+		{
+			ProgID = s 'DeluxeWebHelperControl.DialogHelper.1'
+			VersionIndependentProgID = s 'DeluxeWebHelperControl.DialogHelper'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{4F153A56-19C8-48B0-8B87-903B1C7FF86A}'
+			Version = s '1.0'
+		}
+	}
+}

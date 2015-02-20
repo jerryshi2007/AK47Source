@@ -1,0 +1,97 @@
+﻿<script type="text/javascript">
+    var allowEmptyOpinion = true;
+
+    function onDialogConfirm() {
+        try {
+            var poDialog = $find("RejectActivitySelector");
+            if (!poDialog)
+                return;
+
+            var retVal = poDialog.get_selectedActDescKey();
+
+            if (retVal == "false") {
+                throw "NoUserSelect";
+            }
+
+            var opinionText = $get("RejectActivitySelector_opinionInput").innerText;
+
+            if ($get("RejectActivitySelector_opinionBody").style.display == "inline") {
+                if (opinionText == "")
+                    throw Error.create($NT.getText("SOAWebControls", "请填写退件意见。"));
+            }
+
+            window.returnValue = {
+                nextStep: retVal,
+                opinion: opinionText,
+                opinionType: $get("RejectActivitySelector_resonSelector").value
+            };
+
+            window.close();
+        }
+        catch (e) {
+            if (e == "NoUserSelect") {
+                alert($NT.getText("SOAWebControls", "请选择退件的环节。"));
+            } else {
+                $showError(e);
+            }
+        }
+    }
+
+    function onDocumentLoad() {
+        var arg = window.dialogArguments;
+
+        if (arg) {
+            if (typeof (arg.opinion) != "undefined") {
+                $get("RejectActivitySelector_opinionInput").innerText = arg.opinion;
+            }
+
+            allowEmptyOpinion = arg.allowEmptyOpinion;
+        }
+    }
+
+    if (window.attachEvent)
+        window.attachEvent("onload", onDocumentLoad);
+
+    else
+        window.addEventListener("onload", onDocumentLoad, false);
+</script>
+<style type="text/css">
+    .containerTable
+    {
+        width: 100%;
+        height: 100%;
+        padding: 4px 8px 2px;
+    }
+    .content
+    {
+        font-size: 12px;
+        text-align: left;
+    }
+</style>
+<table class="containerTable" cellpadding="0" cellspacing="0">
+    <tr>
+        <td style="height: 144px; vertical-align: top">
+            <select runat="server" id="activitiesList" ondblclick="onDialogConfirm();" style="width: 100%;
+                height: 100%;">
+            </select>
+        </td>
+    </tr>
+    <tbody id="opinionBody" runat="server" style="display: none">
+        <tr>
+            <td style="height: 24px">
+                <span runat="server" category="SOAWebControls" style="font-weight: bold">请填写意见</span>
+            </td>
+        </tr>
+        <tr id="reasonList" runat="server" style="height: 24px; display: none">
+            <td>
+                <select runat="server" id="resonSelector">
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top; height: 96px">
+                <textarea runat="server" id="opinionInput" style="width: 99%; height: 99%"></textarea>
+            </td>
+        </tr>
+    </tbody>
+</table>

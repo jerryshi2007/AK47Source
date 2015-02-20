@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dictionary sourceCulture="zh-CN" targetCulture="en-US">
+	<Item source="语言" target="Language"/>
+	<Item source="{0}，您好！" target="Hi, {0}"/>
+	<Item source="标题" target="Title"/>
+	<Item source="拟稿人" target="Drafter"/>
+	<Item source="操作" target="Op"/>
+	<Item source="时间" target="Time"/>
+	<Item source="报送单位" target="Sent Dept"/>
+	<Item source="来自于" target="From"/>
+	<Item source="目的" target="Purpose"/>
+	<Item source="发送时间" target="Sent Time"/>
+	<Item source="缓急" target="Priority"/>
+	<Item source="状态" target="Status"/>
+	<Item source="办理时间" target="Op Time"/>
+	<Item source="操作时间" target="Op Time" />
+	<Item source="查询" target="Search"/>
+	<Item source="环节名称" target="Step Name"/>
+	<Item source="操作用户" target="Operator"/>
+	<Item source="查询(Q)" target="Query"/>
+	<Item source="至" target="To"/>
+	<Item source="关闭" target="Close"/>
+	<Item source="关闭(C)" target="Close"/>
+	<Item source="发送(S)" target="Send"/>
+	<Item source="高级查询" target="Advanced Search"/>
+	<Item source="待办事项" target="To do list" />
+	<Item source="已办事项" target="Processed" />
+	<Item source="待办列表" target="To do list" />
+	<Item source="已办列表" target="Processed list" />
+	<Item source="通知列表" target="Notice list" />
+	<Item source="通知" target="Notices" />
+	<Item source="已阅通知" target="Read notices" />
+	<Item source="已阅列表" target="Read notices" />
+	<Item source="委托授权" target="Delegation" />
+	<Item source="当前在委托状态中" target="In delegate status" />
+	<Item source="转已阅(X)" target="Set Read(X)" />
+	<Item source="全部>>" target="All..." />
+	<Item source="更多" target="More" />
+	<Item source="更多操作：" target="More..." />
+	<Item source="操作已成功！" target="Operation Successfully !" />
+	<Item source="清除机构人员缓存" target="Clear User's cache" />
+	<Item source="清除授权的缓存" target="Clear Role's Cache" />
+	<Item source="机构人员与授权缓存管理" target="Cache management" />
+	<Item source="操作人" target="Operator" />
+	<Item source="表单类别" target="Form categories" />
+	<Item source="c-search.gif" target="e-search.gif" />
+	<Item source="c-logoff.gif" target="e-logoff.gif" />
+	<Item source="返回首页" target="Home" />
+	<Item source="工作台" target="Workspace" />
+	<Item source="帮助" target="Help" />
+	<Item source="展开右侧信息" target="Expand right information" />
+	<Item source="收起右侧信息" target="Collapse right information" />
+	<Item source="展开菜单" target="Expand Menu" />
+	<Item source="收起菜单" target="Collapse Menu" />
+	<Item source="个人资料" target="Personal info" />
+	<Item source="个人信息" target="Information" />
+	<Item source="个人设置" target="Settings" />
+	<Item source="催办记录" target="Remind" />
+	<Item source="修改密码" target="Password" />
+	<Item source="任务分派" target="Task assignment" />
+	<Item source="多个关键字使用空格分隔" target="Use multiple keywords separated by spaces" />
+	<Item source="多条常用意见之间请用空格分隔" target="The views of many commonly used separated by spaces between the requested" />
+	<Item source="属性" target="Properties" />
+	<Item source="名称" target="Name" />
+	<Item source="值" target="Value" />
+	<Item source="取消" target="Cancel" />
+	<Item source="全文检索" target="Search" />
+	<Item source="中的检索结果" target="of search results" />
+	<Item source="约有" target="About" />
+	<Item source="项符合" target=" "/>
+	<Item source="的查询结果" target="results" />
+	<Item source="找不到和您的查询" target=" "/>
+	<Item source="相符的文件" target="did not match any documents" />
+	<Item source="建议" target="Suggestions" />
+	<Item source="请检查输入字词有无错误" target="Make sure all words are spelled correctly" />
+	<Item source="请换用另外的查询字词" target="Try different keywords" />
+	<Item source="全部应用" target="All applications" />
+	<Item source="请输入搜索条件" target="Please enter the search criteria" />
+	<Item source="搜索条件字数过多" target="Search keywords excessive" />
+	<Item source="系统管理" target="System Admin" />
+	<Item source="表单查询" target="Form Query" />
+	<Item source="表单转出" target="Form transfer" />
+	<Item source="待办事项转出" target="To do forms transfer" />
+	<Item source="待审批表单转出" target="To do approval forms transfer" />
+	<Item source="待审批表单" target="To do approval forms" />
+	<Item source="人员类型" target="Personal categories" />
+	<Item source="离职人员" target="Terminate employees" />
+	<Item source="在职人员" target="Serving employees" />
+	<Item source="任务转出" target="Task transfer" />
+	<Item source="待办事项浏览" target="To do forms" />
+	<Item source="没有数据" target="No data" />
+	<Item source="暂时没有您需要的数据" target="No data found" />
+	<Item source="请先选择待办事项" target="Please select to do forms" />
+	<Item source="请先选择表单待审批环节" target="Please select approval forms" />
+	<Item source="您没有权限执行操作" target="No Authorization" />
+	<Item source="被委派用户" target="Assigned the user" />
+	<Item source="请选择委托用户" target="Please select delegate user" />
+	<Item source="保存失败" target="Save failure" />
+	<Item source="表单转出日志" target="Form transfer log" />
+	<Item source="被转出人员姓名" target="Transfer user name" />
+	<Item source="被转出人员全路径" target="Transfer user full path" />
+	<Item source="分派人" target="Assignement user" />
+	<Item source="分派时间" target="Assignement time" />
+	<Item source="--置顶操作--" target="--Set top Op--" />
+	<Item source="置顶" target="To top" />
+	<Item source="取消置顶" target="Cancel top" />
+	<Item source="--消息处理--" target="--notices Op" />
+	<Item source="待阅转已阅" target="Set read" />
+	<Item source="您尚未选择条目" target="Please select item" />
+	<Item source="全部" target="All" />
+	<Item source="类别" target="Type" />
+	<Item source="(全部)" target="(All)" />
+	<Item source="Ch-head.jpg" target="En-head.jpg" />
+	<Item source="催办通知" target="Remind" />
+	<Item source="催办通知: " target="Remind:" />
+	<Item source="新闻公告" target="News" />
+	<Item source="删除..." target="Delete..." />
+	<Item source="确认删除通知吗？" target="Do you want to delete the selected notices ?" />
+
+	<!--Personal Info Begin -->
+	<Item source="用户扩展信息" target="Extend Info" />
+	<Item source="的个人信息" target=" of personal info" />
+	<Item source="姓名" target="Name" />
+	<Item source="登录名" target="Logon name" />
+	<Item source="全路径" target="Full path" />
+	<Item source="电话" target="Tel" />
+	<Item source="手机号" target="Mobile" />
+	<Item source="出生日期" target="Birthday" />
+	<Item source="入职日期" target="Entry Date" />
+	<Item source="即时消息" target="IM" />
+	<Item source="备注" target="Memo" />
+	<Item source="个人签名" target="Sign" />
+	<Item source="角色" target="Role" />
+	<Item source="修改" target="Edit" />
+	<Item source="关闭" target="Close" />
+	<Item source="个人签名图片路径" target="Sign image path" />
+	<Item source="保存" target="Save" />
+	<!--Personal Info End-->
+
+	<!--LeftMenu Begin-->
+	<Item source="表单查询" target="Form Query" />
+	<Item source="参数管理" target="Param Mgt" />
+	<Item source="ICA参数管理" target="ICA Param Mgt" />
+	<Item source="Billing Cut Off Date 管理" target="Billing Cut Off Date Mgt" />
+	<Item source="Accrual Cut Off Date 管理" target="Accrual Cut Off Date Mgt" />
+	<Item source="Company管理" target="Company Mgt" />
+	<Item source="CostCenter管理" target="CostCenter Mgt" />
+	<Item source="ProfitCenter管理" target="ProfitCenter Mgt" />
+	<Item source="BusinessArea管理" target="BusinessArea Mgt" />
+	<Item source="Account管理" target="Account Mgt" />
+	<Item source="发票冲红" target="PRC Credit Note" />
+	<Item source="发票冲红申请" target="PRC New Credit Node" />
+	<Item source="发票冲红查询" target="PRC Credit Node List" />
+
+	<Item source="PC参数管理" target="PC Param Mgt" />
+	<Item source="Vendor管理" target="Vendor Mgt" />
+	<Item source="流程管理" target="Process Mgt" />
+	<Item source="流程定义" target="Process Definition" />
+	<Item source="权限管理" target="Auth Mgt" />
+	<Item source="人员管理" target="User Mgt" />
+	<Item source="授权管理" target="Role Mgt" />
+	<Item source="日志管理" target="Log Mgt" />
+	<Item source="系统日志查看" target="Sys Log Mgt" />
+	<Item source="表单日志查看" target="Form Log Mgt" />
+	<Item source="机构与授权缓存清理" target="User &amp; role Cache" />
+	<Item source="应用名称" target="Application" />
+	<Item source="您有" target="You have " />
+	<Item source="项待办事项" target=" items to do list" />
+	<Item source="，其中" target="，Among" />
+	<Item source="项已过期" target=" items expired" />
+	<Item source="您当前没有待办事项" target="you do not have to do list" />
+	<Item source="项通知" target=" notices" />
+	<Item source="您当前没有通知" target="you do not have notices" />
+
+	<Item source="新待办事项" target="New to do items" />
+	<Item source="新待阅事项" target="New notices" />
+
+	<Item source="服务状态" target="Service Status" />
+	<Item source="网上报销" target="Expense" />
+	<Item source="app_selection_cn.jpg" target="app_selection_en.jpg" />
+
+	<!--LeftMenu End-->
+	<!--User Task-->
+	<Item source="送签" target="Send" />
+	<Item source="加签" target="Forward" />
+	<Item source="转签" target="Change" />
+	<Item source="会签" target="Consign" />
+	<Item source="文件被撤回" target="Withdrawed" />
+	<Item source="文件被撤回：" target="Withdrawed:" />
+	<Item source="流程作废" target="Rejected" />
+	<Item source="流程作废：" target="Rejected:" />
+	<Item source="起草" target="Draft" />
+	<Item source="退件" target="Return" />
+	<!--User Task-->
+	<Item source="集成系统" target="Fusion System" />
+	<Item source="用于在线处理MPRF，ICA和发票冲红申请。" target="On-line Payment, ICA  &amp; Credit Note application processing system." />
+	<Item source="网上报销系统" target="Reimbursement System" />
+	<Item source="用于在线处理各种报销申请。" target="On-line reimbursement application processing system." />
+</Dictionary>

@@ -1,0 +1,132 @@
+﻿.ajax__propertyForm_header
+{
+    background-color: #f0f0f0; /*height: 24px;*/
+    color: Silver;
+    font-size: 12px;
+    font-weight: bold;
+    padding-left: 4px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-right: 4px;
+    width: 100%;
+}
+
+.ajax__formGrid_table
+{
+    table-layout: fixed;
+    width: 100%;
+}
+
+.ajax__propertyGrid_input_container
+{
+    margin: 0 10px;
+    width: 100%;
+    overflow: scroll;
+}
+
+.ajax__propertyGrid_input
+{
+    background-color: white;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 12px;
+    border: none;
+    width: 100%;
+}
+
+.ajax__propertyForm_nameCell_selected
+{
+    background-color: #3399ff;
+    color: White;
+}
+
+.ajax__propertyFrom_nameCell
+{
+    border-bottom: 1px solid #f0f0f0;
+    border-right: 1px solid #f0f0f0;
+    font-size: 12px;
+    padding-left: 4px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-right: 4px;
+}
+
+.ajax__propertyForm_nameCell
+{
+    background-color: white; /*height: 24px;*/
+    border-bottom: 1px solid #f0f0f0;
+    border-right: 1px solid #f0f0f0;
+    font-size: 12px;
+    padding-left: 4px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-right: 4px;
+}
+
+.ajax__propertyForm_valueCell
+{
+    background-color: white;
+    border-bottom: 1px solid #f0f0f0;
+    border-right: 1px solid #f0f0f0;
+    font-size: 12px;
+    padding-left: 4px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-right: 4px; /* width: 100%; height: 24px;*/
+    word-break:break-all;
+}
+
+.ajax__propertyGrid_input_alignLeft
+{
+    margin-left: 4px;
+    text-align: left;
+}
+
+.ajax__propertyGrid_input_alignRight
+{
+    margin-right: 4px;
+    text-align: right;
+}
+
+.ajax__propertyGrid_Editor_valueCell
+{
+    text-align: right;
+}
+
+.ajax__propertyFrom_valueCell
+{
+    background-color: white;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 12px;
+    padding-left: 4px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-right: 4px;
+}
+
+.ajax_propertyForm_defaultValue_diff_style
+{
+    font-weight: bold;
+}
+
+.ajax__propertyForm_categoryNameCell
+{
+    background-color: #f0f0f0; /*height: 24px;*/
+    color: Silver;
+    font-size: 12px;
+    font-weight: bold;
+    padding-left: 4px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-right: 4px;
+    width: 100%;
+}
+
+.ajax__property_invalidStyle
+{
+    background: repeat-x bottom;
+    border: 1px solid;
+    border-color: #C30;
+    padding: 1px 3px;
+    vertical-align: middle;
+    background-color: rgb(255, 255, 255);
+}

@@ -1,0 +1,29 @@
+﻿html
+{
+	overflow: auto;
+	height: 100%;
+}
+
+body
+{
+	overflow: auto;
+	height: 100%;
+	zoom: 1;
+}
+
+.bar
+{
+	font-size:16px;
+	line-height:16px;
+}
+
+.bar img
+{
+	vertical-align:bottom;
+}
+
+#outer
+{
+	margin: 0 20px;
+	bottom:0;
+}

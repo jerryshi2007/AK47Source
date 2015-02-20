@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<title>应用（操作）类型维护</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+	<meta content="Microsoft Visual Studio 7.0" name="GENERATOR">
+	<meta content="http://schemas.microsoft.com/intellisense/ie5" name="vs_targetSchema">
+	<link href="../css/Input.css" type="text/css" rel="stylesheet">
+
+	<script type="text/javascript" language="javascript" src="../script/validate.js"></script>
+
+	<script type="text/javascript" language="javascript" src="../script/xmlHttp.js"></script>
+
+	<script type="text/javascript" language="javascript" src="../script/xsdAccess.js"></script>
+
+	<script type="text/javascript" language="javascript" src="../script/uiScript.js"></script>
+
+	<script type="text/javascript" language="javascript" src="../script/xAD.js"></script>
+
+	<script type="text/javascript" language="javascript" src="../Script/ApplicationRoot.js"></script>
+
+	<!--script type="text/javascript" language="javascript" src="../javascript/dbGrid.js"></script-->
+
+	<script type="text/javascript" language="javascript" src="editAppObjects.js"></script>
+
+</head>
+<body onload="onDocumentLoad();" class="modal">
+	<!--xml id="ColumnHeadFuncs">
+			<ColumnTitle>
+				<Column name="名称" dataFld="NAME" height="18px" dataSrc="ROLE_FUNCTION" width="25%" />
+				<Column name="英文标识" dataFld="CODE_NAME" height="18px" dataSrc="ROLE_FUNCTION" width="25%" />
+				<Column name="描述" dataFld="DESCRIPTION" dataSrc="ROLE_FUNCTION" width="50%" />
+				<Column name="" dataFld="ROLE_ID" dataSrc="ROLE_FUNCTION" width="20px" />
+			</ColumnTitle>
+		</xml-->
+	<form id="frmInput">
+		<table style="width: 100%; height: 100%" id="Table1">
+			<tr>
+				<td style="height: 32px">
+					<span id="logoSpan" style="background-position: center center; 
+						background-image: url(../images/ou.gif); width: 32px; background-repeat: no-repeat;
+						height: 32px"></span><font size="2"><strong id="topCaption"></strong></font>
+					<hr>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<input id="APP_ID" datafld="APP_ID" datasrc="APP" type="hidden" name="APP_ID">
+					<input id="objID" datafld="ID" datasrc="APP" type="hidden" name="objID">
+					<input id="RES_TYPE" datafld="RES_TYPE" datasrc="APP" type="hidden" name="RES_TYPE">
+					<table class="modalEditable" style="width: 100%; height: 100%" id="Table2">
+						<tr>
+							<td style="width: 25%; height: 24px" align="right">
+								<strong>名称</strong>:</td>
+							<td align="left">
+								<input type="text" id="NAME" datafld="DISPLAYNAME" datasrc="APP_OPERATION_TYPE" style="width: 100%"
+									name="NAME"></td>
+						</tr>
+						<tr>
+							<td style="width: 25%; height: 24px" align="right">
+								<strong>英文标识</strong>:</td>
+							<td align="left">
+								<input type="text" style="width: 100%" id="CODE_NAME" datafld="CODE_NAME" datasrc="APP_OPERATION_TYPE"
+									onkeypress="onCodeNameKeyPress();" onchange="return onCodeNameChange();" name="CODE_NAME"></td>
+						</tr>
+						<tr>
+							<td valign="top" style="width: 25%" align="right">
+								<strong>描述</strong>:</td>
+							<td valign="top">
+								<textarea id="DESCRIPTION" datafld="DESCRIPTION" style="width: 100%; height: 100%"
+									datasrc="APP_OPERATION_TYPE" name="DESCRIPTION"></textarea></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td style="height: 10px">
+					<hr>
+				</td>
+			</tr>
+			<tr>
+				<td style="height: 24px">
+					<table style="width: 100%; height: 100%" cellspacing="0" id="Table3">
+						<tr>
+							<td align="middle">
+								<input accesskey="O" style="width: 80px" type="button" value="确定(O)" id="btnOK" onclick="onSaveClick();"
+									name="btnOK">
+							</td>
+							<td align="middle">
+								<input accesskey="C" style="width: 80px" type="button" value="取消(C)" id="btnCancel"
+									onclick="window.returnValue=null;window.close();" name="btnCancel">
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

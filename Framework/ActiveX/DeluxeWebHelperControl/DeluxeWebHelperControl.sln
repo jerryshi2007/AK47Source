@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DeluxeWebHelperControl", "DeluxeWebHelperControl.vcxproj", "{00D9A328-2D07-4DFE-B4E4-3C19678BAD88}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DeluxeWebHelperControlPS", "DeluxeWebHelperControlPS.vcxproj", "{2F92E4C7-8BA9-4EBE-8D3B-CDCAEB2493B6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{00D9A328-2D07-4DFE-B4E4-3C19678BAD88} = {00D9A328-2D07-4DFE-B4E4-3C19678BAD88}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://shsvr9141tfs.ciicsh.local:8080/tfs/rhso
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = DeluxeWebHelperControl.vcxproj
+		SccLocalPath1 = .
+		SccProjectUniqueName2 = DeluxeWebHelperControlPS.vcxproj
+		SccLocalPath2 = .
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{00D9A328-2D07-4DFE-B4E4-3C19678BAD88}.Debug|Win32.ActiveCfg = Debug|Win32
+		{00D9A328-2D07-4DFE-B4E4-3C19678BAD88}.Debug|Win32.Build.0 = Debug|Win32
+		{00D9A328-2D07-4DFE-B4E4-3C19678BAD88}.Release|Win32.ActiveCfg = Release|Win32
+		{00D9A328-2D07-4DFE-B4E4-3C19678BAD88}.Release|Win32.Build.0 = Release|Win32
+		{2F92E4C7-8BA9-4EBE-8D3B-CDCAEB2493B6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2F92E4C7-8BA9-4EBE-8D3B-CDCAEB2493B6}.Release|Win32.ActiveCfg = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,503 @@
+<html>
+<head><title>
+	流程模板列表
+</title>
+<base target="_self"></base>
+<link href="/Css/basePage.css" type="text/css" rel="stylesheet" />
+<link href="/Css/baseForm.css" type="text/css" rel="stylesheet" />
+<link href="/Css/WebControls/DeluxeGrid.css" type="text/css" rel="stylesheet" />
+<script language="javascript" type="text/javascript" src="/MCSWebApp/JavaScript/baseForm.js">
+</script>
+</head>
+<body>
+<form name="pageForm" method="post" action="WfProcessDescriptorSelectorTest.aspx?PageRenderMode=True%5eHTML%5eInnerBrowser%5e%5ewfProcessSelect%5e%7b%7d%5eDialogControl" id="pageForm">
+<div>
+<input type="hidden" name="wfProcessSelect_ClientState" id="wfProcessSelect_ClientState" value="" />
+<input type="hidden" name="wfProcessSelect_ProcessDescInfoDeluxeGrid_ClientState" id="wfProcessSelect_ProcessDescInfoDeluxeGrid_ClientState" value="{&quot;selectedKeys&quot;:[],&quot;columnsInfo&quot;:[{&quot;ColumnIndex&quot;:1,&quot;DataField&quot;:&quot;ProcessKey&quot;,&quot;DataFormatString&quot;:&quot;&quot;,&quot;NullDisplayText&quot;:&quot;&quot;},{&quot;ColumnIndex&quot;:2,&quot;DataField&quot;:&quot;ApplicationName&quot;,&quot;DataFormatString&quot;:&quot;&quot;,&quot;NullDisplayText&quot;:&quot;&quot;},{&quot;ColumnIndex&quot;:3,&quot;DataField&quot;:&quot;ProgramName&quot;,&quot;DataFormatString&quot;:&quot;&quot;,&quot;NullDisplayText&quot;:&quot;&quot;},{&quot;ColumnIndex&quot;:4,&quot;DataField&quot;:&quot;ProcessName&quot;,&quot;DataFormatString&quot;:&quot;&quot;,&quot;NullDisplayText&quot;:&quot;&quot;},{&quot;ColumnIndex&quot;:5,&quot;DataField&quot;:&quot;CreateTime&quot;,&quot;DataFormatString&quot;:&quot;{0:yyyy-MM-dd HH:mm:ss}&quot;,&quot;NullDisplayText&quot;:&quot;&quot;},{&quot;ColumnIndex&quot;:6,&quot;DataField&quot;:&quot;ModifyTime&quot;,&quot;DataFormatString&quot;:&quot;{0:yyyy-MM-dd HH:mm:ss}&quot;,&quot;NullDisplayText&quot;:&quot;&quot;}]}" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['pageForm'];
+if (!theForm) {
+    theForm = document.pageForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=nf_Ovvb8BVo1fl6OImHnxJrzFGF-aKNx_3YP4ByqqvlGOvLnkqQCWsPbDotoiw8ZZLb7d_EYaO0hR0WLNOEs8ABEitkmdDf05pQBQ8iYqs01&amp;t=634389898148779115" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+function onTextBoxDropdownExtenderDropdown() {
+	var elem = event.srcElement;
+	var textBoxID = elem.getAttribute("textBoxID");
+
+
+
+	if (textBoxID) {
+		showTextBoxDropdownExtenderDropdown(
+			document.getElementById(elem.textBoxID),
+			document.getElementById(elem.listBoxID),
+            document.getElementById(elem.iframeID)
+			);
+	}
+}
+
+function onTextBoxDropdownExtenderDropdownBlur() {
+	var elem = event.srcElement;
+	elem.style["display"] = "none";
+
+}
+
+function onTextBoxDropdownExtenderDropdownChange() {
+	var elem = event.srcElement;
+
+	if (elem.textBoxID) {
+		document.getElementById(elem.textBoxID).value = elem.value;
+	}
+}
+
+function onTextBoxDropdownExtenderDropdownClick() {
+	var elem = event.srcElement;
+
+	if (elem.textBoxID) {
+		document.getElementById(elem.textBoxID).value = elem.value;
+	}
+
+	elem.style["display"] = "none";
+}
+
+function onTextBoxDropdownExtenderTextBoxKeyDown() {
+	var elem = event.srcElement;
+
+	if (event.altKey) {
+		if (event.keyCode == 40) {
+			var textBox = elem;
+			var listBox = document.getElementById(elem.listBoxID);
+
+			showTextBoxDropdownExtenderDropdown(textBox, listBox);
+		}
+	}
+}
+
+function onTextBoxDropdownExtenderDropdownKeyDown() {
+	var elem = event.srcElement;
+	var textBox = null;
+
+	if (elem.textBoxID) {
+		textBox = document.getElementById(elem.textBoxID);
+	}
+
+	if (textBox) {
+		switch (event.keyCode) {
+			case 13:
+				textBox.value = elem.value;
+				textBox.focus();
+
+				elem.style["display"] = "none";
+				event.keyCode = 0;
+				event.returnValue = false;
+				break;
+			case 27:
+				textBox.value = elem.value;
+				textBox.focus();
+				elem.style["display"] = "none";
+				break;
+		}
+	}
+}
+
+function showTextBoxDropdownExtenderDropdown(textBox, listBox,iframe) {
+    var textBoxBounds = $HGDomElement.getBounds(textBox);
+    var value = textBox.value;
+    var options = listBox.options;
+    options.selectedIndex = -1;
+    for (var i = 0; i < options.length; i++) {
+        if (value === options[i].value) {
+            options[i].selected = true;
+            break;
+        }
+    }
+	iframe.style.top = 0;
+	iframe.style.left = 0;
+	listBox.style.top = 0;
+	listBox.style.left = 0;
+
+	iframe.style.display = "inline";
+	iframe.style.visibility = "hidden";
+
+	listBox.style.display = "inline";
+
+	var listBoxSize = $HGDomElement.getSize(listBox);
+	var listBoxPosition = $HGDomElement.getBounds(listBox);
+	listBox.style.width = textBoxBounds.width;
+
+	var positionMode = GetPositionMode(textBox, listBox);
+	var position = GetDisplayPosition(positionMode, textBox, listBox);
+
+
+	listBox.style.left = position.x;
+	listBox.style.top = position.y;
+
+	listBox.focus();
+
+	iframe.style.left = position.x;
+	iframe.style.top = position.y;
+	iframe.style.width = listBox.style.width;
+
+}
+
+function get_documentWidth () {
+		var w = document.documentElement.clientWidth;
+
+		if (w == 0)
+			w = document.body.offsetWidth;
+
+		return w;
+}
+
+function get_documentHeight () {
+		var h = document.documentElement.clientHeight;
+
+		if (h == 0)
+			h = document.body.offsetHeight;
+
+		return h;
+}
+
+function GetPositionMode(textBox, listBox) {
+    var positionMode = $HGRootNS.PositioningMode.BottomLeft;
+    var textBoxBounds = $HGDomElement.getBounds(textBox);
+    var listBoxSize = $HGDomElement.getSize(listBox);
+    if ((textBoxBounds.y + textBoxBounds.height + listBoxSize.height) > get_documentHeight()) {
+        positionMode = $HGRootNS.PositioningMode.TopLeft;
+    }
+    if ((textBoxBounds.x + listBoxSize.width) > get_documentWidth
+    && (textBoxBounds.y + textBoxBounds.height + listBoxSize.height) < get_documentHeight()) {
+        positionMode = $HGRootNS.PositioningMode.BottomRight;
+    }
+    if ((textBoxBounds.x + listBoxSize.width) > get_documentWidth()// $HGDomElement.getClientBounds(document.documentElement).width
+    && (textBoxBounds.y + textBoxBounds.height + listBoxSize.height) > get_documentHeight()) {
+        positionMode = $HGRootNS.PositioningMode.TopRight;
+    }
+    //$HGDomElement.getClientBounds(document.documentElement).height);
+    return positionMode;
+}
+
+function GetDisplayPosition(positioningMode, textBox,listBox) {
+    var position = {x:0,y:0};
+
+	var textBoxBounds = $HGDomElement.getBounds(textBox);
+	var listBoxSize = $HGDomElement.getSize(listBox);
+	var absPosition = getAbsPos(textBox);
+	var _position = $HGDomElement.getLocation(textBox);
+    switch (positioningMode) {
+        case $HGRootNS.PositioningMode.TopLeft:
+            position.x = textBoxBounds.x;
+            position.y = textBoxBounds.y - listBoxSize.height;
+            break;
+        case $HGRootNS.PositioningMode.BottomLeft:
+            position.x = textBoxBounds.x;
+            position.y = textBoxBounds.y + textBoxBounds.height;
+            break;
+        case $HGRootNS.PositioningMode.BottomRight:
+            position.x = (textBoxBounds.x + textBoxBounds.width) - listBoxSize.width;
+            position.y = textBoxBounds.y + textBoxBounds.height;
+            break;
+        case $HGRootNS.PositioningMode.TopRight:
+            position.x = (textBoxBounds.x + textBoxBounds.width) - listBoxSize.width;
+            position.y = textBoxBounds.y - listBoxSize.height;
+            break;
+
+    }
+
+    return position;
+}
+
+function getAbsPos(obj) {
+    var objResult = {topy:0,topx:0};
+    objResult.top = obj.offsetTop;
+    objResult.left = obj.offsetLeft;
+    while (obj = obj.offsetParent) {
+        objResult.topy += obj.offsetTop;
+        objResult.leftx += obj.offsetLeft;
+    }
+    return objResult;
+}
+
+
+var DeluxeNameTable = {category: {}};
+var $NT = DeluxeNameTable;
+$NT.getText = function(category, sourceText){ var targetText = sourceText; if ($NT.category[category]) if ($NT.category[category][sourceText]) targetText = $NT.category[category][sourceText]; return targetText; }
+
+$NT.category["WebControls"] = {};
+$NT.category["WebControls"]["提示"] = "提示";
+$NT.category["WebControls"]["警告"] = "警告";
+$NT.category["WebControls"]["错误"] = "错误";
+$NT.category["WebControls"]["选择"] = "选择";
+$NT.category["WebControls"]["点击此处关闭详细信息..."] = "点击此处关闭详细信息...";
+$NT.category["WebControls"]["点击此处展开详细信息..."] = "点击此处展开详细信息...";
+$NT.category["WebControls"]["复制信息"] = "复制信息";
+$NT.category["WebControls"]["确定(O)"] = "确定(O)";
+$NT.category["WebControls"]["取消(C)"] = "取消(C)";
+//]]>
+</script>
+
+<script src="/ScriptResource.axd?d=Qs7cJwaObFG0zU5YpiNCPQqmmwGiizHlZOqgUUc4BS5WsK4JPT3OoEle8h0qnEJQPlouKJL_sVc_JL8Sv9ZBBQ-0dmayf8PKnDU-cSDHf4gwB6RQhDz3tmFY5BLSArxF0vdKmx1kH32IVIm7BKjW-9YDeOwarMucLNrIep3RbzJlmE7k46Extd15ZJWh4vkX0&amp;t=ffffffffa5d4ef3e" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<script src="/ScriptResource.axd?d=FgFJ5qtKJVYqqEChGN7C4rumSR_xU-bd85P2numi4RxS8luNGe8bSwa3O_oHZK2BjZ0_qJnfkhlTlUI17piktZvK-K1TjqtUh_Ml97xAwG8F2kAZWvHXPxekmV7O9QQqc3hUedmcWfQIzGYruczsa7fqxYRoPyHfsA0kZ0qUtgtlLLe9WhwPxCikmpprnh3s0&amp;t=ffffffffa5d4ef3e" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=7fhGNRH6aN96MYZyQVl9PK6k1xP1BymnP67krwACLTwnsBpGLTplh5k2umenBHA_xjaWxs36_Usjkcy1p9lUwy-at0MsRx4B_bk0HcCyXWWGQZyPybB4acW2c2HZt61rsFEaxezL2CsUp1Ir-9iPKuBSMWqVyOwFD_FYwSarlro1&amp;t=198772b2" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=8D4ucai_tWAqYhPBjXogfdsYoLRKvXyU86PlJsyiTvPK4D6jEetBz8uBkA1J2Y5vSZ-Jritz5LFDphYqs5ILwr8OQtacsXSP5s5mFp_8V0wDm1Z68VQzVt-uf0Fodr65YUWhl41657Y7WI7pw5--gdkNMM4gUrzOPzxewtnJp0-8WZ7Y98MvmAK8te5sQsrS0&amp;t=fffffffff80854cc" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=J-ngr6FboQ3OOzMlUW-0qD2dtShr5RQ20HYHgerbw-W9p1MPSdQ1w9aNRGOlhjRbb9G8MQ6qEkzLSwSnGA8GMgpP4pVJx8jKFGqPlPxfLN5IOQwUbWkfZ6HrnGrD7FPfYgD3BBPAFHajGZgDIkBZag2&amp;t=198772b2" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=BMEbvMpkUhKXbQvVdLX3tQWQRcTXPa5n8dVvBVMdN8ohUg3Hpn_5oMKDax22pLp0R_4EVe5a_7eQS-X_y87YaZPkSMRG9oJaH7TZHBYxzvl9LGrs9O7pqD708tvoo9XuqJRqNX5YlBo2f1IpP7aejuazr_bS2mREbyMgfVKRucg1&amp;t=198772b2" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=7Zchf5NuKZO7j_j3JTb6bOTm_v2YvfpMSHYQ2Tv9q_WpGW63FV_dHGSJzB9RLTmcc4VaLoBnq4tj85-hoaOeCQaPTNqkEWQYDT2ujPARXPATJrCGcvzpQmsS54V8fZYOGm9kq0t-bat43g3VhlOLMLAhOsuYzcmIlDVboEZ5UgAiy6jiZHarVynxadfb-mXc0&amp;t=fffffffff80854cc" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=kHXtFCqZ7YOrowmczrw5CglciXbcBlrw2ujhresLYiOUiIc8tZbJ44IpIzzZGsUTcHPP3N9b4iF5z2OTYmEJPfY6iNjIhrYdT2TsEFQ6ylQ5U5NgJpYhpS0Yp2Op_gmiiV4unXn9Ss7718FF0hvE9IwaTMjZ_lWKBdCuydjvZvkb2dEjHx7QdrLB5CXsNQADnqLiM4zCBfE4iWhOCzr-y0oM_rs9bXlSu8gGIq400coJt9NtiDtkYHK9edTAx_n30&amp;t=fffffffff80854cc" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=VdwgZYZh4_zK6Dj4Jd9dgNMqM4cxRlL0ZAZHiTl7DQKUIh5F0GLfNdzbMJod5Z2mksidV741mWADNiLeJ18gcaIsdXhkqldE9Ngp5f7nUU6x5v5cRa3ar-3i0AFi6_bcVgC-lGRbdCQmZ5xGthwAkP503aEDNA8CM4RJ7kWwxRE1&amp;t=5e9fb8cc" type="text/javascript"></script>
+<div>
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+</div>
+<div id="wfProcessSelect">
+	<table style="width: 100%; height: 100%">
+	<tr>
+		<td class="gridHead" style="height: 32px;">
+			<div class="dialogTitle">
+				<img src="/WebResource.axd?d=4LJM9g_gfV9g3Z4Ailf5ZM5jYkviiqSta-eszC3GCyXkUNMZfYIwRME54RrAObhrKkiXCDMjrl7PLsX8KnApITOxHczvMttgCSbFPKM4Pm5Ay4ezKIhoDkrtA5-nLF00QuJ1Wo0XW8ClujIh1myfRSgzgtAz2aHdc-JzmpIl1xMUebsHN5zQhkgZ4sc6ryBL0&t=634401289201544917" id="wfProcessSelect_logoImage" alt="logo" style="vertical-align: middle" />
+				<span id="wfProcessSelect_dialogHeaderText" class="title">流程模板列表</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td style="vertical-align: top">
+			<div id="wfProcessSelect_dialogContent" class="dialogContent" style="width: 100%;
+				height: 100%; overflow: auto">
+
+	<table style="height: 100%; width: 100%">
+		<tr>
+			<td style="height: 60px; text-align: left; vertical-align: middle">
+				<table cellpadding="0" cellspacing="0">
+					<tr >
+						<th scope="col" style="width: 180px">
+							应用名称
+						</th>
+						<th scope="col">
+							模块名称
+						</th>
+						<th scope="col">
+							流程模板Key
+						</th>
+						<th scope="col">
+							流程模板名称
+						</th>
+						<th scope="col">
+							启用
+						</th>
+						<th>
+						</th>
+					</tr>
+					<tr>
+						<td>
+							<input name="wfProcessSelect$txtApplicationName" type="text" id="wfProcessSelect_txtApplicationName" listBoxID="wfProcessSelect_dropdownExtender" iframeID="__tbDdlExtInnerFrame" style="width:160px;" /><img src="/WebResource.axd?d=wsLyogWonBOJDVVMYUPNjBGzk3JRhws8ud0OJgwgJxMrO4QCDlgHJp-7i4Zr1nJEyfbeJau4Una64VPPTuEvrLgahGmr4yKJzrfIg5B1GwQyiMrHCTX2WljP9YOJs8UbyF4wvfk43y3fFSV1fbSpjZNf0HLice6RNt5lQV2IZZr8WKQph_ZnoUvrYRiiQ9Sf0&t=634395985406363349" style="cursor:pointer;" listBoxID="wfProcessSelect_dropdownExtender" iframeID="__tbDdlExtInnerFrame" onclick="onTextBoxDropdownExtenderDropdown();" textBoxID="wfProcessSelect_txtApplicationName" />
+                            <select size="4" name="wfProcessSelect$dropdownExtender" id="wfProcessSelect_dropdownExtender" textBoxID="wfProcessSelect_txtApplicationName" onblur="onTextBoxDropdownExtenderDropdownBlur();" onchange="onTextBoxDropdownExtenderDropdownChange();" onclick="onTextBoxDropdownExtenderDropdownClick();" onkeydown="onTextBoxDropdownExtenderDropdownKeyDown();" style="height:140px;display:none;position:absolute;z-index:1000;">
+	<option value="税费管理">税费管理</option>
+	<option value="秘书服务">秘书服务</option>
+	<option value="财务内审">财务内审</option>
+	<option value="媒体关系">媒体关系</option>
+	<option value="会员关系">会员关系</option>
+	<option value="案件办理">案件办理</option>
+	<option value="签约">签约</option>
+	<option value="设计变更与现场签证">设计变更与现场签证</option>
+	<option value="土地获取">土地获取</option>
+	<option value="现场销售">现场销售</option>
+	<option value="员工服务">员工服务</option>
+	<option value="入伙管理">入伙管理</option>
+	<option value="人员提供">人员提供</option>
+	<option value="资料管理">资料管理</option>
+	<option value="人员激励">人员激励</option>
+	<option value="职业发展规划">职业发展规划</option>
+	<option value="产权办理">产权办理</option>
+	<option value="知识管理">知识管理</option>
+	<option value="企业文化">企业文化</option>
+	<option value="融资">融资</option>
+	<option value="收费管理">收费管理</option>
+	<option value="经营性资质办理">经营性资质办理</option>
+	<option value="产品线研究">产品线研究</option>
+	<option value="投资者关系">投资者关系</option>
+	<option value="公司客服">公司客服</option>
+	<option value="品牌管理">品牌管理</option>
+	<option value="流程管理">流程管理</option>
+	<option value="支付管理">支付管理</option>
+	<option value="人员考核">人员考核</option>
+	<option value="客户满意度">客户满意度</option>
+	<option value="行政服务">行政服务</option>
+	<option value="绩效执行">绩效执行</option>
+	<option value="战略规划">战略规划</option>
+	<option value="物业服务">物业服务</option>
+	<option value="董事局事务">董事局事务</option>
+	<option value="政府关系">政府关系</option>
+	<option value="集中整改">集中整改</option>
+	<option value="产品定义">产品定义</option>
+	<option value="部品材料管理">部品材料管理</option>
+	<option value="财务账务">财务账务</option>
+	<option value="教育机构管理">教育机构管理</option>
+	<option value="资产管理">资产管理</option>
+	<option value="股权管理">股权管理</option>
+	<option value="战略定位">战略定位</option>
+	<option value="资金管理">资金管理</option>
+	<option value="项目实施">项目实施</option>
+	<option value="供应商关系">供应商关系</option>
+	<option value="档案管理">档案管理</option>
+	<option value="经营管理">经营管理</option>
+	<option value="信息管理">信息管理</option>
+	<option value="联盟商家管理">联盟商家管理</option>
+
+</select>
+						</td>
+						<td>
+							<input name="wfProcessSelect$txtProgramName" type="text" id="wfProcessSelect_txtProgramName" />
+						</td>
+						<td>
+							<input name="wfProcessSelect$txtProcessKey" type="text" id="wfProcessSelect_txtProcessKey" />
+						</td>
+						<td>
+							<input name="wfProcessSelect$txtProcessName" type="text" id="wfProcessSelect_txtProcessName" />
+						</td>
+						<td>
+							<select name="wfProcessSelect$ddlEnabled" id="wfProcessSelect_ddlEnabled">
+		<option selected="selected" value="">请选择</option>
+		<option value="1">是</option>
+		<option value="0">否</option>
+
+	</select>
+						</td>
+						<td rowspan="2">
+							<input type="submit" name="wfProcessSelect$btnSearch" value="查询" id="wfProcessSelect_btnSearch" class="formButton" />
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr style="height: 5px; text-align: left; vertical-align: middle">
+			<td>
+				<hr />
+			</td>
+		</tr>
+		<tr>
+			<td style="vertical-align: top">
+				<div style="width: 100%;
+					height: 100%; overflow: auto">
+					<div>
+		<table class="dataList" cellspacing="0" rules="all" border="1" id="wfProcessSelect_ProcessDescInfoDeluxeGrid" style="width:100%;border-collapse:collapse;">
+			<tr id="wfProcessSelect_ProcessDescInfoDeluxeGrid_ctl01" class="head">
+				<th class=" checkbox" scope="col"><input name="wfProcessSelect$ProcessDescInfoDeluxeGrid$ctl01$checkall" type="checkbox" id="wfProcessSelect_ProcessDescInfoDeluxeGrid_ctl01_checkall" value="选全" style="display:none;" /></th><th scope="col">流程模板Key</th><th scope="col">应用名称</th><th scope="col">模块名称</th><th scope="col">流程模板名称</th><th scope="col">创建时间</th><th scope="col">修改时间</th>
+			</tr><tr class="item">
+				<td style="word-wrap:break-word;"><input id="wfProcessSelect_ProcessDescInfoDeluxeGrid_ctl02_checkitem" name="wfProcessSelect_ProcessDescInfoDeluxeGrid_checkItem" type="radio" value="121212"</input></td><td style="word-wrap:break-word;">121212</td><td align="center" style="word-wrap:break-word;">&nbsp;</td><td style="word-wrap:break-word;">&nbsp;</td><td style="word-wrap:break-word;">新建流程</td><td style="word-wrap:break-word;">2011-02-11 18:27:06</td><td style="word-wrap:break-word;">2011-04-26 18:02:12</td>
+			</tr><tr class="aitem">
+				<td style="word-wrap:break-word;"><input id="wfProcessSelect_ProcessDescInfoDeluxeGrid_ctl03_checkitem" name="wfProcessSelect_ProcessDescInfoDeluxeGrid_checkItem" type="radio" value="123"</input></td><td style="word-wrap:break-word;">123</td><td align="center" style="word-wrap:break-word;">&nbsp;</td><td style="word-wrap:break-word;">&nbsp;</td><td style="word-wrap:break-word;">新建流程</td><td style="word-wrap:break-word;">2011-04-25 10:03:57</td><td style="word-wrap:break-word;">2011-04-25 11:02:04</td>
+			</tr><tr class="item">
+				<td style="word-wrap:break-word;"><input id="wfProcessSelect_ProcessDescInfoDeluxeGrid_ctl04_checkitem" name="wfProcessSelect_ProcessDescInfoDeluxeGrid_checkItem" type="radio" value="1234"</input></td><td style="word-wrap:break-word;">1234</td><td align="center" style="word-wrap:break-word;">&nbsp;</td><td style="word-wrap:break-word;">&nbsp;</td><td style="word-wrap:break-word;">新建流程</td><td style="word-wrap:break-word;">2011-04-25 11:38:20</td><td style="word-wrap:break-word;">2011-04-25 11:42:47</td>
+			</tr><tr class="aitem">
+				<td style="word-wrap:break-word;"><input id="wfProcessSelect_ProcessDescInfoDeluxeGrid_ctl05_checkitem" name="wfProcessSelect_ProcessDescInfoDeluxeGrid_checkItem" type="radio" value="12345"</input></td><td style="word-wrap:break-word;">12345</td><td align="center" style="word-wrap:break-word;">&nbsp;</td><td style="word-wrap:break-word;">&nbsp;</td><td style="word-wrap:break-word;">新建流程</td><td style="word-wrap:break-word;">2011-04-25 11:38:29</td><td style="word-wrap:break-word;">2011-04-25 11:38:29</td>
+			</tr><tr class="item">
+				<td style="word-wrap:break-word;"><input id="wfProcessSelect_ProcessDescInfoDeluxeGrid_ctl06_checkitem" name="wfProcessSelect_ProcessDescInfoDeluxeGrid_checkItem" type="radio" value="activityblock"</input></td><td style="word-wrap:break-word;">activityblock</td><td align="center" style="word-wrap:break-word;">&nbsp;</td><td style="word-wrap:break-word;">&nbsp;</td><td style="word-wrap:break-word;">新建流程</td><td style="word-wrap:break-word;">2011-03-30 14:15:14</td><td style="word-wrap:break-word;">2011-04-02 15:23:43</td>
+			</tr><tr class="aitem">
+				<td style="word-wrap:break-word;"><input id="wfProcessSelect_ProcessDescInfoDeluxeGrid_ctl07_checkitem" name="wfProcessSelect_ProcessDescInfoDeluxeGrid_checkItem" type="radio" value="AssetAllocation"</input></td><td style="word-wrap:break-word;">AssetAllocation</td><td align="center" style="word-wrap:break-word;">&nbsp;</td><td style="word-wrap:break-word;">&nbsp;</td><td style="word-wrap:break-word;">新建流程</td><td style="word-wrap:break-word;">2011-04-11 17:41:06</td><td style="word-wrap:break-word;">2011-04-11 17:41:06</td>
+			</tr><tr class="item">
+				<td style="word-wrap:break-word;"><input id="wfProcessSelect_ProcessDescInfoDeluxeGrid_ctl08_checkitem" name="wfProcessSelect_ProcessDescInfoDeluxeGrid_checkItem" type="radio" value="CurrencyExchange_Modify"</input></td><td style="word-wrap:break-word;">CurrencyExchange_Modify</td><td align="center" style="word-wrap:break-word;">&nbsp;</td><td style="word-wrap:break-word;">&nbsp;</td><td style="word-wrap:break-word;">汇率设置</td><td style="word-wrap:break-word;">2011-03-30 10:25:20</td><td style="word-wrap:break-word;">2011-04-28 18:50:06</td>
+			</tr><tr class="aitem">
+				<td style="word-wrap:break-word;"><input id="wfProcessSelect_ProcessDescInfoDeluxeGrid_ctl09_checkitem" name="wfProcessSelect_ProcessDescInfoDeluxeGrid_checkItem" type="radio" value="DemoProcess"</input></td><td style="word-wrap:break-word;">DemoProcess</td><td align="center" style="word-wrap:break-word;">&nbsp;</td><td style="word-wrap:break-word;">&nbsp;</td><td style="word-wrap:break-word;">新建流程</td><td style="word-wrap:break-word;">2011-05-04 17:45:15</td><td style="word-wrap:break-word;">2011-05-04 17:49:41</td>
+			</tr><tr class="item">
+				<td style="word-wrap:break-word;"><input id="wfProcessSelect_ProcessDescInfoDeluxeGrid_ctl10_checkitem" name="wfProcessSelect_ProcessDescInfoDeluxeGrid_checkItem" type="radio" value="DismissionApply"</input></td><td style="word-wrap:break-word;">DismissionApply</td><td align="center" style="word-wrap:break-word;">&nbsp;</td><td style="word-wrap:break-word;">&nbsp;</td><td style="word-wrap:break-word;">新建流程</td><td style="word-wrap:break-word;">2011-03-09 13:32:36</td><td style="word-wrap:break-word;">2011-03-09 13:35:16</td>
+			</tr><tr class="aitem">
+				<td style="word-wrap:break-word;"><input id="wfProcessSelect_ProcessDescInfoDeluxeGrid_ctl11_checkitem" name="wfProcessSelect_ProcessDescInfoDeluxeGrid_checkItem" type="radio" value="e"</input></td><td style="word-wrap:break-word;">e</td><td align="center" style="word-wrap:break-word;">&nbsp;</td><td style="word-wrap:break-word;">&nbsp;</td><td style="word-wrap:break-word;">新建流程</td><td style="word-wrap:break-word;">2011-04-19 15:00:06</td><td style="word-wrap:break-word;">2011-04-22 09:59:18</td>
+			</tr><tr class="pager">
+				<td colspan="7"><table border="0" style="width:100%;">
+					<tr style="text-align:right;">
+						<td align="left" style="width:20%;"></td><td><span class="pager"><table id="wfProcessSelect_ProcessDescInfoDeluxeGrid_ctl13_ctl01_pagerTable" border="0">
+							<tr id="wfProcessSelect_ProcessDescInfoDeluxeGrid_ctl13_ctl01_pagerRow">
+								<td class="pager">&nbsp;&nbsp;总记录数126&nbsp;&nbsp;10/页&nbsp;&nbsp;第1页&nbsp;共13页</td><td id="wfProcessSelect_ProcessDescInfoDeluxeGrid_ctl13_ctl01_cellPager" class="pager">&nbsp;&nbsp;&nbsp;&nbsp;<a disabled="disabled" style="text-decoration:none;"><<</a>&nbsp;&nbsp;<a disabled="disabled" style="text-decoration:none;">上一页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:__doPostBack(&#39;wfProcessSelect$ProcessDescInfoDeluxeGrid$ctl13$ctl01&#39;,&#39;Next$Next&#39;)" style="text-decoration:none;">下一页</a>&nbsp;&nbsp;<a href="javascript:__doPostBack(&#39;wfProcessSelect$ProcessDescInfoDeluxeGrid$ctl13$ctl01&#39;,&#39;Last$Last&#39;)" style="text-decoration:none;">>></a>&nbsp;&nbsp;</td><td class="pager"><input name="wfProcessSelect$ProcessDescInfoDeluxeGrid$ctl13$ctl01$txtPageCode" type="text" value="1" id="wfProcessSelect_ProcessDescInfoDeluxeGrid_ctl13_ctl01_txtPageCode" class="inputStyle" style="width:20px;" />&nbsp;<input name="wfProcessSelect$ProcessDescInfoDeluxeGrid$ctl13$ctl01$txtPageCount" type="hidden" id="wfProcessSelect_ProcessDescInfoDeluxeGrid_ctl13_ctl01_txtPageCount" value="13" /></td><td><input type="submit" value="跳转到" onclick=" var bl = true; var inputVal = document.getElementById(&#39;wfProcessSelect_ProcessDescInfoDeluxeGrid_ctl13_ctl01_txtPageCode&#39;).value;  var pageCount =document.getElementById(&#39;wfProcessSelect_ProcessDescInfoDeluxeGrid_ctl13_ctl01_txtPageCount&#39;).value; if(pageCount.length==0) bl= false;var oneChar;inputStr=inputVal.toString();for (var i=0;i&lt;inputStr.length;i++){oneChar=inputStr.charAt(i);if (oneChar&lt;&#39;0&#39; || oneChar>&#39;9&#39;){ alert(&#39;非法字符，请输入整数数字&#39;);bl= false;break;}} if((inputVal-pageCount)>0 || inputVal&lt;1){alert(&#39;没有此页码，请输入1－&#39; + pageCount + &#39;之间的数字&#39;);bl= false;} if(!bl)return false;javascript:__doPostBack(&#39;wfProcessSelect$ProcessDescInfoDeluxeGrid$ctl13$ctl01&#39;,&#39;Goto$&#39;)" class="portalButton" />&nbsp;&nbsp;</td>
+							</tr>
+						</table></span></td>
+					</tr>
+				</table></td>
+			</tr>
+		</table>
+	</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="gridfileBottom">
+			</td>
+		</tr>
+	</table>
+	</div>
+	<input name="wfProcessSelect$whereCondition" type="hidden" id="wfProcessSelect_whereCondition" />
+		<div>
+			<input type="submit" name="wfProcessSelect$serverConfirmButton" value="" id="wfProcessSelect_serverConfirmButton" onclick="if (event.srcElement.alreadyClicked) {event.srcElement.disabled = true;return;}SubmitButtonIntance._onSubmitButtonClick();" popupCaption="正在读取..." relControlID="wfProcessSelect_confirmButton" style="display:none" />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td class="gridfileBottom">
+		</td>
+	</tr>
+	<tr>
+		<td style="height: 40px;">
+			<table cellpadding="0" cellspacing="0" style="width: 100%; height: 100%">
+				<tr>
+					<td style="text-align: center">
+						<input onclick="__doPostBack('wfProcessSelect$confirmButton','')" name="wfProcessSelect$confirmButton" type="button" id="wfProcessSelect_confirmButton" accesskey="O" Category="OAWebControls" class="formButton" value="确定(O)" style="width: 96px" />
+					</td>
+					<td style="text-align: center">
+						<input name="wfProcessSelect$cancelButton" type="button" id="wfProcessSelect_cancelButton" accesskey="C" Category="OAWebControls" class="formButton" value="关闭(C)" style="width: 96px" onclick="top.close();" />
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+</div>
+<script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl03', 'pageForm', [], [], [], 90, '');
+//]]>
+</script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+document.getElementById("wfProcessSelect_txtApplicationName").attachEvent("onkeydown", onTextBoxDropdownExtenderTextBoxKeyDown);//]]>
+</script>
+<iframe id="__tbDdlExtInnerFrame" name="__tbDdlExtInnerFrame" style="display:none;position:absolute;z-index:0"></iframe>
+<script type="text/javascript">
+//<![CDATA[
+window.attachEvent("onload", new Function("SubmitButtonIntance._registerButton(document.all('wfProcessSelect_serverConfirmButton'))"));Sys.Application.add_init(function() {
+    $create(MCS.Web.WebControls.DeluxeGrid, {"_autoClearClientStateFieldValue":true,"allowClientDataBind":false,"checkAll":"wfProcessSelect_ProcessDescInfoDeluxeGrid_ctl01_checkall","checkItemName":"wfProcessSelect_ProcessDescInfoDeluxeGrid_checkItem","clientSelectedKeys":[],"clientStateField":$get("wfProcessSelect_ProcessDescInfoDeluxeGrid_ClientState"),"isChecked":true,"isSelectedAll":false,"openExportExcelDocumentUrl":"/Workflow/WfProcessDescriptorSelector/WfProcessDescriptorSelectorTest.aspx?PageRenderMode=False^EXCEL^Inline^exports.xls^wfProcessSelect$ProcessDescInfoDeluxeGrid^{\"PageLevelKey\":1,\"PageUniqueID\":\"wfProcessSelect\"}^openExportExcelDocumentUrl","openExportWordDocumentUrl":"/Workflow/WfProcessDescriptorSelector/WfProcessDescriptorSelectorTest.aspx?PageRenderMode=False^WORD^Inline^exports.doc^wfProcessSelect$ProcessDescInfoDeluxeGrid^{\"PageLevelKey\":1,\"PageUniqueID\":\"wfProcessSelect\"}^openExportWordDocumentUrl","showCheckBoxs":true,"showExportControl":false,"showPager":true}, null, null, $get("wfProcessSelect_ProcessDescInfoDeluxeGrid"));
+});
+Sys.Application.add_init(function() {
+    $create(MCS.Web.WebControls.WfProcessDescriptorSelector, {"_autoClearClientStateFieldValue":true,"clientStateField":$get("wfProcessSelect_ClientState"),"currentMode":1,"dialogFeature":"dialogWidth:720px;dialogHeight:550px;center:yes;resizable:yes;scroll:no;status:no","dialogUrl":"/Workflow/WfProcessDescriptorSelector/WfProcessDescriptorSelectorTest.aspx?PageRenderMode=True%5eHTML%5eInnerBrowser%5e%5ewfProcessSelect%5e%7b%22PageLevelKey%22%3a1%2c%22PageUniqueID%22%3a%22wfProcessSelect%22%7d%5eDialogControl&dialogTitle=%e6%b5%81%e7%a8%8b%e6%a8%a1%e6%9d%bf%e5%88%97%e8%a1%a8","invokeWithoutViewState":true,"serverControlType":"MCS.Web.WebControls.WfProcessDescriptorSelector, MCS.Library.SOA.Web.WebControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798","showingMode":1,"staticCallBackProxyID":"__staticCallbackProxyControl"}, null, null, $get("wfProcessSelect"));
+});
+//]]>
+</script>
+</form>
+</body>
+</html>

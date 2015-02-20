@@ -1,0 +1,268 @@
+﻿<html>
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<style type="text/css">
+		td
+		{
+			word-wrap: break-word;
+		}
+		.title
+		{
+			color: Black;
+			font-family: "微软雅黑" , "宋体" , "sans-serif";
+			font-size: 11pt;
+		}
+		.errorTitle
+		{
+			color: Red;
+			font-family: "微软雅黑" , "宋体" , "sans-serif";
+			font-size: 11pt;
+		}
+		.warningTitle
+		{
+			color: Orange;
+			font-family: "微软雅黑" , "宋体" , "sans-serif";
+			font-size: 11pt;
+		}
+		.desc
+		{
+			color: Gray;
+			font-weight: bold;
+			font-family: "微软雅黑" , "宋体" , "sans-serif";
+			font-size: 9pt;
+		}
+		.detail
+		{
+			color: Black;
+			font-family: "微软雅黑" , "宋体" , "sans-serif";
+			font-size: 9pt;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<p>
+			<span class="title">{%mailNames%}，你好</span>
+		</p>
+		<div style="margin-left: .5in">
+			<span class="title">如题，请尽快调整以下属于你的编译问题，谢谢！</span>
+			<table border="1">
+				<tr>
+					<td width="60">
+						<p align="center" style="text-align: center">
+							<span class="desc">编译位置</span>
+						</p>
+					</td>
+					<td width="500">
+						<p align="left" style="text-align: left">
+							<span class="detail">{%workspaceServerPath%}</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td width="60">
+						<p align="center" style="text-align: center">
+							<span class="desc">起始时间</span>
+						</p>
+					</td>
+					<td width="500">
+						<p align="left" style="text-align: left">
+							<span class="detail">{%startTime%}</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td width="60">
+						<p align="center" style="text-align: center">
+							<span class="desc">结束时间</span>
+						</p>
+					</td>
+					<td width="500">
+						<p align="left" style="text-align: left">
+							<span class="detail">{%endTime%}</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td width="60">
+						<p align="center" style="text-align: center">
+							<span class="desc">编译耗时</span>
+						</p>
+					</td>
+					<td width="500">
+						<p align="left" style="text-align: left">
+							<span class="detail">{%timeElapsed%}</span>
+						</p>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<br />
+		<div style="margin-left: .5in">
+			<span class="errorTitle">编译错误：</span>
+			<table border="1">
+				<tr>
+					<td width="60">
+						<p align="center" style="text-align: center">
+							<span class="desc">责任人</span>
+						</p>
+					</td>
+					<td width="800">
+						<p align="left" style="text-align: left">
+							<span class="detail" style="font-weight: bold">v-linpan</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td width="60">
+						<p align="center" style="text-align: center">
+							<span class="desc">签入时间</span>
+						</p>
+					</td>
+					<td width="500">
+						<p align="left" style="text-align: left">
+							<span class="detail">2011-12-06-06 21:13:11</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td width="60">
+						<p align="center" style="text-align: center">
+							<span class="desc">文件位置</span>
+						</p>
+					</td>
+					<td width="500">
+						<p align="left" style="text-align: left">
+							<span class="detail">$/MCSFramework/02.Develop/MCSWebApp/SinoOcean.Seagull2.Funds/Funds/FundsTransfer/BankAccountTransfer/BankAccountTransferView.aspx.cs</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td width="60">
+						<p align="center" style="text-align: center">
+							<span class="desc">详细信息</span>
+						</p>
+					</td>
+					<td width="500">
+						<p align="left" style="text-align: left">
+							<span class="detail">error&nbsp; CS1061: 'SinoOcean.Seagull2.TransactionData.Funds.InteriorTransferApplicationForm'
+								does not contain a definition for 'FundsCorporationCode' and no extension method
+								'FundsCorporationCode' accepting a first argument of type 'SinoOcean.Seagull2.TransactionData.Funds.InteriorTransferApplicationForm'
+								could be found (are you missing a using directive or an assembly reference?) [D:\Work\Seagull2Collection\MCSFramework\02.Develop\MCSWebApp\SinoOcean.Seagull2.Funds\SinoOcean.Seagull2.Funds.csproj]</span>
+						</p>
+					</td>
+				</tr>
+			</table>
+			<table border="1">
+				<tr>
+					<td width="60">
+						<p align="center" style="text-align: center">
+							<span class="desc">责任人</span>
+						</p>
+					</td>
+					<td width="800">
+						<p align="left" style="text-align: left">
+							<span class="detail" style="font-weight: bold">v-linpan</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td width="60">
+						<p align="center" style="text-align: center">
+							<span class="desc">签入时间</span>
+						</p>
+					</td>
+					<td width="500">
+						<p align="left" style="text-align: left">
+							<span class="detail">2011-12-06-06 21:13:11</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td width="60">
+						<p align="center" style="text-align: center">
+							<span class="desc">文件位置</span>
+						</p>
+					</td>
+					<td width="500">
+						<p align="left" style="text-align: left">
+							<span class="detail">$/MCSFramework/02.Develop/MCSWebApp/SinoOcean.Seagull2.Funds/Funds/FundsTransfer/BankAccountTransfer/BankAccountTransferView.aspx.cs</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td width="60">
+						<p align="center" style="text-align: center">
+							<span class="desc">详细信息</span>
+						</p>
+					</td>
+					<td width="500">
+						<p align="left" style="text-align: left">
+							<span class="detail">error&nbsp; CS1061: 'SinoOcean.Seagull2.TransactionData.Funds.InteriorTransferApplicationForm'
+								does not contain a definition for 'FundsCorporationCode' and no extension method
+								'FundsCorporationCode' accepting a first argument of type 'SinoOcean.Seagull2.TransactionData.Funds.InteriorTransferApplicationForm'
+								could be found (are you missing a using directive or an assembly reference?) [D:\Work\Seagull2Collection\MCSFramework\02.Develop\MCSWebApp\SinoOcean.Seagull2.Funds\SinoOcean.Seagull2.Funds.csproj]</span>
+						</p>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<br />
+		<div style="margin-left: .5in">
+			<span class="warningTitle">编译警告：</span>
+			<table border="1">
+				<tr>
+					<td width="60">
+						<p align="center" style="text-align: center">
+							<span class="desc">责任人</span>
+						</p>
+					</td>
+					<td width="800">
+						<p align="left" style="text-align: left">
+							<span class="detail" style="font-weight: bold">v-zhenggl</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td width="60">
+						<p align="center" style="text-align: center">
+							<span class="desc">签入时间</span>
+						</p>
+					</td>
+					<td width="500">
+						<p align="left" style="text-align: left">
+							<span class="detail">2011-12-06 20:07:36</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td width="60">
+						<p align="center" style="text-align: center">
+							<span class="desc">文件位置</span>
+						</p>
+					</td>
+					<td width="500">
+						<p align="left" style="text-align: left">
+							<span class="detail">$/MCSFramework/02.Develop/MCSWebApp/StepByStep/ProcessDemo/ImportHandler.ashx.cs</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td width="60">
+						<p align="center" style="text-align: center">
+							<span class="desc">详细信息</span>
+						</p>
+					</td>
+					<td width="500">
+						<p align="left" style="text-align: left">
+							<span class="detail">warning&nbsp; CS0168: The variable 'zgl' is declared but never
+								used [D:\Work\Seagull2Collection\MCSFramework\02.Develop\MCSWebApp\StepByStep\StepByStep.csproj]</span>
+						</p>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

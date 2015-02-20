@@ -1,0 +1,111 @@
+﻿body
+.mainContainer
+{
+    height: 100%;
+    width:100%;
+    
+}
+.btnArrowContainer
+{
+     width: 40px;
+     vertical-align: middle;
+}
+
+/*div {
+	width: expression(CssExpressionMethod(this));
+	width: expression(function(el){el.className = 'process_div_container';el.width = el.parentElement.offsetWidth - 10;alert(123);}(this););
+}
+*/
+.process_div_container1 {
+	width: expression(CssExpressionMethod(this));
+	/*width: expression(function(el){el.className = 'process_div_container';el.width = el.parentElement.offsetWidth - 10;alert(123);}(this););*/
+}
+
+
+.process_div_container {
+	width: expression(true);
+	/*width: expression(function(el){el.className = 'process_div_container';el.width = el.parentElement.offsetWidth - 10;alert(123);}(this););*/
+	position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+/*.process_div_container
+{
+    overflow: hidden;
+    zoom: expression(function(el){el.width = parentElement.offsetWidth - 10; el.style.zoom = "1";}(this));
+    width: expression(function(el){alert(123);el.width = (el.parentElement.offsetWidth - 10)+"px";} (this)););
+    
+    height: 100%;
+    position: relative;
+}
+*/
+.div_nav
+{
+	position:relative;
+	left: 0px;
+	top: 0px;
+    width: auto;
+}
+.div_nav ul
+{
+	white-space: nowrap;
+}
+.div_nav ul li
+{
+	display: inline;
+	font-size: 12px;
+	font-family: "宋体", Arial, sans-serif;
+    line-height: 20px;	
+	height: 20px;
+}
+.div_nav ul li span
+{
+    display:inline-block;
+    margin:1px 1px;
+    line-height: 20px;	
+	/*height: 20px;*/
+    text-align:center;
+}
+.div_nav ul img
+{
+    vertical-align: middle;
+    font-size: 0;
+}
+.currActivity
+{
+	background: #f3ddca;
+	color: #036;
+}
+.normalActivity
+{
+	background: #F6F6F6;
+	color: #036;
+}
+
+.mainContainer .arrow
+{
+	/*background-image: url(<%=WebResource("MCS.Web.WebControls.ProcessNavigator.btnArrow.gif")%>) no-repeat 0px 0px;*/
+	cursor: pointer;
+	display: block;
+	height: 36px;
+	width: 37px;
+}
+.mainContainer .forward
+{
+	background-position: 0 0;
+	display: none;
+}
+.mainContainer .back
+{
+	background-position: 0 -72px;
+	display: none;
+}
+.forward:hover
+{
+	background-position: 0 -36px;
+}
+.back:hover
+{
+	background-position: 0 -108px;
+}

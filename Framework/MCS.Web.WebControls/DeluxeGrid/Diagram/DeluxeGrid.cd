@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Microsoft YaHei" Size="8.25" />
+  <Class Name="MCS.Web.WebControls.CheckBoxTemplate" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>DeluxeGrid\CheckBoxTemplate.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MCS.Web.WebControls.DeluxeGrid">
+    <Position X="3.25" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>DeluxeGrid\DeluxeGrid.cs</FileName>
+      <HashCode>SAOIAAQAQAAgUpIIAAADggYBTQiAUAQAChQAAISjgCE=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="MCS.Web.WebControls.GridPagerTemplate" BaseTypeListCollapsed="true">
+    <Position X="6" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>DeluxeGrid\GridPagerTemplate.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MCS.Web.WebControls.PagerTemplateDesigner">
+    <Position X="0.5" Y="2.25" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>DeluxeGrid\PagerTemplateDesigner.cs</FileName>
+      <HashCode>AAAAAAGAAAAAARAAAAAAAAACAAAEAAAAAAAAgAAIAAI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCS.Web.WebControls.Utils">
+    <Position X="6" Y="2" Width="3" />
+    <TypeIdentifier>
+      <FileName>DeluxeGrid\Utils.cs</FileName>
+      <HashCode>AAAAAQAAAAAAAAAQAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="MCS.Web.WebControls.DeluxePagerMode">
+    <Position X="0.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DeluxeGrid\DeluxeGrid.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAQAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Web.WebControls.DeluxeGridMode">
+    <Position X="0.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DeluxeGrid\DeluxeGrid.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Web.WebControls.ExportFormat">
+    <Position X="6.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DeluxeGrid\DeluxeGrid.cs</FileName>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Web.WebControls.PagerCodeShowMode">
+    <Position X="6.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DeluxeGrid\DeluxeGrid.cs</FileName>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAEA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MCS.Web.WebControls.RowPosition">
+    <Position X="6.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DeluxeGrid\DeluxeGrid.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACACAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+</ClassDiagram>

@@ -1,0 +1,211 @@
+html, body, div, h1, h2, h3, h4, h5, h6, ul, dl, li, dt, dd, p, form, table, th, td, input
+{
+	margin: 0;
+	padding: 0;
+}
+body
+{
+	background: #FFF;
+	font-size: 12px;
+	line-height: 18px;
+	margin:0;
+}
+ul
+{
+	list-style: none;
+}
+img
+{
+	border: 0;
+	margin: 0;
+}
+select, input
+{
+	vertical-align: middle;
+}
+a:link, a:visited
+{
+	color: #000;
+	text-decoration: none;
+}
+a:hover
+{
+	color: #C00;
+	text-decoration: underline;
+}
+.clear
+{
+	clear: both;
+}
+h1, h2, h3
+{
+	font-weight: normal;
+}
+
+#cbody
+{
+	margin: 0 auto;
+	overflow: hidden;
+	width: 100%;
+}
+#header
+{
+	/*width: 1004px;*/
+	width: 100%;
+	text-align: center;
+}
+
+#nav
+{
+	background: url(img/bg_menu.jpg);
+	color: #FFF;
+	height: 40px;
+	font-weight: 700;
+	line-height: 30px;
+	overflow: hidden;
+}
+#nav_left
+{
+	cursor: hand;
+	background: url(img/head.gif) top left no-repeat;
+	display: inline;
+	float: left;
+	margin-left: 20px;
+	padding-left: 30px;
+	width: 550px;
+	padding-top: 5px;
+}
+#nav_right
+{
+	display: inline;
+	float: right;
+	width: 420px;
+	height: 35px;
+	padding-top: 5px;
+}
+#txtQuery
+{
+	height: 18px;
+}
+.b1
+{
+	background: url(img/search.gif) no-repeat;
+	border: 0;
+	height: 20px;
+	width: 52px;
+	cursor: hand;
+}
+.b2
+{
+	background: url(img/search1.gif) no-repeat;
+	border: 0;
+	height: 20px;
+	width: 74px;
+	cursor: hand;
+}
+.b3
+{
+	background: url(img/home.gif) no-repeat;
+	border: 0;
+	height: 20px;
+	width: 62px;
+	margin-top: -3px;
+	cursor: hand;
+}
+.b4
+{
+	width: 63px;
+	height: 20px;
+	margin-left: 2px;
+	vertical-align: middle;
+}
+
+#main
+{
+	width: 1004px;
+}
+
+#main_left
+{
+	background: #e7e7e7 url(img/bg_grsw.gif) top no-repeat;
+	border: 1px solid #CCC;
+	display: inline;
+	float: left;
+	height: 100%;
+	margin-left: 10px;
+	width: 164px;
+}
+#main_left ul
+{
+	padding-top: 42px;
+}
+#main_left li
+{
+	background: url(img/bg_li.gif);
+	height: 33px;
+	line-height: 33px;
+	letter-spacing: 3px;
+	padding-left: 42px;
+}
+
+
+.td_title td
+{
+	background: url(img/bg_title.gif) repeat-x;
+	color: #FFF;
+	font-size: 14px;
+	font-weight: 700;
+	letter-spacing: 10px;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+}
+.bg_td1 td
+{
+	background: #edf2f8;
+	height: 24px;
+	text-align: center;
+}
+.bg_td2 td
+{
+	background: #f6f6f6;
+	height: 24px;
+	text-align: center;
+}
+.title_1
+{
+	color: #ff9500;
+}
+
+.headbackground
+{
+	background-color: #E7E7E7;
+	color: #FFF;
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: 5px;
+	height: 28px;
+	text-align: center;
+}
+
+
+
+
+.selectTag
+{
+	background: url(img/bg_li1.gif) left center no-repeat;
+}
+.selectTag a
+{
+	background: url(img/bg_li1.gif) right center no-repeat;
+	color: #FFF;
+	display: block;
+	/*font-weight: 700;
+	margin-left: 3px;*/
+}
+.absTag
+{
+   position:relative;
+   margin-bottom:30px;
+}
+

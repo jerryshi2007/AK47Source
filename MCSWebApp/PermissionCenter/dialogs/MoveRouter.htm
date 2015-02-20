@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>正在跳转</title>
+	<base target="_self" />
+	<meta http-equiv="X-UA-Compatible" content="IE=7" />
+</head>
+<body>
+	<form action="BatchMove.aspx" method="post">
+	</form>
+	<script type="text/javascript">
+		var frmAbc = document.forms[0];
+		if (window.dialogArguments) {
+			var node;
+			node = document.createElement("input");
+			node["type"] = "hidden";
+			node["name"] = "action";
+			node["value"] = "yes";
+			frmAbc.appendChild(node);
+
+			frmAbc.action = "BatchMove.aspx" + window.location.search;
+
+			for (var i = window.dialogArguments.length - 1; i >= 0; i--) {
+				node = document.createElement("input");
+				node["type"] = "hidden";
+				node["name"] = "key";
+				node["value"] = window.dialogArguments[i];
+				frmAbc.appendChild(node);
+			}
+
+			node = null;
+			frmAbc.submit();
+		} else {
+			window.close();
+		}
+	
+	</script>
+</body>
+</html>

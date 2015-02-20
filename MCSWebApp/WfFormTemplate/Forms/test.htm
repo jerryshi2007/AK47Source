@@ -1,0 +1,1341 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=7" />
+	<title>表单模版 </title>
+	<link type="text/css" href="/MCSWebApp/CSS/toolbar.css" rel="stylesheet" />
+	<link href="../css/css.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript">
+		function onValueChanged() {
+			$HBRootNS.WfMoveToControl.refreshCurrentProcess();
+		}
+	</script>
+	<link href="/MCSWebApp/Css/basePage.css" type="text/css" rel="stylesheet" />
+	<link href="/MCSWebApp/Css/baseForm.css" type="text/css" rel="stylesheet" />
+	<link href="/MCSWebApp/WfFormTemplate/WebResource.axd?d=7PsNE4jjAcTGbsobEU5yS9jD0QgecWFNyWNs08VWDWqR5x-cZLsIQVI48F550SPtZZOJAIizlTBq2CkNPpIw6gVlxLKVWwufUDbS82xm4nX53kjJbHzWgUvjexSaEV1PH-sBRi760UIwgL8T9VNHhLS5-O8t2rT7dx7N57yhNJ-EqAz-flvK0zqpdl2zIXiHeCPIjW40pAD_Q_aD0emtFQ2&amp;t=635375024676300000"
+		type="text/css" rel="stylesheet" />
+	<link href="/MCSWebApp/WfFormTemplate/WebResource.axd?d=UsUupvvoA9g6Q6l1zGVaOB4f118axZ3sIjc07ti8SbDCV8RNZz7lzzh80kG24A8sF45VjRQjwEY6Qq9PW78ndJdZy80YbJzcQtJfmsjR5VKDDs7BVf5o-hncAUy03Rm0A4xfHF7bXZ-q32yuKG48nQS5Q5R3nl9TLMLIP72RcLceWuiZtz36oD0yYI_ekoNQ3STbE2lHprdI0Ac1N2aAjQ2&amp;t=635375024676300000"
+		type="text/css" rel="stylesheet" />
+	<script language="javascript" type="text/javascript" src="/MCSWebApp/JavaScript/baseForm.js"></script>
+	<script language="javascript" type="text/javascript">
+		if (typeof ($HGRootNS) === "undefined") {
+			var MCS_Web = {};
+			var $HGRootNS = MCS_Web;
+		}
+
+		$HGRootNS._WindowFeatureFunction = function () {
+		}
+
+		$HGRootNS._WindowFeatureFunction.prototype =
+{
+	adjustWindow: function (windowFeature) {
+		if (typeof (window.dialogArguments) === "undefined")
+			this._adjustOpenWindow(windowFeature);
+		else
+			this._adjustDialogWindow(windowFeature);
+
+	},
+
+	registerAdjustWindow: function (windowFeature) {
+		if (window.attachEvent)
+			window.attachEvent("onload", function () { $HGRootNS.WindowFeatureFunction.adjustWindow(windowFeature); });
+		else
+			window.addEventListener("onload", function () { $HGRootNS.WindowFeatureFunction.adjustWindow(windowFeature); });
+	},
+
+	_adjustOpenWindow: function (windowFeature) {
+		if (window == window.top) {
+			var width = this._getUnit(windowFeature.width, windowFeature.widthScript, document.documentElement.clientWidth);
+			var height = this._getUnit(windowFeature.height, windowFeature.heightScript, document.documentElement.clientHeight);
+
+			window.resizeTo(width, height);
+
+			var centerLeft = windowFeature.center === true ? ((window.screen.width - width) / 2) : null;
+			var centerTop = windowFeature.center === true ? ((window.screen.height - height) / 2) : null;
+
+			var left = this._getUnit(windowFeature.left, windowFeature.leftScript, centerLeft, window.screenLeft);
+			var top = this._getUnit(windowFeature.top, windowFeature.topScript, centerTop, window.screenTop);
+
+			window.moveTo(left, top);
+		}
+	},
+
+	_adjustDialogWindow: function (windowFeature) {
+		var width = this._getUnit(windowFeature.width, windowFeature.widthScript, null, null);
+		var height = this._getUnit(windowFeature.height, windowFeature.heightScript, null, null);
+
+		if (width !== null) window.dialogWidth = width + "px";
+		if (height !== null) window.dialogHeight = height + "px";
+
+		var centerLeft = windowFeature.center === true ? ((window.screen.width - width) / 2) : null;
+		var centerTop = windowFeature.center === true ? ((window.screen.height - height) / 2) : null;
+
+		var left = this._getUnit(windowFeature.left, windowFeature.leftScript, centerLeft, null);
+		var top = this._getUnit(windowFeature.top, windowFeature.topScript, centerTop, null);
+
+		if (left !== null) window.dialogLeft = left + "px";
+		if (top !== null) window.dialogTop = top + "px";
+	},
+
+	_getUnit: function (unit, unitScript, nullDefault1, nullDefault2) {
+		return unit !== null ? unit :
+                    unitScript ? eval(unitScript) :
+                    nullDefault1 !== null ? nullDefault1 :
+                    nullDefault2;
+	}
+}
+
+		$HGRootNS.WindowFeatureFunction = new $HGRootNS._WindowFeatureFunction();
+
+		$HGRootNS._WindowCommand = function () {
+			this._commandInputID = "";
+		}
+
+		$HGRootNS._WindowCommand.prototype =
+{
+	openerExecuteCommand: function (strCommand) {
+		if (typeof (top.opener) === "object")
+			this._executeCommand(top.opener, strCommand);
+	},
+
+	executeCommand: function (strCommand) {
+		this._executeCommand(window, strCommand);
+	},
+
+	set_commandInputID: function (value) {
+		this._commandInputID = value;
+	},
+
+	_executeCommand: function (win, strCommand) {
+		try {
+			var cmdInput = win.document.getElementById(this._commandInputID);
+			if (cmdInput)
+				cmdInput.value = strCommand;
+			else {
+				switch (strCommand.toLowerCase()) {
+					case "close":
+						this._close(win);
+						break;
+				}
+			}
+		}
+		catch (e) {
+		}
+	},
+
+	_close: function (win) {
+		win.top.close();
+	},
+
+	_refresh: function (win) {
+		win.location.reload();
+	}
+}
+
+		$HGRootNS.WindowCommand = new $HGRootNS._WindowCommand();
+
+
+		$HGRootNS.WindowFeatureFunction.registerAdjustWindow({ "width": 1024, "height": 720, "top": null, "left": null, "widthScript": "", "heightScript": "", "topScript": "", "leftScript": "", "center": true, "resizable": true, "showScrollBars": true, "showStatusBar": false, "showToolBar": false, "showAddressBar": false, "showMenuBar": false });
+	</script>
+</head>
+<body>
+	<form name="serverForm" method="post" action="TemplateController.ashx?resourceID=b75aad48-4963-9d7e-4e8d-4843ac126171&amp;activityID=433254db-9d8b-aa10-496b-b10dfd897a58"
+	onsubmit="javascript:return WebForm_OnSubmit();" id="serverForm" target="wfExternalFrame">
+	<div>
+		<input type="hidden" name="bindingControl_ClientState" id="bindingControl_ClientState"
+			value="[[{&quot;CvtList&quot;:[{&quot;ClientValidateMethodName&quot;:&quot;StringLengthValidator&quot;,&quot;AdditionalData&quot;:{&quot;lowerBound&quot;:1,&quot;upperBound&quot;:255},&quot;MessageTemplate&quot;:&quot;请填写标题，且长度必须小于255个字符&quot;}],&quot;ControlID&quot;:&quot;Subject&quot;,&quot;ClientIsHtmlElement&quot;:true,&quot;AutoFormatOnBlur&quot;:true,&quot;IsAnd&quot;:true,&quot;ValidateProp&quot;:&quot;value&quot;,&quot;IsValidateOnBlur&quot;:false,&quot;IsValidateOnSubmit&quot;:false,&quot;IsOnlyNum&quot;:false,&quot;IsFloat&quot;:false,&quot;FormatString&quot;:&quot;&quot;,&quot;ValidationGroup&quot;:0},{&quot;CvtList&quot;:[],&quot;ControlID&quot;:&quot;Amount&quot;,&quot;ClientIsHtmlElement&quot;:true,&quot;AutoFormatOnBlur&quot;:true,&quot;IsAnd&quot;:true,&quot;ValidateProp&quot;:&quot;value&quot;,&quot;IsValidateOnBlur&quot;:true,&quot;IsValidateOnSubmit&quot;:false,&quot;IsOnlyNum&quot;:true,&quot;IsFloat&quot;:false,&quot;FormatString&quot;:&quot;&quot;,&quot;ValidationGroup&quot;:0}],[]]" />
+		<input type="hidden" name="processNextStepsHidden" id="processNextStepsHidden" value="[{&quot;ActivityDescriptor&quot;:{&quot;Key&quot;:&quot;N2&quot;,&quot;Name&quot;:&quot;活动点名称&quot;,&quot;Description&quot;:&quot;活动点描述&quot;,&quot;Enabled&quot;:true,&quot;AllowEmptyCandidates&quot;:false,&quot;AllowInvalidCandidates&quot;:false,&quot;ActivityType&quot;:0,&quot;Variables&quot;:[],&quot;Condition&quot;:{},&quot;BranchProcessTemplates&quot;:[{&quot;Key&quot;:&quot;Approval&quot;,&quot;Name&quot;:&quot;审批流&quot;,&quot;Enabled&quot;:true,&quot;Properties&quot;:[{&quot;name&quot;:&quot;Key&quot;,&quot;value&quot;:&quot;Approval&quot;},{&quot;name&quot;:&quot;Name&quot;,&quot;value&quot;:&quot;审批流&quot;},{&quot;name&quot;:&quot;BranchProcessKey&quot;,&quot;value&quot;:&quot;DefaultApprovalProcess&quot;},{&quot;name&quot;:&quot;ExecuteSequence&quot;,&quot;value&quot;:&quot;0&quot;},{&quot;name&quot;:&quot;SubProcessApprovalMode&quot;,&quot;value&quot;:&quot;0&quot;},{&quot;name&quot;:&quot;BlockingType&quot;,&quot;value&quot;:&quot;0&quot;},{&quot;name&quot;:&quot;DefaultProcessName&quot;,&quot;value&quot;:&quot;${ProcessName}$&quot;},{&quot;name&quot;:&quot;DefaultUrl&quot;},{&quot;name&quot;:&quot;DefaultTaskTitle&quot;},{&quot;name&quot;:&quot;CreateResourceMode&quot;,&quot;value&quot;:&quot;0&quot;},{&quot;name&quot;:&quot;GenerateType&quot;,&quot;value&quot;:&quot;0&quot;},{&quot;name&quot;:&quot;ShowingInNavigator&quot;,&quot;value&quot;:&quot;False&quot;},{&quot;name&quot;:&quot;IndependentOpinion&quot;,&quot;value&quot;:&quot;Default&quot;},{&quot;name&quot;:&quot;AllowEditActivities&quot;,&quot;value&quot;:&quot;Default&quot;},{&quot;name&quot;:&quot;Resources&quot;,&quot;value&quot;:&quot;[{\&quot;__type\&quot;:\&quot;MCS.Library.SOA.DataObjects.Workflow.WfDepartmentResourceDescriptor, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798\&quot;,\&quot;shortType\&quot;:\&quot;WfDepartmentResourceDescriptor\&quot;,\&quot;Department\&quot;:{\&quot;__type\&quot;:\&quot;MCS.Library.SOA.DataObjects.OguOrganization, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798\&quot;,\&quot;id\&quot;:\&quot;04865298-aba1-4129-b041-f42f38f3547f\&quot;,\&quot;name\&quot;:\&quot;集团总部\&quot;,\&quot;displayName\&quot;:\&quot;集团总部\&quot;,\&quot;objectType\&quot;:1,\&quot;fullPath\&quot;:\&quot;机构人员\\\\远洋地产\\\\集团总部\&quot;,\&quot;globalSortID\&quot;:\&quot;000001000001000001\&quot;,\&quot;levels\&quot;:3,\&quot;sortID\&quot;:\&quot;1\&quot;,\&quot;clientContext\&quot;:{},\&quot;departmentClass\&quot;:0,\&quot;departmentType\&quot;:0,\&quot;rank\&quot;:10}}]&quot;},{&quot;name&quot;:&quot;Condition&quot;,&quot;value&quot;:&quot;{}&quot;},{&quot;name&quot;:&quot;OperationDefinition&quot;,&quot;value&quot;:&quot;null&quot;},{&quot;name&quot;:&quot;CancelSubProcessNotifier&quot;,&quot;value&quot;:&quot;[]&quot;},{&quot;name&quot;:&quot;RelativeLinks&quot;,&quot;value&quot;:&quot;[]&quot;},{&quot;name&quot;:&quot;Description&quot;},{&quot;name&quot;:&quot;Enabled&quot;,&quot;value&quot;:&quot;True&quot;}],&quot;BranchProcessKey&quot;:&quot;DefaultApprovalProcess&quot;,&quot;ExecuteSequence&quot;:0,&quot;BlockingType&quot;:0}],&quot;Resources&quot;:[{&quot;__type&quot;:&quot;MCS.Library.SOA.DataObjects.Workflow.WfUserResourceDescriptor, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798&quot;,&quot;shortType&quot;:&quot;WfUserResourceDescriptor&quot;,&quot;User&quot;:{&quot;__type&quot;:&quot;MCS.Library.SOA.DataObjects.OguUser, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798&quot;,&quot;id&quot;:&quot;80f4464f-e912-40c9-9502-c369a0d935ee&quot;,&quot;name&quot;:&quot;樊海云&quot;,&quot;displayName&quot;:&quot;樊海云&quot;,&quot;objectType&quot;:2,&quot;description&quot;:&quot; 集团总部\\流程管理部&quot;,&quot;fullPath&quot;:&quot;机构人员\\远洋地产\\集团总部\\流程管理部\\樊海云&quot;,&quot;globalSortID&quot;:&quot;000001000001000001000011000001&quot;,&quot;levels&quot;:5,&quot;sortID&quot;:&quot;1&quot;,&quot;clientContext&quot;:{},&quot;email&quot;:&quot;fanhy@sinooceanland.com&quot;,&quot;isSideline&quot;:false,&quot;logOnName&quot;:&quot;fanhy&quot;,&quot;rank&quot;:10}}],&quot;RelativeLinks&quot;:[],&quot;EnterEventReceivers&quot;:[],&quot;LeaveEventReceivers&quot;:[],&quot;InternalRelativeUsers&quot;:[],&quot;ExternalUsers&quot;:[],&quot;EnterEventExecuteServices&quot;:[],&quot;LeaveEventExecuteServices&quot;:[]},&quot;Candidates&quot;:[{&quot;AssigneeType&quot;:0,&quot;User&quot;:{&quot;__type&quot;:&quot;MCS.Library.SOA.DataObjects.OguUser, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798&quot;,&quot;id&quot;:&quot;80f4464f-e912-40c9-9502-c369a0d935ee&quot;,&quot;name&quot;:&quot;樊海云&quot;,&quot;displayName&quot;:&quot;樊海云&quot;,&quot;objectType&quot;:2,&quot;description&quot;:&quot; 集团总部\\流程管理部&quot;,&quot;fullPath&quot;:&quot;机构人员\\远洋地产\\集团总部\\流程管理部\\樊海云&quot;,&quot;globalSortID&quot;:&quot;000001000001000001000011000001&quot;,&quot;levels&quot;:5,&quot;sortID&quot;:&quot;1&quot;,&quot;clientContext&quot;:{},&quot;email&quot;:&quot;fanhy@sinooceanland.com&quot;,&quot;isSideline&quot;:false,&quot;logOnName&quot;:&quot;fanhy&quot;,&quot;rank&quot;:10},&quot;Selected&quot;:true}],&quot;TransitionDescriptor&quot;:{&quot;__type&quot;:&quot;MCS.Library.SOA.DataObjects.Workflow.WfForwardTransitionDescriptor, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798&quot;,&quot;Key&quot;:&quot;L0&quot;,&quot;Name&quot;:&quot;&quot;,&quot;Enabled&quot;:true,&quot;Priority&quot;:0,&quot;DefaultSelect&quot;:false,&quot;ToActivityKey&quot;:&quot;N2&quot;,&quot;FromActivityKey&quot;:&quot;N0&quot;,&quot;AffectedProcessReturnValue&quot;:false,&quot;AffectProcessReturnValue&quot;:false,&quot;Condition&quot;:{},&quot;Variables&quot;:[]}}]" />
+		<input type="hidden" name="processCurrentStepsHidden" id="processCurrentStepsHidden"
+			value="{&quot;ActivityDescriptor&quot;:{&quot;Key&quot;:&quot;N0&quot;,&quot;Name&quot;:&quot;起始&quot;,&quot;Description&quot;:&quot;流程开始&quot;,&quot;Enabled&quot;:true,&quot;AllowEmptyCandidates&quot;:false,&quot;AllowInvalidCandidates&quot;:false,&quot;ActivityType&quot;:1,&quot;Variables&quot;:[],&quot;Condition&quot;:{},&quot;BranchProcessTemplates&quot;:[],&quot;Resources&quot;:[{&quot;__type&quot;:&quot;MCS.Library.SOA.DataObjects.Workflow.WfUserResourceDescriptor, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798&quot;,&quot;shortType&quot;:&quot;WfUserResourceDescriptor&quot;,&quot;User&quot;:{&quot;__type&quot;:&quot;MCS.Library.SOA.DataObjects.OguUser, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798&quot;,&quot;id&quot;:&quot;f4048590-feec-4c15-990d-2f7693146937&quot;,&quot;name&quot;:&quot;刘闽辉&quot;,&quot;displayName&quot;:&quot;刘闽辉&quot;,&quot;objectType&quot;:2,&quot;fullPath&quot;:&quot;机构人员\\远洋地产\\集团总部\\流程管理部\\刘闽辉&quot;,&quot;globalSortID&quot;:&quot;000001000001000001000011000025&quot;,&quot;levels&quot;:5,&quot;sortID&quot;:&quot;25&quot;,&quot;status&quot;:1,&quot;clientContext&quot;:{},&quot;email&quot;:&quot;liumh@sinooceanland.com&quot;,&quot;isSideline&quot;:false,&quot;logOnName&quot;:&quot;liumh&quot;,&quot;rank&quot;:10}}],&quot;RelativeLinks&quot;:[],&quot;EnterEventReceivers&quot;:[],&quot;LeaveEventReceivers&quot;:[],&quot;InternalRelativeUsers&quot;:[],&quot;ExternalUsers&quot;:[],&quot;EnterEventExecuteServices&quot;:[],&quot;LeaveEventExecuteServices&quot;:[]},&quot;Candidates&quot;:[{&quot;AssigneeType&quot;:0,&quot;User&quot;:{&quot;__type&quot;:&quot;MCS.Library.SOA.DataObjects.OguUser, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798&quot;,&quot;id&quot;:&quot;f4048590-feec-4c15-990d-2f7693146937&quot;,&quot;name&quot;:&quot;刘闽辉&quot;,&quot;displayName&quot;:&quot;刘闽辉&quot;,&quot;objectType&quot;:2,&quot;fullPath&quot;:&quot;机构人员\\远洋地产\\集团总部\\流程管理部\\刘闽辉&quot;,&quot;globalSortID&quot;:&quot;000001000001000001000011000025&quot;,&quot;levels&quot;:5,&quot;sortID&quot;:&quot;25&quot;,&quot;status&quot;:1,&quot;clientContext&quot;:{},&quot;email&quot;:&quot;liumh@sinooceanland.com&quot;,&quot;isSideline&quot;:false,&quot;logOnName&quot;:&quot;liumh&quot;,&quot;rank&quot;:10},&quot;Url&quot;:&quot;/MCSWebApp/WfFormTemplate/Forms/TemplateController.ashx?resourceID=b75aad48-4963-9d7e-4e8d-4843ac126171\u0026activityID=433254db-9d8b-aa10-496b-b10dfd897a58\u0026processID=bdea2a1e-1a47-a629-4557-58d20a43341f&quot;,&quot;Selected&quot;:true}]}" />
+		<input type="hidden" name="processInMoveToMode" id="processInMoveToMode" value="True" />
+		<input type="hidden" name="moveToControl_ClientState" id="moveToControl_ClientState"
+			value="" />
+		<input type="hidden" name="submitButtonProgressInfoHiddenID" id="submitButtonProgressInfoHiddenID"
+			value="" />
+		<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+		<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+		<input type="hidden" name="withdrawControl_ClientState" id="withdrawControl_ClientState"
+			value="" />
+		<input type="hidden" name="circulateControl_ClientState" id="circulateControl_ClientState"
+			value="" />
+		<input type="hidden" name="circulateControl_ctl01_ClientState" id="circulateControl_ctl01_ClientState"
+			value="" />
+		<input type="hidden" name="WfRuntimeViewerWrapperControl1_ClientState" id="WfRuntimeViewerWrapperControl1_ClientState"
+			value="" />
+		<input type="hidden" name="consignControl_ClientState" id="consignControl_ClientState"
+			value="" />
+		<input type="hidden" name="consignControl_userSelector_ClientState" id="consignControl_userSelector_ClientState"
+			value="" />
+		<input type="hidden" name="addApprovecontrol_ClientState" id="addApprovecontrol_ClientState"
+			value="" />
+		<input type="hidden" name="addApprovecontrol_ctl01_ClientState" id="addApprovecontrol_ctl01_ClientState"
+			value="" />
+		<input type="hidden" name="returnControl_ClientState" id="returnControl_ClientState"
+			value="" />
+		<input type="hidden" name="returnControl_activitySelector_ClientState" id="returnControl_activitySelector_ClientState"
+			value="" />
+		<input type="hidden" name="abortControl_ClientState" id="abortControl_ClientState"
+			value="" />
+		<input type="hidden" name="abortControl_OpinionInputDialog_ClientState" id="abortControl_OpinionInputDialog_ClientState"
+			value="" />
+		<input type="hidden" name="pauseControl_ClientState" id="pauseControl_ClientState"
+			value="" />
+		<input type="hidden" name="attachmentsControl_ClientState" id="attachmentsControl_ClientState"
+			value="{&quot;materials&quot;:[],&quot;deltaMaterials&quot;:{&quot;insertedMaterials&quot;:[],&quot;updatedMaterials&quot;:[],&quot;deletedMaterials&quot;:[],&quot;rootPathName&quot;:&quot;&quot;}}" />
+		<input type="hidden" name="opinionListView_activityEditor_ClientState" id="opinionListView_activityEditor_ClientState"
+			value="" />
+		<input type="hidden" name="opinionListView_groupActivityEditor_ClientState" id="opinionListView_groupActivityEditor_ClientState"
+			value="" />
+		<input type="hidden" name="MaterialControlCommonHiddenField" id="MaterialControlCommonHiddenField"
+			value="" />
+		<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPBQYyMjEyNjgYAQUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFhIFDmJpbmRpbmdDb250cm9sBQ1tb3ZlVG9Db250cm9sBQ93aXRoZHJhd0NvbnRyb2wFEGNpcmN1bGF0ZUNvbnRyb2wFFmNpcmN1bGF0ZUNvbnRyb2wkY3RsMDEFHldmUnVudGltZVZpZXdlcldyYXBwZXJDb250cm9sMQUOY29uc2lnbkNvbnRyb2wFG2NvbnNpZ25Db250cm9sJHVzZXJTZWxlY3RvcgURYWRkQXBwcm92ZWNvbnRyb2wFF2FkZEFwcHJvdmVjb250cm9sJGN0bDAxBQ1yZXR1cm5Db250cm9sBR5yZXR1cm5Db250cm9sJGFjdGl2aXR5U2VsZWN0b3IFDGFib3J0Q29udHJvbAUfYWJvcnRDb250cm9sJE9waW5pb25JbnB1dERpYWxvZwUMcGF1c2VDb250cm9sBRJhdHRhY2htZW50c0NvbnRyb2wFHm9waW5pb25MaXN0VmlldyRhY3Rpdml0eUVkaXRvcgUjb3Bpbmlvbkxpc3RWaWV3JGdyb3VwQWN0aXZpdHlFZGl0b3LpE1XDEm06jPynZ3HaWblc2hoDplszZDLRtdiRI/qvLw==" />
+	</div>
+	<script type="text/javascript">
+//<![CDATA[
+		var theForm = document.forms['serverForm'];
+		if (!theForm) {
+			theForm = document.serverForm;
+		}
+		function __doPostBack(eventTarget, eventArgument) {
+			if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+				theForm.__EVENTTARGET.value = eventTarget;
+				theForm.__EVENTARGUMENT.value = eventArgument;
+				theForm.submit();
+			}
+		}
+//]]>
+	</script>
+	<script src="/MCSWebApp/WfFormTemplate/WebResource.axd?d=YIILtC8tkET-x55s5Q4-nJBAXxBcayObN-UwUAhQ-X2O6MbqytSchXNaXOICl65M9h_a9CfCmihMGttNaTHC9T0Lbaicbro0iob0oOTpVfM1&amp;t=635201298537823876"
+		type="text/javascript"></script>
+	<div id='wfExternalFrameContainer'>
+		<iframe id='wfExternalFrame' name='wfExternalFrame' style='display: none'></iframe>
+	</div>
+	<script src="/MCSWebApp/WfFormTemplate/ScriptResource.axd?d=7OMkOChiL7gZABw1LlBVfEq0BWXTfdWaRu8IxJVaiw_0dTp0Bgywxm_oz28eXKR4BH6tUZypzgGz7hfLg8sExCKPyi5IQv0to-rUnp3XcCrRY6bHMCXPWl5k9vgRwAS57l7eon4VrD9FnbuWiayceauXZCpnlvnK4KpIV0FxnBY1&amp;t=fffffffff284add6"
+		type="text/javascript"></script>
+	<div id='wfExternalFrameContainer'>
+		<iframe id='wfExternalFrame' name='wfExternalFrame' style='display: none'></iframe>
+	</div>
+	<script language="javascript" type="text/javascript">
+		function onWfOperationNotifierPropertyChange() {
+			var elem = event.srcElement;
+
+			if (event.propertyName == "value") {
+				var frameContainer = $get("wfExternalFrameContainer");
+				var originalFrame = $get("wfExternalFrame");
+				var oldReadyStateChange = null;
+
+				if (originalFrame)
+					oldReadyStateChange = originalFrame.onreadystatechange;
+
+				if (frameContainer) {
+					window.setTimeout(function () {
+						frameContainer.innerHTML = "<iframe id='wfExternalFrame' name='wfExternalFrame' style='display:none'></iframe>";
+						frameContainer.style.display = "none";
+
+						originalFrame = $get("wfExternalFrame");
+
+						if (originalFrame) {
+							window.setTimeout(function () { originalFrame.onreadystatechange = oldReadyStateChange; }, 100);
+						}
+					}, 100);
+				}
+
+				if (elem.value != "") {
+					var messageArray = elem.value.split("^");
+					var ctrlID = messageArray[0];
+					var err = null
+
+					if (messageArray.length > 1) {
+						err = new Object();
+						err.message = messageArray[1];
+
+						if (messageArray.length > 2)
+							err.description = messageArray[2];
+						else
+							err.description = "";
+					}
+
+					var wCtrl = $find(ctrlID);
+					wCtrl.raiseOperationComplete(err);
+
+					elem.value = "";
+				}
+
+				if (typeof (SubmitButton) != "undefined")
+					SubmitButton.resetAllStates();
+			}
+		}
+	</script>
+	<input type="hidden" id="wfOperationNotifier" onpropertychange="onWfOperationNotifierPropertyChange();" /><input
+		type="button" id="submitButtonProgressInfoChangedButtonID" style="display: none"
+		onclick="ProgressBarInstance.onProcessInfoChanged();" />
+	<script type="text/javascript">
+//<![CDATA[
+		var CssExpressionMethod = function (el) { el.className = 'process_div_container'; el.width = el.parentElement.offsetWidth - 10; };//]]>
+	</script>
+	<style type='text/css'>
+		body .mainContainer
+		{
+			height: 100%;
+			width: 100%;
+		}
+		.btnArrowContainer
+		{
+			width: 40px;
+			vertical-align: middle;
+		}
+		
+		/*div {
+	width: expression(CssExpressionMethod(this));
+	width: expression(function(el){el.className = 'process_div_container';el.width = el.parentElement.offsetWidth - 10;alert(123);}(this););
+}
+*/
+		.process_div_container1
+		{
+			width: expression(CssExpressionMethod(this)); /*width: expression(function(el){el.className = 'process_div_container';el.width = el.parentElement.offsetWidth - 10;alert(123);}(this););*/
+		}
+		
+		
+		.process_div_container
+		{
+			width: expression(true); /*width: expression(function(el){el.className = 'process_div_container';el.width = el.parentElement.offsetWidth - 10;alert(123);}(this););*/
+			position: relative;
+			overflow: hidden;
+			height: 100%;
+		}
+		
+		/*.process_div_container
+{
+    overflow: hidden;
+    zoom: expression(function(el){el.width = parentElement.offsetWidth - 10; el.style.zoom = "1";}(this));
+    width: expression(function(el){alert(123);el.width = (el.parentElement.offsetWidth - 10)+"px";} (this)););
+    
+    height: 100%;
+    position: relative;
+}
+*/
+		.div_nav
+		{
+			position: relative;
+			left: 0px;
+			top: 0px;
+			width: auto;
+		}
+		.div_nav ul
+		{
+			white-space: nowrap;
+		}
+		.div_nav ul li
+		{
+			display: inline;
+			font-size: 12px;
+			font-family: "宋体" , Arial, sans-serif;
+			line-height: 20px;
+			height: 20px;
+		}
+		.div_nav ul li span
+		{
+			display: inline-block;
+			margin: 1px 1px;
+			line-height: 20px; /*height: 20px;*/
+			text-align: center;
+		}
+		.div_nav ul img
+		{
+			vertical-align: middle;
+			font-size: 0;
+		}
+		.currActivity
+		{
+			background: #f3ddca;
+			color: #036;
+		}
+		.normalActivity
+		{
+			background: #F6F6F6;
+			color: #036;
+		}
+		
+		.mainContainer .arrow
+		{
+			/*background-image: url(<%=WebResource("MCS.Web.WebControls.ProcessNavigator.btnArrow.gif")%>) no-repeat 0px 0px;*/
+			cursor: pointer;
+			display: block;
+			height: 36px;
+			width: 37px;
+		}
+		.mainContainer .forward
+		{
+			background-position: 0 0;
+			display: none;
+		}
+		.mainContainer .back
+		{
+			background-position: 0 -72px;
+			display: none;
+		}
+		.forward:hover
+		{
+			background-position: 0 -36px;
+		}
+		.back:hover
+		{
+			background-position: 0 -108px;
+		}
+	</style>
+	<style type='text/css'>div.uc-user-container-short
+{ 
+    _display:inline; display:inline-block; overflow:hidden; vertical-align:top; padding:0;width:36px;
+    *zoom:1; *display:inline; *overflow:hidden; 
+}
+
+div.uc-user-container-long
+{ 
+    _display:inline; display:inline-block; overflow:hidden; vertical-align:top; padding:0;width:52px;
+    *zoom:1; *display:inline; *overflow:hidden; 
+}
+div.uc-user-container-short img{width:32px; height:32px;}
+div.uc-user-container-long img{width:48px; height:48px;}
+div.uc-user-container-short div.icon
+{
+    border:1px solid #C4C4C4;
+    width:34px;height:34px;
+    vertical-align:middle;
+    text-align:center;
+}
+
+div.uc-user-container-long div.icon
+{
+    border:1px solid #C4C4C4;
+    width:50px;height:50px;
+    vertical-align:middle;
+    text-align:center;
+}
+
+div.uc-ball, div.uc-bar36, div.uc-bar52{ _display:inline; display:inline-block; overflow:hidden; vertical-align:top; padding:0; border:0; *zoom:1; *display:inline; *overflow:hidden; }
+div.uc-ball{ width:14px; height:14px; line-height:14px;  }
+div.uc-bar36{ width:10px; height:36px; line-height:36px;}
+div.uc-bar52{ width:10px; height:52px; line-height:52px; }
+
+div.uc-ball img { margin-top:-1px; }
+div.uc-bar36 img { margin-top:-16px; }
+div.uc-bar52 img { margin-top:-54px; }
+
+div.uc-ball img.uc-away{ margin-left:1px; }
+div.uc-ball img.uc-awayoof{ margin-left: -13px; }
+div.uc-ball img.uc-blocked{ margin-left:-27px; }
+div.uc-ball img.uc-busy{ margin-left:-41px; }
+div.uc-ball img.uc-busyoof{ margin-left:-55px; }
+div.uc-ball img.uc-dnd{ margin-left:-69px; }
+div.uc-ball img.uc-dndoof{ margin-left:-83px; }
+div.uc-ball img.uc-hdr{ margin-left:-97px; }
+div.uc-ball img.uc-idle{ margin-left:-111px; }
+div.uc-ball img.uc-idlebusy{ margin-left:-125px; }
+div.uc-ball img.uc-idlebusyoof{ margin-left:-139px; }
+div.uc-ball img.uc-dileoof{ margin-left:-153px; }
+div.uc-ball img.uc-off{ margin-left:-167px; }
+div.uc-ball img.uc-offoof{ margin-left:-181px; }
+div.uc-ball img.uc-on{ margin-left:-195px; }
+div.uc-ball img.uc-onoof{ margin-left:-209px; }
+
+div.uc-bar36 img.uc-away{ margin-left:0; }
+div.uc-bar36 img.uc-awayoof{ margin-left: -12px; }
+div.uc-bar36 img.uc-blocked{ margin-left:-24px; }
+div.uc-bar36 img.uc-busy{ margin-left:-36px; }
+div.uc-bar36 img.uc-busyoof{ margin-left:-48px; }
+div.uc-bar36 img.uc-dnd{ margin-left:-60px; }
+div.uc-bar36 img.uc-dndoof{ margin-left:-72px; }
+div.uc-bar36 img.uc-hdr{ margin-left:-84px; }
+div.uc-bar36 img.uc-idle{ margin-left:-96px; }
+div.uc-bar36 img.uc-idlebusy{ margin-left:-108px; }
+div.uc-bar36 img.uc-idlebusyoof{ margin-left:-120px; }
+div.uc-bar36 img.uc-dileoof{ margin-left:-132px; }
+div.uc-bar36 img.uc-off{ margin-left:-144px; }
+div.uc-bar36 img.uc-offoof{ margin-left:-156px; }
+div.uc-bar36 img.uc-on{ margin-left:-168px; }
+div.uc-bar36 img.uc-onoof{ margin-left:-180px; }
+
+div.uc-bar52 img.uc-away{ margin-left:0; }
+div.uc-bar52 img.uc-awayoof{ margin-left: -12px; }
+div.uc-bar52 img.uc-blocked{ margin-left:-24px; }
+div.uc-bar52 img.uc-busy{ margin-left:-36px; }
+div.uc-bar52 img.uc-busyoof{ margin-left:-48px; }
+div.uc-bar52 img.uc-dnd{ margin-left:-60px; }
+div.uc-bar52 img.uc-dndoof{ margin-left:-72px; }
+div.uc-bar52 img.uc-hdr{ margin-left:-84px; }
+div.uc-bar52 img.uc-idle{ margin-left:-96px; }
+div.uc-bar52 img.uc-idlebusy{ margin-left:-108px; }
+div.uc-bar52 img.uc-idlebusyoof{ margin-left:-120px; }
+div.uc-bar52 img.uc-dileoof{ margin-left:-132px; }
+div.uc-bar52 img.uc-off{ margin-left:-144px; }
+div.uc-bar52 img.uc-offoof{ margin-left:-156px; }
+div.uc-bar52 img.uc-on{ margin-left:-168px; }
+div.uc-bar52 img.uc-onoof{ margin-left:-180px; }
+
+.imnStatusText
+{
+    vertical-align:top;
+	padding-left: 2px;
+	margin-left:0 !important;
+	line-height:12px !important;
+}</style>
+	<script type="text/javascript">
+//<![CDATA[
+		var UserPresenceStatusUrl = '/MCSWebApp/WfFormTemplate/WebResource.axd?d=pGH5AkWSMHnsyfUhZaj5yijYo3UO0W6hI1mxnWhu40eah2NCPaUNc6D6gMBDsaGyXSJjgb04Dew9tPYqL6sHjPFoQHot0ms-TKvc8tVdelwK9-ezbH5I0G1dqZoXjMfMKeEak3MMLjOv6yS0IghQeW2wc7wvz0sXiPlY_tXfH9GxQz1coJxPv3lFeADlIWDjU4vp0KIvbj1J5qWKoOKK8w2&t=635375024676300000'//]]>
+	</script>
+	<script src="/MCSWebApp/WfFormTemplate/WebResource.axd?d=JNOVRuD273LcbV0da3yDnJbVrxcalA_rlwcNKJF6xV_49ha9N9rylcNqlGpeL94NZHGgKFmm7YLcvo9QcltHt4pz5Yx2Xr3FasXniKgq_mIT5yh_Xpix9SNakxDfwX7scgoHbMxY0VAmzVGK3qng1gXEOI_nuXrmuvWUHine3o5_tUrOHA90pCq7ZWa4bQkWcY4L-uCCMnAzJRfN3oeWbA2&amp;t=635375024676300000"
+		type="text/javascript"></script>
+	<img src="/MCSWebApp/WfFormTemplate/WebResource.axd?d=V7WM0PgNhL4irXrrLzOTe9ZZbx8Hts_tfm2kI-aug9dVIaRzRZFq-dNE3hc7WBta5zyjODOutl7YOG-BAPnGUSPLtX_bMZ9MG6Hj7lV4a1v58TUQ2WlYdhzvZFG8hIkU0s451x9y6aTHx0j2juCCGEZm39nPM2pmaycHc04oWXo1&t=635375024676300000"
+		style="display: none" /><img src="/MCSWebApp/WfFormTemplate/WebResource.axd?d=CnqlxcNe6ENQ3fuBMAsVzNL_LCynI0Kqy9f7LkhGsQQN1DUSymG1rp5rIT0OBY1Ptk9I0ocjum51N5o0EjWGSr1sbmZK0_iJb6cLfTEahag7jI9xGv79cQee3JOouwb5O_XFy-IxzyL4NBzx0LN9MvhjV1MMLRPaa6va6xMh2oc1&t=635375024676300000"
+			style="display: none" /><img src="/MCSWebApp/WfFormTemplate/WebResource.axd?d=5vtuZi72AzctJQuC81alg7VeOsOkCWA6-BHsXUBanSUO9xChvDLh6VNxGt0WejJMWuO0-eBmeZcyaX6jZ-XzlnxpOQV4LLoslXJKruU0BdswDOEg3eZqRCASE_FXh_fkC-Fry-A9zthOtc-__2pigiyEnJ0cImtCtQdimj2c08Q1&t=635375024676300000"
+				style="display: none" /><img src="/MCSWebApp/Images/16/default.gif" style="display: none" /><img
+					src="/MCSWebApp/WfFormTemplate/WebResource.axd?d=9WslY4EWzqu048Z8FdJ0z8MSJTngIyzDzHj9JeLgkRrBOD7eg78BtUCP4bclK-p_GNf0MoqYh5oMwdVbqmJV3SDJzUEq7Wn8csfYeVkFWE0bI62tDdX9je1A6B7pMb7OchGmWXR5DO8MkGS2NCqoLnTBDu7XHl85etJxO0xlxCY1&t=635375024676300000"
+					style="display: none" /><img src="/MCSWebApp/WfFormTemplate/WebResource.axd?d=_M9OBrIRmqZ07eks6LdbJlZwVPOoF77R3g80gVXNtfp37AMhMWQcYYilKYEvvF7-CVsaqI7vROwB-SN0HtWk72xuQr4LqkzMU0_afli3IPcz1hCWLGid3aIzUGVqS1tB4DEqVrmwkw4tUxLsDK0H1kd3iXmPLkFrvdifeVeaqEuQlM1qlDhcbW0jiY-YPmq40&t=635375024676300000"
+						style="display: none" /><script language="javascript" for="attachmentsControl_ctl05_Viewer"
+							event="BeforeDocumentSaved()">
+$find("attachmentsControl").raiseBeforDocumentSaved();
+						</script>
+	<object id="componentHelperActiveX" codebase="/MCSWebApp/HBWebHelperControl/HBWebHelperControl1.0.0.14.CAB#version=1,0,0,14"
+		height="0" width="0" classid="clsid:918CFB81-4755-4167-BFC7-879E9DD52C9E" style="display: none">
+	</object>
+	<script type="text/javascript">
+//<![CDATA[
+		function onHBDropDownListChange() {
+			var elem = event.srcElement;
+
+			if (event.propertyName == 'value') {
+				window.setTimeout(function () {
+					var selectedItem = findHBDropDownListOption(elem);
+					if (selectedItem != null) {
+						var selectedText = selectedItem.text;
+						var selectedValue = selectedItem.value;
+
+						var label = document.getElementById(elem.relativeLabel);
+
+						if (label) {
+							label.innerText = selectedText;
+						}
+
+						var selectedTextHidden = document.getElementById(elem.relativeHidden);
+						var selectedValueHidden = document.getElementById(elem.relativeValueHidden);
+
+						if (selectedTextHidden) {
+							selectedTextHidden.value = selectedText;
+						}
+						if (selectedValueHidden) {
+							selectedValueHidden.value = selectedValue;
+						}
+					}
+				}, 0);
+			}
+		}
+
+		function attachHBDropDownListEvents(elem) {
+			if (elem.attachEvent)
+				elem.attachEvent("onpropertychange", onHBDropDownListChange);
+			else
+				elem.addEventListener("onpropertychange", onHBDropDownListChange, false);
+		}
+
+		function findHBDropDownListOption(select) {
+			var result = null;
+
+			if (select.tagName == "SELECT") {
+				for (var i = 0; i < select.options.length; i++) {
+					var opt = select.options.item(i);
+
+					if (opt.value == select.value) {
+						result = opt;
+						break;
+					}
+				}
+			}
+
+			return result;
+		} function onEditActivityClick(editorID, submitButtonID, hiddenValueID, op, smallMode) {
+			var elem = event.srcElement;
+
+			if (op == "delete") {
+				if (window.confirm($NT.getText("SOAWebControls", "确认删除该环节吗？"))) {
+					var data = {};
+					data.operation = op;
+					data.currentActivityKey = elem.currentActivityKey;
+					data.users = [];
+
+					$get(hiddenValueID).value = Sys.Serialization.JavaScriptSerializer.serialize(data);
+					$get(submitButtonID).click();
+				}
+			}
+			else {
+				var result = null;
+
+				if (smallMode)
+					result = $find(editorID).showSmallDialog(elem.currentActivityKey, op);
+				else
+					result = $find(editorID).showDialog(elem.currentActivityKey, op);
+
+				if (result) {
+					$get(hiddenValueID).value = result;
+					$HBRootNS.HBCommon.executeValidators = false;
+					$get(submitButtonID).click();
+				}
+			}
+		}
+
+		function onRefreshProcessButtonClick() {
+			$HBRootNS.HBCommon.executeValidators = false;
+		}
+
+		function changeProcessDescriptor(serializedData) {
+			$get(opinionListViewHiddenDataID).value = serializedData;
+			$get(opinionListViewChangeProcessButtonID).click();
+		}
+
+		function adjustProcessDescriptorEndRequestHandler(sender, args) {
+
+			$HBRootNS.HBCommon.executeValidators = true;
+			SubmitButton.resetAllStates();
+
+			if (args.get_error() != undefined) {
+				args.set_errorHandled(true);
+				$showError(args.get_error());
+			}
+			else {
+				var hidden = $get("adjustNextStepsHidden");
+
+				if (hidden) {
+					$HBRootNS.WfMoveToControl.setupProcessNextSteps(hidden.value);
+					hidden.value = "";
+				}
+			}
+		}
+
+		var m_opinionValidators = [];
+
+		function pushOpinionValidator(validator) {
+			var exists = false;
+
+			for (var i = 0; i < m_opinionValidators.length; i++) {
+				if (validator.opinionInputID == m_opinionValidators[i].opinionInputID) {
+					exists = true;
+					break;
+				}
+			}
+
+			if (exists == false) {
+				m_opinionValidators.push(validator);
+			}
+		}
+
+		function checkOpinionEmpty(checkResult, isMoveTo) {
+			var isValid = true;
+
+			if (typeof (isMoveTo) == "undefined")
+				isMoveTo = true;
+
+			if (isMoveTo) {
+				for (var i = 0; i < m_opinionValidators.length; i++) {
+					var opinionInput = $get(m_opinionValidators[i].opinionInputID);
+
+					if (opinionInput) {
+						if (opinionInput.innerText == "") {
+							isValid = false;
+							checkResult.errorMessages.push(m_opinionValidators[i].errorMessage);
+						}
+					}
+				}
+			}
+
+			checkResult.isValid = checkResult.isValid & isValid;
+		}
+
+		var existsAddedValidators = {};
+
+		function addMoveToValidator(moveToCtrlID) {
+
+			if (!existsAddedValidators[moveToCtrlID]) {
+				var moveToCtrl = $find(moveToCtrlID);
+
+				if (moveToCtrl)
+					moveToCtrl.add_validateBindingData(checkOpinionEmpty);
+
+				existsAddedValidators[moveToCtrlID] = moveToCtrlID;
+			}
+		}
+		serverForm.action = "TemplateView.aspx?resourceID=b75aad48-4963-9d7e-4e8d-4843ac126171&activityID=433254db-9d8b-aa10-496b-b10dfd897a58"; var DeluxeNameTable = { category: {} };
+		var $NT = DeluxeNameTable;
+		$NT.getText = function (category, sourceText) { var targetText = sourceText; if ($NT.category[category]) if ($NT.category[category][sourceText]) targetText = $NT.category[category][sourceText]; return targetText; }
+
+		$NT.category["SOAWebControls"] = {};
+		$NT.category["SOAWebControls"]["输入非法"] = "输入非法";
+		$NT.category["SOAWebControls"]["整数部分的位数不能超过{0}位"] = "整数部分的位数不能超过{0}位";
+		$NT.category["SOAWebControls"]["小数部分的位数不能超过{0}位"] = "小数部分的位数不能超过{0}位";
+		$NT.category["SOAWebControls"]["数字必须在{0}和{1}之间"] = "数字必须在{0}和{1}之间";
+		$NT.category["SOAWebControls"]["数字必须大于等于{0}"] = "数字必须大于等于{0}";
+		$NT.category["SOAWebControls"]["数字必须小于等于{0}"] = "数字必须小于等于{0}";
+		$NT.category["SOAWebControls"]["数字类型只能有一个小数点"] = "数字类型只能有一个小数点";
+		$NT.category["SOAWebControls"]["数字类型只能有一个'{0}'"] = "数字类型只能有一个'{0}'";
+		$NT.category["SOAWebControls"]["必须输入合法的数字"] = "必须输入合法的数字";
+		$NT.category["SOAWebControls"]["没有选择下一步的流转人员"] = "没有选择下一步的流转人员";
+		$NT.category["SOAWebControls"]["已经被注销"] = "已经被注销";
+		$NT.category["SOAWebControls"]["确认要执行吗？"] = "确认要执行吗？";
+		$NT.category["SOAWebControls"]["确认要撤回吗？"] = "确认要撤回吗？";
+		$NT.category["SOAWebControls"]["确定要作废或取消流程吗？"] = "确定要作废或取消流程吗？";
+		$NT.category["SOAWebControls"]["请指定该活动资源！"] = "请指定该活动资源！";
+		$NT.category["SOAWebControls"]["修改活动操作人失败，原因："] = "修改活动操作人失败，原因：";
+		$NT.category["SOAWebControls"]["流程不在运行中，无法作废。"] = "流程不在运行中，无法作废。";
+		$NT.category["SOAWebControls"]["操作成功！"] = "操作成功！";
+		$NT.category["SOAWebControls"]["无法修改已完成的活动！"] = "无法修改已完成的活动！";
+		$NT.category["SOAWebControls"]["请先选择需要修改的活动！"] = "请先选择需要修改的活动！";
+		$NT.category["SOAWebControls"]["确定要回退吗？"] = "确定要回退吗？";
+		$NT.category["SOAWebControls"]["确认要作废或取消流程吗？"] = "确认要作废或取消流程吗？";
+		$NT.category["SOAWebControls"]["确认要暂停流程吗？"] = "确认要暂停流程吗？";
+		$NT.category["SOAWebControls"]["确认要恢复流程吗？"] = "确认要恢复流程吗？";
+		$NT.category["SOAWebControls"]["您有正在打开的文档文件，当前的页面不能关闭，请您保存文件后再关闭页面！"] = "您有正在打开的文档文件，当前的页面不能关闭，请您保存文件后再关闭页面！";
+		$NT.category["SOAWebControls"]["您编辑了文件但没有保存当前文件，请您保存文件后再关闭页面！"] = "您编辑了文件但没有保存当前文件，请您保存文件后再关闭页面！";
+		$NT.category["SOAWebControls"]["确认删除该环节吗？"] = "确认删除该环节吗？";
+		$NT.category["WebControls"] = {};
+		$NT.category["WebControls"]["提示"] = "提示";
+		$NT.category["WebControls"]["警告"] = "警告";
+		$NT.category["WebControls"]["错误"] = "错误";
+		$NT.category["WebControls"]["选择"] = "选择";
+		$NT.category["WebControls"]["点击此处关闭详细信息..."] = "点击此处关闭详细信息...";
+		$NT.category["WebControls"]["点击此处展开详细信息..."] = "点击此处展开详细信息...";
+		$NT.category["WebControls"]["复制信息"] = "复制信息";
+		$NT.category["WebControls"]["确定(O)"] = "确定(O)";
+		$NT.category["WebControls"]["取消(C)"] = "取消(C)";
+		var _DeluxeApplicationPath = "/MCSWebApp/WfFormTemplate"; var _wfRefreshButtonID = "opinionListView_refreshProcessButton"; var _wfRefreshCurrentButtonID = "opinionListView_refreshCurrentProcessButton"; var __cultureInfo = { "name": "zh-CN", "numberFormat": { "CurrencyDecimalDigits": 2, "CurrencyDecimalSeparator": ".", "IsReadOnly": true, "CurrencyGroupSizes": [3], "NumberGroupSizes": [3], "PercentGroupSizes": [3], "CurrencyGroupSeparator": ",", "CurrencySymbol": "¥", "NaNSymbol": "非数字", "CurrencyNegativePattern": 2, "NumberNegativePattern": 1, "PercentPositivePattern": 1, "PercentNegativePattern": 1, "NegativeInfinitySymbol": "负无穷大", "NegativeSign": "-", "NumberDecimalDigits": 2, "NumberDecimalSeparator": ".", "NumberGroupSeparator": ",", "CurrencyPositivePattern": 0, "PositiveInfinitySymbol": "正无穷大", "PositiveSign": "+", "PercentDecimalDigits": 2, "PercentDecimalSeparator": ".", "PercentGroupSeparator": ",", "PercentSymbol": "%", "PerMilleSymbol": "‰", "NativeDigits": ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"], "DigitSubstitution": 1 }, "dateTimeFormat": { "AMDesignator": "上午", "Calendar": { "MinSupportedDateTime": "\/Date(-62135596800000)\/", "MaxSupportedDateTime": "\/Date(253402271999999)\/", "AlgorithmType": 1, "CalendarType": 1, "Eras": [1], "TwoDigitYearMax": 2029, "IsReadOnly": true }, "DateSeparator": "/", "FirstDayOfWeek": 1, "CalendarWeekRule": 0, "FullDateTimePattern": "yyyy\u0027年\u0027M\u0027月\u0027d\u0027日\u0027 H:mm:ss", "LongDatePattern": "yyyy\u0027年\u0027M\u0027月\u0027d\u0027日\u0027", "LongTimePattern": "H:mm:ss", "MonthDayPattern": "M\u0027月\u0027d\u0027日\u0027", "PMDesignator": "下午", "RFC1123Pattern": "ddd, dd MMM yyyy HH\u0027:\u0027mm\u0027:\u0027ss \u0027GMT\u0027", "ShortDatePattern": "yyyy/M/d", "ShortTimePattern": "H:mm", "SortableDateTimePattern": "yyyy\u0027-\u0027MM\u0027-\u0027dd\u0027T\u0027HH\u0027:\u0027mm\u0027:\u0027ss", "TimeSeparator": ":", "UniversalSortableDateTimePattern": "yyyy\u0027-\u0027MM\u0027-\u0027dd HH\u0027:\u0027mm\u0027:\u0027ss\u0027Z\u0027", "YearMonthPattern": "yyyy\u0027年\u0027M\u0027月\u0027", "AbbreviatedDayNames": ["周日", "周一", "周二", "周三", "周四", "周五", "周六"], "ShortestDayNames": ["日", "一", "二", "三", "四", "五", "六"], "DayNames": ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"], "AbbreviatedMonthNames": ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月", ""], "MonthNames": ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月", ""], "IsReadOnly": true, "NativeCalendarName": "公历", "AbbreviatedMonthGenitiveNames": ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月", ""], "MonthGenitiveNames": ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月", ""] }, "eras": [1, "公元", null, 0] };//]]>
+	</script>
+	<script src="/MCSWebApp/WfFormTemplate/ScriptResource.axd?d=GdsKMWxxhxjcX78u3DqWJJGMNinaf1qiplnzQYeMogPfbmp5IccNmShHY-Tg0vjHTgDSIvcxHVT1bhJxhnx8PIKfT_8pWkLCCT3bVX92tYOykGGoDGu0JiX2rMjVNFq9-lwFu3qVm8MrrgaPRiw1DKaEC06yCze5ADj-g5IY-jU7vK8gquxOQh7PqF4oQEtj0&amp;t=348b0da"
+		type="text/javascript"></script>
+	<script type="text/javascript">
+//<![CDATA[
+		if (typeof (Sys) === 'undefined') throw new Error('ASP.NET Ajax 客户端框架未能加载。');
+//]]>
+	</script>
+	<script src="/MCSWebApp/WfFormTemplate/ScriptResource.axd?d=l1SqxYsnGpL6nKeP4SJYF-FFoDXFBpSagkCfe71E8qv_MffDt2NSE92yyXNCvr-qdNj3YW_Pu6VViV8U2Vi7KXRGSDpXsMrBnQFlUTbQnjCWz5hUWN8NKXR47GyQw-Z6PcOYif2oOMy7CGtaQRE9MaoBU1Sg42LxjffqW9_FMmVJmeFmzL618ZQHN8ssIN720&amp;t=348b0da"
+		type="text/javascript"></script>
+	<script src="/MCSWebApp/WfFormTemplate/ScriptResource.axd?d=NpJHaHHtuqqxzEKhr6ezMeh2l0bwnLBmToSW1WCYtUFFIUhyyOT3tcAWZtbG5msDxcIzXPxOgRNWVZYLJkGLy6yvEZdWaAzVZn1DYCNgdsCld7e4jgaIiiE-yTih3JJ10YAmvrrm0WjEPWlk_9aY4X1t8tCN_vuEyavNX01342HohQd_hFU6K7OI0Wg4RDzj0&amp;t=46882664"
+		type="text/javascript"></script>
+	<script src="/MCSWebApp/WfFormTemplate/ScriptResource.axd?d=EOAAwW8yj-FDb4TkvmNOBa6LfPR8E-C3V_UbK8nGrXBIb5R2yyFyQXLyGuFHm8HBh2VJhSXdcSdrtoA8Ey5SeV2eRcf3OHvE-wtKIFTxrpSL3xV-Z9ZfAbnAB_NotJ3vQSUYu3hI7Bh3Fo6BiXqvQQ2&amp;t=44e10685"
+		type="text/javascript"></script>
+	<script src="/MCSWebApp/WfFormTemplate/ScriptResource.axd?d=4txJD0mMmMM2AYcl1qLarlGdp4kzZzCJ6eGMuxt-CFic5wZLES_clb70gTfs3v0D0qBy8GMPsmqjs55tLc7DNf-AFAnVakYXZ0tjabDf7OLRRpdwhUf0SN7nXpf_VdPpLSopBb0Ux93mFS_q1GjBCisUl9gy5va2v7jz0_JyH9M1&amp;t=44e10685"
+		type="text/javascript"></script>
+	<script src="/MCSWebApp/WfFormTemplate/ScriptResource.axd?d=PDK0ZdCoSwbs-RRoDme1T_s5J_CRqEJBtZdOG6hjgZbUoPFr8-Z4TyqDaJtAoAZMGXGN7bswazypEgJ5wAbdUv59BoMsiOmcGJbnQIndpwPheJY7bVuNM9OasMMBmNfCecohX11R-sWMJXkAdB5kWttu6miWvZYB27C7j0daqOgPnDVyYCx3sc6bhyAr7ZPT0&amp;t=785225bb"
+		type="text/javascript"></script>
+	<script src="/MCSWebApp/WfFormTemplate/ScriptResource.axd?d=MotYW9eXQUO4LLgQM1CQuFXF7Rbq4jgdo6YBWfV2XC8DbHf3pbujq5RIMwop0KlAjOh_9zCyaINs0wbT4xLdV06FPpnK1q39wsXwRSt9Q2ehp-a4nCI-1Cu_zH1KhOMvnYg0_VNWqibllVija4fWB6lE0vgi5pig8qLR5gUX0Y41&amp;t=44e10685"
+		type="text/javascript"></script>
+	<script src="/MCSWebApp/WfFormTemplate/ScriptResource.axd?d=utaHl6ySIjRXPBPrtngvXTVnCE0iS9nhWd_WVgKUpgOKB5MOwG_NzOTsxgStEAjAVsMngnHrUna6Z-r_wB0O4tXSvhwgbRKd3GOYgrIiFCi0e2PKkXIN2lYFMNk_bYTmZbGGq4bP12M-W2A1AR091vGt_BCRCSrUqZZj7KIcpkk1&amp;t=44e10685"
+		type="text/javascript"></script>
+	<script src="/MCSWebApp/WfFormTemplate/ScriptResource.axd?d=XyRbpNvIAb-nF80D5wP7JwsUAfvQ7nGGqhzHuymvV5VHXybpsjbiTD0x2y_1gen8XXM-CnUBJX-osvaanB8tht2LxPY5dbmkJSCVXOq_iVJSY-a-snaNL2LYatKG9h3gNxOjB_izDcjy7J2shGXoZElstFY1OcAmMZUxsUyUzSqYubvshqzPbAJpoTHES27O0&amp;t=785225bb"
+		type="text/javascript"></script>
+	<script src="/MCSWebApp/WfFormTemplate/ScriptResource.axd?d=7xRxbHN2taiUgF-9Z1cSEsn-izgLByhgk2o3vVpmXV2x_2AyJzJwyx9k2X9fky6nQEI-Yv03ECjlWPvCdC-Zlf2WbK6FwePF90pqlVQcSLfPBrOi-v4eYvtgCAY96aWTKcKcsYpz_5VL7Ms2NVO2I3KcuJ-h_9QPFHQ4sOc41Q6TS4LP0j9lt6vbpNTMWO9AxWwciuZcsdxtJqVPbFS41g2&amp;t=785225bb"
+		type="text/javascript"></script>
+	<script src="/MCSWebApp/WfFormTemplate/ScriptResource.axd?d=9hqBwuJwdvsWku9u2cTDK5NoO3JPeSEfuNJnBwiyQyBjjsmU8dA5QSKu2EiDQgN-nYgzxjXmcIFL4_ZtfQUDwL1llNicarkAEUcVnPV8QUuQAhv3wBBTrwvLFUc9lBJAKy2G_Fnv8tgDEY2rJhYEHLyW8jAIxpzgiuOyTCt67XoZmsmZRM5IhFQYIAosjF6SGQFpU4Azul20B-FrPN-R4Q2&amp;t=785225bb"
+		type="text/javascript"></script>
+	<script src="/MCSWebApp/WfFormTemplate/ScriptResource.axd?d=Jw6QvuRjfOv7FgjEODsxAd-EHHEpzTXOaceLoCGwdmt9pIlAxGJUoWvDkhfs6k_gHBr3iIITeWFgy9UwZSPH9MOoXisP7_RbBoNL7wFp22gdlpx0pRwfz8zWZv2t8reRz_dGmeXthDeQ9XrJqynBlJuhyHhDxAMUTg79yhDSqQplB-fxoWnK64RBVmEPr_5S0&amp;t=785225bb"
+		type="text/javascript"></script>
+	<script src="/MCSWebApp/WfFormTemplate/ScriptResource.axd?d=HeDpdJgYDHxNwmv_c5W3BRdEURqEkb3cXMFCMaDYkoD26evCW_NwsI4VAevbKvPikG43tXS1GVxgd3uRZLEZt9uCD4yuBV_6cDcJJzxI9T9TFBOO3gxSSrrvnX73KYOsE_9v-S_3EVmwISxDcFju925j6GrlsqjCyHuHxKOONPY-CKCeOC6yFc-QRjnm5jZw0&amp;t=785225bb"
+		type="text/javascript"></script>
+	<script src="/MCSWebApp/WfFormTemplate/ScriptResource.axd?d=Y4im0CmiBHCNgM-P9fg2Xz7X2hqqbIe5wgdm7bd3MFW0abx7n5Lqp81JeR6KR3uRZk7T142aXkmK2Frl6IRtfPDdsYY1fGLJrP9e8v2x0OMi_fuukymF-_5ocw4mHrMvbB_n7NUdmH_xbu9dtWZvtpViRSe-TZBXBnIliEapa6CWBmO0CovrqUfbW3rKf7kWmH-q_ePAk4vPkh1vdNSB7A2&amp;t=785225bb"
+		type="text/javascript"></script>
+	<script src="/MCSWebApp/WfFormTemplate/ScriptResource.axd?d=ReXQ4RuRSRUZmdZK2se7IN33lbdFMOboGe-v6c89zdZi_wTGswSYCODt6x2VIhf20083R_bw5d-U3AlA3W_niEhK3v_nvt8JHYzGtvCDMf_sbxllQoZO3v01DxqZ-pHUx49bj-Wb_7P5wmXdOe5Uybyp4sblje-4Kz-te_PH-hQZRbcvGOkCvBU-r_091F2VvayFPGZB52H329_gVn5X2g2&amp;t=785225bb"
+		type="text/javascript"></script>
+	<script src="/MCSWebApp/WfFormTemplate/ScriptResource.axd?d=hPMd4KFpfVP8Sl34l9wolO1EcV2WNbIN-hKXJCBJ1R-mr48lbuQEpjBBqHcRXYl3-0EMjo4vUJ-fOtG9-yX9umCxcScvzRBU4qpAewKjmfsDxwIoTz5_8rKT2Qh3Py_GqusmQfbph5Bwiw__BEt6ZOVnhjB2gE3YhNOQY4_hx0YrrnsVqoYnthR3KW_XmiMy0&amp;t=785225bb"
+		type="text/javascript"></script>
+	<script src="/MCSWebApp/WfFormTemplate/ScriptResource.axd?d=TwN12eQv__7n8P6tjNDa2TLsDAsoHCGwlJeM7Pt0qbjmDv8G3ABwvwnMfuIvx4m2tBFqLejDTblJxdxd4xaQD1Se6byHWb6G53Qsm7MnCejKG0mBBwrAd-mzG5Hhl9HN7SBTeFxywq2WCj2E_M_ecQ2tYD9d3ZKcYkPFgpltIgupmUwBcMniLExeScrJJJ9W9hab9QEhFD5T7uSlPgVG2A2&amp;t=785225bb"
+		type="text/javascript"></script>
+	<script src="/MCSWebApp/WfFormTemplate/ScriptResource.axd?d=KEYXneq5xZCcWeostB0MTLJvGwP3sI9-tUOAcJO5U77XLZlELTZSEOA2cdXfXXvbwT4fbA2cXaxN30UJo-xA_8ctE1GN63vIxrsbR9bRiM5OK2C019FSuhD2y2yPXtX1H6CndIG7Y0Z9ChZsc3ADBRxedmUYaVgDCMmZPJNLYq4X1lZd1-A_i67cTeZsryqp0&amp;t=785225bb"
+		type="text/javascript"></script>
+	<script src="/MCSWebApp/WfFormTemplate/ScriptResource.axd?d=NVbGkdMvQFHzi1oIvEviRNBYf7MIVBFzzBSB4rPrXzWDQpl12gO7fENvthAsk7JoCUD2m1GIuHl9YaSwX1v1zM2IpnkpFcrY-3QCPXD5wf2lyGS9TIY01YHHg3YdrNVFtcbjAeFm5xXmxzsIAgYjpF6dcjj4B8Lj3jRBY7VriAjfrmWDYgkMOfjE5Zbwp-IK7MGuXtdNOJWtLnT8xrIJkg2&amp;t=785225bb"
+		type="text/javascript"></script>
+	<script src="/MCSWebApp/WfFormTemplate/ScriptResource.axd?d=8-XnHXWq8OrC86CDdzCC-B7gac22rmPtha5Al551Ue_uRgvzuE5Zujui2GL58p4kcKF6rD1uj_E3at_iXAACAt7euIbmFItjOTCHC2oQ9Xx_cXS6TRi7cW_CS955QBplm4UEl7NwPehHj4HdljBxqDEnNtE9UIvrbapNUv_thGorJF6fjxPLb4oh30JjN_Yiu9zOAeg1590umaU11SSUy6k_MuQ7QYo50D6TO_o4RvVLtpjbnxYJn7Bl5z3kWbIP0&amp;t=785225bb"
+		type="text/javascript"></script>
+	<script src="/MCSWebApp/WfFormTemplate/ScriptResource.axd?d=zP1tH6p1a-zN_r2hDiTdNrj2RGqexRNgh5kLl68jKd9_v_kk1JcMjhFftrmmBlV6KWM8xa7_WIs8Te1MgPVNi7bw3O4XKqQnu1hyWaVDl0uWBelMBtEMaqYkOAzpRg0H5rjxkKaTmQs70Wq8JhYd2vL-xSnnUXdK20czocXcq9asD3oQpzpZjLHwaZ81RHzxwbTS6gmBGthQr_XdofPPCxwAexKketKfviVP1SKOCGslpXWexZXGUYGg5yKGrXz3wwcu5hAxfXDxJMM_y16LeA2&amp;t=785225bb"
+		type="text/javascript"></script>
+	<script type="text/javascript">
+//<![CDATA[
+		function WebForm_OnSubmit() {
+			if (typeof (ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+			return true;
+		}
+//]]>
+	</script>
+	<div>
+		<div id="lockContext">
+			<span id="lockContext_ctl00" style="color: Red; visibility: hidden;"></span>
+		</div>
+		<div id="bindingControl">
+			<span id="bindingControl_ctl00" style="color: Red; visibility: hidden;"></span>
+			<input name="bindingControl$_innerValidateTextBox" type="text" id="bindingControl__innerValidateTextBox"
+				style="display: none;" />
+		</div>
+	</div>
+	<div>
+		<div id="moveToControl">
+			<div>
+			</div>
+			<input type="submit" name="moveToControl$innerMoveToButton" value="" id="moveToControl_innerMoveToButton"
+				onclick="if (event.srcElement.alreadyClicked) {event.srcElement.disabled = true;return;}if (typeof(Page_ClientValidate) == &#39;function&#39;) Page_ClientValidate();SubmitButtonIntance._onSubmitButtonClick();"
+				popupcaption="正在流转..." relcontrolid="ctl04_toolbarMoveTo" interval="200" minstep="0"
+				maxstep="100" progressmode="1" style="display: none;" /><input type="submit" name="moveToControl$innerSaveButton"
+					value="" id="moveToControl_innerSaveButton" onclick="if (event.srcElement.alreadyClicked) {event.srcElement.disabled = true;return;}if (typeof(Page_ClientValidate) == &#39;function&#39;) Page_ClientValidate();SubmitButtonIntance._onSubmitButtonClick();"
+					popupcaption="正在保存..." relcontrolid="ctl04_toolbarSave" interval="200" minstep="0"
+					maxstep="100" progressmode="1" style="display: none;" />
+		</div>
+		<div id="withdrawControl" allowwithdrawwhenclosed="true">
+			<input type="submit" name="withdrawControl$innerBtn" value="" id="withdrawControl_innerBtn"
+				onclick="if (event.srcElement.alreadyClicked) {event.srcElement.disabled = true;return;}if (typeof(Page_ClientValidate) == &#39;function&#39;) Page_ClientValidate();SubmitButtonIntance._onSubmitButtonClick();"
+				popupcaption="正在撤回..." relcontrolid="ctl04_toolbarDoWithdraw" interval="200"
+				minstep="0" maxstep="100" progressmode="1" style="display: none;" />
+		</div>
+		<div id="circulateControl">
+			<input type="submit" name="circulateControl$innerBtn" value="" id="circulateControl_innerBtn"
+				onclick="if (event.srcElement.alreadyClicked) {event.srcElement.disabled = true;return;}if (typeof(Page_ClientValidate) == &#39;function&#39;) Page_ClientValidate();SubmitButtonIntance._onSubmitButtonClick();"
+				popupcaption="正在传阅..." relcontrolid="ctl04_toolbarCirculate" interval="200" minstep="0"
+				maxstep="100" progressmode="0" style="display: none;" /><div id="circulateControl_ctl01">
+				</div>
+		</div>
+		<div id="WfRuntimeViewerWrapperControl1">
+		</div>
+		<div id="consignControl">
+			<div id="consignControl_userSelector">
+			</div>
+		</div>
+		<div id="addApprovecontrol">
+			<input type="submit" name="addApprovecontrol$innerBtn" value="" id="addApprovecontrol_innerBtn"
+				onclick="if (event.srcElement.alreadyClicked) {event.srcElement.disabled = true;return;}if (typeof(Page_ClientValidate) == &#39;function&#39;) Page_ClientValidate();SubmitButtonIntance._onSubmitButtonClick();"
+				popupcaption="正在加签..." relcontrolid="ctl04_toolbarMoveToAddApprover" interval="200"
+				minstep="0" maxstep="100" progressmode="0" style="display: none;" /><div id="addApprovecontrol_ctl01">
+				</div>
+		</div>
+		<div id="returnControl">
+			<div id="returnControl_activitySelector">
+			</div>
+			<input type="submit" name="returnControl$innerBtn" value="" id="returnControl_innerBtn"
+				onclick="if (event.srcElement.alreadyClicked) {event.srcElement.disabled = true;return;}if (typeof(Page_ClientValidate) == &#39;function&#39;) Page_ClientValidate();SubmitButtonIntance._onSubmitButtonClick();"
+				relcontrolid="ctl04_toolbarReturn" interval="200" minstep="0" maxstep="100" progressmode="0"
+				style="display: none;" />
+		</div>
+		<div id="abortControl">
+			<div id="abortControl_OpinionInputDialog">
+			</div>
+			<input type="submit" name="abortControl$innerBtn" value="" id="abortControl_innerBtn"
+				onclick="if (event.srcElement.alreadyClicked) {event.srcElement.disabled = true;return;}if (typeof(Page_ClientValidate) == &#39;function&#39;) Page_ClientValidate();SubmitButtonIntance._onSubmitButtonClick();"
+				popupcaption="正在作废..." relcontrolid="ctl04_toolbarAbort" interval="200" minstep="0"
+				maxstep="100" progressmode="1" style="display: none;" />
+		</div>
+		<div id="pauseControl">
+			<input type="submit" name="pauseControl$innerBtn" value="" id="pauseControl_innerBtn"
+				onclick="if (event.srcElement.alreadyClicked) {event.srcElement.disabled = true;return;}if (typeof(Page_ClientValidate) == &#39;function&#39;) Page_ClientValidate();SubmitButtonIntance._onSubmitButtonClick();"
+				relcontrolid="ctl04_toolbarPause" interval="200" minstep="0" maxstep="100" progressmode="0"
+				style="display: none;" />
+		</div>
+	</div>
+	<div id="top">
+		<span id="toolbar">
+			<table class="wftoolbar" cellpadding="0px" cellspacing="0px">
+				<tr>
+					<td>
+						<table class="bar">
+							<tr>
+								<td>
+									<a onclick="event.returnValue = false; if (!event.srcElement.disabled &amp;&amp; $find(&#39;moveToControl&#39;).doMoveTo($HBRootNS.WfControlOperationType.MoveTo)) return false;"
+										id="ctl04_toolbarMoveTo" category="SOAWebControls" class="enable" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl04$toolbarMoveTo&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))">
+										<img src='/MCSWebApp/images/toolbar/send.gif' />发送</a>
+								</td>
+								<td>
+									<a id="ctl04_toolbarMoveToAndNotify" title="送签并且在流程结束时收到通知" category="SOAWebControls"
+										class="invisible" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl04$toolbarMoveToAndNotify&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))">
+										<img src='/MCSWebApp/images/toolbar/sendwithnotice.gif' />送签并通知 </a>
+								</td>
+								<td>
+									<a id="ctl04_toolbarMoveToAndFYI" category="SOAWebControls" class="invisible" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl04$toolbarMoveToAndFYI&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))">
+										<img src='/MCSWebApp/images/toolbar/sendwithread.gif' />送签并传阅 </a>
+								</td>
+								<td>
+								</td>
+								<td>
+									<a id="ctl04_toolbarChangeApprover" category="SOAWebControls" class="invisible" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl04$toolbarChangeApprover&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))">
+										<img src='/MCSWebApp/images/toolbar/changeapprover.gif' />转签 </a>
+								</td>
+								<td>
+									<a onclick="event.returnValue = false; if (!this.disabled) $find(&quot;consignControl&quot;)._doOperation();return false;"
+										id="ctl04_toolbarConsign" category="SOAWebControls" class="invisible" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl04$toolbarConsign&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))">
+										<img src='/MCSWebApp/images/toolbar/consign.gif' />会签 </a>
+								</td>
+								<td>
+								</td>
+								<td>
+									<a id="ctl04_toolbarTerminate" title="强制结束当前流程" category="SOAWebControls" class="invisible"
+										href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl04$toolbarTerminate&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))">
+										<img src='/MCSWebApp/images/toolbar/finish.gif' />结束 </a>
+								</td>
+								<td>
+									<a id="ctl04_toolbarReject" category="SOAWebControls" class="invisible" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl04$toolbarReject&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))">
+										<img src='/MCSWebApp/images/toolbar/rejection.gif' />退件 </a>
+								</td>
+								<td>
+								</td>
+								<td>
+								</td>
+								<td>
+									<a id="ctl04_toolbarDoAbort" category="SOAWebControls" class="invisible" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl04$toolbarDoAbort&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))">
+										<img src='/MCSWebApp/images/toolbar/del.gif' />作废 </a>
+								</td>
+								<td>
+								</td>
+								<td>
+									<a id="ctl04_toolbarAssignment" category="SOAWebControls" class="invisible" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl04$toolbarAssignment&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))">
+										<img src='/MCSWebApp/images/toolbar/jiaoban.gif' />交办 </a>
+								</td>
+								<td>
+									<a id="ctl04_toolbarPress" category="SOAWebControls" class="invisible" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl04$toolbarPress&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))">
+										<img src='/MCSWebApp/images/toolbar/press.gif' />催办 </a>
+								</td>
+								<td>
+								</td>
+								<td>
+									<a onclick="event.returnValue = false; if (!this.disabled) $find(&quot;returnControl&quot;)._doOperation();return false;"
+										id="ctl04_toolbarReturn" category="SOAWebControls" class="disable" disabled="true"
+										href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl04$toolbarReturn&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))">
+										<img src='/MCSWebApp/images/toolbar/rejection.gif' />退件 </a>
+								</td>
+								<td>
+									<a onclick="if (!event.srcElement.disabled) $find(&#39;abortControl&#39;).doInternalOperation(); return false;"
+										id="ctl04_toolbarAbort" category="SOAWebControls" class="enable" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl04$toolbarAbort&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))">
+										<img src='/MCSWebApp/images/toolbar/del.gif' />作废 </a>
+								</td>
+								<td>
+									<a onclick="if (!event.srcElement.disabled) $find(&#39;pauseControl&#39;).doInternalOperation(); return false;"
+										id="ctl04_toolbarPause" category="SOAWebControls" class="enable" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl04$toolbarPause&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))">
+										<img src='/MCSWebApp/images/toolbar/delay.gif' />暂停 </a>
+								</td>
+								<td>
+									<a onclick="$find(&#39;WfRuntimeViewerWrapperControl1&#39;).open(); return false;"
+										id="ctl04_toolbarAppTrace" category="SOAWebControls" class="enable" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl04$toolbarAppTrace&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))">
+										<img src='/MCSWebApp/images/toolbar/tracker.gif' />流程跟踪 </a>
+								</td>
+								<td>
+									<a onclick="event.returnValue = false; if (!event.srcElement.disabled &amp;&amp; $find(&#39;moveToControl&#39;).doSave(false)) return false;"
+										id="ctl04_toolbarSave" category="SOAWebControls" class="enable" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl04$toolbarSave&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))">
+										<img src='/MCSWebApp/images/toolbar/save.gif' />保存 </a>
+								</td>
+								<td>
+									<a id="ctl04_toolbarPrint" category="SOAWebControls" class="invisible" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl04$toolbarPrint&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))">
+										<img src='/MCSWebApp/images/toolbar/print.gif' />打印 </a>
+								</td>
+								<td>
+									<a id="ctl04_toolbarCopyForm" title="复制当前表单的数据并且启动一个新流程" category="SOAWebControls"
+										class="invisible" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl04$toolbarCopyForm&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))">
+										<img src='/MCSWebApp/images/toolbar/copy.gif' />复制 </a>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</span>
+	</div>
+	<div id="outer">
+		<div class="header">
+			<div class="header-rbg">
+				<div class="header-lbg">
+					<span id="lbTaskName">表单模版</span></div>
+			</div>
+		</div>
+		<table class="nav">
+			<tr>
+				<td class="title">
+					<p>
+						流程</p>
+					<p>
+						导航</p>
+				</td>
+				<td>
+					<div id="procNavigator" class="mainContainer">
+						<table border="0" style="table-layout: fixed; width: 100%; height: 100%;">
+							<tr>
+								<td class="btnArrowContainer">
+									<a id="procNavigator_btnLeft" style="background-image: url(&quot;/MCSWebApp/WfFormTemplate/WebResource.axd?d=ccB3l6Ua6KBNJit8vd5uvJuDRqPzg7GY124rAkATRl4RZWt9bPCqJeiO9bemqxt52wjxjX9_QHHgKbRRFzDJnQrMBgwYTd4rvNtnnNvTQ-tViNj8zregg9egfvtd5xEyMCifQl8EQ8_1gsFL0zGTMmgxBy4PLrCN-nVb8NzO4r9iNv11Tv9UOzO0ZOMi-wdX0&amp;t=635375024676300000&quot;);
+										no-repeat 0px 0px" class="arrow back"></a>
+								</td>
+								<td>
+									<div id="procNavigator_processDivContainer" class="process_div_container1">
+										<div id="procNavigator_processUlContainer" class="div_nav">
+											<ul owneractivityid="">
+												<li activityid="433254db-9d8b-aa10-496b-b10dfd897a58"><span style="vertical-align: middle;"
+													title="刘闽辉" class="currActivity"><span>
+														<iframe style='display: none' id='userPresenceInnerPage' name='userPresenceInnerPage'
+															src='/MCSWebApp/WfFormTemplate/WebResource.axd?d=TLnUf-qFJ53K-M3yJ3qaA4kv6FNLqFbTR8VHLZWb_OO2GSu-SmQpSRrFYakWiL_rMAXOsDslRIZR_ejxF8W2Lt90jyvjYP730O-83caczIFSQ_mW14F7Eg_mnkdnzcZPXISmdNzM2SBpqokOcWSFKYPObfD_tzJ-VOhI-wyAcMZ0x3Do_EucFeJ_XytU9Sshki_6U9wKIyGu-DA5QgJmCQ2&t=635375024676300000'>
+														</iframe>
+														<div class="uc-ball">
+															<img src="/MCSWebApp/WfFormTemplate/WebResource.axd?d=pGH5AkWSMHnsyfUhZaj5yijYo3UO0W6hI1mxnWhu40eah2NCPaUNc6D6gMBDsaGyXSJjgb04Dew9tPYqL6sHjPFoQHot0ms-TKvc8tVdelwK9-ezbH5I0G1dqZoXjMfMKeEak3MMLjOv6yS0IghQeW2wc7wvz0sXiPlY_tXfH9GxQz1coJxPv3lFeADlIWDjU4vp0KIvbj1J5qWKoOKK8w2&t=635375024676300000"
+																id="procNavigator_ctl05,type=sip" alt="无联机状态信息" class="uc-hdr" showofflinepawn="true"
+																sip="liumh@sinooceanland.com" name="imnmark" /></div>
+														<span class="imnStatusText">刘闽辉</span></span></span><img src="/MCSWebApp/WfFormTemplate/WebResource.axd?d=h7RH8ndbmr_7Ih3biFjbL-S6rlKykXdYMA6hmiQPEg-_HxjdSd5xO9AIzg1wvLvoj6GW0WleQdMOOH-KNzGuGxQS6dO0dECkj2JhFgzBgw0-lkMvnGxuTQnR0FLfM5PQ1UOPlXfBdgWUFr6E3inuFiv-EX_gyZuXglPD_k2oPfNTh8d3Y2krsbNJVk7wb15K0&t=635375024676300000" /></li><li
+															activityid="6f164b35-450a-ae56-4889-deb9c682bfde"><span style="vertical-align: middle;"
+																title="樊海云" class="normalAvtivity"><span><span>
+																	<div class="uc-ball">
+																		<img src="/MCSWebApp/WfFormTemplate/WebResource.axd?d=pGH5AkWSMHnsyfUhZaj5yijYo3UO0W6hI1mxnWhu40eah2NCPaUNc6D6gMBDsaGyXSJjgb04Dew9tPYqL6sHjPFoQHot0ms-TKvc8tVdelwK9-ezbH5I0G1dqZoXjMfMKeEak3MMLjOv6yS0IghQeW2wc7wvz0sXiPlY_tXfH9GxQz1coJxPv3lFeADlIWDjU4vp0KIvbj1J5qWKoOKK8w2&t=635375024676300000"
+																			id="procNavigator_ctl11,type=sip" alt="无联机状态信息" class="uc-hdr" showofflinepawn="true"
+																			sip="fanhy@sinooceanland.com" name="imnmark" /></div>
+																	<span class="imnStatusText">樊海云</span></span></span></span><img src="/MCSWebApp/WfFormTemplate/WebResource.axd?d=h7RH8ndbmr_7Ih3biFjbL-S6rlKykXdYMA6hmiQPEg-_HxjdSd5xO9AIzg1wvLvoj6GW0WleQdMOOH-KNzGuGxQS6dO0dECkj2JhFgzBgw0-lkMvnGxuTQnR0FLfM5PQ1UOPlXfBdgWUFr6E3inuFiv-EX_gyZuXglPD_k2oPfNTh8d3Y2krsbNJVk7wb15K0&t=635375024676300000" /></li><li
+																		activityid="ce9ff952-846d-a761-47b0-b460a142c7b6"><span style="vertical-align: middle;"
+																			title="曲毅民" class="normalAvtivity"><span><span>
+																				<div class="uc-ball">
+																					<img src="/MCSWebApp/WfFormTemplate/WebResource.axd?d=pGH5AkWSMHnsyfUhZaj5yijYo3UO0W6hI1mxnWhu40eah2NCPaUNc6D6gMBDsaGyXSJjgb04Dew9tPYqL6sHjPFoQHot0ms-TKvc8tVdelwK9-ezbH5I0G1dqZoXjMfMKeEak3MMLjOv6yS0IghQeW2wc7wvz0sXiPlY_tXfH9GxQz1coJxPv3lFeADlIWDjU4vp0KIvbj1J5qWKoOKK8w2&t=635375024676300000"
+																						id="procNavigator_ctl17,type=sip" alt="无联机状态信息" class="uc-hdr" showofflinepawn="true"
+																						sip="quym@sinooceanland.com" name="imnmark" /></div>
+																				<span class="imnStatusText">曲毅民</span></span></span></span><img src="/MCSWebApp/WfFormTemplate/WebResource.axd?d=h7RH8ndbmr_7Ih3biFjbL-S6rlKykXdYMA6hmiQPEg-_HxjdSd5xO9AIzg1wvLvoj6GW0WleQdMOOH-KNzGuGxQS6dO0dECkj2JhFgzBgw0-lkMvnGxuTQnR0FLfM5PQ1UOPlXfBdgWUFr6E3inuFiv-EX_gyZuXglPD_k2oPfNTh8d3Y2krsbNJVk7wb15K0&t=635375024676300000" /></li><li
+																					activityid="22c1195f-612d-980b-4150-94739b302d0f"><span class="normalAvtivity">
+																						<img src="/MCSWebApp/WfFormTemplate/WebResource.axd?d=DCyCKgUjFjzweJeqKuiTqeeyyxwOCorUYGJ9n96hH3FWpKXpqvtEfBsgLk6--6MpwY5T39aUqIcYBGtkeo4MH6OpAF729QPtzVfHG6h6k2WtYF6yN0sIkRfTBTlHx9gAJzyGRpb1WMkGXqzH53ISEARI9YfcAOjXVoGDijmhWNTCVR2uPMeEs3JbTR-XPeh4iu_iDU9Q4qGIy6R71yzPwA2&t=635375024676300000"
+																							style="vertical-align: middle;" alt="结束" /></span></li></ul>
+										</div>
+									</div>
+								</td>
+								<td class="btnArrowContainer">
+									<a id="procNavigator_btnRight" style="background-image: url(&quot;/MCSWebApp/WfFormTemplate/WebResource.axd?d=ccB3l6Ua6KBNJit8vd5uvJuDRqPzg7GY124rAkATRl4RZWt9bPCqJeiO9bemqxt52wjxjX9_QHHgKbRRFzDJnQrMBgwYTd4rvNtnnNvTQ-tViNj8zregg9egfvtd5xEyMCifQl8EQ8_1gsFL0zGTMmgxBy4PLrCN-nVb8NzO4r9iNv11Tv9UOzO0ZOMi-wdX0&amp;t=635375024676300000&quot;);"
+										class="arrow forward"></a>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<div class="t-form-content">
+			<div class="lefttitle t-form-caption">
+				表单模版
+			</div>
+			<table class="t-form">
+				<tr class="t-leading">
+					<th class="t-form-hcell">
+					</th>
+					<td class="t-form-cell">
+					</td>
+					<th class="t-form-hcell">
+					</th>
+					<td class="t-form-cell">
+					</td>
+					<th class="t-form-hcell">
+					</th>
+					<td class="t-form-cell">
+					</td>
+				</tr>
+				<tr>
+					<th class="fieldtitle">
+						计划名称
+					</th>
+					<td colspan="5" class="t-text-field">
+						<div class="t-width-wrapper">
+							<input name="Subject" type="text" value="MDemo1" id="Subject" style="width: 100%;" />
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th class="fieldtitle">
+						附件
+					</th>
+					<td colspan="5">
+						<div id="attachmentsControl" style="width: 100%;">
+							<span id="attachmentsControl_ctl07" style="color: Red; visibility: hidden;"></span>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th class="fieldtitle">
+						管理单元
+					</th>
+					<td>
+						<select relativehidden="AdministrativeUnit_SelectedText" relativevaluehidden="AdministrativeUnit_SelectedValue"
+							name="AdministrativeUnit" id="AdministrativeUnit" onchange="onValueChanged();"
+							style="height: 20px; width: 80%;">
+							<option selected="selected" value="Group">集团总部管理单元</option>
+							<option value="BJ_Unit">北京管理单元</option>
+						</select><input name="AdministrativeUnit_SelectedText" type="hidden" id="AdministrativeUnit_SelectedText"
+							value="集团总部管理单元" /><input name="AdministrativeUnit_SelectedValue" type="hidden" id="AdministrativeUnit_SelectedValue"
+								value="Group" />
+					</td>
+					<th class="fieldtitle">
+						成本中心
+					</th>
+					<td>
+						<select relativehidden="CostCenter_SelectedText" relativevaluehidden="CostCenter_SelectedValue"
+							name="CostCenter" id="CostCenter" onchange="onValueChanged();" style="height: 20px;
+							width: 80%;">
+							<option selected="selected" value="1001">1001</option>
+							<option value="1002">1002</option>
+							<option value="1003">1003</option>
+						</select><input name="CostCenter_SelectedText" type="hidden" id="CostCenter_SelectedText"
+							value="1001" /><input name="CostCenter_SelectedValue" type="hidden" id="CostCenter_SelectedValue"
+								value="1001" />
+					</td>
+					<th class="fieldtitle">
+						金额
+					</th>
+					<td>
+						<select relativehidden="Amount_SelectedText" relativevaluehidden="Amount_SelectedValue"
+							name="Amount" id="Amount" onchange="onValueChanged();" style="height: 20px; width: 80%;">
+							<option selected="selected" value="0">0</option>
+							<option value="5000">5000</option>
+							<option value="10000">10000</option>
+						</select><input name="Amount_SelectedText" type="hidden" id="Amount_SelectedText"
+							value="0" /><input name="Amount_SelectedValue" type="hidden" id="Amount_SelectedValue"
+								value="0" />
+					</td>
+				</tr>
+				<tr>
+					<th colspan="6" class="lefttitle">
+						<img alt="" src="../Images/icon_01.gif" />审批
+					</th>
+				</tr>
+				<tr class="commonRow">
+					<td colspan="6">
+						<div id="opinionListView_UpdatePanel">
+							<input type="submit" name="opinionListView$changeProcessButton" value="" id="opinionListView_changeProcessButton"
+								onclick="if (event.srcElement.alreadyClicked) {event.srcElement.disabled = true;return;}if (typeof(Page_ClientValidate) == &#39;function&#39;) Page_ClientValidate();SubmitButtonIntance._onSubmitButtonClick();"
+								popupcaption="正在保存流程设置..." interval="200" minstep="0" maxstep="100" progressmode="0"
+								style="display: none;" /><input type="submit" name="opinionListView$refreshCurrentProcessButton"
+									value="" id="opinionListView_refreshCurrentProcessButton" onclick="onRefreshProcessButtonClick();;if (event.srcElement.alreadyClicked) {event.srcElement.disabled = true;return;}if (typeof(Page_ClientValidate) == &#39;function&#39;) Page_ClientValidate();SubmitButtonIntance._onSubmitButtonClick();"
+									popupcaption="正在更新流程..." interval="200" minstep="0" maxstep="100" progressmode="0"
+									style="display: none;" /><input type="submit" name="opinionListView$refreshProcessButton"
+										value="" id="opinionListView_refreshProcessButton" onclick="onRefreshProcessButtonClick();;if (event.srcElement.alreadyClicked) {event.srcElement.disabled = true;return;}if (typeof(Page_ClientValidate) == &#39;function&#39;) Page_ClientValidate();SubmitButtonIntance._onSubmitButtonClick();"
+										popupcaption="正在更新流程..." interval="200" minstep="0" maxstep="100" progressmode="0"
+										style="display: none;" /><input type="submit" name="opinionListView$changeTransitionProcessButton"
+											value="" id="opinionListView_changeTransitionProcessButton" onclick="if (event.srcElement.alreadyClicked) {event.srcElement.disabled = true;return;}if (typeof(Page_ClientValidate) == &#39;function&#39;) Page_ClientValidate();SubmitButtonIntance._onSubmitButtonClick();"
+											popupcaption="正在更新流程..." interval="200" minstep="0" maxstep="100" progressmode="0"
+											style="display: none;" /><input name="opinionListView$descriptorData" type="hidden"
+												id="opinionListView_descriptorData" /><table id="opinionListView_ContainerTable"
+													cellpadding="4" cellspacing="0" class="opinionListView" style="width: 100%; height: ;">
+													<tr>
+														<td class="activity">
+															<span></span>
+															<div class="command">
+																<a href="#" processid="bdea2a1e-1a47-a629-4557-58d20a43341f" resourceid="b75aad48-4963-9d7e-4e8d-4843ac126171"
+																	currentactivitykey="N0" class="btn" onclick="onEditActivityClick(&quot;opinionListView_activityEditor&quot;, &quot;opinionListView_changeProcessButton&quot;, &quot;opinionListView_descriptorData&quot;, &quot;add&quot;, false)">
+																	增加</a></div>
+														</td>
+													</tr>
+													<tr id="opinionListView_OpinionRow0">
+														<td class="activity">
+															<span></span>
+															<div class="actName">
+																活动点名称</div>
+															<div class="opDept">
+															</div>
+															<div class="opName">
+																<div class="uc-ball">
+																	<img src="/MCSWebApp/WfFormTemplate/WebResource.axd?d=pGH5AkWSMHnsyfUhZaj5yijYo3UO0W6hI1mxnWhu40eah2NCPaUNc6D6gMBDsaGyXSJjgb04Dew9tPYqL6sHjPFoQHot0ms-TKvc8tVdelwK9-ezbH5I0G1dqZoXjMfMKeEak3MMLjOv6yS0IghQeW2wc7wvz0sXiPlY_tXfH9GxQz1coJxPv3lFeADlIWDjU4vp0KIvbj1J5qWKoOKK8w2&t=635375024676300000"
+																		id="opinionListView_ctl09,type=sip" alt="无联机状态信息" class="uc-hdr" showofflinepawn="true"
+																		sip="fanhy@sinooceanland.com" name="imnmark" /></div>
+																<span class="imnStatusText">樊海云</span></div>
+															<div class="command">
+																<a href="#" processid="bdea2a1e-1a47-a629-4557-58d20a43341f" resourceid="b75aad48-4963-9d7e-4e8d-4843ac126171"
+																	currentactivitykey="N2" class="btn" onclick="onEditActivityClick(&quot;opinionListView_activityEditor&quot;, &quot;opinionListView_changeProcessButton&quot;, &quot;opinionListView_descriptorData&quot;, &quot;add&quot;, false)">
+																	增加</a><a href="#" processid="bdea2a1e-1a47-a629-4557-58d20a43341f" resourceid="b75aad48-4963-9d7e-4e8d-4843ac126171"
+																		currentactivitykey="N2" class="btn" onclick="onEditActivityClick(&quot;opinionListView_activityEditor&quot;, &quot;opinionListView_changeProcessButton&quot;, &quot;opinionListView_descriptorData&quot;, &quot;update&quot;, false)">修改</a><a
+																			href="#" processid="bdea2a1e-1a47-a629-4557-58d20a43341f" resourceid="b75aad48-4963-9d7e-4e8d-4843ac126171"
+																			currentactivitykey="N2" class="btn" onclick="onEditActivityClick(&quot;opinionListView_activityEditor&quot;, &quot;opinionListView_changeProcessButton&quot;, &quot;opinionListView_descriptorData&quot;, &quot;delete&quot;, false)">删除</a></div>
+														</td>
+														<td class="opinions">
+															<span></span>
+															<div>
+															</div>
+														</td>
+													</tr>
+													<tr id="opinionListView_OpinionRow1">
+														<td class="activity">
+															<span></span>
+															<div class="actName">
+																活动点名称</div>
+															<div class="opDept">
+															</div>
+															<div class="opName">
+																<div class="uc-ball">
+																	<img src="/MCSWebApp/WfFormTemplate/WebResource.axd?d=pGH5AkWSMHnsyfUhZaj5yijYo3UO0W6hI1mxnWhu40eah2NCPaUNc6D6gMBDsaGyXSJjgb04Dew9tPYqL6sHjPFoQHot0ms-TKvc8tVdelwK9-ezbH5I0G1dqZoXjMfMKeEak3MMLjOv6yS0IghQeW2wc7wvz0sXiPlY_tXfH9GxQz1coJxPv3lFeADlIWDjU4vp0KIvbj1J5qWKoOKK8w2&t=635375024676300000"
+																		id="opinionListView_ctl18,type=sip" alt="无联机状态信息" class="uc-hdr" showofflinepawn="true"
+																		sip="quym@sinooceanland.com" name="imnmark" /></div>
+																<span class="imnStatusText">曲毅民</span></div>
+															<div class="command">
+																<a href="#" processid="bdea2a1e-1a47-a629-4557-58d20a43341f" resourceid="b75aad48-4963-9d7e-4e8d-4843ac126171"
+																	currentactivitykey="N3" class="btn" onclick="onEditActivityClick(&quot;opinionListView_activityEditor&quot;, &quot;opinionListView_changeProcessButton&quot;, &quot;opinionListView_descriptorData&quot;, &quot;add&quot;, false)">
+																	增加</a><a href="#" processid="bdea2a1e-1a47-a629-4557-58d20a43341f" resourceid="b75aad48-4963-9d7e-4e8d-4843ac126171"
+																		currentactivitykey="N3" class="btn" onclick="onEditActivityClick(&quot;opinionListView_activityEditor&quot;, &quot;opinionListView_changeProcessButton&quot;, &quot;opinionListView_descriptorData&quot;, &quot;update&quot;, false)">修改</a><a
+																			href="#" processid="bdea2a1e-1a47-a629-4557-58d20a43341f" resourceid="b75aad48-4963-9d7e-4e8d-4843ac126171"
+																			currentactivitykey="N3" class="btn" onclick="onEditActivityClick(&quot;opinionListView_activityEditor&quot;, &quot;opinionListView_changeProcessButton&quot;, &quot;opinionListView_descriptorData&quot;, &quot;delete&quot;, false)">删除</a></div>
+														</td>
+														<td class="opinions">
+															<span></span>
+															<div>
+															</div>
+														</td>
+													</tr>
+												</table>
+						</div>
+						<div id="opinionListView_activityEditor">
+						</div>
+						<div id="opinionListView_groupActivityEditor">
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<script type="text/javascript">
+//<![CDATA[
+		Sys.WebForms.PageRequestManager._initialize('ctl05', 'serverForm', ['topinionListView$UpdatePanel', ''], [], [], 90, '');
+//]]>
+	</script>
+	<script type="text/javascript">
+//<![CDATA[
+		var Page_Validators = new Array(document.getElementById("lockContext_ctl00"), document.getElementById("bindingControl_ctl00"), document.getElementById("attachmentsControl_ctl07"));
+//]]>
+	</script>
+	<script type="text/javascript">
+//<![CDATA[
+		var lockContext_ctl00 = document.all ? document.all["lockContext_ctl00"] : document.getElementById("lockContext_ctl00");
+		lockContext_ctl00.evaluationfunction = "CustomValidatorEvaluateIsValid";
+		lockContext_ctl00.clientvalidationfunction = "$HBRootNS.LockContextControl.lockClientValidate";
+		var bindingControl_ctl00 = document.all ? document.all["bindingControl_ctl00"] : document.getElementById("bindingControl_ctl00");
+		bindingControl_ctl00.controltovalidate = "bindingControl__innerValidateTextBox";
+		bindingControl_ctl00.evaluationfunction = "CustomValidatorEvaluateIsValid";
+		var attachmentsControl_ctl07 = document.all ? document.all["attachmentsControl_ctl07"] : document.getElementById("attachmentsControl_ctl07");
+		attachmentsControl_ctl07.evaluationfunction = "CustomValidatorEvaluateIsValid";
+		attachmentsControl_ctl07.clientvalidationfunction = "$HBRootNS.MaterialControl.materialClientValidate";
+//]]>
+	</script>
+	<div>
+		<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAB3yrlORVk2v2E/HvOhFQ78lcoghEG8W9m/Vi1n5Nc6AfFYypXEKBOLE5TpGBwxnFwyip6LN58GVaUExWhRFVBVAJhGWJOsxZ1Rb4wO+beNqyrbXXf0drbaCPtI4QV8qNvYYyD69QJvk5DUMIhHUWYaJ514hx6/69McCB4BWhkpf+bxjxbh5quS+/yfZbUvqrrjrrZYNq/NvIDKrIXz8eWCLzx5KL65d54uoEjP2C04ah4EztgBEsQiBGMw0qu4FYtinYXNE4/D2cK1PwMsxFodesPRXBJFxD/EGsXHhj27D+4U3u2Lk8TWKu2xasj7o2JGlQTcH9ZIYYnN9Fcjzgsr9wHYbtth6yyceqBMtBwwIoCxd/PKvQUjDtEr2YbGJ+rk0ZwDcbyEZRPCtv0nfZbCMwBmqz+jgGQG2HF53R6rkzeFfh5pMi2ApNWvZqjVxYq7qop26AH6XQBWYLRef3rki60aSlCwb28VARQ7AuCWyC104XXbjTcilxlJok74KTF5XcmAatbvsYNwXRNjARs6EctIBXr53k5sdwJvnlr7+D0mjK4aPtBq8DxO8rikSBe+wcW7HJ1SzA9mxKKY8/femYLkuXglDKDJr7Wkz7vLVgn82fuNf7HBumxq3Y5/8JCQYvghxbz/k1g9Hb2HguiRk" />
+	</div>
+	<script type="text/javascript">
+//<![CDATA[
+		$HGRootNS.ValidatorManager.StringLengthValidator = function () {
+			this.validate = function (cvalue, additionalData) {
+				var sourcevalue = cvalue.length;
+				var lowerBound = additionalData.lowerBound;
+				var upperBound = additionalData.upperBound;
+
+				if (sourcevalue * 1 < lowerBound * 1 || sourcevalue * 1 > upperBound * 1) {
+					return false;
+				}
+				else {
+					return true;
+				}
+			}
+		};
+
+		var Page_ValidationActive = false;
+		if (typeof (ValidatorOnLoad) == "function") {
+			ValidatorOnLoad();
+		}
+
+		function ValidatorOnSubmit() {
+			if (Page_ValidationActive) {
+				return ValidatorCommonOnSubmit();
+			}
+			else {
+				return true;
+			}
+		}
+		document.getElementById('wfExternalFrame').onreadystatechange = $HBRootNS.WfMoveToControl.onInnerFrameStateChange;//]]>
+	</script>
+	<script type="text/javascript">
+//<![CDATA[
+		if (window.attachEvent) window.attachEvent("onload", new Function("SubmitButtonIntance._registerButton($get('moveToControl_innerMoveToButton'));")); else window.addEventListener("onload", new Function("SubmitButtonIntance._registerButton($get('moveToControl_innerMoveToButton'));"), false); if (window.attachEvent) window.attachEvent("onload", new Function("SubmitButtonIntance._registerButton($get('moveToControl_innerSaveButton'));")); else window.addEventListener("onload", new Function("SubmitButtonIntance._registerButton($get('moveToControl_innerSaveButton'));"), false); if (window.attachEvent) window.attachEvent("onload", new Function("SubmitButtonIntance._registerButton($get('withdrawControl_innerBtn'));")); else window.addEventListener("onload", new Function("SubmitButtonIntance._registerButton($get('withdrawControl_innerBtn'));"), false); if (window.attachEvent) window.attachEvent("onload", new Function("SubmitButtonIntance._registerButton($get('circulateControl_innerBtn'));")); else window.addEventListener("onload", new Function("SubmitButtonIntance._registerButton($get('circulateControl_innerBtn'));"), false); $HBRootNS.WfRuntimeViewerWrapperControl.registerHoverHelper('', ''); $HBRootNS.WfRuntimeViewerWrapperControl.registerPopupMenu('_SLP', 'WfRuntimeViewerWrapperControl1'); var _currentUserIsAdmin = true;
+		var _currentUserAppAuthInfoString = '[]';
+
+		var _currentUserAppAuthInfo = Sys.Serialization.JavaScriptSerializer.deserialize(_currentUserAppAuthInfoString);
+
+		function _doesCurrentUserHavePermission(appName, progName, authType) {
+			var result = false;
+
+			for (var i = 0; i < _currentUserAppAuthInfo.length; i++) {
+				var appAuthInfo = _currentUserAppAuthInfo[i];
+
+				if (appAuthInfo.ApplicationName == appName && appAuthInfo.ProgramName == progName && appAuthInfo.AuthType == authType) {
+					result = true;
+					break;
+				}
+			}
+
+			return result;
+		} if (window.attachEvent) window.attachEvent("onload", new Function("SubmitButtonIntance._registerButton($get('addApprovecontrol_innerBtn'));")); else window.addEventListener("onload", new Function("SubmitButtonIntance._registerButton($get('addApprovecontrol_innerBtn'));"), false); if (window.attachEvent) window.attachEvent("onload", new Function("SubmitButtonIntance._registerButton($get('returnControl_innerBtn'));")); else window.addEventListener("onload", new Function("SubmitButtonIntance._registerButton($get('returnControl_innerBtn'));"), false); if (window.attachEvent) window.attachEvent("onload", new Function("SubmitButtonIntance._registerButton($get('abortControl_innerBtn'));")); else window.addEventListener("onload", new Function("SubmitButtonIntance._registerButton($get('abortControl_innerBtn'));"), false); if (window.attachEvent) window.attachEvent("onload", new Function("SubmitButtonIntance._registerButton($get('pauseControl_innerBtn'));")); else window.addEventListener("onload", new Function("SubmitButtonIntance._registerButton($get('pauseControl_innerBtn'));"), false); if (window.addEventListener) { window.addEventListener("load", ProcessImn, false); } else if (window.attachEvent) { window.attachEvent("onload", ProcessImn); } attachHBDropDownListEvents(document.getElementById('AdministrativeUnit')); attachHBDropDownListEvents(document.getElementById('CostCenter')); attachHBDropDownListEvents(document.getElementById('Amount')); if (typeof ($HGRootNS) != "undefined") $HGRootNS.TreeExtendedData = "MCS.Library.SOA.DataObjects.OguBase, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798"; Sys.WebForms.PageRequestManager.getInstance().add_endRequest(adjustProcessDescriptorEndRequestHandler); opinionListViewHiddenDataID = "opinionListView_descriptorData";
+		opinionListViewChangeProcessButtonID = "opinionListView_changeProcessButton"; SubmitButtonIntance._registerButton($get('opinionListView_changeProcessButton')); SubmitButton.resetAllStates(); SubmitButtonIntance._registerButton($get('opinionListView_changeProcessButton')); SubmitButtonIntance._registerButton($get('opinionListView_refreshCurrentProcessButton')); SubmitButtonIntance._registerButton($get('opinionListView_refreshProcessButton')); SubmitButtonIntance._registerButton($get('opinionListView_changeTransitionProcessButton'));
+		document.getElementById('lockContext_ctl00').dispose = function () {
+			Array.remove(Page_Validators, document.getElementById('lockContext_ctl00'));
+		}
+		Sys.Application.add_init(function () {
+			$create(MCS.Web.WebControls.LockContextControl, { "callBackUrl": "/MCSWebApp/WfFormTemplate/Forms/TemplateView.aspx?resourceID=b75aad48-4963-9d7e-4e8d-4843ac126171\u0026activityID=433254db-9d8b-aa10-496b-b10dfd897a58\u0026_op=lockCallBack", "checkInterval": { "Ticks": 600000000, "Days": 0, "Hours": 0, "Milliseconds": 0, "Minutes": 1, "Seconds": 0, "TotalDays": 0.00069444444444444436, "TotalHours": 0.016666666666666666, "TotalMilliseconds": 60000, "TotalMinutes": 1, "TotalSeconds": 60 }, "enabled": true, "invokeWithoutViewState": true, "locks": [{ "lockID": "b75aad48-4963-9d7e-4e8d-4843ac126171", "lockTime": "2014-06-04 18:15:27.967", "personID": "f4048590-feec-4c15-990d-2f7693146937", "resourceID": "b75aad48-4963-9d7e-4e8d-4843ac126171", "lockType": 2, "effectiveTime": 240 }, { "lockID": "433254db-9d8b-aa10-496b-b10dfd897a58", "lockTime": "2014-06-04 18:15:27.970", "personID": "f4048590-feec-4c15-990d-2f7693146937", "resourceID": "b75aad48-4963-9d7e-4e8d-4843ac126171", "lockType": 3, "effectiveTime": 240}], "serverControlType": "MCS.Web.WebControls.LockContextControl, MCS.Library.SOA.Web.WebControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798", "staticCallBackProxyID": "__staticCallbackProxyControl" }, null, null, $get("lockContext"));
+		});
+
+		document.getElementById('bindingControl_ctl00').dispose = function () {
+			Array.remove(Page_Validators, document.getElementById('bindingControl_ctl00'));
+		}
+		Sys.Application.add_init(function () {
+			$create(MCS.Web.WebControls.DataBindingControl, { "_autoClearClientStateFieldValue": true, "clientStateField": $get("bindingControl_ClientState"), "errorImg": "/MCSWebApp/WfFormTemplate/WebResource.axd?d=bLAMrBahVwH1D16JKqUbovmBgq_sUSztgDAIq-uFpzNpX-Oudx9olJVyYpqVBGZdM9G8IovmYkPVlQpZPZEG2i3c1DUix5F4xdojV3vetnpGZ9hjIMIthu9dIu-5xRXO688-5yVIo3T2bPn_vc0U4dFqqh3qk9WmkaWeyv46Pqs1\u0026t=635375024676300000", "invokeWithoutViewState": true, "serverControlType": "MCS.Web.WebControls.DataBindingControl, MCS.Library.SOA.Web.WebControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798", "staticCallBackProxyID": "__staticCallbackProxyControl" }, null, null, $get("bindingControl"));
+		});
+		Sys.Application.add_init(function () {
+			$create(MCS.Web.WebControls.WfMoveToControl, { "_autoClearClientStateFieldValue": true, "allowEmptyOpinion": true, "autoShowResoureUserSelector": true, "clientCheckSelectdUsers": true, "clientStateField": $get("moveToControl_ClientState"), "innerMoveToButtonClientID": "moveToControl_innerMoveToButton", "innerSaveButtonClientID": "moveToControl_innerSaveButton", "invokeWithoutViewState": true, "opinionInputControlID": "", "opinionTypeClientID": "", "resourceUserSelectorClientID": "", "serverControlType": "MCS.Web.WebControls.WfMoveToControl, MCS.Library.SOA.Web.WebControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798", "staticCallBackProxyID": "__staticCallbackProxyControl", "validateGroupWhenMoveTo": -1, "validateGroupWhenSave": -1 }, null, null, $get("moveToControl"));
+		});
+		Sys.Application.add_init(function () {
+			$create(MCS.Web.WebControls.WfWithdrawControl, { "_autoClearClientStateFieldValue": true, "clientStateField": $get("withdrawControl_ClientState"), "innerButtonClientID": "withdrawControl_innerBtn", "invokeWithoutViewState": true, "moveToControlClientID": "moveToControl", "serverControlType": "MCS.Web.WebControls.WfWithdrawControl, MCS.Library.SOA.Web.WebControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798", "staticCallBackProxyID": "__staticCallbackProxyControl" }, null, null, $get("withdrawControl"));
+		});
+		Sys.Application.add_init(function () {
+			$create(MCS.Web.WebControls.UserSelector, { "_autoClearClientStateFieldValue": true, "cancelButtonClientID": "", "clientStateField": $get("circulateControl_ctl01_ClientState"), "confirmButtonClientID": "", "currentMode": 0, "dialogFeature": "dialogWidth:420px;dialogHeight:200px;center:yes;resizable:no;scroll:no;status:no", "dialogUrl": "/MCSWebApp/WfFormTemplate/Forms/TemplateView.aspx?resourceID=b75aad48-4963-9d7e-4e8d-4843ac126171\u0026activityID=433254db-9d8b-aa10-496b-b10dfd897a58\u0026PageRenderMode=True%5eHTML%5eInnerBrowser%5e%5ecirculateControl%24ctl01%5e%7b%7d%5eDialogControl\u0026dialogTitle=%e8%af%b7%e9%80%89%e6%8b%a9%e4%bc%a0%e9%98%85%e4%ba%ba\u0026uspListMask=Organization%2c+User%2c+Sideline\u0026uspSelectMask=User\u0026uspMultiSelect=True", "invokeWithoutViewState": true, "listMask": 11, "middleButtonClientID": "", "multiSelect": true, "selectMask": 2, "serverControlType": "MCS.Web.WebControls.UserSelector, MCS.Library.SOA.Web.WebControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798", "showingMode": 1, "staticCallBackProxyID": "__staticCallbackProxyControl" }, null, null, $get("circulateControl_ctl01"));
+		});
+		Sys.Application.add_init(function () {
+			$create(MCS.Web.WebControls.WfCirculateControl, { "_autoClearClientStateFieldValue": true, "clientStateField": $get("circulateControl_ClientState"), "innerButtonClientID": "circulateControl_innerBtn", "invokeWithoutViewState": true, "moveToControlClientID": "moveToControl", "serverControlType": "MCS.Web.WebControls.WfCirculateControl, MCS.Library.SOA.Web.WebControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798", "staticCallBackProxyID": "__staticCallbackProxyControl", "userInputClientID": "circulateControl_ctl01" }, null, null, $get("circulateControl"));
+		});
+
+		WebForm_InitCallback(); Sys.Application.add_init(function () {
+			$create(MCS.Web.WebControls.WfRuntimeViewerWrapperControl, { "_autoClearClientStateFieldValue": true, "_callbackTarget": "WfRuntimeViewerWrapperControl1", "adminAddActivityUrl": "/MCSWebApp/WorkflowDesigner/ExternalDialogs/AddActivityDialog.aspx?simulation=false", "adminAddTransitionUrl": "/MCSWebApp/WorkflowDesigner/ExternalDialogs/AddTransitionDialog.aspx?simulation=false", "adminAutoMoveToUrl": "/MCSWebApp/WorkflowDesigner/ExternalDialogs/AdminAutoMoveToDialog.aspx?simulation=false", "adminDeleteObjectUrl": "/MCSWebApp/WorkflowDesigner/ExternalDialogs/DeleteObjectDialog.aspx?simulation=false", "appLogViewUrl": "/MCSWebApp/OACommonPages/UserOperationLog/UserOperationLogView.aspx?simulation=false", "cancelButtonClientID": "", "clientStateField": $get("WfRuntimeViewerWrapperControl1_ClientState"), "confirmButtonClientID": "", "currentMode": 0, "dialogFeature": "dialogWidth:800px;dialogHeight:600px;dialogTop:\u0027 + ((window.screen.height - 600) / 2) + \u0027px;dialogLeft:\u0027 + ((window.screen.width - 800) / 2) + \u0027px;center:yes;resizable:yes;scroll:no;status:no", "dialogUrl": "/MCSWebApp/WfFormTemplate/Forms/TemplateView.aspx?resourceID=b75aad48-4963-9d7e-4e8d-4843ac126171\u0026activityID=433254db-9d8b-aa10-496b-b10dfd897a58\u0026PageRenderMode=True%5eHTML%5eInnerBrowser%5e%5eWfRuntimeViewerWrapperControl1%5e%7b%7d%5eDialogControl\u0026dialogTitle=%e6%b5%81%e7%a8%8b%e8%b7%9f%e8%b8%aa\u0026processID=bdea2a1e-1a47-a629-4557-58d20a43341f", "editProcessUrl": "/MCSWebApp/WorkflowDesigner/ExternalDialogs/EditProperties.aspx?simulation=false", "invokeWithoutViewState": true, "linkPageUrl": "", "middleButtonClientID": "", "normalOpWrapperClientID": "", "openWindowFeature": "width=800,height=600,left=\u0027 + ((window.screen.width - 800) / 2) + \u0027,top=\u0027 + ((window.screen.height - 600) / 2) + \u0027,resizable=yes,scrollbars=no,status=no,toolbar=no", "serverControlType": "MCS.Web.WebControls.WfRuntimeViewerWrapperControl, MCS.Library.SOA.Web.WebControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798", "showMainStream": false, "showingMode": 1, "staticCallBackProxyID": "__staticCallbackProxyControl", "useIndependentPage": false, "wfRuntimeViewerSLID": "_SLP", "wfRuntimeViewerWorkflowInfoHiddenFieldID": "_JsonInfo" }, null, null, $get("WfRuntimeViewerWrapperControl1"));
+		});
+		Sys.Application.add_init(function () {
+			$create(MCS.Web.WebControls.ExtConsignUserSelector, { "_autoClearClientStateFieldValue": true, "cancelButtonClientID": "", "clientStateField": $get("consignControl_userSelector_ClientState"), "confirmButtonClientID": "", "currentMode": 0, "dialogFeature": "dialogWidth:640px;dialogHeight:480px;center:yes;resizable:yes;scroll:no;status:no", "dialogUrl": "/MCSWebApp/WfFormTemplate/Forms/TemplateView.aspx?resourceID=b75aad48-4963-9d7e-4e8d-4843ac126171\u0026activityID=433254db-9d8b-aa10-496b-b10dfd897a58\u0026PageRenderMode=True%5eHTML%5eInnerBrowser%5e%5econsignControl%24userSelector%5e%7b%7d%5eDialogControl\u0026dialogTitle=%e8%af%b7%e9%80%89%e6%8b%a9%e5%a4%84%e7%90%86%e4%ba%ba\u0026uspListMask=Organization%2c+User%2c+Sideline\u0026uspSelectMask=User%2c+Sideline\u0026uspMultiSelect=True\u0026uspIsConsign=True", "invokeWithoutViewState": true, "isConsign": true, "listMask": 11, "middleButtonClientID": "", "multiSelect": true, "selectMask": 10, "serverControlType": "MCS.Web.WebControls.ExtConsignUserSelector, MCS.Library.SOA.Web.WebControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798", "showingMode": 1, "staticCallBackProxyID": "__staticCallbackProxyControl" }, null, null, $get("consignControl_userSelector"));
+		});
+		Sys.Application.add_init(function () {
+			$create(MCS.Web.WebControls.WfConsignControl, { "_autoClearClientStateFieldValue": true, "clientStateField": $get("consignControl_ClientState"), "invokeWithoutViewState": true, "moveToControlClientID": "moveToControl", "serverControlType": "MCS.Web.WebControls.WfConsignControl, MCS.Library.SOA.Web.WebControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798", "staticCallBackProxyID": "__staticCallbackProxyControl", "userSelectorClientID": "consignControl_userSelector" }, null, null, $get("consignControl"));
+		});
+		Sys.Application.add_init(function () {
+			$create(MCS.Web.WebControls.UserSelector, { "_autoClearClientStateFieldValue": true, "cancelButtonClientID": "", "clientStateField": $get("addApprovecontrol_ctl01_ClientState"), "confirmButtonClientID": "", "currentMode": 0, "dialogFeature": "dialogWidth:420px;dialogHeight:200px;center:yes;resizable:no;scroll:no;status:no", "dialogUrl": "/MCSWebApp/WfFormTemplate/Forms/TemplateView.aspx?resourceID=b75aad48-4963-9d7e-4e8d-4843ac126171\u0026activityID=433254db-9d8b-aa10-496b-b10dfd897a58\u0026PageRenderMode=True%5eHTML%5eInnerBrowser%5e%5eaddApprovecontrol%24ctl01%5e%7b%7d%5eDialogControl\u0026dialogTitle=%e8%af%b7%e9%80%89%e6%8b%a9%e5%8a%a0%e7%ad%be%e4%ba%ba\u0026uspListMask=Organization%2c+User%2c+Sideline\u0026uspSelectMask=User%2c+Sideline", "invokeWithoutViewState": true, "listMask": 11, "middleButtonClientID": "", "multiSelect": false, "selectMask": 10, "serverControlType": "MCS.Web.WebControls.UserSelector, MCS.Library.SOA.Web.WebControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798", "showingMode": 1, "staticCallBackProxyID": "__staticCallbackProxyControl" }, null, null, $get("addApprovecontrol_ctl01"));
+		});
+		Sys.Application.add_init(function () {
+			$create(MCS.Web.WebControls.WfAddApproverControl, { "_autoClearClientStateFieldValue": true, "activityID": "433254db-9d8b-aa10-496b-b10dfd897a58", "clientStateField": $get("addApprovecontrol_ClientState"), "innerButtonClientID": "addApprovecontrol_innerBtn", "invokeWithoutViewState": true, "moveToControlClientID": "moveToControl", "serverControlType": "MCS.Web.WebControls.WfAddApproverControl, MCS.Library.SOA.Web.WebControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798", "staticCallBackProxyID": "__staticCallbackProxyControl", "userInputClientID": "addApprovecontrol_ctl01" }, null, null, $get("addApprovecontrol"));
+		});
+		Sys.Application.add_init(function () {
+			$create(MCS.Web.WebControls.RejectActivitySelector, { "_autoClearClientStateFieldValue": true, "activitiesListClientID": "", "cancelButtonClientID": "", "clientStateField": $get("returnControl_activitySelector_ClientState"), "confirmButtonClientID": "", "currentMode": 0, "dialogFeature": "dialogWidth:400px;dialogHeight:300px;center:yes;resizable:yes;scroll:no;status:no", "dialogUrl": "/MCSWebApp/WfFormTemplate/Forms/TemplateView.aspx?resourceID=b75aad48-4963-9d7e-4e8d-4843ac126171\u0026PageRenderMode=True^HTML^InnerBrowser^^returnControl$activitySelector^{}^DialogControl\u0026dialogTitle=%e8%af%b7%e9%80%89%e6%8b%a9%e9%80%80%e4%bb%b6%e7%8e%af%e8%8a%82\u0026dialogHeaderText=%e9%80%89%e6%8b%a9%e9%80%80%e4%bb%b6%e7%8e%af%e8%8a%82\u0026category=SOAWebControls\u0026rto=False", "invokeWithoutViewState": true, "middleButtonClientID": "", "serverControlType": "MCS.Web.WebControls.RejectActivitySelector, MCS.Library.SOA.Web.WebControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798", "showingMode": 1, "staticCallBackProxyID": "__staticCallbackProxyControl" }, null, null, $get("returnControl_activitySelector"));
+		});
+		Sys.Application.add_init(function () {
+			$create(MCS.Web.WebControls.WfReturnControl, { "_autoClearClientStateFieldValue": true, "activityID": "433254db-9d8b-aa10-496b-b10dfd897a58", "activitySelectorClientID": "returnControl_activitySelector", "clientStateField": $get("returnControl_ClientState"), "invokeWithoutViewState": true, "moveToControlClientID": "moveToControl", "rejectMode": 1, "serverControlType": "MCS.Web.WebControls.WfReturnControl, MCS.Library.SOA.Web.WebControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798", "staticCallBackProxyID": "__staticCallbackProxyControl" }, null, null, $get("returnControl"));
+		});
+		Sys.Application.add_init(function () {
+			$create(MCS.Web.WebControls.OpinionInputDialog, { "_autoClearClientStateFieldValue": true, "cancelButtonClientID": "", "clientStateField": $get("abortControl_OpinionInputDialog_ClientState"), "confirmButtonClientID": "", "currentMode": 0, "dialogFeature": "dialogWidth:400px;dialogHeight:300px;center:yes;resizable:no;scroll:no;status:no", "dialogUrl": "/MCSWebApp/WfFormTemplate/Forms/TemplateView.aspx?resourceID=b75aad48-4963-9d7e-4e8d-4843ac126171\u0026activityID=433254db-9d8b-aa10-496b-b10dfd897a58\u0026PageRenderMode=True%5eHTML%5eInnerBrowser%5e%5eabortControl%24OpinionInputDialog%5e%7b%7d%5eDialogControl\u0026dialogTitle=%e8%af%b7%e8%be%93%e5%85%a5%e4%bd%9c%e5%ba%9f%e6%84%8f%e8%a7%81\u0026category=SOAWebControls\u0026aeo=False\u0026eoa=%e8%af%b7%e8%be%93%e5%85%a5%e4%bd%9c%e5%ba%9f%e6%84%8f%e8%a7%81", "invokeWithoutViewState": true, "middleButtonClientID": "", "serverControlType": "MCS.Web.WebControls.OpinionInputDialog, MCS.Library.SOA.Web.WebControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798", "showingMode": 1, "staticCallBackProxyID": "__staticCallbackProxyControl" }, null, null, $get("abortControl_OpinionInputDialog"));
+		});
+		Sys.Application.add_init(function () {
+			$create(MCS.Web.WebControls.WfAbortControl, { "_autoClearClientStateFieldValue": true, "clientStateField": $get("abortControl_ClientState"), "innerButtonClientID": "abortControl_innerBtn", "invokeWithoutViewState": true, "moveToControlClientID": "moveToControl", "needAbortReason": true, "opinionInputDialogClientID": "abortControl_OpinionInputDialog", "serverControlType": "MCS.Web.WebControls.WfAbortControl, MCS.Library.SOA.Web.WebControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798", "staticCallBackProxyID": "__staticCallbackProxyControl" }, null, null, $get("abortControl"));
+		});
+		Sys.Application.add_init(function () {
+			$create(MCS.Web.WebControls.WfPauseControl, { "_autoClearClientStateFieldValue": true, "clientStateField": $get("pauseControl_ClientState"), "innerButtonClientID": "pauseControl_innerBtn", "invokeWithoutViewState": true, "moveToControlClientID": "moveToControl", "operationText": "暂停", "serverControlType": "MCS.Web.WebControls.WfPauseControl, MCS.Library.SOA.Web.WebControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798", "staticCallBackProxyID": "__staticCallbackProxyControl" }, null, null, $get("pauseControl"));
+		});
+		Sys.Application.add_init(function () {
+			$create(MCS.Web.WebControls.ProcessNavigator, { "buttonLeftClientID": "procNavigator_btnLeft", "buttonRightClientID": "procNavigator_btnRight", "invokeWithoutViewState": true, "processDivContainerClientID": "procNavigator_processDivContainer", "processUlContainerClientID": "procNavigator_processUlContainer", "serverControlType": "MCS.Web.WebControls.ProcessNavigator, MCS.Library.SOA.Web.WebControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798", "staticCallBackProxyID": "__staticCallbackProxyControl" }, null, null, $get("procNavigator"));
+		});
+
+		document.getElementById('attachmentsControl_ctl07').dispose = function () {
+			Array.remove(Page_Validators, document.getElementById('attachmentsControl_ctl07'));
+		}
+		Sys.Application.add_init(function () {
+			$create(MCS.Web.WebControls.MaterialControl, { "_autoClearClientStateFieldValue": true, "activityControlMode": 4, "allowEdit": true, "allowEditContent": true, "autoCheck": true, "autoOpenDocument": false, "caption": "添加或修改", "captionImagePath": "/MCSWebApp/WfFormTemplate/WebResource.axd?d=_M9OBrIRmqZ07eks6LdbJlZwVPOoF77R3g80gVXNtfp37AMhMWQcYYilKYEvvF7-CVsaqI7vROwB-SN0HtWk72xuQr4LqkzMU0_afli3IPcz1hCWLGid3aIzUGVqS1tB4DEqVrmwkw4tUxLsDK0H1kd3iXmPLkFrvdifeVeaqEuQlM1qlDhcbW0jiY-YPmq40\u0026t=635375024676300000", "clientStateField": $get("attachmentsControl_ClientState"), "controlID": "attachmentsControl", "currentPageUrl": "/MCSWebApp/WfFormTemplate/Forms/TemplateView.aspx", "defaultClass": "Attachments", "defaultFileIconPath": "/MCSWebApp/Images/16/default.gif", "defaultResourceID": "b75aad48-4963-9d7e-4e8d-4843ac126171", "department": { "__type": "MCS.Library.SOA.DataObjects.OguOrganization, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798", "id": "f53e880d-b191-4788-8477-b0ddaa6d3a57", "name": "流程管理部", "displayName": "流程管理部", "objectType": 1, "fullPath": "机构人员\\远洋地产\\集团总部\\流程管理部", "globalSortID": "000001000001000001000011", "levels": 4, "sortID": "11", "status": 1, "clientContext": {}, "departmentClass": 0, "departmentType": 0, "rank": 10 }, "designatedControlToShowDialog": false, "dialogEditDocumentControlUrl": "/MCSWebApp/WfFormTemplate/Forms/TemplateView.aspx?resourceID=b75aad48-4963-9d7e-4e8d-4843ac126171\u0026activityID=433254db-9d8b-aa10-496b-b10dfd897a58\u0026PageRenderMode=True%5eHTML%5eInnerBrowser%5e%5eattachmentsControl%5e%7b%7d%5eDialogEditDocumentControl", "dialogFileOpenTypeControlUrl": "/MCSWebApp/WfFormTemplate/Forms/TemplateView.aspx?resourceID=b75aad48-4963-9d7e-4e8d-4843ac126171\u0026activityID=433254db-9d8b-aa10-496b-b10dfd897a58\u0026PageRenderMode=True%5eHTML%5eInnerBrowser%5e%5eattachmentsControl%5e%7b%7d%5eDialogFileOpenTypeControl", "dialogUploadFileControlUrl": "/MCSWebApp/WfFormTemplate/Forms/TemplateView.aspx?resourceID=b75aad48-4963-9d7e-4e8d-4843ac126171\u0026activityID=433254db-9d8b-aa10-496b-b10dfd897a58\u0026PageRenderMode=True%5eHTML%5eInnerBrowser%5e%5eattachmentsControl%5e%7b%7d%5eDialogUploadFileControl", "dialogUploadFileProcessControlUrl": "/MCSWebApp/WfFormTemplate/Forms/TemplateView.aspx?resourceID=b75aad48-4963-9d7e-4e8d-4843ac126171\u0026activityID=433254db-9d8b-aa10-496b-b10dfd897a58\u0026PageRenderMode=True%5eHTML%5eInnerBrowser%5e%5eattachmentsControl%5e%7b%7d%5eDialogUploadFileProcessControl", "dialogUploadFileTraditionalControlUrl": "/MCSWebApp/WfFormTemplate/Forms/TemplateView.aspx?resourceID=b75aad48-4963-9d7e-4e8d-4843ac126171\u0026activityID=433254db-9d8b-aa10-496b-b10dfd897a58\u0026PageRenderMode=True%5eHTML%5eInnerBrowser%5e%5eattachmentsControl%5e%7b%7d%5eDialogUploadFileTraditionalControl", "dialogVersionControlUrl": "/MCSWebApp/WfFormTemplate/Forms/TemplateView.aspx?resourceID=b75aad48-4963-9d7e-4e8d-4843ac126171\u0026activityID=433254db-9d8b-aa10-496b-b10dfd897a58\u0026PageRenderMode=True%5eHTML%5eInnerBrowser%5e%5eattachmentsControl%5e%7b%7d%5eDialogVersionControl", "displayText": "显示", "downloadTemplateWithViewState": false, "downloadWithViewState": false, "draftText": "起草", "editDocumentInCurrentPage": false, "editImagePath": "/MCSWebApp/WfFormTemplate/WebResource.axd?d=CnqlxcNe6ENQ3fuBMAsVzNL_LCynI0Kqy9f7LkhGsQQN1DUSymG1rp5rIT0OBY1Ptk9I0ocjum51N5o0EjWGSr1sbmZK0_iJb6cLfTEahag7jI9xGv79cQee3JOouwb5O_XFy-IxzyL4NBzx0LN9MvhjV1MMLRPaa6va6xMh2oc1\u0026t=635375024676300000", "editText": "编辑", "emptyImagePath": "/MCSWebApp/WfFormTemplate/WebResource.axd?d=5vtuZi72AzctJQuC81alg7VeOsOkCWA6-BHsXUBanSUO9xChvDLh6VNxGt0WejJMWuO0-eBmeZcyaX6jZ-XzlnxpOQV4LLoslXJKruU0BdswDOEg3eZqRCASE_FXh_fkC-Fry-A9zthOtc-__2pigiyEnJ0cImtCtQdimj2c08Q1\u0026t=635375024676300000", "enabled": true, "fileCountLimited": 0, "fileExts": "", "fileMaxSize": 0, "fileSelectMode": 2, "invokeWithoutViewState": true, "linkShowMode": 1, "lockID": "b75aad48-4963-9d7e-4e8d-4843ac126171", "materialTableShowMode": 1, "materialTitle": "正文", "materialUseMode": 3, "modifyCheck": true, "officeViewerWrapperID": "attachmentsControl_ctl05", "openInlineFileExt": "doc;dot;htm;html;mht;mhtml;shtml;xls;xlsx;vsd;jpg;jpeg;gif;bmp;gd;sep;tif;tiff;png", "relativePath": "TestForm\\2014\\6", "requestContext": "", "rootPathName": "GenericProcess", "saveOriginalDraft": true, "serverControlType": "MCS.Web.WebControls.MaterialControl, MCS.Library.SOA.Web.WebControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798", "setOpenTypeImagePath": "/MCSWebApp/WfFormTemplate/WebResource.axd?d=n09lyIS-deSPPsHAMX2BRtf2mRMy9OrgfpjP0r5aob7holXFmMdKPG6jZ76IY8_cwYLVENvhfgxjf0Heq_jSNuZ5rwG9zFmJvM_GdwPIm-Wzhe7Wx0suXHIM9MEDHvJxfG8K_uHGVcKVK1tmdWszIFnPmetDQ4r7ppwKUzq1dy3WiMft3t4UPLSoLp2FE8un0\u0026t=635375024676300000", "showAllVersions": false, "showFileOpenType": false, "showFileTitle": true, "showVersionImagePath": "/MCSWebApp/WfFormTemplate/WebResource.axd?d=9WslY4EWzqu048Z8FdJ0z8MSJTngIyzDzHj9JeLgkRrBOD7eg78BtUCP4bclK-p_GNf0MoqYh5oMwdVbqmJV3SDJzUEq7Wn8csfYeVkFWE0bI62tDdX9je1A6B7pMb7OchGmWXR5DO8MkGS2NCqoLnTBDu7XHl85etJxO0xlxCY1\u0026t=635375024676300000", "staticCallBackProxyID": "__staticCallbackProxyControl", "templateUrl": "", "trackRevisions": true, "uniqueID": "attachmentsControl", "uploadImagePath": "/MCSWebApp/WfFormTemplate/WebResource.axd?d=V7WM0PgNhL4irXrrLzOTe9ZZbx8Hts_tfm2kI-aug9dVIaRzRZFq-dNE3hc7WBta5zyjODOutl7YOG-BAPnGUSPLtX_bMZ9MG6Hj7lV4a1v58TUQ2WlYdhzvZFG8hIkU0s451x9y6aTHx0j2juCCGEZm39nPM2pmaycHc04oWXo1\u0026t=635375024676300000", "user": { "__type": "MCS.Library.SOA.DataObjects.OguUser, MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798", "id": "f4048590-feec-4c15-990d-2f7693146937", "name": "刘闽辉", "displayName": "刘闽辉", "objectType": 2, "fullPath": "机构人员\\远洋地产\\集团总部\\流程管理部\\刘闽辉", "globalSortID": "000001000001000001000011000025", "levels": 5, "sortID": "25", "status": 1, "clientContext": {}, "email": "liumh@sinooceanland.com", "isSideline": false, "logOnName": "liumh", "rank": 10 }, "wfActivityID": "433254db-9d8b-aa10-496b-b10dfd897a58", "wfActivityName": "起始", "wfProcessID": "bdea2a1e-1a47-a629-4557-58d20a43341f" }, null, null, $get("attachmentsControl"));
+		});
+		Sys.Application.add_init(function () {
+			$create(MCS.Web.WebControls.WfExtActivityDescriptorEditor, { "_autoClearClientStateFieldValue": true, "actNameClientID": "", "allAgreeWhenConsignCheckboxClientID": "", "cancelButtonClientID": "", "clientStateField": $get("opinionListView_activityEditor_ClientState"), "confirmButtonClientID": "", "currentActivityKey": "", "currentMode": 0, "dialogFeature": "dialogWidth:580px;dialogHeight:540px;center:yes;resizable:no;scroll:no;status:no", "dialogUrl": "/MCSWebApp/WfFormTemplate/Forms/TemplateView.aspx?PageRenderMode=True%5eHTML%5eInnerBrowser%5e%5eopinionListView%24activityEditor%5e%7b%7d%5eDialogControl\u0026dialogTitle=%e6%b5%81%e7%a8%8b%e8%b0%83%e6%95%b4\u0026dialogHeaderText=%e6%b5%81%e7%a8%8b%e8%b0%83%e6%95%b4\u0026resourceID=b75aad48-4963-9d7e-4e8d-4843ac126171\u0026processID=bdea2a1e-1a47-a629-4557-58d20a43341f\u0026showCirculateUsers=False\u0026allAgreeWhenConsign=True", "invokeWithoutViewState": true, "maximizeAssigneeCount": -1, "middleButtonClientID": "", "operation": "", "serverControlType": "MCS.Web.WebControls.WfExtActivityDescriptorEditor, MCS.Library.SOA.Web.WebControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798", "showingMode": 1, "smallDialogFeature": "dialogWidth:580px;dialogHeight:480px;center:yes;resizable:no;scroll:no;status:no", "smallDialogUrl": "/MCSWebApp/WfFormTemplate/Forms/TemplateView.aspx?PageRenderMode=True%5eHTML%5eInnerBrowser%5e%5eopinionListView%24activityEditor%5e%7b%7d%5eDialogControl\u0026small=true\u0026dialogTitle=%e6%b5%81%e7%a8%8b%e8%b0%83%e6%95%b4\u0026dialogHeaderText=%e6%b5%81%e7%a8%8b%e8%b0%83%e6%95%b4\u0026resourceID=b75aad48-4963-9d7e-4e8d-4843ac126171\u0026processID=bdea2a1e-1a47-a629-4557-58d20a43341f\u0026showCirculateUsers=False\u0026allAgreeWhenConsign=True", "staticCallBackProxyID": "__staticCallbackProxyControl" }, null, null, $get("opinionListView_activityEditor"));
+		});
+		Sys.Application.add_init(function () {
+			$create(MCS.Web.WebControls.WfActivityDescriptorGroupResourceEditor, { "_autoClearClientStateFieldValue": true, "actNameClientID": "", "allAgreeWhenConsignCheckboxClientID": "", "cancelButtonClientID": "", "clientStateField": $get("opinionListView_groupActivityEditor_ClientState"), "confirmButtonClientID": "", "currentActivityKey": "", "currentMode": 0, "dialogFeature": "dialogWidth:480px;dialogHeight:420px;center:yes;resizable:no;scroll:no;status:no", "dialogUrl": "/MCSWebApp/WfFormTemplate/Forms/TemplateView.aspx?PageRenderMode=True%5eHTML%5eInnerBrowser%5e%5eopinionListView%24groupActivityEditor%5e%7b%7d%5eDialogControl\u0026dialogTitle=%e6%b5%81%e7%a8%8b%e8%b0%83%e6%95%b4\u0026dialogHeaderText=%e6%b5%81%e7%a8%8b%e8%b0%83%e6%95%b4\u0026resourceID=b75aad48-4963-9d7e-4e8d-4843ac126171\u0026processID=bdea2a1e-1a47-a629-4557-58d20a43341f\u0026showCirculateUsers=False\u0026allAgreeWhenConsign=True", "invokeWithoutViewState": true, "middleButtonClientID": "", "operation": "", "serverControlType": "MCS.Web.WebControls.WfActivityDescriptorGroupResourceEditor, MCS.Library.SOA.Web.WebControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798", "showingMode": 1, "smallDialogFeature": "dialogWidth:480px;dialogHeight:420px;center:yes;resizable:no;scroll:no;status:no", "smallDialogUrl": "/MCSWebApp/WfFormTemplate/Forms/TemplateView.aspx?PageRenderMode=True%5eHTML%5eInnerBrowser%5e%5eopinionListView%24groupActivityEditor%5e%7b%7d%5eDialogControl\u0026small=true\u0026dialogTitle=%e6%b5%81%e7%a8%8b%e8%b0%83%e6%95%b4\u0026dialogHeaderText=%e6%b5%81%e7%a8%8b%e8%b0%83%e6%95%b4\u0026resourceID=b75aad48-4963-9d7e-4e8d-4843ac126171\u0026processID=bdea2a1e-1a47-a629-4557-58d20a43341f\u0026showCirculateUsers=False\u0026allAgreeWhenConsign=True", "staticCallBackProxyID": "__staticCallbackProxyControl", "userInputClientID": "groupControl" }, null, null, $get("opinionListView_groupActivityEditor"));
+		});
+//]]>
+	</script>
+	</form>
+</body>
+</html>

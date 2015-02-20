@@ -1,0 +1,54 @@
+span.input
+{
+	border-color: #cccccc;
+	border-style: solid;
+	border-width: 1px;
+	/*width: 100%;
+	padding: 4;
+	font-size:small;*/
+	overflow: none;
+	word-break: break-all;
+	word-wrap: break-word;
+	height: 21;
+	cursor: text;
+}
+span.rwRR, div.rcpLst span.rwRRO
+{
+	color:black;
+	text-decoration: underline;
+	/*border-color:white;
+	background-color:white;*/
+	cursor: hand;
+	/*margin-right:3px;*/
+	/*font-size:small;*/
+}
+
+span.rwRR2, div.rcpLst span.rwRR1
+{
+	color: #cccccc;
+	text-decoration: underline;
+	/*border-color:white;
+	background-color:white;*/
+	cursor: hand;
+	/*margin-right:3px;*/
+	/*font-size:small;*/
+}
+
+span.rwRR3, div.rcpLst span.rwRR3
+{
+	border-color:#336699;
+	color:white;
+	background-color:blue;
+	cursor:hand;
+	/*margin-right:3px;*/
+	/*font-size:small;*/
+}
+
+span.rwNRR, div.rcpLst span.rwNRR
+{
+	/*border-color:white;
+	background-color:white;*/
+	cursor: hand;
+	margin-right:3px;
+	/*font-size:small;*/
+}

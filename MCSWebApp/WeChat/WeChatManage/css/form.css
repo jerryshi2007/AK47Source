@@ -1,0 +1,1074 @@
+﻿*
+{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+img
+{
+    margin: 0px;
+    padding: 0px;
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+    border-left-style: none;
+}
+div
+{
+    margin: 0px;
+    padding: 0px;
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+    border-left-style: none;
+}
+td
+{
+    font-family: 宋体, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 22px;
+    color: #666;
+    text-decoration: none;
+}
+a:link
+{
+    font-weight: normal;
+    color: #666;
+    text-decoration: none;
+    line-height: 22px;
+    font-size: 12px;
+    font-family: 宋体, Helvetica, sans-serif;
+}
+a:visited
+{
+    color: #666;
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 22px;
+}
+a:hover
+{
+    color: #006699;
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 22px;
+    font-weight: normal;
+}
+.topmenu
+{
+    background-image: url(../img/task_01.png);
+    background-repeat: repeat-x;
+    background-position: left top;
+    line-height: 33px;
+    height: 33px;
+    color: #FFF;
+    font-family: 宋体, Helvetica, sans-serif;
+    font-size: 12px;
+    padding-left: 20px;
+    vertical-align: middle;
+}
+/*
+.header {
+	background-image: url(../img/task_04.png);
+	background-repeat: repeat-x;
+	background-position: left top;
+	height: 46px;
+}
+.header .rightbg {
+	background-image: url(../img/task_06.jpg);
+	background-repeat: no-repeat;
+	background-position: right top;
+	font-weight: bold;
+	color: #003366;
+	font-family: 宋体, Helvetica, sans-serif;
+	font-size: 16px;
+	line-height: 46px;
+}
+*/
+/*
+.nav {
+	background-color: #f3f8fc;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #dde9f2;
+	margin-bottom: 11px;
+}
+*/
+.nav .title
+{
+    background-image: url(../img/task_08.gif);
+    background-repeat: repeat-y;
+    background-position: left top;
+    line-height: 17px;
+    width: 44px;
+    text-align: center;
+    vertical-align: middle;
+    font-family: 宋体, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #FFF;
+    padding-top: 4px;
+    padding-bottom: 2px;
+}
+.gridHead
+{
+    font-size: 16px;
+    font-weight: bold;
+    color: Black;
+    background-image: url(../images/bg15_2.gif);
+    height: 32px;
+    text-align: left;
+}
+.lefttitle
+{
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    background-image: url(../img/task_15.gif);
+    background-repeat: repeat-x;
+    background-position: left bottom;
+    height: 29px;
+    line-height: 29px;
+    padding-left: 10px;
+}
+.lefttitleSelect
+{
+    font-size: 12px;
+    color: #000;
+    background-image: url(../img/task_15.gif);
+    background-repeat: repeat-x;
+    background-position: left bottom;
+    height: 29px;
+    line-height: 29px;
+    padding-left: 10px;
+}
+.pop
+{
+    background-image: url(../img/pop_02.jpg);
+    background-repeat: repeat-x;
+    background-position: left bottom;
+    height: 43px;
+}
+.pop .title
+{
+    font-family: 宋体, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    background-image: url(../img/pop_01.jpg);
+    background-repeat: no-repeat;
+    background-position: 10px bottom;
+    line-height: 43px;
+    padding-left: 42px;
+}
+.login
+{
+    margin-right: auto;
+    margin-left: auto;
+    width: 881px;
+    height: 333px;
+    margin-top: 117px;
+}
+.login .box
+{
+    padding-top: 83px;
+}
+.login .box #login-input
+{
+    line-height: 18px;
+    color: #336;
+    border: 2px solid #aec7e5;
+    width: 200px;
+    height: 18px;
+    font-size: 12px;
+}
+.login .box table tr td
+{
+    font-family: 宋体, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #486785;
+}
+.login .box table tr td a
+{
+    color: #C60;
+    text-decoration: underline;
+}
+.workflow-header
+{
+    background-image: url(../img/workflow_02.jpg);
+    background-repeat: repeat-x;
+    background-position: left top;
+    height: 53px;
+}
+.workflow-header .text
+{
+    font-family: "微软雅黑" , "黑体" , Arial, sans-serif;
+    font-size: 16px;
+    line-height: 53px;
+    color: #003366;
+    background-image: url(../img/workflow_01.jpg);
+    background-repeat: no-repeat;
+    background-position: left top;
+    width: 400px;
+    display: block;
+    padding-left: 110px;
+}
+
+.fieldtitle
+{
+    background-color: #e2e2e2;
+    text-align: right;
+    padding-right: 6px;
+    font-family: 微软雅黑;
+    color: #000;
+    font-size: 12px;
+    height: 25px;
+}
+
+.hasStar
+{
+    padding-right: 1px;
+}
+
+.star
+{
+    color: Red;
+}
+
+input.tdtext
+{
+    width: 96%;
+    margin-right: 2px;
+    float: right;
+}
+input.tdtext1
+{
+    width: 96%;
+    margin-right: 2px;
+}
+span.tdtext1
+{
+    width: 96%;
+    margin-left: 2px;
+}
+span.tdtext
+{
+    width: 96%;
+    margin-left: 2px;
+    float: left;
+}
+
+.long
+{
+    width: 99%;
+}
+
+.long2
+{
+    width: 88%;
+    float: left;
+}
+.long3
+{
+    width: 75%;
+    float: left;
+}
+select.tdddl
+{
+    width: 100%;
+    float: right;
+}
+
+span.tdddl
+{
+    width: 96%;
+    margin-left: 2px;
+    float: left;
+}
+
+/*float toolbar*/
+
+span.sheetTitle
+{
+    font-size: 18px;
+}
+
+.tdbase
+{
+    width: 96%;
+    margin-left: 2px;
+    float: left;
+}
+.r
+{
+    float: right;
+}
+lt
+{
+    float: left;
+}
+html, body
+{
+    margin: 0;
+    padding: 0;
+    overflow: auto!important;
+}
+body
+{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: solid 0px #FF0000;
+}
+* html
+{
+    overflow: auto;
+}
+/*
+* html #top
+{
+	width: 100%;
+	left: 0;
+	border: solid 0px;
+}
+*/
+* html #outer
+{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+* html #bottom
+{
+    left: 0;
+    width: 100%;
+}
+@media print
+{
+    html, body
+    {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+    body
+    {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        border: solid 0px #FF0000;
+    }
+
+    * html #top
+    {
+        width: 100%;
+        left: 0;
+        border: solid 0px;
+        display: none;
+    }
+    .header
+    {
+        display: none;
+    }
+    .header .rightbg
+    {
+        display: none;
+    }
+
+    #top
+    {
+        display: none;
+    }
+
+    .nav
+    {
+        display: none;
+    }
+    .nav .title
+    {
+        display: none;
+    }
+
+    #outer
+    {
+        position: fixed;
+        left: 0px;
+        right: 0px;
+        top: 33px;
+        bottom: 20px;
+    }
+    .rightpart2
+    {
+        display: none;
+    }
+}
+@media screen
+{
+    * html #top
+    {
+        width: 100%;
+        left: 0;
+        border: solid 0px;
+        display: none;
+    }
+
+    #top
+    {
+        top: 0px;
+        background-image: url(../img/task_01.png);
+        background-repeat: repeat-x;
+        background-position: left top;
+        line-height: 33px;
+        height: 33px;
+        color: #FFF;
+        font-family: 宋体, Helvetica, sans-serif;
+        font-size: 12px;
+        padding-left: 20px;
+        vertical-align: middle;
+    }
+
+    #top, #bottom
+    {
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        height: 33px;
+        background: repeat-x;
+        overflow: hidden;
+        display: block;
+        clear: both;
+    }
+    .header
+    {
+        background-image: url(../img/task_04.png);
+        background-repeat: repeat-x;
+        background-position: left top;
+        height: 46px;
+    }
+    .header .rightbg
+    {
+        background-image: url(../img/task_06.jpg);
+        background-repeat: no-repeat;
+        background-position: right top;
+        font-weight: bold;
+        color: #003366;
+        font-family: 宋体, Helvetica, sans-serif;
+        font-size: 16px;
+        line-height: 46px;
+    }
+
+    .nav
+    {
+        background-color: #f3f8fc;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-bottom-color: #dde9f2;
+        margin-bottom: 11px;
+    }
+
+
+    #outer
+    {
+        overflow: auto;
+        position: fixed;
+        left: 0px;
+        right: 0px;
+        top: 33px;
+        bottom: 20px;
+    }
+    .rightpart2
+    {
+        background-color: #f0f0f0;
+        border-top-width: 1px;
+        border-right-width: 1px;
+        border-bottom-width: 1px;
+        border-left-width: 1px;
+        border-top-style: solid;
+        border-right-style: solid;
+        border-bottom-style: solid;
+        border-left-style: solid;
+        border-top-color: #FFF;
+        border-right-color: #cbcbcb;
+        border-bottom-color: #cbcbcb;
+        border-left-color: #cbcbcb;
+        padding-right: 7px;
+        padding-left: 7px;
+    }
+    .rightpart2 table
+    {
+        border-bottom-width: 1px;
+        border-bottom-style: dashed;
+        border-bottom-color: #c0c0c0;
+        margin-top: 4px;
+    }
+    .rightpart2 table tr td
+    {
+        font-family: 宋体, Helvetica, sans-serif;
+        font-size: 12px;
+        line-height: 18px;
+        color: #333;
+    }
+    .rightpart2 table tr td a
+    {
+        color: #333;
+    }
+    .rightpart2 table tr td a:visited
+    {
+        color: #333;
+    }
+
+    .rightpart2 table tr .title
+    {
+        font-family: 宋体, Helvetica, sans-serif;
+        font-size: 12px;
+        font-weight: bold;
+        color: #00246d;
+    }
+}
+#top
+{
+    top: 0px;
+    background-image: url(../img/task_01.png);
+    background-repeat: repeat-x;
+    background-position: left top;
+    line-height: 33px;
+    height: 33px;
+    color: #FFF;
+    font-family: 宋体, Helvetica, sans-serif;
+    font-size: 12px;
+    padding-left: 20px;
+    vertical-align: middle;
+}
+#bottom
+{
+    bottom: 0px;
+    height: 20px;
+}
+/*float toolbar end*/
+
+
+
+
+
+
+
+
+/* opinion list view */
+.opinionListView
+{
+    font-size: 12px;
+    font-weight: normal;
+    color: #000;
+    width: 100%;
+    background: #F0F0F0;
+}
+
+.opinionListView td
+{
+    border-top: solid 1px #C3C3C3;
+}
+
+.opinionListView .activity
+{
+    width: 20%;
+    min-width: 150px;
+    width: 23%;
+    text-align: center;
+    padding: 10px2px;
+    border-right: solid1px#C3C3C3;
+}
+
+.opinionListView .activity .actName
+{
+    font-weight: bold;
+    margin: 5px 0px;
+    text-decoration: underline;
+}
+
+.opinionListView .activity .opDept
+{
+    font-weight: bold;
+    margin: 5px 0px;
+}
+
+.opinionListView .activity .opName
+{
+    color: Black;
+    margin: 5px 0px;
+}
+
+.opinionListView .activity .command
+{
+    margin: 5px 0px;
+}
+
+.opinionListView .activity .command .btn
+{
+    background: url(../images/RoundButton.png);
+    display: none;
+    width: 44px;
+    height: 20px;
+    margin: 0px 2px;
+    padding-top: 2px;
+    -padding-top: 3px;
+}
+
+.opinionListView .activity .command .btn:hover
+{
+    background: url(../images/RoundButtonHover.png);
+}
+
+.opinionListView .opinions
+{
+    text-align: left;
+    padding: 10px;
+    -padding-left: 16px;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+}
+
+.opinionListView .opinions td
+{
+    border: none;
+}
+
+.opinionListView .opinions .opinion
+{
+    background: #FFFFFF none repeat scroll 0 0;
+    border: 1px solid #AAA;
+    border-bottom: none;
+    padding: 6px 8px;
+    -margin-left: -8px;
+}
+
+.opinionListView .opinions .opinion .text
+{
+    border: none;
+}
+
+.opinionListView .opinions .opinion .signName
+{
+    text-align: right;
+}
+
+.opinionListView .opinions .opinion .signDate
+{
+    text-align: right;
+}
+/* opinion list view end*/
+
+
+
+
+
+
+
+
+
+
+/* workflow toolbar */
+.wftoolbar
+{
+    vertical-align: middle;
+    margin-top: 3px;
+}
+
+.wftoolbar .bar
+{
+}
+
+.wftoolbar .enable
+{
+    color: White;
+    vertical-align: middle;
+}
+
+.wftoolbar .invisible
+{
+    display: none;
+}
+
+.wftoolbar .disable
+{
+    color: #BBB;
+    cursor: text;
+}
+/* workflow toolbar end */
+
+.disabled
+{
+    background-color: #ffffff;
+    border: none;
+}
+.dialogLogo
+{
+    background-image: url("../img/dialogLogo.gif");
+    background-repeat: no-repeat;
+    height: 24px;
+    padding-left: 24px;
+    padding-top: 2px;
+}
+.fieldtitle1
+{
+    text-align: left;
+    padding-left: 5px;
+    font-family: 宋体, Arial, Helvetica, sans-serif;
+    width: 80%;
+    color: #000;
+    font-size: 12px;
+    height: 20px;
+}
+.fieldtitle2
+{
+    background-color: #e2e2e2;
+    text-align: right;
+    padding-right: 5px;
+    font-family: 宋体, Arial, Helvetica, sans-serif;
+    color: #000;
+    font-size: 12px;
+    height: 20px;
+}
+.fieldtitle3
+{
+    font-family: 宋体, Arial, Helvetica, sans-serif;
+    color: #000;
+    font-size: 12px;
+    height: 25px;
+    width: 80%;
+}
+.fieldtitle4
+{
+    font-family: 宋体, Arial, Helvetica, sans-serif;
+    height: 20px;
+    width: 78%;
+    font-size: 12px;
+    color: #000000;
+    border: solid 1px #D1D1D1;
+    line-height: 150%;
+}
+
+.fieldtitle5
+{
+    font-family: 宋体, Arial, Helvetica, sans-serif;
+    text-align: right;
+    padding-right: 5px;
+    height: 20px;
+    width: 100%;
+    font-size: 12px;
+    color: #000000;
+    border: solid 1px #D1D1D1;
+    line-height: 150%;
+}
+.fieldtitle6
+{
+    /*font-family: 宋体, Arial, Helvetica, sans-serif;     text-align: left;     padding-left: 5px;     height: 30px; */
+    width: 100%; /*font-size: 12px;     color: #000000;*/
+    border: solid 1px #D1D1D1; /* line-height: 150%;*/
+}
+.fieldtitle7
+{
+    font-family: 宋体, Arial, Helvetica, sans-serif;
+    width: 99%;
+    padding: 5px;
+}
+.fieldtitle8
+{
+    font-family: 宋体, Arial, Helvetica, sans-serif;
+    height: 20px;
+    width: 100%;
+    font-size: 12px;
+    color: #000000;
+    border: solid 1px #D1D1D1;
+    line-height: 150%;
+}
+
+
+.ImgTitle
+{
+    vertical-align: middle;
+    width: 14px;
+    height: 16px;
+    background-image: url("../img/icon_01.gif");
+}
+
+.headbackground
+{
+    background-image: url(../img/task_04.png);
+    font-style: normal;
+    font-size: 12px;
+    color: #666666;
+    height: 17pt;
+}
+.gridcheckbox
+{
+    width: 40px;
+}
+
+
+/*
+	全局 表单按钮样式(目前设置的蓝色样式)
+*/
+.formButton
+{
+    /*background: url(../images/buttonbg_lightblue.gif) repeat-x; 	font-weight: normal; 	border: 1px solid #4eb9ef; 	height: 24px; 	min-width: 40px; 	line-height: 22px; 	color: #054a91; 	margin-left: 10px; 	margin-top: 6px; 	text-align: center; 	letter-spacing: 4px; 	padding: 0px 2px;*/
+    background: url(../images/bg17.gif) repeat-x;
+    font-weight: normal;
+    border: 1px solid #b5b3b3;
+    height: 24px;
+    min-width: 80px;
+    line-height: 22px;
+    color: black;
+    margin-left: 10px;
+    margin-top: 3px;
+    text-align: center;
+    letter-spacing: 3px;
+    padding: 0px 2px; /*根据PM邮件精神，绝大部分按钮宽度都是80px*/ /*width: 80px;*/
+}
+.linkCell a
+{
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: bold;
+}
+.linkCell a:visited
+{
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: bold;
+}
+.linkCell22 a
+{
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: bold;
+    color: #000;
+    background-image: url(../img/task_15.gif);
+    background-repeat: repeat-x;
+    background-position: left bottom;
+    height: 29px;
+    line-height: 29px;
+    padding-left: 10px;
+}
+
+.inputStyle
+{
+    height: 20px;
+    width: 78%;
+    font-size: 12px;
+    color: #000000;
+    border: solid 1px #D1D1D1;
+    line-height: 150%; /*filter: progid:DXImageTransform.Microsoft.Alpha(opacity=50, style=1, finishOpacity=100, startx=0, starty=0, finishx=0, finishy=1024);*/
+}
+
+
+td.numbertext
+{
+    text-align: right;
+    padding-right: 7px;
+}
+.numbertext span
+{
+    font-family: 宋体, Arial, Helvetica, sans-serif;
+    height: 20px;
+    font-size: 12px;
+    color: #000000;
+    border: solid 0px #D1D1D1;
+    line-height: 150%;
+}
+.numbertext input
+{
+    text-align: right;
+    padding-right: 5px;
+    font-family: 宋体, Arial, Helvetica, sans-serif;
+    height: 20px;
+    width: 100%;
+    font-size: 12px;
+    color: #000000;
+    border: solid 1px #D1D1D1;
+    line-height: 150%;
+}
+
+td.normaltext
+{
+    text-align: left;
+    padding-right: 7px;
+    
+}
+
+.normaltext a
+{
+    padding-left: 5px;
+    color: Blue;
+    display:inline;
+}
+.normaltext a:link
+{
+    font-weight: normal;
+    color: Blue;
+    text-decoration: none;
+    line-height: 22px;
+    font-size: 12px;
+    font-family: 宋体, Helvetica, sans-serif;
+}
+.normaltext a:visited
+{
+    color: Blue;
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 22px;
+}
+.normaltext a:hover
+{
+    color: Blue;
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 22px;
+    font-weight: normal;
+}
+.normaltext input
+{
+    text-align: left;
+    padding-left: 5px;
+    font-family: 宋体, Arial, Helvetica, sans-serif;
+    height: 20px;
+    width: 100%;
+    font-size: 12px;
+    color: #000000;
+    border: solid 1px #D1D1D1;
+    line-height: 150%;
+}
+.normaltext span
+{
+    text-align: left;
+    padding-left: 5px;
+    font-family: 宋体, Arial, Helvetica, sans-serif;
+    height: 20px;
+    width: 100%;
+    font-size: 12px;
+    color: gray;
+    border: 0px;
+    line-height: 150%;
+}
+td.multilinetext
+{
+    
+    padding: 0px; 
+    padding-right:12px;  
+}
+.multilinetext textarea
+{
+    width: 100%;
+    padding: 5px;
+    font-family: 宋体, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #000000;
+    border: solid 1px #D1D1D1;
+    line-height: 150%;
+}
+.multilinetext span
+{
+    padding: 5px;
+}
+.dropdownlist select
+{
+    width: 100%;
+    height: 20px;
+}
+.dropdownlist span
+{
+    text-align: left;
+    padding-left: 5px;
+}
+td.datetimetext
+{
+    height: 22px;
+    overflow: hidden;
+}
+
+.datetimetext div
+{
+    width: 100%;
+    height: 22px;
+}
+.datetimetext span
+{
+    text-align: left;
+    padding-left: 5px;
+    font-family: 宋体, Arial, Helvetica, sans-serif;
+    height: 20px;
+    width: 100%;
+    font-size: 12px;
+    color: gray;
+    border: 0px;
+    line-height: 150%;
+    overflow: hidden;
+}
+.datetimetext input
+{
+    height: 20px;
+}
+.usernametext span
+{
+}
+.usernametext img
+{
+}
+
+select.defaultdropdownlist
+{
+    width: 100%;
+}
+a.normalA 
+{
+    padding-left: 5px;
+    color: Blue;
+}
+a.normalA :link
+{
+    font-weight: normal;
+    color: Blue;
+    text-decoration: none;
+    line-height: 22px;
+    font-size: 12px;
+    font-family: 宋体, Helvetica, sans-serif;
+}
+a.normalA :visited
+{
+    color: Blue;
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 22px;
+}
+a.normalA :hover
+{
+    color: Blue;
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 22px;
+    font-weight: normal;
+}
+.leftsmalltitle
+{
+    font-size: 16px;
+    font-family: "宋体" , Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #000;
+    background-image: url(../img/task_15.gif);
+    background-repeat: repeat-x;
+    background-position: left bottom;
+    height: 29px;
+    line-height: 29px;
+    padding-left: 10px;
+}
+ 
+
+
+
+
+
+

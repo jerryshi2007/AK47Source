@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Untitled Page</title>
+	<script type="text/javascript">
+		function showDialog() {
+			var dialogHelper = document.getElementById('dialogHelperActiveX');
+			dialogHelper.Title = "测试程序";
+			dialogHelper.MultiSelect = true;
+			if (dialogHelper.OpenDialog()) {
+				alert(dialogHelper.FileName);
+			}
+		}
+
+		function getWindowsTempPath() {
+			var componentHelper = document.getElementById('componentHelperActiveX');
+			var fileObj = componentHelper.CreateObject("Scripting.FileSystemObject");
+
+			alert(fileObj.GetSpecialFolder(2).Path);
+		}
+	</script>
+</head>
+<body>
+	<object id="dialogHelperActiveX" classid="clsid:C86C48A2-0DAD-41B6-BB85-AAB912FEE3AB"
+		width="100%" height="100%" codebase="http://localhost/MCSWebApp/ActiveX/HBWebHelperControl.CAB#version=1,0,0,13">
+	</object>
+	<object id="componentHelperActiveX" classid="clsid:918CFB81-4755-4167-BFC7-879E9DD52C9E"
+		width="100%" height="100%" codebase="http://localhost/MCSWebApp/ActiveX/HBWebHelperControl.CAB#version=1,0,0,13">
+	</object>
+	<input type="button" value="showDialog" onclick="showDialog();" />
+	<input type="button" value="getWindowsTempPath" onclick="getWindowsTempPath();" />
+</body>
+</html>

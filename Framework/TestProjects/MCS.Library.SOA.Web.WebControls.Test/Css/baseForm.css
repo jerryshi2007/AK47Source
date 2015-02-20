@@ -1,0 +1,351 @@
+/*
+	baseForm.css	designed by xuwenzhuo v1.1 date:2008-5-14
+*/
+/* one col Item style */
+.appForm
+{
+	font-size:14px;
+	background-color: #efefef;
+	color:Black;
+	
+}
+.appForm td
+{
+	font-size:14px;
+	line-height: 120%;
+}
+
+.appForm a
+{
+	font-size:14px;
+	color:#000000;
+	text-decoration:none;
+	color:Black;
+}
+.appForm a:hover
+{
+	color:red;
+	font-size:14px;
+	text-decoration:none;
+}
+/*
+单列模板输入框样式,只有底下一条线
+例:<input class="inputline" style="width: 80px;" />
+*/
+.appForm .inputline
+{
+	border-top-width: 0px;
+	border-left-width: 0px;
+	border-bottom: #cc0303 1px solid;
+	border-right-width: 0px;
+}
+/*
+	主框架
+*/
+.appForm .mainCon
+{
+	width: 760px;
+	margin: 0 auto;
+}
+
+/*
+	标题抬头
+*/
+.appForm .conTitle
+{	
+	height:50px;
+	border-bottom: solid 2px red;
+	margin-top: 0px;
+}
+/*
+	标题抬头 h1
+*/
+.appForm .conTitle h1
+{
+	font-size: 24px;
+	font-weight: 600;
+	color: red;
+	margin-top: 15px;
+	margin-bottom: 6px;
+	text-align: center;
+}
+.appForm .conTitle h2
+{
+	font-size: 14px;
+	color: #000;
+	float: right;
+	margin-top:-10px;
+}
+/*
+	单列普通div
+	例:
+	<div class="conNorm">
+				<div class="lineTitle">
+					<p>
+						<img src="../images/Portal/file.gif" width="12" height="16">HTML控件测试1(居右对齐)</p>
+				</div>
+				<ul>
+					<li>
+						内容...
+					</li>
+				</ul>
+	</div>
+*/
+.appForm .conNorm
+{
+	clear: both;
+	margin-top: 8px;
+	border: solid 1px #cc0303;
+	background-color: #FFF;
+}
+/*
+	普通div 子标题
+*/
+.appForm .conNorm .subTitle
+{
+	font-weight: 600;
+	clear: both;
+	padding: 3px;
+	border: solid 1px #cc0303;
+	height: 20px;
+	background-color: #EEE;
+	cursor: hand;
+}
+/*
+	普通容div 子标题
+*/
+.appForm .conNorm .lineTitle
+{
+	clear: both;
+	padding-left: 5px;
+	_padding-top: 5px;
+	font-size: 15px;
+	font-weight: bold;
+	color: #0653a1;
+	background-image: url(../images/bg08.gif);
+	height: 26px;
+	text-align: left;
+	border-top: dotted 1px #cc0303;
+	border-right-width: 0px;
+	border-bottom: dotted 1px #cc0303;
+	border-left-width: 0px;
+}
+.appForm .conNorm .subTitle p
+{
+	float: left;
+	margin: auto auto auto 5px;
+	font-weight: bold;
+	cursor: hand;
+}
+.appForm .conNorm .subTitle a
+{
+	float: right;
+	margin: auto 5px auto auto;
+}
+
+/*
+	可折叠div
+*/
+.appForm .conContent
+{
+	clear: both;
+	border: solid 1px #cc0303;
+	background-color: #FFF;
+}
+/*
+	可折叠div,标题
+	例:
+			<div class="conContent">
+				<div class="conTabs">
+					<p>
+						标题</p>
+					<a href="#nomove">nav</a>
+				</div>
+				<ul>
+					<li>
+						内容
+					</li>
+				</ul>
+				<div class="conTabs">
+					<p>
+						标题</p>
+					<a href="#nomove">nav</a>
+				</div>
+				<ul>
+					<li>
+						内容
+					</li>
+				</ul>
+			</div>
+*/
+.appForm .conContent .conTabs
+{
+	padding-left: 5px;
+	_padding-top: 5px;
+	font-size: 15px;
+	font-weight: bold;
+	color: #0653a1;
+	background-image: url(../images/bg08.gif);
+	height: 26px;
+	text-align: left;
+	cursor: hand;
+}
+.appForm .conContent .conTabsLine
+{
+	font-weight: 600;
+	clear: both;
+	padding: 2px;
+	border-bottom: solid 2px #cc0303;
+	height: 20px;
+	background-color: #FFF;
+	cursor: hand;
+}
+.appForm .conContent .conTabs p
+{
+	float: left;
+	margin: auto auto auto 5px;
+	font-weight: bold;
+}
+.appForm .conContent .conTabs a
+{
+	float: right;
+	margin: auto 5px auto auto;
+}
+/*
+	底部空余div,只由来撑开空间
+*/
+.appForm .conFootblank
+{
+	clear: both;
+	background-color: #efefef;
+}
+/*
+	操作导航
+*/
+.appForm .conNavapp
+{
+	position: fixed;
+	background-color: White;
+	z-index: 999;
+	width: 758px;
+	border: solid 1px #cc0303;
+	_position: static;
+}
+/*
+	操作导航 按钮样式
+*/
+.appForm .conNavapp input
+{
+	background: url(../images/bg17.gif) repeat-x;
+	font-weight: normal;
+	border: 1px solid #b5b3b3;
+	height: 24px;
+	min-width: 80px;
+	line-height: 22px;
+	color: black;
+	margin-left: 10px;
+	margin-top: 3px;
+	text-align: center;
+	letter-spacing: 3px;
+	padding: 0px 2px;
+	/*根据PM邮件精神,绝大部分按钮宽度都是80px*/
+	/*width: 80px;*/
+}
+
+/*选中意见样式*/
+.appForm .selectedMateria
+{
+	font-size: 14px;
+	background-image: url(../images/bg12.gif);
+	font-weight: bold;
+	height: 23px;
+	color: #0653a1;
+	text-align: center;
+	letter-spacing: 1px;
+	background-repeat: repeat-x;
+	padding: 3px;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 0px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #3a95c4;
+	border-right-color: #3a95c4;
+	border-bottom-color: #3a95c4;
+	border-left-color: #3a95c4;
+}
+.appForm .normalMateria
+{
+	font-size: 14px;
+	background-image: url(../images/bg13.gif);
+	font-weight: bold;
+	height: 23px;
+	color: #000000;
+	text-align: center;
+	letter-spacing: 1px;
+	background-repeat: repeat-x;
+	padding: 3px;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 0px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #bbb9b9;
+	border-right-color: #bbb9b9;
+	border-bottom-color: #bbb9b9;
+	border-left-color: #ffffff;
+}
+.appForm .inputStyle
+{
+	font-size:14px;
+	border-top:0px;
+	border-left:0px;
+	border-right:0px;
+	border-bottom:solid 1px red;
+	background-color:#FFF;
+	line-height: 120%;
+}
+
+.appForm .noLineStyle .inputStyle
+{
+	font-size:14px;
+	color:black;
+	border: solid 1px #D1D1D1;
+	background-color: #f5f6f6;
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=50, style=1, finishOpacity=100, startx=0, starty=0, finishx=0, finishy=1024);
+}
+.appForm .noLineStyle .labelStyle
+{
+	font-size:14px;
+	color:black;
+	border: solid 1px #D1D1D1;
+	background-color: #f5f6f6;
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=50, style=1, finishOpacity=100, startx=0, starty=0, finishx=0, finishy=1024);
+}
+.appForm .valignL .labelStyle
+{
+	font-size:14px;
+	border-top:0px;
+	border-left:0px;
+	border-right:0px;
+	border-bottom:solid 1px red;
+	background-color:#FFF;
+	line-height: 120%;
+}
+
+.appForm .redLineStyle
+{
+	font-size:14px;
+	border-top:0px;
+	border-left:0px;
+	border-right:0px;
+	border-bottom:solid 1px red;
+	background-color:#FFF;
+	line-height: 120%;
+}

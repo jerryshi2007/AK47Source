@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script type="text/javascript">
+        //定义 select 原值
+        var oldValue, oldText;
+        //select下拉框的onkeydown事件，修改下拉框的值
+        function catch_keydown(sel) {
+            switch (event.keyCode) {
+                case 13: //回车键
+                    event.returnValue = false;
+                    break;
+                case 27: //Esc键
+                    sel.options[sel.selectedIndex].text = oldText;
+                    sel.options[sel.selectedIndex].value = oldValue;
+                    event.returnValue = false;
+                    break;
+                case 8: //空格健
+                    var s = sel.options[sel.selectedIndex].text;
+                    s = s.substr(0, s.length - 1);
+                    if (sel.options[0].value == sel.options[sel.selectedIndex].text) {
+                        sel.options[sel.selectedIndex].value = s;
+                        sel.options[sel.selectedIndex].text = s;
+                    }
+                    event.returnValue = false;
+                    break;
+            }
+            if (!event.returnValue && sel.onchange)
+                sel.onchange(sel)
+        }
+
+        //select下拉框的onkeypress事件，修改下拉框的值
+        function catch_press(sel) {
+            if (sel.selectedIndex >= 0) {
+                var s = sel.options[sel.selectedIndex].text + String.fromCharCode(event.keyCode);
+                if (sel.options[sel.selectedIndex].value == sel.options[sel.selectedIndex].text) {
+                    sel.options[sel.selectedIndex].value = s;
+                    sel.options[sel.selectedIndex].text = s;
+                }
+                event.returnValue = false;
+                if (!event.returnValue && sel.onchange)
+                    sel.onchange(sel)
+            }
+        }
+
+        //select下拉框的onfocus事件，保存下拉框原来的值
+        function catch_focus(sel) {
+            oldText = sel.options[sel.selectedIndex].value;
+            oldValue = sel.options[sel.selectedIndex].value;
+        }   
+    </script>
+    <script type="text/javascript">
+        function getvalue() {
+            alert(document.getElementById("select1").value);
+        }
+    </script>
+    <title>可输入Select</title>
+</head>
+<body>
+    <!--调用-->
+    <select style='width: 130px; z-index: -1' name='tmpSel' onkeydown="catch_keydown(this)"
+        onkeypress="catch_press(this)" onfocus="catch_focus(this)" id="select1">
+        <option value=''></option>
+        <option value='A'>A</option>
+        <option value='B'>B</option>
+        <option value='C'>C</option>
+    </select>
+    <br />
+    <br />
+    <input type="button" value="getvalue" onclick="getvalue()" />
+</body>
+</html>

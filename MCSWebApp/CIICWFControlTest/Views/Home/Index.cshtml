@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "流程演示";
+}
+
+<div class="jumbotron">
+    <h1>工作流演示</h1>
+    <p class="lead">这个演示主要是为了展示从起草一个表单，到启动一个流程，以及进行流转等一系列操作。过程中会演示撤回、作废、流程跟踪等行为。</p>
+    <p><a href="Home/StartWorkflow" class="btn btn-primary btn-lg">起草表单 &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>开始</h2>
+        <p>
+            工作流平台提供了一组控件，协助表单开发者方便地完成表单和流程的结合工作。这些控件包括“启动流程”、“流转”、“保存”、“撤回”等，
+            尽可能低避免应用去构造的流程启动或流转所涉及到的各种复杂参数。
+        </p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">了解更多 &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>流程服务</h2>
+        <p>在控件之后，工作流平台提供的是一组基于WCF的服务，并且为这些服务提供客户端的代理类，代理类帮助大家能够使用强类型的流程参数。由于客户端和服务端传递的协议是Http和JSON的，
+        因此也可以通过Javascript来操作流程。</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">了解更多 &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>相关功能</h2>
+        <p>工作流平台本身提供了一些管理界面，通过这些界面，我们可以进行流程设计，也可以看到流程的运行状况。</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">了解更多 &raquo;</a></p>
+    </div>
+</div>

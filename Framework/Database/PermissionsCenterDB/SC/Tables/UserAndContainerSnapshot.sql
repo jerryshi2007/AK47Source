@@ -1,0 +1,88 @@
+﻿CREATE TABLE [SC].[UserAndContainerSnapshot]
+(
+	[UserID] NVARCHAR(36) NOT NULL , 
+    [ContainerID] NVARCHAR(36) NOT NULL,
+	[VersionStartTime] DATETIME NOT NULL,
+	[VersionEndTime]   DATETIME      CONSTRAINT [DF_UserAndContainerSnapshot_VersionEndTime] DEFAULT ('99990909 00:00:00') NULL,
+    [Status]           INT           CONSTRAINT [DF_UserAndContainerSnapshot_Status] DEFAULT ((1)) NULL,
+    [UserSchemaType] NVARCHAR(64) NULL, 
+    [ContainerSchemaType] NVARCHAR(64) NULL, 
+    CONSTRAINT [PK_UserAndContainerSnapshot] PRIMARY KEY ([UserID], [ContainerID], [VersionStartTime])
+)
+
+GO
+
+CREATE INDEX [IX_UserAndContainerSnapshot_Container] ON [SC].[UserAndContainerSnapshot] ([ContainerID])
+
+GO
+EXEC sp_addextendedproperty @name = N'MS_Description',
+    @value = N'用户和包含者的快照关系表',
+    @level0type = N'SCHEMA',
+    @level0name = N'SC',
+    @level1type = N'TABLE',
+    @level1name = N'UserAndContainerSnapshot',
+    @level2type = NULL,
+    @level2name = NULL
+GO
+EXEC sp_addextendedproperty @name = N'MS_Description',
+    @value = N'用户ID',
+    @level0type = N'SCHEMA',
+    @level0name = N'SC',
+    @level1type = N'TABLE',
+    @level1name = N'UserAndContainerSnapshot',
+    @level2type = N'COLUMN',
+    @level2name = N'UserID'
+GO
+EXEC sp_addextendedproperty @name = N'MS_Description',
+    @value = N'包含者的ID',
+    @level0type = N'SCHEMA',
+    @level0name = N'SC',
+    @level1type = N'TABLE',
+    @level1name = N'UserAndContainerSnapshot',
+    @level2type = N'COLUMN',
+    @level2name = N'ContainerID'
+GO
+EXEC sp_addextendedproperty @name = N'MS_Description',
+    @value = N'版本开始时间',
+    @level0type = N'SCHEMA',
+    @level0name = N'SC',
+    @level1type = N'TABLE',
+    @level1name = N'UserAndContainerSnapshot',
+    @level2type = N'COLUMN',
+    @level2name = N'VersionStartTime'
+GO
+EXEC sp_addextendedproperty @name = N'MS_Description',
+    @value = N'版本结束时间',
+    @level0type = N'SCHEMA',
+    @level0name = N'SC',
+    @level1type = N'TABLE',
+    @level1name = N'UserAndContainerSnapshot',
+    @level2type = N'COLUMN',
+    @level2name = N'VersionEndTime'
+GO
+EXEC sp_addextendedproperty @name = N'MS_Description',
+    @value = N'对象的状态',
+    @level0type = N'SCHEMA',
+    @level0name = N'SC',
+    @level1type = N'TABLE',
+    @level1name = N'UserAndContainerSnapshot',
+    @level2type = N'COLUMN',
+    @level2name = N'Status'
+GO
+EXEC sp_addextendedproperty @name = N'MS_Description',
+    @value = N'用户的Schema名称',
+    @level0type = N'SCHEMA',
+    @level0name = N'SC',
+    @level1type = N'TABLE',
+    @level1name = N'UserAndContainerSnapshot',
+    @level2type = N'COLUMN',
+    @level2name = N'UserSchemaType'
+GO
+EXEC sp_addextendedproperty @name = N'MS_Description',
+    @value = N'包含者的Schema名称',
+    @level0type = N'SCHEMA',
+    @level0name = N'SC',
+    @level1type = N'TABLE',
+    @level1name = N'UserAndContainerSnapshot',
+    @level2type = N'COLUMN',
+    @level2name = N'ContainerSchemaType'

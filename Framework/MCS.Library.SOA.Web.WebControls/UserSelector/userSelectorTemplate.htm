@@ -1,0 +1,88 @@
+﻿<script type="text/javascript">
+    var allowEmptyOpinion = true;
+
+    function onConfirmButtonClick() {
+        try {
+            var userInfo = $find("userSelectorDialog").get_selectedOuUserData();
+
+            var result = { users: userInfo, opinion: $get("userSelectorDialog_opinionInput").innerText, result: true };
+
+            var text = $get("userSelectorDialog_promptText").value;
+
+            if (text != "") {
+                if (result.opinion == "" && allowEmptyOpinion == false)
+                    throw Error.create(text);
+            }
+
+            window.returnValue = Sys.Serialization.JavaScriptSerializer.serialize(result);
+
+            window.close();
+        }
+        catch (e) {
+            $showError(e);
+        }
+    }
+
+    function onCancelButtonClick() {
+        window.returnValue = Sys.Serialization.JavaScriptSerializer.serialize({ result: false });
+        window.close();
+    }
+
+    function onDocumentLoad() {
+        var arg = window.dialogArguments;
+
+        if (arg) {
+            if (typeof (arg.opinion) != "undefined") {
+                $get("userSelectorDialog_opinionInput").innerText = arg.opinion;
+            }
+
+            if (typeof (arg.users) != 'undefined') {
+                if (typeof (arg.users) == "string" && arg.users != '') {
+                    arg.users = Sys.Serialization.JavaScriptSerializer.deserialize(arg.users);
+                }
+                else {
+                    var usersStr = Sys.Serialization.JavaScriptSerializer.serialize(arg.users);
+                    arg.users = Sys.Serialization.JavaScriptSerializer.deserialize(usersStr);
+                }
+
+                var userInputCtrlID = $find("userSelectorDialog").get_userInputClientID();
+
+                $find(userInputCtrlID).set_selectedOuUserData(arg.users);
+                $find(userInputCtrlID).setInputAreaText();
+            }
+
+            allowEmptyOpinion = arg.allowEmptyOpinion;
+        }
+    }
+
+    Sys.Application.add_load(function () {
+        onDocumentLoad();
+    });
+</script>
+<input type="hidden" id="promptText" runat="server" category="SOAWebControls" value="请填写意见" />
+<table cellpadding="0" cellspacing="0" style="width: 100%; height: 100%">
+    <tr>
+        <td runat="server" id="userInputCell" style="vertical-align: middle; text-align: center">
+            <div runat="server" id="userInputContainer">
+            </div>
+        </td>
+    </tr>
+    <tbody id="opinionBody" runat="server" style="display: none">
+        <tr>
+            <td style="padding: 4px; height: 24px">
+                <span runat="server" category="SOAWebControls" style="font-weight: bold">请填写意见</span>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 4px; vertical-align: top">
+                <textarea runat="server" id="opinionInput" style="width: 99%; height: 99%"></textarea>
+            </td>
+        </tr>
+    </tbody>
+    <tr>
+        <td style="vertical-align: middle; text-align: center">
+            <div runat="server" id="consignTypeContainer">
+            </div>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,137 @@
+﻿@model CIICWFControlTest.Models.Expense
+@{
+    ViewBag.Title = "MoveTo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <ol class="breadcrumb">
+        <li><a href="#" target="_parent">首页</a></li>
+        <li><span class="label label-success" id="QueryCustName">报销</span></li>
+        <li><a href="#">差旅报销</a></li>
+        <li>审批报销单</li>
+    </ol>
+    <div class="panel panel-default">
+        <div class="panel-heading clearfix panel-title">
+            审批报销单
+            <div class="pull-right" id="toolbarContainer">
+                @Html.Partial("WFToolbar")
+            </div>
+            <div>
+                @(
+ Html.HSRUIWF().WFUpdateProcess().Name("WFUpdateProcess").BeforeClick("movetoBeforeClick").ActionUrl(Url.Action("UpdateProcess", "Home")).AddUpdateElement("toolbarContainer", "WFToolbar")
+                )
+            </div>
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal" id="expenseForm">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-4 col-xs-4 control-label">员工姓名</label>
+                                <div class="col-sm-8 col-xs-8">
+                                    @Html.HSRUI().TextBoxFor(p => p.Name)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-4 col-xs-4 control-label">部门</label>
+                                <div class="col-sm-8 col-xs-8">
+                                    @Html.HSRUI().TextBoxFor(p => p.Department)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-4 col-xs-4 control-label">金额</label>
+                                <div class="col-sm-8 col-xs-8">
+                                    @Html.HSRUI().TextBoxFor(p => p.Amount)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-4 col-xs-4 control-label">日期</label>
+                                <div class="col-sm-8 col-xs-8">
+                                    @Html.HSRUI().TextBoxFor(p => p.TransitionDate)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="input6" class="col-lg-2 col-md-2 col-sm-4 col-xs-4 control-label">流程信息</label>
+                                <div class="col-lg-10 col-md-10 col-sm-8 col-xs-8">
+                                    <textarea class="form-control" id="input6" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-horizontal">
+                            <div class="form-group" id="opinionContainer">
+                                <label for="input7" class="col-lg-2 col-md-2 col-sm-4 col-xs-4 control-label">意见</label>
+                                <div class="col-lg-10 col-md-10 col-sm-8 col-xs-8">
+                                    @(
+ Html.HSRUIWF().WFComments().Name("wfComments").Collumns(5).Lines(3).OpinionContainerId("opinionContainer")
+                                    )
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="input7" class="col-lg-2 col-md-2 col-sm-4 col-xs-4 control-label">意见列表</label>
+                                <div class="col-sm-8 col-xs-8">
+                                    @(
+ Html.HSRUIWF().WFOpinionGridList().Name("wfOpinionList").PageSize(10)
+                                    )
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function movetoAfterClick(result, sender, progressbar) {
+        document.getElementById("goBack").click();
+    }
+
+    function movetoBeforeClick(sender, progressbar) {
+        var frmValid = $('#expenseForm').valid();
+        if (frmValid) {
+            var data = $('#expenseForm').serialize();
+            return data;
+        }
+        else {
+            return false;
+        }
+    }
+
+    function reloadPage() {
+        window.location.reload();
+    }
+</script>
+

@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D18E407B-7ABA-4D65-94C7-FBF134580551}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MCS.Library.SOA.DataObjects.Test</RootNamespace>
+    <AssemblyName>MCS.Library.SOA.DataObjects.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MCS.Library">
+      <HintPath>..\..\..\Bin\MCS.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Data">
+      <HintPath>..\..\..\Bin\MCS.Library.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.OGUPermission">
+      <HintPath>..\..\..\Bin\MCS.Library.OGUPermission.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Passport">
+      <HintPath>..\..\..\Bin\MCS.Library.Passport.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Library, Version=1.2.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Bin\MCS.Web.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Library.Script.Json">
+      <HintPath>..\..\..\Bin\MCS.Web.Library.Script.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SqlXml" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataObjectsTest\AdapterTest.cs" />
+    <Compile Include="DataObjectsTest\BasicDataObjectsTest.cs" />
+    <Compile Include="DataObjectsTest\ComplexFormData.cs" />
+    <Compile Include="DataObjectsTest\ComplexFormDataAdapter.cs" />
+    <Compile Include="DataObjectsTest\GenericFormDataTest.cs" />
+    <Compile Include="DataObjectsTest\SampleFormData.cs" />
+    <Compile Include="DataObjectsTest\SampleFormDataAdapter.cs" />
+    <Compile Include="DataObjectsTest\SampleTreeNode.cs" />
+    <Compile Include="DataObjectsTest\SimpleOrder.cs" />
+    <Compile Include="DataObjectsTest\WfActivityInvokeServiceActionTest.cs" />
+    <Compile Include="DataObjectsTest\WfDelegationTest.cs" />
+    <Compile Include="DataObjectsTest\WfGlobalParametersTest.cs" />
+    <Compile Include="DataObjectsTest\WfGroupTest.cs" />
+    <Compile Include="DataObjectsTest\WfNotifyTest.cs" />
+    <Compile Include="Executor\AdminEditProcessExecutorTest.cs" />
+    <Compile Include="Executor\ExecutorTest.cs" />
+    <Compile Include="Executor\MaintainingStatusTest.cs" />
+    <Compile Include="Executor\ReturnExecutorTest.cs" />
+    <Compile Include="Executor\ReturnExecutorTestHelper.cs" />
+    <Compile Include="JobTest\AdapterTest.cs" />
+    <Compile Include="JobTest\DailyFixedTimeJobScheduleFrequency.cs" />
+    <Compile Include="JobTest\JobScheduleFrequencyTest.cs" />
+    <Compile Include="JobTest\JobScheduleTest.cs" />
+    <Compile Include="JobTest\JobTest.cs" />
+    <Compile Include="JobTest\MonthlyFixedTimeJobScheduleFrequency.cs" />
+    <Compile Include="JobTest\TimeFrequencyTest.cs" />
+    <Compile Include="JobTest\WeeklyFixedTimeJobScheduleFrequency.cs" />
+    <Compile Include="JSONTest\CommonJSONTest.cs" />
+    <Compile Include="JSONTest\JSONTestObj.cs" />
+    <Compile Include="JSONTest\OguObjectJSONTest.cs" />
+    <Compile Include="JSONTest\VoucherItem.cs" />
+    <Compile Include="LruTest\LruDataObjectCollectionTest.cs" />
+    <Compile Include="LruTest\TestLruCollection.cs" />
+    <Compile Include="MaterialTest\MaterialContentTest.cs" />
+    <Compile Include="MaterialTest\MaterialTest.cs" />
+    <Compile Include="MessageTest\EmailTest.cs" />
+    <Compile Include="PersistQueue\PersistQueueTest.cs" />
+    <Compile Include="PersistQueue\ProcessDespDimensionTest.cs" />
+    <Compile Include="PropertyTest\EditorParamsDefineTest.cs" />
+    <Compile Include="PropertyTest\ObjectToPropertyTest.cs" />
+    <Compile Include="PropertyTest\PropertyValidatorDescriptorTest.cs" />
+    <Compile Include="PropertyTest\PropertyValidatorParameterDescriptorSerializationTest.cs" />
+    <Compile Include="Schedules\DailyOnceScheduleTests.cs" />
+    <Compile Include="Schedules\DailyPeriodicityScheduleTests.cs" />
+    <Compile Include="Schedules\MonthlyOnceScheduleTests.cs" />
+    <Compile Include="Schedules\ScheduleUtil.cs" />
+    <Compile Include="Schedules\WeeklyOnceScheduleTests.cs" />
+    <Compile Include="Schedules\WeeklyPeriodicityScheduleTests.cs" />
+    <Compile Include="SOARole\RoleTable.cs" />
+    <Compile Include="SOARole\SOARoleTest.cs" />
+    <Compile Include="SysTaskProcesses\SysTaskProcessTest.cs" />
+    <Compile Include="SysTaskTest\BasicSysTaskTest.cs" />
+    <Compile Include="SysTaskTest\InvokeServiceTaskTest.cs" />
+    <Compile Include="SysTaskTest\JobRelatedTaskTest.cs" />
+    <Compile Include="Common\SysTaskCommon.cs" />
+    <Compile Include="TaskAssignees\TaskAssigneeTest.cs" />
+    <Compile Include="TestProcessHelper\ProcessOutputHelper.cs" />
+    <Compile Include="TestProcessHelper\ProcessTestHelper.cs" />
+    <Compile Include="PropertyTest\DataObjectDefineTest.cs" />
+    <Compile Include="PropertyTest\EditableKeyedDataObjectCollectionBaseTest.cs" />
+    <Compile Include="PropertyTest\OutputHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyTest\PropertyDefineTest.cs" />
+    <Compile Include="PropertyTest\PropertySerializationTest.cs" />
+    <Compile Include="UploadHistory\UploadFileHistoryTest.cs" />
+    <Compile Include="Users\UserRecentDataTest.cs" />
+    <Compile Include="Users\UserSettingsTest.cs" />
+    <Compile Include="Users\UsersTestCommon.cs" />
+    <Compile Include="WfApplicationTest\WfApplicationAuthTest.cs" />
+    <Compile Include="WfCreateParams\WfCreateTransitionParamTest.cs" />
+    <Compile Include="WorkflowTest\ConfigurationTest\CounterTest.cs" />
+    <Compile Include="WorkflowTest\ConfigurationTest\ProcessDescriptorPropertiesTest.cs" />
+    <Compile Include="WorkflowTest\ConfigurationTest\LockTest.cs" />
+    <Compile Include="WorkflowTest\ConfigurationTest\ProcessStatusChangeFakeAction.cs" />
+    <Compile Include="WorkflowTest\DecoratorTest\SecretaryDecoratorTest.cs" />
+    <Compile Include="WorkflowTest\DescriptorTest\WfActivityDescriptorDeleteTest.cs" />
+    <Compile Include="WorkflowTest\DescriptorTest\WfActivityDescriptorTest.cs" />
+    <Compile Include="WorkflowTest\DescriptorTest\WfTransitionDescriptorTest.cs" />
+    <Compile Include="WorkflowTest\DescriptorTest\WfVariableDescriptorTest.cs" />
+    <Compile Include="WorkflowTest\DynamicActivityTest.cs" />
+    <Compile Include="WorkflowTest\JsonSerializationTest\BranchProcessStartupParamsJsonTest.cs" />
+    <Compile Include="WorkflowTest\JsonSerializationTest\WfControlNextStepJsonTest.cs" />
+    <Compile Include="WorkflowTest\MatrixTest\MatrixDimensionDefinitionJsonSerializationTest.cs" />
+    <Compile Include="WorkflowTest\MatrixTest\WfMatrixDefinitionAdapterTest.cs" />
+    <Compile Include="WorkflowTest\MatrixTest\WfMatrixAdapterTest.cs" />
+    <Compile Include="WorkflowTest\ProcessTypeTest\RootProcessAndActivityTest.cs" />
+    <Compile Include="WorkflowTest\ServiceDefinitionTest\WfServiceInvokerTest.cs" />
+    <Compile Include="WorkflowTest\Simulation\WfSimulationTest.cs" />
+    <Compile Include="WorkflowTest\UserFunction\WfTestUserFunction.cs" />
+    <Compile Include="WorkflowTest\UserFunction\WfUserFunctionTest.cs" />
+    <Compile Include="WorkflowTest\XElementSerializationTest\WfRuntimeXElementTest.cs" />
+    <Compile Include="WorkflowTest\WfProcessRuntimeTest.cs" />
+    <Compile Include="WorkflowTest\JsonSerializationTest\WfProcessDescriptorJsonTest.cs" />
+    <Compile Include="WorkflowTest\XElementSerializationTest\WfDescriptorXElementTest.cs" />
+    <Compile Include="WorkflowTest\WfProcessDescriptorInfoTest.cs" />
+    <Compile Include="TestProcessHelper\WfProcessTestCommon.cs" />
+    <Compile Include="WorkflowTest\WfRuntimePersistTest.cs" />
+    <Compile Include="WorkflowTest\WfRuntimeTest.cs" />
+    <Compile Include="WorkflowTest\ConfigurationTest\ActivitySettingsTest.cs" />
+    <Compile Include="WorkflowTest\ConfigurationTest\MockWfAction.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="connectionManager.config" />
+    <None Include="Schedules\作业调度测试用例.xlsx" />
+    <None Include="wfActivitySettings.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="oguPermissionSettings.config" />
+    <None Include="RelativeFiles\SilverLight - Intro ScottGu.pdf" />
+    <None Include="WorkflowTest\RoleMatrix.xlsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="RelativeFiles\9 persons.JPG" />
+    <Content Include="WorkflowTest\Addons\workflowmatrixtest.xml" />
+    <Content Include="WorkflowTest\TestData\Expense.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\MCS.Library.SOA.DataObjects\MCS.Library.SOA.DataObjects.csproj">
+      <Project>{7905642F-4630-4D16-AF40-CB1FB70D516F}</Project>
+      <Name>MCS.Library.SOA.DataObjects</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,419 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4077B0B7-062A-4F6D-8A45-A180A2ED3215}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MCS.Library</RootNamespace>
+    <AssemblyName>MCS.Library</AssemblyName>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>MCS.Library.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'DebugP|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\DebugPerformance\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\DebugPerformance\MCS.Library.xml</DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+    <CodeAnalysisRuleSet>Migrated rules for MCS.Library.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Accessories\BuilderBase.cs" />
+    <Compile Include="Accessories\ChainBase.cs" />
+    <Compile Include="Accessories\FilterPipelineBase.cs" />
+    <Compile Include="Accessories\IBuilder.cs" />
+    <Compile Include="Accessories\IChain.cs" />
+    <Compile Include="Accessories\IFilter.cs" />
+    <Compile Include="Accessories\IStrategy.cs" />
+    <Compile Include="Accessories\StrategyContextBase.cs" />
+    <Compile Include="Cache\CacheItemBase.cs" />
+    <Compile Include="Cache\CacheManager.cs" />
+    <Compile Include="Cache\CacheModule.cs" />
+    <Compile Include="Cache\Dependency\CacheNotifyData.cs" />
+    <Compile Include="Cache\Dependency\CookieCacheDependency.cs" />
+    <Compile Include="Cache\Dependency\FileCacheDependency.cs" />
+    <Compile Include="Cache\Performance\CachePerformanceCounterInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Cache\Performance\CachePerformanceCounterInstaller.Designer.cs">
+      <DependentUpon>CachePerformanceCounterInstaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cache\CacheQueue.cs" />
+    <Compile Include="Cache\CacheQueueBase.cs" />
+    <Compile Include="Cache\Configuration\CacheSettingConfig.cs" />
+    <Compile Include="Cache\Performance\CachingPerformanceCounters.cs" />
+    <Compile Include="Cache\ContextCacheBase.cs" />
+    <Compile Include="Cache\ContextCacheManager.cs" />
+    <Compile Include="Cache\IScavenge.cs" />
+    <Compile Include="Cache\ObjectContextCache.cs" />
+    <Compile Include="Cache\Dependency\UdpCacheClientSettings.cs" />
+    <Compile Include="Cache\Dependency\UdpCacheNotifier.cs" />
+    <Compile Include="Cache\Dependency\UdpCacheNotifierDependency.cs" />
+    <Compile Include="Cache\Dependency\UdpCacheNotifierSettings.cs" />
+    <Compile Include="Cache\Dependency\UdpSettingsHelper.cs" />
+    <Compile Include="Cache\StringTableContextCache.cs" />
+    <Compile Include="Cache\SwitchContextCache.cs" />
+    <Compile Include="Cache\TypeMembersCache.cs" />
+    <Compile Include="Compression\ZipFile\CRC32.cs" />
+    <Compile Include="Configuration\Accessories\BestDirectoryMatchStrategy.cs" />
+    <Compile Include="Configuration\Accessories\BestPathMatchStrategyBase.cs" />
+    <Compile Include="Configuration\Accessories\PathMatchStrategyContext.cs" />
+    <Compile Include="Configuration\Accessories\BestFileNameMatchStrategy.cs" />
+    <Compile Include="Configuration\AssemblyMappingSettings.cs" />
+    <Compile Include="Configuration\ConfigurationExceptions.cs" />
+    <Compile Include="Configuration\IdentityConfigSettings.cs" />
+    <Compile Include="Configuration\IdentityConfigurationElement.cs" />
+    <Compile Include="Configuration\ServerInfoConfigSettings.cs" />
+    <Compile Include="Configuration\TimePointSimulationSettings.cs" />
+    <Compile Include="Configuration\TypeConfigurationElement2.cs" />
+    <Compile Include="Contexts\ActionContextBase.cs" />
+    <Compile Include="Contexts\ActionContextDescriptionAttribute.cs" />
+    <Compile Include="Contexts\IPersistTimePoint.cs" />
+    <Compile Include="Core\GeneralEqualityComparer.cs" />
+    <Compile Include="Core\MethodExtensions.cs" />
+    <Compile Include="Contexts\TimePointContext..cs" />
+    <Compile Include="Core\ValidatorSettings.cs" />
+    <Compile Include="Core\ApplicationInformationException.cs" />
+    <Compile Include="Core\DataTypeConverterBase.cs" />
+    <Compile Include="Core\DataTypeConverterHelper.cs" />
+    <Compile Include="Core\DictionaryHelper.cs" />
+    <Compile Include="Core\IEnumerableExtension.cs" />
+    <Compile Include="Core\IListExtension.cs" />
+    <Compile Include="Core\IXElementSerializable.cs" />
+    <Compile Include="Core\IXmlSerilizableList.cs" />
+    <Compile Include="Core\LogOnIdentity.cs" />
+    <Compile Include="Configuration\NamedConfigurationElement.cs" />
+    <Compile Include="Configuration\UriConfigurationElement.cs" />
+    <Compile Include="Core\EnvironmentHelper.cs" />
+    <Compile Include="Core\Extensions.cs" />
+    <Compile Include="Core\MonitorData.cs" />
+    <Compile Include="Core\NonXElementSerializedFieldsAttribute.cs" />
+    <Compile Include="Core\PerformanceCounterInitData.cs" />
+    <Compile Include="Core\PerformanceCounterWrapper.cs" />
+    <Compile Include="Core\PerformanceMonitorHelper.cs" />
+    <Compile Include="Core\ResourceHelper.cs" />
+    <Compile Include="Core\ServerInfo.cs" />
+    <Compile Include="Core\ServiceProxy.cs" />
+    <Compile Include="Core\StringExtension.cs" />
+    <Compile Include="Core\StringHelper.cs" />
+    <Compile Include="Core\SystemSupportException.cs" />
+    <Compile Include="Cache\Dependency\MixedDependency.cs" />
+    <Compile Include="Cache\PortableCacheQueue.cs" />
+    <Compile Include="Reflection\IMemberAccessor.cs" />
+    <Compile Include="Reflection\TypeCreator.cs" />
+    <Compile Include="Core\TypeFieldsCache.cs" />
+    <Compile Include="Core\UriHelper.cs" />
+    <Compile Include="Core\UuidHelper.cs" />
+    <Compile Include="Core\XElementExtension.cs" />
+    <Compile Include="Core\XElementFieldSerializeAttribute.cs" />
+    <Compile Include="Core\XElementFormatter.cs" />
+    <Compile Include="Core\XElementSerializedAttribute.cs" />
+    <Compile Include="Core\XmlMappingCache.cs" />
+    <Compile Include="Core\XmlObjectMapping.cs" />
+    <Compile Include="Core\XmlObjectMappingAttribute.cs" />
+    <Compile Include="Core\XmlObjectMappingItem.cs" />
+    <Compile Include="Core\XmlObjectMappingItemCollection.cs" />
+    <Compile Include="Core\XmlObjectSubClassMappingAttribute.cs" />
+    <Compile Include="Core\XmlObjectSubClassTypeAttribute.cs" />
+    <Compile Include="Core\XmlRootMappingAttribute.cs" />
+    <Compile Include="Core\XmlSerializeContext.cs" />
+    <Compile Include="Data\CommandBase.cs" />
+    <Compile Include="Data\CommandHelper.cs" />
+    <Compile Include="Data\ICommand.cs" />
+    <Compile Include="Globalization\DefaultTranslator.cs" />
+    <Compile Include="Globalization\ITranslator.cs" />
+    <Compile Include="Globalization\Translator.cs" />
+    <Compile Include="Globalization\TranslatorConfigSettings.cs" />
+    <Compile Include="Logging\Configuration\LogConfigurationElement.cs" />
+    <Compile Include="Logging\Configuration\LogConfigurationElementCollection.cs" />
+    <Compile Include="Logging\Configuration\LogListenerElement.cs" />
+    <Compile Include="Logging\Configuration\LoggerConfiguration.cs" />
+    <Compile Include="Logging\Formatters\TokenFunctions.cs" />
+    <Compile Include="Logging\LogException.cs" />
+    <Compile Include="Logging\EnumDefine.cs" />
+    <Compile Include="Properties\CompressionRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CompressionRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Logging\Formatters\LogFormatter.cs" />
+    <Compile Include="Logging\Formatters\LogFormatterFactory.cs" />
+    <Compile Include="Logging\Formatters\TextFormatter.cs" />
+    <Compile Include="Logging\Formatters\XmlLogFormatter.cs" />
+    <Compile Include="Compression\GenericZip.cs" />
+    <Compile Include="Compression\ZipFile\ZipConstants.cs" />
+    <Compile Include="Compression\ZipFile\ZipEntry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Cache\ObjectCacheQueue.cs" />
+    <Compile Include="Cache\Dependency\SlidingTimeDependency.cs" />
+    <Compile Include="Compression\ZipFile\ZipFile.cs" />
+    <Compile Include="Compression\ZipFile\ZipReader.cs" />
+    <Compile Include="Compression\ZipFile\ZipWriter.cs" />
+    <Compile Include="Cache\Dependency\AbsoluteTimeDependency.cs" />
+    <Compile Include="Cache\Dependency\DependencyBase.cs" />
+    <Compile Include="Cache\CacheItem.cs" />
+    <Compile Include="Configuration\ConfigurationBroker.cs" />
+    <Compile Include="Configuration\ConfigurationCache.cs" />
+    <Compile Include="Configuration\MetaConfigurationSectionGroup.cs" />
+    <Compile Include="Configuration\MetaConfigurationSourceInstanceElement.cs" />
+    <Compile Include="Configuration\MetaConfigurationSourceInstanceElementCollection.cs" />
+    <Compile Include="Configuration\MetaConfigurationSourceInstanceSection.cs" />
+    <Compile Include="Configuration\MetaConfigurationSourceMappingElement.cs" />
+    <Compile Include="Configuration\MetaConfigurationSourceMappingElementCollection.cs" />
+    <Compile Include="Reflection\EnumItemDescriptionAttribute.cs" />
+    <Compile Include="Core\LruDictionary.cs" />
+    <Compile Include="Core\SerializationHelper.cs" />
+    <Compile Include="Core\DataConverter.cs" />
+    <Compile Include="Expression\ExpClasses.cs" />
+    <Compile Include="Expression\EnumDefine.cs" />
+    <Compile Include="Expression\ExpressionParser.cs" />
+    <Compile Include="Expression\ExpTreeExecutor.cs" />
+    <Compile Include="Logging\Filters\ILogFilter.cs" />
+    <Compile Include="Logging\Filters\PriorityLogFilter.cs" />
+    <Compile Include="Logging\Formatters\ILogFormatter.cs" />
+    <Compile Include="Logging\Listeners\FlatFileTraceListener.cs" />
+    <Compile Include="Logging\Listeners\FormattedEventLogTraceListener.cs" />
+    <Compile Include="Logging\Listeners\FormattedTextWriterTraceListener.cs" />
+    <Compile Include="Logging\Listeners\FormattedTraceListenerBase.cs" />
+    <Compile Include="Logging\Listeners\FormattedTraceListenerWrapperBase.cs" />
+    <Compile Include="Logging\Listeners\TraceListenerFactory.cs" />
+    <Compile Include="Logging\LogEntity.cs" />
+    <Compile Include="Logging\Filters\LogFilter.cs" />
+    <Compile Include="Logging\Filters\LogFilterFactory.cs" />
+    <Compile Include="Logging\Filters\LogFilterPipeline.cs" />
+    <Compile Include="Logging\Logger.cs" />
+    <Compile Include="Logging\Configuration\LoggingSetting.cs" />
+    <Compile Include="Logging\LoggerFactory.cs" />
+    <Compile Include="Properties\ExpressionParserRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExpressionParserRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Configuration.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Configuration.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Reflection\AttributeHelper.cs" />
+    <Compile Include="Core\ExceptionHelper.cs" />
+    <Compile Include="Core\XmlHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\RegExpResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegExpResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\ScriptResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ScriptResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Security\DESEncryptorBase.cs" />
+    <Compile Include="Security\ISymmetricEncryption.cs" />
+    <Compile Include="Security\MachineKeyEncryptor.cs" />
+    <Compile Include="Security\SecurityExtension.cs" />
+    <Compile Include="Validation\BaseValidatorAttribute.cs" />
+    <Compile Include="Validation\CompositeValidatorBuilder.cs" />
+    <Compile Include="Validation\EnumDefine.cs" />
+    <Compile Include="Validation\IClientValidatable.cs" />
+    <Compile Include="Validation\MetadataValidatorBuilder.cs" />
+    <Compile Include="Validation\ValidationFactory.cs" />
+    <Compile Include="Validation\ValidationResult.cs" />
+    <Compile Include="Validation\Validator.cs" />
+    <Compile Include="Validation\ValidatorAttribute.cs" />
+    <Compile Include="Validation\ValidatorCache.cs" />
+    <Compile Include="Validation\Validator\AndCompositeValidator.cs" />
+    <Compile Include="Validation\Validator\DatetimeEmptyValidator.cs" />
+    <Compile Include="Validation\Validator\DateTimeEmptyValidatorAttribute.cs" />
+    <Compile Include="Validation\Validator\DateTimeRangeValidator.cs" />
+    <Compile Include="Validation\Validator\DateTimeRangeValidatorAttribute.cs" />
+    <Compile Include="Validation\Validator\EnumDefaultValueValidator.cs" />
+    <Compile Include="Validation\Validator\EnumDefaultValueValidatorAttribute.cs" />
+    <Compile Include="Validation\Validator\IntegerRangeValidator.cs" />
+    <Compile Include="Validation\Validator\IntegerRangeValidatorAttribute.cs" />
+    <Compile Include="Validation\Validator\NotNullValidator.cs" />
+    <Compile Include="Validation\Validator\NotNullValidatorAttribute.cs" />
+    <Compile Include="Validation\Validator\ObjectCollectionValidator.cs" />
+    <Compile Include="Validation\Validator\ObjectCollectionValidatorAttribute.cs" />
+    <Compile Include="Validation\Validator\ObjectNullValidator.cs" />
+    <Compile Include="Validation\Validator\ObjectNullValidatorAttribute.cs" />
+    <Compile Include="Validation\Validator\ObjectValidatorAttribute.cs" />
+    <Compile Include="Validation\Validator\OrCompositeValidator.cs" />
+    <Compile Include="Validation\Validator\RangeCheck.cs" />
+    <Compile Include="Validation\Validator\RegexValidator.cs" />
+    <Compile Include="Validation\Validator\RegexValidatorAttribute.cs" />
+    <Compile Include="Validation\Validator\StringEmptyValidator.cs" />
+    <Compile Include="Validation\Validator\StringEmptyValidatorAttribute.cs" />
+    <Compile Include="Validation\Validator\StringLengthValidator.cs" />
+    <Compile Include="Validation\Validator\StringLengthValidatorAttribute.cs" />
+    <Compile Include="Validation\Validator\ValidatorCompositionAttribute.cs" />
+    <Compile Include="Validation\Validator\ValueAccess.cs" />
+    <Compile Include="Validation\Validator\ValueAccessValidator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Cache\Performance\CachePerformanceCounterInstaller.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CachePerformanceCounterInstaller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\CompressionRes.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CompressionRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\ExpressionParserRes.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ExpressionParserRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Configuration.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Configuration.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resource.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\RegExpResource.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>RegExpResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\ScriptResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScriptResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Compression\Diagram\Compression.cd" />
+    <None Include="Expression\Diagram\ExpressionDiagram.cd" />
+    <None Include="Logging\Diagram\LoggingDiagram.cd" />
+    <None Include="MCS.Library.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Logging\Configuration\Diagram\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <!--<BinFiles Include="**/bin/Debug/DeluxeWorks.Library.dll" Condition="'$(Configuration)' == 'Debug'" />-->
+    <!--<BinFiles Include="**/bin/Debug/DeluxeWorks.Library.pdb" Condition="'$(Configuration)' == 'Debug'" />-->
+    <!--<BinFiles Include="**/bin/Debug/DeluxeWorks.Library.xml" Condition="'$(Configuration)' == 'Debug'" />-->
+    <!--<BinFiles Include="**/bin/Release/DeluxeWorks.Library.dll" Condition="'$(Configuration)' == 'Release'" />-->
+    <!--<BinFiles Include="**/bin/TestDebug/DeluxeWorks.Library.dll" Condition="'$(Configuration)' == 'DELUXEWORKSTEST'" />-->
+    <!--<BinFiles Include="**/bin/TestDebug/DeluxeWorks.Library.pdb" Condition="'$(Configuration)' == 'DELUXEWORKSTEST'" />-->
+    <Content Include="Validation\Validator\DatetimeEmptyValidator.js" />
+    <Content Include="Validation\Validator\DateTimeRangeValidator.js" />
+    <Content Include="Validation\Validator\EnumDefaultValueValidator.js" />
+    <Content Include="Validation\Validator\IntegerRangeValidator.js" />
+    <Content Include="Validation\Validator\NotNullValidator.js" />
+    <Content Include="Validation\Validator\ObjectNullValidator.js" />
+    <Content Include="Validation\Validator\RegexValidator.js" />
+    <Content Include="Validation\Validator\StringEmptyValidator.js" />
+    <Content Include="Validation\Validator\StringLengthValidator.js" />
+  </ItemGroup>
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+    <!--<Copy SourceFiles="@(BinFiles)" DestinationFolder="..\..\Bin" SkipUnchangedFiles="True" />-->
+  </Target>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+</Project>

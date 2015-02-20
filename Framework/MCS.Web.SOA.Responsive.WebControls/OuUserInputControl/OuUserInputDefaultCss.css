@@ -1,0 +1,19 @@
+.autodrop div.input { border-color: #cccccc; border-style: solid; border-width: 1px; /*width: 100%; 	padding: 4; 	font-size:small;*/ overflow: hidden; word-break: break-all; word-wrap: break-word; height: auto; cursor: text; min-height: 22px; }
+.autodrop div.rwRR, .autodrop div.rcpLst span.rwRRO { color: black; text-decoration: underline; /*border-color:white; 	background-color:white;*/ cursor: pointer; }
+
+.autodrop div.rwRR2, .autodrop div.rcpLst span.rwRR1 { color: #cccccc; text-decoration: underline; /*border-color:white; 	background-color:white;*/ cursor: pointer; /*margin-right:3px;*/ /*font-size:small;*/ }
+
+.autodrop div.rwRR3, .autodrop div.rcpLst span.rwRR3 { border-color: #336699; color: white; background-color: blue; cursor: pointer; /*margin-right:3px;*/ /*font-size:small;*/ }
+
+.autodrop div.rwNRR, .autodrop div.rcpLst span.rwNRR { display:inline; /*border-color:white; 	background-color:white;*/ cursor: pointer; /*margin-right:3px; 	font-size:small;*/ margin-right: 3px; /*font-size:small;*/ }
+
+.autodrop .droplist { position:relative; }
+.autodrop .droplist ul { position:absolute; list-style: none; padding: 0; border: 1px solid #777; background:#fff; z-index:99999; }
+.autodrop .droplist ul li { width: 100%; color: #000; font: 14px arial; line-height: 25px; position: relative; cursor: default; padding:2px 5px; }
+.autodrop .droplist ul li.droplist-selected { background: #ebebeb; }
+
+select.select-item-container { width: 100%; height: 100%; padding-top: 5px; padding-left: 2px; }
+
+.select-item-container option { width: 100%; font: 14px arial; line-height: 25px; }
+
+.select-item-container option.droplist-selected { background: #ebebeb; }

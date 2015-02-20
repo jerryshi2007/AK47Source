@@ -1,0 +1,515 @@
+<public:component tagname="OGUInput">
+	<public:attach event="oncontentready" HANDLER="doInit" />
+	<public:property put="fnPutListMask" get="fnGetListMask" name="listMask" />
+	<public:property put="fnPutValue" get="fnGetValue" name="value" />
+	<public:property put="fnPutReadOnly" get="fnGetReadOnly" name="readOnly" />
+	<public:property put="fnPutDisableInput" get="fnDisableInput" name="disableInput" />
+	<public:property put="fnPutRootOrg" get="fnGetRootOrg" name="rootOrg" />
+	<public:property put="fnPutExtAttr" get="fnGetExtAttrs" name="extAttr" />
+	<public:property put="fnPutMultiSelect" get="fnGetMultiSelect" name="multiSelect" />
+	<public:property put="fnPutOrgAccessLevel" get="fnGetOrgAccessLevel" name="orgAccessLevel" />
+	<public:property put="fnPutUserAccessLevel" get="fnGetUserAccessLevel" name="userAccessLevel" />
+	<public:property put="fnPutCanSelectRoot" get="fnGetCanSelectRoot" name="canSelectRoot" />
+	<public:property put="fnPutAutoGetProperties" get="fnGetAutoSetProperties" name="autoGetProperties" />
+
+	<public:property put="fnPutValueType" get="fnGetValueType" name="valueType" />
+	<!--是否显示兼职人员-->
+	<public:property put="fnPutShowSideLine" get="fnGetShowSideLine" name="showSideLine" />
+	
+	<public:method name="validate" />
+	<public:method name="focus" />
+	<public:method name="getAttribute" />
+	<public:method name="addAttribute" />
+
+	<public:event name="onChange" id="idChange"/>
+	<script type="text/javascript" language="javascript" src="../Script/ApplicationRoot.js"></script>
+
+	<script type="text/javascript" language="javascript" src="../oguScript/validate.js"></script>
+	<script type="text/javascript" language="javascript" src="../oguScript/xmlHttp.js"></script>
+	<script type="text/javascript" language="javascript" src="../oguScript/uiScript.js"></script>
+	<script type="text/javascript" language="javascript" src="../oguScript/htcCommon.js"></script>
+	<script type="text/javascript" language="javascript" src="../selfScript/accreditAdmin.js"></script>
+	<script type="text/javascript" language="javascript" src="../selfScript/organizeTree.js"></script>
+	<script type="text/javascript" language="javascript">
+	//<!--
+	/*function LoadJavascript(filePath)
+	{
+		var oPublicComponent = document.getElementsByTagName("head")[0].lastChild;
+		var oScript = document.createElement("script");
+		oScript.language = "javascript";
+		oScript.src = filePath;
+		oPublicComponent.appendChild(oScript);
+	}
+	LoadJavascript("/" + C_ACCREDIT_ADMIN_ROOT_URI + "/oguScript/validate.js");
+	LoadJavascript("/" + C_ACCREDIT_ADMIN_ROOT_URI + "/oguScript/xmlHttp.js");
+	LoadJavascript("/" + C_ACCREDIT_ADMIN_ROOT_URI + "/oguScript/uiScript.js");
+	LoadJavascript("/" + C_ACCREDIT_ADMIN_ROOT_URI + "/oguScript/htcCommon.js");
+	LoadJavascript("/" + C_ACCREDIT_ADMIN_ROOT_URI + "/selfScript/accreditAdmin.js");
+	LoadJavascript("/" + C_ACCREDIT_ADMIN_ROOT_URI + "/selfScript/organizeTree.js");*/
+		var m_valueType = "ALL_PATH_NAME";		//本控件value属性类型，allPathName为ALL_PATH_NAME，guid为GUID//dn为DN，guid为objectGUID
+		var m_nListMask = 255;					//允许展现的对象类型
+		var m_bReadOnly = false;				//是否只读
+		var m_disableInput = false;				//disabled
+		var m_strRootOrg = "";					//设定查找范围
+		var m_extAttr = "";						//要求同步获取的其他属性数据
+		var m_bMultiSelect = false;				//是否允许填充多个
+		var m_orgAccessLevel = "";				//要求采用的机构行政级别限制
+		var m_userAccessLevel = "";				//要求采用的人员行政级别限制
+		var m_showSideLine = false;				//是否显示兼职人员
+		var m_canSelectRoot = false;			//树的根节点是否可以选择
+		var m_autoGetProperties = false;		//当应用设置value属性时，是否自动读取对象的属性
+		
+		function initProperties()
+		{
+			element.input = null;
+			element.ouSpan = null;
+		}
+
+		function doInit()
+		{
+			initProperties();
+
+			var input = element.document.createElement("input");
+
+			input.disabled = m_disableInput;
+			input.readOnly = m_bReadOnly;
+			input.realValue = "";
+			input.xmlNode = null;
+			input.onchange = onInputChange;
+			input.onkeypress = onInputKeyPress;
+
+			if (element.offsetWidth)
+				input.style.width = element.offsetWidth - 34;
+
+			var ouSpan = element.document.createElement("span");
+
+			with (ouSpan)
+			{
+				style.width = "16px";
+				style.height = "16px";
+
+				style.backgroundImage = "url(/" + C_ACCREDIT_ADMIN_ROOT_URI + "/images/organization.gif)";
+				style.backgroundPosition = "center center";
+				style.backgroundRepeat = "no-repeat";
+				style.cursor = "hand";
+
+				title = "选择组织机构";
+
+				onclick = onOUSpanClick;
+			}
+
+			var checkUserSpan = ouSpan.cloneNode(true);
+
+			with (checkUserSpan)
+			{
+				style.backgroundImage = "url(/" + C_ACCREDIT_ADMIN_ROOT_URI + "/images/checkUser.gif)";
+				title = "检查用户或组织机构的合法性(如果不合法，则显示为红色)";
+
+				onclick = onCheckUserSpanClick;
+			}
+
+			element.appendChild(input);
+			element.appendChild(checkUserSpan);
+			element.appendChild(ouSpan);
+
+			element.input = input;
+			element.ouSpan = ouSpan;
+		}
+
+		function onInputKeyPress()
+		{
+			if (event.keyCode >= 32)
+			{
+				input.style.color = "black";
+				input.style.fontWeight = "normal";
+			}
+		}
+		
+		function fnPutExtAttr(v)
+		{
+			m_extAttr = v;
+		}
+
+		function fnGetExtAttr()
+		{
+			return m_extAttr;
+		}
+
+		function fnPutMultiSelect(value)
+		{
+			m_bMultiSelect = value;
+		}
+
+		function fnGetMultiSelect()
+		{
+			return m_bMultiSelect;
+		}
+
+		function fnPutValue(v)
+		{
+			if (v.length > 0)
+			{
+				element.input.value = v;
+				element.input.realValue = v;
+				element.input.title = v;
+				
+				if (m_autoGetProperties)
+				{
+					queryADProperties(v);
+				}
+			}
+			else
+			{
+				element.input.value = v;
+				element.input.realValue = v;
+				element.input.title = v;
+			}
+		}
+
+		function fnGetValue()
+		{
+			return element.input.realValue;
+		}
+
+		function fnPutListMask(mask)
+		{
+			m_nListMask = getIntParam(mask);
+		}
+
+		function fnGetListMask()
+		{
+			return m_nListMask;
+		}
+
+		function fnPutReadOnly(bReadOnly)
+		{
+			m_bReadOnly = getBoolParam(bReadOnly);
+
+			if (element.input)
+				element.input.readOnly = m_bReadOnly;
+		}
+
+		function fnGetReadOnly()
+		{
+			return m_bReadOnly;
+		}
+
+		function fnPutDisableInput(bDisabled)
+		{
+			m_disableInput = getBoolParam(bDisabled);
+
+			if (element.input)
+				element.input.disabled = m_disableInput;
+		}
+
+		function fnGetDisableInput()
+		{
+			return m_disableInput;
+		}
+
+		function fnPutRootOrg(value)
+		{
+			m_strRootOrg = value;
+		}
+
+		function fnGetRootOrg()
+		{
+			return m_strRootOrg;
+		}
+
+		function fnPutOrgAccessLevel(value)
+		{
+			m_orgAccessLevel = value;
+		}
+
+		function fnGetOrgAccessLevel()
+		{
+			return m_orgAccessLevel;
+		}
+
+		function fnPutUserAccessLevel(value)
+		{
+			m_userAccessLevel = value;
+		}
+
+		function fnGetUserAccessLevel()
+		{
+			return m_userAccessLevel;
+		}
+		
+		function fnPutShowSideLine(v)
+		{
+			m_showSideLine = getBoolParam(v);
+		}
+		
+		function fnGetShowSideLine()
+		{
+			return m_showSideLine;
+		}
+
+		function fnPutValueType(v)
+		{
+			m_valueType = v;
+		}
+
+		function fnGetValueType()
+		{
+			return m_valueType;
+		}
+
+		function fnPutCanSelectRoot(v)
+		{
+			m_canSelectRoot = getBoolParam(v);
+		}
+
+		function fnGetCanSelectRoot()
+		{
+			return m_canSelectRoot;
+		}
+
+		function fnPutAutoGetProperties(v)
+		{
+			m_autoGetProperties = getBoolParam(v);
+		}
+
+		function fnGetAutoGetProperties()
+		{
+			return m_autoGetProperties;
+		}
+
+		function validate()
+		{
+			if (input.value.length > 0 && input.realValue.length == 0)
+			{
+				falseThrow(checkInputUser(true), "不能查找到符合条件的的用户或组织机构");
+			}
+		}
+
+		function focus()
+		{
+			element.input.focus();
+		}
+
+		function getAttribute(strProp)
+		{
+			var strResult = "";
+
+			if (input.xmlNode)
+				strResult = input.xmlNode.getAttribute(strProp);
+
+			return strResult;
+		}
+
+		function addAttribute(strProp, strValue)
+		{
+			if (!input.xmlNode)
+			{
+				var xmlDoc = createDomDocument("<DN/>");
+				
+				input.xmlNode = xmlDoc.documentElement;
+			}
+			
+			input.xmlNode.setAttribute(strProp, strValue);
+		}
+
+		function showMultiSelectDialog(xmlDoc)
+		{
+			var sFeature = "dialogWidth:480px; dialogHeight:400px;center:yes;help:no;resizable:yes;scroll:no;status:no";
+			return showModalDialog("/" + C_ACCREDIT_ADMIN_ROOT_URI + "/exports/OGUSelect.aspx", xmlDoc, sFeature);// 《机构人员管理子系统》内部专用
+		}
+
+		function setNotFoundStyle()
+		{
+			input.xmlNode = null;
+			input.realValue = "";
+			input.style.color = "red";
+			input.style.fontWeight = "normal";
+			input.title = "不能查找到对应的用户或组织机构";
+		}
+
+		function checkInputUser(bIgnorMultiSelect)
+		{
+			var bResult = false;
+			var strValue = input.value;
+
+			if (strValue.length > 0)
+			{
+				var xmlDoc = createCommandXML("queryObjForOGUInput");//, strValue, m_nListMask, m_strRootOrg, m_extAttr);
+				var root = xmlDoc.documentElement.firstChild;
+				root.setAttribute("likeName", strValue);
+				root.setAttribute("queryObjMask", m_nListMask);
+				root.setAttribute("rootOrg", m_strRootOrg);
+				if (m_orgAccessLevel.length > 0)
+					root.setAttribute("orgAccessLevel", m_orgAccessLevel);
+				if (m_userAccessLevel.length > 0)
+					root.setAttribute("userAccessLevel", m_userAccessLevel);
+				root.setAttribute("extAttr", m_extAttr);
+
+				var xmlResult = xmlSend("/" + C_ACCREDIT_ADMIN_ROOT_URI + "/sysSearch/OGUSearch.aspx", xmlDoc);
+
+				checkErrorResult(xmlResult);
+
+				if (!xmlResult.documentElement.hasChildNodes())
+				{
+					setNotFoundStyle();
+				}
+				else
+				{
+					var nodeResult = null;
+
+					if (!bIgnorMultiSelect && xmlResult.documentElement.childNodes.length > 1)
+						nodeResult = showMultiSelectDialog(xmlResult);
+					else
+						nodeResult = xmlResult.documentElement.firstChild;
+
+					if (nodeResult)
+					{
+						setInputDataByResult(nodeResult);
+
+						bResult = true;
+					}
+					else
+						setNotFoundStyle();
+				}
+			}
+			else
+			{
+				input.realValue = "";
+				input.value = "";
+				input.title = "";
+				input.style.color = "black";
+				input.style.fontWeight = "normal";
+			}
+
+			return bResult;
+		}
+
+		function setInputDataByResult(nodeResult)
+		{
+			input.value = nodeResult.getAttribute("DISPLAY_NAME");
+			
+//			var strVProp = "ALL_PATH_NAME";
+//			if (m_valueType == "GUID")
+//				strVProp = "GUID";
+
+			input.realValue = nodeResult.getAttribute(m_valueType);
+			input.xmlNode = nodeResult;
+			input.title = nodeResult.getAttribute("ALL_PATH_NAME");
+			input.style.color = "black";
+			input.style.fontWeight = "bold";
+		}
+
+		function queryADProperties(strValues)
+		{
+			try
+			{
+				var strVProp = m_valueType;
+				
+				var xmlDoc = createCommandXML("getObjectsDetail");
+				var root = xmlDoc.documentElement;
+				
+				root.setAttribute("valueType", strVProp);
+				root.setAttribute("oValues", strValues);
+				root.setAttribute("extAttrs", m_extAttr);
+				
+				var xmlResult = xmlSend("/" + C_ACCREDIT_ADMIN_ROOT_URI + "/sysSearch/OGUSearch.aspx", xmlDoc);
+				checkErrorResult(xmlResult);
+				
+				var root = xmlResult.documentElement.firstChild;
+				
+				setInputDataByResult(root);
+			}
+			catch(e)
+			{
+				setNotFoundStyle();
+			}
+		}
+		
+		function onCheckUserSpanClick()
+		{
+			try
+			{
+				if (element.input.readOnly || element.input.disabled)
+					return;
+
+				checkInputUser();
+			}
+			catch(e)
+			{
+				showError(e);
+			}
+		}
+
+		function onOUSpanClick()
+		{
+			if (element.input.readOnly || element.input.disabled)
+				return;
+				
+			try
+			{
+				var arg = new Object();
+
+				arg.listObjType = m_nListMask | 1;	//无论listMask是什么，总要列出OU
+				arg.selectObjType = m_nListMask;	//设置那些哪些内容可以被选择
+
+				arg.multiSelect = m_bMultiSelect ? 1 : 0;
+				arg.extAttr = "RANK_NAME";
+				arg.orgAccessLevel = m_orgAccessLevel;
+				arg.userAccessLevel = m_userAccessLevel;
+//				arg.showSideLine = m_showSideLine;
+				arg.canSelectRoot = m_canSelectRoot;
+
+				if (m_extAttr.length > 0)
+					arg.extAttr += "," + m_extAttr;
+
+				if (m_strRootOrg.length > 0)
+					arg.rootOrg = m_strRootOrg;
+
+				var strXml = showSelectUserDialog(arg);
+
+				if (strXml.length > 0)
+				{
+					var xmlDoc = createDomDocument(strXml);
+					trueThrow(xmlDoc.documentElement.childNodes.length == 0, "对不起，您没有选定的对象！");
+
+					setInputDataByResult(xmlDoc.documentElement.firstChild);
+				}
+			}
+			catch(e)
+			{
+				showError(e);
+			}
+			finally
+			{
+				fireEvent(idChange);
+			}
+		}
+
+		function onInputChange()
+		{
+			try
+			{
+				checkInputUser();
+			}
+			catch(e)
+			{
+				showError(e);
+			}
+			finally
+			{
+				event.returnValue = fireEvent(idChange);
+			}
+		}
+		
+		function fireEvent(eventObj, oEvent)
+		{
+			if (!oEvent)
+				oEvent = createEventObject();				
+
+			eventObj.fire(oEvent);
+			
+			return eventObj.returnValue;
+		}
+		//-->
+	</script>
+</public:component>

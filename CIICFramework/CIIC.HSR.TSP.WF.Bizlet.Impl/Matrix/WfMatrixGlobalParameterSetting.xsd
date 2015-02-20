@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="WfMatrixGlobalParameterConfig"
+    targetNamespace="urn:CIIC.HSR.TSP.WF.Bizlet.Impl.WfMatrixGlobalParameterSetting.Configuration"
+    elementFormDefault="qualified"
+    xmlns:tns="urn:CIIC.HSR.TSP.WF.Bizlet.Impl.WfMatrixGlobalParameterSetting.Configuration"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="wfMatrixGlobalParameterSetting" >
+    <xs:complexType >
+      <xs:all>
+        <xs:element name="parameters" >
+          <xs:complexType>
+            <xs:choice>
+              <xs:element name="parameter" type="tns:parameter" maxOccurs="unbounded" ></xs:element>
+            </xs:choice>
+          </xs:complexType>
+        </xs:element>
+      </xs:all>    
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name ="parameter" > 
+    <xs:attribute name="key" type="xs:string"  use="required"></xs:attribute>
+    <xs:attribute name="name" type="xs:string"  use="required"></xs:attribute>
+    <xs:attribute name="defaultValue" type="xs:string"  use="required"></xs:attribute>
+    <xs:attribute name="enable" type="xs:boolean"  use="required"></xs:attribute>
+    <xs:attribute name="description" type="xs:string"  use="optional"></xs:attribute>
+    <xs:attribute name="valueType" type="tns:ParaType"  use="required"></xs:attribute>
+  </xs:complexType>
+ 
+  <xs:simpleType name="ParaType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="String" />
+      <xs:enumeration value="Number" />
+      <xs:enumeration value="Float" />   
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

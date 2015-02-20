@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<DataExtraCheck>
+	<ORGANIZATIONS>
+		<ITEM>
+			<FIELD>CUSTOMS_CODE</FIELD>
+			<NAME>关区代码</NAME>
+			<LENGTH>0,4</LENGTH>
+		</ITEM>
+		<ITEM>
+			<FIELD>SYSDISTINCT1</FIELD>
+			<NAME>组织机构代码</NAME>
+			<LENGTH>0,12</LENGTH>
+		</ITEM>
+	</ORGANIZATIONS>
+	<USERS>
+		<ITEM>
+			<FIELD>PERSON_ID</FIELD>
+			<NAME>人员编号</NAME>
+			<LENGTH>0,7</LENGTH>
+		</ITEM>
+		<ITEM>
+			<FIELD>IC_CARD</FIELD>
+			<NAME>IC卡编号</NAME>
+			<LENGTH>0,16</LENGTH>
+		</ITEM>
+	</USERS>
+	<OU_USERS />
+	<GROUPS />
+</DataExtraCheck>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <ProjectGuid>{F8051E47-CF1F-43D9-9296-191293786C1F}</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectItem Include="AccreditAdmin\AccreditAdmin.csproj" />
+    <ProjectItem Include="AppAdmin\AppAdmin.csproj" />
+    <ProjectItem Include="AppAdmin_LOG\AppAdmin_LOG.csproj" />
+    <ProjectItem Include="PassportService\PassportService.csproj" />
+    <ProjectItem Include="ResponsivePassportService\ResponsivePassportService.csproj" />
+    <ProjectItem Include="WorkflowDesigner\WorkflowDesigner.csproj" />
+    <ProjectItem Include="WfDemoOrderService\WfDemoService.csproj" />
+    <ProjectItem Include="MCSOAPortal\MCSOAPortal.csproj" />
+    <ProjectItem Include="MCSResponsiveOAPortal\MCSResponsiveOAPortal.csproj" />
+    <ProjectItem Include="OACommonPages\OACommonPages.csproj" />
+    <ProjectItem Include="MCS.OA.Stat\MCS.OA.Stat.csproj" />
+    <ProjectItem Include="Diagnostics\Diagnostics.csproj" />
+    <ProjectItem Include="PermissionCenterServices\PermissionCenterServices.csproj" />
+    <ProjectItem Include="PermissionCenter\PermissionCenter.csproj" />
+    <ProjectItem Include="AUCenter\AUCenter.csproj" />
+    <ProjectItem Include="AUCenterServices\AUCenterServices.csproj" />
+    <ProjectItem Include="WfPlatformServices\WfPlatformServices.csproj" />
+    <ProjectItem Include="WfOperationServices\WfOperationServices.csproj" />
+    <ProjectItem Include="WfFormTemplate\WfFormTemplate.csproj" />
+    <ProjectItem Include="DocServiceHost\DocServiceHost.csproj" />
+    <ProjectItem Include="SyncMaterialFileToDocCenterService\SyncMaterialFileToDocCenterService.csproj" />
+  </ItemGroup>
+  <Target Name="BuildOtherProjects">
+    <MSBuild Projects="@(ProjectItem)" RebaseOutputs="True" />
+  </Target>
+</Project>

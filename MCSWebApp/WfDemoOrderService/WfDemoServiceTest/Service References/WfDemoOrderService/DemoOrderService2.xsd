@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WfDemoService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WfDemoService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="DemoOrderData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:int" />
+      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Create_Time" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatorID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatorName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Payable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Subject" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DemoOrderData" nillable="true" type="tns:DemoOrderData" />
+</xs:schema>

@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{05E02101-5FF3-4D69-9EBF-D80D0B4B9326}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ResponsivePassportService</RootNamespace>
+    <AssemblyName>ResponsivePassportService</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;GTNet40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>MCS.Library.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MCS.Library">
+      <HintPath>..\..\Bin\MCS.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Data">
+      <HintPath>..\..\Bin\MCS.Library.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.OGUPermission">
+      <HintPath>..\..\Bin\MCS.Library.OGUPermission.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Passport">
+      <HintPath>..\..\Bin\MCS.Library.Passport.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Passport.Social">
+      <HintPath>..\..\Bin\MCS.Library.Passport.Social.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.DataObjects">
+      <HintPath>..\..\Bin\MCS.Library.SOA.DataObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Library.Script.Json">
+      <HintPath>..\..\Bin\MCS.Web.Library.Script.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Responsive.Library">
+      <HintPath>..\..\Bin\MCS.Web.Responsive.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Responsive.WebControls">
+      <HintPath>..\..\Bin\MCS.Web.Responsive.WebControls.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Anonymous\Bind.aspx" />
+    <Content Include="Anonymous\LogOffPage.aspx" />
+    <Content Include="Anonymous\OpenIDBridge.aspx" />
+    <Content Include="Anonymous\QQLogin.aspx" />
+    <Content Include="Anonymous\QQLoginCallback.aspx" />
+    <Content Include="Anonymous\SignInPage.aspx" />
+    <Content Include="Images\bgimg_main01.jpg" />
+    <Content Include="Images\login.png" />
+    <Content Include="Images\logo.gif" />
+    <Content Include="Images\QQ\Connect_logo_1.png" />
+    <Content Include="Images\QQ\Connect_logo_2.png" />
+    <Content Include="Images\QQ\Connect_logo_3.png" />
+    <Content Include="Images\QQ\Connect_logo_4.png" />
+    <Content Include="Images\QQ\Connect_logo_5.png" />
+    <Content Include="Images\QQ\Connect_logo_6.png" />
+    <Content Include="Images\QQ\Connect_logo_7.png" />
+    <Content Include="Resources\Bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Resources\Bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Resources\Bootstrap\css\bootstrap.css" />
+    <Content Include="Resources\Bootstrap\css\bootstrap.min.css" />
+    <Content Include="Resources\Bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Resources\Bootstrap\js\bootstrap.js" />
+    <Content Include="Resources\Bootstrap\js\bootstrap.min.js" />
+    <Content Include="Resources\Bootstrap\plugin\datetimepicker\css\bootstrap-daterangepicker.css" />
+    <Content Include="Resources\Bootstrap\plugin\datetimepicker\css\bootstrap-datetimepicker.css" />
+    <Content Include="Resources\Bootstrap\plugin\datetimepicker\js\bootstrap-daterangepicker.js" />
+    <Content Include="Resources\Bootstrap\plugin\datetimepicker\js\bootstrap-datetimepicker.js" />
+    <Content Include="Resources\Bootstrap\plugin\datetimepicker\moment.min.js" />
+    <Content Include="Resources\Bootstrap\plugin\treeview\fuelux.tree.js" />
+    <Content Include="Resources\Bootstrap\plugin\treeview\fuelux.tree.min.js" />
+    <Content Include="Resources\Font-awesome\css\font-awesome-ie7.css" />
+    <Content Include="Resources\Font-awesome\css\font-awesome-ie7.min.css" />
+    <Content Include="Resources\Font-awesome\css\font-awesome.css" />
+    <Content Include="Resources\Font-awesome\css\font-awesome.min.css" />
+    <Content Include="Resources\Font-awesome\font\fontawesome-webfont.svg" />
+    <Content Include="Resources\Jquery\jquery-1.10.2.js" />
+    <Content Include="Resources\Jquery\jquery-1.10.2.min.js" />
+    <Content Include="Resources\Jquery\jquery-2.0.3.js" />
+    <Content Include="Resources\Jquery\jquery-2.0.3.min.js" />
+    <Content Include="Resources\Jquery\jquery-migrate-1.2.1.js" />
+    <Content Include="Resources\Jquery\jquery-migrate-1.2.1.min.js" />
+    <Content Include="Resources\Styles\badge.css" />
+    <Content Include="Resources\Styles\button.css" />
+    <Content Include="Resources\Styles\color.css" />
+    <Content Include="Resources\Styles\dropdown.css" />
+    <Content Include="Resources\Styles\elements.css" />
+    <Content Include="Resources\Styles\form.css" />
+    <Content Include="Resources\Styles\layout.css" />
+    <Content Include="Resources\Styles\login.css" />
+    <Content Include="Resources\Styles\modalbox.css" />
+    <Content Include="Resources\Styles\oguselecter.css" />
+    <Content Include="Resources\Styles\poptip.css" />
+    <Content Include="Resources\Styles\progress.css" />
+    <Content Include="Resources\Styles\search.css" />
+    <Content Include="Resources\Styles\table.css" />
+    <Content Include="Resources\Styles\treeview.css" />
+    <Content Include="Resources\Styles\widget.css" />
+    <Content Include="Template\ResponsiveBindingTemplate.ascx" />
+    <Content Include="Template\ResponsiveSignInTemplate.ascx" />
+    <Content Include="AnonymousTestPage\OpenIDIdentityTest.aspx" />
+    <Content Include="TestPages\NoRedirectTest.aspx" />
+    <Content Include="TestPages\PrincipalTest.aspx" />
+    <Content Include="TestPages\TestTemplate.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Anonymous\Bind.aspx.cs">
+      <DependentUpon>Bind.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Anonymous\Bind.aspx.designer.cs">
+      <DependentUpon>Bind.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Anonymous\LogOffPage.aspx.cs">
+      <DependentUpon>LogOffPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Anonymous\LogOffPage.aspx.designer.cs">
+      <DependentUpon>LogOffPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Anonymous\OpenIDBridge.aspx.cs">
+      <DependentUpon>OpenIDBridge.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Anonymous\OpenIDBridge.aspx.designer.cs">
+      <DependentUpon>OpenIDBridge.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Anonymous\QQLogin.aspx.cs">
+      <DependentUpon>QQLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Anonymous\QQLogin.aspx.designer.cs">
+      <DependentUpon>QQLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Anonymous\QQLoginCallback.aspx.cs">
+      <DependentUpon>QQLoginCallback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Anonymous\QQLoginCallback.aspx.designer.cs">
+      <DependentUpon>QQLoginCallback.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Anonymous\SignInPage.aspx.cs">
+      <DependentUpon>SignInPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Anonymous\SignInPage.aspx.designer.cs">
+      <DependentUpon>SignInPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Define.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Template\ResponsiveBindingTemplate.ascx.cs">
+      <DependentUpon>ResponsiveBindingTemplate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Template\ResponsiveBindingTemplate.ascx.designer.cs">
+      <DependentUpon>ResponsiveBindingTemplate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Template\ResponsiveSignInTemplate.ascx.cs">
+      <DependentUpon>ResponsiveSignInTemplate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Template\ResponsiveSignInTemplate.ascx.designer.cs">
+      <DependentUpon>ResponsiveSignInTemplate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AnonymousTestPage\OpenIDIdentityTest.aspx.cs">
+      <DependentUpon>OpenIDIdentityTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AnonymousTestPage\OpenIDIdentityTest.aspx.designer.cs">
+      <DependentUpon>OpenIDIdentityTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestPages\NoRedirectTest.aspx.cs">
+      <DependentUpon>NoRedirectTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestPages\NoRedirectTest.aspx.designer.cs">
+      <DependentUpon>NoRedirectTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestPages\PrincipalTest.aspx.cs">
+      <DependentUpon>PrincipalTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestPages\PrincipalTest.aspx.designer.cs">
+      <DependentUpon>PrincipalTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestPages\TestTemplate.aspx.cs">
+      <DependentUpon>TestTemplate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestPages\TestTemplate.aspx.designer.cs">
+      <DependentUpon>TestTemplate.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="MCS.Library.snk" />
+    <None Include="Resources\Bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Resources\Bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="Resources\Bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="Resources\Font-awesome\font\fontawesome-webfont.eot" />
+    <None Include="Resources\Font-awesome\font\fontawesome-webfont.ttf" />
+    <None Include="Resources\Font-awesome\font\fontawesome-webfont.woff" />
+    <None Include="Resources\Font-awesome\font\FontAwesome.otf" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v12.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>57186</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/MCSWebApp/ResponsivePassportService</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

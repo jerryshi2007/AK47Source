@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="efa65e21-ae88-44b6-ad92-500a515b0227" ChangeDateTime="06/12/2014 02:12:53">
+    <Property Name="ElementName" Value="[WeChat].[Friends].[Account]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[WeChat].[Friends]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AccountID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2003ea18-d580-4e26-8317-5c3966a31b83" ChangeDateTime="06/18/2014 09:21:04">
+    <Property Name="ElementName" Value="[WeChat].[RecentMessages].[IX_RecentMessages_SentTime]" />
+    <Property Name="ElementType" Value="SqlIndex" />
+    <Property Name="ParentElementName" Value="[WeChat].[RecentMessages]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[IX_RecentMessages_SentTime_Content]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="21b4627f-8872-4ccb-8eff-59ac42cd83ba" ChangeDateTime="06/18/2014 09:24:19">
+    <Property Name="ElementName" Value="[WeChat].[RecentMessages].[IX_RecentMessages_SentTime_Content]" />
+    <Property Name="ElementType" Value="SqlIndex" />
+    <Property Name="ParentElementName" Value="[WeChat].[RecentMessages]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[IX_RecentMessages_SentTime]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ed51100b-0f02-4e59-8ce9-4ffe4c35444c" ChangeDateTime="06/18/2014 15:59:21">
+    <Property Name="ElementName" Value="[WF].[IncomeMessages].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[WF].[IncomeMessages]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="MessageID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="4ab7cb54-b493-4451-ab12-9a3180ea00fe" ChangeDateTime="06/18/2014 16:02:20">
+    <Property Name="ElementName" Value="[WF].[IncomeMessages].[CreateTime]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[WF].[IncomeMessages]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="SentTime" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1363e9e1-d044-4b17-ba05-b8f28b0a0726" ChangeDateTime="06/18/2014 16:02:31">
+    <Property Name="ElementName" Value="[WF].[IncomeMessages].[IX_IncomeMessages_Column]" />
+    <Property Name="ElementType" Value="SqlIndex" />
+    <Property Name="ParentElementName" Value="[WF].[IncomeMessages]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[IX_IncomeMessages_SentTime]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="77cf6d48-ae9d-429d-8c45-0474f6018cb0" ChangeDateTime="06/19/2014 11:27:30">
+    <Property Name="ElementName" Value="[Config].[AccountInfo].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Config].[AccountInfo]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AccountID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="381ade67-5c38-4ce2-996d-b03b257a38a2" ChangeDateTime="06/19/2014 11:30:15">
+    <Property Name="ElementName" Value="[Config].[AccountInfo].[SignInID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Config].[AccountInfo]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="UserID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2b81ab7c-435e-4e36-81ab-336eae8f77d9" ChangeDateTime="06/19/2014 14:32:35">
+    <Property Name="ElementName" Value="[Config].[ConditionalGroup].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Config].[ConditionalGroup]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="GroupID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="06212a41-7068-4ed3-8c9e-edf2375e139f" ChangeDateTime="06/19/2014 14:45:36">
+    <Property Name="ElementName" Value="[Biz].[Members].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Biz].[Members]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="MemberID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a6d78b16-729a-4e34-be74-503f6002a3e2" ChangeDateTime="06/19/2014 15:02:31">
+    <Property Name="ElementName" Value="[dbo].[GroupsAndMembers].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[GroupsAndMembers]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="GroupID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="4b86d39e-1c1b-4025-8cd2-0c8079145951" ChangeDateTime="06/25/2014 07:03:42">
+    <Property Name="ElementName" Value="[Biz].[Members].[AccountID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Biz].[Members]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="MemberName" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e6000843-51c0-4755-ad90-99a287b80269" ChangeDateTime="06/25/2014 07:03:57">
+    <Property Name="ElementName" Value="[Biz].[Members].[OpenID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Biz].[Members]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Age" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d8374113-9aad-4cd2-bf92-94e74de06d0a" ChangeDateTime="06/25/2014 08:08:00">
+    <Property Name="ElementName" Value="[dbo].[MembersAndOpenID].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[MembersAndOpenID]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="MemberID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e8f60db8-73cd-4f10-9a64-acc179c6d9b1" ChangeDateTime="06/26/2014 09:39:48">
+    <Property Name="ElementName" Value="[Biz].[Members].[AnnualHouseholdIncome ]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Biz].[Members]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AnnualHouseholdIncome" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5f7d538b-848c-4917-ba9f-fe846fd2b7fc" ChangeDateTime="06/26/2014 09:40:01">
+    <Property Name="ElementName" Value="[Biz].[Members].[FamilyComposition ]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Biz].[Members]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="FamilyComposition" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="b798aef6-ff5b-41f2-b464-8311c816395e" ChangeDateTime="06/30/2014 10:03:18">
+    <Property Name="ElementName" Value="[WeChat].[AppMessage].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[WeChat].[AppMessage]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AppMessageID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2bcb1c85-462a-4148-8d7b-7bb5d1108197" ChangeDateTime="06/30/2014 10:20:09">
+    <Property Name="ElementName" Value="[WeChat].[AppMessage]" />
+    <Property Name="ElementType" Value="SqlTable" />
+    <Property Name="ParentElementName" Value="[WeChat]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[AppMessages]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="155e2f74-a200-4a63-abe3-cfeb5c2e4301" ChangeDateTime="07/01/2014 07:24:55">
+    <Property Name="ElementName" Value="[Biz].[ConditionalGroup]" />
+    <Property Name="ElementType" Value="SqlTable" />
+    <Property Name="ParentElementName" Value="[Biz]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[ConditionalGroups]" />
+  </Operation>
+</Operations>
