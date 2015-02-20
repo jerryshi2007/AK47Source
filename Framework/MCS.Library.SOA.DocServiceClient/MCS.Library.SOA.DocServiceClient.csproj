@@ -4,7 +4,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>../../../CIIC.HSR.TSP.Files/TSPLib.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>MCS.Library.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -93,6 +93,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserBehavior.cs" />
     <Compile Include="WordTemplate.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MCS.Library.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
