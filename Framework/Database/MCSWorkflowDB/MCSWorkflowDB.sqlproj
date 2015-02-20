@@ -226,6 +226,10 @@
     <Build Include="WF\Tables\SYS_TASK_PROCESS.sql" />
     <Build Include="WF\Tables\MATRIX_ROWS_USERS.sql" />
     <Build Include="WF\Stored Procedures\QueryUserRelativeRunningProcesses.sql" />
+    <Build Include="WF\Tables\ROLE_PROPERTIES_DEFINITIONS.sql" />
+    <Build Include="WF\Tables\ROLE_PROPERTIES_ROWS.sql" />
+    <Build Include="WF\Tables\ROLE_PROPERTIES_CELLS.sql" />
+    <Build Include="WF\Tables\ROLE_PROPERTIES_USER_CONTAINERS.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="MCSWorkflowDB.local.test.publish.xml" />
