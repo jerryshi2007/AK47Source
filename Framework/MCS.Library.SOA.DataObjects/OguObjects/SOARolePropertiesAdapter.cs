@@ -124,7 +124,7 @@ namespace MCS.Library.SOA.DataObjects
 
 			StringBuilder strB = new StringBuilder();
 
-			strB.AppendFormat("SELECT * WF.FROM ROLE_PROPERTIES_ROWS WHERE ROLE_ID = {0} ORDER BY ROW_NUMBER",
+            strB.AppendFormat("SELECT * FROM WF.ROLE_PROPERTIES_ROWS WHERE ROLE_ID = {0} ORDER BY ROW_NUMBER",
 				TSqlBuilder.Instance.CheckQuotationMark(roleID, true));
 
 			strB.Append(TSqlBuilder.Instance.DBStatementSeperator);
