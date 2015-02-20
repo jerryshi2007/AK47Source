@@ -10,7 +10,7 @@ using System.Data;
 namespace MCS.Library.SOA.DataObjects
 {
     [Serializable]
-    [ORTableMapping("ROLE_PROPERTIES_CELLS")]
+    [ORTableMapping("WF.ROLE_PROPERTIES_CELLS")]
     public sealed class SOARolePropertyValue : RowValueBase<SOARolePropertyDefinition, string>
     {
         public SOARolePropertyValue()

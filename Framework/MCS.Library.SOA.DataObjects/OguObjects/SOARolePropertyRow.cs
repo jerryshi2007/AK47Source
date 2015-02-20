@@ -38,7 +38,7 @@ namespace MCS.Library.SOA.DataObjects
     }
 
     [Serializable]
-    [ORTableMapping("ROLE_PROPERTIES_ROWS")]
+    [ORTableMapping("WF.ROLE_PROPERTIES_ROWS")]
     public class SOARolePropertyRow : TableRowBase<SOARolePropertyDefinition, SOARolePropertyValue, SOARolePropertyValueCollection, string>
     {
         public static readonly char[] OperatorSplitters = new char[] { ',', '，' };

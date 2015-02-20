@@ -1,16 +1,17 @@
-﻿using System;
+﻿using MCS.Library.Caching;
+using MCS.Library.Core;
+using MCS.Library.Data;
+using MCS.Library.Data.Builder;
+using MCS.Library.Data.Mapping;
+using MCS.Library.OGUPermission;
+using MCS.Library.SOA.DataObjects.Workflow;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Transactions;
-using MCS.Library.Caching;
-using MCS.Library.Core;
-using MCS.Library.Data;
-using MCS.Library.Data.Builder;
-using MCS.Library.Data.Mapping;
-using MCS.Library.OGUPermission;
 
 namespace MCS.Library.SOA.DataObjects
 {
@@ -90,7 +91,7 @@ namespace MCS.Library.SOA.DataObjects
 
 			if (inBuilder.IsEmpty == false)
 			{
-				string sql = string.Format("SELECT ROLE_ID FROM ROLE_PROPERTIES_USER_CONTAINERS WHERE {0}", inBuilder.ToSqlString(TSqlBuilder.Instance));
+				string sql = string.Format("SELECT ROLE_ID FROM WF.ROLE_PROPERTIES_USER_CONTAINERS WHERE {0}", inBuilder.ToSqlString(TSqlBuilder.Instance));
 
 				using (DbContext context = DbContext.GetContext(GetConnectionName()))
 				{
@@ -123,12 +124,12 @@ namespace MCS.Library.SOA.DataObjects
 
 			StringBuilder strB = new StringBuilder();
 
-			strB.AppendFormat("SELECT * FROM ROLE_PROPERTIES_ROWS WHERE ROLE_ID = {0} ORDER BY ROW_NUMBER",
+			strB.AppendFormat("SELECT * WF.FROM ROLE_PROPERTIES_ROWS WHERE ROLE_ID = {0} ORDER BY ROW_NUMBER",
 				TSqlBuilder.Instance.CheckQuotationMark(roleID, true));
 
 			strB.Append(TSqlBuilder.Instance.DBStatementSeperator);
 
-			strB.AppendFormat("SELECT * FROM ROLE_PROPERTIES_CELLS WHERE ROLE_ID = {0} ORDER BY PROPERTIES_ROW_ID",
+            strB.AppendFormat("SELECT * FROM WF.ROLE_PROPERTIES_CELLS WHERE ROLE_ID = {0} ORDER BY PROPERTIES_ROW_ID",
 				TSqlBuilder.Instance.CheckQuotationMark(roleID, true));
 
 			SOARolePropertyRowCollection result = new SOARolePropertyRowCollection(role);
@@ -198,7 +199,7 @@ namespace MCS.Library.SOA.DataObjects
 
 			if (result.Count > 0)
 			{
-				string sql = string.Format("SELECT ROLE_ID FROM ROLE_PROPERTIES_ROWS WHERE ROLE_ID IN ({0}) GROUP BY ROLE_ID",
+				string sql = string.Format("SELECT ROLE_ID FROM WF.ROLE_PROPERTIES_ROWS WHERE ROLE_ID IN ({0}) GROUP BY ROLE_ID",
 					builder.ToSqlString(TSqlBuilder.Instance));
 
 				DataTable table = DbHelper.RunSqlReturnDS(sql, GetConnectionName()).Tables[0];
@@ -224,17 +225,17 @@ namespace MCS.Library.SOA.DataObjects
 
 			StringBuilder strB = new StringBuilder(1024);
 
-			strB.AppendFormat("DELETE ROLE_PROPERTIES_ROWS WHERE ROLE_ID = {0}",
+            strB.AppendFormat("DELETE WF.ROLE_PROPERTIES_ROWS WHERE ROLE_ID = {0}",
 				TSqlBuilder.Instance.CheckQuotationMark(roleID, true));
 
 			strB.Append(TSqlBuilder.Instance.DBStatementSeperator);
 
-			strB.AppendFormat("DELETE ROLE_PROPERTIES_CELLS WHERE ROLE_ID = {0}",
+            strB.AppendFormat("DELETE WF.ROLE_PROPERTIES_CELLS WHERE ROLE_ID = {0}",
 				TSqlBuilder.Instance.CheckQuotationMark(roleID, true));
 
 			strB.Append(TSqlBuilder.Instance.DBStatementSeperator);
 
-			strB.AppendFormat("DELETE ROLE_PROPERTIES_USER_CONTAINERS WHERE ROLE_ID = {0}",
+            strB.AppendFormat("DELETE WF.ROLE_PROPERTIES_USER_CONTAINERS WHERE ROLE_ID = {0}",
 				TSqlBuilder.Instance.CheckQuotationMark(roleID, true));
 
 			PrepareRowsSql(rows, strB);
@@ -262,17 +263,17 @@ namespace MCS.Library.SOA.DataObjects
 
 			StringBuilder strB = new StringBuilder(1024);
 
-			strB.AppendFormat("DELETE ROLE_PROPERTIES_ROWS WHERE ROLE_ID = {0}",
+            strB.AppendFormat("DELETE WF.ROLE_PROPERTIES_ROWS WHERE ROLE_ID = {0}",
 				TSqlBuilder.Instance.CheckQuotationMark(role.ID, true));
 
 			strB.Append(TSqlBuilder.Instance.DBStatementSeperator);
 
-			strB.AppendFormat("DELETE ROLE_PROPERTIES_CELLS WHERE ROLE_ID = {0}",
+            strB.AppendFormat("DELETE WF.ROLE_PROPERTIES_CELLS WHERE ROLE_ID = {0}",
 				TSqlBuilder.Instance.CheckQuotationMark(role.ID, true));
 
 			strB.Append(TSqlBuilder.Instance.DBStatementSeperator);
 
-			strB.AppendFormat("DELETE ROLE_PROPERTIES_USER_CONTAINERS WHERE ROLE_ID = {0}",
+            strB.AppendFormat("DELETE WF.ROLE_PROPERTIES_USER_CONTAINERS WHERE ROLE_ID = {0}",
 				TSqlBuilder.Instance.CheckQuotationMark(role.ID, true));
 
 			DbHelper.RunSqlWithTransaction(strB.ToString(), GetConnectionName());
@@ -298,7 +299,7 @@ namespace MCS.Library.SOA.DataObjects
 					builder.AppendItem("OPERATOR_ID", user.ID);
 					builder.AppendItem("OPERATOR_NAME", user.DisplayName.IsNotEmpty() ? user.DisplayName : user.Name);
 
-					string sql = string.Format("INSERT INTO ROLE_PROPERTIES_USER_CONTAINERS {0}", builder.ToSqlString(TSqlBuilder.Instance));
+                    string sql = string.Format("INSERT INTO WF.ROLE_PROPERTIES_USER_CONTAINERS {0}", builder.ToSqlString(TSqlBuilder.Instance));
 
 					strB.Append(sql);
 				}
@@ -321,7 +322,7 @@ namespace MCS.Library.SOA.DataObjects
 					builder.AppendItem("OPERATOR_ID", role.ID);
 					builder.AppendItem("OPERATOR_NAME", role.FullCodeName);
 
-					string sql = string.Format("INSERT INTO ROLE_PROPERTIES_USER_CONTAINERS {0}", builder.ToSqlString(TSqlBuilder.Instance));
+                    string sql = string.Format("INSERT INTO WF.ROLE_PROPERTIES_USER_CONTAINERS {0}", builder.ToSqlString(TSqlBuilder.Instance));
 
 					strB.Append(sql);
 				}
@@ -351,7 +352,7 @@ namespace MCS.Library.SOA.DataObjects
 
 			builder.AppendItem("ROLE_ID", row.Role.ID);
 
-			return "INSERT INTO ROLE_PROPERTIES_ROWS" + builder.ToSqlString(TSqlBuilder.Instance);
+			return "INSERT INTO WF.ROLE_PROPERTIES_ROWS" + builder.ToSqlString(TSqlBuilder.Instance);
 		}
 
 		private static string PrepareValueSql(SOARolePropertyRow row, SOARolePropertyValue propValue)
@@ -362,12 +363,12 @@ namespace MCS.Library.SOA.DataObjects
 			builder.AppendItem("PROPERTIES_ROW_ID", row.RowNumber);
 			builder.AppendItem("PROPERTY_NAME", propValue.Column.Name);
 
-			return "INSERT INTO ROLE_PROPERTIES_CELLS" + builder.ToSqlString(TSqlBuilder.Instance);
+            return "INSERT INTO WF.ROLE_PROPERTIES_CELLS" + builder.ToSqlString(TSqlBuilder.Instance);
 		}
 
 		private static string GetConnectionName()
 		{
-			return ConnectionDefine.DefaultAccreditInfoConnectionName;
+            return WorkflowSettings.GetConfig().ConnectionName;
 		}
 	}
 }

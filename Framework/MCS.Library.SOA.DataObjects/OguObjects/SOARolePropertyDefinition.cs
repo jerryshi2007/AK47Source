@@ -16,7 +16,7 @@ namespace MCS.Library.SOA.DataObjects
     /// 角色的属性定义项
     /// </summary>
     [Serializable]
-    [ORTableMapping("ROLE_PROPERTIES_DEFINITIONS")]
+    [ORTableMapping("WF.ROLE_PROPERTIES_DEFINITIONS")]
     public class SOARolePropertyDefinition : ColumnDefinitionBase
     {
         private static readonly string[] ReservedPropertyName = new string[] { "OperatorType", "Operator", "ActivitySN", "ActivityName", "IsMergeable" };

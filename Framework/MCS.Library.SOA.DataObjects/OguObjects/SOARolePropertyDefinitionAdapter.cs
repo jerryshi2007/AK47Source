@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Data;
+﻿using MCS.Library.Caching;
 using MCS.Library.Core;
+using MCS.Library.Data;
 using MCS.Library.Data.Builder;
 using MCS.Library.Data.Mapping;
-using System.Transactions;
-using MCS.Library.Data;
-using MCS.Library.Caching;
 using MCS.Library.OGUPermission;
+using MCS.Library.SOA.DataObjects.Workflow;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Transactions;
 
 namespace MCS.Library.SOA.DataObjects
 {
@@ -57,7 +58,7 @@ namespace MCS.Library.SOA.DataObjects
         {
             roleID.CheckStringIsNullOrEmpty("roleID");
 
-            string sql = string.Format("SELECT * FROM ROLE_PROPERTIES_DEFINITIONS WHERE ROLE_ID = {0} ORDER BY SORT_ORDER",
+            string sql = string.Format("SELECT * FROM WF.ROLE_PROPERTIES_DEFINITIONS WHERE ROLE_ID = {0} ORDER BY SORT_ORDER",
                 TSqlBuilder.Instance.CheckQuotationMark(roleID, true));
 
             using (TransactionScope scope = TransactionScopeFactory.Create(TransactionScopeOption.Suppress))
@@ -103,7 +104,7 @@ namespace MCS.Library.SOA.DataObjects
 
             if (result.Count > 0)
             {
-                string sql = string.Format("SELECT ROLE_ID FROM ROLE_PROPERTIES_DEFINITIONS WHERE ROLE_ID IN ({0}) GROUP BY ROLE_ID",
+                string sql = string.Format("SELECT ROLE_ID FROM WF.ROLE_PROPERTIES_DEFINITIONS WHERE ROLE_ID IN ({0}) GROUP BY ROLE_ID",
                     builder.ToSqlString(TSqlBuilder.Instance));
 
                 DataTable table = DbHelper.RunSqlReturnDS(sql, GetConnectionName()).Tables[0];
@@ -122,7 +123,7 @@ namespace MCS.Library.SOA.DataObjects
 
             StringBuilder strB = new StringBuilder();
 
-            strB.AppendFormat("DELETE ROLE_PROPERTIES_DEFINITIONS WHERE ROLE_ID = {0}",
+            strB.AppendFormat("DELETE WF.ROLE_PROPERTIES_DEFINITIONS WHERE ROLE_ID = {0}",
                 TSqlBuilder.Instance.CheckQuotationMark(role.ID, true));
 
             foreach (SOARolePropertyDefinition property in properties)
@@ -155,17 +156,17 @@ namespace MCS.Library.SOA.DataObjects
 
             StringBuilder strB = new StringBuilder();
 
-            strB.AppendFormat("DELETE ROLE_PROPERTIES_DEFINITIONS WHERE ROLE_ID = {0}",
+            strB.AppendFormat("DELETE WF.ROLE_PROPERTIES_DEFINITIONS WHERE ROLE_ID = {0}",
                 TSqlBuilder.Instance.CheckQuotationMark(role.ID, true));
 
             strB.Append(TSqlBuilder.Instance.DBStatementSeperator);
 
-            strB.AppendFormat("DELETE ROLE_PROPERTIES_ROWS WHERE ROLE_ID = {0}",
+            strB.AppendFormat("DELETE WF.ROLE_PROPERTIES_ROWS WHERE ROLE_ID = {0}",
                 TSqlBuilder.Instance.CheckQuotationMark(role.ID, true));
 
             strB.Append(TSqlBuilder.Instance.DBStatementSeperator);
 
-            strB.AppendFormat("DELETE ROLE_PROPERTIES_CELLS WHERE ROLE_ID = {0}",
+            strB.AppendFormat("DELETE WF.ROLE_PROPERTIES_CELLS WHERE ROLE_ID = {0}",
                 TSqlBuilder.Instance.CheckQuotationMark(role.ID, true));
 
             using (TransactionScope scope = TransactionScopeFactory.Create())
@@ -186,7 +187,7 @@ namespace MCS.Library.SOA.DataObjects
 
         private static string GetConnectionName()
         {
-            return ConnectionDefine.DefaultAccreditInfoConnectionName;
+            return WorkflowSettings.GetConfig().ConnectionName;
         }
     }
 }
