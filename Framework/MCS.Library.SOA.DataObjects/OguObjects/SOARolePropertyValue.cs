@@ -11,6 +11,7 @@ namespace MCS.Library.SOA.DataObjects
 {
     [Serializable]
     [ORTableMapping("WF.ROLE_PROPERTIES_CELLS")]
+    [TenantRelativeObject]
     public sealed class SOARolePropertyValue : RowValueBase<SOARolePropertyDefinition, string>
     {
         public SOARolePropertyValue()

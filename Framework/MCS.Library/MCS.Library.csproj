@@ -234,6 +234,7 @@
     <Compile Include="Contexts\ActionContextDescriptionAttribute.cs" />
     <Compile Include="Contexts\IPersistTimePoint.cs" />
     <Compile Include="Contexts\TenantContext.cs" />
+    <Compile Include="Contexts\TenantRelativeObjectAttribute.cs" />
     <Compile Include="Core\ArgumentsParser.cs" />
     <Compile Include="Core\CookieHelper.cs" />
     <Compile Include="Core\GeneralEqualityComparer.cs" />

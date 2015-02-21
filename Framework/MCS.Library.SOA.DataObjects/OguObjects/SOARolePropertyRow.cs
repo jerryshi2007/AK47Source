@@ -39,6 +39,7 @@ namespace MCS.Library.SOA.DataObjects
 
     [Serializable]
     [ORTableMapping("WF.ROLE_PROPERTIES_ROWS")]
+    [TenantRelativeObject]
     public class SOARolePropertyRow : TableRowBase<SOARolePropertyDefinition, SOARolePropertyValue, SOARolePropertyValueCollection, string>
     {
         public static readonly char[] OperatorSplitters = new char[] { ',', '，' };
@@ -67,7 +68,11 @@ namespace MCS.Library.SOA.DataObjects
         }
 
         [ORFieldMapping("OPERATOR")]
-        public string Operator { get; set; }
+        public string Operator
+        {
+            get;
+            set;
+        }
 
         private SOARoleOperatorType _OperatorType = SOARoleOperatorType.User;
 

@@ -17,6 +17,7 @@ namespace MCS.Library.SOA.DataObjects
     /// </summary>
     [Serializable]
     [ORTableMapping("WF.ROLE_PROPERTIES_DEFINITIONS")]
+    [TenantRelativeObject]
     public class SOARolePropertyDefinition : ColumnDefinitionBase
     {
         private static readonly string[] ReservedPropertyName = new string[] { "OperatorType", "Operator", "ActivitySN", "ActivityName", "IsMergeable" };

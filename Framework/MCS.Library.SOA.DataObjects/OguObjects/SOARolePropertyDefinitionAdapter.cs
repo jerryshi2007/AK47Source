@@ -177,13 +177,13 @@ namespace MCS.Library.SOA.DataObjects
             }
         }
 
-		/// <summary>
-		/// 清空缓存
-		/// </summary>
-		public void SetDirty()
-		{
-			SOARolePropertiesDefinitionCache.Instance.Clear();
-		}
+        /// <summary>
+        /// 清空缓存
+        /// </summary>
+        public void SetDirty()
+        {
+            SOARolePropertiesDefinitionCache.Instance.Clear();
+        }
 
         private static string GetConnectionName()
         {

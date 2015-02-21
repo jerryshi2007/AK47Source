@@ -272,20 +272,5 @@ namespace MCS.Library.SOA.DataObjects
             return strB.ToString();
         }
         #endregion
-
-        /// <summary>
-        /// 从Tenant上下文中获取TenantCode并且添加到Builder中
-        /// </summary>
-        /// <param name="builder"></param>
-        public static T AppendTenantCode<T>(this T builder) where T : SqlClauseBuilderIUW
-        {
-            if (builder != null)
-            {
-                if (TenantContext.Current.Enabled)
-                    builder.AppendItem("TENANT_CODE", TenantContext.Current.TenantCode);
-            }
-
-            return builder;
-        }
     }
 }
