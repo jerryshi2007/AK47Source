@@ -850,6 +850,15 @@ namespace MCS.Library.Data.DataObjects
         }
 
         /// <summary>
+        /// 构造方法，指定集合的Key比较器
+        /// </summary>
+        /// <param name="comparer"></param>
+        protected SerializableEditableKeyedDataObjectCollectionBase(IEqualityComparer comparer)
+            : base(comparer)
+        {
+        }
+
+        /// <summary>
         /// 构造方法。集合增加时的分配冗余
         /// </summary>
         /// <param name="capacity"></param>

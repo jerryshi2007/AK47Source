@@ -13,6 +13,7 @@ using System.Text;
 using System.Collections.Generic;
 using MCS.Library.Core;
 using MCS.Library.Properties;
+using MCS.Library.Caching;
 
 namespace MCS.Library.Expression
 {
@@ -191,6 +192,9 @@ namespace MCS.Library.Expression
 
                                     if (oValue == null)
                                         oValue = calcContext.GetUserFunctionValue(node.FunctionName, funcParams);
+
+                                    if (oValue == null)
+                                        oValue = CalculateExpressionDictionary(node.FunctionName, funcParams, calcContext);
                                 }
                             }
                             break;
@@ -272,13 +276,13 @@ namespace MCS.Library.Expression
                     case "maxdate":
                         oValue = DateTime.MaxValue;
                         break;
-                    default:
-                        {
-                            if (calcContext.CalculateUserFunction != null)
-                                oValue = calcContext.CalculateUserFunction(strFuncName, arrParams, calcContext.CallerContxt);
+                    //default:
+                    //    {
+                    //        if (calcContext.CalculateUserFunction != null)
+                    //            oValue = calcContext.CalculateUserFunction(strFuncName, arrParams, calcContext.CallerContxt);
 
-                            break;
-                        }
+                    //        break;
+                    //    }
                 }
 
                 return oValue;
@@ -291,6 +295,47 @@ namespace MCS.Library.Expression
             {
                 throw new SystemSupportException(string.Format(ExpressionParserRes.FunctionError, strFuncName, ex.Message));
             }
+        }
+
+        /// <summary>
+        /// 计算表达式字典
+        /// </summary>
+        /// <param name="strFuncName"></param>
+        /// <param name="arrParams"></param>
+        /// <param name="calcContext"></param>
+        /// <returns></returns>
+        private static object CalculateExpressionDictionary(string strFuncName, ParamObjectCollection arrParams, CalculateContext calcContext)
+        {
+            ExpressionDictionaryCollection dictionaries = (ExpressionDictionaryCollection)ObjectContextCache.Instance.GetOrAddNewValue(
+                "ExpressionDictionaries",
+                (cache, key) =>
+                {
+                    ExpressionDictionaryCollection expDicts = new ExpressionDictionaryCollection();
+
+                    expDicts.InitFromConfiguration(ExpressionDictionarySettings.GetConfig());
+
+                    cache.Add("ExpressionDictionaries", expDicts);
+
+                    return expDicts;
+                });
+
+            ExpressionDictionary dictionary = dictionaries[strFuncName];
+
+            object oValue = null;
+
+            if (dictionary != null)
+            {
+                ExpressionDictionaryCalculatorContext context = new ExpressionDictionaryCalculatorContext(dictionary, calcContext.CallerContxt);
+
+                string key = string.Empty;
+
+                if (arrParams.Count > 0 && arrParams[0].Value != null)
+                    key = arrParams[0].Value.ToString();
+
+                oValue = dictionary.Calculator.Calculate(strFuncName, key, context);
+            }
+
+            return oValue;
         }
 
         private object DoInFunction(ExpTreeNode funcNode, IReadOnlyList<ExpTreeNode> arrParams, CalculateContext calcContext)

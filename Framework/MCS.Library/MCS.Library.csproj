@@ -307,7 +307,13 @@
     <Compile Include="Expression\BuiltInFunctionInfo.cs" />
     <Compile Include="Expression\BuiltInFunctionInfoCache.cs" />
     <Compile Include="Expression\CalculateContext.cs" />
+    <Compile Include="Expression\ExpressionDictionaryCalculatorContext.cs" />
+    <Compile Include="Expression\ExpressionDictionary.cs" />
+    <Compile Include="Expression\ExpressionDictionaryItem.cs" />
+    <Compile Include="Expression\ExpressionDictionarySettings.cs" />
+    <Compile Include="Expression\ExpressionExtensions.cs" />
     <Compile Include="Expression\ExpressionParser_Calculator.cs" />
+    <Compile Include="Expression\IExpressionDictionaryCalculator.cs" />
     <Compile Include="Globalization\CookieUserCultureInfoAccessor.cs" />
     <Compile Include="Globalization\DictionaryCache.cs" />
     <Compile Include="Globalization\GlobalizationWebHelper.cs" />

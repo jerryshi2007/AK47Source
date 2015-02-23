@@ -21,7 +21,7 @@ namespace MCS.Library.Expression
     /// <remarks>
     /// 表达式解析的一些错误封装
     /// </remarks>
-    public enum ParseError 
+    public enum ParseError
     {
         /// <summary>
         /// 无异常
@@ -104,12 +104,12 @@ namespace MCS.Library.Expression
     /// 操作类型，作为语法分析二叉树节点中的运算符标识
     /// </summary>
     //public enum ParseOperation
-	public enum Operation_IDs
+    public enum Operation_IDs
     {
         /// <summary>
         /// 无操作符
         /// </summary>
-        [EnumItemDescription("无操作符", ShortName="")]
+        [EnumItemDescription("无操作符", ShortName = "")]
         OI_NONE = 0,
 
         /// <summary>
@@ -117,49 +117,49 @@ namespace MCS.Library.Expression
         /// </summary>
         [EnumItemDescription("非操作符", ShortName = "!")]
         OI_NOT = 120,
-        
+
         /// <summary>
         /// 加
         /// </summary>
         [EnumItemDescription("加操作符", ShortName = "+")]
         OI_ADD,
-        
+
         /// <summary>
         /// 减
         /// </summary>
         [EnumItemDescription("减操作符", ShortName = "-")]
         OI_MINUS,
-        
+
         /// <summary>
         /// 乘
         /// </summary>
         [EnumItemDescription("乘操作符", ShortName = "*")]
         OI_MUL,
-        
+
         /// <summary>
         /// 除
         /// </summary>
         [EnumItemDescription("除操作符", ShortName = "/")]
         OI_DIV,
-        
+
         /// <summary>
         /// 负号
         /// </summary>
         [EnumItemDescription("负操作符", ShortName = "-")]
         OI_NEG,
-        
+
         /// <summary>
         /// 等于
         /// </summary>
         [EnumItemDescription("等于操作符", ShortName = "==")]
         OI_EQUAL,
-        
+
         /// <summary>
         /// 不等于
         /// </summary>
         [EnumItemDescription("不等于操作符", ShortName = "<>")]
         OI_NOT_EQUAL,
-        
+
         /// <summary>
         /// 大于
         /// </summary>
@@ -195,7 +195,7 @@ namespace MCS.Library.Expression
         /// </summary>
         [EnumItemDescription("逻辑或操作符", ShortName = "||")]
         OI_LOGICAL_OR,
-        
+
         /// <summary>
         /// 左括号
         /// </summary>
@@ -213,7 +213,7 @@ namespace MCS.Library.Expression
         /// </summary>
         [EnumItemDescription("逗号操作符", ShortName = ",")]
         OI_COMMA,
-        
+
         /// <summary>
         /// 自定义函数
         /// </summary>
@@ -243,5 +243,35 @@ namespace MCS.Library.Expression
         /// </summary>
         [EnumItemDescription("日期型", ShortName = "日期型")]
         OI_DATETIME,
+    }
+
+    /// <summary>
+    /// 表达式中的数据类型
+    /// </summary>
+    public enum ExpressionDataType
+    {
+        /// <summary>
+        /// 字符串
+        /// </summary>
+        [EnumItemDescription("字符串", ShortName = "字符串")]
+        String,
+
+        /// <summary>
+        /// 数字
+        /// </summary>
+        [EnumItemDescription("数字", ShortName = "数字")]
+        Number,
+
+        /// <summary>
+        /// 布尔型
+        /// </summary>
+        [EnumItemDescription("布尔型", ShortName = "布尔型")]
+        Boolean,
+
+        /// <summary>
+        /// 日期型
+        /// </summary>
+        [EnumItemDescription("日期型", ShortName = "日期型")]
+        DateTime
     }
 }

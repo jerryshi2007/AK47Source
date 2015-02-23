@@ -63,8 +63,10 @@
     <Compile Include="CoreTest\DynamicFieldTest.cs" />
     <Compile Include="Dynamic\DynamicMethodTest.cs" />
     <Compile Include="Dynamic\DynamicPropertyTest.cs" />
+    <Compile Include="Expressions\ExpressionDictionaryTest.cs" />
     <Compile Include="Expressions\ExpressionTest.cs" />
     <Compile Include="Expressions\BuiltInFunctionTest.cs" />
+    <Compile Include="Expressions\UserDictionaryImpl.cs" />
     <Compile Include="ResourceLoader\ResourceHelperTest.cs" />
     <Compile Include="Serialization\HashtableContainer.cs" />
     <Compile Include="CoreTest\IUser.cs" />
@@ -88,6 +90,7 @@
   <ItemGroup>
     <None Include="App.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
