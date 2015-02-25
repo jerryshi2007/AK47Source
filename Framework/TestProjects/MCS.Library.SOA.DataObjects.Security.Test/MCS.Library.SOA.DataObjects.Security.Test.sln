@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library.SOA.DataObjects.Security.Test", "MCS.Library.SOA.DataObjects.Security.Test.csproj", "{7040338A-9820-4F7C-9465-1DF1B8E1DE87}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6DC4CBAB-2C46-4854-86B0-F759B8902203} = {6DC4CBAB-2C46-4854-86B0-F759B8902203}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{466C08D8-11F3-4EDC-BFC5-9919449A49C8}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		MCS.Library.SOA.DataObjects.Security.Test.vsmdi = MCS.Library.SOA.DataObjects.Security.Test.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library.PermissionBridge", "..\..\MCS.Library.PermissionBridge\MCS.Library.PermissionBridge.csproj", "{6DC4CBAB-2C46-4854-86B0-F759B8902203}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		DELUXEWORKSTEST|Any CPU = DELUXEWORKSTEST|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7040338A-9820-4F7C-9465-1DF1B8E1DE87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7040338A-9820-4F7C-9465-1DF1B8E1DE87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7040338A-9820-4F7C-9465-1DF1B8E1DE87}.DELUXEWORKSTEST|Any CPU.ActiveCfg = Debug|Any CPU
+		{7040338A-9820-4F7C-9465-1DF1B8E1DE87}.DELUXEWORKSTEST|Any CPU.Build.0 = Debug|Any CPU
+		{7040338A-9820-4F7C-9465-1DF1B8E1DE87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7040338A-9820-4F7C-9465-1DF1B8E1DE87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DC4CBAB-2C46-4854-86B0-F759B8902203}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DC4CBAB-2C46-4854-86B0-F759B8902203}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DC4CBAB-2C46-4854-86B0-F759B8902203}.DELUXEWORKSTEST|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DC4CBAB-2C46-4854-86B0-F759B8902203}.DELUXEWORKSTEST|Any CPU.Build.0 = Debug|Any CPU
+		{6DC4CBAB-2C46-4854-86B0-F759B8902203}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DC4CBAB-2C46-4854-86B0-F759B8902203}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = MCS.Library.SOA.DataObjects.Security.Test.vsmdi
+	EndGlobalSection
+EndGlobal
