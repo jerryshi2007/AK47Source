@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [WF].[USER_OPERATION_TASKS_LOG] (
-    [LOG_ID]            INT           NOT NULL,
+    [LOG_ID]            BIGINT           NOT NULL,
     [TASK_ID]           NVARCHAR (36) NOT NULL,
     [SEND_TO_USER_ID]   NVARCHAR (36) NOT NULL,
     [SEND_TO_USER_NAME] NVARCHAR (64) NULL,
