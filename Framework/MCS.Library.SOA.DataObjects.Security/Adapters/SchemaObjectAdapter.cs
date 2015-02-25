@@ -154,7 +154,7 @@ namespace MCS.Library.SOA.DataObjects.Security.Adapters
             return result;
         }
 
-        [Obsolete]
+        [Obsolete("此方法已经被废弃，请使用带Status的重载方法")]
         public SchemaObjectBase LoadByCodeName(string schemaType, string codeName, DateTime timePoint)
         {
             string.IsNullOrEmpty(schemaType).TrueThrow("schemaType不得为空");
