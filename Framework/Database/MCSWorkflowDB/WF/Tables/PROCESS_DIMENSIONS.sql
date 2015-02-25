@@ -2,7 +2,8 @@
 (
 	[PROCESS_ID] NVARCHAR(36) NOT NULL PRIMARY KEY CLUSTERED, 
     [DATA] XML NULL, 
-    [UPDATE_TIME] DATETIME NULL DEFAULT GETDATE()
+    [UPDATE_TIME] DATETIME NULL DEFAULT GETDATE(), 
+    [TENANT_CODE] NVARCHAR(36) NULL DEFAULT 'D5561180-7617-4B67-B68B-1F0EA604B509'
 )
 
 GO
@@ -72,3 +73,19 @@ EXEC sp_addextendedproperty @name = N'MS_Description',
     @level1name = N'PROCESS_DIMENSIONS',
     @level2type = NULL,
     @level2name = NULL
+GO
+EXEC sp_addextendedproperty @name = N'MS_Description',
+    @value = N'租户代码',
+    @level0type = N'SCHEMA',
+    @level0name = N'WF',
+    @level1type = N'TABLE',
+    @level1name = N'PROCESS_DIMENSIONS',
+    @level2type = N'COLUMN',
+    @level2name = N'TENANT_CODE'
+GO
+
+CREATE INDEX [IX_PROCESS_DIMENSIONS_TENANT_CODE] ON [WF].[PROCESS_DIMENSIONS] ([TENANT_CODE])
+
+GO
+
+CREATE INDEX [IX_PROCESS_DIMENSIONS_UPDATE_TIME] ON [WF].[PROCESS_DIMENSIONS] ([UPDATE_TIME], [TENANT_CODE])

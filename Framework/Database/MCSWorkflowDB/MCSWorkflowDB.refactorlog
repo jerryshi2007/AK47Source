@@ -203,4 +203,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="[IX_PROCESS_DESCRIPTOR_DIMENSIONS_PROCESS_KEY]" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="bc3d8da9-f353-48c4-938b-c30ef18ce62a" ChangeDateTime="02/25/2015 01:17:43">
+    <Property Name="ElementName" Value="[WF].[PROCESS_DIMENSIONS].[IX_PROCESS_DIMENSIONS_Column]" />
+    <Property Name="ElementType" Value="SqlIndex" />
+    <Property Name="ParentElementName" Value="[WF].[PROCESS_DIMENSIONS]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[IX_PROCESS_DIMENSIONS_TENANT_CODE]" />
+  </Operation>
 </Operations>
