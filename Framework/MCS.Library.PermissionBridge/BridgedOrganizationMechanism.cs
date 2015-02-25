@@ -13,7 +13,7 @@ using MCS.Library.SOA.DataObjects.Schemas.SchemaProperties;
 
 namespace MCS.Library.PermissionBridge
 {
-	internal sealed class BridgedOrganizationMechanism : IOrganizationMechanism, IOguImplInterface
+	public sealed class BridgedOrganizationMechanism : IOrganizationMechanism, IOguImplInterface
 	{
 		#region IOrganizationMechanism
 		public OguObjectCollection<T> GetObjects<T>(SearchOUIDType idType, params string[] ids) where T : IOguObject

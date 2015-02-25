@@ -10,7 +10,7 @@ using MCS.Library.SOA.DataObjects.Schemas.SchemaProperties;
 
 namespace MCS.Library.PermissionBridge
 {
-	sealed class BridgedPermissionMechanism : OP.IPermissionMechanism, OP.IPermissionImplInterface
+	public sealed class BridgedPermissionMechanism : OP.IPermissionMechanism, OP.IPermissionImplInterface
 	{
 		#region 过时
 		//public OP.ApplicationCollection GetAllApplications()
