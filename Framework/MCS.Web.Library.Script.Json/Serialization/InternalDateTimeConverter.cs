@@ -8,7 +8,7 @@ namespace MCS.Web.Library.Script
 {
     internal class InternalDateTimeConverter : JavaScriptConverter
     {
-        public static readonly InternalDateTimeConverter Instance = new InternalDateTimeConverter();
+        public static readonly JavaScriptConverter Instance = new InternalDateTimeConverter();
 
         public override IDictionary<string, object> Serialize(object obj, JavaScriptSerializer serializer)
         {

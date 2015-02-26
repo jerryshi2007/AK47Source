@@ -2,6 +2,7 @@
 using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Web.Script.Serialization;
 
 namespace MCS.Web.Library.Script.Json.Test
 {
@@ -72,9 +73,47 @@ namespace MCS.Web.Library.Script.Json.Test
 
             VoucherEntity deserialized = JSONSerializerExecute.Deserialize<VoucherEntity>(json);
 
-            Assert.AreEqual(source.Items.Count, deserialized.Items.Count);
+            AssertVoucherEntity(source, deserialized);
+        }
 
-            Assert.AreEqual(source.Items.CollectioName, deserialized.Items.CollectioName);
+        [TestMethod]
+        public void VoucherItemCollectionJsonTest()
+        {
+            JSONSerializerExecute.RegisterConverter(typeof(VoucherConverter));
+            JSONSerializerExecute.RegisterConverter(typeof(VoucherItemCollectionConverter));
+
+            VoucherEntity source = VoucherEntity.PrepareData();
+
+            string json = JSONSerializerExecute.SerializeWithType(source.Items);
+
+            Console.WriteLine(json);
+
+            VoucherItemCollection deserialized = JSONSerializerExecute.Deserialize<VoucherItemCollection>(json);
+
+            AssertVoucherItemCollection(source.Items, deserialized);
+        }
+
+        private static void AssertVoucherEntity(VoucherEntity source, VoucherEntity dest)
+        {
+            Assert.AreEqual(source.Name, dest.Name);
+
+            AssertVoucherItemCollection(source.Items, dest.Items);
+        }
+
+        private static void AssertVoucherItemCollection(VoucherItemCollection source, VoucherItemCollection dest)
+        {
+            Assert.AreEqual(source.Count, dest.Count);
+            Assert.AreEqual(source.CollectioName, dest.CollectioName);
+
+            for (int i = 0; i < source.Count; i++)
+                AssertVoucherItem(source[i], dest[i]);
+        }
+
+        private static void AssertVoucherItem(VoucherItem source, VoucherItem dest)
+        {
+            Assert.AreEqual(source.VoucherCode, dest.VoucherCode);
+            Assert.AreEqual(source.Code, dest.Code);
+            Assert.AreEqual(source.CreateTime, dest.CreateTime);
         }
     }
 }

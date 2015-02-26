@@ -422,21 +422,21 @@ namespace MCS.Web.Library.Script
                         }
                         else
                         {
-                            Dictionary<string, object> dic = input as Dictionary<string, object>;
+                            Dictionary<string, object> dictionary = input as Dictionary<string, object>;
 
-                            if (type != null && dic != null && !dic.ContainsKey("__type"))
-                            {
-                                dic["__type"] = type.AssemblyQualifiedName;
-                            }
+                            if (type != null && dictionary != null && dictionary.ContainsKey("__type") == false)
+                                dictionary["__type"] = type.AssemblyQualifiedName;
 
-                            JavaScriptSerializer ser = JSONSerializerFactory.GetJavaScriptSerializer(type);
+                            JavaScriptSerializer serializer = JSONSerializerFactory.GetJavaScriptSerializer(type);
 
-                            //if (dic != null)
-                            ser.RegisterConverters(new JavaScriptConverter[] { InternalDateTimeConverter.Instance });
+                            string str = string.Empty;
 
-                            string str = input is string ? (string)input : ser.Serialize(input);
+                            if (input is string)
+                                str = (string)input;
+                            else
+                                str = serializer.Serialize(input);
 
-                            result = ser.DeserializeObject(str);
+                            result = serializer.Deserialize(str, type);
                         }
 
                         result = DeserializeObject(result, type, ++level);
@@ -516,6 +516,7 @@ namespace MCS.Web.Library.Script
         private static object DeserializeArrayObject(object[] input, Type type, int level)
         {
             object tempResult = null;
+
             if (typeof(Array).IsAssignableFrom(type))
             {
                 Type eltType = type.GetMethod("Get", new Type[1] { typeof(int) }).ReturnType;
@@ -523,17 +524,19 @@ namespace MCS.Web.Library.Script
                 Array ins = Array.CreateInstance(eltType, objs.Length);
 
                 for (int i = 0; i < objs.Length; i++)
-                {
                     ins.SetValue(DeserializeObject(objs[i], eltType), i);
-                }
+
                 tempResult = ins;
             }
             else if (typeof(ICollection<object>).IsAssignableFrom(type))
             {
                 object ins = TypeCreator.CreateInstance(type);
+
                 ICollection<object> c = (ICollection<object>)ins;
+
                 foreach (object o in input)
                     c.Add(DeserializeObject(o, type.GetGenericArguments()[0], level));
+
                 tempResult = ins;
             }
             else if (typeof(IList).IsAssignableFrom(type))
@@ -541,6 +544,7 @@ namespace MCS.Web.Library.Script
                 object ins = TypeCreator.CreateInstance(type);
                 IList l = (IList)ins;
                 MethodInfo mi = type.GetMethod("get_Item", new Type[1] { typeof(int) });
+
                 if (mi != null)
                 {
                     Type eltType = mi.ReturnType;

@@ -39,8 +39,8 @@ namespace MCS.Web.Library.Script.Json.Test
         {
             VoucherEntity result = new VoucherEntity() { Name = "Voucher" };
 
-            result.Items.Add(new VoucherItem() { Code = "1001", VoucherCode = "Voucher 1001" });
-            result.Items.Add(new VoucherItem() { Code = "1002", VoucherCode = "Voucher 1002" });
+            result.Items.Add(new VoucherItem() { Code = "1001", VoucherCode = "Voucher 1001", CreateTime = new DateTime(1972, 4, 26, 12, 40, 0, DateTimeKind.Local) });
+            result.Items.Add(new VoucherItem() { Code = "1002", VoucherCode = "Voucher 1002", CreateTime = new DateTime(1972, 4, 26, 13, 00, 0, DateTimeKind.Local) });
 
             result.Items.CollectioName = "TestCollection";
 
@@ -60,6 +60,12 @@ namespace MCS.Web.Library.Script.Json.Test
         }
 
         public string VoucherCode
+        {
+            get;
+            set;
+        }
+
+        public DateTime CreateTime
         {
             get;
             set;
