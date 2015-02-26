@@ -164,3 +164,6 @@ restoreGitDir.bat
 #Config
 Config_Omp/
 Config_SSP/
+
+#Document
+[Dd]ocument/
