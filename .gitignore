@@ -160,3 +160,7 @@ CIICFramework/
 #bat
 changeGitDir.bat
 restoreGitDir.bat
+
+#Config
+Config_Omp/
+Config_SSP/
