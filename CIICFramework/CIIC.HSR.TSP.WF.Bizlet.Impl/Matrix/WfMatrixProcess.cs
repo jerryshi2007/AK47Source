@@ -139,7 +139,7 @@ namespace CIIC.HSR.TSP.WF.Bizlet.Impl
                 {
                     continue;
                 }
-                WfMatrixGlobalParameterDefinition param = new WfMatrixGlobalParameterDefinition()
+                WfMatrixParameterDefinition param = new WfMatrixParameterDefinition()
                 {
                     Name = parameter.Key
                     ,

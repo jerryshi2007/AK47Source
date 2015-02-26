@@ -39,6 +39,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MCS.Library, Version=1.2.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\MCS.Library.dll</HintPath>
+    </Reference>
     <Reference Include="MCS.Library.WcfExtensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Bin\MCS.Library.WcfExtensions.dll</HintPath>
@@ -59,6 +63,7 @@
       <HintPath>..\..\..\Bin\MCS.Web.Library.Script.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Web.Extensions" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">

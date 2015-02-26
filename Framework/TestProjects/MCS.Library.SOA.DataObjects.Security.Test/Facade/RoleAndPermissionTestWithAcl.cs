@@ -105,7 +105,7 @@ namespace MCS.Library.SOA.DataObjects.Security.Test.Facade
 			var fanhy = GetSCUserByCodeName("fanhy");
 			Facade.AddMemberToRole(fanhy, mainRole);
 
-			Sleep(200);
+			//Sleep(200);
 
 			FacadeWithAcl.RemoveMemberFromRole(fanhy, mainRole);
 
@@ -274,7 +274,7 @@ namespace MCS.Library.SOA.DataObjects.Security.Test.Facade
 
 			Facade.JoinRoleAndPermission(testRole, testPermission);
 
-			Sleep(200);
+			//Sleep(200);
 
 			FacadeWithAcl.DisjoinRoleAndPermission(testRole, testPermission);
 

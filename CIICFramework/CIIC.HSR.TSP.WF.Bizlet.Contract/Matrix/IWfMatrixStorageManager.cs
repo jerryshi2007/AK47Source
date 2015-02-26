@@ -1,5 +1,6 @@
 ﻿using CIIC.HSR.TSP.DataAccess;
 using CIIC.HSR.TSP.DataAccess.Query;
+using CIIC.HSR.TSP.WF.Bizlet.Common;
 using MCS.Library.WF.Contracts.Workflow.Descriptors;
 using System;
 using System.Collections.Generic;
@@ -37,12 +38,9 @@ namespace CIIC.HSR.TSP.WF.Bizlet.Contract
         /// <summary>
         /// 根据流程Key构建流程，落地操作
         /// </summary>
-        /// <param name="key">流程KEY</param>
-        /// <param name="name">流程名称</param>
-        /// <param name="process">构建的流程</param>
-        /// <param name="msg">构建失败的相关提醒信息</param>
-        /// <returns>构建执行结果</returns>
-        bool Build(string key,string name,out IWfMatrixProcess process,out string msg);
+        /// <param name="createParams">构建参数</param>    
+        /// <returns>构建的流程</returns>
+        IWfMatrixProcess CreateEmptyProcessDescriptor(WfMatrixProcessDescriptorCreateParams createParams);
 
         /// <summary>
         /// 获取流程定义列表
@@ -53,7 +51,29 @@ namespace CIIC.HSR.TSP.WF.Bizlet.Contract
         /// <param name="totalCount">总记录行数</param>
         /// <returns>当前页流程定义列表</returns>
         PagedCollection<WfClientProcessDescriptorInfo> QueryProcessDescriptorListPaged(QueryModel queryModel, int pageIndex, int pageSize, int? totalCount = default(int?));
-     
+
+
+        /// <summary>
+        /// 序列化UIJson
+        /// </summary>
+        /// <param name="process">需要序列化的对象</param>
+        /// <returns>Json格式</returns>
+        string SerializeUIJson(IWfMatrixProcess process);
+
+
+        /// <summary>
+        /// 反序列化UIJson到对象
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        IWfMatrixProcess DeserializeUIJson(string json);
+
+        /// <summary>
+        /// 反序列化表达式到对象
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        IWfMatrixConditionGroupCollection DeserializeExpressionJson(string json);
        
     }
 }

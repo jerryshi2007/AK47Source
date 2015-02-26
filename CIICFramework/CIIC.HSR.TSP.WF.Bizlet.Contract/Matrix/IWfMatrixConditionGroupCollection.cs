@@ -17,6 +17,12 @@ namespace CIIC.HSR.TSP.WF.Bizlet.Contract
         /// </summary>
         LogicalRelation Relation { get; set; }
 
+        /// <summary>
+        /// 获取表达式
+        /// </summary>
+        /// <returns></returns>
+        string ToExpression();
+
         /* 沈峥注释
         /// <summary>
         /// 组中的条件集合

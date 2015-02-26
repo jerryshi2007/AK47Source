@@ -56,7 +56,7 @@ namespace MCS.Library.SOA.DataObjects.Security.Test.Facade
 
 			FacadeWithAcl.AddApplication(app);
 
-			Sleep(200);
+			//Sleep(200);
 
 			FacadeWithAcl.DeleteApplication(app);
 
@@ -77,7 +77,7 @@ namespace MCS.Library.SOA.DataObjects.Security.Test.Facade
 
 			Facade.AddApplication(app);
 
-			Sleep(200);
+			//Sleep(200);
 
 			FacadeWithAcl.DeleteApplication(app);
 
@@ -95,7 +95,7 @@ namespace MCS.Library.SOA.DataObjects.Security.Test.Facade
 
 			FacadeWithAcl.AddApplication(app);
 
-			Sleep(200);
+			//Sleep(200);
 
 			FacadeWithAcl.UpdateApplication(app);
 		}

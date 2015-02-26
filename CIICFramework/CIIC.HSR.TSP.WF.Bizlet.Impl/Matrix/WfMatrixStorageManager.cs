@@ -17,6 +17,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 
 namespace CIIC.HSR.TSP.WF.Bizlet.Impl
 {
@@ -45,6 +46,7 @@ namespace CIIC.HSR.TSP.WF.Bizlet.Impl
 
             IWfMatrixProcess dynamicProcessParams = WfMatrixDescriptorTransformation.Instance.TransformBack(clientProcessDescriptor);
 
+
             dynamicProcessParams.InitGlobalParameter();
 
             return dynamicProcessParams;
@@ -68,41 +70,25 @@ namespace CIIC.HSR.TSP.WF.Bizlet.Impl
         /// <param name="process">创建的流程</param>
         /// <param name="msg">报错提醒信息</param>
         /// <returns>执行成功</returns>
-        public bool Build(string key, string name, out IWfMatrixProcess process, out string msg)
+        public IWfMatrixProcess CreateEmptyProcessDescriptor(WfMatrixProcessDescriptorCreateParams createParams)
         {
-            bool isok = true;
-            process = null;
-            msg = string.Empty;
+            createParams.NullCheck("createParams");
 
-            if (ProcessKeyIsNull(key, out msg))
+            createParams.Key.NullCheck(CIIC.HSR.TSP.Resource.Common.Message.EmptyProcessKeyIsNotAllowed);
+
+            IWfMatrixProcess process = WfMatrixEmptyProcessBuilder.Instance.BuildProcess(createParams.Key);
+            process.Name = createParams.Name;
+
+            //check数据 key   
+            if (WfClientProcessDescriptorServiceProxy.Instance.ExsitsProcessKey(createParams.Key))
             {
-                return false;
-            }
-
-            process = WfMatrixEmptyProcessBuilder.Instance.BuildProcess(key);
-            process.Name = name;
-
-            try
-            {
-                //check数据 key   
-                bool haveKey = WfClientProcessDescriptorServiceProxy.Instance.ExsitsProcessKey(key);
-                if (haveKey)
-                {
-                    msg = CIIC.HSR.TSP.Resource.Common.Message.EmptyProcessKeyIsNotAllowed;
-                    return false;
-                }
-
-                Save(process);
-            }
-            catch (Exception ex)
-            {
-                Logging.Loggers.Default.Error("WfMatrixEmptyProcessBuilder.Instance.BuildProcess", ex);
-                msg = ex.Message;
-                isok = false;
-            }
-
-            return isok;
+                throw new ArgumentException(CIIC.HSR.TSP.Resource.Common.Message.EmptyProcessKeyIsNotAllowed);
+            };
+            Save(process); 
+            return process;
         }
+
+
 
         public PagedCollection<WfClientProcessDescriptorInfo> QueryProcessDescriptorListPaged(QueryModel queryModel, int pageIndex, int pageSize, int? totalCount = default(int?))
         {
@@ -290,17 +276,7 @@ namespace CIIC.HSR.TSP.WF.Bizlet.Impl
             //return sbSort.ToString();
         }
 
-        private bool ProcessKeyIsNull(string key, out string msg)
-        {
-            bool isok = false;
-            msg = string.Empty;
-            if (string.IsNullOrEmpty(key))
-            {
-                isok = true;
-                msg = CIIC.HSR.TSP.Resource.Common.Message.EmptyProcessKeyIsNotAllowed;
-            }
-            return isok;
-        }
+       
 
         private string GetTenantCode()
         {
@@ -320,6 +296,53 @@ namespace CIIC.HSR.TSP.WF.Bizlet.Impl
         {
             set;
             get;
+        }
+
+
+        /// <summary>
+        /// 序列化UIJson
+        /// </summary>
+        /// <param name="process">需要序列化的对象</param>
+        /// <returns>Json格式</returns>
+        public string SerializeUIJson(IWfMatrixProcess process)
+        {
+            process.NullCheck("process");
+
+            JavaScriptSerializer serialize = new JavaScriptSerializer();
+            WfMatrixJsonConverterHelper.Instance.RegisterConverters(serialize);
+
+            return serialize.Serialize(process);
+          
+        }
+
+        /// <summary>
+        /// 反序列化UIJson到对象
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public IWfMatrixProcess DeserializeUIJson(string json)
+        {
+            json.NullCheck("json");
+            
+            JavaScriptSerializer serialize = new JavaScriptSerializer();
+            WfMatrixJsonConverterHelper.Instance.RegisterConverters(serialize);
+
+            return serialize.Deserialize<WfMatrixProcess>(json);
+           
+        }
+
+        /// <summary>
+        /// 反序列化表达式到对象
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+       public IWfMatrixConditionGroupCollection DeserializeExpressionJson(string json)
+        {
+            json.NullCheck("json");
+           
+            JavaScriptSerializer serialize = new JavaScriptSerializer();
+            WfMatrixJsonConverterHelper.Instance.RegisterConverters(serialize);
+            return serialize.Deserialize<WfMatrixConditionGroupCollection>(json); 
         }
     }
 }

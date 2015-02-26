@@ -70,5 +70,7 @@ namespace CIIC.HSR.TSP.WF.Bizlet.Contract
         /// </summary>
         void InitGlobalParameter();
 
+      
+
     }
 }

@@ -55,6 +55,7 @@
     <Compile Include="LogicalRelation.cs" />
     <Compile Include="Metrix\ComparsionSign.cs" />
     <Compile Include="Metrix\ResourceType.cs" />
+    <Compile Include="Metrix\WfMatrixProcessDescriptorCreateParams.cs" />
     <Compile Include="RightMaskType.cs" />
     <Compile Include="SidelineMaskType.cs" />
     <Compile Include="UserValueType.cs" />

@@ -89,7 +89,7 @@ namespace MCS.Library.SOA.DataObjects.Security.Test.Facade
 				DisplayName = "测试应用(默认测试)"
 			});
 
-			Sleep(200);
+			//Sleep(200);
 
 			return (PC.SCApplication)PC.Adapters.SchemaObjectAdapter.Instance.Load(DefaultAppID);
 		}
@@ -350,7 +350,7 @@ namespace MCS.Library.SOA.DataObjects.Security.Test.Facade
 						}, mainApp);
 					}
 
-					Thread.Sleep(200);
+					//Thread.Sleep(200);
 					this.InnerInit(withWangli5);
 				}
 

@@ -79,6 +79,7 @@
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.Helpers.dll</HintPath>
@@ -113,6 +114,11 @@
   <ItemGroup>
     <Compile Include="Cache\TaskCacheKeyGenerator.cs" />
     <Compile Include="Cache\TaskCachePool.cs" />
+    <Compile Include="Converter\WfMatrixCandidateJsonConverter.cs" />
+    <Compile Include="Converter\WfMatrixConditionGroupCollectionJsonConverter.cs" />
+    <Compile Include="Converter\WfMatrixConditionGroupJsonConverter.cs" />
+    <Compile Include="Converter\WfMatrixConditionJsonConverter.cs" />
+    <Compile Include="Converter\WfMatrixParameterJsonConverter.cs" />
     <Compile Include="MailArguments.cs" />
     <Compile Include="MailCollector.cs" />
     <Compile Include="MailCompletionProcessor.cs" />
@@ -120,6 +126,7 @@
     <Compile Include="MailProcessorBase.cs" />
     <Compile Include="Matrix\WfMatrixActivity.cs" />
     <Compile Include="Matrix\WfMatrixActivityCollection.cs" />
+    <Compile Include="Converter\WfMatrixActivityJsonConverter.cs" />
     <Compile Include="Matrix\WfMatrixCandidate.cs" />
     <Compile Include="Matrix\WfMatrixCandidateCollection.cs" />
     <Compile Include="Matrix\WfMatrixCondition.cs" />
@@ -129,12 +136,14 @@
     <Compile Include="Matrix\WfMatrixEmptyProcessBuilder.cs" />
     <Compile Include="Matrix\WfMatrixGlobalParameterSetting.cs" />
     <Compile Include="Matrix\WfMatrixJsonConverter.cs" />
+    <Compile Include="Converter\WfMatrixJsonConverterHelper.cs" />
     <Compile Include="Matrix\WfMatrixModelBinders.cs" />
     <Compile Include="Matrix\WfMatrixModelBinding.cs" />
     <Compile Include="Matrix\WfMatrixParameterDefinition.cs" />
     <Compile Include="Matrix\WfMatrixParameterDefinitionCollection.cs" />
     <Compile Include="Matrix\WfMatrixProcess.cs" />
     <Compile Include="Matrix\WfMatrixProcessBuilder.cs" />
+    <Compile Include="Converter\WfMatrixProcessJsonConverter.cs" />
     <Compile Include="Matrix\WfMatrixStorageManager.cs" />
     <Compile Include="Ogu\IDObjectType.cs" />
     <Compile Include="Ogu\ObjectDetail\ARPService.cs" />

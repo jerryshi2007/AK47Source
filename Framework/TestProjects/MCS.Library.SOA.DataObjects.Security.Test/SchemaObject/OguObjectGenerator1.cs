@@ -145,7 +145,7 @@ namespace MCS.Library.SOA.DataObjects.Security.Test.SchemaObject
             InitRoleMembers();
             //Thread.Sleep(20);
             InitSecretaries();
-            Thread.Sleep(20);
+            //Thread.Sleep(20);
         }
 
         class DemoUser : IUser, IUserPropertyAccessible

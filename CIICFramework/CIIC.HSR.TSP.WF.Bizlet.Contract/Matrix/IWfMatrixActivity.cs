@@ -51,5 +51,7 @@ namespace CIIC.HSR.TSP.WF.Bizlet.Contract
         /// 节点相关的资源
         /// </summary>
         IWfMatrixCandidateCollection Candidates { get; set; }
+
+       
     }
 }

@@ -70,7 +70,7 @@ namespace CIIC.HSR.TSP.WF.Bizlet.Impl
 
             if (string.IsNullOrEmpty(serializedInfo))
             {
-                return null;
+                return new WfMatrixProcess();
             }
 
             JsonSerializerSettings jss = new JsonSerializerSettings();

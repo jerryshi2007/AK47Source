@@ -46,6 +46,8 @@ namespace CIIC.HSR.TSP.WF.Bizlet.Impl.Test
             matrixProcess.Name = "测试动态流程名称";
             matrixProcess.Url = "Url";
 
+            matrixProcess.Properties.Add("a", "Properties");
+
             //增加参数
             WfMatrixParameterDefinition parameter = CreateWfMatrixParameterDefinition("a1", Common.ParaType.String, "a1");
             matrixProcess.ParameterDefinitions.Add(parameter);
@@ -77,7 +79,7 @@ namespace CIIC.HSR.TSP.WF.Bizlet.Impl.Test
             return parameter;
         }
 
-        public static WfMatrixActivity CreateWfMatrixActivity(string code, IWfMatrixProcess process)
+        public static void CreateWfMatrixActivity(string code, IWfMatrixProcess process)
         {
             WfMatrixActivity activity = new WfMatrixActivity();
             activity.CodeName = code;
@@ -89,8 +91,8 @@ namespace CIIC.HSR.TSP.WF.Bizlet.Impl.Test
             SetExpression(activity, process);
 
             activity.ActivityType = WfMaxtrixActivityType.NormalActivity;
-
-            return activity;
+            process.Activities.Add(activity);
+             
         }
 
         public static void SetCandidates(WfMatrixActivity activity)
@@ -149,6 +151,8 @@ namespace CIIC.HSR.TSP.WF.Bizlet.Impl.Test
             activity.Expression.Add(conditionGroup);
         }
 
+        
+
 
         public static void AreSame(this WfClientProcessDescriptor process, IWfMatrixProcess mprocess)
         {
@@ -180,7 +184,7 @@ namespace CIIC.HSR.TSP.WF.Bizlet.Impl.Test
             Assert.AreEqual(expected.ParameterDefinitions.Count, actual.ParameterDefinitions.Count, "ParameterDefinitions");
             Assert.AreEqual(expected.GlobalParameterDefinitions.Count, actual.GlobalParameterDefinitions.Count, "GlobalParameterDefinitions");
 
-            Assert.AreEqual(expected.Properties.Count - 1, actual.Properties.Count, "Properties");
+            Assert.AreEqual(expected.Properties.Count , actual.Properties.Count, "Properties");
         }
 
         private static void AssertStringEqual(string expected, string actual)

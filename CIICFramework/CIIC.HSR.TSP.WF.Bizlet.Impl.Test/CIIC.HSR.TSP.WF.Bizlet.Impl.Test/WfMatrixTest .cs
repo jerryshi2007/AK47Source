@@ -6,6 +6,11 @@ using System.Collections.Generic;
 using CIIC.HSR.TSP.DataAccess.Query;
 using CIIC.HSR.TSP.DataAccess;
 using MCS.Library.WF.Contracts.Workflow.Descriptors;
+using CIIC.HSR.TSP.WF.Bizlet.Common;
+using System.Web.Script.Serialization;
+using MCS.Library.Core;
+using MCS.Web.Library.Script;
+
 
 namespace CIIC.HSR.TSP.WF.Bizlet.Impl.Test
 {
@@ -24,25 +29,41 @@ namespace CIIC.HSR.TSP.WF.Bizlet.Impl.Test
             string key = string.Empty;
             WfMatrixStorageManager manager = new WfMatrixStorageManager();
             manager.Context = new ServiceContext() { TenantCode = "Test1" };
+            WfMatrixProcessDescriptorCreateParams createParams = new WfMatrixProcessDescriptorCreateParams();
+            createParams.Key = key;
+            createParams.Name = key;
 
             IWfMatrixProcess process = null;
             string msg = string.Empty;
 
-            bool isok = manager.Build(key, key, out process, out msg);
-
-            Assert.AreEqual(false, isok);
-            Assert.IsFalse(string.IsNullOrEmpty(msg));
+            try
+            {
+                process = manager.CreateEmptyProcessDescriptor(createParams);
+            }
+            catch
+            {
+                Assert.IsTrue(true,"nullCheck");
+            } 
+            
 
             key = Guid.NewGuid().ToString();
+            createParams.Key = key;
+            createParams.Name = key;
 
-            isok = manager.Build(key, key, out process, out msg);
-
-            Assert.AreEqual(true, isok);
-            Assert.IsTrue(string.IsNullOrEmpty(msg));
+            process = manager.CreateEmptyProcessDescriptor(createParams); 
+         
+            Assert.IsTrue(true,"create");
 
             //检验值重复
-            isok = manager.Build(key, key, out process, out msg);
-            Assert.AreEqual(false, isok);
+            try
+            {
+                process = manager.CreateEmptyProcessDescriptor(createParams);
+            }
+            catch (ArgumentException ex)
+            {                 
+                Assert.IsTrue(true, ex.Message);
+            }
+            
 
             manager.Delete(key);
         }
@@ -56,24 +77,25 @@ namespace CIIC.HSR.TSP.WF.Bizlet.Impl.Test
             manager.Context = new ServiceContext() { TenantCode = "Test1" };
             IWfMatrixProcess process = WfMatrixHelper.CreateEmptyProcess(key);
             string msg = string.Empty;
-            bool isok = manager.Build(process.Key, process.Name, out process, out msg);
+            WfMatrixProcessDescriptorCreateParams createParams = new WfMatrixProcessDescriptorCreateParams();
+            createParams.Key = key;
+            createParams.Name = key;
+
+            process = manager.CreateEmptyProcessDescriptor(createParams);
             IWfMatrixProcess server = manager.Load(key);
             Assert.AreEqual(server.Key, key);//判定加载
-            if (isok)
+
+            manager.Delete(key);
+
+            try
             {
-                manager.Delete(key);
-
-                try
-                {
-                    IWfMatrixProcess server2 = manager.Load(key);
-                    Assert.Fail("删除失败");
-                }
-                catch (Exception ex)
-                {
-                    Assert.IsNotNull(ex);
-                }
+                IWfMatrixProcess server2 = manager.Load(key);
+                Assert.Fail("删除失败");
             }
-
+            catch (Exception ex)
+            {
+                Assert.IsNotNull(ex);
+            }
         }
 
         [TestMethod]
@@ -111,14 +133,19 @@ namespace CIIC.HSR.TSP.WF.Bizlet.Impl.Test
         public void LoadTest()
         {
             string key = Guid.NewGuid().ToString();
+           
             WfMatrixStorageManager manager = new WfMatrixStorageManager();
             manager.Context = new ServiceContext() { TenantCode = "Test1" };
-            IWfMatrixProcess process = WfMatrixHelper.CreateEmptyProcess(key);
+            IWfMatrixProcess process = WfMatrixHelper.CreateComplexProcess(key);          
             manager.Save(process);
+         
+            process.InitGlobalParameter();
 
             IWfMatrixProcess server2 = manager.Load(key);
+            server2.Properties.Add(Consts.ProcessSavedKey, string.Empty);
 
-            Assert.AreEqual(key, server2.Key);
+            process.AreSame(server2);
+            
 
         }
 
@@ -189,8 +216,8 @@ namespace CIIC.HSR.TSP.WF.Bizlet.Impl.Test
             QueryModel queryModel = qb.Core.Product;
             PagedCollection<WfClientProcessDescriptorInfo> server2 = manager.QueryProcessDescriptorListPaged(queryModel, 0, 2, -1);
 
-            Assert.AreEqual(1, server2.TotalItems);
-            Assert.AreEqual(key, server2.Items[0].ProcessKey);
+            Assert.AreEqual(1, server2.TotalItems, "TotalItems");
+            Assert.AreEqual(key, server2.Items[0].ProcessKey, "ProcessKey");
 
 
             foreach (string item in list)
@@ -251,11 +278,102 @@ namespace CIIC.HSR.TSP.WF.Bizlet.Impl.Test
         {
             string key = Guid.NewGuid().ToString();
             IWfMatrixProcess process = WfMatrixHelper.CreateComplexProcess(key);
-
+            process.InitGlobalParameter();
             WfClientProcessDescriptor client = WfMatrixDescriptorTransformation.Instance.Transform(process);
             IWfMatrixProcess actual = WfMatrixDescriptorTransformation.Instance.TransformBack(client);
+            actual.Properties.Add(Consts.ProcessSavedKey, string.Empty);
+            actual.InitGlobalParameter();
+         
 
             process.AreSame(actual);
         }
+
+        [TestMethod]
+        public void JsonConvertTest()
+        {
+            string key = Guid.NewGuid().ToString();
+
+            IWfMatrixProcess process = WfMatrixHelper.CreateComplexProcess(key);
+        
+            var jss = new System.Web.Script.Serialization.JavaScriptSerializer();
+            WfMatrixJsonConverterHelper.Instance.RegisterConverters(jss);    
+
+           string json =  jss.Serialize(process);
+         
+           WfMatrixProcess uiProcess = jss.Deserialize<WfMatrixProcess>(json);
+
+           process.AreSame(uiProcess);
+        }
+
+          [TestMethod]
+        public void ConditionJsonConvertTest()
+        {
+            string key = Guid.NewGuid().ToString();
+
+            IWfMatrixProcess process = WfMatrixHelper.CreateComplexProcess(key);
+            IWfMatrixConditionGroupCollection group = process.Activities[2].Expression;
+         
+            var jss = new System.Web.Script.Serialization.JavaScriptSerializer();
+            WfMatrixJsonConverterHelper.Instance.RegisterConverters(jss);
+
+            string json = jss.Serialize(group);
+            
+            WfMatrixConditionGroupCollection condition = jss.Deserialize<WfMatrixConditionGroupCollection>(json);
+            Assert.IsTrue(true, condition.Count.ToString());
+        }
+
+             [TestMethod]
+          public void CandidateJsonConvertTest()
+          {
+              string key = Guid.NewGuid().ToString();
+
+              IWfMatrixProcess process = WfMatrixHelper.CreateComplexProcess(key);
+              IWfMatrixCandidateCollection candidate = process.Activities[2].Candidates;
+
+              var jss = new System.Web.Script.Serialization.JavaScriptSerializer();
+              WfMatrixJsonConverterHelper.Instance.RegisterConverters(jss);
+
+              string json = jss.Serialize(candidate);
+
+              WfMatrixCandidate[] a = jss.Deserialize<WfMatrixCandidate[]>(json);
+              Assert.IsTrue(true, a.Length.ToString());
+          }
+
+
+           [TestMethod]
+          public void ActivityJsonConvertTest()
+          {
+              string key = Guid.NewGuid().ToString();
+
+              IWfMatrixProcess process = WfMatrixHelper.CreateComplexProcess(key);
+              IWfMatrixActivity activity = process.Activities[2];
+
+              var jss = new System.Web.Script.Serialization.JavaScriptSerializer();
+              WfMatrixJsonConverterHelper.Instance.RegisterConverters(jss);
+
+              string json = jss.Serialize(activity);
+
+              WfMatrixActivity a = jss.Deserialize<WfMatrixActivity>(json);
+              Assert.IsTrue(true, a.CodeName);
+          }
+
+         [TestMethod]
+           public void DeserializeUIJsonTest()
+           {
+               string key = Guid.NewGuid().ToString();
+               WfMatrixStorageManager manager = new WfMatrixStorageManager();
+               IWfMatrixProcess process = WfMatrixHelper.CreateComplexProcess(key);             
+
+               var jss = new System.Web.Script.Serialization.JavaScriptSerializer();
+               WfMatrixJsonConverterHelper.Instance.RegisterConverters(jss);
+
+               string json = jss.Serialize(process);
+
+               IWfMatrixProcess a = manager.DeserializeUIJson(json);
+               Assert.IsTrue(true, a.Key);
+           }
+
+      
+
     }
 }
