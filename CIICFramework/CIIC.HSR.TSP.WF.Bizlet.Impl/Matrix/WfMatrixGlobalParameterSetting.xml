@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<wfMatrixGlobalParameterSetting xmlns="urn:CIIC.HSR.TSP.WF.Bizlet.Impl.WfMatrixGlobalParameterSetting.Configuration" >
-  <parameters>
-    <parameter key="内部名称" name="名称" defaultValue="默认值" enable="true" description="描述" valueType="String"></parameter>
-    <parameter key="内部名称1" name="名称" defaultValue="默认值" enable="true" description="描述" valueType="String"></parameter>
-  </parameters>
-</wfMatrixGlobalParameterSetting>

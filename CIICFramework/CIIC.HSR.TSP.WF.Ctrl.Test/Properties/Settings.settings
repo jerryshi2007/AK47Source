@@ -1,9 +1,0 @@
-﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CIIC.HSR.TSP.WF.Ctrl.Test.Properties" GeneratedClassName="Settings">
-  <Profiles />
-  <Settings>
-    <Setting Name="CIIC_HSR_TSP_WF_Ctrl_Test_localhost_TaskPlugin" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://localhost/MCSWebApp/CIIC.HSR.OMP.OmpOguService/TaskPlugin.asmx</Value>
-    </Setting>
-  </Settings>
-</SettingsFile>
