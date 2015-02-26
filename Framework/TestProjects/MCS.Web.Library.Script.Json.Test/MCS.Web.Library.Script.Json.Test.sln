@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Web.Library.Script.Json.Test", "MCS.Web.Library.Script.Json.Test.csproj", "{E1C9871E-4611-466D-AA7F-6869A1B2A108}"
+	ProjectSection(ProjectDependencies) = postProject
+		{78CD90D6-129A-401C-8396-E7AD8996219E} = {78CD90D6-129A-401C-8396-E7AD8996219E}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Web.Library.Script.Json", "..\..\MCS.Web.Library.Script.Json\MCS.Web.Library.Script.Json.csproj", "{78CD90D6-129A-401C-8396-E7AD8996219E}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://shsvr9141tfs.ciicsh.local:8080/tfs/rhso
+		SccProjectUniqueName0 = ..\\..\\MCS.Web.Library.Script.Json\\MCS.Web.Library.Script.Json.csproj
+		SccProjectName0 = ../../MCS.Web.Library.Script.Json
+		SccLocalPath0 = ..\\..\\MCS.Web.Library.Script.Json
+		SccLocalPath1 = .
+		SccProjectUniqueName2 = MCS.Web.Library.Script.Json.Test.csproj
+		SccLocalPath2 = .
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E1C9871E-4611-466D-AA7F-6869A1B2A108}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1C9871E-4611-466D-AA7F-6869A1B2A108}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1C9871E-4611-466D-AA7F-6869A1B2A108}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1C9871E-4611-466D-AA7F-6869A1B2A108}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78CD90D6-129A-401C-8396-E7AD8996219E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78CD90D6-129A-401C-8396-E7AD8996219E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78CD90D6-129A-401C-8396-E7AD8996219E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78CD90D6-129A-401C-8396-E7AD8996219E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
