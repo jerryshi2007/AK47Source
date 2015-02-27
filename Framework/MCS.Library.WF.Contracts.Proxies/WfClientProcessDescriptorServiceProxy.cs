@@ -1,17 +1,20 @@
 ﻿using MCS.Library.Core;
+using MCS.Library.WcfExtensions;
 using MCS.Library.WF.Contracts.Operations;
+using MCS.Library.WF.Contracts.Proxies.Configuration;
 using MCS.Library.WF.Contracts.Workflow.DataObjects;
 using MCS.Library.WF.Contracts.Workflow.Descriptors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MCS.Library.WF.Contracts.Proxies
 {
-    public class WfClientProcessDescriptorServiceProxy
+    public class WfClientProcessDescriptorServiceProxy : WfClientServiceProxyBase<IWfClientProcessDescriptorService>
     {
         public static readonly WfClientProcessDescriptorServiceProxy Instance = new WfClientProcessDescriptorServiceProxy();
 
@@ -22,44 +25,27 @@ namespace MCS.Library.WF.Contracts.Proxies
         #region 流程
         public void DeleteDescriptor(string processDespKey)
         {
-            ServiceProxy.SingleCall<IWfClientProcessDescriptorService>(WfClientFactory.GetProcessDescriptorService(),
-                action => action.DeleteDescriptor(processDespKey));
+            this.SingleCall(action => action.DeleteDescriptor(processDespKey));
         }
 
         public WfClientProcessDescriptor GetDescriptor(string processDespKey)
         {
-            WfClientProcessDescriptor result = null;
-
-            ServiceProxy.SingleCall<IWfClientProcessDescriptorService>(WfClientFactory.GetProcessDescriptorService(),
-                action => result = action.GetDescriptor(processDespKey));
-
-            return result;
+            return this.SingleCall(action => action.GetDescriptor(processDespKey));
         }
 
         public WfClientProcessDescriptor LoadDescriptor(string processDespKey)
         {
-            WfClientProcessDescriptor result = null;
-
-            ServiceProxy.SingleCall<IWfClientProcessDescriptorService>(WfClientFactory.GetProcessDescriptorService(),
-                action => result = action.LoadDescriptor(processDespKey));
-
-            return result;
+            return this.SingleCall(action => action.LoadDescriptor(processDespKey));
         }
 
         public void SaveDescriptor(WfClientProcessDescriptor processDesp)
         {
-            ServiceProxy.SingleCall<IWfClientProcessDescriptorService>(WfClientFactory.GetProcessDescriptorService(),
-                action => action.SaveDescriptor(processDesp));
+            this.SingleCall(action => action.SaveDescriptor(processDesp));
         }
 
         public WfClientProcessDescriptorInfoPageQueryResult QueryProcessDescriptorInfo(int startRowIndex, int maximumRows, string where, string orderBy, int totalCount)
         {
-            WfClientProcessDescriptorInfoPageQueryResult result = null;
-
-            ServiceProxy.SingleCall<IWfClientProcessDescriptorService>(WfClientFactory.GetProcessDescriptorService(),
-              action => result = action.QueryProcessDescriptorInfo(startRowIndex, maximumRows, where, orderBy, totalCount));
-
-            return result;
+            return this.SingleCall(action => action.QueryProcessDescriptorInfo(startRowIndex, maximumRows, where, orderBy, totalCount));
         }
 
         /// <summary>
@@ -69,33 +55,19 @@ namespace MCS.Library.WF.Contracts.Proxies
         /// <returns>是否存在</returns>
         public bool ExsitsProcessKey(string processKey)
         {
-            bool result = false;
-            ServiceProxy.SingleCall<IWfClientProcessDescriptorService>(WfClientFactory.GetProcessDescriptorService(),
-              action =>
-              {
-                  result = action.ExsitsProcessKey(processKey);
-              });
-            return result;
+            return this.SingleCall(action => action.ExsitsProcessKey(processKey));
         }
         #endregion
 
-        #region 委托信息
+        #region 委托待办信息
         public WfClientDelegationCollection LoadUserDelegations(string userID)
         {
-            WfClientDelegationCollection result = null;
-
-            ServiceProxy.SingleCall<IWfClientProcessDescriptorService>(WfClientFactory.GetProcessDescriptorService(), action =>
-            {
-                result = new WfClientDelegationCollection(action.LoadUserDelegations(userID));
-            });
-
-            return result;
+            return this.SingleCall(action => new WfClientDelegationCollection(action.LoadUserDelegations(userID)));
         }
 
         public void UpdateUserDelegation(WfClientDelegation delegation)
         {
-            ServiceProxy.SingleCall<IWfClientProcessDescriptorService>(WfClientFactory.GetProcessDescriptorService(),
-                action => action.UpdateUserDelegation(delegation));
+            this.SingleCall(action => action.UpdateUserDelegation(delegation));
         }
 
         /// <summary>
@@ -104,8 +76,7 @@ namespace MCS.Library.WF.Contracts.Proxies
         /// <param name="userID"></param>
         public void DeleteUserDelegation(string userID)
         {
-            ServiceProxy.SingleCall<IWfClientProcessDescriptorService>(WfClientFactory.GetProcessDescriptorService(),
-                action => action.DeleteUserDelegationByUserID(userID));
+            this.SingleCall(action => action.DeleteUserDelegationByUserID(userID));
         }
 
         /// <summary>
@@ -114,37 +85,24 @@ namespace MCS.Library.WF.Contracts.Proxies
         /// <param name="delegation"></param>      
         public void DeleteUserDelegation(WfClientDelegation delegation)
         {
-            ServiceProxy.SingleCall<IWfClientProcessDescriptorService>(WfClientFactory.GetProcessDescriptorService(),
-                action => action.DeleteUserDelegation(delegation));
+            this.SingleCall(action => action.DeleteUserDelegation(delegation));
         }
         #endregion
 
         #region Excel与Matrix
         public WfCreateClientDynamicProcessParams ExcelToWfCreateClientDynamicProcessParams(string processKey, Stream stream)
         {
-            WfCreateClientDynamicProcessParams result = null;
-            ServiceProxy.SingleCall<IWfClientProcessDescriptorService>(WfClientFactory.GetProcessDescriptorService(), action =>
-            {
-                result = action.ExcelToWfCreateClientDynamicProcessParams(processKey, stream);
-            });
-            return result;
+            return this.SingleCall(action => action.ExcelToWfCreateClientDynamicProcessParams(processKey, stream));
         }
-
 
         public void ExcelToSaveDescriptor(string processKey, Stream stream)
         {
-            ServiceProxy.SingleCall<IWfClientProcessDescriptorService>(WfClientFactory.GetProcessDescriptorService(),
-                action => action.ExcelToSaveDescriptor(processKey, stream));
+            this.SingleCall(action => action.ExcelToSaveDescriptor(processKey, stream));
         }
 
         public Stream WfDynamicProcessToExcel(string processKey)
         {
-            Stream result = null;
-
-            ServiceProxy.SingleCall<IWfClientProcessDescriptorService>(WfClientFactory.GetProcessDescriptorService(),
-                action => result = action.WfDynamicProcessToExcel(processKey));
-
-            return result;
+            return this.SingleCall(action => action.WfDynamicProcessToExcel(processKey));
         }
         #endregion
 
@@ -170,12 +128,7 @@ namespace MCS.Library.WF.Contracts.Proxies
             exportParams.NullCheck("exportParams");
             processKeys.NullCheck("processKeys");
 
-            Stream result = null;
-
-            ServiceProxy.SingleCall<IWfClientProcessDescriptorService>(WfClientFactory.GetProcessDescriptorService(),
-                action => result = action.ExportProcessDescriptors(exportParams, processKeys));
-
-            return result;
+            return this.SingleCall(action => action.ExportProcessDescriptors(exportParams, processKeys));
         }
 
         /// <summary>
@@ -187,13 +140,15 @@ namespace MCS.Library.WF.Contracts.Proxies
         {
             inputStream.NullCheck("inputStream");
 
-            string result = null;
-
-            ServiceProxy.SingleCall<IWfClientProcessDescriptorService>(WfClientFactory.GetProcessDescriptorService(),
-                action => result = action.ImportProcessDescriptors(inputStream));
-
-            return result;
+            return this.SingleCall(action => action.ImportProcessDescriptors(inputStream));
         }
         #endregion
+
+        protected override WfClientChannelFactory<IWfClientProcessDescriptorService> GetService()
+        {
+            EndpointAddress endPoint = new EndpointAddress(WfContractsProxySettings.GetConfig().ProcessDescriptorServiceUrl.ToString());
+
+            return new WfClientChannelFactory<IWfClientProcessDescriptorService>(endPoint);
+        }
     }
 }

@@ -108,6 +108,8 @@ namespace WfOperationServices.Services
         [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         public WfClientProcessDescriptorInfoPageQueryResult QueryProcessDescriptorInfo(int startRowIndex, int maximumRows, string where, string orderBy, int totalCount)
         {
+            OperationContext.Current.FillContextToOguServiceContext();
+
             if (orderBy.IsNullOrEmpty())
                 orderBy = "MODIFY_TIME DESC";
 
@@ -294,6 +296,8 @@ namespace WfOperationServices.Services
         [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         public Stream ExportProcessDescriptors(WfClientExportProcessDescriptorParams exportParams, string[] processKeys)
         {
+            OperationContext.Current.FillContextToOguServiceContext();
+
             WfExportProcessDescriptorParams serverExportParams = null;
 
             WfClientExportProcessDescriptorParamsConverter.Instance.ClientToServer(exportParams, ref serverExportParams);
@@ -316,6 +320,8 @@ namespace WfOperationServices.Services
         [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         public string ImportProcessDescriptors(Stream inputStream)
         {
+            OperationContext.Current.FillContextToOguServiceContext();
+
             StringBuilder logger = new StringBuilder();
 
             WfImportTemplateExecutor executor = new WfImportTemplateExecutor(inputStream, info => logger.Append(info));

@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="WfOperationServices.Services.DataSourceService" CodeBehind="DataSourceService.svc.cs" Factory="MCS.Library.WcfExtensions.WfServiceHostFactory" %>

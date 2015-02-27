@@ -73,6 +73,7 @@
     <Compile Include="Converters\DataObjects\WfClientRolePropertyRowJsonConverter.cs" />
     <Compile Include="Converters\DataObjects\WfClientStreamJsonConverter.cs" />
     <Compile Include="Converters\DataObjects\WfClientUserOperationLogJsonConverter.cs" />
+    <Compile Include="Converters\DataObjects\WfClientUserOperationLogPageQueryResultJsonConverter.cs" />
     <Compile Include="Converters\Query\ClientPageQueryResultJsonConverterBase.cs" />
     <Compile Include="Converters\ResourceDescriptors\WfClientActivityMatrixResourceDescriptorJsonConverter.cs" />
     <Compile Include="Converters\ResourceDescriptors\WfClientActivityResourceDescriptorJsonConverterBase.cs" />

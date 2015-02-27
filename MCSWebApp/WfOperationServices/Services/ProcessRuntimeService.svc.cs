@@ -427,6 +427,8 @@ namespace WfOperationServices.Services
         {
             ownerActivityID.NullCheck("ownerActivityID");
 
+            OperationContext.Current.FillContextToOguServiceContext();
+
             WhereSqlClauseBuilder builder = new WhereSqlClauseBuilder();
 
             builder.AppendItem("OWNER_ACTIVITY_ID", ownerActivityID);

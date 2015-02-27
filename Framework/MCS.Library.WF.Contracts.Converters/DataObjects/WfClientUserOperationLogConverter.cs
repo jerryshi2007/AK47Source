@@ -39,8 +39,8 @@ namespace MCS.Library.WF.Contracts.Converters.DataObjects
             server.OperationDescription = client.OperationDescription;
             server.OperationDateTime = client.OperationDateTime;
             server.Operator = (IUser)client.Operator.ToOguObject();
-            server.RealUser = (IUser)client.Operator.ToOguObject();
-            server.TopDepartment = (IOrganization)client.Operator.ToOguObject();
+            server.RealUser = (IUser)client.RealUser.ToOguObject();
+            server.TopDepartment = (IOrganization)client.TopDepartment.ToOguObject();
 
             return server;
         }
@@ -83,8 +83,8 @@ namespace MCS.Library.WF.Contracts.Converters.DataObjects
             client.OperationDescription = server.OperationDescription;
             client.OperationDateTime = server.OperationDateTime;
             client.Operator = (WfClientUser)server.Operator.ToClientOguObject();
-            client.RealUser = (WfClientUser)server.Operator.ToClientOguObject();
-            client.TopDepartment = (WfClientOrganization)server.Operator.ToClientOguObject();
+            client.RealUser = (WfClientUser)server.RealUser.ToClientOguObject();
+            client.TopDepartment = (WfClientOrganization)server.TopDepartment.ToClientOguObject();
             client.HttpContextString = server.HttpContextString;
             client.CorrelationID = server.CorrelationID;
 

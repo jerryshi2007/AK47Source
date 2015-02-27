@@ -35,6 +35,14 @@ namespace MCS.Library.WF.Contracts.Proxies.Configuration
             }
         }
 
+        public Uri DataSourceServiceUrl
+        {
+            get
+            {
+                return this.Paths.CheckAndGet("dataSourceService").Uri;
+            }
+        }
+
         [ConfigurationProperty("paths", IsRequired = true)]
         private UriConfigurationCollection Paths
         {

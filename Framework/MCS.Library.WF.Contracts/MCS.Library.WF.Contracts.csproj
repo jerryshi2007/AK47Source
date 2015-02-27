@@ -65,8 +65,10 @@
     <Compile Include="Common\Define.cs" />
     <Compile Include="DataObjects\WfClientOperationType.cs" />
     <Compile Include="DataObjects\WfClientUserOperationLog.cs" />
+    <Compile Include="DataObjects\WfClientUserOperationLogPageQueryResult.cs" />
     <Compile Include="Ogu\ClientOguSchemaType.cs" />
     <Compile Include="Ogu\WfClientOguObjectExtenstions.cs" />
+    <Compile Include="Operations\IWfClientDataSourceService.cs" />
     <Compile Include="Operations\IWfClientProcessRuntimeService.cs" />
     <Compile Include="Query\ClientPageQueryResultBase.cs" />
     <Compile Include="Workflow\Builders\WfClientDynamicProcessBuilder.cs" />

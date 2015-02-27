@@ -103,6 +103,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="DataObjects\DataSourceServiceTest.cs" />
     <Compile Include="DelegationHelper.cs" />
     <Compile Include="Descriptors\WfDescriptorOperationsTest.cs" />
     <Compile Include="OutputHelper.cs" />
