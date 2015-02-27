@@ -93,7 +93,7 @@ DocProject/Help/html
 publish/
 
 # Publish Web Output
-*.Publish.xml
+# *.Publish.xml
 
 # NuGet Packages Directory
 packages/
@@ -113,7 +113,7 @@ ClientBin/
 ~$*
 *~
 *.dbmdl
-#*.[Pp]ublish.xml
+# *.[Pp]ublish.xml
 *.pfx
 *.publishsettings
 
