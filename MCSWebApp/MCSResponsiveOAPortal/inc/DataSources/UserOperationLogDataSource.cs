@@ -34,8 +34,8 @@ namespace MCSResponsiveOAPortal.DataSources
         {
             UserOperationTasksLogCollection userTasklogs = this.GetOperationTasksLogs(result);
 
-            Dictionary<int, UserOperationTasksLogCollection> dic = new Dictionary<int, UserOperationTasksLogCollection>();
-            Dictionary<int, int> logIDCount = new Dictionary<int, int>();
+            Dictionary<long, UserOperationTasksLogCollection> dic = new Dictionary<long, UserOperationTasksLogCollection>();
+            Dictionary<long, int> logIDCount = new Dictionary<long, int>();
             List<string> userIDs = new List<string>();
 
             foreach (UserOperationTasksLog item in userTasklogs)
@@ -61,7 +61,7 @@ namespace MCSResponsiveOAPortal.DataSources
                 this.SetTargetDescription(result, dic, logIDCount);
         }
 
-        private void SetTargetDescription(UserOperationLogCollection result, Dictionary<int, UserOperationTasksLogCollection> dic, Dictionary<int, int> logIDCount)
+        private void SetTargetDescription(UserOperationLogCollection result, Dictionary<long, UserOperationTasksLogCollection> dic, Dictionary<long, int> logIDCount)
         {
             foreach (MCS.Library.SOA.DataObjects.UserOperationLog setitem in result)
             {

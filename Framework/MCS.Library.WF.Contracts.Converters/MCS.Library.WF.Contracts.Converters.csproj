@@ -98,6 +98,7 @@
     <Compile Include="DataObjects\WfClientRolePropertyDefinitionConverter.cs" />
     <Compile Include="DataObjects\WfClientRolePropertyRowConverter.cs" />
     <Compile Include="DataObjects\WfClientRolePropertyValueConverter.cs" />
+    <Compile Include="DataObjects\WfClientUserOperationLogConverter.cs" />
     <Compile Include="Descriptors\ResourceDescriptors\WfClientActivityMatrixResourceDescriptorConverter.cs" />
     <Compile Include="Descriptors\ResourceDescriptors\WfClientActivityResourceDescriptorConverters.cs" />
     <Compile Include="Descriptors\ResourceDescriptors\WfClientAURoleResourceDescriptorConverter.cs" />

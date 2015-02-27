@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MCS.Library.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,34 +9,26 @@ namespace MCS.Web.Library.Script
 {
     internal class InternalDateTimeConverter : JavaScriptConverter
     {
+        private static readonly Type[] _SupportedTypes = new Type[] { typeof(DateTime) };
+
         public static readonly JavaScriptConverter Instance = new InternalDateTimeConverter();
 
         public override IDictionary<string, object> Serialize(object obj, JavaScriptSerializer serializer)
         {
-            Dictionary<string, object> dict = new Dictionary<string, object>();
-
-            dict["DateValue"] = ((DateTime)obj).Ticks;
-            dict["DateKind"] = ((DateTime)obj).Kind;
-
-            return dict;
+            return DataConverter.ChangeType<DateTime, IDictionary<string, object>>((DateTime)obj);
         }
 
         public override object Deserialize(IDictionary<string, object> dictionary, Type type, JavaScriptSerializer serializer)
         {
-            long ticks = long.Parse(dictionary["DateValue"].ToString());
-            DateTimeKind kind = (DateTimeKind)dictionary["DateKind"];
-
-            DateTime result = new DateTime(ticks, kind);
-
-            if (result != DateTime.MinValue && result.Kind == DateTimeKind.Utc)
-                result = result.ToLocalTime();
-
-            return result;
+            return DataConverter.ChangeType<IDictionary<string, object>, DateTime>(dictionary);
         }
 
         public override IEnumerable<Type> SupportedTypes
         {
-            get { return new Type[] { typeof(DateTime) }; }
+            get
+            {
+                return _SupportedTypes;
+            }
         }
     }
 }

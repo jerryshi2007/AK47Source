@@ -17,13 +17,13 @@ namespace MCS.Library.SOA.DataObjects
 	[ORTableMapping("WF.USER_OPERATION_TASKS_LOG")]
 	public class UserOperationTasksLog
 	{
-		private int _ID = 0;
+		private Int64 _ID = 0;
 
 		/// <summary>
 		/// 排序ID
 		/// </summary>
 		[ORFieldMapping("LOG_ID", PrimaryKey = true)]
-		public int ID
+        public Int64 ID
 		{
 			get
 			{

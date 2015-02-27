@@ -45,6 +45,8 @@ namespace MCS.Library.WF.Contracts.Converters.DataObjects
 
 		public List<WfClientOpinion> ServerToClient(GenericOpinionCollection server)
 		{
+            server.NullCheck("server");
+
 			List<WfClientOpinion> client = new List<WfClientOpinion>();
 
 			foreach (GenericOpinion opinion in server)
