@@ -93,8 +93,10 @@
   <ItemGroup>
     <Compile Include="Common\Define.cs" />
     <Compile Include="Common\Extensions.cs" />
+    <Compile Include="DataObjects\WfClientApplicationConverter.cs" />
     <Compile Include="DataObjects\WfClientDelegationConverter.cs" />
     <Compile Include="DataObjects\WfClientOpinionConverter.cs" />
+    <Compile Include="DataObjects\WfClientProgramConverter.cs" />
     <Compile Include="DataObjects\WfClientRolePropertyDefinitionConverter.cs" />
     <Compile Include="DataObjects\WfClientRolePropertyRowConverter.cs" />
     <Compile Include="DataObjects\WfClientRolePropertyValueConverter.cs" />

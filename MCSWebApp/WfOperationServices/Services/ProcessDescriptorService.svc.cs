@@ -122,6 +122,15 @@ namespace WfOperationServices.Services
                 ORMapping.GetMappingInfo(typeof(WfProcessDescriptorInfo)).TableName,
                 orderBy);
 
+            WhereSqlClauseBuilder builder = new WhereSqlClauseBuilder();
+
+            builder.AppendTenantCode();
+
+            if (where.IsNotEmpty())
+                where += " AND ";
+
+            where += builder.ToSqlString(TSqlBuilder.Instance);
+
             qc.WhereClause = where;
 
             CommonAdapter adapter = new CommonAdapter(WorkflowSettings.GetConfig().ConnectionName);

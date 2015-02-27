@@ -73,9 +73,11 @@
     <Compile Include="Query\ClientPageQueryResultBase.cs" />
     <Compile Include="Workflow\Builders\WfClientDynamicProcessBuilder.cs" />
     <Compile Include="Workflow\Builders\WfClientProcessBuilderBase.cs" />
+    <Compile Include="Workflow\DataObjects\WfClientApplication.cs" />
     <Compile Include="Workflow\DataObjects\WfClientDelegation.cs" />
     <Compile Include="Workflow\DataObjects\WfClientNextStep.cs" />
     <Compile Include="Workflow\DataObjects\WfClientOpinion.cs" />
+    <Compile Include="Workflow\DataObjects\WfClientProgram.cs" />
     <Compile Include="Workflow\DataObjects\WfClientRolePropertyDefinition.cs" />
     <Compile Include="Workflow\DataObjects\WfClientRolePropertyRow.cs" />
     <Compile Include="Workflow\DataObjects\WfClientRolePropertyValue.cs" />
