@@ -66,8 +66,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Converters\ClientPropertyValueJsonConverter.cs" />
+    <Compile Include="Converters\DataObjects\WfClientApplicationJsonConverter.cs" />
     <Compile Include="Converters\DataObjects\WfClientDelegationJsonConverter.cs" />
     <Compile Include="Converters\DataObjects\WfClientNextStepJsonConverter.cs" />
+    <Compile Include="Converters\DataObjects\WfClientProgramJsonConverter.cs" />
     <Compile Include="Converters\DataObjects\WfClientRolePropertyDefinitionJsonConverter.cs" />
     <Compile Include="Converters\DataObjects\WfClientRolePropertyValueJsonConverter.cs" />
     <Compile Include="Converters\DataObjects\WfClientRolePropertyRowJsonConverter.cs" />

@@ -133,7 +133,7 @@ namespace WfOperationServices.Services
 
             qc.WhereClause = where;
 
-            CommonAdapter adapter = new CommonAdapter(WorkflowSettings.GetConfig().ConnectionName);
+            CommonAdapter adapter = new CommonAdapter(WfProcessDescriptorInfoAdapter.Instance.ConnectionName);
 
             WfProcessDescriptorInfoCollection processInfo = adapter.SplitPageQuery<WfProcessDescriptorInfo, WfProcessDescriptorInfoCollection>(qc, ref totalCount);
 

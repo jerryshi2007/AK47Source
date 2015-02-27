@@ -1,4 +1,5 @@
 ﻿using MCS.Library.WF.Contracts.DataObjects;
+using MCS.Library.WF.Contracts.Workflow.DataObjects;
 using MCS.Library.WF.Contracts.Workflow.Runtime;
 using System;
 using System.Collections.Generic;
@@ -34,5 +35,20 @@ namespace MCS.Library.WF.Contracts.Operations
         /// <returns></returns>
         [OperationContract]
         WfClientUserOperationLog GetUserOperationLogByID(Int64 logID);
+
+        /// <summary>
+        /// 获得所有应用描述信息
+        /// </summary>
+        /// <returns></returns>
+        [OperationContract]
+        WfClientApplicationCollection GetAllApplications();
+
+        /// <summary>
+        /// 获得某个应用的应用程序信息
+        /// </summary>
+        /// <param name="appCodeName"></param>
+        /// <returns></returns>
+        [OperationContract]
+        WfClientProgramInApplicationCollection GetProgramsByApplication(string appCodeName);
     }
 }

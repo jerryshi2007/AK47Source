@@ -3,6 +3,7 @@ using MCS.Library.WcfExtensions;
 using MCS.Library.WF.Contracts.DataObjects;
 using MCS.Library.WF.Contracts.Operations;
 using MCS.Library.WF.Contracts.Proxies.Configuration;
+using MCS.Library.WF.Contracts.Workflow.DataObjects;
 using MCS.Library.WF.Contracts.Workflow.Runtime;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,16 @@ namespace MCS.Library.WF.Contracts.Proxies
         public WfClientUserOperationLog GetUserOperationLogByID(Int64 logID)
         {
             return this.SingleCall(action => action.GetUserOperationLogByID(logID));
+        }
+
+        public WfClientApplicationCollection GetAllApplications()
+        {
+            return this.SingleCall(action => action.GetAllApplications());
+        }
+
+        public WfClientProgramInApplicationCollection GetProgramsByApplication(string appCodeName)
+        {
+            return this.SingleCall(action => action.GetProgramsByApplication(appCodeName));
         }
 
         protected override WfClientChannelFactory<IWfClientDataSourceService> GetService()

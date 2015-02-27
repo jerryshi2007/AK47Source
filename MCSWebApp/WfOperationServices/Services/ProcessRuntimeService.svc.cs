@@ -446,7 +446,7 @@ namespace WfOperationServices.Services
 
             qc.WhereClause = builder.ToSqlString(TSqlBuilder.Instance);
 
-            CommonAdapter adapter = new CommonAdapter(WorkflowSettings.GetConfig().ConnectionName);
+            CommonAdapter adapter = new CommonAdapter(WfProcessCurrentInfoAdapter.Instance.ConnectionName);
 
             WfProcessCurrentInfoCollection processInfo = adapter.SplitPageQuery<WfProcessCurrentInfo, WfProcessCurrentInfoCollection>(qc, ref totalCount);
 

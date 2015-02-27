@@ -1,8 +1,9 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MCS.Library.WF.Contracts.Workflow.Descriptors;
+﻿using MCS.Library.WF.Contracts.DataObjects;
 using MCS.Library.WF.Contracts.Proxies;
-using MCS.Library.WF.Contracts.DataObjects;
+using MCS.Library.WF.Contracts.Workflow.DataObjects;
+using MCS.Library.WF.Contracts.Workflow.Descriptors;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace WfOperationServices.Test.DataObjects
 {
@@ -24,6 +25,27 @@ namespace WfOperationServices.Test.DataObjects
             WfClientUserOperationLog log = WfClientDataSourceServiceProxy.Instance.GetUserOperationLogByID(result.QueryResult[0].ID);
 
             Assert.AreEqual(result.QueryResult[0].ID, log.ID);
+        }
+
+        [TestMethod]
+        public void GetAllApplicationsTest()
+        {
+            WfClientApplicationCollection applications = WfClientDataSourceServiceProxy.Instance.GetAllApplications();
+
+            Assert.IsTrue(applications.Count > 0);
+        }
+
+        [TestMethod]
+        public void GetProgramsByApplicationTest()
+        {
+            WfClientApplicationCollection applications = WfClientDataSourceServiceProxy.Instance.GetAllApplications();
+
+            Assert.IsTrue(applications.Count > 0);
+
+            WfClientProgramInApplicationCollection programs = WfClientDataSourceServiceProxy.Instance.GetProgramsByApplication(applications[0].CodeName);
+
+            Assert.IsTrue(programs.Count > 0);
+            Assert.AreEqual(applications[0].CodeName, programs[0].ApplicationCodeName);
         }
     }
 }

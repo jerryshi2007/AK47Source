@@ -8,6 +8,7 @@ using MCS.Library.WcfExtensions;
 using MCS.Library.WF.Contracts.Converters.DataObjects;
 using MCS.Library.WF.Contracts.DataObjects;
 using MCS.Library.WF.Contracts.Operations;
+using MCS.Library.WF.Contracts.Workflow.DataObjects;
 using MCS.Library.WF.Contracts.Workflow.Runtime;
 using System;
 using System.Collections.Generic;
@@ -61,7 +62,7 @@ namespace WfOperationServices.Services
 
             qc.WhereClause = builder.ToSqlString(TSqlBuilder.Instance);
 
-            CommonAdapter adapter = new CommonAdapter(WfRuntime.ProcessContext.SimulationContext.GetConnectionName(AppLogSettings.GetConfig().ConnectionName));
+            CommonAdapter adapter = new CommonAdapter(UserOperationLogAdapter.Instance.ConnectionName);
 
             UserOperationLogCollection serverLogs = adapter.SplitPageQuery<UserOperationLog, UserOperationLogCollection>(qc, ref totalCount);
 
@@ -73,6 +74,20 @@ namespace WfOperationServices.Services
             result.QueryResult.CopyFrom(clientLogs);
 
             return result;
+        }
+
+        [WfJsonFormatter]
+        [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public WfClientApplicationCollection GetAllApplications()
+        {
+            return WfClientApplicationConverter.Instance.ServerToClient(WfApplicationAdapter.Instance.LoadAll());
+        }
+
+        [WfJsonFormatter]
+        [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public WfClientProgramInApplicationCollection GetProgramsByApplication(string appCodeName)
+        {
+            return WfClientProgramConverter.Instance.ServerToClient(WfApplicationAdapter.Instance.LoadProgramsByApplication(appCodeName));
         }
     }
 }
