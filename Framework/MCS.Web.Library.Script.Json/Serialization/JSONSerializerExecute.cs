@@ -174,13 +174,12 @@ namespace MCS.Web.Library.Script
         {
             JavaScriptSerializer ser = resolverTypeLevel > 0 ?
                 JSONSerializerFactory.GetJavaScriptSerializer(input.GetType()) :
-               JSONSerializerFactory.GetJavaScriptSerializer();
+                JSONSerializerFactory.GetJavaScriptSerializer();
+
             ser.MaxJsonLength = int.MaxValue;
             input = PreSerializeObject(input, type, resolverTypeLevel - 1);
 
-            string result = ser.Serialize(input);
-
-            return result;
+            return ser.Serialize(input);
         }
 
         /// <summary>
@@ -192,6 +191,7 @@ namespace MCS.Web.Library.Script
         {
             JavaScriptSerializer serializer = new JavaScriptSerializer(new SimpleTypeResolver());
             JSONSerializerFactory.RegisterConverters(serializer);
+
             return serializer.Serialize(input);
         }
 
@@ -226,25 +226,21 @@ namespace MCS.Web.Library.Script
                 }
                 else
                 {
-                    if (!(input is ValueType) && !(input is string) && !(input is IDictionary))
+                    if ((input is ValueType) == false && (input is string) == false && (input is IDictionary) == false)
                     {
-                        IEnumerable list = input as IEnumerable;
-                        if (list != null)
-                        {
-                            result = SerializeEnumerableData(list, targetType, resolverTypeLevel);
-                        }
+                        if (input is IEnumerable)
+                            result = SerializeEnumerableData((IEnumerable)input, targetType, resolverTypeLevel);
                         else
-                        {
                             result = SerializeReferenceData(input, targetType, resolverTypeLevel);
-                        }
                     }
                 }
             }
 
-            if (resolverTypeLevel > 0 && result is Dictionary<string, object>)
+            if (resolverTypeLevel > 0 && result is IDictionary<string, object>)
             {
                 Dictionary<string, object> resultDict = result as Dictionary<string, object>;
-                if (!resultDict.ContainsKey("__type"))
+
+                if (resultDict.ContainsKey("__type") == false)
                     resultDict["__type"] = input.GetType().AssemblyQualifiedName;
             }
 
@@ -260,14 +256,10 @@ namespace MCS.Web.Library.Script
         /// <returns></returns>
         private static object SerializeEnumerableData(IEnumerable input, Type targetType, int resolverTypeLevel)
         {
-            //Dictionary<string, object> result = SerializeReferenceData(input, targetType, resolverTypeLevel);
-
             ArrayList list = new ArrayList();
 
             foreach (object o in input)
-            {
                 list.Add(PreSerializeObject(o, null, resolverTypeLevel - 1));
-            }
 
             return list;
         }
@@ -292,6 +284,7 @@ namespace MCS.Web.Library.Script
                 if (ignoreAttr == null)
                 {
                     MethodInfo mi = pi.GetGetMethod();
+
                     if (mi != null && mi.GetParameters().Length <= 0)
                     {
                         object v = PreSerializeObject(mi.Invoke(input, null), null, resolverTypeLevel - 1); ;
@@ -330,6 +323,24 @@ namespace MCS.Web.Library.Script
         public static object ConverterObject(object input, Type type)
         {
             return DeserializeObject(input, type, 0);
+        }
+
+        public static object DeserializeString(string input, Type type)
+        {
+            type.NullCheck("type");
+
+            JavaScriptSerializer serializer = JSONSerializerFactory.GetJavaScriptSerializer(type);
+
+            return serializer.Deserialize(input, type);
+        }
+
+        public static T DeserializeString<T>(string input)
+        {
+            Type type = typeof(T);
+
+            JavaScriptSerializer serializer = JSONSerializerFactory.GetJavaScriptSerializer(type);
+
+            return (T)serializer.Deserialize(input, type);
         }
 
         /// <summary>
@@ -401,8 +412,9 @@ namespace MCS.Web.Library.Script
                     {
                         result = input;
                     }
-                    else if (type.GetInterface(typeof(IConvertible).AssemblyQualifiedName) != null)
+                    else if (type.IsPrimitive && typeof(IConvertible).IsAssignableFrom(type))
                     {
+                        //if (type.GetInterface(typeof(IConvertible).AssemblyQualifiedName) != null)
                         result = Convert.ChangeType(input, type, CultureInfo.InvariantCulture);
                     }
                     else
@@ -436,7 +448,7 @@ namespace MCS.Web.Library.Script
                             else
                                 str = serializer.Serialize(input);
 
-                            result = serializer.Deserialize(str, type);
+                            result = serializer.DeserializeObject(str);
                         }
 
                         result = DeserializeObject(result, type, ++level);

@@ -1,11 +1,12 @@
-﻿using MCS.Library.SOA.DataObjects.Security.Adapters;
+﻿using MCS.Library.SOA.DataObjects.Schemas.SchemaProperties;
+using MCS.Library.SOA.DataObjects.Security;
+using MCS.Library.SOA.DataObjects.Security.Adapters;
+using MCS.Library.SOA.DataObjects.Security.Test.SchemaObject;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;
-using MCS.Library.SOA.DataObjects.Security.Test.SchemaObject;
-using MCS.Library.SOA.DataObjects.Security;
-using PC = MCS.Library.SOA.DataObjects.Security;
 using System.Threading;
+using PC = MCS.Library.SOA.DataObjects.Security;
 
 namespace MCS.Library.SOA.DataObjects.Security.Test.Permissions
 {
@@ -78,11 +79,11 @@ namespace MCS.Library.SOA.DataObjects.Security.Test.Permissions
 			SCAclAdapter adapter = SCAclAdapter.Instance;
 
 			SCObjectGenerator.PreareTestOguObjectForDelete();
-			var parent1 = (SCOrganization)SchemaObjectAdapter.Instance.LoadByCodeName("Organizations", "groupHQ", DateTime.MinValue);
+            var parent1 = (SCOrganization)SchemaObjectAdapter.Instance.LoadByCodeName("Organizations", "groupHQ", SchemaObjectStatus.Normal, DateTime.MinValue);
 
-			var role1 = (SCRole)SchemaObjectAdapter.Instance.LoadByCodeName("Roles", "系统管理员", DateTime.MinValue);
+            var role1 = (SCRole)SchemaObjectAdapter.Instance.LoadByCodeName("Roles", "系统管理员", SchemaObjectStatus.Normal, DateTime.MinValue);
 
-			var role2 = (SCRole)SchemaObjectAdapter.Instance.LoadByCodeName("Roles", "系统维护员", DateTime.MinValue);
+            var role2 = (SCRole)SchemaObjectAdapter.Instance.LoadByCodeName("Roles", "系统维护员", SchemaObjectStatus.Normal, DateTime.MinValue);
 
 			var container = new PC.Permissions.SCAclContainer(parent1);
 
@@ -95,7 +96,7 @@ namespace MCS.Library.SOA.DataObjects.Security.Test.Permissions
 
 			PC.Executors.SCObjectOperations.Instance.UpdateObjectAcl(container);
 
-			var user = (SCUser)SchemaObjectAdapter.Instance.LoadByCodeName("Users", "fanhy", DateTime.MinValue);
+            var user = (SCUser)SchemaObjectAdapter.Instance.LoadByCodeName("Users", "fanhy", SchemaObjectStatus.Normal, DateTime.MinValue);
 			Thread.Sleep(2000);
 
 			var result = adapter.LoadCurrentContainerAndPermissions(user.ID, new string[] { parent1.ID });

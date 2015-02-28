@@ -61,7 +61,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="CommonJsonTest.cs" />
+    <Compile Include="SimpleJsonTest.cs" />
     <Compile Include="JsonTestObj.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VoucherConverter.cs" />

@@ -77,7 +77,7 @@ namespace MCS.Web.Library.Script.Json.Test
         }
 
         [TestMethod]
-        public void VoucherItemCollectionJsonTest()
+        public void VoucherItemCollectionWithConverterJsonTest()
         {
             JSONSerializerExecute.RegisterConverter(typeof(VoucherConverter));
             JSONSerializerExecute.RegisterConverter(typeof(VoucherItemCollectionConverter));
@@ -88,22 +88,42 @@ namespace MCS.Web.Library.Script.Json.Test
 
             Console.WriteLine(json);
 
-            VoucherItemCollection deserialized = JSONSerializerExecute.Deserialize<VoucherItemCollection>(json);
+            JavaScriptSerializer serializer = JSONSerializerFactory.GetJavaScriptSerializer(typeof(VoucherItemCollection));
+
+            VoucherItemCollection deserialized = JSONSerializerExecute.DeserializeString<VoucherItemCollection>(json);
 
             AssertVoucherItemCollection(source.Items, deserialized);
         }
 
-        private static void AssertVoucherEntity(VoucherEntity source, VoucherEntity dest)
+        [TestMethod]
+        public void VoucherWithoutItemCollectionConverterJsonTest()
+        {
+            VoucherEntity source = VoucherEntity.PrepareData();
+            JSONSerializerExecute.RegisterConverter(typeof(VoucherConverter));
+
+            string json = JSONSerializerExecute.Serialize(source);
+
+            Console.WriteLine(json);
+
+            VoucherEntity deserialized = JSONSerializerExecute.DeserializeString<VoucherEntity>(json);
+
+            //不校验CollectionName
+            AssertVoucherEntity(source, deserialized, false);
+        }
+
+        private static void AssertVoucherEntity(VoucherEntity source, VoucherEntity dest, bool withCollectionName = true)
         {
             Assert.AreEqual(source.Name, dest.Name);
 
-            AssertVoucherItemCollection(source.Items, dest.Items);
+            AssertVoucherItemCollection(source.Items, dest.Items, withCollectionName);
         }
 
-        private static void AssertVoucherItemCollection(VoucherItemCollection source, VoucherItemCollection dest)
+        private static void AssertVoucherItemCollection(VoucherItemCollection source, VoucherItemCollection dest, bool withCollectionName = true)
         {
             Assert.AreEqual(source.Count, dest.Count);
-            Assert.AreEqual(source.CollectioName, dest.CollectioName);
+
+            if (withCollectionName)
+                Assert.AreEqual(source.CollectioName, dest.CollectioName);
 
             for (int i = 0; i < source.Count; i++)
                 AssertVoucherItem(source[i], dest[i]);

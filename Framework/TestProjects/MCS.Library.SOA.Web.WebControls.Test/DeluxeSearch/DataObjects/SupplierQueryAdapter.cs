@@ -1,4 +1,5 @@
 ﻿
+using MCS.Library.Data.DataObjects;
 using MCS.Library.Data.Mapping;
 using MCS.Library.SOA.DataObjects;
 
@@ -15,7 +16,7 @@ namespace MCS.Library.SOA.Web.WebControls.Test.DeluxeSearch
         /// 指定查询条件
         /// </summary>
         /// <param name="qc"></param>
-        protected override void OnBuildQueryCondition(SOA.DataObjects.QueryCondition qc)
+        protected override void OnBuildQueryCondition(QueryCondition qc)
         {
             qc.SelectFields = @"Code,SupplierApplicationCode,SupplierCode,SupplierLevelCode,SupplierCompanyCode,Address,Shareholder,TotalAssets,MainResults,Authentication,AuthenticationAttachment,Other,DirectReason,MainProductCategories,LegalPerson,RegisterAddress,RegisterMoney,RegisterYear,BusinessLicenceNumber,OrgnizationCodeNumber,BusinessLicenceStartDate,BusinessLicenceEndDate,TaxNo,SupplierCompanyCnName,SupplierCompanyEnName,SupplierName,WebSite,Status,Creator,CreateTime,Modifier,ModifyTime,ValidStatus";
             qc.FromClause = ORMapping.GetMappingInfo<Supplier>().TableName;
@@ -28,7 +29,7 @@ namespace MCS.Library.SOA.Web.WebControls.Test.DeluxeSearch
         /// </summary>
         /// <param name="qc"></param>
         /// <returns></returns>
-        protected string GetOrderByString(SOA.DataObjects.QueryCondition qc)
+        protected string GetOrderByString(QueryCondition qc)
         {
             //排序
             if (string.IsNullOrEmpty(qc.OrderByClause))

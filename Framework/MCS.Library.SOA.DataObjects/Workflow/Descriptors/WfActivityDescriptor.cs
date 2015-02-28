@@ -1179,7 +1179,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 		private IWfActivityDescriptor _InitialActivity = null;
 		private IWfActivityDescriptor _CompletedActivity = null;
 
-		private WfActivityDescriptorCollection()
+		public WfActivityDescriptorCollection()
 			: base(null)
 		{
 		}

@@ -85,7 +85,7 @@ namespace MCS.Library.SOA.DataObjects.Security.Adapters
 
 			using (DbContext context = DbContext.GetContext(this.GetConnectionName()))
 			{
-				result.LoadFromDataView(DbHelper.RunSPReturnDS(sql, this.GetConnectionName()).Tables[0].DefaultView);
+				result.LoadFromDataView(DbHelper.RunSqlReturnDS(sql, this.GetConnectionName()).Tables[0].DefaultView);
 			}
 
 			return result;

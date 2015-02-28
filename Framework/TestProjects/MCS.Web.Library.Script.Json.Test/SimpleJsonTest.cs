@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace MCS.Web.Library.Script.Json.Test
 {
     [TestClass]
-    public class CommonJsonTest
+    public class SimpleJsonTest
     {
         [TestMethod]
         [Description("一般对象的JSON序列化测试")]
@@ -20,6 +20,20 @@ namespace MCS.Web.Library.Script.Json.Test
             JsonTestObj deserializedData = JSONSerializerExecute.Deserialize<JsonTestObj>(json);
 
             AssertObjects(data, deserializedData);
+        }
+
+        [TestMethod]
+        public void Int32To64JsonTest()
+        {
+            Int64 ticks = 32L;
+
+            string json = JSONSerializerExecute.Serialize(ticks);
+
+            Console.WriteLine(json);
+
+            Int64 deserialized = (Int64)JSONSerializerExecute.DeserializeObject(ticks.ToString(), typeof(Int64));
+
+            Assert.AreEqual(ticks, deserialized);
         }
 
         [TestMethod]

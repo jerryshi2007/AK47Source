@@ -127,7 +127,7 @@ namespace MCS.Library.SOA.DataObjects.Security.Test.Facade
 
 		private bool ObjectDeleted(string schemaType, string codeName)
 		{
-			return this.ObjectNullOrDeleted(SchemaObjectAdapter.Instance.LoadByCodeName(schemaType, codeName, DateTime.MinValue));
+			return this.ObjectNullOrDeleted(SchemaObjectAdapter.Instance.LoadByCodeName(schemaType, codeName, SchemaObjectStatus.Normal, DateTime.MinValue));
 		}
 	}
 }

@@ -1,20 +1,18 @@
 ﻿using MCS.Library.Core;
+using MCS.Library.SOA.DataObjects.Workflow;
+using MCS.Library.WcfExtensions;
 using MCS.Library.WF.Contracts.Common.Test;
 using MCS.Library.WF.Contracts.Ogu;
 using MCS.Library.WF.Contracts.Operations;
 using MCS.Library.WF.Contracts.Proxies;
 using MCS.Library.WF.Contracts.Workflow.Descriptors;
 using MCS.Library.WF.Contracts.Workflow.Runtime;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MCS.Library.WcfExtensions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MCS.Library.SOA.DataObjects.Workflow;
-
-
 
 namespace WfOperationServices.Test
 {
@@ -129,10 +127,10 @@ namespace WfOperationServices.Test
 
             return WfClientProcessRuntimeServiceProxy.Instance.MoveToNextDefaultActivity(process.ID, runtimeContext);
         }
-        public static bool ClearProcessDescriptorSqlServerData(string key)
+
+        internal static void ClearProcessDescriptorSqlServerData(string key)
         {
             WfClientProcessDescriptorServiceProxy.Instance.DeleteDescriptor(key);
-            return true;
         }
     }
 }

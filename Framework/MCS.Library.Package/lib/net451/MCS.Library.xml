@@ -2590,6 +2590,27 @@
             服务器配置项的集合
             </summary>
         </member>
+        <member name="T:MCS.Library.Configuration.TenantContextSettings">
+            <summary>
+            租户上下文配置信息
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Configuration.TenantContextSettings.GetConfig">
+            <summary>
+            从配置信息中获取租户上下文相关的配置信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:MCS.Library.Configuration.TenantContextSettings.Enabled">
+            <summary>
+            是否启用多租户模式
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Configuration.TenantContextSettings.DefaultTenantCode">
+            <summary>
+            默认的租户代码
+            </summary>
+        </member>
         <member name="T:MCS.Library.Configuration.TimePointSimulationSettings">
             <summary>
             模拟时间点的设置
@@ -2705,6 +2726,32 @@
         <member name="P:MCS.Library.Core.TenantContext.TenantCode">
             <summary>
             租户上下文
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Core.TenantContext.Enabled">
+            <summary>
+            是否启用租户上下文
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Core.TenantRelativeObjectAttribute">
+            <summary>
+            为对象添加此属性时，会在Adapter的基类中添加这个字段的处理
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Core.TenantRelativeObjectAttribute.#ctor">
+            <summary>
+            构造方法
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Core.TenantRelativeObjectAttribute.#ctor(System.String)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="tenantCodeFieldName">租户编码的所对应的数据库字段，默认值是TENANT_CODE</param>
+        </member>
+        <member name="P:MCS.Library.Core.TenantRelativeObjectAttribute.TenantCodeFieldName">
+            <summary>
+            租户编码的所对应的数据库字段，默认值是TENANT_CODE
             </summary>
         </member>
         <member name="T:MCS.Library.Core.ArgumentsParser">
@@ -3936,6 +3983,21 @@
             <param name="jsMilliseconds"></param>
             <returns></returns>
         </member>
+        <member name="M:MCS.Library.Core.Extensions.ToDictionary(System.DateTime)">
+            <summary>
+            将日期类型转换为一个Dictionary，里面包含Ticks和DateKind，主要是和Json序列化中的类型转换相关
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Core.Extensions.ToDateTime(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            将一个Dictionary转换成DateTime，需要这个Dictionaty中有DateValue值(Ticks)和DateKind值(DateTimeKind)。
+            如果没有，则返回DateTime.MinValue
+            </summary>
+            <param name="dictionary"></param>
+            <returns></returns>
+        </member>
         <member name="M:MCS.Library.Core.Extensions.IsNotEmpty(System.String)">
             <summary>
             字符串不是Null且Empty
@@ -4070,6 +4132,13 @@
             对象类型是否是枚举类型，且TypeCode为Object
             </summary>
             <param name="objectValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Core.Extensions.ToDescription(System.Enum)">
+            <summary>
+            得到某个枚举项的描述
+            </summary>
+            <param name="enumItem"></param>
             <returns></returns>
         </member>
         <member name="T:MCS.Library.Core.MonitorData">
@@ -4738,6 +4807,12 @@
             构造方法。集合增加时的分配冗余
             </summary>
             <param name="capacity"></param>
+        </member>
+        <member name="M:MCS.Library.Data.DataObjects.SerializableEditableKeyedDataObjectCollectionBase`2.#ctor(System.Collections.IEqualityComparer)">
+            <summary>
+            构造方法，指定集合的Key比较器
+            </summary>
+            <param name="comparer"></param>
         </member>
         <member name="M:MCS.Library.Data.DataObjects.SerializableEditableKeyedDataObjectCollectionBase`2.#ctor(System.Int32,System.Collections.IEqualityComparer)">
             <summary>
@@ -6383,6 +6458,224 @@
             <param name="item"></param>
             <returns></returns>
         </member>
+        <member name="T:MCS.Library.Expression.ExpressionDictionaryCalculatorContext">
+            <summary>
+            字典项计算的上下文对象
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Expression.ExpressionDictionaryCalculatorContext.#ctor(MCS.Library.Expression.ExpressionDictionary,System.Object)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="dictionaryInfo"></param>
+            <param name="callerContext"></param>
+        </member>
+        <member name="P:MCS.Library.Expression.ExpressionDictionaryCalculatorContext.DictionaryInfo">
+            <summary>
+            对应的配置元素
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Expression.ExpressionDictionaryCalculatorContext.CallerContext">
+            <summary>
+            表达式计算的调用上下文
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Expression.ExpressionDictionary">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Expression.ExpressionDictionary.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Expression.ExpressionDictionary.#ctor(MCS.Library.Expression.ExpressionDictionaryConfigurationElement)">
+            <summary>
+            
+            </summary>
+            <param name="element"></param>
+        </member>
+        <member name="P:MCS.Library.Expression.ExpressionDictionary.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Expression.ExpressionDictionary.Calculator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Expression.ExpressionDictionary.Description">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Expression.ExpressionDictionary.Items">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Expression.ExpressionDictionaryCollection">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Expression.ExpressionDictionaryCollection.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Expression.ExpressionDictionaryCollection.InitFromConfiguration(MCS.Library.Expression.ExpressionDictionarySettings)">
+            <summary>
+            
+            </summary>
+            <param name="settings"></param>
+        </member>
+        <member name="M:MCS.Library.Expression.ExpressionDictionaryCollection.GetKeyForItem(MCS.Library.Expression.ExpressionDictionary)">
+            <summary>
+            
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Library.Expression.ExpressionDictionaryItem">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Expression.ExpressionDictionaryItem.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Expression.ExpressionDictionaryItem.#ctor(MCS.Library.Expression.ExpressionDictionaryItemConfigurationElement)">
+            <summary>
+            
+            </summary>
+            <param name="element"></param>
+        </member>
+        <member name="P:MCS.Library.Expression.ExpressionDictionaryItem.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Expression.ExpressionDictionaryItem.Description">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Expression.ExpressionDictionaryItem.DataType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Expression.ExpressionDictionaryItem.DefaultValue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Expression.ExpressionDictionaryItemCollection">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Expression.ExpressionDictionaryItemCollection.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Expression.ExpressionDictionaryItemCollection.InitFromConfiguration(MCS.Library.Expression.ExpressionDictionaryItemConfigurationElementCollection)">
+            <summary>
+            
+            </summary>
+            <param name="elements"></param>
+        </member>
+        <member name="M:MCS.Library.Expression.ExpressionDictionaryItemCollection.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="M:MCS.Library.Expression.ExpressionDictionaryItemCollection.GetKeyForItem(MCS.Library.Expression.ExpressionDictionaryItem)">
+            <summary>
+            
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Library.Expression.ExpressionDictionarySettings">
+            <summary>
+            表达式中的预定义字典的配置信息
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Expression.ExpressionDictionarySettings.GetConfig">
+            <summary>
+            获得表达式预定义字典的配置信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:MCS.Library.Expression.ExpressionDictionarySettings.Dictionaries">
+            <summary>
+            字典项的配置信息集合
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Expression.ExpressionDictionaryConfigurationElement">
+            <summary>
+            表达式字典配置项
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Expression.ExpressionDictionaryConfigurationElement.Items">
+            <summary>
+            字典描述项集合
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Expression.ExpressionDictionaryConfigurationElementCollection">
+            <summary>
+            表达式字典配置项集合
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Expression.ExpressionDictionaryItemConfigurationElement">
+            <summary>
+            表达式字典项说明的配置项
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Expression.ExpressionDictionaryItemConfigurationElement.DataType">
+            <summary>
+            数据类型
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Expression.ExpressionDictionaryItemConfigurationElement.DefaultValue">
+            <summary>
+            默认值
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Expression.ExpressionDictionaryItemConfigurationElementCollection">
+            <summary>
+            表达式字典项说明的配置项集合
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Expression.ExpressionExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Expression.ExpressionExtensions.ToRealType(MCS.Library.Expression.ExpressionDataType)">
+            <summary>
+            将ExpressionDataType转换成.Net的数据类型
+            </summary>
+            <param name="pdt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Expression.ExpressionExtensions.TryToRealType(MCS.Library.Expression.ExpressionDataType,System.Type@)">
+            <summary>
+            试图转换成真实的类型
+            </summary>
+            <param name="pdt"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
         <member name="T:MCS.Library.Expression.ExpressionParser">
             <summary>
             表达式识别类
@@ -6585,6 +6878,20 @@
             <param name="left">左子树</param>
             <param name="right">右子树</param>
             <param name="oID">操作类型</param>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Library.Expression.IExpressionDictionaryCalculator">
+            <summary>
+            表达式字典需要计算需要实现的接口
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Expression.IExpressionDictionaryCalculator.Calculate(System.String,System.String,MCS.Library.Expression.ExpressionDictionaryCalculatorContext)">
+            <summary>
+            计算并返回字典项的值
+            </summary>
+            <param name="dictionaryName">字典的名称</param>
+            <param name="key">字典的Key</param>
+            <param name="context">计算上下文</param>
             <returns></returns>
         </member>
         <member name="T:MCS.Library.Globalization.SessionCookieUserCultureInfoAccessor">
@@ -7486,6 +7793,16 @@
             <param name="endPointName">EndPoint的名称</param>
             <param name="action"></param>
         </member>
+        <member name="M:MCS.Library.Core.ServiceProxy.SingleCall``2(System.String,System.Func{``0,``1})">
+            <summary>
+            执行一次SingleCall，并且有返回值
+            </summary>
+            <typeparam name="TChannel"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <param name="endPointName"></param>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
         <member name="M:MCS.Library.Core.ServiceProxy.SingleCall``1(System.ServiceModel.EndpointAddress,System.Action{``0})">
             <summary>
             默认使用BasicHttpBinding，调用address的服务
@@ -7493,6 +7810,16 @@
             <typeparam name="TChannel"></typeparam>
             <param name="address"></param>
             <param name="action"></param>
+        </member>
+        <member name="M:MCS.Library.Core.ServiceProxy.SingleCall``2(System.ServiceModel.EndpointAddress,System.Func{``0,``1})">
+            <summary>
+            执行一次SingleCall，并且有返回值
+            </summary>
+            <typeparam name="TChannel"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <param name="address"></param>
+            <param name="func"></param>
+            <returns></returns>
         </member>
         <member name="M:MCS.Library.Core.ServiceProxy.SingleCall``1(System.ServiceModel.BasicHttpBinding,System.ServiceModel.EndpointAddress,System.Action{``0})">
             <summary>
@@ -7502,6 +7829,17 @@
             <param name="binding"></param>
             <param name="address"></param>
             <param name="action"></param>
+        </member>
+        <member name="M:MCS.Library.Core.ServiceProxy.SingleCall``2(System.ServiceModel.BasicHttpBinding,System.ServiceModel.EndpointAddress,System.Func{``0,``1})">
+            <summary>
+            执行一次SingleCall，并且有返回值
+            </summary>
+            <typeparam name="TChannel"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <param name="binding"></param>
+            <param name="address"></param>
+            <param name="func"></param>
+            <returns></returns>
         </member>
         <member name="M:MCS.Library.Core.ServiceProxy.SingleCall``1(System.ServiceModel.BasicHttpBinding,System.ServiceModel.EndpointAddress,System.ServiceModel.Description.IEndpointBehavior,System.Action{``0})">
             <summary>
@@ -7513,6 +7851,18 @@
             <param name="behavior"></param>
             <param name="action"></param>
         </member>
+        <member name="M:MCS.Library.Core.ServiceProxy.SingleCall``2(System.ServiceModel.BasicHttpBinding,System.ServiceModel.EndpointAddress,System.ServiceModel.Description.IEndpointBehavior,System.Func{``0,``1})">
+            <summary>
+            执行一次SingleCall，并且有返回值
+            </summary>
+            <typeparam name="TChannel"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <param name="binding"></param>
+            <param name="address"></param>
+            <param name="behavior"></param>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
         <member name="M:MCS.Library.Core.ServiceProxy.SingleCall``1(System.ServiceModel.ChannelFactory{``0},System.Action{``0})">
             <summary>
             执行一次SingleCall。其中Factory已经初始化了binding和address
@@ -7520,6 +7870,16 @@
             <typeparam name="TChannel"></typeparam>
             <param name="factory"></param>
             <param name="action"></param>
+        </member>
+        <member name="M:MCS.Library.Core.ServiceProxy.SingleCall``2(System.ServiceModel.ChannelFactory{``0},System.Func{``0,``1})">
+            <summary>
+            执行一次SingleCall，并且有返回值
+            </summary>
+            <typeparam name="TChannel"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <param name="factory"></param>
+            <param name="func"></param>
+            <returns></returns>
         </member>
         <member name="T:MCS.Library.Core.StringExtension">
             <summary>
@@ -11906,6 +12266,31 @@
             日期型
             </summary>
         </member>
+        <member name="T:MCS.Library.Expression.ExpressionDataType">
+            <summary>
+            表达式中的数据类型
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Expression.ExpressionDataType.String">
+            <summary>
+            字符串
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Expression.ExpressionDataType.Number">
+            <summary>
+            数字
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Expression.ExpressionDataType.Boolean">
+            <summary>
+            布尔型
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Expression.ExpressionDataType.DateTime">
+            <summary>
+            日期型
+            </summary>
+        </member>
         <member name="T:MCS.Library.Expression.ExpTreeExecutor">
             <summary>
             语法分析Tree的计算类
@@ -11934,6 +12319,15 @@
         <member name="M:MCS.Library.Expression.ExpTreeExecutor.CalculateFunctionWithParameters(System.String,MCS.Library.Expression.ParamObjectCollection,MCS.Library.Expression.CalculateContext)">
             <summary>
             计算所有参数都已经准备好了的函数
+            </summary>
+            <param name="strFuncName"></param>
+            <param name="arrParams"></param>
+            <param name="calcContext"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Expression.ExpTreeExecutor.CalculateExpressionDictionary(System.String,MCS.Library.Expression.ParamObjectCollection,MCS.Library.Expression.CalculateContext)">
+            <summary>
+            计算表达式字典
             </summary>
             <param name="strFuncName"></param>
             <param name="arrParams"></param>

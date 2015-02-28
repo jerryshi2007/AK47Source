@@ -367,7 +367,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         {
         }
 
-        internal WfBranchProcessTemplateCollection()
+        public WfBranchProcessTemplateCollection()
             : base(null)
         {
         }

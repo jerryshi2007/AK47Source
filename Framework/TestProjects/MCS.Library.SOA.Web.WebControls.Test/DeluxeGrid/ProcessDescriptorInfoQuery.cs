@@ -7,6 +7,7 @@ using MCS.Library.Data;
 using MCS.Library.SOA.DataObjects.Workflow;
 using System.Data;
 using MCS.Library.Data.Mapping;
+using MCS.Library.Data.DataObjects;
 
 namespace MCS.Library.SOA.Web.WebControls.Test.DeluxeGrid
 {

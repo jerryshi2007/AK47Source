@@ -345,7 +345,7 @@ namespace MCS.Library.SOA.DataObjects.Security.Adapters
 			if (inSql != null)
 				connectiveBuilder.Add(inSql);
 
-			string sql = "SELECT COUNT(ID) AS C FROM " + GetMappingInfo().TableName + "WHERE " + connectiveBuilder.ToSqlString(TSqlBuilder.Instance);
+			string sql = "SELECT COUNT(*) AS C FROM " + GetMappingInfo().TableName + " WHERE " + connectiveBuilder.ToSqlString(TSqlBuilder.Instance);
 
 			int result = (int)DbHelper.RunSqlReturnScalar(sql, this.GetConnectionName());
 

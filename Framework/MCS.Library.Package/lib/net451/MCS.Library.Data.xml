@@ -1892,6 +1892,24 @@
             <see cref="T:MCS.Library.Data.Builder.WhereSqlClauseBuilder"/>
             </remarks>
         </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.AppendTenantCode``1(``0,System.String)">
+            <summary>
+            从Tenant上下文中获取TenantCode并且添加到Builder中
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="builder"></param>
+            <param name="tenantCodeFieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.AppendTenantCode``1(``0,System.Type)">
+            <summary>
+            根据类型上的TenantRelativeObjectAttribute以及TenantContext.Current.Enabled决定是否在builder上添加租户编码字段
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="builder"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
         <member name="M:MCS.Library.Data.Mapping.ORMapping.DataRowToObject``1(System.Data.DataRow,``0)">
             <summary>
             将DataRow的值写入到对象中

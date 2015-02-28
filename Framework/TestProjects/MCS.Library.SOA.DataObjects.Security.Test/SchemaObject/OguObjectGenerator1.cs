@@ -658,13 +658,13 @@ namespace MCS.Library.SOA.DataObjects.Security.Test.SchemaObject
         private static void InitSecretaries()
         {
             // 秘书
-            PC.SCUser wanglich = (PC.SCUser)PC.Adapters.SchemaObjectAdapter.Instance.LoadByCodeName("Users", "wanglch", DateTime.MinValue);
+            PC.SCUser wanglich = (PC.SCUser)PC.Adapters.SchemaObjectAdapter.Instance.LoadByCodeName("Users", "wanglch", SchemaObjectStatus.Normal, DateTime.MinValue);
 
-            PC.SCUser liyem = (PC.SCUser)PC.Adapters.SchemaObjectAdapter.Instance.LoadByCodeName("Users", "liyem", DateTime.MinValue);
+            PC.SCUser liyem = (PC.SCUser)PC.Adapters.SchemaObjectAdapter.Instance.LoadByCodeName("Users", "liyem", SchemaObjectStatus.Normal, DateTime.MinValue);
 
-            PC.SCUser yangrui1 = (PC.SCUser)PC.Adapters.SchemaObjectAdapter.Instance.LoadByCodeName("Users", "yangrui1", DateTime.MinValue);
+            PC.SCUser yangrui1 = (PC.SCUser)PC.Adapters.SchemaObjectAdapter.Instance.LoadByCodeName("Users", "yangrui1", SchemaObjectStatus.Normal, DateTime.MinValue);
 
-            PC.SCUser chenke = (PC.SCUser)PC.Adapters.SchemaObjectAdapter.Instance.LoadByCodeName("Users", "chenke", DateTime.MinValue);
+            PC.SCUser chenke = (PC.SCUser)PC.Adapters.SchemaObjectAdapter.Instance.LoadByCodeName("Users", "chenke", SchemaObjectStatus.Normal, DateTime.MinValue);
 
             PC.Executors.SCObjectOperations.Instance.AddSecretaryToUser(liyem, wanglich);
 
