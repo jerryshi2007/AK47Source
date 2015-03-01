@@ -197,5 +197,17 @@ namespace MCS.Library.WF.Contracts.Operations
         /// <returns>分页查询结果，里面包含总行数和每一行的结果。其总行数在翻页时需要传入到totalCount参数中</returns>
         [OperationContract]
         WfClientProcessCurrentInfoPageQueryResult QueryBranchProcesses(string ownerActivityID, string ownerTemplateKey, int startRowIndex, int maximumRows, string orderBy, int totalCount);
+
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        ///// <param name="startRowIndex"></param>
+        ///// <param name="maximumRows"></param>
+        ///// <param name="where"></param>
+        ///// <param name="orderBy"></param>
+        ///// <param name="totalCount"></param>
+        ///// <returns></returns>
+        //[OperationContract]
+        //WfClientProcessCurrentInfoPageQueryResult QueryProcesses(int startRowIndex, int maximumRows, string where, string orderBy, int totalCount);
     }
 }

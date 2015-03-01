@@ -1,6 +1,7 @@
 ﻿using MCS.Library.Core;
 using MCS.Library.SOA.DataObjects.Workflow;
 using MCS.Library.WF.Contracts.Converters;
+using MCS.Library.WF.Contracts.DataObjects;
 using MCS.Library.WF.Contracts.Ogu;
 using MCS.Library.WF.Contracts.Workflow.DataObjects;
 using MCS.Library.WF.Contracts.Workflow.Descriptors;
@@ -403,6 +404,27 @@ namespace MCS.Library.WF.Contracts.Common.Test
             }
         }
 
+        public static void AreSame(this WfClientProcessQueryCondition expected, WfClientProcessQueryCondition actual)
+        {
+            AssertStringEqual(expected.ApplicationName, actual.ApplicationName);
+            AssertStringEqual(expected.ProcessName, actual.ProcessName);
+            AssertStringEqual(expected.AssigneesUserName, actual.AssigneesUserName);
+            AssertStringEqual(expected.DepartmentName, actual.DepartmentName);
+            AssertStringEqual(expected.ProcessStatus, actual.ProcessStatus);
+
+            Assert.AreEqual(expected.BeginStartTime, actual.BeginStartTime);
+            Assert.AreEqual(expected.EndStartTime, actual.EndStartTime);
+
+            Assert.AreEqual(expected.AssigneesSelectType, actual.AssigneesSelectType);
+            Assert.AreEqual(expected.AssigneeExceptionFilterType, actual.AssigneeExceptionFilterType);
+
+            Assert.AreEqual(expected.CurrentAssignees.Count, actual.CurrentAssignees.Count);
+
+            for (int i = 0; i < expected.CurrentAssignees.Count; i++)
+            {
+                expected.CurrentAssignees[i].AreSame(actual.CurrentAssignees[i]);
+            }
+        }
 
         private static void AssertStringEqual(string expected, string actual)
         {

@@ -77,6 +77,8 @@ namespace MCS.Library.WF.Contracts.Json.Converters
 
             JSONSerializerExecute.RegisterConverter(typeof(WfClientApplicationJsonConverter));
             JSONSerializerExecute.RegisterConverter(typeof(WfClientProgramJsonConverter));
+
+            JSONSerializerExecute.RegisterConverter(typeof(WfClientProcessQueryConditionJsonConverter));
         }
     }
 }

@@ -63,7 +63,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Define.cs" />
+    <Compile Include="DataObjects\Enumerations.cs" />
     <Compile Include="DataObjects\WfClientOperationType.cs" />
+    <Compile Include="DataObjects\WfClientProcessQueryCondition.cs" />
     <Compile Include="DataObjects\WfClientUserOperationLog.cs" />
     <Compile Include="DataObjects\WfClientUserOperationLogPageQueryResult.cs" />
     <Compile Include="Ogu\ClientOguSchemaType.cs" />
