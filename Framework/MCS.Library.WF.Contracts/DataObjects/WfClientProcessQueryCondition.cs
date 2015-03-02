@@ -1,5 +1,4 @@
-﻿using MCS.Library.Data.Mapping;
-using MCS.Library.WF.Contracts.Ogu;
+﻿using MCS.Library.WF.Contracts.Ogu;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,52 +10,44 @@ namespace MCS.Library.WF.Contracts.DataObjects
     [Serializable]
     public class WfClientProcessQueryCondition
     {
-        [ConditionMapping("APPLICATION_NAME", "LIKE")]
         public string ApplicationName
         {
             get;
             set;
         }
 
-        [ConditionMapping("PROCESS_NAME", "LIKE")]
         public string ProcessName
         {
             get;
             set;
         }
 
-        [ConditionMapping("DEPARTMENT_NAME", "LIKE")]
         public string DepartmentName
         {
             get;
             set;
         }
 
-        [ConditionMapping("START_TIME", ">=")]
         public DateTime BeginStartTime
         {
             get;
             set;
         }
 
-        [ConditionMapping("START_TIME", "<")]
         public DateTime EndStartTime
         {
             get;
             set;
         }
 
-        [ConditionMapping("STATUS")]
         public string ProcessStatus
         {
             get;
             set;
         }
 
-        [NoMapping]
         private WfClientAssigneeExceptionFilterType _AssigneeExceptionFilterType = WfClientAssigneeExceptionFilterType.All;
 
-        [NoMapping]
         public WfClientAssigneeExceptionFilterType AssigneeExceptionFilterType
         {
             get
@@ -71,7 +62,6 @@ namespace MCS.Library.WF.Contracts.DataObjects
 
         private WfClientAssigneesFilterType _AssigneesSelectType = WfClientAssigneesFilterType.CurrentActivity;
 
-        [NoMapping]
         public WfClientAssigneesFilterType AssigneesSelectType
         {
             get
@@ -84,7 +74,6 @@ namespace MCS.Library.WF.Contracts.DataObjects
             }
         }
 
-        [NoMapping]
         public string AssigneesUserName
         {
             get;
@@ -93,7 +82,6 @@ namespace MCS.Library.WF.Contracts.DataObjects
 
         private List<WfClientUser> _CurrentAssignees = null;
 
-        [NoMapping]
         public List<WfClientUser> CurrentAssignees
         {
             get

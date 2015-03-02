@@ -110,7 +110,7 @@
     <Compile Include="PropertyConverterTest.cs" />
     <Compile Include="OpinionConverterTest.cs" />
     <Compile Include="PropertyRowConverterTest.cs" />
-    <Compile Include="QueryProcessConditionTest.cs" />
+    <Compile Include="ProcessQueryConditionConverterTest.cs" />
     <Compile Include="WfClientNextStepTest.cs" />
     <Compile Include="VariableConverterTest.cs" />
     <Compile Include="WfClientActivityDescriptorCollectionConverter.cs" />

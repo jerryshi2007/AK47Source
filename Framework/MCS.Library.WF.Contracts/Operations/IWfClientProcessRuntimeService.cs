@@ -7,6 +7,7 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using MCS.Library.WF.Contracts.Workflow.DataObjects;
+using MCS.Library.WF.Contracts.DataObjects;
 
 namespace MCS.Library.WF.Contracts.Operations
 {
@@ -198,16 +199,16 @@ namespace MCS.Library.WF.Contracts.Operations
         [OperationContract]
         WfClientProcessCurrentInfoPageQueryResult QueryBranchProcesses(string ownerActivityID, string ownerTemplateKey, int startRowIndex, int maximumRows, string orderBy, int totalCount);
 
-        ///// <summary>
-        ///// 
-        ///// </summary>
-        ///// <param name="startRowIndex"></param>
-        ///// <param name="maximumRows"></param>
-        ///// <param name="where"></param>
-        ///// <param name="orderBy"></param>
-        ///// <param name="totalCount"></param>
-        ///// <returns></returns>
-        //[OperationContract]
-        //WfClientProcessCurrentInfoPageQueryResult QueryProcesses(int startRowIndex, int maximumRows, string where, string orderBy, int totalCount);
+        /// <summary>
+        /// 按照流程的筛选条件，分页查询流程实例
+        /// </summary>
+        /// <param name="condition"></param>
+        /// <param name="startRowIndex">从0开始的起始行，相当于分页查询的每一页的起始行</param>
+        /// <param name="maximumRows">返回的最大行，相当于分页查询每页的大小</param>
+        /// <param name="orderBy">排序字段，允许为空，如果为空，则使用StartTime排序</param>
+        /// <param name="totalCount">以前查询的总记录数，如果是第一次，则传入-1</param>
+        /// <returns>分页查询结果，里面包含总行数和每一行的结果。其总行数在翻页时需要传入到totalCount参数中</returns>
+        [OperationContract]
+        WfClientProcessCurrentInfoPageQueryResult QueryProcesses(WfClientProcessQueryCondition condition, int startRowIndex, int maximumRows, string orderBy, int totalCount);
     }
 }

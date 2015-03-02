@@ -254,7 +254,6 @@
     <Compile Include="AppTrace\ProcessParametersEditor.aspx.designer.cs">
       <DependentUpon>ProcessParametersEditor.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AppTrace\ProcessQueryCondition.cs" />
     <Compile Include="AppTrace\selectReplaceAssignees.aspx.cs">
       <DependentUpon>selectReplaceAssignees.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

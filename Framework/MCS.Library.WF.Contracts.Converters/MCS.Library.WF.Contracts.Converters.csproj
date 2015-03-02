@@ -96,6 +96,7 @@
     <Compile Include="DataObjects\WfClientApplicationConverter.cs" />
     <Compile Include="DataObjects\WfClientDelegationConverter.cs" />
     <Compile Include="DataObjects\WfClientOpinionConverter.cs" />
+    <Compile Include="DataObjects\WfClientProcessQueryConditionConverter.cs" />
     <Compile Include="DataObjects\WfClientProgramConverter.cs" />
     <Compile Include="DataObjects\WfClientRolePropertyDefinitionConverter.cs" />
     <Compile Include="DataObjects\WfClientRolePropertyRowConverter.cs" />

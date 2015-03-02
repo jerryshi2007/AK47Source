@@ -13,6 +13,8 @@ using MCS.Library.WF.Contracts.Workflow.DataObjects;
 using MCS.Library.WF.Contracts.Workflow.Descriptors;
 using MCS.Library.WF.Contracts.Workflow.Runtime;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MCS.Library.WF.Contracts.DataObjects;
+using MCS.Library.SOA.DataObjects.Workflow.Conditions;
 
 namespace MCS.Library.WF.Contracts.Common.Test
 {
@@ -408,8 +410,8 @@ namespace MCS.Library.WF.Contracts.Common.Test
 
             client.Creator.AreSame(server.Creator);
             client.Modifier.AreSame(server.Modifier);
-            client.ImportUser.AreSame(server.ImportUser); 
-          
+            client.ImportUser.AreSame(server.ImportUser);
+
         }
         public static void AreSame(this WfClientProcessDescriptorInfo expected, WfClientProcessDescriptorInfo actual)
         {
@@ -428,7 +430,28 @@ namespace MCS.Library.WF.Contracts.Common.Test
             expected.Creator.AreSame(actual.Creator);
             expected.Modifier.AreSame(actual.Modifier);
             expected.ImportUser.AreSame(actual.ImportUser);
+        }
 
+        public static void AreSame(this WfClientProcessQueryCondition expected, WfProcessQueryCondition actual)
+        {
+            AssertStringEqual(expected.ApplicationName, actual.ApplicationName);
+            AssertStringEqual(expected.ProcessName, actual.ProcessName);
+            AssertStringEqual(expected.AssigneesUserName, actual.AssigneesUserName);
+            AssertStringEqual(expected.DepartmentName, actual.DepartmentName);
+            AssertStringEqual(expected.ProcessStatus, actual.ProcessStatus);
+
+            Assert.AreEqual(expected.BeginStartTime, actual.BeginStartTime);
+            Assert.AreEqual(expected.EndStartTime, actual.EndStartTime);
+
+            Assert.AreEqual(expected.AssigneesSelectType, actual.AssigneesSelectType.ToClientAssigneesFilterType());
+            Assert.AreEqual(expected.AssigneeExceptionFilterType, actual.AssigneeExceptionFilterType.ToClientAssigneeExceptionFilterType());
+
+            Assert.AreEqual(expected.CurrentAssignees.Count, actual.CurrentAssignees.Count);
+
+            for (int i = 0; i < expected.CurrentAssignees.Count; i++)
+            {
+                expected.CurrentAssignees[i].AreSame(actual.CurrentAssignees[i]);
+            }
         }
     }
 }

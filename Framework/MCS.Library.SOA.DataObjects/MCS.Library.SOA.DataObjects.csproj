@@ -433,6 +433,8 @@
     <Compile Include="Workflow\Builders\WfCreateProcessParam.cs" />
     <Compile Include="Workflow\Builders\WfCreateTransitionParam.cs" />
     <Compile Include="Workflow\Builders\WfTemplateBuilder.cs" />
+    <Compile Include="Workflow\Conditions\Enumerations.cs" />
+    <Compile Include="Workflow\Conditions\WfProcessQueryCondition.cs" />
     <Compile Include="Workflow\Configuration\WfDecoratorSettings.cs" />
     <Compile Include="Workflow\Configuration\WfExtraPersistenceSettings.cs" />
     <Compile Include="Workflow\Configuration\WfPersistenceSettingsBase.cs" />

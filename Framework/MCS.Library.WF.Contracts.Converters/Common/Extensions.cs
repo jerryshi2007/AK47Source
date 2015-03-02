@@ -14,6 +14,7 @@ using MCS.Library.WF.Contracts.Workflow.DataObjects;
 using MCS.Library.WF.Contracts.Workflow.Descriptors;
 using MCS.Library.WF.Contracts.Workflow.Runtime;
 using MCS.Library.WF.Contracts.DataObjects;
+using MCS.Library.SOA.DataObjects.Workflow.Conditions;
 
 namespace MCS.Library.WF.Contracts.Converters
 {
@@ -358,6 +359,26 @@ namespace MCS.Library.WF.Contracts.Converters
         public static OperationType ToOperationType(this WfClientOperationType opType)
         {
             return (OperationType)opType;
+        }
+
+        public static WfClientAssigneeExceptionFilterType ToClientAssigneeExceptionFilterType(this WfAssigneeExceptionFilterType aef)
+        {
+            return (WfClientAssigneeExceptionFilterType)aef;
+        }
+
+        public static WfAssigneeExceptionFilterType ToAssigneeExceptionFilterType(this WfClientAssigneeExceptionFilterType aef)
+        {
+            return (WfAssigneeExceptionFilterType)aef;
+        }
+
+        public static WfClientAssigneesFilterType ToClientAssigneesFilterType(this WfAssigneesFilterType caf)
+        {
+            return (WfClientAssigneesFilterType)caf;
+        }
+
+        public static WfAssigneesFilterType ToAssigneesFilterType(this WfClientAssigneesFilterType caf)
+        {
+            return (WfAssigneesFilterType)caf;
         }
 
         private static SchemaType ToOguSchemaType(this ClientOguSchemaType schemaType)

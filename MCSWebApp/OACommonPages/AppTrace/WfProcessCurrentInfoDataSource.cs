@@ -22,14 +22,15 @@ namespace MCS.OA.CommonPages.AppTrace
 
             qc.SelectFields = ORMapping.GetSelectFieldsNameSql<WfProcessCurrentInfo>();
 
-            WhereSqlClauseBuilder wBuilder = new WhereSqlClauseBuilder();
+            WhereSqlClauseBuilder builder = new WhereSqlClauseBuilder();
 
-            wBuilder.AppendItem("COMMITTED", "1");
+            builder.AppendItem("COMMITTED", "1");
+            builder.AppendTenantCode();
 
             if (qc.WhereClause.IsNotEmpty())
                 qc.WhereClause += " AND ";
 
-            qc.WhereClause += wBuilder.ToSqlString(TSqlBuilder.Instance);
+            qc.WhereClause += builder.ToSqlString(TSqlBuilder.Instance);
         }
 
         protected override string GetConnectionName()

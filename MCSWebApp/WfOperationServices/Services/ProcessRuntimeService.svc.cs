@@ -7,10 +7,12 @@ using MCS.Library.OGUPermission;
 using MCS.Library.Principal;
 using MCS.Library.SOA.DataObjects;
 using MCS.Library.SOA.DataObjects.Workflow;
+using MCS.Library.SOA.DataObjects.Workflow.Conditions;
 using MCS.Library.WcfExtensions;
 using MCS.Library.WF.Contracts.Converters;
 using MCS.Library.WF.Contracts.Converters.DataObjects;
 using MCS.Library.WF.Contracts.Converters.Runtime;
+using MCS.Library.WF.Contracts.DataObjects;
 using MCS.Library.WF.Contracts.Ogu;
 using MCS.Library.WF.Contracts.Operations;
 using MCS.Library.WF.Contracts.Workflow.DataObjects;
@@ -445,6 +447,53 @@ namespace WfOperationServices.Services
                 orderBy);
 
             qc.WhereClause = builder.ToSqlString(TSqlBuilder.Instance);
+
+            CommonAdapter adapter = new CommonAdapter(WfProcessCurrentInfoAdapter.Instance.ConnectionName);
+
+            WfProcessCurrentInfoCollection processInfo = adapter.SplitPageQuery<WfProcessCurrentInfo, WfProcessCurrentInfoCollection>(qc, ref totalCount);
+
+            WfClientProcessCurrentInfoCollection clientInfo = new WfClientProcessCurrentInfoCollection();
+
+            WfClientProcessCurrentInfoConverter.Instance.ServerToClient(processInfo, clientInfo);
+
+            WfClientProcessCurrentInfoPageQueryResult result = new WfClientProcessCurrentInfoPageQueryResult();
+
+            result.TotalCount = totalCount;
+            result.QueryResult.CopyFrom(clientInfo);
+
+            return result;
+        }
+
+        [WfJsonFormatter]
+        [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public WfClientProcessCurrentInfoPageQueryResult QueryProcesses(WfClientProcessQueryCondition condition, int startRowIndex, int maximumRows, string orderBy, int totalCount)
+        {
+            condition.NullCheck("condition");
+
+            OperationContext.Current.FillContextToOguServiceContext();
+
+            WfProcessQueryCondition serverCondition = null;
+
+            WfClientProcessQueryConditionConverter.Instance.ClientToServer(condition, ref serverCondition);
+
+            if (orderBy.IsNullOrEmpty())
+                orderBy = "START_TIME DESC";
+
+            ConnectiveSqlClauseCollection connective = serverCondition.ToSqlBuilder();
+
+            WhereSqlClauseBuilder builder = new WhereSqlClauseBuilder();
+
+            builder.AppendItem("COMMITTED", "1");
+            builder.AppendTenantCode();
+
+            connective.Add(builder);
+
+            QueryCondition qc = new QueryCondition(startRowIndex, maximumRows,
+                ORMapping.GetSelectFieldsNameSql<WfProcessCurrentInfo>(),
+                ORMapping.GetMappingInfo(typeof(WfProcessCurrentInfo)).TableName,
+                orderBy);
+
+            qc.WhereClause += connective.ToSqlString(TSqlBuilder.Instance);
 
             CommonAdapter adapter = new CommonAdapter(WfProcessCurrentInfoAdapter.Instance.ConnectionName);
 

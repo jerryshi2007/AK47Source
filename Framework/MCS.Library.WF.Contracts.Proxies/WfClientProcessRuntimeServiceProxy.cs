@@ -1,5 +1,6 @@
 ﻿using MCS.Library.Core;
 using MCS.Library.WcfExtensions;
+using MCS.Library.WF.Contracts.DataObjects;
 using MCS.Library.WF.Contracts.Ogu;
 using MCS.Library.WF.Contracts.Operations;
 using MCS.Library.WF.Contracts.Proxies.Configuration;
@@ -148,6 +149,11 @@ namespace MCS.Library.WF.Contracts.Proxies
         public WfClientProcessCurrentInfoPageQueryResult QueryBranchProcesses(string ownerActivityID, string ownerTemplateKey, int startRowIndex, int maximumRows, string orderBy, int totalCount)
         {
             return this.SingleCall(action => action.QueryBranchProcesses(ownerActivityID, ownerTemplateKey, startRowIndex, maximumRows, orderBy, totalCount));
+        }
+
+        public WfClientProcessCurrentInfoPageQueryResult QueryProcesses(WfClientProcessQueryCondition condition, int startRowIndex, int maximumRows, string orderBy, int totalCount)
+        {
+            return this.SingleCall(action => action.QueryProcesses(condition, startRowIndex, maximumRows, orderBy, totalCount));
         }
 
         protected override WfClientChannelFactory<IWfClientProcessRuntimeService> GetService()

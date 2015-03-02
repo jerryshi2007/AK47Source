@@ -1,6 +1,7 @@
 ﻿using MCS.Library.Core;
 using MCS.Library.WcfExtensions;
 using MCS.Library.WF.Contracts.Common.Test;
+using MCS.Library.WF.Contracts.DataObjects;
 using MCS.Library.WF.Contracts.Ogu;
 using MCS.Library.WF.Contracts.Operations;
 using MCS.Library.WF.Contracts.Proxies;
@@ -499,7 +500,6 @@ namespace WfOperationServices.Test.Runtime
         public void QueryBranchProcessesTest()
         {
             //建立流程
-            int totalIndex = -1;
             int pageSize = 1;
 
             WfClientProcessInfo process = OperationHelper.PrepareBranchProcesses();
@@ -508,15 +508,27 @@ namespace WfOperationServices.Test.Runtime
 
             string id = process.CurrentActivity.ID;
             //获取子流程
-            WfClientProcessCurrentInfoPageQueryResult result = WfClientProcessRuntimeServiceProxy.Instance.QueryBranchProcesses(id, string.Empty, 0, pageSize, string.Empty, totalIndex);
-            totalIndex = result.TotalCount;
+            WfClientProcessCurrentInfoPageQueryResult result = WfClientProcessRuntimeServiceProxy.Instance.QueryBranchProcesses(id, string.Empty, 0, pageSize, string.Empty, -1);
 
             //检查
             //分页是否正确,分支流程个数是否正确
             Assert.AreEqual(pageSize, result.QueryResult.Count());
-            Assert.AreEqual(process.CurrentActivity.Assignees.Count, totalIndex);
+            Assert.AreEqual(process.CurrentActivity.Assignees.Count, result.TotalCount);
+        }
 
-            //分页数据
+        [TestMethod()]
+        public void QueryProcessesTest()
+        {
+            WfClientProcessQueryCondition condition = new WfClientProcessQueryCondition();
+
+            condition.BeginStartTime = DateTime.Now.AddHours(-1);
+            condition.EndStartTime = DateTime.Now.AddHours(1);
+
+            WfClientProcessInfo process = OperationHelper.PrepareSimpleProcessInstance();
+
+            WfClientProcessCurrentInfoPageQueryResult result = WfClientProcessRuntimeServiceProxy.Instance.QueryProcesses(condition, 0, 1, string.Empty, -1);
+
+            Assert.IsTrue(result.QueryResult.ContainsKey(process.ID));
         }
     }
 }

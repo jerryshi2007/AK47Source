@@ -1,4 +1,7 @@
-﻿using MCS.Library.WF.Contracts.Common.Test;
+﻿using MCS.Library.Data.Builder;
+using MCS.Library.SOA.DataObjects.Workflow.Conditions;
+using MCS.Library.WF.Contracts.Common.Test;
+using MCS.Library.WF.Contracts.Converters.DataObjects;
 using MCS.Library.WF.Contracts.DataObjects;
 using MCS.Library.WF.Contracts.Json.Converters;
 using MCS.Library.WF.Contracts.Workflow.Runtime;
@@ -12,8 +15,32 @@ namespace MCS.Library.WF.Contracts.Converters.Test
     /// 查询流程的条件测试
     /// </summary>
     [TestClass]
-    public class QueryProcessConditionTest
+    public class ProcessQueryConditionConverterTest
     {
+        [TestMethod]
+        public void ClientProcessQueryConditionToSqlTest()
+        {
+            WfClientProcessQueryCondition client = PrepareQueryCondition();
+
+            WfProcessQueryCondition server = null;
+
+            WfClientProcessQueryConditionConverter.Instance.ClientToServer(client, ref server);
+
+            Console.WriteLine(server.ToSqlBuilder().ToSqlString(TSqlBuilder.Instance));
+        }
+
+        [TestMethod]
+        public void ClientProcessQueryConditionToServerTest()
+        {
+            WfClientProcessQueryCondition client = PrepareQueryCondition();
+
+            WfProcessQueryCondition server = null;
+
+            WfClientProcessQueryConditionConverter.Instance.ClientToServer(client, ref server);
+
+            client.AreSame(server);
+        }
+
         [TestMethod]
         public void ClientProcessQueryConditionSerializationTest()
         {
@@ -38,7 +65,7 @@ namespace MCS.Library.WF.Contracts.Converters.Test
             condition.ProcessName = "My Process";
             condition.AssigneesUserName = "樊海云";
             condition.AssigneesSelectType = WfClientAssigneesFilterType.AllActivities;
-            condition.AssigneeExceptionFilterType = WfClientAssigneeExceptionFilterType.All;
+            condition.AssigneeExceptionFilterType = WfClientAssigneeExceptionFilterType.CurrentActivityError;
             condition.BeginStartTime = DateTime.Now;
             condition.EndStartTime = DateTime.Now.AddDays(1);
             condition.DepartmentName = "流程管理部";

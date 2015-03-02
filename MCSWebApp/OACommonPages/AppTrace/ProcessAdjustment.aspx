@@ -183,7 +183,7 @@
                 <SOA:DataBindingItem ControlID="tb_AssigneesUserName" DataPropertyName="AssigneesUserName" />
                 <SOA:DataBindingItem ControlID="RBAssigneesType" DataPropertyName="AssigneesSelectType"
                     ControlPropertyName="SelectedValue" />
-                <SOA:DataBindingItem ControlID="RBProcessType" DataPropertyName="ProcessSelectType"
+                <SOA:DataBindingItem ControlID="RBProcessType" DataPropertyName="AssigneeExceptionFilterType"
                     ControlPropertyName="SelectedValue" />
                 <SOA:DataBindingItem ControlID="processStatusSelector" DataPropertyName="ProcessStatus"
                     ControlPropertyName="SelectedValue" />

@@ -1,21 +1,22 @@
-﻿using System;
+﻿using MCS.Library.Core;
+using MCS.Library.Data.Builder;
+using MCS.Library.Data.Mapping;
+using MCS.Library.OGUPermission;
+using MCS.Library.Passport;
+using MCS.Library.Principal;
+using MCS.Library.SOA.DataObjects;
+using MCS.Library.SOA.DataObjects.Workflow;
+using MCS.Library.SOA.DataObjects.Workflow.Conditions;
+using MCS.Web.Library;
+using MCS.Web.Library.MVC;
+using MCS.Web.Library.Script;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using MCS.Library.Core;
-using MCS.Library.Data.Builder;
-using MCS.Library.Data.Mapping;
-using MCS.Library.OGUPermission;
-using MCS.Library.Passport;
-using MCS.Library.SOA.DataObjects;
-using MCS.Library.SOA.DataObjects.Workflow;
-using MCS.Web.Library;
-using MCS.Web.Library.Script;
-using MCS.Library.Principal;
-using MCS.Web.Library.MVC;
 
 namespace MCS.OA.CommonPages.AppTrace
 {
@@ -56,161 +57,10 @@ namespace MCS.OA.CommonPages.AppTrace
         {
             bindingControl.CollectData();
 
-            WhereSqlClauseBuilder builder = ConditionMapping.GetWhereSqlClauseBuilder(QueryCondition,
-                new AdjustConditionValueDelegate(AdjustQueryConditionValue));
-
-            whereCondition.Value = builder.ToSqlString(TSqlBuilder.Instance);
-
-            string subSql = GetCurrentUsersSubSqlClause();
-
-            this.FormatWhereSqlClause(subSql);
-
-            string selectType = GetCurrentSelectTypeSqlClause();
-
-            this.FormatWhereSqlClause(selectType);
+            whereCondition.Value = this.QueryCondition.ToSqlBuilder().ToSqlString(TSqlBuilder.Instance);
 
             ExecQuery();
         }
-
-        private static object AdjustQueryConditionValue(string propertyName, object data, ref bool ignored)
-        {
-            object result = data;
-            switch (propertyName)
-            {
-                case "ApplicationName":
-                    result = string.Format("%{0}%", (string)data);
-                    break;
-                case "ProcessName":
-                    result = string.Format("%{0}%", (string)data);
-                    break;
-                case "EndStartTime":
-                    result = ((DateTime)data).AddDays(1);
-                    break;
-                case "DepartmentName":
-                    result = string.Format("%{0}%", (string)data);
-                    break;
-            }
-
-            return result;
-        }
-
-        private void FormatWhereSqlClause(string wheresql)
-        {
-            if (wheresql.IsNotEmpty())
-            {
-                if (this.whereCondition.Value.IsNotEmpty())
-                    this.whereCondition.Value += " AND ";
-
-                this.whereCondition.Value += wheresql;
-            }
-        }
-
-        /// <summary>
-        /// 根据类型得到相应的SQL
-        /// </summary>
-        /// <returns></returns>
-        private string GetCurrentSelectTypeSqlClause()
-        {
-            StringBuilder sqlResult = new StringBuilder();
-            string sqlCondition = string.Empty;
-
-            switch (this.QueryCondition.ProcessSelectType)
-            {
-                case ProcessFilterType.CurrentActivityError:	//当前环节人员异常
-                    sqlCondition = "IU.ACTIVITY_ID = CURRENT_ACTIVITY_ID";
-                    break;
-                case ProcessFilterType.ExsitedActivitiesError:	//当前环节和后续环节人员异常
-                    sqlCondition = "1 = 1";
-                    break;
-            }
-
-            if (sqlCondition.IsNotEmpty())
-                sqlResult.AppendFormat("EXISTS(SELECT * FROM WF.INVALID_ASSIGNEES AS IU WHERE IU.PROCESS_ID = INSTANCE_ID AND {0})", sqlCondition);
-
-            return sqlResult.ToString();
-        }
-
-        /// <summary>
-        /// 得到当前用户的查询子句
-        /// </summary>
-        /// <returns></returns>
-        private string GetCurrentUsersSubSqlClause()
-        {
-            string result = string.Empty;
-
-            ConnectiveSqlClauseCollection resultBuilder = new ConnectiveSqlClauseCollection();
-
-            InSqlClauseBuilder inBuilder = new InSqlClauseBuilder("USER_ID");
-
-            QueryCondition.CurrentAssignees.ForEach(u => inBuilder.AppendItem(u.ID));
-
-            WhereSqlClauseBuilder wBuilder = new WhereSqlClauseBuilder();
-
-            if (QueryCondition.AssigneesUserName.IsNotEmpty())
-                wBuilder.AppendItem("USER_NAME", TSqlBuilder.Instance.EscapeLikeString(QueryCondition.AssigneesUserName) + "%", "LIKE");
-
-            resultBuilder.Add(inBuilder);
-            resultBuilder.Add(wBuilder);
-
-            if (resultBuilder.IsEmpty == false)
-            {
-                string processCondition = string.Empty;
-
-                switch (this.QueryCondition.AssigneesSelectType)
-                {
-                    case AssigneesFilterType.CurrentActivity:
-                        processCondition = "CA.ACTIVITY_ID = CURRENT_ACTIVITY_ID";
-                        break;
-                    case AssigneesFilterType.AllActivities:
-                        processCondition = "CA.PROCESS_ID = INSTANCE_ID";
-                        break;
-                }
-
-                result = string.Format("EXISTS(SELECT USER_ID FROM WF.PROCESS_CURRENT_ASSIGNEES CA (NOLOCK) WHERE {0} AND {1})",
-                    processCondition, resultBuilder.ToSqlString(TSqlBuilder.Instance));
-            }
-
-            return result;
-        }
-
-        ///// <summary>
-        ///// 得到当前用户的查询子句
-        ///// </summary>
-        ///// <returns></returns>
-        //private string GetCurrentUsersSubSqlClause()
-        //{
-        //    string result = string.Empty;
-
-        //    string sqlwhere = string.Empty;
-
-        //    if (QueryCondition.CurrentAssignees.Count > 0)
-        //    {
-        //        InSqlClauseBuilder builder = new InSqlClauseBuilder("USER_ID");
-
-        //        QueryCondition.CurrentAssignees.ForEach(u => builder.AppendItem(u.ID));
-
-        //        sqlwhere = builder.ToSqlStringWithInOperator(TSqlBuilder.Instance);
-        //    }
-
-        //    if (QueryCondition.AssigneesUserName.IsNotEmpty())
-        //    {
-        //        if (sqlwhere.IsNotEmpty())
-        //            sqlwhere = string.Format(" {0} AND USER_NAME LIKE N'{1}%' ", sqlwhere, TSqlBuilder.Instance.EscapeLikeString(QueryCondition.AssigneesUserName));
-        //        else
-        //            sqlwhere = string.Format(" USER_NAME LIKE N'{0}%' ", TSqlBuilder.Instance.EscapeLikeString(QueryCondition.AssigneesUserName));
-        //    }
-
-        //    if (sqlwhere.IsNotEmpty())
-        //    {
-        //        if (this.QueryCondition.ProcessSelectType == ProcessFilterType.CurrentActivityError || this.QueryCondition.AssigneesSelectType == AssigneesFilterType.CurrentActivity)
-        //            result = string.Format("EXISTS(SELECT USER_ID FROM WF.PROCESS_CURRENT_ASSIGNEES CA (NOLOCK) WHERE CA.ACTIVITY_ID = CURRENT_ACTIVITY_ID AND {0})", sqlwhere);
-
-        //        if (this.QueryCondition.ProcessSelectType == ProcessFilterType.ExsitedActivitiesError || this.QueryCondition.AssigneesSelectType == AssigneesFilterType.AllActivities)
-        //            result = string.Format("EXISTS(SELECT USER_ID FROM WF.PROCESS_CURRENT_ASSIGNEES CA (NOLOCK) WHERE CA.PROCESS_ID = INSTANCE_ID AND {0})", sqlwhere);
-        //    }
-
-        //    return result;
-        //}
 
         protected void objectDataSource_Selecting(object sender, ObjectDataSourceSelectingEventArgs e)
         {
@@ -259,15 +109,15 @@ namespace MCS.OA.CommonPages.AppTrace
             this.dataGrid.PageIndex = 0;
         }
 
-        private ProcessQueryCondition QueryCondition
+        private WfProcessQueryCondition QueryCondition
         {
             get
             {
-                ProcessQueryCondition result = (ProcessQueryCondition)ViewState["QueryCondition"];
+                WfProcessQueryCondition result = (WfProcessQueryCondition)ViewState["QueryCondition"];
 
                 if (null == result)
                 {
-                    result = new ProcessQueryCondition();
+                    result = new WfProcessQueryCondition();
                     ViewState["QueryCondition"] = result;
                 }
 
