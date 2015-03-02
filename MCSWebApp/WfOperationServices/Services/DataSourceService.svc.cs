@@ -62,18 +62,34 @@ namespace WfOperationServices.Services
 
             qc.WhereClause = builder.ToSqlString(TSqlBuilder.Instance);
 
-            CommonAdapter adapter = new CommonAdapter(UserOperationLogAdapter.Instance.ConnectionName);
+            return QueryUserOperationLog(qc, totalCount);
+        }
 
-            UserOperationLogCollection serverLogs = adapter.SplitPageQuery<UserOperationLog, UserOperationLogCollection>(qc, ref totalCount);
+        [WfJsonFormatter]
+        [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public WfClientUserOperationLogPageQueryResult QueryUserOperationLogByProcessID(string processID, int startRowIndex, int maximumRows, string orderBy, int totalCount)
+        {
+            processID.CheckStringIsNullOrEmpty("processID");
 
-            WfClientUserOperationLogCollection clientLogs = WfClientUserOperationLogConverter.Instance.ServerToClient(serverLogs);
+            OperationContext.Current.FillContextToOguServiceContext();
 
-            WfClientUserOperationLogPageQueryResult result = new WfClientUserOperationLogPageQueryResult();
+            WhereSqlClauseBuilder builder = new WhereSqlClauseBuilder();
 
-            result.TotalCount = totalCount;
-            result.QueryResult.CopyFrom(clientLogs);
+            builder.AppendItem("PROCESS_ID", processID);
 
-            return result;
+            builder.AppendTenantCode();
+
+            if (orderBy.IsNullOrEmpty())
+                orderBy = "ID DESC";
+
+            QueryCondition qc = new QueryCondition(startRowIndex, maximumRows,
+                "*",
+                ORMapping.GetMappingInfo(typeof(UserOperationLog)).TableName,
+                orderBy);
+
+            qc.WhereClause = builder.ToSqlString(TSqlBuilder.Instance);
+
+            return QueryUserOperationLog(qc, totalCount);
         }
 
         [WfJsonFormatter]
@@ -88,6 +104,22 @@ namespace WfOperationServices.Services
         public WfClientProgramInApplicationCollection GetProgramsByApplication(string appCodeName)
         {
             return WfClientProgramConverter.Instance.ServerToClient(WfApplicationAdapter.Instance.LoadProgramsByApplication(appCodeName));
+        }
+
+        private static WfClientUserOperationLogPageQueryResult QueryUserOperationLog(QueryCondition qc, int totalCount)
+        {
+            CommonAdapter adapter = new CommonAdapter(UserOperationLogAdapter.Instance.ConnectionName);
+
+            UserOperationLogCollection serverLogs = adapter.SplitPageQuery<UserOperationLog, UserOperationLogCollection>(qc, ref totalCount);
+
+            WfClientUserOperationLogCollection clientLogs = WfClientUserOperationLogConverter.Instance.ServerToClient(serverLogs);
+
+            WfClientUserOperationLogPageQueryResult result = new WfClientUserOperationLogPageQueryResult();
+
+            result.TotalCount = totalCount;
+            result.QueryResult.CopyFrom(clientLogs);
+
+            return result;
         }
     }
 }

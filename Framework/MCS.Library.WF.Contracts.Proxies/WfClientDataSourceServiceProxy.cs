@@ -30,6 +30,11 @@ namespace MCS.Library.WF.Contracts.Proxies
             return this.SingleCall(action => action.QueryUserOperationLogByResourceID(resourceID, startRowIndex, maximumRows, orderBy, totalCount));
         }
 
+        public WfClientUserOperationLogPageQueryResult QueryUserOperationLogByProcessID(string processID, int startRowIndex, int maximumRows, string orderBy, int totalCount)
+        {
+            return this.SingleCall(action => action.QueryUserOperationLogByProcessID(processID, startRowIndex, maximumRows, orderBy, totalCount));
+        }
+
         public WfClientUserOperationLog GetUserOperationLogByID(Int64 logID)
         {
             return this.SingleCall(action => action.GetUserOperationLogByID(logID));

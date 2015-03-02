@@ -448,20 +448,7 @@ namespace WfOperationServices.Services
 
             qc.WhereClause = builder.ToSqlString(TSqlBuilder.Instance);
 
-            CommonAdapter adapter = new CommonAdapter(WfProcessCurrentInfoAdapter.Instance.ConnectionName);
-
-            WfProcessCurrentInfoCollection processInfo = adapter.SplitPageQuery<WfProcessCurrentInfo, WfProcessCurrentInfoCollection>(qc, ref totalCount);
-
-            WfClientProcessCurrentInfoCollection clientInfo = new WfClientProcessCurrentInfoCollection();
-
-            WfClientProcessCurrentInfoConverter.Instance.ServerToClient(processInfo, clientInfo);
-
-            WfClientProcessCurrentInfoPageQueryResult result = new WfClientProcessCurrentInfoPageQueryResult();
-
-            result.TotalCount = totalCount;
-            result.QueryResult.CopyFrom(clientInfo);
-
-            return result;
+            return QueryProcessInfo(qc, totalCount);
         }
 
         [WfJsonFormatter]
@@ -495,6 +482,11 @@ namespace WfOperationServices.Services
 
             qc.WhereClause += connective.ToSqlString(TSqlBuilder.Instance);
 
+            return QueryProcessInfo(qc, totalCount);
+        }
+
+        private static WfClientProcessCurrentInfoPageQueryResult QueryProcessInfo(QueryCondition qc, int totalCount)
+        {
             CommonAdapter adapter = new CommonAdapter(WfProcessCurrentInfoAdapter.Instance.ConnectionName);
 
             WfProcessCurrentInfoCollection processInfo = adapter.SplitPageQuery<WfProcessCurrentInfo, WfProcessCurrentInfoCollection>(qc, ref totalCount);

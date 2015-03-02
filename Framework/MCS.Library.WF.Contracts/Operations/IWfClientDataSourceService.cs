@@ -29,6 +29,18 @@ namespace MCS.Library.WF.Contracts.Operations
         WfClientUserOperationLogPageQueryResult QueryUserOperationLogByResourceID(string resourceID, int startRowIndex, int maximumRows, string orderBy, int totalCount);
 
         /// <summary>
+        /// 根据ProcessID来查询用户操作日志。默认会传入TenantCode
+        /// </summary>
+        /// <param name="processID"></param>
+        /// <param name="startRowIndex"></param>
+        /// <param name="maximumRows"></param>
+        /// <param name="orderBy"></param>
+        /// <param name="totalCount"></param>
+        /// <returns></returns>
+        [OperationContract]
+        WfClientUserOperationLogPageQueryResult QueryUserOperationLogByProcessID(string processID, int startRowIndex, int maximumRows, string orderBy, int totalCount);
+
+        /// <summary>
         /// 根据日志ID来获取日志对象
         /// </summary>
         /// <param name="logID"></param>

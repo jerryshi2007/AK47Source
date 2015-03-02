@@ -2,6 +2,7 @@
 using MCS.Library.WF.Contracts.Proxies;
 using MCS.Library.WF.Contracts.Workflow.DataObjects;
 using MCS.Library.WF.Contracts.Workflow.Descriptors;
+using MCS.Library.WF.Contracts.Workflow.Runtime;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
@@ -21,6 +22,23 @@ namespace WfOperationServices.Test.DataObjects
             Assert.IsTrue(result.QueryResult.Count > 0);
 
             Assert.AreEqual(processDesp.Key, result.QueryResult[0].ResourceID);
+
+            WfClientUserOperationLog log = WfClientDataSourceServiceProxy.Instance.GetUserOperationLogByID(result.QueryResult[0].ID);
+
+            Assert.AreEqual(result.QueryResult[0].ID, log.ID);
+        }
+
+        [TestMethod]
+        public void QueryUserOperationLogByProcessIDTest()
+        {
+            WfClientProcessInfo process = OperationHelper.PrepareSimpleProcessInstance();
+
+            WfClientUserOperationLogPageQueryResult result =
+                WfClientDataSourceServiceProxy.Instance.QueryUserOperationLogByProcessID(process.ID, 0, 1, string.Empty, -1);
+
+            Assert.IsTrue(result.QueryResult.Count > 0);
+
+            Assert.AreEqual(process.ID, result.QueryResult[0].ProcessID);
 
             WfClientUserOperationLog log = WfClientDataSourceServiceProxy.Instance.GetUserOperationLogByID(result.QueryResult[0].ID);
 
