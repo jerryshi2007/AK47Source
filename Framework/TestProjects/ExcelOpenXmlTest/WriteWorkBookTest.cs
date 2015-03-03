@@ -106,6 +106,9 @@ namespace ExcelOpenXmlTest
             sheet.LoadFromCollection(books, tableDesp, (cell, dcp) =>
             {
                 cell.Value = dcp.PropertyValue;
+
+                if (dcp.ColumnName == "发行日期")
+                    cell.Value = string.Format("{0:yyyy-MM-dd HH:mm}", dcp.PropertyValue);
             });
 
             wb.Save("WriteBookWithoutAttributesToCells.xlsx");

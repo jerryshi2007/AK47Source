@@ -272,7 +272,7 @@ namespace MCS.Library.Passport
                 else
                     identityID = loi.LogOnName;
 
-                principal = AuthenticateDirSettings.GetConfig().PrincipalBuilder.CreatePrincipal(identityID, ticket);
+                principal = PrincipalSettings.GetConfig().GetPrincipalBuilder().CreatePrincipal(identityID, ticket);
 
                 HttpCookie cookie = new HttpCookie(Common.GetPrincipalSessionKey());
                 cookie.Expires = DateTime.MinValue;
@@ -288,7 +288,7 @@ namespace MCS.Library.Passport
                     new MixedDependency(cookieDependency, slidingDependency));
             }
 
-            HttpContext.Current.User = principal;
+            PrincipaContextAccessor.SetPrincipal(principal);
         }
 
         private static IPrincipal GetPrincipalInSession(string userID)

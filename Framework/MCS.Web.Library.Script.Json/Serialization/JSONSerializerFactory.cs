@@ -112,7 +112,7 @@ namespace MCS.Web.Library.Script
             foreach (Type t in S_GlobalConverterTypesCache.Values)
                 converters.Add((JavaScriptConverter)TypeCreator.CreateInstance(t));
 
-            converters.Add(InternalDateTimeConverter.Instance);
+            //converters.Add(InternalDateTimeConverter.Instance);
 
             return converters.ToArray();
         }

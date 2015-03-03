@@ -1,6 +1,8 @@
 ﻿using MCS.Library.Core;
 using MCS.Library.Data.DataObjects;
 using MCS.Library.Office.OpenXml.Excel;
+using MCS.Library.Passport;
+using MCS.Library.Principal;
 using MCS.Library.WcfExtensions;
 using MCS.Library.WF.Contracts.Common.Test;
 using MCS.Library.WF.Contracts.Json.Converters.DataObjects;
@@ -23,6 +25,10 @@ namespace WfOperationServices.Test.Descriptors
         [TestMethod]
         public void SaveDescriptor()
         {
+            GenericTicketTokenContainer tokenContainer = new GenericTicketTokenContainer();
+
+            Consts.InitPrincipal("Requestor");
+
             WfClientProcessDescriptor processDesp = OperationHelper.PrepareSimpleProcess();
 
             WfClientProcessDescriptor loadedProcessDesp = WfClientProcessDescriptorServiceProxy.Instance.LoadDescriptor(processDesp.Key);

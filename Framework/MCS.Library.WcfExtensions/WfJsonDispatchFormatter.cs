@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.ServiceModel.Dispatcher;
-using System.ServiceModel.Description;
-using System.ServiceModel.Channels;
-using System.Xml;
-using System.IO;
-using System.Net;
+﻿using MCS.Library.Passport;
 using MCS.Web.Library.Script;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Reflection;
+using System.ServiceModel.Channels;
+using System.ServiceModel.Description;
+using System.ServiceModel.Dispatcher;
+using System.Text;
+using System.Xml;
 
 namespace MCS.Library.WcfExtensions
 {
@@ -50,6 +51,9 @@ namespace MCS.Library.WcfExtensions
 
                 Dictionary<string, object> context = PopContextInfo(paramsInfo);
                 PushContextToMessageProperties(message, context);
+
+                GenericTicketTokenContainer container = PopGenericTicketTokenContainer(paramsInfo);
+                PushGenericTicketTokenContainer(message, container);
 
                 for (int i = 0; i < _OperationDesc.Messages[0].Body.Parts.Count; i++)
                 {
@@ -151,6 +155,18 @@ namespace MCS.Library.WcfExtensions
             return result;
         }
 
+        private GenericTicketTokenContainer PopGenericTicketTokenContainer(Dictionary<string, object> paramsInfo)
+        {
+            GenericTicketTokenContainer container = null;
+
+            object containerObject = null;
+
+            if (paramsInfo.TryGetValue("__TokenContainer", out containerObject))
+                container = containerObject as GenericTicketTokenContainer;
+
+            return container;
+        }
+
         private static void PushHeaderInfoToMessageProperties(System.ServiceModel.Channels.Message message, Dictionary<string, object> headers)
         {
             message.Properties["Headers"] = headers;
@@ -164,6 +180,12 @@ namespace MCS.Library.WcfExtensions
         private static void PushContextToMessageProperties(System.ServiceModel.Channels.Message message, Dictionary<string, object> context)
         {
             message.Properties["Context"] = context;
+        }
+
+        private static void PushGenericTicketTokenContainer(System.ServiceModel.Channels.Message message, GenericTicketTokenContainer container)
+        {
+            if (container != null)
+                message.Properties["TokenContainer"] = container;
         }
     }
 }

@@ -12,6 +12,7 @@ using System;
 using System.Text;
 using System.Collections;
 using System.Collections.Generic;
+using MCS.Library.Passport;
 
 namespace MCS.Library.OGUPermission
 {
@@ -48,31 +49,31 @@ namespace MCS.Library.OGUPermission
     /// <summary>
     /// 人员和部门接口的基类
     /// </summary>
-    public interface IOguObject
+    public interface IOguObject: ITicketToken
     {
-        /// <summary>
-        /// 对象的ID
-        /// </summary>
-        string ID
-        {
-            get;
-        }
+        ///// <summary>
+        ///// 对象的ID
+        ///// </summary>
+        //string ID
+        //{
+        //    get;
+        //}
 
-        /// <summary>
-        /// 对象的名称
-        /// </summary>
-        string Name
-        {
-            get;
-        }
+        ///// <summary>
+        ///// 对象的名称
+        ///// </summary>
+        //string Name
+        //{
+        //    get;
+        //}
 
-        /// <summary>
-        /// 对象的显示名称
-        /// </summary>
-        string DisplayName
-        {
-            get;
-        }
+        ///// <summary>
+        ///// 对象的显示名称
+        ///// </summary>
+        //string DisplayName
+        //{
+        //    get;
+        //}
 
         /// <summary>
         /// 描述信息

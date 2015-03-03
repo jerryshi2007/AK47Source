@@ -186,11 +186,15 @@ namespace MCS.Web.Library.Script
         /// 序列化，结果中包含__type信息
         /// </summary>
         /// <param name="input"></param>
+        /// <param name="addPrimitiveConverters">是否增加原始类型的转换器</param>
         /// <returns></returns>
-        public static string SerializeWithType(object input)
+        public static string SerializeWithType(object input, bool addPrimitiveConverters = false)
         {
             JavaScriptSerializer serializer = new JavaScriptSerializer(new SimpleTypeResolver());
             JSONSerializerFactory.RegisterConverters(serializer);
+
+            if (addPrimitiveConverters)
+                serializer.RegisterConverters(InternalDateTimeConverter.Instances);
 
             return serializer.Serialize(input);
         }
@@ -325,11 +329,19 @@ namespace MCS.Web.Library.Script
             return DeserializeObject(input, type, 0);
         }
 
+        /// <summary>
+        /// 将字符串反序列化为对象。这里的日期类型会经过内部的转换器，此方法不建议在js端使用
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public static object DeserializeString(string input, Type type)
         {
             type.NullCheck("type");
 
             JavaScriptSerializer serializer = JSONSerializerFactory.GetJavaScriptSerializer(type);
+
+            serializer.RegisterConverters(InternalDateTimeConverter.Instances);
 
             return serializer.Deserialize(input, type);
         }
@@ -339,6 +351,8 @@ namespace MCS.Web.Library.Script
             Type type = typeof(T);
 
             JavaScriptSerializer serializer = JSONSerializerFactory.GetJavaScriptSerializer(type);
+
+            serializer.RegisterConverters(InternalDateTimeConverter.Instances);
 
             return (T)serializer.Deserialize(input, type);
         }
@@ -440,6 +454,9 @@ namespace MCS.Web.Library.Script
                                 dictionary["__type"] = type.AssemblyQualifiedName;
 
                             JavaScriptSerializer serializer = JSONSerializerFactory.GetJavaScriptSerializer(type);
+
+                            if (dictionary != null)
+                                serializer.RegisterConverters(InternalDateTimeConverter.Instances);
 
                             string str = string.Empty;
 

@@ -64,6 +64,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Bin\MCS.Library.OGUPermission.dll</HintPath>
     </Reference>
+    <Reference Include="MCS.Library.Passport, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\MCS.Library.Passport.dll</HintPath>
+    </Reference>
     <Reference Include="MCS.Library.Services.Contracts">
       <HintPath>..\..\..\Bin\MCS.Library.Services.Contracts.dll</HintPath>
     </Reference>

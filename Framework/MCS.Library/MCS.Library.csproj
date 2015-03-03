@@ -227,6 +227,7 @@
     <Compile Include="Configuration\DeluxeConfigurationSection.cs" />
     <Compile Include="Configuration\IdentityConfigSettings.cs" />
     <Compile Include="Configuration\IdentityConfigurationElement.cs" />
+    <Compile Include="Configuration\PrincipalSettings.cs" />
     <Compile Include="Configuration\ServerInfoConfigSettings.cs" />
     <Compile Include="Configuration\TenantContextSettings.cs" />
     <Compile Include="Configuration\TimePointSimulationSettings.cs" />
@@ -322,7 +323,17 @@
     <Compile Include="Globalization\UserCultureInfoSettings.cs" />
     <Compile Include="Globalization\WebTranslator.cs" />
     <Compile Include="Globalization\WebTranslatorConfigSettings.cs" />
+    <Compile Include="Passport\GenericTicketIdentity.cs" />
+    <Compile Include="Passport\GenericTicketPrincipal.cs" />
+    <Compile Include="Passport\GenericTicketToken.cs" />
+    <Compile Include="Passport\GenericTicketTokenContainer.cs" />
+    <Compile Include="Passport\IPrincipalBuilder.cs" />
     <Compile Include="Passport\ITicketIdentity.cs" />
+    <Compile Include="Passport\ITicketTokenPrincipal.cs" />
+    <Compile Include="Passport\ITicketToken.cs" />
+    <Compile Include="Passport\ITicketTokenContainer.cs" />
+    <Compile Include="Passport\IUserImpersonatingInfoLoader.cs" />
+    <Compile Include="Passport\PrincipaContextAccessor.cs" />
     <Compile Include="Passport\SignInInfoAndTicket.cs" />
     <Compile Include="Logging\Configuration\LoggerConfigurationElement.cs" />
     <Compile Include="Logging\Configuration\LoggerFilterConfigurationElement.cs" />
@@ -331,6 +342,7 @@
     <Compile Include="Logging\Configuration\LoggerListenerConfigurationElement.cs" />
     <Compile Include="Logging\Configuration\LoggingSettings.cs" />
     <Compile Include="Logging\LoggerDescriptionAttribute.cs" />
+    <Compile Include="Passport\UserImpersonatingInfo.cs" />
     <Compile Include="Performance\PerformanceCounterNameAttribute.cs" />
     <Compile Include="Performance\PerformanceCountersWrapperBase.cs" />
     <Compile Include="Performance\PerformanceCounterDescriptionAttribute.cs" />

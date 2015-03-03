@@ -104,11 +104,22 @@ namespace MCS.Library.Configuration
 		/// <returns></returns>
 		public T CheckAndGet(string name)
 		{
-			if (this.ContainsKey(name) == false)
-				throw new ConfigurationErrorsException(string.Format("不能找到名称为{0}的元素", name));
-
-			return this[name];
+            return this.CheckAndGet(name, true);
 		}
+
+        /// <summary>
+        /// 检查并且获取对应的项，如果不存在，则抛出异常
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="autoThrow">是否自动抛出异常</param>
+        /// <returns></returns>
+        public T CheckAndGet(string name, bool autoThrow)
+        {
+            if (this.ContainsKey(name) == false && autoThrow)
+                throw new ConfigurationErrorsException(string.Format("不能找到名称为{0}的元素", name));
+
+            return this[name];
+        }
 
 		/// <summary>
 		/// 得到元素的Key值

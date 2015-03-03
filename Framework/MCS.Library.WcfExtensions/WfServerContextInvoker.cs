@@ -9,6 +9,9 @@ using System.Text;
 using System.Threading;
 using MCS.Library.Data;
 using MCS.Library.Core;
+using MCS.Library.Passport;
+using System.Security.Principal;
+using MCS.Library.Configuration;
 
 namespace MCS.Library.WcfExtensions
 {
@@ -52,6 +55,22 @@ namespace MCS.Library.WcfExtensions
 
                 if (context.ContainsKey("Culture"))
                     ExceptionHelper.DoSilentAction(() => Thread.CurrentThread.CurrentCulture = new CultureInfo((string)context["Culture"]));
+            }
+
+            object containerObject = null;
+
+            if (messge.Properties.TryGetValue("TokenContainer", out containerObject))
+            {
+                GenericTicketTokenContainer container = (GenericTicketTokenContainer)containerObject;
+
+                IPrincipalBuilder principalBuilder = PrincipalSettings.GetConfig().GetPrincipalBuilder(false);
+
+                if (principalBuilder != null)
+                {
+                    IPrincipal principal = principalBuilder.CreatePrincipal(container, null);
+
+                    PrincipaContextAccessor.SetPrincipal(principal);
+                }
             }
 
             return this._InnerInvoker.Invoke(instance, inputs, out outputs);

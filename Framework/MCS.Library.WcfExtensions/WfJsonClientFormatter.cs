@@ -1,10 +1,12 @@
 ﻿using MCS.Library.Data.Configuration;
+using MCS.Library.Passport;
 using MCS.Library.WcfExtensions.Configuration;
 using MCS.Web.Library.Script;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Description;
 using System.ServiceModel.Dispatcher;
@@ -80,6 +82,11 @@ namespace MCS.Library.WcfExtensions
 
             paramNameValuePair["__ConnectionMappings"] = GetConnectionMappings();
             paramNameValuePair["__Context"] = WfClientServiceBrokerContext.Current.Context;
+
+            IGenericTokenPrincipal principal = PrincipaContextAccessor.GetPrincipal<IGenericTokenPrincipal>();
+
+            if (principal != null)
+                paramNameValuePair["__TokenContainer"] = principal.GetGenericTicketTokenContainer();
 
             string paramJson = JSONSerializerExecute.SerializeWithType(paramNameValuePair);
             Message requestMessage = WcfUtils.CreateJsonFormatRequestMessage(messageVersion, _OperationDesc.Messages[0].Action, paramJson);

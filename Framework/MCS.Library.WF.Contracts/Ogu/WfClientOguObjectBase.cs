@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MCS.Library.Passport;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -9,7 +10,7 @@ namespace MCS.Library.WF.Contracts.Ogu
 {
     [Serializable]
     [DataContract]
-    public abstract class WfClientOguObjectBase
+    public abstract class WfClientOguObjectBase : ITicketToken
     {
         public WfClientOguObjectBase(ClientOguSchemaType schemaType)
         {

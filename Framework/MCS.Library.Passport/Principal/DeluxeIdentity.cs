@@ -1,246 +1,263 @@
-#region
-// -------------------------------------------------
-// Assembly	：	DeluxeWorks.Library.Passport
-// FileName	：	DeluxeIdentity.cs
-// Remark	：	
-// -------------------------------------------------
-// VERSION  	AUTHOR		DATE			CONTENT
-// 1.0
-// 1.1          胡自强      2008-12-2       添加注释
-// -------------------------------------------------
-#endregion
-using System;
-using System.Text;
-using System.Security.Principal;
-using System.Collections.Generic;
+using MCS.Library.Configuration;
 using MCS.Library.Core;
-using MCS.Library.Passport;
 using MCS.Library.OGUPermission;
+using MCS.Library.Passport;
 using MCS.Library.Passport.Properties;
+using System;
+using System.Collections.Generic;
+using System.Security.Principal;
+using System.Text;
 
 namespace MCS.Library.Principal
 {
-	/// <summary>
-	/// 通过DeluxeWorks认证机制，所产生的用户身份对象，实现了系统的IIdentity接口。
-	/// </summary>
-    public class DeluxeIdentity : ITicketIdentity
-	{
-		private IUser user = null;
-		private IUser realUser = null;
-		private ITicket ticket = null;
+    /// <summary>
+    /// 通过DeluxeWorks认证机制，所产生的用户身份对象，实现了系统的IIdentity接口。
+    /// </summary>
+    public class DeluxeIdentity : ITicketIdentity, ITicketTokenContainer<IUser>
+    {
+        private IUser user = null;
+        private IUser realUser = null;
+        private ITicket ticket = null;
 
-		/// <summary>
-		/// 用户身份对象
-		/// </summary>
-		public static DeluxeIdentity Current
-		{
-			get
-			{
-				return (DeluxeIdentity)DeluxePrincipal.Current.Identity;
-			}
-		}
+        #region 构造方法
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="logonUser">IUser</param>
+        public DeluxeIdentity(IUser logonUser)
+        {
+            this.Init(logonUser, null);
+        }
 
-		/// <summary>
-		/// 取得当前用户信息
-		/// </summary>
-		public static IUser CurrentUser
-		{
-			get
-			{
-				return Current.User;
-			}
-		}
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="logonUser">IUser</param>
+        /// <param name="ticket">票据</param>
+        public DeluxeIdentity(IUser logonUser, ITicket ticket)
+        {
+            this.Init(logonUser, ticket);
+        }
 
-		/// <summary>
-		/// 取得当前真实用户信息
-		/// </summary>
-		public static IUser CurrentRealUser
-		{
-			get
-			{
-				return Current.RealUser;
-			}
-		}
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="logonName">用户名</param>
+        /// <param name="ticket">票据</param>
+        public DeluxeIdentity(string logonName, ITicket ticket)
+        {
+            this.Init(GetUserInfoFromLogonName(logonName), ticket);
+        }
 
-		#region 构造方法
-		/// <summary>
-		/// 构造函数
-		/// </summary>
-		/// <param name="logonUser">IUser</param>
-		public DeluxeIdentity(IUser logonUser)
-		{
-			this.user = logonUser;
-			SetImpersonateInfo(logonUser);
-		}
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="logonName">用户名</param>
+        public DeluxeIdentity(string logonName)
+        {
+            this.Init(GetUserInfoFromLogonName(logonName), null);
+        }
 
-		/// <summary>
-		/// 构造函数
-		/// </summary>
-		/// <param name="logonUser">IUser</param>
-		/// <param name="ticket">票据</param>
-		public DeluxeIdentity(IUser logonUser, ITicket ticket)
-		{
-			this.user = logonUser;
-			this.ticket = ticket;
+        /// <summary>
+        /// 从Ticket token构造Identity
+        /// </summary>
+        /// <param name="tokenContainer"></param>
+        /// <param name="ticket"></param>
+        public DeluxeIdentity(GenericTicketTokenContainer tokenContainer, ITicket ticket)
+        {
+            tokenContainer.NullCheck("tokenContainer");
+            tokenContainer.User.NullCheck("tokenContainer.User");
+            tokenContainer.RealUser.NullCheck("tokenContainer.RealUser");
 
-			SetImpersonateInfo(logonUser);
-		}
+            OguObjectCollection<IUser> users = GetUsersInfoFromIDs(tokenContainer.User.ID, tokenContainer.RealUser.ID);
 
-		/// <summary>
-		/// 构造函数
-		/// </summary>
-		/// <param name="logonName">用户名</param>
-		/// <param name="ticket">票据</param>
-		public DeluxeIdentity(string logonName, ITicket ticket)
-		{
-			this.user = GetUserInfoFromLogonName(logonName);
-			this.ticket = ticket;
+            this.user = users.Find(u => string.Compare(u.ID, tokenContainer.User.ID, true) == 0);
+            this.realUser = users.Find(u => string.Compare(u.ID, tokenContainer.RealUser.ID, true) == 0);
 
-			SetImpersonateInfo(this.user);
-		}
+            this.user.NullCheck("user");
+            this.realUser.NullCheck("realUser");
 
-		/// <summary>
-		/// 构造函数
-		/// </summary>
-		/// <param name="logonName">用户名</param>
-		public DeluxeIdentity(string logonName)
-		{
-			this.user = GetUserInfoFromLogonName(logonName);
+            this.ticket = ticket;
+        }
 
-			SetImpersonateInfo(this.user);
-		}
-		#endregion 构造方法
+        #endregion 构造方法
 
-		#region 公共属性
-		/// <summary>
-		/// 用户的票据
-		/// </summary>
-		public ITicket Ticket
-		{
-			get
-			{
-				return this.ticket;
-			}
-		}
+        /// <summary>
+        /// 用户身份对象
+        /// </summary>
+        public static DeluxeIdentity Current
+        {
+            get
+            {
+                return (DeluxeIdentity)DeluxePrincipal.Current.Identity;
+            }
+        }
 
-		/// <summary>
-		/// 用户属性，如果是扮演用户，那么User和RealUser是不一样的
-		/// </summary>
-		public IUser User
-		{
-			get
-			{
-				return this.user;
-			}
-		}
+        /// <summary>
+        /// 取得当前用户信息
+        /// </summary>
+        public static IUser CurrentUser
+        {
+            get
+            {
+                return Current.User;
+            }
+        }
 
-		/// <summary>
-		/// 真实的用户信息
-		/// </summary>
-		public IUser RealUser
-		{
-			get
-			{
-				return this.realUser;
-			}
-		}
+        /// <summary>
+        /// 取得当前真实用户信息
+        /// </summary>
+        public static IUser CurrentRealUser
+        {
+            get
+            {
+                return Current.RealUser;
+            }
+        }
 
-		/// <summary>
-		/// 当前身份是否是扮演过的
-		/// </summary>
-		public bool IsImpersonated
-		{
-			get
-			{
-				return string.Compare(this.user.ID, this.realUser.ID, true) != 0;
-			}
-		}
+        #region 公共属性
+        /// <summary>
+        /// 用户的票据
+        /// </summary>
+        public ITicket Ticket
+        {
+            get
+            {
+                return this.ticket;
+            }
+        }
 
-		#endregion 公共属性
+        /// <summary>
+        /// 用户属性，如果是扮演用户，那么User和RealUser是不一样的
+        /// </summary>
+        public IUser User
+        {
+            get
+            {
+                return this.user;
+            }
+        }
 
-		#region IIdentity 成员
-		/// <summary>
-		/// 认证类型
-		/// </summary>
-		public string AuthenticationType
-		{
-			get
-			{
-				return "DeluxeWorksPassport";
-			}
-		}
-		/// <summary>
-		/// 是否通过认证
-		/// </summary>
-		public bool IsAuthenticated
-		{
-			get
-			{
-				return this.user != null;
-			}
-		}
-		/// <summary>
-		/// 用户名
-		/// </summary>
-		public string Name
-		{
-			get
-			{
-				string result = string.Empty;
+        /// <summary>
+        /// 真实的用户信息
+        /// </summary>
+        public IUser RealUser
+        {
+            get
+            {
+                return this.realUser;
+            }
+        }
 
-				if (this.user != null)
-					result = this.user.LogOnName;
+        /// <summary>
+        /// 当前身份是否是扮演过的
+        /// </summary>
+        public bool IsImpersonated
+        {
+            get
+            {
+                return string.Compare(this.user.ID, this.realUser.ID, true) != 0;
+            }
+        }
 
-				return result;
-			}
-		}
-		#endregion
+        #endregion 公共属性
 
-		#region 私有成员
-		private IUser GetUserInfoFromLogonName(string logonName)
-		{
-			OguObjectCollection<IUser> users = OguMechanismFactory.GetMechanism().GetObjects<IUser>(SearchOUIDType.LogOnName, logonName);
+        #region IIdentity 成员
+        /// <summary>
+        /// 认证类型
+        /// </summary>
+        public string AuthenticationType
+        {
+            get
+            {
+                return "DeluxeWorksPassport";
+            }
+        }
+        /// <summary>
+        /// 是否通过认证
+        /// </summary>
+        public bool IsAuthenticated
+        {
+            get
+            {
+                return this.user != null;
+            }
+        }
+        /// <summary>
+        /// 用户名
+        /// </summary>
+        public string Name
+        {
+            get
+            {
+                string result = string.Empty;
 
-			ExceptionHelper.FalseThrow<AuthenticateException>(users.Count > 0, Resource.CanNotFindUser, logonName);
+                if (this.user != null)
+                    result = this.user.LogOnName;
 
-			IUser result = users[0];
+                return result;
+            }
+        }
+        #endregion
 
-			foreach (IUser user in users)
-			{
-				if (user.IsSideline == false)
-				{
-					result = user;
-					break;
-				}
-			}
+        #region 私有成员
+        private void Init(IUser user, ITicket ticket)
+        {
+            this.user = user;
+            this.ticket = ticket;
 
-			return result;
-		}
+            SetImpersonateInfo(this.user);
+        }
 
-		private IUser GetUserInfoFromID(string userID)
-		{
-			OguObjectCollection<IUser> users = OguMechanismFactory.GetMechanism().GetObjects<IUser>(SearchOUIDType.Guid, userID);
+        private IUser GetUserInfoFromLogonName(string logonName)
+        {
+            OguObjectCollection<IUser> users = OguMechanismFactory.GetMechanism().GetObjects<IUser>(SearchOUIDType.LogOnName, logonName);
 
-			ExceptionHelper.FalseThrow<AuthenticateException>(users.Count > 0, Resource.CanNotFindUser, userID);
+            ExceptionHelper.FalseThrow<AuthenticateException>(users.Count > 0, Resource.CanNotFindUser, logonName);
 
-			return users[0];
-		}
+            IUser result = users[0];
 
-		private void SetImpersonateInfo(IUser originalUser)
-		{
-			this.realUser = originalUser;
+            foreach (IUser user in users)
+            {
+                if (user.IsSideline == false)
+                {
+                    result = user;
+                    break;
+                }
+            }
 
-			IUserImpersonatingInfoLoader loader = AuthenticateDirSettings.GetConfig().ImpersonatingInfoLoader;
+            return result;
+        }
 
-			if (loader != null)
-			{
-				UserImpersonatingInfo info = loader.GetUserImpersonatingInfo(originalUser.ID);
+        private static IUser GetUserInfoFromID(string userID)
+        {
+            OguObjectCollection<IUser> users = OguMechanismFactory.GetMechanism().GetObjects<IUser>(SearchOUIDType.Guid, userID);
 
-				if (info != null && string.IsNullOrEmpty(info.ImpersonatingUserID) == false)
-					this.user = GetUserInfoFromID(info.ImpersonatingUserID);
-			}
-		}
+            ExceptionHelper.FalseThrow<AuthenticateException>(users.Count > 0, Resource.CanNotFindUser, userID);
 
-		#endregion 私有成员
-	}
+            return users[0];
+        }
+
+        private static OguObjectCollection<IUser> GetUsersInfoFromIDs(params string[] userIDs)
+        {
+            return OguMechanismFactory.GetMechanism().GetObjects<IUser>(SearchOUIDType.Guid, userIDs);
+        }
+
+        private void SetImpersonateInfo(IUser originalUser)
+        {
+            this.realUser = originalUser;
+
+            IUserImpersonatingInfoLoader loader = PrincipalSettings.GetConfig().GetImpersonatingInfoLoader(false);
+
+            if (loader != null)
+            {
+                UserImpersonatingInfo info = loader.GetUserImpersonatingInfo(originalUser.ID);
+
+                if (info != null && string.IsNullOrEmpty(info.ImpersonatingUserID) == false)
+                    this.user = GetUserInfoFromID(info.ImpersonatingUserID);
+            }
+        }
+
+        #endregion 私有成员
+    }
 }

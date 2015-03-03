@@ -23,224 +23,226 @@ using MCS.Library.Data.DataObjects;
 
 namespace MCS.Library.Principal
 {
-	/// <summary>
-	/// 通过DeluxeWorks认证机制，所产生的用户身份及其授权信息，实现了系统的IPrincipal接口。
-	/// </summary>
-	public class DeluxePrincipal : IPrincipal
-	{
-		private DeluxeIdentity userIdentity = null;
-		/// <summary>
-		/// 构造函数
-		/// </summary>
-		/// <param name="identity"></param>
-		public DeluxePrincipal(DeluxeIdentity identity)
-		{
-			this.userIdentity = identity;
-		}
+    /// <summary>
+    /// 通过DeluxeWorks认证机制，所产生的用户身份及其授权信息，实现了系统的IPrincipal接口。
+    /// </summary>
+    public class DeluxePrincipal : IGenericTokenPrincipal
+    {
+        private DeluxeIdentity userIdentity = null;
 
-		/// <summary>
-		/// 从当前线程中取得用户的登录和权限信息(Principal)
-		/// </summary>
-		public static DeluxePrincipal Current
-		{
-			get
-			{
-				DeluxePrincipal result = GetPrincipal();
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="identity"></param>
+        public DeluxePrincipal(DeluxeIdentity identity)
+        {
+            this.userIdentity = identity;
+        }
 
-				ExceptionHelper.FalseThrow<AuthenticateException>(result != null,
-					Resource.CanNotGetPrincipal);
+        /// <summary>
+        /// 从当前线程中取得用户的登录和权限信息(Principal)
+        /// </summary>
+        public static DeluxePrincipal Current
+        {
+            get
+            {
+                DeluxePrincipal result = GetPrincipal();
 
-				return result;
-			}
-		}
+                ExceptionHelper.FalseThrow<AuthenticateException>(result != null,
+                    Resource.CanNotGetPrincipal);
 
-		/// <summary>
-		/// 是否经过认证
-		/// </summary>
-		public static bool IsAuthenticated
-		{
-			get
-			{
-				return GetPrincipal() != null;
-			}
-		}
+                return result;
+            }
+        }
 
-		private static DeluxePrincipal GetPrincipal()
-		{
-			DeluxePrincipal result = null;
+        /// <summary>
+        /// 是否经过认证
+        /// </summary>
+        public static bool IsAuthenticated
+        {
+            get
+            {
+                return GetPrincipal() != null;
+            }
+        }
 
-			IPrincipal principal;
+        private static DeluxePrincipal GetPrincipal()
+        {
+            return PrincipaContextAccessor.GetPrincipal<DeluxePrincipal>();
+        }
 
-			if (EnvironmentHelper.Mode == InstanceMode.Web)
-				principal = HttpContext.Current.User;
-			else
-				principal = Thread.CurrentPrincipal;
+        #region IPrincipal 成员
+        /// <summary>
+        /// 用户身份标识
+        /// </summary>
+        public IIdentity Identity
+        {
+            get
+            {
+                return this.userIdentity;
+            }
+        }
 
-			if (principal != null && principal is DeluxePrincipal)
-				result = (DeluxePrincipal)principal;
+        /// <summary>
+        /// 判断当前用户是否属于某一角色
+        /// </summary>
+        /// <param name="role">角色的描述(应用的名称1:角色名称11,角色名称12,...;应用名称2:角色名称21,角色名称22,...)</param>
+        /// <returns>用户是否属于某一角色</returns>
+        public bool IsInRole(string role)
+        {
+            return IsInRole(this.userIdentity.User, role);
+        }
 
-			return result;
-		}
+        /// <summary>
+        /// 判断某个用户是否属于某一角色
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="role">角色的描述(应用的名称1:角色名称11,角色名称12,...;应用名称2:角色名称21,角色名称22,...)</param>
+        /// <returns>用户是否属于某一角色</returns>
+        public static bool IsInRole(IUser user, string role)
+        {
+            user.NullCheck("user");
+            role.CheckStringIsNullOrEmpty("role");
 
-		#region IPrincipal 成员
-		/// <summary>
-		/// 用户身份标识
-		/// </summary>
-		public IIdentity Identity
-		{
-			get
-			{
-				return this.userIdentity;
-			}
-		}
+            string[] appRoles = role.Split(';');
 
-		/// <summary>
-		/// 判断当前用户是否属于某一角色
-		/// </summary>
-		/// <param name="role">角色的描述(应用的名称1:角色名称11,角色名称12,...;应用名称2:角色名称21,角色名称22,...)</param>
-		/// <returns>用户是否属于某一角色</returns>
-		public bool IsInRole(string role)
-		{
-			return IsInRole(this.userIdentity.User, role);
-		}
+            for (int i = 0; i < appRoles.Length; i++)
+            {
+                string[] oneAppRoles = appRoles[i].Split(':');
 
-		/// <summary>
-		/// 判断某个用户是否属于某一角色
-		/// </summary>
-		/// <param name="user"></param>
-		/// <param name="role">角色的描述(应用的名称1:角色名称11,角色名称12,...;应用名称2:角色名称21,角色名称22,...)</param>
-		/// <returns>用户是否属于某一角色</returns>
-		public static bool IsInRole(IUser user, string role)
-		{
-			user.NullCheck("user");
-			role.CheckStringIsNullOrEmpty("role");
+                ExceptionHelper.FalseThrow<AuthenticateException>(oneAppRoles.Length == 2, Resource.InvalidAppRoleNameDescription);
 
-			string[] appRoles = role.Split(';');
+                string appName = oneAppRoles[0].Trim();
 
-			for (int i = 0; i < appRoles.Length; i++)
-			{
-				string[] oneAppRoles = appRoles[i].Split(':');
+                string[] roles = oneAppRoles[1].Split(',');
 
-				ExceptionHelper.FalseThrow<AuthenticateException>(oneAppRoles.Length == 2, Resource.InvalidAppRoleNameDescription);
+                for (int j = 0; j < roles.Length; j++)
+                {
+                    string roleName = roles[j].Trim();
 
-				string appName = oneAppRoles[0].Trim();
+                    if (user.Roles.ContainsApp(appName))
+                    {
+                        if (user.Roles[appName].ContainsKey(roleName))
+                            return true;
+                    }
+                }
+            }
 
-				string[] roles = oneAppRoles[1].Split(',');
+            return false;
+        }
 
-				for (int j = 0; j < roles.Length; j++)
-				{
-					string roleName = roles[j].Trim();
+        /// <summary>
+        /// 如果是Web App(有HttpContext的)，则通过设置Cookie失效的方式来清除缓存中的Principal
+        /// </summary>
+        public void ClearCacheInWebApp()
+        {
+            if (EnvironmentHelper.Mode == InstanceMode.Web)
+            {
+                string cookieName = Common.C_SESSION_KEY_NAME;
 
-					if (user.Roles.ContainsApp(appName))
-					{
-						if (user.Roles[appName].ContainsKey(roleName))
-							return true;
-					}
-				}
-			}
+                HttpCookie cookie = HttpContext.Current.Response.Cookies[cookieName];
 
-			return false;
-		}
+                if (cookie != null)
+                {
+                    HttpContext.Current.Response.Cookies.Remove(cookieName);
 
-		/// <summary>
-		/// 如果是Web App(有HttpContext的)，则通过设置Cookie失效的方式来清除缓存中的Principal
-		/// </summary>
-		public void ClearCacheInWebApp()
-		{
-			if (EnvironmentHelper.Mode == InstanceMode.Web)
-			{
-				string cookieName = Common.C_SESSION_KEY_NAME;
+                    cookie = new HttpCookie(cookieName, "Principal");
+                    cookie.Expires = DateTime.Now.AddDays(-1);
 
-				HttpCookie cookie = HttpContext.Current.Response.Cookies[cookieName];
+                    HttpContext.Current.Response.Cookies.Add(cookie);
+                }
+            }
+        }
 
-				if (cookie != null)
-				{
-					HttpContext.Current.Response.Cookies.Remove(cookieName);
+        /// <summary>
+        /// 根据描述得到一组角色集合
+        /// </summary>
+        /// <param name="rolesDesp"></param>
+        /// <returns></returns>
+        public static IRole[] GetRoles(string rolesDesp)
+        {
+            List<IRole> result = new List<IRole>();
 
-					cookie = new HttpCookie(cookieName, "Principal");
-					cookie.Expires = DateTime.Now.AddDays(-1);
+            if (string.IsNullOrEmpty(rolesDesp) == false)
+            {
+                AppRolesDespsCollection allAppRolesDesps = GetAppRolesDesps(rolesDesp);
 
-					HttpContext.Current.Response.Cookies.Add(cookie);
-				}
-			}
-		}
+                ApplicationCollection apps = PermissionMechanismFactory.GetMechanism().GetApplications(allAppRolesDesps.GetAppNames());
 
-		/// <summary>
-		/// 根据描述得到一组角色集合
-		/// </summary>
-		/// <param name="rolesDesp"></param>
-		/// <returns></returns>
-		public static IRole[] GetRoles(string rolesDesp)
-		{
-			List<IRole> result = new List<IRole>();
+                foreach (AppRolesDesps appRolesDesps in allAppRolesDesps)
+                {
+                    if (apps.ContainsKey(appRolesDesps.AppName))
+                    {
+                        IApplication app = apps[appRolesDesps.AppName];
 
-			if (string.IsNullOrEmpty(rolesDesp) == false)
-			{
-				AppRolesDespsCollection allAppRolesDesps = GetAppRolesDesps(rolesDesp);
+                        foreach (string roleName in appRolesDesps.RolesDesp)
+                        {
+                            if (app.Roles.ContainsKey(roleName))
+                            {
+                                result.Add(app.Roles[roleName]);
+                            }
+                        }
+                    }
+                }
+            }
 
-				ApplicationCollection apps = PermissionMechanismFactory.GetMechanism().GetApplications(allAppRolesDesps.GetAppNames());
+            return result.ToArray();
+        }
 
-				foreach (AppRolesDesps appRolesDesps in allAppRolesDesps)
-				{
-					if (apps.ContainsKey(appRolesDesps.AppName))
-					{
-						IApplication app = apps[appRolesDesps.AppName];
+        private static AppRolesDespsCollection GetAppRolesDesps(string rolesDesp)
+        {
+            AppRolesDespsCollection appRolesDesps = new AppRolesDespsCollection();
 
-						foreach (string roleName in appRolesDesps.RolesDesp)
-						{
-							if (app.Roles.ContainsKey(roleName))
-							{
-								result.Add(app.Roles[roleName]);
-							}
-						}
-					}
-				}
-			}
+            string[] appRoles = rolesDesp.Split(';');
 
-			return result.ToArray();
-		}
+            for (int i = 0; i < appRoles.Length; i++)
+            {
+                string[] oneAppRoles = appRoles[i].Split(':');
 
-		private static AppRolesDespsCollection GetAppRolesDesps(string rolesDesp)
-		{
-			AppRolesDespsCollection appRolesDesps = new AppRolesDespsCollection();
+                ExceptionHelper.FalseThrow<AuthenticateException>(oneAppRoles.Length == 2, Resource.InvalidAppRoleNameDescription);
 
-			string[] appRoles = rolesDesp.Split(';');
+                string appName = oneAppRoles[0].Trim();
 
-			for (int i = 0; i < appRoles.Length; i++)
-			{
-				string[] oneAppRoles = appRoles[i].Split(':');
+                string[] roles = oneAppRoles[1].Split(',');
 
-				ExceptionHelper.FalseThrow<AuthenticateException>(oneAppRoles.Length == 2, Resource.InvalidAppRoleNameDescription);
+                appRolesDesps.Add(new AppRolesDesps { AppName = appName, RolesDesp = roles });
+            }
 
-				string appName = oneAppRoles[0].Trim();
+            return appRolesDesps;
+        }
 
-				string[] roles = oneAppRoles[1].Split(',');
+        #endregion
 
-				appRolesDesps.Add(new AppRolesDesps { AppName = appName, RolesDesp = roles });
-			}
+        private class AppRolesDesps
+        {
+            public string AppName;
+            public string[] RolesDesp;
+        }
 
-			return appRolesDesps;
-		}
+        private class AppRolesDespsCollection : EditableDataObjectCollectionBase<AppRolesDesps>
+        {
+            public string[] GetAppNames()
+            {
+                List<string> result = new List<string>();
 
-		#endregion
+                foreach (AppRolesDesps item in this)
+                    result.Add(item.AppName);
 
-		private class AppRolesDesps
-		{
-			public string AppName;
-			public string[] RolesDesp;
-		}
+                return result.ToArray();
+            }
+        }
 
-		private class AppRolesDespsCollection : EditableDataObjectCollectionBase<AppRolesDesps>
-		{
-			public string[] GetAppNames()
-			{
-				List<string> result = new List<string>();
+        /// <summary>
+        /// 得到票据相关的Token容器
+        /// </summary>
+        /// <returns></returns>
+        public GenericTicketTokenContainer GetGenericTicketTokenContainer()
+        {
+            GenericTicketTokenContainer container = new GenericTicketTokenContainer();
 
-				foreach (AppRolesDesps item in this)
-					result.Add(item.AppName);
+            container.CopyFrom(this.Identity as DeluxeIdentity);
 
-				return result.ToArray();
-			}
-		}
-	}
+            return container;
+        }
+    }
 }

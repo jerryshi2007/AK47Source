@@ -67,11 +67,11 @@ namespace MCS.Web.Library.Script.Json.Test
 
             VoucherEntity source = VoucherEntity.PrepareData();
 
-            string json = JSONSerializerExecute.SerializeWithType(source);
+            string json = JSONSerializerExecute.SerializeWithType(source, true);
 
             Console.WriteLine(json);
 
-            VoucherEntity deserialized = JSONSerializerExecute.Deserialize<VoucherEntity>(json);
+            VoucherEntity deserialized = JSONSerializerExecute.DeserializeString<VoucherEntity>(json);
 
             AssertVoucherEntity(source, deserialized);
         }
@@ -84,7 +84,7 @@ namespace MCS.Web.Library.Script.Json.Test
 
             VoucherEntity source = VoucherEntity.PrepareData();
 
-            string json = JSONSerializerExecute.SerializeWithType(source.Items);
+            string json = JSONSerializerExecute.SerializeWithType(source.Items, true);
 
             Console.WriteLine(json);
 
@@ -101,7 +101,7 @@ namespace MCS.Web.Library.Script.Json.Test
             VoucherEntity source = VoucherEntity.PrepareData();
             JSONSerializerExecute.RegisterConverter(typeof(VoucherConverter));
 
-            string json = JSONSerializerExecute.Serialize(source);
+            string json = JSONSerializerExecute.SerializeWithType(source, true);
 
             Console.WriteLine(json);
 
@@ -133,7 +133,7 @@ namespace MCS.Web.Library.Script.Json.Test
         {
             Assert.AreEqual(source.VoucherCode, dest.VoucherCode);
             Assert.AreEqual(source.Code, dest.Code);
-            Assert.AreEqual(source.CreateTime, dest.CreateTime);
+            Assert.AreEqual(source.CreateTime, dest.CreateTime.ToLocalTime());
         }
     }
 }

@@ -24,13 +24,31 @@ namespace MCS.Library.Principal
     {
         #region IPrincipalBuilder 成员
 
+        /// <summary>
+        /// 创建 <see cref="IPrincipal"/> 对象
+        /// </summary>
+        /// <param name="userID">用户标识</param>
+        /// <param name="ticket">票据</param>
+        /// <returns></returns>
         public IPrincipal CreatePrincipal(string userID, ITicket ticket)
         {
-            DeluxeIdentity userIdentity = new DeluxeIdentity(userID, ticket);
+            DeluxeIdentity identity = new DeluxeIdentity(userID, ticket);
 
-            return new DeluxePrincipal(userIdentity);
+            return new DeluxePrincipal(identity);
         }
 
+        /// <summary>
+        /// 创建 <see cref="IPrincipal"/> 对象
+        /// </summary>
+        /// <param name="tokenContainer">token的容器</param>
+        /// <param name="ticket">票据</param>
+        /// <returns></returns>
+        public IPrincipal CreatePrincipal(GenericTicketTokenContainer tokenContainer, ITicket ticket)
+        {
+            DeluxeIdentity identity = new DeluxeIdentity(tokenContainer, ticket);
+
+            return new DeluxePrincipal(identity);
+        }
         #endregion
     }
 }
