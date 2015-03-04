@@ -41,6 +41,24 @@ namespace MCS.Library.SOA.DataObjects
             return result;
         }
 
+        public SOARolePropertyRowCollection GetByRoleID(string roleID)
+        {
+            roleID.NullCheck("roleID");
+
+            SOARolePropertyRowCollection result = SOARolePropertiesCache.Instance.GetOrAddNewValue(roleID, (cache, key) =>
+            {
+                SOARolePropertyRowCollection properties = LoadByRoleID(roleID, null);
+
+                MixedDependency dependency = new MixedDependency(new UdpNotifierCacheDependency(), new MemoryMappedFileNotifierCacheDependency());
+
+                cache.Add(key, properties, dependency);
+
+                return properties;
+            });
+
+            return result;
+        }
+
         public SOARolePropertyRowCollection GetByRole(IRole role, SOARolePropertyDefinitionCollection definition)
         {
             role.NullCheck("role");
@@ -238,13 +256,13 @@ namespace MCS.Library.SOA.DataObjects
             strB.AppendFormat("DELETE WF.ROLE_PROPERTIES_USER_CONTAINERS WHERE ROLE_ID = {0}",
                 TSqlBuilder.Instance.CheckQuotationMark(roleID, true));
 
-            PrepareRowsSql(rows, strB);
+            PrepareRowsSql(roleID, rows, strB);
 
             SOARolePropertyRowUsersCollection rowsUsers = rows.GenerateRowsUsersDirectly();
             SOARolePropertyRowRolesCollection rowsRoles = rows.GenerateRowsRolesDirectly();
 
-            PrepareUserContainers(rowsUsers, strB);
-            PrepareRoleContainers(rowsRoles, strB);
+            PrepareUserContainers(roleID, rowsUsers, strB);
+            PrepareRoleContainers(roleID, rowsRoles, strB);
 
             using (TransactionScope scope = TransactionScopeFactory.Create())
             {
@@ -283,7 +301,7 @@ namespace MCS.Library.SOA.DataObjects
             MmfCacheNotifier.Instance.SendNotify(notifyData);
         }
 
-        private void PrepareUserContainers(SOARolePropertyRowUsersCollection rowsUsers, StringBuilder strB)
+        private void PrepareUserContainers(string roleID, SOARolePropertyRowUsersCollection rowsUsers, StringBuilder strB)
         {
             foreach (SOARolePropertyRowUsers rowUsers in rowsUsers)
             {
@@ -293,7 +311,7 @@ namespace MCS.Library.SOA.DataObjects
 
                     strB.Append(TSqlBuilder.Instance.DBStatementSeperator);
 
-                    builder.AppendItem("ROLE_ID", rowUsers.Row.Role.ID);
+                    builder.AppendItem("ROLE_ID", roleID);
                     builder.AppendItem("ROW_NUMBER", rowUsers.Row.RowNumber);
                     builder.AppendItem("OPERATOR_TYPE", (int)rowUsers.Row.OperatorType);
                     builder.AppendItem("OPERATOR_ID", user.ID);
@@ -308,7 +326,7 @@ namespace MCS.Library.SOA.DataObjects
             }
         }
 
-        private void PrepareRoleContainers(SOARolePropertyRowRolesCollection rowsRoles, StringBuilder strB)
+        private void PrepareRoleContainers(string roleID, SOARolePropertyRowRolesCollection rowsRoles, StringBuilder strB)
         {
             foreach (SOARolePropertyRowRoles rowRoles in rowsRoles)
             {
@@ -318,7 +336,7 @@ namespace MCS.Library.SOA.DataObjects
 
                     strB.Append(TSqlBuilder.Instance.DBStatementSeperator);
 
-                    builder.AppendItem("ROLE_ID", rowRoles.Row.Role.ID);
+                    builder.AppendItem("ROLE_ID", roleID);
                     builder.AppendItem("ROW_NUMBER", rowRoles.Row.RowNumber);
                     builder.AppendItem("OPERATOR_TYPE", (int)rowRoles.Row.OperatorType);
                     builder.AppendItem("OPERATOR_ID", role.ID);
@@ -333,37 +351,37 @@ namespace MCS.Library.SOA.DataObjects
             }
         }
 
-        private static void PrepareRowsSql(SOARolePropertyRowCollection rows, StringBuilder strB)
+        private static void PrepareRowsSql(string roleID, SOARolePropertyRowCollection rows, StringBuilder strB)
         {
             foreach (SOARolePropertyRow row in rows)
             {
                 strB.Append(TSqlBuilder.Instance.DBStatementSeperator);
 
-                strB.Append(PrepareRowSql(row));
+                strB.Append(PrepareRowSql(roleID, row));
 
                 foreach (SOARolePropertyValue propValue in row.Values)
                 {
                     strB.Append(TSqlBuilder.Instance.DBStatementSeperator);
 
-                    strB.Append(PrepareValueSql(row, propValue));
+                    strB.Append(PrepareValueSql(roleID, row, propValue));
                 }
             }
         }
 
-        private static string PrepareRowSql(SOARolePropertyRow row)
+        private static string PrepareRowSql(string roleID, SOARolePropertyRow row)
         {
             InsertSqlClauseBuilder builder = ORMapping.GetInsertSqlClauseBuilder(row);
 
-            builder.AppendItem("ROLE_ID", row.Role.ID);
+            builder.AppendItem("ROLE_ID", roleID);
 
             return "INSERT INTO WF.ROLE_PROPERTIES_ROWS" + builder.ToSqlString(TSqlBuilder.Instance);
         }
 
-        private static string PrepareValueSql(SOARolePropertyRow row, SOARolePropertyValue propValue)
+        private static string PrepareValueSql(string roleID, SOARolePropertyRow row, SOARolePropertyValue propValue)
         {
             InsertSqlClauseBuilder builder = ORMapping.GetInsertSqlClauseBuilder(propValue);
 
-            builder.AppendItem("ROLE_ID", row.Role.ID);
+            builder.AppendItem("ROLE_ID", roleID);
             builder.AppendItem("PROPERTIES_ROW_ID", row.RowNumber);
             builder.AppendItem("PROPERTY_NAME", propValue.Column.Name);
 

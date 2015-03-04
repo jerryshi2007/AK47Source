@@ -121,17 +121,25 @@ namespace MCS.Library.SOA.DataObjects
             role.NullCheck("role");
             properties.NullCheck("properties");
 
+            this.Update(role.ID, properties);
+        }
+
+        public void Update(string roleID, SOARolePropertyDefinitionCollection properties)
+        {
+            roleID.CheckStringIsNullOrEmpty("roleID");
+            properties.NullCheck("properties");
+
             StringBuilder strB = new StringBuilder();
 
             strB.AppendFormat("DELETE WF.ROLE_PROPERTIES_DEFINITIONS WHERE ROLE_ID = {0}",
-                TSqlBuilder.Instance.CheckQuotationMark(role.ID, true));
+                TSqlBuilder.Instance.CheckQuotationMark(roleID, true));
 
             foreach (SOARolePropertyDefinition property in properties)
             {
                 if (strB.Length > 0)
                     strB.Append(TSqlBuilder.Instance.DBStatementSeperator);
 
-                property.RoleID = role.ID;
+                property.RoleID = roleID;
 
                 strB.AppendFormat(ORMapping.GetInsertSql(property, TSqlBuilder.Instance));
             }
@@ -143,8 +151,8 @@ namespace MCS.Library.SOA.DataObjects
                 scope.Complete();
             }
 
-            CacheNotifyData notifyData1 = new CacheNotifyData(typeof(SOARolePropertiesDefinitionCache), role.ID, CacheNotifyType.Invalid);
-            CacheNotifyData notifyData2 = new CacheNotifyData(typeof(SOARolePropertiesCache), role.ID, CacheNotifyType.Invalid);
+            CacheNotifyData notifyData1 = new CacheNotifyData(typeof(SOARolePropertiesDefinitionCache), roleID, CacheNotifyType.Invalid);
+            CacheNotifyData notifyData2 = new CacheNotifyData(typeof(SOARolePropertiesCache), roleID, CacheNotifyType.Invalid);
 
             UdpCacheNotifier.Instance.SendNotifyAsync(notifyData1, notifyData2);
             MmfCacheNotifier.Instance.SendNotify(notifyData1, notifyData2);

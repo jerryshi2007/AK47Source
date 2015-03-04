@@ -68,7 +68,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
         }
 
         [TestMethod]
-        public void ModityProcessTemplateExecutorTest()
+        public void ModifyProcessTemplateExecutorTest()
         {
             string processKey = UuidHelper.NewUuidString();
 

@@ -1,9 +1,10 @@
-﻿using MCS.Library.SOA.DataObjects.Workflow;
+﻿using MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper;
+using MCS.Library.SOA.DataObjects.Workflow;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 
-namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
+namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
 {
     [TestClass]
     public class ActivityMatrixTest

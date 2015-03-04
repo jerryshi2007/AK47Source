@@ -22,6 +22,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
         private SOARolePropertyDefinitionCollection _PropertyDefinitions = null;
         private SOARolePropertyRowCollection _Rows = null;
+        private WfMatrixType _ExternalMatrixType = WfMatrixType.RoleOrActivityMatrix;
 
         /// <summary>
         /// 
@@ -67,6 +68,41 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             }
         }
 
+        /// <summary>
+        /// 外部矩阵ID
+        /// </summary>
+        public string ExternalMatrixID
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 外部矩阵的类型
+        /// </summary>
+        public WfMatrixType ExternalMatrixType
+        {
+            get
+            {
+                return this._ExternalMatrixType;
+            }
+            set
+            {
+                this._ExternalMatrixType = value;
+            }
+        }
+
+        /// <summary>
+        /// 是否是活动矩阵
+        /// </summary>
+        public bool UseCreateActivityParams
+        {
+            get
+            {
+                return this.PropertyDefinitions.IsActivityMatrix;
+            }
+        }
+
         protected internal override void FillUsers(OguDataCollection<IUser> users)
         {
             SOARoleContext.DoAction(this.PropertyDefinitions, this.ProcessInstance, (context) =>
@@ -99,14 +135,6 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
                 matchedRows.FillCreateActivityParams(capc, this.PropertyDefinitions, definedProperties);
             });
-        }
-
-        public bool UseCreateActivityParams
-        {
-            get
-            {
-                return this.PropertyDefinitions.IsActivityMatrix;
-            }
         }
 
         /// <summary>

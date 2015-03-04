@@ -7,10 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
+namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
 {
     public static class ActivityMatrixHelper
     {
+        public static WfActivityMatrixResourceDescriptor PrepareEmptyActivityMatrixResourceDescriptorWithExternal()
+        {
+            WfActivityMatrixResourceDescriptor resource = PrepareActivityMatrixResourceDescriptor();
+
+            WfApprovalMatrix externalMatrix = ApprovalMatrixHelper.PrepareApprovalMatrix();
+
+            WfApprovalMatrixAdapter.Instance.Update(externalMatrix);
+
+            resource.ExternalMatrixID = externalMatrix.ID;
+            resource.ExternalMatrixType = WfMatrixType.ApprovalMatrix;
+
+            return resource;
+        }
+
         public static WfActivityMatrixResourceDescriptor PrepareActivityMatrixResourceDescriptor()
         {
             WfActivityMatrixResourceDescriptor resource = new WfActivityMatrixResourceDescriptor();

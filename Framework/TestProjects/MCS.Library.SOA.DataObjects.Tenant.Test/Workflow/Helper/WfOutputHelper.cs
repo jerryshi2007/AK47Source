@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
+namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
 {
     public static class WfOutputHelper
     {

@@ -647,6 +647,8 @@
     <Compile Include="Workflow\Common\Enumrations.cs" />
     <Compile Include="Workflow\Descriptors\ResourceDescriptors\WfUserResourceDescriptor.cs" />
     <Compile Include="Workflow\Interfaces\IWfMatrixQuery.cs" />
+    <Compile Include="Workflow\Matrix\WfApprovalMatrix.cs" />
+    <Compile Include="Workflow\Matrix\WfApprovalMatrixAdapter.cs" />
     <Compile Include="Workflow\Matrix\WfMatrixDefinitionCache.cs" />
     <Compile Include="Workflow\Matrix\WfMatrixDefinitionExportOptions.cs" />
     <Compile Include="Workflow\Matrix\WfMatrixDimensionDefinitionAdapter.cs" />
