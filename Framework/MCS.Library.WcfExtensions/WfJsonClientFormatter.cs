@@ -83,7 +83,7 @@ namespace MCS.Library.WcfExtensions
             paramNameValuePair["__ConnectionMappings"] = GetConnectionMappings();
             paramNameValuePair["__Context"] = WfClientServiceBrokerContext.Current.Context;
 
-            IGenericTokenPrincipal principal = PrincipaContextAccessor.GetPrincipal<IGenericTokenPrincipal>();
+            IGenericTokenPrincipal principal = GetPrincipal(WfClientServiceBrokerContext.Current);
 
             if (principal != null)
                 paramNameValuePair["__TokenContainer"] = principal.GetGenericTicketTokenContainer();
@@ -109,6 +109,16 @@ namespace MCS.Library.WcfExtensions
                 result[kp.Value] = kp.Value;
 
             return result;
+        }
+
+        private static IGenericTokenPrincipal GetPrincipal(WfClientServiceBrokerContext context)
+        {
+            IGenericTokenPrincipal principal = PrincipaContextAccessor.GetPrincipalInContext<IGenericTokenPrincipal, WfClientServiceBrokerContext>(context);
+
+            if (principal == null)
+                principal = PrincipaContextAccessor.GetPrincipal<IGenericTokenPrincipal>();
+
+            return principal;
         }
     }
 }

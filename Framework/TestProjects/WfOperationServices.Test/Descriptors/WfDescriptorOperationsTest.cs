@@ -27,7 +27,7 @@ namespace WfOperationServices.Test.Descriptors
         {
             GenericTicketTokenContainer tokenContainer = new GenericTicketTokenContainer();
 
-            Consts.InitPrincipal("Requestor");
+            InitPrincipal("Requestor");
 
             WfClientProcessDescriptor processDesp = OperationHelper.PrepareSimpleProcess();
 
@@ -326,6 +326,20 @@ namespace WfOperationServices.Test.Descriptors
             Console.WriteLine(info);
 
             Assert.IsTrue(info.IndexOf("1个流程模板文件") >= 0);
+        }
+
+        public static void InitPrincipal(string userKey)
+        {
+            GenericTicketTokenContainer tokenContainer = new GenericTicketTokenContainer();
+
+            tokenContainer.User = new GenericTicketToken(Consts.Users[userKey]);
+            tokenContainer.RealUser = new GenericTicketToken(Consts.Users[userKey]);
+
+            DeluxeIdentity identity = new DeluxeIdentity(tokenContainer, null);
+
+            DeluxePrincipal principal = new DeluxePrincipal(identity);
+
+            PrincipaContextAccessor.SetPrincipalInContext(WfClientServiceBrokerContext.Current, principal);
         }
     }
 }

@@ -33,19 +33,5 @@ namespace MCS.Library.WF.Contracts.Common.Test
                 return "TenantCode";
             }
         }
-
-        public static void InitPrincipal(string userKey)
-        {
-            GenericTicketTokenContainer tokenContainer = new GenericTicketTokenContainer();
-
-            tokenContainer.User = new GenericTicketToken(Consts.Users[userKey]);
-            tokenContainer.RealUser = new GenericTicketToken(Consts.Users[userKey]);
-
-            DeluxeIdentity identity = new DeluxeIdentity(tokenContainer, null);
-
-            DeluxePrincipal principal = new DeluxePrincipal(identity);
-
-            PrincipaContextAccessor.SetPrincipal(principal);
-        }
     }
 }

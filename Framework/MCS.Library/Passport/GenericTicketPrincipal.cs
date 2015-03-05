@@ -16,6 +16,13 @@ namespace MCS.Library.Passport
         private GenericTicketIdentity _Identity = null;
 
         /// <summary>
+        /// 构造方法
+        /// </summary>
+        public GenericTicketPrincipal()
+        {
+        }
+
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="identity"></param>
