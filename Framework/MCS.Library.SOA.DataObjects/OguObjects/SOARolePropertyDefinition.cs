@@ -2,6 +2,7 @@
 using MCS.Library.Data.DataObjects;
 using MCS.Library.Data.Mapping;
 using MCS.Library.OGUPermission;
+using MCS.Library.SOA.DataObjects.Workflow;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -122,6 +123,7 @@ namespace MCS.Library.SOA.DataObjects
         /// 
         /// </summary>
         public SOARolePropertyDefinitionCollection()
+            : base(StringComparer.OrdinalIgnoreCase)
         {
         }
 
@@ -130,6 +132,7 @@ namespace MCS.Library.SOA.DataObjects
         /// </summary>
         /// <param name="columns"></param>
         public SOARolePropertyDefinitionCollection(DataColumnCollection columns)
+            : base(StringComparer.OrdinalIgnoreCase)
         {
             this.FromDataColumns(columns);
         }
@@ -160,15 +163,36 @@ namespace MCS.Library.SOA.DataObjects
                 this.Add(new SOARolePropertyDefinition() { Name = column.ColumnName, SortOrder = columnIndex++ });
         }
 
+        ///// <summary>
+        ///// 是否是活动矩阵
+        ///// </summary>
+        //public bool IsActivityMatrix
+        //{
+        //    get
+        //    {
+        //        return this.ContainsKey("ActivitySN") ||
+        //                this.ContainsKey("ActivityName");
+        //    }
+        //}
+
         /// <summary>
-        /// 是否是活动矩阵
+        /// 矩阵的类型
         /// </summary>
-        public bool IsActivityMatrix
+        public WfMatrixType MatrixType
         {
             get
             {
-                return this.ContainsKey("ActivitySN") ||
-                        this.ContainsKey("ActivityName");
+                WfMatrixType result = WfMatrixType.ApprovalMatrix;
+
+                if (this.ContainsKey("OperatorType") || this.ContainsKey("Operator"))
+                {
+                    result = WfMatrixType.RoleMatrix;
+
+                    if (this.ContainsKey("ActivitySN") || this.ContainsKey("ActivityName"))
+                        result = WfMatrixType.ActivityMatrix;
+                }
+
+                return result;
             }
         }
     }

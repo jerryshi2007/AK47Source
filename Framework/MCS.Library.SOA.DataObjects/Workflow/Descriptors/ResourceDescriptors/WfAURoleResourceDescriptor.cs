@@ -83,7 +83,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                 if (this._AUSchemaRole != null)
                 {
                     this.AUSchemaRole.DoCurrentRoleAction(this.ProcessInstance, (role, auCodeName) =>
-                        result = role.IsActivityMatrix
+                        result = role.MatrixType == WfMatrixType.ActivityMatrix
                     );
                 }
 

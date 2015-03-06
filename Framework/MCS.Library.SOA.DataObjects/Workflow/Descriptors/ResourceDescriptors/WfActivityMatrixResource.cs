@@ -22,7 +22,6 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
         private SOARolePropertyDefinitionCollection _PropertyDefinitions = null;
         private SOARolePropertyRowCollection _Rows = null;
-        private WfMatrixType _ExternalMatrixType = WfMatrixType.RoleOrActivityMatrix;
 
         /// <summary>
         /// 
@@ -78,28 +77,13 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         }
 
         /// <summary>
-        /// 外部矩阵的类型
-        /// </summary>
-        public WfMatrixType ExternalMatrixType
-        {
-            get
-            {
-                return this._ExternalMatrixType;
-            }
-            set
-            {
-                this._ExternalMatrixType = value;
-            }
-        }
-
-        /// <summary>
         /// 是否是活动矩阵
         /// </summary>
         public bool UseCreateActivityParams
         {
             get
             {
-                return this.PropertyDefinitions.IsActivityMatrix;
+                return this.PropertyDefinitions.MatrixType == WfMatrixType.ActivityMatrix;
             }
         }
 
@@ -147,6 +131,22 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
             this.PropertyDefinitions.FromDataColumns(table.Columns);
             this.Rows.FromDataTable(table.Rows, this.PropertyDefinitions);
+        }
+
+        /// <summary>
+        /// 得到外部矩阵
+        /// </summary>
+        /// <returns></returns>
+        public WfApprovalMatrix GetExternalMatrix()
+        {
+            WfApprovalMatrix result = null;
+
+            if (this.ExternalMatrixID.IsNotEmpty())
+                result = WfApprovalMatrixAdapter.Instance.GetByID(this.ExternalMatrixID);
+            else
+                result = new WfApprovalMatrix();
+
+            return result;
         }
     }
 }

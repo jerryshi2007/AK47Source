@@ -258,7 +258,7 @@ namespace MCS.Library.SOA.DataObjects
                         {
                             SOARolePropertyRowCollection subRows = innerRole.Rows.Query(context.QueryParams);
 
-                            if (((SOARole)this.Role).IsActivityMatrix && innerRole.IsActivityMatrix == false)
+                            if (((SOARole)this.Role).MatrixType == WfMatrixType.ActivityMatrix && innerRole.MatrixType != WfMatrixType.ActivityMatrix)
                                 subRows = MergeActivityRowProperties(subRows);
 
                             foreach (SOARolePropertyRow subRow in subRows)
@@ -543,7 +543,7 @@ namespace MCS.Library.SOA.DataObjects
 
             rowsUsers.ForEach(rowUsers => capc.Add(WfCreateActivityParam.FromRowUsers(rowUsers, definitions, definedProperties)));
 
-            if (definitions.IsActivityMatrix)
+            if (definitions.MatrixType == WfMatrixType.ActivityMatrix)
                 capc.MergeSameActivityParamBySN();
 
             capc.ForEach(cap => InitTransitionTemplatesProperties(cap, cap.Source));

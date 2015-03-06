@@ -13,6 +13,8 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
         {
             WfApprovalMatrix matrix = ApprovalMatrixHelper.PrepareApprovalMatrix();
 
+            Assert.AreEqual(WfMatrixType.ApprovalMatrix, matrix.PropertyDefinitions.MatrixType);
+
             WfApprovalMatrixAdapter.Instance.Update(matrix);
 
             WfApprovalMatrix loaded = WfApprovalMatrixAdapter.Instance.LoadByID(matrix.ID);

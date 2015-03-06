@@ -60,5 +60,56 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                 this._Rows = value;
             }
         }
+
+        private static void MergeToActivityMatrix(SOARolePropertyDefinitionCollection amDefinitions, SOARolePropertyRowCollection amRows, SOARolePropertyDefinitionCollection apDefinitions, IEnumerable<SOARolePropertyRow> apRows)
+        {
+            foreach (SOARolePropertyRow apRow in apRows)
+            {
+                SOARolePropertyRow amRow = FindMatchedActivityMatrixRow(amDefinitions, amRows, apDefinitions, apRow);
+
+                if (amRow != null)
+                {
+                    MergeToActivityMatrixRow(amDefinitions, amRow, apRow);
+                }
+                else
+                {
+                    amRow = new SOARolePropertyRow() { RowNumber = amDefinitions.Count, OperatorType = SOARoleOperatorType.User };
+                    amDefinitions.Add(amRow);
+                }
+
+                MergeToActivityMatrixRow(amDefinitions, amRow, apRow);
+            }
+        }
+
+        private static SOARolePropertyRow FindMatchedActivityMatrixRow(
+            SOARolePropertyDefinitionCollection amDefinitions,
+            IEnumerable<SOARolePropertyRow> amRows,
+            SOARolePropertyDefinitionCollection apDefinitions,
+            SOARolePropertyRow apRow)
+        {
+            SOARolePropertyRow result = null;
+
+            if (apDefinitions.Count > 1)
+            {
+                foreach (SOARolePropertyRow amRow in amRows)
+                {
+                    //for (int i = 1; i < apDefinitions.Count; i++)
+                    //{
+                    //    string activieyCode = amRows.Values.GetValue(apDefinitions[i].Name, string.Empty);
+                    //}
+                }
+            }
+
+            return result;
+        }
+
+        private static void MergeToActivityMatrixRow(SOARolePropertyDefinitionCollection amDefinitions, SOARolePropertyRow amRow, SOARolePropertyRow apRow)
+        {
+            if (amDefinitions.ContainsKey("OperatorType"))
+                amRow.Values.Add(new SOARolePropertyValue(amDefinitions["OperatypeType"]) { Value = SOARoleOperatorType.User.ToString() });
+
+            if (amDefinitions.ContainsKey("Operator"))
+                amRow.Values.Add(new SOARolePropertyValue(amDefinitions["Operator"]) { Value = apRow.Operator });
+        }
     }
 }

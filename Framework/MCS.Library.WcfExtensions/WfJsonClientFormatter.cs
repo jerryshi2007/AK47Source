@@ -1,4 +1,5 @@
-﻿using MCS.Library.Data.Configuration;
+﻿using MCS.Library.Core;
+using MCS.Library.Data.Configuration;
 using MCS.Library.Passport;
 using MCS.Library.WcfExtensions.Configuration;
 using MCS.Web.Library.Script;
@@ -82,6 +83,10 @@ namespace MCS.Library.WcfExtensions
 
             paramNameValuePair["__ConnectionMappings"] = GetConnectionMappings();
             paramNameValuePair["__Context"] = WfClientServiceBrokerContext.Current.Context;
+
+            if (WfClientServiceBrokerContext.Current.Context.ContainsKey("TenantCode") == false &&
+                TenantContext.Current.Enabled)
+                WfClientServiceBrokerContext.Current.Context["TenantCode"] = TenantContext.Current.TenantCode;
 
             IGenericTokenPrincipal principal = GetPrincipal(WfClientServiceBrokerContext.Current);
 

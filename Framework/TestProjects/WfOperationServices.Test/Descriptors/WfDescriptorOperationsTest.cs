@@ -25,6 +25,9 @@ namespace WfOperationServices.Test.Descriptors
         [TestMethod]
         public void SaveDescriptor()
         {
+            TenantContext.Current.TenantCode = "Test1";
+            TenantContext.Current.Enabled = true;
+
             GenericTicketTokenContainer tokenContainer = new GenericTicketTokenContainer();
 
             InitPrincipal("Requestor");

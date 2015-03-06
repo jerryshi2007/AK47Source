@@ -20,7 +20,6 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             WfApprovalMatrixAdapter.Instance.Update(externalMatrix);
 
             resource.ExternalMatrixID = externalMatrix.ID;
-            resource.ExternalMatrixType = WfMatrixType.ApprovalMatrix;
 
             return resource;
         }

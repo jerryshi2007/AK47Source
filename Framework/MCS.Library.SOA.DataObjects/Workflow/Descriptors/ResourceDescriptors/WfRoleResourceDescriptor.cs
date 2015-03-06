@@ -89,7 +89,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 				bool result = false;
 
 				if (this._Role != null)
-					result = ((SOARole)(this._Role)).IsActivityMatrix;
+					result = ((SOARole)(this._Role)).MatrixType == WfMatrixType.ActivityMatrix;
 
 				return result;
 			}

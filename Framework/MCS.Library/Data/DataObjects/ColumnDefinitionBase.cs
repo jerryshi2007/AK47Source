@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using MCS.Library.Data.Mapping;
 using System.Runtime.Serialization;
+using System.Collections;
 
 namespace MCS.Library.Data.DataObjects
 {
@@ -164,6 +165,16 @@ namespace MCS.Library.Data.DataObjects
         }
 
         /// <summary>
+        /// 构造方法，指定集合的Key比较器
+        /// </summary>
+        /// <param name="comparer"></param>
+        protected ColumnDefinitionCollectionBase(IEqualityComparer comparer)
+            : base(comparer)
+        {
+
+        }
+
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="info"></param>
@@ -171,6 +182,17 @@ namespace MCS.Library.Data.DataObjects
         protected ColumnDefinitionCollectionBase(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
+        }
+
+        /// <summary>
+        /// 构造方法。集合增加时的分配冗余
+        /// </summary>
+        /// <param name="capacity"></param>
+        /// <param name="comparer"></param>
+        protected ColumnDefinitionCollectionBase(int capacity, IEqualityComparer comparer)
+            : base(capacity, comparer)
+        {
+            this._Comparer = comparer;
         }
 
         /// <summary>

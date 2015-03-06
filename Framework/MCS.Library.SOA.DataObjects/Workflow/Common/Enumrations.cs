@@ -385,15 +385,21 @@ namespace MCS.Library.SOA.DataObjects.Workflow
     public enum WfMatrixType
     {
         /// <summary>
-        /// 角色或活动矩阵
+        /// 角色矩阵
         /// </summary>
-        [EnumItemDescription("角色或活动矩阵")]
-        RoleOrActivityMatrix = 0,
+        [EnumItemDescription("角色矩阵")]
+        RoleMatrix = 0,
+
+        /// <summary>
+        /// 活动矩阵
+        /// </summary>
+        [EnumItemDescription("活动矩阵")]
+        ActivityMatrix = 1,
 
         /// <summary>
         /// 审批矩阵
         /// </summary>
         [EnumItemDescription("审批矩阵")]
-        ApprovalMatrix = 1,
+        ApprovalMatrix = 2,
     }
 }

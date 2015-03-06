@@ -5,6 +5,7 @@ using System.Text;
 using MCS.Library.OGUPermission;
 using MCS.Library.Core;
 using MCS.Library.SOA.DataObjects.Workflow.Builders;
+using MCS.Library.SOA.DataObjects.Workflow;
 
 namespace MCS.Library.SOA.DataObjects
 {
@@ -96,11 +97,11 @@ namespace MCS.Library.SOA.DataObjects
 		/// <summary>
 		/// 是否是活动矩阵
 		/// </summary>
-		public bool IsActivityMatrix
+		public WfMatrixType MatrixType
 		{
 			get
 			{
-                return this.PropertyDefinitions.IsActivityMatrix;
+                return this.PropertyDefinitions.MatrixType;
 			}
 		}
 

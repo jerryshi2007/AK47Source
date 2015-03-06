@@ -47,6 +47,7 @@ namespace MCS.Library.SOA.DataObjects
     /// </summary>
     [Serializable]
     [XElementSerializable]
+    [TenantRelativeObject]
     [ORTableMapping("WF.USER_OPERATION_LOG")]
     public class UserOperationLog
     {
