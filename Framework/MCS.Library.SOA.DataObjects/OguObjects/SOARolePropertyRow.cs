@@ -53,6 +53,30 @@ namespace MCS.Library.SOA.DataObjects
             this.Role = role;
         }
 
+        /// <summary>
+        /// 从一个已经存在的行构造
+        /// </summary>
+        /// <param name="templateRow"></param>
+        /// <param name="rowNumber"></param>
+        public SOARolePropertyRow(SOARolePropertyRow templateRow, int rowNumber)
+        {
+            templateRow.NullCheck("templateRow");
+
+            this.Role = templateRow.Role;
+            this.RowNumber = rowNumber;
+            this.OperatorType = templateRow.OperatorType;
+            this.Operator = templateRow.Operator;
+
+            foreach (SOARolePropertyValue srv in templateRow.Values)
+            {
+                SOARolePropertyValue newSrv = new SOARolePropertyValue(srv.Column);
+
+                newSrv.Value = srv.Value;
+
+                this.Values.Add(newSrv);
+            }
+        }
+
         [ORFieldMapping("ROW_NUMBER")]
         public int RowNumber
         {
@@ -233,8 +257,15 @@ namespace MCS.Library.SOA.DataObjects
         {
             SOARolePropertyDefinitionCollection result = SOARolePropertyDefinition.EmptyInstance;
 
-            if (this.Role != null)
-                result = ((SOARole)this.Role).PropertyDefinitions;
+            if (SOARoleContext.Current != null)
+            {
+                result = SOARoleContext.Current.PropertyDefinitions;
+            }
+            else
+            {
+                if (this.Role != null)
+                    result = ((SOARole)this.Role).PropertyDefinitions;
+            }
 
             return result;
         }

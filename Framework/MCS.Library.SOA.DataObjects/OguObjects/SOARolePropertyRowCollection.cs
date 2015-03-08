@@ -30,16 +30,6 @@ namespace MCS.Library.SOA.DataObjects
             this._Role = role;
         }
 
-        internal void EnsureRole(SOARolePropertyDefinitionCollection propertyDefines)
-        {
-            if (this._Role == null)
-            {
-                this._Role = new SOARole(propertyDefines);
-
-                this.ForEach(row => row.Role = this._Role);
-            }
-        }
-
         public SOARolePropertyRowCollection Query(params SOARolePropertiesQueryParam[] queryParams)
         {
             queryParams.NullCheck("queryParams");
@@ -216,8 +206,6 @@ namespace MCS.Library.SOA.DataObjects
 
         public void FillCreateActivityParams(WfCreateActivityParamCollection capc, SOARolePropertyDefinitionCollection definitions, PropertyDefineCollection definedProperties)
         {
-            this.EnsureRole(definitions);
-
             capc.NullCheck("capc");
             definitions.NullCheck("definitions");
 

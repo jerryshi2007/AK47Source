@@ -96,16 +96,16 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             row1.Values.Add(new SOARolePropertyValue(pds["OperatorType"]) { Value = "User" });
             row1.Values.Add(new SOARolePropertyValue(pds["Operator"]) { Value = "fanhy" });
 
-            SOARolePropertyRow row2 = new SOARolePropertyRow() { RowNumber = 2, OperatorType = SOARoleOperatorType.User, Operator = "wangli5" };
+            //SOARolePropertyRow row2 = new SOARolePropertyRow() { RowNumber = 2, OperatorType = SOARoleOperatorType.User, Operator = "wangli5" };
 
-            row2.Values.Add(new SOARolePropertyValue(pds["CostCenter"]) { Value = "1002" });
-            row2.Values.Add(new SOARolePropertyValue(pds["PayMethod"]) { Value = "2" });
-            row2.Values.Add(new SOARolePropertyValue(pds["Age"]) { Value = "40" });
-            row2.Values.Add(new SOARolePropertyValue(pds["ActivitySN"]) { Value = "10" });
-            //row2.Values.Add(new SOARolePropertyValue(pds["Condition"]) { Value = "RowOperators.Count > 0" });
-            row2.Values.Add(new SOARolePropertyValue(pds["ActivityCode"]) { Value = "Approver1" });
-            row2.Values.Add(new SOARolePropertyValue(pds["OperatorType"]) { Value = "User" });
-            row2.Values.Add(new SOARolePropertyValue(pds["Operator"]) { Value = "wangli5" });
+            //row2.Values.Add(new SOARolePropertyValue(pds["CostCenter"]) { Value = "1002" });
+            //row2.Values.Add(new SOARolePropertyValue(pds["PayMethod"]) { Value = "2" });
+            //row2.Values.Add(new SOARolePropertyValue(pds["Age"]) { Value = "40" });
+            //row2.Values.Add(new SOARolePropertyValue(pds["ActivitySN"]) { Value = "10" });
+            ////row2.Values.Add(new SOARolePropertyValue(pds["Condition"]) { Value = "RowOperators.Count > 0" });
+            //row2.Values.Add(new SOARolePropertyValue(pds["ActivityCode"]) { Value = "Approver1" });
+            //row2.Values.Add(new SOARolePropertyValue(pds["OperatorType"]) { Value = "User" });
+            //row2.Values.Add(new SOARolePropertyValue(pds["Operator"]) { Value = "wangli5" });
 
             SOARolePropertyRow row3 = new SOARolePropertyRow() { RowNumber = 3, OperatorType = SOARoleOperatorType.Role, Operator = RolesDefineConfig.GetConfig().RolesDefineCollection["nestedRole"].Roles };
 
@@ -129,7 +129,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             row4.Values.Add(new SOARolePropertyValue(pds["OperatorType"]) { Value = "User" });
             row4.Values.Add(new SOARolePropertyValue(pds["Operator"]) { Value = "quym" });
 
-            SOARolePropertyRow row5 = new SOARolePropertyRow() { RowNumber = 4, OperatorType = SOARoleOperatorType.User, Operator = "invalidUser" };
+            SOARolePropertyRow row5 = new SOARolePropertyRow() { RowNumber = 5, OperatorType = SOARoleOperatorType.User, Operator = "invalidUser" };
 
             row5.Values.Add(new SOARolePropertyValue(pds["CostCenter"]) { Value = "1001" });
             row5.Values.Add(new SOARolePropertyValue(pds["PayMethod"]) { Value = "1" });
@@ -141,7 +141,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             row5.Values.Add(new SOARolePropertyValue(pds["Operator"]) { Value = "invalidUser" });
 
             rows.Add(row1);
-            rows.Add(row2);
+            //rows.Add(row2);
             rows.Add(row3);
             rows.Add(row4);
             rows.Add(row5);

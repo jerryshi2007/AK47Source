@@ -57,7 +57,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
                 for (int i = 0; i < rows.Count; i++)
                 {
                     SOARolePropertyRow row = rows[i];
-                    Console.Write("Number: {0}", i);
+                    Console.Write("Number: {0}", row.RowNumber);
 
                     foreach (SOARolePropertyValue v in row.Values)
                         Console.Write("; {0}: {1}", v.Column.Name, v.Value);

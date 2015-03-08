@@ -1,8 +1,10 @@
-﻿using MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper;
+﻿using MCS.Library.Core;
+using MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper;
 using MCS.Library.SOA.DataObjects.Workflow;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
 {
@@ -155,6 +157,32 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
         }
 
         [TestMethod]
+        [Description("资源为多行活动矩阵时的，过滤后与审批矩阵能匹配，但是中间有角色的合并测试")]
+        public void FilterAndMergeMatchedActiveMatrixWithRoleAndApprovalMatrixTest()
+        {
+            SOARolePropertiesQueryParam queryParam = new SOARolePropertiesQueryParam();
+
+            queryParam.QueryName = "CostCenter";
+            queryParam.QueryValue = "1002";
+
+            WfActivityMatrixResourceDescriptor resource = ActivityMatrixHelper.PrepareActivityMatrixResourceDescriptor();
+
+            SOARolePropertyRowCollection activityRows = resource.Rows.Query(queryParam);
+
+            int originalCount = activityRows.Count;
+
+            WfApprovalMatrix approvalMatrix = ApprovalMatrixHelper.PrepareApprovalMatrix();
+
+            SOARolePropertyRowCollection approvalRows = approvalMatrix.Rows.Query(queryParam);
+
+            activityRows.MergeToActivityMatrix(resource.PropertyDefinitions, approvalRows, approvalMatrix.PropertyDefinitions);
+
+            activityRows.AssertAndOutputMatrixOperators();
+
+            Assert.AreEqual(3, activityRows.Count);
+        }
+
+        [TestMethod]
         [Description("资源为多行活动矩阵时的，过滤后与审批矩阵能匹配的合并测试")]
         public void MergeMatchedActiveMatrixAndApprovalMatrixProcessTest()
         {
@@ -214,5 +242,21 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
 
             Assert.AreEqual(8, process.Activities.Count);
         }
+
+        //[TestMethod]
+        //[Description("资源为活动矩阵的动态序列化测试")]
+        //public void ActiveMatrixResourceSerializationTest()
+        //{
+        //    WfActivityMatrixResourceDescriptor expected = ActivityMatrixHelper.PrepareActivityMatrixResourceDescriptor();
+
+        //    string serializedData = SerializationHelper.SerializeObjectToString(expected, SerializationFormatterType.Binary);
+
+        //    WfActivityMatrixResourceDescriptor actual = SerializationHelper.DeserializeStringToObject<WfActivityMatrixResourceDescriptor>(serializedData, SerializationFormatterType.Binary);
+
+        //    Assert.AreEqual(expected.PropertyDefinitions.Count, actual.PropertyDefinitions.Count);
+        //    Assert.AreEqual(expected.Rows.Count, actual.Rows.Count);
+
+        //    Assert.AreEqual(expected.PropertyDefinitions.GetAllKeys().Count(), actual.PropertyDefinitions.GetAllKeys().Count());
+        //}
     }
 }

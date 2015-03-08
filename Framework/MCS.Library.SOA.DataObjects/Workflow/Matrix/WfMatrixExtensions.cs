@@ -29,6 +29,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             apRows.NullCheck("apRows");
 
             int maxActivitySN = GetMaxActivitySN(amRows);
+            int maxRowNumber = GetMaxRowNumber(amRows);
 
             List<SOARolePropertyRow> newAmRows = new List<SOARolePropertyRow>();
 
@@ -38,17 +39,17 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
                 while (columnIndex < apDefinitions.Count)
                 {
-                    SOARolePropertyRow amRow = FindMatchedActivityMatrixRow(amRows, apDefinitions[columnIndex].Name, apRow);
+                    SOARolePropertyRow templateRow = null;
+
+                    SOARolePropertyRow amRow = FindMatchedActivityMatrixRow(amRows, apDefinitions[columnIndex].Name, apRow, out templateRow);
 
                     string apUser = apRow.Values.GetValue(apDefinitions[columnIndex].Name, string.Empty);
 
                     if (amRow == null && apUser.IsNotEmpty())
                     {
-                        amRow = new SOARolePropertyRow() { RowNumber = amDefinitions.Count, OperatorType = SOARoleOperatorType.User };
-
                         maxActivitySN += 10;
 
-                        SetCellValue(amRow, amDefinitions, "ActivitySN", maxActivitySN.ToString());
+                        amRow = CreateNewActivityMatrixRow(maxActivitySN, ++maxRowNumber, amDefinitions, templateRow);
 
                         newAmRows.Add(amRow);
                     }
@@ -63,12 +64,32 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             amRows.CopyFrom(newAmRows);
         }
 
+        private static SOARolePropertyRow CreateNewActivityMatrixRow(int activitySN, int rowNumber, SOARolePropertyDefinitionCollection amDefinitions, SOARolePropertyRow templateRow)
+        {
+            SOARolePropertyRow amRow = null;
+
+            if (templateRow != null)
+                amRow = new SOARolePropertyRow(templateRow, rowNumber);
+            else
+                amRow = new SOARolePropertyRow() { RowNumber = rowNumber };
+
+            amRow.OperatorType = SOARoleOperatorType.User;
+            amRow.Operator = string.Empty;
+
+            SetCellValue(amRow, amDefinitions, "Operator", string.Empty);
+            SetCellValue(amRow, amDefinitions, "ActivitySN", activitySN.ToString());
+
+            return amRow;
+        }
+
         private static SOARolePropertyRow FindMatchedActivityMatrixRow(
             IEnumerable<SOARolePropertyRow> amRows,
             string apColumnName,
-            SOARolePropertyRow apRow)
+            SOARolePropertyRow apRow,
+            out SOARolePropertyRow templateRow)
         {
             SOARolePropertyRow result = null;
+            templateRow = null;
 
             foreach (SOARolePropertyRow amRow in amRows)
             {
@@ -78,8 +99,15 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                 {
                     if (string.Compare(apColumnName, activityCode, true) == 0)
                     {
-                        result = amRow;
-                        break;
+                        if (amRow.OperatorType == SOARoleOperatorType.User)
+                        {
+                            result = amRow;
+                            break;
+                        }
+                        else
+                        {
+                            templateRow = amRow;
+                        }
                     }
                 }
             }
@@ -153,6 +181,19 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
                 if (activitySN > result)
                     result = activitySN;
+            }
+
+            return result;
+        }
+
+        private static int GetMaxRowNumber(IEnumerable<SOARolePropertyRow> amRows)
+        {
+            int result = 0;
+
+            foreach (SOARolePropertyRow row in amRows)
+            {
+                if (row.RowNumber > result)
+                    result = row.RowNumber;
             }
 
             return result;

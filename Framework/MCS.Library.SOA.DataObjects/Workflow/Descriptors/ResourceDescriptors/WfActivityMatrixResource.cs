@@ -100,8 +100,6 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
         protected internal override void FillUsers(OguDataCollection<IUser> users)
         {
-            this.Rows.EnsureRole(this.PropertyDefinitions);
-
             SOARoleContext.DoAction(this.PropertyDefinitions, this.ProcessInstance, (context) =>
             {
                 SOARolePropertyRowCollection matchedRows = this.Rows.Query(context.QueryParams);
@@ -127,15 +125,11 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
         public void Fill(WfCreateActivityParamCollection capc, PropertyDefineCollection definedProperties)
         {
-            this.Rows.EnsureRole(this.PropertyDefinitions);
-
             SOARoleContext.DoAction(this.PropertyDefinitions, this.ProcessInstance, (context) =>
             {
                 SOARolePropertyRowCollection matchedRows = this.Rows.Query(context.QueryParams);
 
                 matchedRows = matchedRows.ExtractMatrixRows();
-
-                matchedRows.EnsureRole(this.PropertyDefinitions);
 
                 this.MergeExternalMatrix(matchedRows, context.QueryParams);
 
@@ -175,9 +169,12 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         {
             IWfMatrixContainer externalMatrix = this.GetExternalMatrix();
 
-            SOARolePropertyRowCollection approvalRows = externalMatrix.Rows.Query(queryParams, true);
+            SOARoleContext.DoNewContextAction(externalMatrix.PropertyDefinitions, this.ProcessInstance, (context) =>
+            {
+                SOARolePropertyRowCollection approvalRows = externalMatrix.Rows.Query(queryParams, true);
 
-            matrixRows.MergeToActivityMatrix(this.PropertyDefinitions, approvalRows, externalMatrix.PropertyDefinitions);
+                matrixRows.MergeToActivityMatrix(this.PropertyDefinitions, approvalRows, externalMatrix.PropertyDefinitions);
+            });
 
             return matrixRows;
         }
