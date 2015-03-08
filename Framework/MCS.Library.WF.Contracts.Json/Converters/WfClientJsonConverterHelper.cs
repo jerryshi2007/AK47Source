@@ -53,6 +53,7 @@ namespace MCS.Library.WF.Contracts.Json.Converters
             JSONSerializerExecute.RegisterConverter(typeof(WfClientRolePropertyDefinitionJsonConverter));
             JSONSerializerExecute.RegisterConverter(typeof(WfClientRolePropertyValueJsonConverter));
             JSONSerializerExecute.RegisterConverter(typeof(WfClientActivityMatrixResourceDescriptorJsonConverter));
+            JSONSerializerExecute.RegisterConverter(typeof(WfClientApprovalMatrixConverterJsonConverter));
             JSONSerializerExecute.RegisterConverter(typeof(WfCreateClientDynamicProcessParamsJsonConverter));
 
             JSONSerializerExecute.RegisterConverter(typeof(WfClientNextStepJsonConverter));

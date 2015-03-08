@@ -92,8 +92,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Define.cs" />
+    <Compile Include="Common\ExcelExtensions.cs" />
     <Compile Include="Common\Extensions.cs" />
     <Compile Include="DataObjects\WfClientApplicationConverter.cs" />
+    <Compile Include="DataObjects\WfClientApprovalMatrixConverter.cs" />
     <Compile Include="DataObjects\WfClientDelegationConverter.cs" />
     <Compile Include="DataObjects\WfClientOpinionConverter.cs" />
     <Compile Include="DataObjects\WfClientProcessQueryConditionConverter.cs" />

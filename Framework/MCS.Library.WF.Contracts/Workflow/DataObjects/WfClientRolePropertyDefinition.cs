@@ -1,5 +1,6 @@
 ﻿using MCS.Library.Core;
 using MCS.Library.Data.DataObjects;
+using MCS.Library.WF.Contracts.Workflow.Descriptors;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -104,6 +105,27 @@ namespace MCS.Library.WF.Contracts.Workflow.DataObjects
 
             foreach (DataColumn column in columns)
                 this.Add(new WfClientRolePropertyDefinition() { Name = column.ColumnName, SortOrder = columnIndex++ });
+        }
+
+        /// <summary>
+        /// 矩阵的类型
+        /// </summary>
+        public WfClientMatrixType MatrixType
+        {
+            get
+            {
+                WfClientMatrixType result = WfClientMatrixType.ApprovalMatrix;
+
+                if (this.ContainsKey("OperatorType") || this.ContainsKey("Operator"))
+                {
+                    result = WfClientMatrixType.RoleMatrix;
+
+                    if (this.ContainsKey("ActivitySN") || this.ContainsKey("ActivityName"))
+                        result = WfClientMatrixType.ActivityMatrix;
+                }
+
+                return result;
+            }
         }
     }
 }

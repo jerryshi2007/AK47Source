@@ -21,6 +21,20 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             return matrix;
         }
 
+        /// <summary>
+        /// 准备一个一行的矩阵
+        /// </summary>
+        /// <returns></returns>
+        public static WfApprovalMatrix PrepareOneRowApprovalMatrixResourceDescriptor()
+        {
+            WfApprovalMatrix resource = new WfApprovalMatrix();
+
+            resource.PropertyDefinitions.CopyFrom(PreparePropertiesDefinition());
+            resource.Rows.Add(PrepareOneRow(resource.PropertyDefinitions));
+
+            return resource;
+        }
+
         private static SOARolePropertyDefinitionCollection PreparePropertiesDefinition()
         {
             SOARolePropertyDefinitionCollection propertiesDefinition = new SOARolePropertyDefinitionCollection();
@@ -33,6 +47,18 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             return propertiesDefinition;
         }
 
+        private static SOARolePropertyRow PrepareOneRow(SOARolePropertyDefinitionCollection pds)
+        {
+            SOARolePropertyRow row = new SOARolePropertyRow() { RowNumber = 1, OperatorType = SOARoleOperatorType.User, Operator = string.Empty };
+
+            row.Values.Add(new SOARolePropertyValue(pds["CostCenter"]) { Value = "1001" });
+            row.Values.Add(new SOARolePropertyValue(pds["Approver1"]) { Value = "yangrui1" });
+            row.Values.Add(new SOARolePropertyValue(pds["Approver2"]) { Value = "quym" });
+            row.Values.Add(new SOARolePropertyValue(pds["Approver3"]) { Value = "liming" });
+
+            return row;
+        }
+
         private static SOARolePropertyRowCollection PrepareRows(SOARolePropertyDefinitionCollection pds)
         {
             SOARolePropertyRowCollection rows = new SOARolePropertyRowCollection();
@@ -40,7 +66,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             SOARolePropertyRow row1 = new SOARolePropertyRow() { RowNumber = 1, OperatorType = SOARoleOperatorType.User };
 
             row1.Values.Add(new SOARolePropertyValue(pds["CostCenter"]) { Value = "1001" });
-            row1.Values.Add(new SOARolePropertyValue(pds["Approver1"]) { Value = "fanhy" });
+            row1.Values.Add(new SOARolePropertyValue(pds["Approver1"]) { Value = "yangrui1" });
             row1.Values.Add(new SOARolePropertyValue(pds["Approver2"]) { Value = "quym" });
             row1.Values.Add(new SOARolePropertyValue(pds["Approver3"]) { Value = "liming" });
 
@@ -61,7 +87,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             SOARolePropertyRow row4 = new SOARolePropertyRow() { RowNumber = 4, OperatorType = SOARoleOperatorType.User };
 
             row4.Values.Add(new SOARolePropertyValue(pds["CostCenter"]) { Value = "1003" });
-            row4.Values.Add(new SOARolePropertyValue(pds["Approver1"]) { Value = "fanhy" });
+            row4.Values.Add(new SOARolePropertyValue(pds["Approver1"]) { Value = "yangrui1" });
             row4.Values.Add(new SOARolePropertyValue(pds["Approver2"]) { Value = string.Empty });
             row4.Values.Add(new SOARolePropertyValue(pds["Approver3"]) { Value = "liming" });
 

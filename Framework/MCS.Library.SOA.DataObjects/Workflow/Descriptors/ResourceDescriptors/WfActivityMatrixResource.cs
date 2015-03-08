@@ -16,7 +16,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
     /// </summary>
     [Serializable]
     [XElementSerializable]
-    public class WfActivityMatrixResourceDescriptor : WfResourceDescriptor, IWfCreateActivityParamsGenerator
+    public class WfActivityMatrixResourceDescriptor : WfResourceDescriptor, IWfCreateActivityParamsGenerator, IWfMatrixContainer
     {
         public static readonly WfActivityMatrixResourceDescriptor EmptyInstance = new WfActivityMatrixResourceDescriptor();
 
@@ -87,13 +87,29 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             }
         }
 
+        /// <summary>
+        /// 矩阵的类型
+        /// </summary>
+        public WfMatrixType MatrixType
+        {
+            get
+            {
+                return this.PropertyDefinitions.MatrixType;
+            }
+        }
+
         protected internal override void FillUsers(OguDataCollection<IUser> users)
         {
+            this.Rows.EnsureRole(this.PropertyDefinitions);
+
             SOARoleContext.DoAction(this.PropertyDefinitions, this.ProcessInstance, (context) =>
             {
                 SOARolePropertyRowCollection matchedRows = this.Rows.Query(context.QueryParams);
 
                 matchedRows = matchedRows.ExtractMatrixRows();
+
+                this.MergeExternalMatrix(matchedRows, context.QueryParams);
+
                 foreach (SOARolePropertyRowUsers rowUsers in matchedRows.GenerateRowsUsers())
                 {
                     foreach (IUser user in rowUsers.Users)
@@ -111,11 +127,17 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
         public void Fill(WfCreateActivityParamCollection capc, PropertyDefineCollection definedProperties)
         {
+            this.Rows.EnsureRole(this.PropertyDefinitions);
+
             SOARoleContext.DoAction(this.PropertyDefinitions, this.ProcessInstance, (context) =>
             {
                 SOARolePropertyRowCollection matchedRows = this.Rows.Query(context.QueryParams);
 
                 matchedRows = matchedRows.ExtractMatrixRows();
+
+                matchedRows.EnsureRole(this.PropertyDefinitions);
+
+                this.MergeExternalMatrix(matchedRows, context.QueryParams);
 
                 matchedRows.FillCreateActivityParams(capc, this.PropertyDefinitions, definedProperties);
             });
@@ -137,7 +159,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         /// 得到外部矩阵
         /// </summary>
         /// <returns></returns>
-        public WfApprovalMatrix GetExternalMatrix()
+        public IWfMatrixContainer GetExternalMatrix()
         {
             WfApprovalMatrix result = null;
 
@@ -147,6 +169,17 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                 result = new WfApprovalMatrix();
 
             return result;
+        }
+
+        private SOARolePropertyRowCollection MergeExternalMatrix(SOARolePropertyRowCollection matrixRows, IEnumerable<SOARolePropertiesQueryParam> queryParams)
+        {
+            IWfMatrixContainer externalMatrix = this.GetExternalMatrix();
+
+            SOARolePropertyRowCollection approvalRows = externalMatrix.Rows.Query(queryParams, true);
+
+            matrixRows.MergeToActivityMatrix(this.PropertyDefinitions, approvalRows, externalMatrix.PropertyDefinitions);
+
+            return matrixRows;
         }
     }
 }

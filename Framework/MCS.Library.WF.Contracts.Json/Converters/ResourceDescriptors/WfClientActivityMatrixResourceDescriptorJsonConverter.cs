@@ -36,7 +36,7 @@ namespace MCS.Library.WF.Contracts.Json.Converters
             dictionary["definitions"] = resource.PropertyDefinitions;
             dictionary["rows"] = resource.Rows;
 
-            FillColumnInfoToRowValues(resource.PropertyDefinitions, resource.Rows);
+            resource.Rows.FillColumnInfoToRowValues(resource.PropertyDefinitions);
 
             return dictionary;
         }
@@ -51,19 +51,6 @@ namespace MCS.Library.WF.Contracts.Json.Converters
             get
             {
                 return _SupportedTypes;
-            }
-        }
-
-        private static void FillColumnInfoToRowValues(WfClientRolePropertyDefinitionCollection columns, WfClientRolePropertyRowCollection rows)
-        {
-            foreach (WfClientRolePropertyRow row in rows)
-            {
-                foreach (WfClientRolePropertyValue pv in row.Values)
-                {
-                    WfClientRolePropertyDefinition column = columns[pv.Column.Name];
-
-                    pv.SetColumnInfo(column);
-                }
             }
         }
     }

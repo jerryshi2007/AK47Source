@@ -329,7 +329,34 @@ namespace MCS.Library.WF.Contracts.Common.Test
             AreSame(expected.Rows, actual.Rows);
         }
 
+        public static void AreSame(this WfClientApprovalMatrix expected, WfApprovalMatrix actual)
+        {
+            AssertStringEqual(expected.ID, actual.ID);
+
+            AreSame(expected.PropertyDefinitions, actual.PropertyDefinitions);
+
+            AreSame(expected.Rows, actual.Rows);
+        }
+
+        public static void AreSame(this WfApprovalMatrix expected, WfApprovalMatrix actual)
+        {
+            AssertStringEqual(expected.ID, actual.ID);
+
+            AreSame(expected.PropertyDefinitions, actual.PropertyDefinitions);
+            AreSame(expected.Rows, actual.Rows);
+        }
+
         public static void AreSame(this WfClientRolePropertyDefinitionCollection expected, SOARolePropertyDefinitionCollection actual)
+        {
+            Assert.AreEqual(expected.Count, actual.Count);
+
+            for (int i = 0; i < expected.Count; i++)
+            {
+                AreSame(expected[i], actual[i]);
+            }
+        }
+
+        public static void AreSame(this SOARolePropertyDefinitionCollection expected, SOARolePropertyDefinitionCollection actual)
         {
             Assert.AreEqual(expected.Count, actual.Count);
 
@@ -348,7 +375,26 @@ namespace MCS.Library.WF.Contracts.Common.Test
             Assert.AreEqual(expected.DefaultValue, actual.DefaultValue);
         }
 
+        public static void AreSame(this SOARolePropertyDefinition expected, SOARolePropertyDefinition actual)
+        {
+            AssertStringEqual(expected.Name, actual.Name);
+            Assert.AreEqual(expected.DataType, actual.DataType);
+            AssertStringEqual(expected.Caption, actual.Caption);
+            Assert.AreEqual(expected.SortOrder, actual.SortOrder);
+            Assert.AreEqual(expected.DefaultValue, actual.DefaultValue);
+        }
+
         public static void AreSame(this WfClientRolePropertyRowCollection expected, SOARolePropertyRowCollection actual)
+        {
+            Assert.AreEqual(expected.Count, actual.Count);
+
+            for (int i = 0; i < expected.Count; i++)
+            {
+                AreSame(expected[i], actual[i]);
+            }
+        }
+
+        public static void AreSame(this SOARolePropertyRowCollection expected, SOARolePropertyRowCollection actual)
         {
             Assert.AreEqual(expected.Count, actual.Count);
 
@@ -365,6 +411,20 @@ namespace MCS.Library.WF.Contracts.Common.Test
             Assert.AreEqual(expected.RowNumber, actual.RowNumber);
 
             foreach (WfClientRolePropertyValue pve in expected.Values)
+            {
+                string actualValue = actual.Values.GetValue(pve.Column.Name, string.Empty);
+
+                AssertStringEqual(pve.Value, actualValue);
+            }
+        }
+
+        public static void AreSame(this SOARolePropertyRow expected, SOARolePropertyRow actual)
+        {
+            AssertStringEqual(expected.Operator, actual.Operator);
+            Assert.AreEqual(expected.OperatorType, actual.OperatorType);
+            Assert.AreEqual(expected.RowNumber, actual.RowNumber);
+
+            foreach (SOARolePropertyValue pve in expected.Values)
             {
                 string actualValue = actual.Values.GetValue(pve.Column.Name, string.Empty);
 

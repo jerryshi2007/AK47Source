@@ -94,6 +94,19 @@ namespace MCS.Library.WF.Contracts.Workflow.DataObjects
     [Serializable]
     public class WfClientRolePropertyRowCollection : TableRowCollectionBase<WfClientRolePropertyRow, WfClientRolePropertyDefinition, WfClientRolePropertyValue, WfClientRolePropertyValueCollection, string>
     {
+        public void FillColumnInfoToRowValues(WfClientRolePropertyDefinitionCollection columns)
+        {
+            foreach (WfClientRolePropertyRow row in this)
+            {
+                foreach (WfClientRolePropertyValue pv in row.Values)
+                {
+                    WfClientRolePropertyDefinition column = columns[pv.Column.Name];
+
+                    pv.SetColumnInfo(column);
+                }
+            }
+        }
+
         /// <summary>
         /// 从DataRow构造行信息
         /// </summary>

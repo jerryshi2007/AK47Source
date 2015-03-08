@@ -1,6 +1,7 @@
 ﻿using MCS.Library.Core;
 using MCS.Library.OGUPermission;
 using MCS.Library.SOA.DataObjects.Workflow;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
 {
     public static class WfOutputHelper
     {
-        public static void OutputMainStream(IWfProcess process)
+        public static void OutputMainStream(this IWfProcess process)
         {
             WfMainStreamActivityDescriptorCollection mainStreamActivities = process.GetMainStreamActivities(true);
 
@@ -31,7 +32,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             Console.WriteLine("Main Stream: {0}", strB.ToString());
         }
 
-        public static void OutputEveryActivities(IWfProcess process)
+        public static void OutputEveryActivities(this IWfProcess process)
         {
             StringBuilder strB = new StringBuilder();
 
@@ -40,6 +41,32 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             OutputActivityInfoRecursively(process.Descriptor.InitialActivity, elapsedTransitions, strB);
 
             Console.WriteLine("Every Step: {0}", strB.ToString());
+        }
+
+        public static void AssertAndOutputMatrixOperators(this IWfMatrixContainer matrix)
+        {
+            matrix.NullCheck("matrix");
+
+            matrix.Rows.AssertAndOutputMatrixOperators();
+        }
+
+        public static void AssertAndOutputMatrixOperators(this SOARolePropertyRowCollection rows)
+        {
+            if (rows != null)
+            {
+                for (int i = 0; i < rows.Count; i++)
+                {
+                    SOARolePropertyRow row = rows[i];
+                    Console.Write("Number: {0}", i);
+
+                    foreach (SOARolePropertyValue v in row.Values)
+                        Console.Write("; {0}: {1}", v.Column.Name, v.Value);
+
+                    Console.WriteLine();
+
+                    Assert.AreEqual(row.Operator, row.Values.GetValue("Operator", string.Empty));
+                }
+            }
         }
 
         private static void OutputActivityInfoRecursively(IWfActivityDescriptor actDesp, Dictionary<string, IWfTransitionDescriptor> elapsedTransitions, StringBuilder strB)

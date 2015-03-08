@@ -3,6 +3,7 @@ using MCS.Library.Data.DataObjects;
 using MCS.Library.Office.OpenXml.Excel;
 using MCS.Library.Passport;
 using MCS.Library.Principal;
+using MCS.Library.SOA.DataObjects.Workflow;
 using MCS.Library.WcfExtensions;
 using MCS.Library.WF.Contracts.Common.Test;
 using MCS.Library.WF.Contracts.Json.Converters.DataObjects;
@@ -329,6 +330,26 @@ namespace WfOperationServices.Test.Descriptors
             Console.WriteLine(info);
 
             Assert.IsTrue(info.IndexOf("1个流程模板文件") >= 0);
+        }
+
+        [TestMethod()]
+        public void ImportApprovalMatrixTest()
+        {
+            InitPrincipal("Requestor");
+
+            WfApprovalMatrix matrix = ApprovalMatrixHelper.PrepareServerApprovalMatrix();
+
+            WfClientProcessDescriptorServiceProxy.Instance.ImportApprovalMatrix(matrix.ID, matrix.ToExcelStream());
+
+            Stream stream = WfClientProcessDescriptorServiceProxy.Instance.ExportApprovalMatrix(matrix.ID);
+
+            WorkBook workBook = WorkBook.Load(stream);
+
+            WfApprovalMatrix deserialized = workBook.ToApprovalMatrix();
+
+            deserialized.ID = matrix.ID;
+
+            matrix.AreSame(deserialized);
         }
 
         public static void InitPrincipal(string userKey)

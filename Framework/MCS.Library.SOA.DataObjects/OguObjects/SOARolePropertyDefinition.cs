@@ -23,6 +23,8 @@ namespace MCS.Library.SOA.DataObjects
     {
         private static readonly string[] ReservedPropertyName = new string[] { "OperatorType", "Operator", "ActivitySN", "ActivityName", "IsMergeable" };
 
+        public static readonly SOARolePropertyDefinitionCollection EmptyInstance = new SOARolePropertyDefinitionCollection();
+  
         public SOARolePropertyDefinition()
         {
         }

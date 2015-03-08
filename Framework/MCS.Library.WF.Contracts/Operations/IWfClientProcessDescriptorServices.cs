@@ -138,5 +138,21 @@ namespace MCS.Library.WF.Contracts.Operations
         /// <returns></returns>
         [OperationContract]
         string ImportProcessDescriptors(Stream inputStream);
+
+        /// <summary>
+        /// 导出审批矩阵到Excel
+        /// </summary>
+        /// <param name="matrixID"></param>
+        /// <returns></returns>
+        [OperationContract]
+        Stream ExportApprovalMatrix(string matrixID);
+
+        /// <summary>
+        /// 从Excel导入审批矩阵
+        /// </summary>
+        /// <param name="matrixID"></param>
+        /// <param name="inputStream"></param>
+        [OperationContract]
+        void ImportApprovalMatrix(string matrixID, Stream inputStream);
     }
 }

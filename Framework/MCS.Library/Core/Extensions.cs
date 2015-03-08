@@ -133,6 +133,22 @@ namespace MCS.Library.Core
         }
 
         /// <summary>
+        /// 如果字符串为空，则返回替代的字符串
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="replacedData"></param>
+        /// <returns></returns>
+        public static string NullOrEmptyIs(this string data, string replacedData)
+        {
+            string result = data;
+
+            if (result.IsNullOrEmpty())
+                result = replacedData;
+
+            return result;
+        }
+
+        /// <summary>
         /// 如果字符串为空，则执行Action
         /// </summary>
         /// <param name="data"></param>

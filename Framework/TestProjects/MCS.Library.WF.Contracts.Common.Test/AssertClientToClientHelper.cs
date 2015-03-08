@@ -326,6 +326,14 @@ namespace MCS.Library.WF.Contracts.Common.Test
             AreSame(expected.Rows, actual.Rows);
         }
 
+        public static void AreSame(this WfClientApprovalMatrix expected, WfClientApprovalMatrix actual)
+        {
+            AssertStringEqual(expected.ID, actual.ID);
+
+            AreSame(expected.PropertyDefinitions, actual.PropertyDefinitions);
+            AreSame(expected.Rows, actual.Rows);
+        }
+
         public static void AreSame(this WfClientRolePropertyDefinitionCollection expected, WfClientRolePropertyDefinitionCollection actual)
         {
             Assert.AreEqual(expected.Count, actual.Count);
@@ -412,8 +420,8 @@ namespace MCS.Library.WF.Contracts.Common.Test
             AssertStringEqual(expected.DepartmentName, actual.DepartmentName);
             AssertStringEqual(expected.ProcessStatus, actual.ProcessStatus);
 
-            Assert.AreEqual(expected.BeginStartTime, actual.BeginStartTime);
-            Assert.AreEqual(expected.EndStartTime, actual.EndStartTime);
+            AssertDateTimeEqual(expected.BeginStartTime, actual.BeginStartTime);
+            AssertDateTimeEqual(expected.EndStartTime, actual.EndStartTime);
 
             Assert.AreEqual(expected.AssigneesSelectType, actual.AssigneesSelectType);
             Assert.AreEqual(expected.AssigneeExceptionFilterType, actual.AssigneeExceptionFilterType);
@@ -424,6 +432,19 @@ namespace MCS.Library.WF.Contracts.Common.Test
             {
                 expected.CurrentAssignees[i].AreSame(actual.CurrentAssignees[i]);
             }
+        }
+
+        private static void AssertDateTimeEqual(DateTime expected, DateTime actual)
+        {
+            Assert.AreEqual(expected.Year, actual.Year);
+            Assert.AreEqual(expected.Month, actual.Month);
+            Assert.AreEqual(expected.Day, actual.Day);
+
+            Assert.AreEqual(expected.Hour, actual.Hour);
+            Assert.AreEqual(expected.Minute, actual.Minute);
+            Assert.AreEqual(expected.Second, actual.Second);
+
+            Assert.AreEqual(expected.Millisecond, actual.Millisecond);
         }
 
         private static void AssertStringEqual(string expected, string actual)

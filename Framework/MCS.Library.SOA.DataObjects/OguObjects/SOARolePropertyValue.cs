@@ -94,6 +94,11 @@ namespace MCS.Library.SOA.DataObjects
             return result;
         }
 
+        /// <summary>
+        /// 匹配一个条件
+        /// </summary>
+        /// <param name="queryParam"></param>
+        /// <returns></returns>
         public bool MatchQueryValue(SOARolePropertiesQueryParam queryParam)
         {
             bool matched = false;
@@ -104,6 +109,24 @@ namespace MCS.Library.SOA.DataObjects
 
                 matched = queryParam.MatchQueryValue(cellValue);
             }
+
+            return matched;
+        }
+
+        /// <summary>
+        /// 匹配一组条件
+        /// </summary>
+        /// <param name="queryParams"></param>
+        /// <param name="matchAny">任意一项匹配就返回True还是全部匹配返回True</param>
+        /// <returns></returns>
+        public bool MatchQueryValues(IEnumerable<SOARolePropertiesQueryParam> queryParams, bool matchAny = false)
+        {
+            bool matched = false;
+
+            if (matchAny == false)
+                matched = queryParams.AllAndNotEmpty(queryParam => MatchQueryValue(queryParam));
+            else
+                matched = queryParams.Any(queryParam => MatchQueryValue(queryParam));
 
             return matched;
         }

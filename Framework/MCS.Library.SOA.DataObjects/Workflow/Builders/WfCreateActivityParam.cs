@@ -150,7 +150,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow.Builders
 
         private static void ProcessActivityPropertyByRoleJsonProperty(WfCreateActivityParam cap, SOARolePropertyRow row, SOARolePropertyDefinition pd)
         {
-            string json = row.Values.GetValue(pd.Name, string.Empty);
+            string json = row.Values.GetValue(pd.Name, row.GetPropertyDefinitions().GetColumnDefaultValue(pd.Name, string.Empty));
 
             if (json.IsNotEmpty())
             {
@@ -179,7 +179,11 @@ namespace MCS.Library.SOA.DataObjects.Workflow.Builders
             {
                 string actPropertyName = pd.Name.Substring(prefixName.Length);
 
-                cap.Template.Properties.TrySetValue(actPropertyName, row.Values.GetValue(pd.Name, string.Empty));
+                string propertyValue = row.Values.GetValue(pd.Name, row.GetPropertyDefinitions().GetColumnDefaultValue(pd.Name, string.Empty));
+
+                cap.Template.Properties.TrySetValue(actPropertyName, propertyValue);
+
+                cap.RoleDefineActivityPropertyNames.Add(actPropertyName);
             }
         }
     }

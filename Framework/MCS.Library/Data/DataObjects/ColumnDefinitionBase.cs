@@ -5,50 +5,10 @@ using System.Text;
 using MCS.Library.Data.Mapping;
 using System.Runtime.Serialization;
 using System.Collections;
+using MCS.Library.Core;
 
 namespace MCS.Library.Data.DataObjects
 {
-    /// <summary>
-    /// 参照TypeCode枚举值
-    /// </summary>
-    public enum ColumnDataType
-    {
-        /// <summary>
-        /// 
-        /// </summary>
-        DataObject = 1,
-
-        /// <summary>
-        /// 
-        /// </summary>
-        Boolean = 3,
-
-        /// <summary>
-        /// 
-        /// </summary>
-        Integer = 9,
-
-        /// <summary>
-        /// 
-        /// </summary>
-        Decimal = 15,
-
-        /// <summary>
-        /// 
-        /// </summary>
-        DateTime = 16,
-
-        /// <summary>
-        /// 
-        /// </summary>
-        String = 18,
-
-        /// <summary>
-        /// 
-        /// </summary>
-        Enum = 20
-    }
-
     /// <summary>
     /// Table定义中的列定义
     /// </summary>
@@ -160,8 +120,31 @@ namespace MCS.Library.Data.DataObjects
         /// <summary>
         /// 
         /// </summary>
-        public ColumnDefinitionCollectionBase()
+        public ColumnDefinitionCollectionBase() :
+            base(StringComparer.OrdinalIgnoreCase)
         {
+        }
+
+        /// <summary>
+        /// 得到列的默认值
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="name"></param>
+        /// <param name="defaultValue"></param>
+        /// <returns></returns>
+        public T GetColumnDefaultValue<T>(string name, T defaultValue)
+        {
+            T result = defaultValue;
+
+            if (this.ContainsKey(name))
+            {
+                object data = this[name].DefaultValue;
+
+                if (data != null)
+                    result = (T)DataConverter.ChangeType(data, typeof(T));
+            }
+
+            return result;
         }
 
         /// <summary>

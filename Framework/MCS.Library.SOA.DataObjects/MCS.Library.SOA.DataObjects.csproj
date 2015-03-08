@@ -184,6 +184,7 @@
     <Compile Include="OguObjects\OguPermissionObjectConverter.cs" />
     <Compile Include="OguObjects\OguRoleConverter.cs" />
     <Compile Include="OguObjects\OguPermissionObjectBase.cs" />
+    <Compile Include="OguObjects\SOARolePropertyRowCollection.cs" />
     <Compile Include="OguObjects\UserIMAddress.cs" />
     <Compile Include="OguObjects\SOARoleExtension.cs" />
     <Compile Include="OguObjects\SOARolePropertyRowRoles.cs" />
@@ -489,6 +490,7 @@
     <Compile Include="Workflow\Executors\Designer\WfDeleteTemplateExecutor.cs" />
     <Compile Include="Workflow\Executors\Designer\WfDesignerExecutorDataContext.cs" />
     <Compile Include="Workflow\Executors\Designer\WfDesignerExecutorDelegations.cs" />
+    <Compile Include="Workflow\Executors\Designer\WfImportApprovalMatrixExecutor.cs" />
     <Compile Include="Workflow\Executors\Designer\WfImportTemplateExecutor.cs" />
     <Compile Include="Workflow\Executors\Designer\WfSaveTemplateExecutor.cs" />
     <Compile Include="Workflow\Executors\WfAsyncCancelProcessExecutor.cs" />
@@ -508,6 +510,7 @@
     <Compile Include="Workflow\Importers\WfProcessImporter.cs" />
     <Compile Include="Workflow\Importers\WfProcessImporterContext.cs" />
     <Compile Include="Workflow\Interfaces\IWfDelegationReader.cs" />
+    <Compile Include="Workflow\Interfaces\IWfMatrixContainer.cs" />
     <Compile Include="Workflow\Interfaces\IWfProcessAdminRole.cs" />
     <Compile Include="Workflow\Converters\WfNetworkCredentialConverter.cs" />
     <Compile Include="Workflow\DataObjects\WfAcl.cs" />
@@ -647,11 +650,14 @@
     <Compile Include="Workflow\Common\Enumrations.cs" />
     <Compile Include="Workflow\Descriptors\ResourceDescriptors\WfUserResourceDescriptor.cs" />
     <Compile Include="Workflow\Interfaces\IWfMatrixQuery.cs" />
+    <Compile Include="Workflow\Matrix\ExcelExtensions.cs" />
     <Compile Include="Workflow\Matrix\WfApprovalMatrix.cs" />
     <Compile Include="Workflow\Matrix\WfApprovalMatrixAdapter.cs" />
+    <Compile Include="Workflow\Matrix\WfMatrixContainerBase.cs" />
     <Compile Include="Workflow\Matrix\WfMatrixDefinitionCache.cs" />
     <Compile Include="Workflow\Matrix\WfMatrixDefinitionExportOptions.cs" />
     <Compile Include="Workflow\Matrix\WfMatrixDimensionDefinitionAdapter.cs" />
+    <Compile Include="Workflow\Matrix\WfMatrixExtensions.cs" />
     <Compile Include="Workflow\Matrix\WfMatrixQueryParam.cs" />
     <Compile Include="Workflow\Matrix\WfMatrix.cs" />
     <Compile Include="Workflow\Matrix\WfMatrixAdapter.cs" />

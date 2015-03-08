@@ -1,5 +1,5 @@
 ﻿using MCS.Library.Core;
-using MCS.Library.WF.Contracts.Workflow.DataObjects;
+using MCS.Library.WF.Contracts.Workflow.Descriptors;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,11 +8,14 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MCS.Library.WF.Contracts.Workflow.Descriptors
+namespace MCS.Library.WF.Contracts.Workflow.DataObjects
 {
+    /// <summary>
+    /// 客户端审批矩阵
+    /// </summary>
     [DataContract]
     [Serializable]
-    public class WfClientActivityMatrixResourceDescriptor : WfClientResourceDescriptor, IWfClientMatrixContainer
+    public class WfClientApprovalMatrix : IWfClientMatrixContainer
     {
         private WfClientRolePropertyDefinitionCollection _PropertyDefinitions = null;
         private WfClientRolePropertyRowCollection _Rows = null;
@@ -20,7 +23,7 @@ namespace MCS.Library.WF.Contracts.Workflow.Descriptors
         /// <summary>
         /// 构造方法
         /// </summary>
-        public WfClientActivityMatrixResourceDescriptor()
+        public WfClientApprovalMatrix()
         {
         }
 
@@ -28,9 +31,18 @@ namespace MCS.Library.WF.Contracts.Workflow.Descriptors
         /// 从DataTable构造
         /// </summary>
         /// <param name="table"></param>
-        public WfClientActivityMatrixResourceDescriptor(DataTable table)
+        public WfClientApprovalMatrix(DataTable table)
         {
             this.FromDataTable(table);
+        }
+
+        /// <summary>
+        /// 矩阵的ID
+        /// </summary>
+        public string ID
+        {
+            get;
+            set;
         }
 
         /// <summary>

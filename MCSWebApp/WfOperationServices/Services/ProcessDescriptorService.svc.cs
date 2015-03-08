@@ -223,7 +223,6 @@ namespace WfOperationServices.Services
         /// <param name="delegation"></param>
         [WfJsonFormatter]
         [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-
         public void DeleteUserDelegation(WfClientDelegation delegation)
         {
             OperationContext.Current.FillContextToOguServiceContext();
@@ -338,6 +337,34 @@ namespace WfOperationServices.Services
             executor.Execute();
 
             return logger.ToString();
+        }
+
+        /// <summary>
+        /// 导出审批矩阵到Excel
+        /// </summary>
+        /// <param name="matrixID"></param>
+        /// <returns></returns>
+        [WfJsonFormatter]
+        [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public Stream ExportApprovalMatrix(string matrixID)
+        {
+            WfApprovalMatrix matrix = WfApprovalMatrixAdapter.Instance.LoadByID(matrixID);
+
+            return matrix.ToExcelStream();
+        }
+
+        /// <summary>
+        /// 从Excel导入审批矩阵
+        /// </summary>
+        /// <param name="matrixID"></param>
+        /// <param name="inputStream"></param>
+        [WfJsonFormatter]
+        [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public void ImportApprovalMatrix(string matrixID, Stream inputStream)
+        {
+            WfImportApprovalMatrixExecutor executor = new WfImportApprovalMatrixExecutor(matrixID, inputStream);
+
+            executor.Execute();
         }
     }
 }

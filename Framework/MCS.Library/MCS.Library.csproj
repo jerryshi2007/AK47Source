@@ -268,6 +268,7 @@
     <Compile Include="Core\NonXElementSerializedFieldsAttribute.cs" />
     <Compile Include="Core\XmlSerializableHashtable.cs" />
     <Compile Include="Data\ConnectionMappingElement.cs" />
+    <Compile Include="Data\DataObjects\ColumnDataType.cs" />
     <Compile Include="Data\DataObjects\ColumnDefinitionBase.cs" />
     <Compile Include="Data\DataObjects\DataObjectCollectionBase.cs" />
     <Compile Include="Data\DataObjects\GroupNode.cs" />

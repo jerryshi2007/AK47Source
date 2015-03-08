@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActivityDescriptorHelper.cs" />
+    <Compile Include="ApprovalMatrixHelper.cs" />
     <Compile Include="AssertClientToClientHelper.cs" />
     <Compile Include="AssertClientToServerHelper.cs" />
     <Compile Include="Consts.cs" />

@@ -64,6 +64,7 @@ namespace MCS.Library.WF.Contracts.Converters.Test
             startupParams.AutoCommit = true;
 
             startupParams.ApplicationRuntimeParameters["Amount"] = 1000;
+            startupParams.ApplicationRuntimeParameters["CostCenter"] = "1001";
 
             return startupParams;
         }

@@ -142,6 +142,31 @@ namespace MCS.Library.WF.Contracts.Proxies
 
             return this.SingleCall(action => action.ImportProcessDescriptors(inputStream));
         }
+
+        /// <summary>
+        /// 导出审批矩阵到Excel
+        /// </summary>
+        /// <param name="matrixID"></param>
+        /// <returns></returns>
+        public Stream ExportApprovalMatrix(string matrixID)
+        {
+            matrixID.CheckStringIsNullOrEmpty("matrixID");
+
+            return this.SingleCall(action => action.ExportApprovalMatrix(matrixID));
+        }
+
+        /// <summary>
+        /// 从Excel导入审批矩阵
+        /// </summary>
+        /// <param name="matrixID"></param>
+        /// <param name="inputStream"></param>
+        public void ImportApprovalMatrix(string matrixID, Stream inputStream)
+        {
+            inputStream.NullCheck("inputStream");
+
+            this.SingleCall(action => action.ImportApprovalMatrix(matrixID, inputStream));
+
+        }
         #endregion
 
         protected override WfClientChannelFactory<IWfClientProcessDescriptorService> GetService()

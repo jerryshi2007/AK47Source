@@ -58,8 +58,14 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
         /// <summary>
         /// 创建一个带动态活动，且内嵌矩阵的流程
         /// </summary>
+        /// <param name="externalMatrixID"></param>
         /// <returns></returns>
-        public static IWfProcessDescriptor GetDynamicProcessDesp()
+        public static IWfProcessDescriptor GetDynamicProcessDesp(string externalMatrixID = null)
+        {
+            return GetDynamicProcessDesp(ActivityMatrixHelper.PrepareActivityMatrixResourceDescriptor(), externalMatrixID);
+        }
+
+        public static IWfProcessDescriptor GetDynamicProcessDesp(WfActivityMatrixResourceDescriptor activityMatrixRespurce, string externalMatrixID)
         {
             IWfProcessDescriptor processDesp = CreateSimpleProcessDescriptor();
 
@@ -67,9 +73,11 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
 
             normalActDesp.Properties.SetValue("IsDynamic", true);
 
-            WfActivityMatrixResourceDescriptor resource = ActivityMatrixHelper.PrepareActivityMatrixResourceDescriptor();
+            WfActivityMatrixResourceDescriptor resource = activityMatrixRespurce;
 
             normalActDesp.Resources.Add(resource);
+
+            resource.ExternalMatrixID = externalMatrixID;
 
             return processDesp;
         }

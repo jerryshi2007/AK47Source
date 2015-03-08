@@ -40,6 +40,9 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         /// 导入流程模板
         /// </summary>
         [EnumItemDescription("导入流程模板")]
-        ImportTemplate
+        ImportTemplate,
+
+        [EnumItemDescription("导入审批矩阵")]
+        ImportApprovalMatrix,
     }
 }

@@ -75,7 +75,9 @@
     <Compile Include="Query\ClientPageQueryResultBase.cs" />
     <Compile Include="Workflow\Builders\WfClientDynamicProcessBuilder.cs" />
     <Compile Include="Workflow\Builders\WfClientProcessBuilderBase.cs" />
+    <Compile Include="Workflow\DataObjects\IWfClientMatrixContainer.cs" />
     <Compile Include="Workflow\DataObjects\WfClientApplication.cs" />
+    <Compile Include="Workflow\DataObjects\WfClientApprovalMatrix.cs" />
     <Compile Include="Workflow\DataObjects\WfClientDelegation.cs" />
     <Compile Include="Workflow\DataObjects\WfClientNextStep.cs" />
     <Compile Include="Workflow\DataObjects\WfClientOpinion.cs" />
