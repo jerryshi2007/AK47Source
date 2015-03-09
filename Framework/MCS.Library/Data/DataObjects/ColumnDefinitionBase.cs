@@ -16,12 +16,12 @@ namespace MCS.Library.Data.DataObjects
     public abstract class ColumnDefinitionBase
     {
         private ColumnDataType _DataType = ColumnDataType.String;
-        private object _DefaultValue = (string)null;
+        private string _DefaultValue = (string)null;
 
         /// <summary>
         /// 默认值
         /// </summary>
-        public virtual object DefaultValue
+        public virtual string DefaultValue
         {
             get
             {

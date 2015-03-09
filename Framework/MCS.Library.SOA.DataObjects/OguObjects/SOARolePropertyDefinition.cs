@@ -24,7 +24,7 @@ namespace MCS.Library.SOA.DataObjects
         private static readonly string[] ReservedPropertyName = new string[] { "OperatorType", "Operator", "ActivitySN", "ActivityName", "IsMergeable" };
 
         public static readonly SOARolePropertyDefinitionCollection EmptyInstance = new SOARolePropertyDefinitionCollection();
-  
+
         public SOARolePropertyDefinition()
         {
         }
@@ -111,6 +111,22 @@ namespace MCS.Library.SOA.DataObjects
             set
             {
                 base.DataType = value;
+            }
+        }
+
+        /// <summary>
+        /// 字段的默认值
+        /// </summary>
+        [ORFieldMapping("DEFAULT_VALUE")]
+        public override string DefaultValue
+        {
+            get
+            {
+                return base.DefaultValue;
+            }
+            set
+            {
+                base.DefaultValue = value;
             }
         }
     }

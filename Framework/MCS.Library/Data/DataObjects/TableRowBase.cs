@@ -8,54 +8,54 @@ using MCS.Library.Core;
 
 namespace MCS.Library.Data.DataObjects
 {
-	/// <summary>
-	/// Table中的行
-	/// </summary>
-	[Serializable]
-	public abstract class TableRowBase<TColumnDefinition, TRowValue, TRowValueCollection, TValue>
-		where TRowValue : RowValueBase<TColumnDefinition, TValue>
-		where TRowValueCollection : RowValueCollectionBase<TColumnDefinition, TRowValue, TValue>, new()
-		where TColumnDefinition : ColumnDefinitionBase
-	{
-		private TRowValueCollection _Values = default(TRowValueCollection);
+    /// <summary>
+    /// Table中的行
+    /// </summary>
+    [Serializable]
+    public abstract class TableRowBase<TColumnDefinition, TRowValue, TRowValueCollection, TValue>
+        where TRowValue : RowValueBase<TColumnDefinition, TValue>
+        where TRowValueCollection : RowValueCollectionBase<TColumnDefinition, TRowValue, TValue>, new()
+        where TColumnDefinition : ColumnDefinitionBase
+    {
+        private TRowValueCollection _Values = default(TRowValueCollection);
 
-		/// <summary>
-		/// 行中的值集合
-		/// </summary>
-		[NoMapping]
-		public virtual TRowValueCollection Values
-		{
-			get
-			{
-				if (this._Values == default(TRowValueCollection))
-					this._Values = new TRowValueCollection();
+        /// <summary>
+        /// 行中的值集合
+        /// </summary>
+        [NoMapping]
+        public virtual TRowValueCollection Values
+        {
+            get
+            {
+                if (this._Values == default(TRowValueCollection))
+                    this._Values = new TRowValueCollection();
 
-				return this._Values;
-			}
-		}
-	}
+                return this._Values;
+            }
+        }
+    }
 
-	/// <summary>
-	/// Table行
-	/// </summary>
-	/// <typeparam name="TTableRow"></typeparam>
-	/// <typeparam name="TColumnDefinition"></typeparam>
-	/// <typeparam name="TRowValueCollection"></typeparam>
-	/// <typeparam name="TValue"></typeparam>
-	/// <typeparam name="TRowValue"></typeparam>
-	[Serializable]
-	public abstract class TableRowCollectionBase<TTableRow, TColumnDefinition, TRowValue, TRowValueCollection, TValue> : EditableDataObjectCollectionBase<TTableRow>
-		where TTableRow : TableRowBase<TColumnDefinition, TRowValue, TRowValueCollection, TValue>
-		where TRowValue : RowValueBase<TColumnDefinition, TValue>
-		where TRowValueCollection : RowValueCollectionBase<TColumnDefinition, TRowValue, TValue>, new()
-		where TColumnDefinition : ColumnDefinitionBase
-	{
-		/// <summary>
-		/// 转换为DataView
-		/// </summary>
-		/// <param name="columns"></param>
-		/// <returns></returns>
-		public virtual DataView ToDataView(ColumnDefinitionCollectionBase<TColumnDefinition> columns)
+    /// <summary>
+    /// Table行
+    /// </summary>
+    /// <typeparam name="TTableRow"></typeparam>
+    /// <typeparam name="TColumnDefinition"></typeparam>
+    /// <typeparam name="TRowValueCollection"></typeparam>
+    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="TRowValue"></typeparam>
+    [Serializable]
+    public abstract class TableRowCollectionBase<TTableRow, TColumnDefinition, TRowValue, TRowValueCollection, TValue> : EditableDataObjectCollectionBase<TTableRow>
+        where TTableRow : TableRowBase<TColumnDefinition, TRowValue, TRowValueCollection, TValue>
+        where TRowValue : RowValueBase<TColumnDefinition, TValue>
+        where TRowValueCollection : RowValueCollectionBase<TColumnDefinition, TRowValue, TValue>, new()
+        where TColumnDefinition : ColumnDefinitionBase
+    {
+        /// <summary>
+        /// 转换为DataView
+        /// </summary>
+        /// <param name="columns"></param>
+        /// <returns></returns>
+        public virtual DataView ToDataView(ColumnDefinitionCollectionBase<TColumnDefinition> columns)
 		{
 			DataTable table = new DataTable();
 
@@ -75,7 +75,7 @@ namespace MCS.Library.Data.DataObjects
 
 				foreach (TRowValue rv in row.Values)
 				{
-					TValue dataValue = row.Values.GetValue(rv.Column.Name, (TValue)rv.Column.DefaultValue);
+					TValue dataValue = row.Values.GetValue(rv.Column.Name, DataConverter.ChangeType<string, TValue>(rv.Column.DefaultValue));
 					dr[rv.Column.Name] = DataConverter.ChangeType(dataValue, rv.Column.RealDataType);
 				}
 
@@ -84,5 +84,5 @@ namespace MCS.Library.Data.DataObjects
 
 			return table.DefaultView;
 		}
-	}
+    }
 }
