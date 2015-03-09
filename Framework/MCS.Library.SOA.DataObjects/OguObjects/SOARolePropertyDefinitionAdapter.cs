@@ -162,20 +162,27 @@ namespace MCS.Library.SOA.DataObjects
         {
             role.NullCheck("role");
 
+            this.Delete(role.ID);
+        }
+
+        public void Delete(string roleID)
+        {
+            roleID.CheckStringIsNullOrEmpty("roleID");
+
             StringBuilder strB = new StringBuilder();
 
             strB.AppendFormat("DELETE WF.ROLE_PROPERTIES_DEFINITIONS WHERE ROLE_ID = {0}",
-                TSqlBuilder.Instance.CheckQuotationMark(role.ID, true));
+                TSqlBuilder.Instance.CheckQuotationMark(roleID, true));
 
             strB.Append(TSqlBuilder.Instance.DBStatementSeperator);
 
             strB.AppendFormat("DELETE WF.ROLE_PROPERTIES_ROWS WHERE ROLE_ID = {0}",
-                TSqlBuilder.Instance.CheckQuotationMark(role.ID, true));
+                TSqlBuilder.Instance.CheckQuotationMark(roleID, true));
 
             strB.Append(TSqlBuilder.Instance.DBStatementSeperator);
 
             strB.AppendFormat("DELETE WF.ROLE_PROPERTIES_CELLS WHERE ROLE_ID = {0}",
-                TSqlBuilder.Instance.CheckQuotationMark(role.ID, true));
+                TSqlBuilder.Instance.CheckQuotationMark(roleID, true));
 
             using (TransactionScope scope = TransactionScopeFactory.Create())
             {

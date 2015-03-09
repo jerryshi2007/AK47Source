@@ -171,9 +171,18 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
             SOARoleContext.DoNewContextAction(externalMatrix.PropertyDefinitions, this.ProcessInstance, (context) =>
             {
-                SOARolePropertyRowCollection approvalRows = externalMatrix.Rows.Query(queryParams, true);
+                if (externalMatrix.PropertyDefinitions.MatrixType == WfMatrixType.ApprovalMatrix)
+                {
+                    SOARolePropertyRowCollection approvalRows = externalMatrix.Rows.Query(queryParams, true);
 
-                matrixRows.MergeToActivityMatrix(this.PropertyDefinitions, approvalRows, externalMatrix.PropertyDefinitions);
+                    matrixRows.MergeApprovalMatrix(this.PropertyDefinitions, approvalRows, externalMatrix.PropertyDefinitions);
+                }
+                else
+                {
+                    SOARolePropertyRowCollection approvalRows = externalMatrix.Rows.Query(queryParams, false);
+
+                    matrixRows.MergeActivityMatrix(this.PropertyDefinitions, approvalRows, externalMatrix.PropertyDefinitions);
+                }
             });
 
             return matrixRows;

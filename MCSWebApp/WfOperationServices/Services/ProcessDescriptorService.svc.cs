@@ -366,5 +366,34 @@ namespace WfOperationServices.Services
 
             executor.Execute();
         }
+
+        /// <summary>
+        /// 删除审批矩阵
+        /// </summary>
+        /// <param name="matrixID"></param>
+        [WfJsonFormatter]
+        [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public void DeleteApprovalMatrix(string matrixID)
+        {
+            WfDeleteApprovalMatrixExecutor executor = new WfDeleteApprovalMatrixExecutor(matrixID);
+
+            executor.Execute();
+        }
+
+        /// <summary>
+        /// 审批矩阵是否存在
+        /// </summary>
+        /// <param name="matrixID"></param>
+        /// <returns></returns>
+        [WfJsonFormatter]
+        [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public bool ApprovalMatrixExists(string matrixID)
+        {
+            matrixID.CheckStringIsNullOrEmpty("matrixID");
+
+            Dictionary<string, bool> dictionary = SOARolePropertyDefinitionAdapter.Instance.AreExist(new string[] { matrixID });
+
+            return dictionary.GetValue(matrixID, false);
+        }
     }
 }

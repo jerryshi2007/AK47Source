@@ -279,27 +279,35 @@ namespace MCS.Library.SOA.DataObjects
         {
             role.NullCheck("role");
 
+            this.Delete(role.ID);
+        }
+
+        public void Delete(string roleID)
+        {
+            roleID.CheckStringIsNullOrEmpty("roleID");
+
             StringBuilder strB = new StringBuilder(1024);
 
             strB.AppendFormat("DELETE WF.ROLE_PROPERTIES_ROWS WHERE ROLE_ID = {0}",
-                TSqlBuilder.Instance.CheckQuotationMark(role.ID, true));
+                TSqlBuilder.Instance.CheckQuotationMark(roleID, true));
 
             strB.Append(TSqlBuilder.Instance.DBStatementSeperator);
 
             strB.AppendFormat("DELETE WF.ROLE_PROPERTIES_CELLS WHERE ROLE_ID = {0}",
-                TSqlBuilder.Instance.CheckQuotationMark(role.ID, true));
+                TSqlBuilder.Instance.CheckQuotationMark(roleID, true));
 
             strB.Append(TSqlBuilder.Instance.DBStatementSeperator);
 
             strB.AppendFormat("DELETE WF.ROLE_PROPERTIES_USER_CONTAINERS WHERE ROLE_ID = {0}",
-                TSqlBuilder.Instance.CheckQuotationMark(role.ID, true));
+                TSqlBuilder.Instance.CheckQuotationMark(roleID, true));
 
             DbHelper.RunSqlWithTransaction(strB.ToString(), GetConnectionName());
 
-            CacheNotifyData notifyData = new CacheNotifyData(typeof(SOARolePropertiesCache), role.ID, CacheNotifyType.Invalid);
+            CacheNotifyData notifyData = new CacheNotifyData(typeof(SOARolePropertiesCache), roleID, CacheNotifyType.Invalid);
             UdpCacheNotifier.Instance.SendNotifyAsync(notifyData);
             MmfCacheNotifier.Instance.SendNotify(notifyData);
         }
+
 
         private void PrepareUserContainers(string roleID, SOARolePropertyRowUsersCollection rowsUsers, StringBuilder strB)
         {

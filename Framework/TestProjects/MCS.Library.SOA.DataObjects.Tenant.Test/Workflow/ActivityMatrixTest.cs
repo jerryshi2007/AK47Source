@@ -13,7 +13,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
     {
         [TestMethod]
         [Description("资源为活动矩阵时的，内嵌方法RowOperators.Count的测试")]
-        public void ActiveMatrixRowOperatorsCountTest()
+        public void ActivityMatrixRowOperatorsCountTest()
         {
             IWfProcessDescriptor processDesp = ProcessHelper.GetDynamicProcessDesp();
             IWfProcess process = ProcessHelper.StartupProcess(processDesp, new Dictionary<string, object>()
@@ -33,7 +33,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
 
         [TestMethod]
         [Description("资源为单行活动矩阵时的，与审批矩阵能匹配上的合并测试")]
-        public void MergeMatchedOneActiveMatrixAndApprovalMatrixTest()
+        public void MergeMatchedOneActivityMatrixAndApprovalMatrixTest()
         {
             WfActivityMatrixResourceDescriptor resource = ActivityMatrixHelper.PrepareOneRowActivityMatrixResourceDescriptor();
 
@@ -48,7 +48,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
 
         [TestMethod]
         [Description("资源为多行活动矩阵时的，与审批矩阵能匹配的合并测试")]
-        public void MergeMatchedActiveMatrixAndApprovalMatrixTest()
+        public void MergeMatchedActivityMatrixAndApprovalMatrixTest()
         {
             WfActivityMatrixResourceDescriptor resource = ActivityMatrixHelper.PrepareActivityMatrixResourceDescriptor();
 
@@ -65,7 +65,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
 
         [TestMethod]
         [Description("资源为单行活动矩阵时的，与审批矩阵能不能匹配的合并测试")]
-        public void MergeNotMatchedOneActiveMatrixAndApprovalMatrixTest()
+        public void MergeNotMatchedOneActivityMatrixAndApprovalMatrixTest()
         {
             WfActivityMatrixResourceDescriptor resource = ActivityMatrixHelper.PrepareOneRowActivityMatrixResourceDescriptor();
 
@@ -83,7 +83,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
 
         [TestMethod]
         [Description("资源为多行活动矩阵时的，与审批矩阵能不能匹配的合并测试")]
-        public void MergeNotMatchedActiveMatrixAndApprovalMatrixTest()
+        public void MergeNotMatchedActivityMatrixAndApprovalMatrixTest()
         {
             WfActivityMatrixResourceDescriptor resource = ActivityMatrixHelper.PrepareActivityMatrixResourceDescriptor();
 
@@ -102,7 +102,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
 
         [TestMethod]
         [Description("资源为多行活动矩阵时的，过滤后与审批矩阵能匹配的合并测试")]
-        public void FilterAndMergeMatchedActiveMatrixAndApprovalMatrixTest()
+        public void FilterAndMergeMatchedActivityMatrixAndApprovalMatrixTest()
         {
             SOARolePropertiesQueryParam queryParam = new SOARolePropertiesQueryParam();
 
@@ -119,7 +119,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
 
             SOARolePropertyRowCollection approvalRows = approvalMatrix.Rows.Query(queryParam);
 
-            activityRows.MergeToActivityMatrix(resource.PropertyDefinitions, approvalRows, approvalMatrix.PropertyDefinitions);
+            activityRows.MergeApprovalMatrix(resource.PropertyDefinitions, approvalRows, approvalMatrix.PropertyDefinitions);
 
             activityRows.AssertAndOutputMatrixOperators();
 
@@ -128,7 +128,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
 
         [TestMethod]
         [Description("资源为多行活动矩阵时的，过滤后与审批矩阵不能匹配的合并测试")]
-        public void FilterAndMergeNotMatchedActiveMatrixAndApprovalMatrixTest()
+        public void FilterAndMergeNotMatchedActivityMatrixAndApprovalMatrixTest()
         {
             SOARolePropertiesQueryParam queryParam = new SOARolePropertiesQueryParam();
 
@@ -149,7 +149,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
 
             int originalApprovalCount = approvalMatrix.PropertyDefinitions.Count - 1;
 
-            activityRows.MergeToActivityMatrix(resource.PropertyDefinitions, approvalRows, approvalMatrix.PropertyDefinitions);
+            activityRows.MergeApprovalMatrix(resource.PropertyDefinitions, approvalRows, approvalMatrix.PropertyDefinitions);
 
             activityRows.AssertAndOutputMatrixOperators();
 
@@ -175,7 +175,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
 
             SOARolePropertyRowCollection approvalRows = approvalMatrix.Rows.Query(queryParam);
 
-            activityRows.MergeToActivityMatrix(resource.PropertyDefinitions, approvalRows, approvalMatrix.PropertyDefinitions);
+            activityRows.MergeApprovalMatrix(resource.PropertyDefinitions, approvalRows, approvalMatrix.PropertyDefinitions);
 
             activityRows.AssertAndOutputMatrixOperators();
 
@@ -183,8 +183,31 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
         }
 
         [TestMethod]
+        [Description("当活动矩阵行列为空时，与过滤后的审批矩阵匹配的合并测试")]
+        public void FilterAndMergeEmptyActivityMatrixAndApprovalMatrixTest()
+        {
+            WfActivityMatrixResourceDescriptor resource = new WfActivityMatrixResourceDescriptor();
+
+            SOARolePropertiesQueryParam queryParam = new SOARolePropertiesQueryParam();
+
+            queryParam.QueryName = "CostCenter";
+            queryParam.QueryValue = "1001";
+
+            WfApprovalMatrix approvalMatrix = ApprovalMatrixHelper.PrepareApprovalMatrix();
+
+            SOARolePropertyRowCollection approvalRows = approvalMatrix.Rows.Query(queryParam);
+
+            resource.Rows.MergeApprovalMatrix(resource.PropertyDefinitions, approvalRows, approvalMatrix.PropertyDefinitions);
+
+            //输出的只有RowNumber。因为活动矩阵没有列
+            resource.Rows.AssertAndOutputMatrixOperators();
+
+            Assert.AreEqual(3, resource.Rows.Count);
+        }
+
+        [TestMethod]
         [Description("资源为多行活动矩阵时的，过滤后与审批矩阵能匹配的合并测试")]
-        public void MergeMatchedActiveMatrixAndApprovalMatrixProcessTest()
+        public void MergeMatchedActivityMatrixAndApprovalMatrixProcessTest()
         {
             WfApprovalMatrix approvalMatrix = ApprovalMatrixHelper.PrepareApprovalMatrix();
 
@@ -209,7 +232,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
 
         [TestMethod]
         [Description("资源为多行活动矩阵时的，过滤后与审批矩阵不能匹配的合并测试")]
-        public void MergeNotMatchedActiveMatrixAndApprovalMatrixProcessTest()
+        public void MergeNotMatchedActivityMatrixAndApprovalMatrixProcessTest()
         {
             WfApprovalMatrix approvalMatrix = ApprovalMatrixHelper.PrepareApprovalMatrix();
 

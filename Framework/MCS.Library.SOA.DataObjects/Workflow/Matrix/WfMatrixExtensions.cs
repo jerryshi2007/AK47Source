@@ -7,21 +7,91 @@ using System.Threading.Tasks;
 
 namespace MCS.Library.SOA.DataObjects.Workflow
 {
+    /// <summary>
+    /// 矩阵合并相关的
+    /// </summary>
     public static class WfMatrixExtensions
     {
+        /// <summary>
+        /// 将活动矩阵与审批矩阵进行合并，以第一个矩阵的列定义为准
+        /// </summary>
+        /// <param name="activieyMatrixResource"></param>
+        /// <param name="container"></param>
+        public static void MergeActivityMatrix(this IWfMatrixContainer activieyMatrixResource, IWfMatrixContainer container)
+        {
+            activieyMatrixResource.NullCheck("activieyMatrixResource");
+            container.NullCheck("container");
+
+            activieyMatrixResource.Rows.MergeActivityMatrix(
+                    activieyMatrixResource.PropertyDefinitions,
+                    container.Rows,
+                    container.PropertyDefinitions
+                );
+        }
+
+        /// <summary>
+        /// 将活动矩阵与审批矩阵进行合并，以第一个矩阵的列定义为准
+        /// </summary>
+        /// <param name="amRows"></param>
+        /// <param name="amDefinitions"></param>
+        /// <param name="apRows"></param>
+        /// <param name="apDefinitions"></param>
+        public static void MergeActivityMatrix(this SOARolePropertyRowCollection amRows, SOARolePropertyDefinitionCollection amDefinitions, IEnumerable<SOARolePropertyRow> apRows, SOARolePropertyDefinitionCollection apDefinitions)
+        {
+            amDefinitions.NullCheck("amDefinitions");
+            amRows.NullCheck("amRows");
+            apDefinitions.NullCheck("apDefinitions");
+            apRows.NullCheck("apRows");
+
+            int maxRowNumber = GetMaxRowNumber(amRows);
+
+            foreach (SOARolePropertyRow apRow in apRows)
+            {
+                SOARolePropertyRow newRow = new SOARolePropertyRow(amRows.Role);
+
+                newRow.RowNumber = ++maxRowNumber;
+                newRow.OperatorType = apRow.OperatorType;
+                newRow.Operator = apRow.Operator;
+
+                foreach (SOARolePropertyValue srv in apRow.Values)
+                {
+                    if (amDefinitions.ContainsKey(srv.Column.Name))
+                    {
+                        SOARolePropertyValue newValue = new SOARolePropertyValue(amDefinitions[srv.Column.Name]);
+
+                        newValue.Value = srv.Value;
+
+                        newRow.Values.Add(newValue);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 将活动矩阵与审批矩阵进行合并
+        /// </summary>
+        /// <param name="activieyMatrixResource"></param>
+        /// <param name="approvalMatrix"></param>
         public static void MergeApprovalMatrix(this IWfMatrixContainer activieyMatrixResource, IWfMatrixContainer approvalMatrix)
         {
             activieyMatrixResource.NullCheck("activieyMatrixResource");
             approvalMatrix.NullCheck("approvalMatrix");
 
-            activieyMatrixResource.Rows.MergeToActivityMatrix(
+            activieyMatrixResource.Rows.MergeApprovalMatrix(
                     activieyMatrixResource.PropertyDefinitions,
                     approvalMatrix.Rows,
                     approvalMatrix.PropertyDefinitions
                 );
         }
 
-        public static void MergeToActivityMatrix(this SOARolePropertyRowCollection amRows, SOARolePropertyDefinitionCollection amDefinitions, IEnumerable<SOARolePropertyRow> apRows, SOARolePropertyDefinitionCollection apDefinitions)
+        /// <summary>
+        /// 将活动矩阵与审批矩阵进行合并
+        /// </summary>
+        /// <param name="amRows"></param>
+        /// <param name="amDefinitions"></param>
+        /// <param name="apRows"></param>
+        /// <param name="apDefinitions"></param>
+        public static void MergeApprovalMatrix(this SOARolePropertyRowCollection amRows, SOARolePropertyDefinitionCollection amDefinitions, IEnumerable<SOARolePropertyRow> apRows, SOARolePropertyDefinitionCollection apDefinitions)
         {
             amDefinitions.NullCheck("amDefinitions");
             amRows.NullCheck("amRows");

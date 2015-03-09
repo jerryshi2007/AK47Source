@@ -37,6 +37,14 @@ namespace MCS.Library.SOA.DataObjects
             return Query((IEnumerable<SOARolePropertiesQueryParam>)queryParams);
         }
 
+        public IRole Role
+        {
+            get
+            {
+                return this._Role;
+            }
+        }
+
         public SOARolePropertyRowCollection Query(Predicate<SOARolePropertyRow> predicate)
         {
             SOARolePropertyRowCollection result = new SOARolePropertyRowCollection(this._Role);

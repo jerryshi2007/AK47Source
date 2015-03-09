@@ -154,5 +154,20 @@ namespace MCS.Library.WF.Contracts.Operations
         /// <param name="inputStream"></param>
         [OperationContract]
         void ImportApprovalMatrix(string matrixID, Stream inputStream);
+
+        /// <summary>
+        /// 删除审批矩阵
+        /// </summary>
+        /// <param name="matrixID"></param>
+        [OperationContract]
+        void DeleteApprovalMatrix(string matrixID);
+
+        /// <summary>
+        /// 审批矩阵是否存在
+        /// </summary>
+        /// <param name="matrixID"></param>
+        /// <returns></returns>
+        [OperationContract]
+        bool ApprovalMatrixExists(string matrixID);
     }
 }

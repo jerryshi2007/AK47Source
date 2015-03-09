@@ -167,6 +167,29 @@ namespace MCS.Library.WF.Contracts.Proxies
             this.SingleCall(action => action.ImportApprovalMatrix(matrixID, inputStream));
 
         }
+
+        /// <summary>
+        /// 删除审批矩阵
+        /// </summary>
+        /// <param name="matrixID"></param>
+        public void DeleteApprovalMatrix(string matrixID)
+        {
+            matrixID.CheckStringIsNullOrEmpty("matrixID");
+
+            this.SingleCall(action => action.DeleteApprovalMatrix(matrixID));
+        }
+
+        /// <summary>
+        /// 审批矩阵是否存在
+        /// </summary>
+        /// <param name="matrixID"></param>
+        /// <returns></returns>
+        public bool ApprovalMatrixExists(string matrixID)
+        {
+            matrixID.CheckStringIsNullOrEmpty("matrixID");
+
+            return this.SingleCall(action => action.ApprovalMatrixExists(matrixID));
+        }
         #endregion
 
         protected override WfClientChannelFactory<IWfClientProcessDescriptorService> GetService()

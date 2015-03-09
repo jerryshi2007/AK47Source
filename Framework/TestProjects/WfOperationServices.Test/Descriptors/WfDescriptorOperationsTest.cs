@@ -352,6 +352,29 @@ namespace WfOperationServices.Test.Descriptors
             matrix.AreSame(deserialized);
         }
 
+        [TestMethod()]
+        public void ApprovalMatrixExistsTest()
+        {
+            WfApprovalMatrix matrix = ApprovalMatrixHelper.PrepareServerApprovalMatrix();
+
+            WfClientProcessDescriptorServiceProxy.Instance.ImportApprovalMatrix(matrix.ID, matrix.ToExcelStream());
+
+            Assert.IsTrue(WfClientProcessDescriptorServiceProxy.Instance.ApprovalMatrixExists(matrix.ID));
+        }
+
+        [TestMethod()]
+        public void DeletelMatrixExistsTest()
+        {
+            InitPrincipal("Requestor");
+
+            WfApprovalMatrix matrix = ApprovalMatrixHelper.PrepareServerApprovalMatrix();
+
+            WfClientProcessDescriptorServiceProxy.Instance.ImportApprovalMatrix(matrix.ID, matrix.ToExcelStream());
+            WfClientProcessDescriptorServiceProxy.Instance.DeleteApprovalMatrix(matrix.ID);
+
+            Assert.IsFalse(WfClientProcessDescriptorServiceProxy.Instance.ApprovalMatrixExists(matrix.ID));
+        }
+
         public static void InitPrincipal(string userKey)
         {
             GenericTicketTokenContainer tokenContainer = new GenericTicketTokenContainer();
