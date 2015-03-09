@@ -12,7 +12,7 @@
     <ProjectItem Include="MCS.Library.Compression\MCS.Library.Compression.csproj" />
     <ProjectItem Include="MCS.Library.Services.Contracts\MCS.Library.Services.Contracts.csproj" />
     <ProjectItem Include="MCS.Library.WF.Contracts\MCS.Library.WF.Contracts.csproj" />
-    
+
     <ProjectItem Include="MCS.Library.ADHelper\MCS.Library.ADHelper.csproj" />
     <ProjectItem Include="MCS.Library.Data\MCS.Library.Data.csproj" />
     <ProjectItem Include="MCS.Library.Office\MCS.Library.Office.csproj" />
@@ -32,7 +32,7 @@
     <ProjectItem Include="MCS.Library.SOA.DataObjects.Schemas.Client\MCS.Library.SOA.DataObjects.Schemas.Client.csproj" />
     <ProjectItem Include="MCS.Library.SOA.DataObjects.Security.Client\MCS.Library.SOA.DataObjects.Security.Client.csproj" />
     <ProjectItem Include="MCS.Library.SOA.DataObjects.Security.AUClient\MCS.Library.SOA.DataObjects.Security.AUClient.csproj" />
-    <ProjectItem Include="MCS.Library.SOA.DataObjects\MCS.Library.SOA.DataObjects.csproj" />   
+    <ProjectItem Include="MCS.Library.SOA.DataObjects\MCS.Library.SOA.DataObjects.csproj" />
     <ProjectItem Include="MCS.Library.SOA.DocServiceClient\MCS.Library.SOA.DocServiceClient.csproj" />
 
     <ProjectItem Include="MCS.Library.WF.Contracts\MCS.Library.WF.Contracts.csproj" />
@@ -53,6 +53,19 @@
     <ProjectItem Include="MCS.Library.Utilities\MCS.Library.Utilities.csproj" />
     <ProjectItem Include="MCS.Library.Accredit\MCS.Library.Accredit.csproj" />
     <ProjectItem Include="MCS.SqlServer.Compression\MCS.SqlServer.Compression.csproj" />
+
+    <!--单元测试-->
+    <ProjectItem Include="TestProjects\MCS.Library.Test\MCS.Library.Test.csproj" />
+    <ProjectItem Include="TestProjects\MCS.Library.Data.Test\MCS.Library.Data.Test.csproj" />
+    <ProjectItem Include="TestProjects\MCS.Web.Library.Script.Json.Test\MCS.Web.Library.Script.Json.Test.csproj" />
+
+    <ProjectItem Include="TestProjects\MCS.Library.WF.Contracts.Common.Test\MCS.Library.WF.Contracts.Common.Test.csproj" />
+    <ProjectItem Include="TestProjects\MCS.Library.WF.Contracts.Converters.Test\MCS.Library.WF.Contracts.Converters.Test.csproj" />
+
+    <ProjectItem Include="TestProjects\MCS.Library.SOA.DataObjects.Tenant.Test\MCS.Library.SOA.DataObjects.Tenant.Test.csproj" />
+    <ProjectItem Include="TestProjects\MCS.Library.SOA.DataObjects.Security.Test\MCS.Library.SOA.DataObjects.Security.Test.csproj" />
+    <ProjectItem Include="TestProjects\WfOperationServices.Test\WfOperationServices.Test.csproj" />
+  
     <!--<ProjectItem Include="MCS.Library.STS.SessionAuthenticationModule\MCS.Library.STS.SessionAuthenticationModule.csproj" />-->
   </ItemGroup>
   <Target Name="BuildOtherProjects">
