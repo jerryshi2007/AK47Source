@@ -167,23 +167,26 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
         private SOARolePropertyRowCollection MergeExternalMatrix(SOARolePropertyRowCollection matrixRows, IEnumerable<SOARolePropertiesQueryParam> queryParams)
         {
-            IWfMatrixContainer externalMatrix = this.GetExternalMatrix();
-
-            SOARoleContext.DoNewContextAction(externalMatrix.PropertyDefinitions, this.ProcessInstance, (context) =>
+            if (this.ExternalMatrixID.IsNotEmpty())
             {
-                if (externalMatrix.PropertyDefinitions.MatrixType == WfMatrixType.ApprovalMatrix)
-                {
-                    SOARolePropertyRowCollection approvalRows = externalMatrix.Rows.Query(queryParams, true);
+                IWfMatrixContainer externalMatrix = this.GetExternalMatrix();
 
-                    matrixRows.MergeApprovalMatrix(this.PropertyDefinitions, approvalRows, externalMatrix.PropertyDefinitions);
-                }
-                else
+                SOARoleContext.DoNewContextAction(externalMatrix.PropertyDefinitions, this.ProcessInstance, (context) =>
                 {
-                    SOARolePropertyRowCollection approvalRows = externalMatrix.Rows.Query(queryParams, false);
+                    if (externalMatrix.PropertyDefinitions.MatrixType == WfMatrixType.ApprovalMatrix)
+                    {
+                        SOARolePropertyRowCollection approvalRows = externalMatrix.Rows.Query(queryParams, true);
 
-                    matrixRows.MergeActivityMatrix(this.PropertyDefinitions, approvalRows, externalMatrix.PropertyDefinitions);
-                }
-            });
+                        matrixRows.MergeApprovalMatrix(this.PropertyDefinitions, approvalRows, externalMatrix.PropertyDefinitions);
+                    }
+                    else
+                    {
+                        SOARolePropertyRowCollection approvalRows = externalMatrix.Rows.Query(queryParams, false);
+
+                        matrixRows.MergeActivityMatrix(this.PropertyDefinitions, approvalRows, externalMatrix.PropertyDefinitions);
+                    }
+                });
+            }
 
             return matrixRows;
         }

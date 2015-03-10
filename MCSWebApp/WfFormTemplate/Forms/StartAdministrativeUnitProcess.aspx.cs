@@ -11,6 +11,7 @@ using MCS.Web.Library.MVC;
 using WfFormTemplate.DataObjects;
 using MCS.Library.Principal;
 using MCS.Web.Library;
+using MCS.Library.OGUPermission;
 
 namespace WfFormTemplate.Forms
 {
