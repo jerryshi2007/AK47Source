@@ -322,6 +322,8 @@ namespace MCS.Library.WF.Contracts.Common.Test
 
         public static void AreSame(this WfClientActivityMatrixResourceDescriptor expected, WfClientActivityMatrixResourceDescriptor actual)
         {
+            AssertStringEqual(expected.ExternalMatrixID, actual.ExternalMatrixID);
+
             AreSame(expected.PropertyDefinitions, actual.PropertyDefinitions);
             AreSame(expected.Rows, actual.Rows);
         }

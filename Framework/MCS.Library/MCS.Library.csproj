@@ -489,8 +489,10 @@
     <Compile Include="Services\CacheSoapExtensionBase.cs" />
     <Compile Include="Services\Configuration\ServiceConfigurationElement.cs" />
     <Compile Include="Services\Configuration\ServiceMethodConfigurationElement.cs" />
+    <Compile Include="Services\Configuration\ServiceMethodConfigurationElementExtensions.cs" />
     <Compile Include="Services\Configuration\ServiceSettings.cs" />
     <Compile Include="Services\HttpWebRequestExecutorBase.cs" />
+    <Compile Include="Services\OperationContextExtensions.cs" />
     <Compile Include="Services\ServiceHostProxy.cs" />
     <Compile Include="Services\ShadowDomainManager.cs" />
     <Compile Include="Services\SimpleRequestSoapMessage.cs" />

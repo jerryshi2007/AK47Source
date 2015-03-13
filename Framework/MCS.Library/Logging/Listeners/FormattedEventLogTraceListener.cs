@@ -54,9 +54,9 @@ namespace MCS.Library.Logging
 
                 if (false == string.IsNullOrEmpty(this.formatterName))// != string.Empty)
                 {
-					LoggerFormatterConfigurationElement formatterelement = LoggingSection.GetConfig().Formatters[this.formatterName];
+                    LoggerFormatterConfigurationElement formatterElement = LoggingSection.GetConfig().Formatters[this.formatterName];
 
-                    formatter = LogFormatterFactory.GetFormatter(formatterelement);
+                    formatter = LogFormatterFactory.GetFormatter(formatterElement);
                 }
 
                 return formatter;
@@ -72,24 +72,24 @@ namespace MCS.Library.Logging
         /// <code source="..\Framework\TestProjects\DeluxeWorks.Library.Test\\Logging\ListenerTest.cs"
         /// lang="cs" region="EventLogTraceListener Test" tittle="创建Listener对象"></code>
         /// </remarks>
-		public FormattedEventLogTraceListener(LoggerListenerConfigurationElement element)
+        public FormattedEventLogTraceListener(LoggerListenerConfigurationElement element)
         {
             this.formatterName = element.LogFormatterName;
             this.Name = element.Name;
 
-			this.logName = element.LogName;
+            this.logName = element.LogName;
 
-			if (this.logName.IsNullOrEmpty())
-				this.logName = FormattedEventLogTraceListener.DefaultLogName;
+            if (this.logName.IsNullOrEmpty())
+                this.logName = FormattedEventLogTraceListener.DefaultLogName;
 
-			this.source = element.Source;
+            this.source = element.Source;
 
-			if (this.source.IsNullOrEmpty())
-				this.source = string.IsNullOrEmpty(this.logName) ? FormattedEventLogTraceListener.DefaultSource : this.logName;
+            if (this.source.IsNullOrEmpty())
+                this.source = string.IsNullOrEmpty(this.logName) ? FormattedEventLogTraceListener.DefaultSource : this.logName;
 
             this.SlaveListener = new EventLogTraceListener();
         }
-        
+
         /// <summary>
         /// 缺省构造函数
         /// </summary>
@@ -178,7 +178,7 @@ namespace MCS.Library.Logging
             if (data is LogEntity)
             {
                 LogEntity logData = data as LogEntity;
-                
+
                 //取LogEntity对象的Source属性，如果为空则取来源于配置的缺省值
                 string sourceName = string.IsNullOrEmpty(logData.Source) ? this.source : logData.Source;
 
@@ -194,7 +194,7 @@ namespace MCS.Library.Logging
 
                 (this.SlaveListener as EventLogTraceListener).EventLog = eventlog;
             }
-          
+
             base.TraceData(eventCache, source, logEventType, eventID, data);
         }
 
@@ -233,7 +233,7 @@ namespace MCS.Library.Logging
 
         private static string NormalizeMachineName(string machineName)
         {
-			return string.IsNullOrEmpty(machineName) ? FormattedEventLogTraceListener.DefaultMachineName : machineName;
+            return string.IsNullOrEmpty(machineName) ? FormattedEventLogTraceListener.DefaultMachineName : machineName;
         }
 
         /// <summary>
@@ -246,11 +246,11 @@ namespace MCS.Library.Logging
             string registeredLogName = logName;
 
             EventSourceCreationData creationData = new EventSourceCreationData(source, logName);
-            
+
             if (EventLog.SourceExists(source))
             {
                 string originalLogName = EventLog.LogNameFromSourceName(source, FormattedEventLogTraceListener.DefaultMachineName);
-                
+
                 //source注册的日志名称和指定的logName不一致，且不等于source自身
                 //（事件日志源“System”等于日志名称，不能删除。[System.InvalidOperationException]）
                 if (string.Compare(logName, originalLogName, true) != 0 && string.Compare(source, originalLogName, true) != 0)
@@ -262,7 +262,7 @@ namespace MCS.Library.Logging
                 else
                     registeredLogName = originalLogName;
             }
-            else 
+            else
                 //source未在该服务器上注册过
                 EventLog.CreateEventSource(creationData);
 

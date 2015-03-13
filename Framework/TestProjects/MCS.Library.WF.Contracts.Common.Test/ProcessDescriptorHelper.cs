@@ -12,241 +12,243 @@ using MCS.Library.WF.Contracts.Workflow.DataObjects;
 
 namespace MCS.Library.WF.Contracts.Common.Test
 {
-	public static class ProcessDescriptorHelper
-	{
-		/// <summary>
-		/// 创建一个没有连线的客户端流程对象
-		/// </summary>
-		/// <returns></returns>
-		public static WfClientProcessDescriptor CreateSimpleClientProcessWithoutLines()
-		{
-			WfClientProcessDescriptor processDesp = new WfClientProcessDescriptor();
+    public static class ProcessDescriptorHelper
+    {
+        /// <summary>
+        /// 创建一个没有连线的客户端流程对象
+        /// </summary>
+        /// <returns></returns>
+        public static WfClientProcessDescriptor CreateSimpleClientProcessWithoutLines()
+        {
+            WfClientProcessDescriptor processDesp = new WfClientProcessDescriptor();
 
-			processDesp.Key = UuidHelper.NewUuidString();
-			processDesp.Name = "客户端测试流程";
+            processDesp.Key = UuidHelper.NewUuidString();
+            processDesp.Name = "客户端测试流程";
 
-			processDesp.Activities.Add(ActivityDescriptorHelper.CreateSimpleClientActivityWithUser("Start", "开始", "Requestor", WfClientActivityType.InitialActivity));
-			processDesp.Activities.Add(ActivityDescriptorHelper.CreateSimpleClientActivity("End", "结束", WfClientActivityType.CompletedActivity));
+            processDesp.Activities.Add(ActivityDescriptorHelper.CreateSimpleClientActivityWithUser("Start", "开始", "Requestor", WfClientActivityType.InitialActivity));
+            processDesp.Activities.Add(ActivityDescriptorHelper.CreateSimpleClientActivity("End", "结束", WfClientActivityType.CompletedActivity));
 
-			processDesp.RelativeLinks.Add(new WfClientRelativeLinkDescriptor("AP1") { Category = "Process", Url = "http://www.ak47.com" });
+            processDesp.RelativeLinks.Add(new WfClientRelativeLinkDescriptor("AP1") { Category = "Process", Url = "http://www.ak47.com" });
 
-			return processDesp;
-		}
+            return processDesp;
+        }
 
-		/// <summary>
-		/// 创建一个有连线的流程
-		/// </summary>
-		/// <returns></returns>
-		public static WfClientProcessDescriptor CreateSimpleClientProcessWithLines()
-		{
-			WfClientProcessDescriptor processDesp = CreateSimpleClientProcessWithoutLines();
+        /// <summary>
+        /// 创建一个有连线的流程
+        /// </summary>
+        /// <returns></returns>
+        public static WfClientProcessDescriptor CreateSimpleClientProcessWithLines()
+        {
+            WfClientProcessDescriptor processDesp = CreateSimpleClientProcessWithoutLines();
 
-			WfClientTransitionDescriptor transition = new WfClientTransitionDescriptor(processDesp.InitialActivity.Key, processDesp.CompletedActivity.Key);
+            WfClientTransitionDescriptor transition = new WfClientTransitionDescriptor(processDesp.InitialActivity.Key, processDesp.CompletedActivity.Key);
 
-			transition.Key = "L1";
+            transition.Key = "L1";
 
-			processDesp.InitialActivity.ToTransitions.Add(transition);
+            processDesp.InitialActivity.ToTransitions.Add(transition);
 
-			return processDesp;
-		}
+            return processDesp;
+        }
 
-		/// <summary>
-		/// 创建一个有4个节点的流程，开始点有两条出线，根据Amount是否大于等于5000来判断
-		/// </summary>
-		/// <returns></returns>
-		public static WfClientProcessDescriptor CreateClientProcessWithConditionLines()
-		{
-			WfClientProcessDescriptor processDesp = CreateSimpleClientProcessWithoutLines();
+        /// <summary>
+        /// 创建一个有4个节点的流程，开始点有两条出线，根据Amount是否大于等于5000来判断
+        /// </summary>
+        /// <returns></returns>
+        public static WfClientProcessDescriptor CreateClientProcessWithConditionLines()
+        {
+            WfClientProcessDescriptor processDesp = CreateSimpleClientProcessWithoutLines();
 
-			processDesp.Activities.Add(ActivityDescriptorHelper.CreateSimpleClientActivityWithUser("N1", "CFO", "CFO", WfClientActivityType.NormalActivity));
-			processDesp.Activities.Add(ActivityDescriptorHelper.CreateSimpleClientActivityWithUser("N2", "CEO", "CEO", WfClientActivityType.NormalActivity));
+            processDesp.Activities.Add(ActivityDescriptorHelper.CreateSimpleClientActivityWithUser("N1", "CFO", "CFO", WfClientActivityType.NormalActivity));
+            processDesp.Activities.Add(ActivityDescriptorHelper.CreateSimpleClientActivityWithUser("N2", "CEO", "CEO", WfClientActivityType.NormalActivity));
 
-			WfClientTransitionDescriptor transitionToCFO = new WfClientTransitionDescriptor(processDesp.InitialActivity.Key, "N1");
+            WfClientTransitionDescriptor transitionToCFO = new WfClientTransitionDescriptor(processDesp.InitialActivity.Key, "N1");
 
-			transitionToCFO.Key = "L1";
-			transitionToCFO.Condition.Expression = "Amount >= 5000";
-			processDesp.InitialActivity.ToTransitions.Add(transitionToCFO);
+            transitionToCFO.Key = "L1";
+            transitionToCFO.Condition.Expression = "Amount >= 5000";
+            processDesp.InitialActivity.ToTransitions.Add(transitionToCFO);
 
-			WfClientTransitionDescriptor transitionToCEO = new WfClientTransitionDescriptor(processDesp.InitialActivity.Key, "N2");
+            WfClientTransitionDescriptor transitionToCEO = new WfClientTransitionDescriptor(processDesp.InitialActivity.Key, "N2");
 
-			transitionToCEO.Key = "L2";
-			transitionToCEO.Condition.Expression = "Amount < 5000";
+            transitionToCEO.Key = "L2";
+            transitionToCEO.Condition.Expression = "Amount < 5000";
 
-			processDesp.InitialActivity.ToTransitions.Add(transitionToCEO);
+            processDesp.InitialActivity.ToTransitions.Add(transitionToCEO);
 
-			WfClientTransitionDescriptor transitionCEOToCFO = new WfClientTransitionDescriptor("CFO", "CEO");
+            WfClientTransitionDescriptor transitionCEOToCFO = new WfClientTransitionDescriptor("CFO", "CEO");
 
-			transitionCEOToCFO.Key = "L3";
+            transitionCEOToCFO.Key = "L3";
 
-			processDesp.Activities["N1"].ToTransitions.Add(transitionCEOToCFO);
+            processDesp.Activities["N1"].ToTransitions.Add(transitionCEOToCFO);
 
-			return processDesp;
-		}
+            return processDesp;
+        }
 
-		/// <summary>
-		/// 创建一个带动态矩阵资源的流程定义
-		/// </summary>
-		/// <returns></returns>
-		public static WfClientProcessDescriptor CreateClientProcessWithActivityMatrixResourceDescriptor()
-		{
-			WfClientProcessDescriptor processDesp = CreateSimpleClientProcessWithoutLines();
+        /// <summary>
+        /// 创建一个带动态矩阵资源的流程定义
+        /// </summary>
+        /// <returns></returns>
+        public static WfClientProcessDescriptor CreateClientProcessWithActivityMatrixResourceDescriptor()
+        {
+            WfClientProcessDescriptor processDesp = CreateSimpleClientProcessWithoutLines();
 
-			WfClientActivityDescriptor actDesp = ActivityDescriptorHelper.CreateSimpleClientActivity("N1", "活动矩阵", WfClientActivityType.NormalActivity);
+            WfClientActivityDescriptor actDesp = ActivityDescriptorHelper.CreateSimpleClientActivity("N1", "活动矩阵", WfClientActivityType.NormalActivity);
 
-			actDesp.Properties.AddOrSetValue("IsDynamic", true);
-			actDesp.Resources.Add(GetClientActivityMatrixResourceDescriptor());
+            actDesp.Properties.AddOrSetValue("IsDynamic", true);
+            actDesp.Resources.Add(GetClientActivityMatrixResourceDescriptor());
 
-			processDesp.Activities.Add(actDesp);
+            processDesp.Activities.Add(actDesp);
 
-			WfClientTransitionDescriptor transitionToN1 = new WfClientTransitionDescriptor(processDesp.InitialActivity.Key, "N1") { Key = "L1" };
+            WfClientTransitionDescriptor transitionToN1 = new WfClientTransitionDescriptor(processDesp.InitialActivity.Key, "N1") { Key = "L1" };
 
-			processDesp.InitialActivity.ToTransitions.Add(transitionToN1);
+            processDesp.InitialActivity.ToTransitions.Add(transitionToN1);
 
-			WfClientTransitionDescriptor transitionToCompleted = new WfClientTransitionDescriptor(actDesp.Key, processDesp.CompletedActivity.Key) { Key = "L2" };
+            WfClientTransitionDescriptor transitionToCompleted = new WfClientTransitionDescriptor(actDesp.Key, processDesp.CompletedActivity.Key) { Key = "L2" };
 
-			processDesp.Activities["N1"].ToTransitions.Add(transitionToCompleted);
+            processDesp.Activities["N1"].ToTransitions.Add(transitionToCompleted);
 
-			return processDesp;
-		}
+            return processDesp;
+        }
 
-		public static WfCreateClientDynamicProcessParams CreateClientDynamicProcessParams()
-		{
-			WfCreateClientDynamicProcessParams createParams = new WfCreateClientDynamicProcessParams();
+        public static WfCreateClientDynamicProcessParams CreateClientDynamicProcessParams()
+        {
+            WfCreateClientDynamicProcessParams createParams = new WfCreateClientDynamicProcessParams();
 
-			createParams.Key = UuidHelper.NewUuidString();
-			createParams.Name = "客户端测试流程参数";
+            createParams.Key = UuidHelper.NewUuidString();
+            createParams.Name = "客户端测试流程参数";
 
-			createParams.ActivityMatrix = GetClientActivityMatrixResourceDescriptor();
+            createParams.ActivityMatrix = GetClientActivityMatrixResourceDescriptor();
 
-			return createParams;
-		}
+            return createParams;
+        }
 
-		/// <summary>
-		/// 创建一个没有连线的Server端流程对象
-		/// </summary>
-		/// <returns></returns>
-		public static WfProcessDescriptor CreateSimpleServerProcessWithoutLines()
-		{
-			WfProcessDescriptor processDesp = new WfProcessDescriptor();
+        /// <summary>
+        /// 创建一个没有连线的Server端流程对象
+        /// </summary>
+        /// <returns></returns>
+        public static WfProcessDescriptor CreateSimpleServerProcessWithoutLines()
+        {
+            WfProcessDescriptor processDesp = new WfProcessDescriptor();
 
-			processDesp.Key = UuidHelper.NewUuidString();
-			processDesp.Name = "服务端测试流程";
+            processDesp.Key = UuidHelper.NewUuidString();
+            processDesp.Name = "服务端测试流程";
 
-			processDesp.Activities.Add(ActivityDescriptorHelper.CreateSimpleServerActivity("Start", "开始", WfActivityType.InitialActivity));
-			processDesp.Activities.Add(ActivityDescriptorHelper.CreateSimpleServerActivity("End", "结束", WfActivityType.CompletedActivity));
+            processDesp.Activities.Add(ActivityDescriptorHelper.CreateSimpleServerActivity("Start", "开始", WfActivityType.InitialActivity));
+            processDesp.Activities.Add(ActivityDescriptorHelper.CreateSimpleServerActivity("End", "结束", WfActivityType.CompletedActivity));
 
-			processDesp.RelativeLinks.Add(new WfRelativeLinkDescriptor("AR1") { Category = "Activity", Url = "http://www.ak47.com" });
+            processDesp.RelativeLinks.Add(new WfRelativeLinkDescriptor("AR1") { Category = "Activity", Url = "http://www.ak47.com" });
 
-			return processDesp;
-		}
+            return processDesp;
+        }
 
-		/// <summary>
-		/// 创建一个有连线的Server端流程
-		/// </summary>
-		/// <returns></returns>
-		public static WfProcessDescriptor CreateSimpleServerProcessWithLines()
-		{
-			WfProcessDescriptor processDesp = CreateSimpleServerProcessWithoutLines();
+        /// <summary>
+        /// 创建一个有连线的Server端流程
+        /// </summary>
+        /// <returns></returns>
+        public static WfProcessDescriptor CreateSimpleServerProcessWithLines()
+        {
+            WfProcessDescriptor processDesp = CreateSimpleServerProcessWithoutLines();
 
-			WfForwardTransitionDescriptor transition = new WfForwardTransitionDescriptor("L1");
+            WfForwardTransitionDescriptor transition = new WfForwardTransitionDescriptor("L1");
 
-			transition.ConnectActivities(processDesp.InitialActivity, processDesp.CompletedActivity);
+            transition.ConnectActivities(processDesp.InitialActivity, processDesp.CompletedActivity);
 
-			return processDesp;
-		}
+            return processDesp;
+        }
 
-		#region WfActivityMatrixResourceDescriptor
-		public static WfActivityMatrixResourceDescriptor GetServerActivityMatrixResourceDescriptor()
-		{
-			WfActivityMatrixResourceDescriptor resource = new WfActivityMatrixResourceDescriptor();
+        #region WfActivityMatrixResourceDescriptor
+        public static WfActivityMatrixResourceDescriptor GetServerActivityMatrixResourceDescriptor()
+        {
+            WfActivityMatrixResourceDescriptor resource = new WfActivityMatrixResourceDescriptor();
 
-			resource.PropertyDefinitions.CopyFrom(PrepareServerPropertiesDefinition());
-			resource.Rows.CopyFrom(PrepareServerRows(resource.PropertyDefinitions));
+            resource.ExternalMatrixID = UuidHelper.NewUuidString();
 
-			return resource;
-		}
+            resource.PropertyDefinitions.CopyFrom(PrepareServerPropertiesDefinition());
+            resource.Rows.CopyFrom(PrepareServerRows(resource.PropertyDefinitions));
 
-		private static SOARolePropertyDefinitionCollection PrepareServerPropertiesDefinition()
-		{
-			SOARolePropertyDefinitionCollection propertiesDefinition = new SOARolePropertyDefinitionCollection();
+            return resource;
+        }
 
-			propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = "CostCenter", SortOrder = 0 });
-			propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = "PayMethod", SortOrder = 1 });
-			propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = "Age", SortOrder = 2, DataType = ColumnDataType.Integer });
-			propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = "OperatorType", SortOrder = 3, DataType = ColumnDataType.String });
-			propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = "Operator", SortOrder = 4, DataType = ColumnDataType.String });
+        private static SOARolePropertyDefinitionCollection PrepareServerPropertiesDefinition()
+        {
+            SOARolePropertyDefinitionCollection propertiesDefinition = new SOARolePropertyDefinitionCollection();
 
-			return propertiesDefinition;
-		}
+            propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = "CostCenter", SortOrder = 0 });
+            propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = "PayMethod", SortOrder = 1 });
+            propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = "Age", SortOrder = 2, DataType = ColumnDataType.Integer });
+            propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = "OperatorType", SortOrder = 3, DataType = ColumnDataType.String });
+            propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = "Operator", SortOrder = 4, DataType = ColumnDataType.String });
 
-		private static SOARolePropertyRowCollection PrepareServerRows(SOARolePropertyDefinitionCollection pds)
-		{
-			SOARolePropertyRowCollection rows = new SOARolePropertyRowCollection();
+            return propertiesDefinition;
+        }
 
-			SOARolePropertyRow row1 = new SOARolePropertyRow() { RowNumber = 1, OperatorType = SOARoleOperatorType.User, Operator = "fanhy" };
+        private static SOARolePropertyRowCollection PrepareServerRows(SOARolePropertyDefinitionCollection pds)
+        {
+            SOARolePropertyRowCollection rows = new SOARolePropertyRowCollection();
 
-			row1.Values.Add(new SOARolePropertyValue(pds["CostCenter"]) { Value = "1001" });
-			row1.Values.Add(new SOARolePropertyValue(pds["PayMethod"]) { Value = "1" });
-			row1.Values.Add(new SOARolePropertyValue(pds["Age"]) { Value = "30" });
+            SOARolePropertyRow row1 = new SOARolePropertyRow() { RowNumber = 1, OperatorType = SOARoleOperatorType.User, Operator = "fanhy" };
 
-			SOARolePropertyRow row2 = new SOARolePropertyRow() { RowNumber = 2, OperatorType = SOARoleOperatorType.User, Operator = "wangli5" };
+            row1.Values.Add(new SOARolePropertyValue(pds["CostCenter"]) { Value = "1001" });
+            row1.Values.Add(new SOARolePropertyValue(pds["PayMethod"]) { Value = "1" });
+            row1.Values.Add(new SOARolePropertyValue(pds["Age"]) { Value = "30" });
 
-			row2.Values.Add(new SOARolePropertyValue(pds["CostCenter"]) { Value = "1002" });
-			row2.Values.Add(new SOARolePropertyValue(pds["PayMethod"]) { Value = "2" });
-			row2.Values.Add(new SOARolePropertyValue(pds["Age"]) { Value = "40" });
+            SOARolePropertyRow row2 = new SOARolePropertyRow() { RowNumber = 2, OperatorType = SOARoleOperatorType.User, Operator = "wangli5" };
 
-			rows.Add(row1);
-			rows.Add(row2);
+            row2.Values.Add(new SOARolePropertyValue(pds["CostCenter"]) { Value = "1002" });
+            row2.Values.Add(new SOARolePropertyValue(pds["PayMethod"]) { Value = "2" });
+            row2.Values.Add(new SOARolePropertyValue(pds["Age"]) { Value = "40" });
 
-			return rows;
-		}
-		#endregion WfActivityMatrixResourceDescriptor
+            rows.Add(row1);
+            rows.Add(row2);
 
-		#region WfClientActivityMatrixResourceDescriptor
-		public static WfClientActivityMatrixResourceDescriptor GetClientActivityMatrixResourceDescriptor()
-		{
-			WfClientActivityMatrixResourceDescriptor resource = new WfClientActivityMatrixResourceDescriptor();
+            return rows;
+        }
+        #endregion WfActivityMatrixResourceDescriptor
 
-			resource.PropertyDefinitions.CopyFrom(PrepareClientPropertiesDefinition());
-			resource.Rows.CopyFrom(PrepareClientRows(resource.PropertyDefinitions));
+        #region WfClientActivityMatrixResourceDescriptor
+        public static WfClientActivityMatrixResourceDescriptor GetClientActivityMatrixResourceDescriptor()
+        {
+            WfClientActivityMatrixResourceDescriptor resource = new WfClientActivityMatrixResourceDescriptor();
 
-			return resource;
-		}
+            resource.PropertyDefinitions.CopyFrom(PrepareClientPropertiesDefinition());
+            resource.Rows.CopyFrom(PrepareClientRows(resource.PropertyDefinitions));
 
-		private static WfClientRolePropertyDefinitionCollection PrepareClientPropertiesDefinition()
-		{
-			WfClientRolePropertyDefinitionCollection propertiesDefinition = new WfClientRolePropertyDefinitionCollection();
+            return resource;
+        }
 
-			propertiesDefinition.Add(new WfClientRolePropertyDefinition() { Name = "CostCenter", SortOrder = 0 });
-			propertiesDefinition.Add(new WfClientRolePropertyDefinition() { Name = "PayMethod", SortOrder = 1 });
-			propertiesDefinition.Add(new WfClientRolePropertyDefinition() { Name = "Age", SortOrder = 2, DataType = ColumnDataType.Integer });
-			propertiesDefinition.Add(new WfClientRolePropertyDefinition() { Name = "OperatorType", SortOrder = 3, DataType = ColumnDataType.String });
-			propertiesDefinition.Add(new WfClientRolePropertyDefinition() { Name = "Operator", SortOrder = 4, DataType = ColumnDataType.String });
+        private static WfClientRolePropertyDefinitionCollection PrepareClientPropertiesDefinition()
+        {
+            WfClientRolePropertyDefinitionCollection propertiesDefinition = new WfClientRolePropertyDefinitionCollection();
 
-			return propertiesDefinition;
-		}
+            propertiesDefinition.Add(new WfClientRolePropertyDefinition() { Name = "CostCenter", SortOrder = 0 });
+            propertiesDefinition.Add(new WfClientRolePropertyDefinition() { Name = "PayMethod", SortOrder = 1 });
+            propertiesDefinition.Add(new WfClientRolePropertyDefinition() { Name = "Age", SortOrder = 2, DataType = ColumnDataType.Integer });
+            propertiesDefinition.Add(new WfClientRolePropertyDefinition() { Name = "OperatorType", SortOrder = 3, DataType = ColumnDataType.String });
+            propertiesDefinition.Add(new WfClientRolePropertyDefinition() { Name = "Operator", SortOrder = 4, DataType = ColumnDataType.String });
 
-		private static WfClientRolePropertyRowCollection PrepareClientRows(WfClientRolePropertyDefinitionCollection pds)
-		{
-			WfClientRolePropertyRowCollection rows = new WfClientRolePropertyRowCollection();
+            return propertiesDefinition;
+        }
 
-			WfClientRolePropertyRow row1 = new WfClientRolePropertyRow() { RowNumber = 1, OperatorType = WfClientRoleOperatorType.User, Operator = "fanhy" };
+        private static WfClientRolePropertyRowCollection PrepareClientRows(WfClientRolePropertyDefinitionCollection pds)
+        {
+            WfClientRolePropertyRowCollection rows = new WfClientRolePropertyRowCollection();
 
-			row1.Values.Add(new WfClientRolePropertyValue(pds["CostCenter"]) { Value = "1001" });
-			row1.Values.Add(new WfClientRolePropertyValue(pds["PayMethod"]) { Value = "1" });
-			row1.Values.Add(new WfClientRolePropertyValue(pds["Age"]) { Value = "30" });
+            WfClientRolePropertyRow row1 = new WfClientRolePropertyRow() { RowNumber = 1, OperatorType = WfClientRoleOperatorType.User, Operator = "fanhy" };
 
-			WfClientRolePropertyRow row2 = new WfClientRolePropertyRow() { RowNumber = 2, OperatorType = WfClientRoleOperatorType.User, Operator = "wangli5" };
+            row1.Values.Add(new WfClientRolePropertyValue(pds["CostCenter"]) { Value = "1001" });
+            row1.Values.Add(new WfClientRolePropertyValue(pds["PayMethod"]) { Value = "1" });
+            row1.Values.Add(new WfClientRolePropertyValue(pds["Age"]) { Value = "30" });
 
-			row2.Values.Add(new WfClientRolePropertyValue(pds["CostCenter"]) { Value = "1002" });
-			row2.Values.Add(new WfClientRolePropertyValue(pds["PayMethod"]) { Value = "2" });
-			row2.Values.Add(new WfClientRolePropertyValue(pds["Age"]) { Value = "40" });
+            WfClientRolePropertyRow row2 = new WfClientRolePropertyRow() { RowNumber = 2, OperatorType = WfClientRoleOperatorType.User, Operator = "wangli5" };
 
-			rows.Add(row1);
-			rows.Add(row2);
+            row2.Values.Add(new WfClientRolePropertyValue(pds["CostCenter"]) { Value = "1002" });
+            row2.Values.Add(new WfClientRolePropertyValue(pds["PayMethod"]) { Value = "2" });
+            row2.Values.Add(new WfClientRolePropertyValue(pds["Age"]) { Value = "40" });
 
-			return rows;
-		}
-		#endregion WfClientActivityMatrixResourceDescriptor
-	}
+            rows.Add(row1);
+            rows.Add(row2);
+
+            return rows;
+        }
+        #endregion WfClientActivityMatrixResourceDescriptor
+    }
 }

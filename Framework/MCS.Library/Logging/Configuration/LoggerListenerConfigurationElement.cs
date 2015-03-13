@@ -32,7 +32,7 @@ namespace MCS.Library.Logging
 		{
 			get
 			{
-				return (string)this["formatter"];
+                return (string)this["logName"];
 			}
 		}
 

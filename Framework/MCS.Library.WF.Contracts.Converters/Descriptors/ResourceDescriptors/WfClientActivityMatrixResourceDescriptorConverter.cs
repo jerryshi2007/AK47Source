@@ -12,70 +12,74 @@ using MCS.Library.WF.Contracts.Workflow.Descriptors;
 
 namespace MCS.Library.WF.Contracts.Converters.Descriptors
 {
-	public class WfClientActivityMatrixResourceDescriptorConverter : WfClientResourceDescriptorConverterBase
-	{
-		public static readonly WfClientActivityMatrixResourceDescriptorConverter Instance = new WfClientActivityMatrixResourceDescriptorConverter();
+    public class WfClientActivityMatrixResourceDescriptorConverter : WfClientResourceDescriptorConverterBase
+    {
+        public static readonly WfClientActivityMatrixResourceDescriptorConverter Instance = new WfClientActivityMatrixResourceDescriptorConverter();
 
-		private WfClientActivityMatrixResourceDescriptorConverter()
-		{
-		}
+        private WfClientActivityMatrixResourceDescriptorConverter()
+        {
+        }
 
-		public override void ClientToServer(WfClientResourceDescriptor client, ref WfResourceDescriptor server)
-		{
-			client.NullCheck("client");
+        public override void ClientToServer(WfClientResourceDescriptor client, ref WfResourceDescriptor server)
+        {
+            client.NullCheck("client");
 
-			if (server == null)
-				server = new WfActivityMatrixResourceDescriptor();
+            if (server == null)
+                server = new WfActivityMatrixResourceDescriptor();
 
-			WfActivityMatrixResourceDescriptor amr = (WfActivityMatrixResourceDescriptor)server;
-			WfClientActivityMatrixResourceDescriptor cmr = (WfClientActivityMatrixResourceDescriptor)client;
+            WfActivityMatrixResourceDescriptor amr = (WfActivityMatrixResourceDescriptor)server;
+            WfClientActivityMatrixResourceDescriptor cmr = (WfClientActivityMatrixResourceDescriptor)client;
 
-			foreach (WfClientRolePropertyDefinition cpd in cmr.PropertyDefinitions)
-			{
-				SOARolePropertyDefinition spd = null;
+            amr.ExternalMatrixID = cmr.ExternalMatrixID;
 
-				WfClientRolePropertyDefinitionConverter.Instance.ClientToServer(cpd, ref spd);
+            foreach (WfClientRolePropertyDefinition cpd in cmr.PropertyDefinitions)
+            {
+                SOARolePropertyDefinition spd = null;
 
-				amr.PropertyDefinitions.Add(spd);
-			}
+                WfClientRolePropertyDefinitionConverter.Instance.ClientToServer(cpd, ref spd);
 
-			foreach (WfClientRolePropertyRow cRow in cmr.Rows)
-			{
-				SOARolePropertyRow sRow = null;
+                amr.PropertyDefinitions.Add(spd);
+            }
 
-				WfClientRolePropertyRowConverter.Instance.ClientToServer(cRow, amr.PropertyDefinitions, ref sRow);
+            foreach (WfClientRolePropertyRow cRow in cmr.Rows)
+            {
+                SOARolePropertyRow sRow = null;
 
-				amr.Rows.Add(sRow);
-			}
-		}
+                WfClientRolePropertyRowConverter.Instance.ClientToServer(cRow, amr.PropertyDefinitions, ref sRow);
 
-		public override void ServerToClient(WfResourceDescriptor server, ref WfClientResourceDescriptor client)
-		{
-			server.NullCheck("server");
+                amr.Rows.Add(sRow);
+            }
+        }
 
-			if (client == null)
-				client = new WfClientActivityMatrixResourceDescriptor();
+        public override void ServerToClient(WfResourceDescriptor server, ref WfClientResourceDescriptor client)
+        {
+            server.NullCheck("server");
 
-			WfClientActivityMatrixResourceDescriptor cmr = (WfClientActivityMatrixResourceDescriptor)client;
-			WfActivityMatrixResourceDescriptor amr = (WfActivityMatrixResourceDescriptor)server;
+            if (client == null)
+                client = new WfClientActivityMatrixResourceDescriptor();
 
-			foreach (SOARolePropertyDefinition spd in amr.PropertyDefinitions)
-			{
-				WfClientRolePropertyDefinition cpd = null;
+            WfClientActivityMatrixResourceDescriptor cmr = (WfClientActivityMatrixResourceDescriptor)client;
+            WfActivityMatrixResourceDescriptor amr = (WfActivityMatrixResourceDescriptor)server;
 
-				WfClientRolePropertyDefinitionConverter.Instance.ServerToClient(spd, ref cpd);
+            cmr.ExternalMatrixID = amr.ExternalMatrixID;
 
-				cmr.PropertyDefinitions.Add(cpd);
-			}
+            foreach (SOARolePropertyDefinition spd in amr.PropertyDefinitions)
+            {
+                WfClientRolePropertyDefinition cpd = null;
 
-			foreach (SOARolePropertyRow sRow in amr.Rows)
-			{
-				WfClientRolePropertyRow cRow = null;
+                WfClientRolePropertyDefinitionConverter.Instance.ServerToClient(spd, ref cpd);
 
-				WfClientRolePropertyRowConverter.Instance.ServerToClient(sRow, cmr.PropertyDefinitions, ref cRow);
+                cmr.PropertyDefinitions.Add(cpd);
+            }
 
-				cmr.Rows.Add(cRow);
-			}
-		}
-	}
+            foreach (SOARolePropertyRow sRow in amr.Rows)
+            {
+                WfClientRolePropertyRow cRow = null;
+
+                WfClientRolePropertyRowConverter.Instance.ServerToClient(sRow, cmr.PropertyDefinitions, ref cRow);
+
+                cmr.Rows.Add(cRow);
+            }
+        }
+    }
 }

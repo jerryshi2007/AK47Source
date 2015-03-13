@@ -83,5 +83,14 @@ namespace MCS.Library.WF.Contracts.Workflow.Descriptors
                 return this.PropertyDefinitions.MatrixType;
             }
         }
+
+        /// <summary>
+        /// 外部矩阵ID
+        /// </summary>
+        public string ExternalMatrixID
+        {
+            get;
+            set;
+        }
     }
 }

@@ -21,6 +21,8 @@ namespace MCS.Library.WF.Contracts.Json.Converters
         {
             WfClientActivityMatrixResourceDescriptor resource = (WfClientActivityMatrixResourceDescriptor)base.Deserialize(dictionary, type, serializer);
 
+            resource.ExternalMatrixID = dictionary.GetValue("externalMatrixID", string.Empty);
+
             JSONSerializerExecute.FillDeserializedCollection(dictionary["definitions"], resource.PropertyDefinitions);
             JSONSerializerExecute.FillDeserializedCollection(dictionary["rows"], resource.Rows);
 
@@ -33,6 +35,7 @@ namespace MCS.Library.WF.Contracts.Json.Converters
 
             WfClientActivityMatrixResourceDescriptor resource = (WfClientActivityMatrixResourceDescriptor)obj;
 
+            dictionary["externalMatrixID"] = resource.ExternalMatrixID;
             dictionary["definitions"] = resource.PropertyDefinitions;
             dictionary["rows"] = resource.Rows;
 

@@ -18,6 +18,7 @@ namespace MCS.Library.Core
         private bool enableLogging = true;
         private bool enablePFCounter = true;
         private bool hasErrors = false;
+        private Dictionary<string, object> context = null;
 
         /// <summary>
         /// 
@@ -78,6 +79,20 @@ namespace MCS.Library.Core
         public Stopwatch Stopwatch
         {
             get { return this.stopwatch; }
+        }
+
+        /// <summary>
+        /// 上下文对象
+        /// </summary>
+        public Dictionary<string, object> Context
+        {
+            get
+            {
+                if (this.context == null)
+                    this.context = new Dictionary<string, object>();
+
+                return this.context;
+            }
         }
 
         /// <summary>
