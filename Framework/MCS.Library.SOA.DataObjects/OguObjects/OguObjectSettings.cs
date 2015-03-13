@@ -98,6 +98,8 @@ namespace MCS.Library.SOA.DataObjects
                     OguContextCache.Instance.Add(FullPath, result);
                 }
 
+                result = OguBase.CreateWrapperObject(result);
+
                 return result;
             }
         }

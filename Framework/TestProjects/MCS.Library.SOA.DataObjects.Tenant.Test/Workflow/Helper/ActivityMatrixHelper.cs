@@ -48,6 +48,21 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             return resource;
         }
 
+        /// <summary>
+        /// 准备一个一行的内部包含动态资源的矩阵
+        /// </summary>
+        /// <returns></returns>
+        public static WfActivityMatrixResourceDescriptor PrepareOneRowDynamicActivityMatrixResourceDescriptor()
+        {
+            WfActivityMatrixResourceDescriptor resource = new WfActivityMatrixResourceDescriptor();
+
+            resource.PropertyDefinitions.CopyFrom(PreparePropertiesDefinition());
+            resource.Rows.Add(PrepareOneDynamicRow(resource.PropertyDefinitions));
+            resource.Rows.Add(PrepareOneCeoRow(resource.PropertyDefinitions));
+
+            return resource;
+        }
+
         public static SOARolePropertyDefinitionCollection PreparePropertiesDefinition()
         {
             SOARolePropertyDefinitionCollection propertiesDefinition = new SOARolePropertyDefinitionCollection();
@@ -57,10 +72,11 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = "PayMethod", SortOrder = 2 });
             propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = "Condition", SortOrder = 3, DefaultValue = "RowOperators.Count > 0" });
             propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = "ActivityCode", SortOrder = 4 });
-            propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = "ActivityName", SortOrder = 5, DefaultValue = "审批" });
-            propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = "Age", SortOrder = 6, DataType = ColumnDataType.Integer });
-            propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = "OperatorType", SortOrder = 7, DataType = ColumnDataType.String });
-            propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = "Operator", SortOrder = 8, DataType = ColumnDataType.String });
+            propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = "ActivityName", SortOrder = 6, DefaultValue = "审批" });
+            propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = "ActivityIsDynamic", SortOrder = 6, DataType = ColumnDataType.Boolean, DefaultValue = "False" });
+            propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = "Age", SortOrder = 7, DataType = ColumnDataType.Integer });
+            propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = "OperatorType", SortOrder = 8, DataType = ColumnDataType.String });
+            propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = "Operator", SortOrder = 9, DataType = ColumnDataType.String });
 
             return propertiesDefinition;
         }
@@ -77,6 +93,40 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             row1.Values.Add(new SOARolePropertyValue(pds["ActivityCode"]) { Value = "Approver1" });
             row1.Values.Add(new SOARolePropertyValue(pds["OperatorType"]) { Value = "User" });
             row1.Values.Add(new SOARolePropertyValue(pds["Operator"]) { Value = "fanhy" });
+
+            return row1;
+        }
+
+        private static SOARolePropertyRow PrepareOneDynamicRow(SOARolePropertyDefinitionCollection pds)
+        {
+            SOARolePropertyRow row1 = new SOARolePropertyRow() { RowNumber = 1, OperatorType = SOARoleOperatorType.Role, Operator = "ReportLine" };
+
+            row1.Values.Add(new SOARolePropertyValue(pds["CostCenter"]) { Value = "1001" });
+            row1.Values.Add(new SOARolePropertyValue(pds["PayMethod"]) { Value = "1" });
+            row1.Values.Add(new SOARolePropertyValue(pds["Age"]) { Value = "30" });
+            row1.Values.Add(new SOARolePropertyValue(pds["ActivitySN"]) { Value = "10" });
+            row1.Values.Add(new SOARolePropertyValue(pds["Condition"]) { Value = "RowOperators.Count > 0" });
+            row1.Values.Add(new SOARolePropertyValue(pds["ActivityCode"]) { Value = "Approver1" });
+            row1.Values.Add(new SOARolePropertyValue(pds["ActivityIsDynamic"]) { Value = "True" });
+            row1.Values.Add(new SOARolePropertyValue(pds["OperatorType"]) { Value = "Role" });
+            row1.Values.Add(new SOARolePropertyValue(pds["Operator"]) { Value = "ReportLine" });
+
+            return row1;
+        }
+
+        private static SOARolePropertyRow PrepareOneCeoRow(SOARolePropertyDefinitionCollection pds)
+        {
+            SOARolePropertyRow row1 = new SOARolePropertyRow() { RowNumber = 1, OperatorType = SOARoleOperatorType.User, Operator = "liming" };
+
+            row1.Values.Add(new SOARolePropertyValue(pds["CostCenter"]) { Value = "1001" });
+            row1.Values.Add(new SOARolePropertyValue(pds["PayMethod"]) { Value = "1" });
+            row1.Values.Add(new SOARolePropertyValue(pds["Age"]) { Value = "30" });
+            row1.Values.Add(new SOARolePropertyValue(pds["ActivitySN"]) { Value = "20" });
+            row1.Values.Add(new SOARolePropertyValue(pds["Condition"]) { Value = "RowOperators.Count > 0" });
+            row1.Values.Add(new SOARolePropertyValue(pds["ActivityCode"]) { Value = "Approver1" });
+            row1.Values.Add(new SOARolePropertyValue(pds["ActivityIsDynamic"]) { Value = "False" });
+            row1.Values.Add(new SOARolePropertyValue(pds["OperatorType"]) { Value = "User" });
+            row1.Values.Add(new SOARolePropertyValue(pds["Operator"]) { Value = "liming" });
 
             return row1;
         }

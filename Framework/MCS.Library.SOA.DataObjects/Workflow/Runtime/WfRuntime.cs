@@ -440,7 +440,9 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
                     using (TransactionScope scope = TransactionScopeFactory.Create())
                     {
-                        WfRuntime.ProcessContext.AffectedActions.PersistActions(actionParams);
+                        PerformanceMonitorHelper.GetDefaultMonitor().WriteExecutionDuration("PersistActions",
+                            () => WfRuntime.ProcessContext.AffectedActions.PersistActions(actionParams));
+
                         WfPendingActivityInfoAdapter.Instance.Delete(WfRuntime.ProcessContext.ReleasedPendingActivities);
                         WfAclAdapter.Instance.Update(WfRuntime.ProcessContext.Acl);
 
@@ -454,7 +456,9 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
                         WfRuntime.ProcessContext.AffectedProcesses.ForEach(process =>
                             {
-                                persistManager.SaveProcess(process);
+                                PerformanceMonitorHelper.GetDefaultMonitor().WriteExecutionDuration(
+                                    string.Format("PersistWorkflow: {0}", process.ID),
+                                    () => persistManager.SaveProcess(process));
 
                                 i++;
                                 ProcessProgress.Current.Increment();

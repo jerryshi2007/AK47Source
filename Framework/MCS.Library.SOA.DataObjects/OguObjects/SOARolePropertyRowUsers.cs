@@ -49,13 +49,13 @@ namespace MCS.Library.SOA.DataObjects
 		{
 			this.Sort((x, y) =>
 			{
-				int xSN = 0;
-				int.TryParse(x.Row.Values.GetValue("ActivitySN", "0"), out xSN);
+				float xSN = 0;
+                float.TryParse(x.Row.Values.GetValue("ActivitySN", "0"), out xSN);
 
-				int ySN = 0;
-				int.TryParse(y.Row.Values.GetValue("ActivitySN", "0"), out ySN);
+                float ySN = 0;
+                float.TryParse(y.Row.Values.GetValue("ActivitySN", "0"), out ySN);
 
-				return xSN - ySN;
+				return (int)(xSN - ySN);
 			});
 		}
 

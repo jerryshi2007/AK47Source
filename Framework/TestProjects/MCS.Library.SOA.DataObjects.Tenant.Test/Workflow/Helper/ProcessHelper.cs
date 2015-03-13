@@ -65,7 +65,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             return GetDynamicProcessDesp(ActivityMatrixHelper.PrepareActivityMatrixResourceDescriptor(), externalMatrixID);
         }
 
-        public static IWfProcessDescriptor GetDynamicProcessDesp(WfActivityMatrixResourceDescriptor activityMatrixRespurce, string externalMatrixID)
+        public static IWfProcessDescriptor GetDynamicProcessDesp(WfActivityMatrixResourceDescriptor activityMatrixResource, string externalMatrixID)
         {
             IWfProcessDescriptor processDesp = CreateSimpleProcessDescriptor();
 
@@ -73,7 +73,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
 
             normalActDesp.Properties.SetValue("IsDynamic", true);
 
-            WfActivityMatrixResourceDescriptor resource = activityMatrixRespurce;
+            WfActivityMatrixResourceDescriptor resource = activityMatrixResource;
 
             normalActDesp.Resources.Add(resource);
 

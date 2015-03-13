@@ -195,7 +195,22 @@ namespace MCS.Library.SOA.DataObjects
             result.SortByActivitySN();
             result.RemoveMergeableRows();
 
+            this.ReSortActivitySN();
+
             return result;
+        }
+
+        private void ReSortActivitySN()
+        {
+            int index = 0;
+
+            foreach (SOARolePropertyRow row in this)
+            {
+                SOARolePropertyValue snValue = row.Values.Find(pv => string.Compare("ActivitySN", pv.Column.Name) == 0);
+
+                if (snValue != null)
+                    snValue.Value = (++index * 10).ToString();
+            }
         }
 
         public void FillCreateActivityParams(WfCreateActivityParamCollection capc, PropertyDefineCollection definedProperties)
@@ -359,7 +374,7 @@ namespace MCS.Library.SOA.DataObjects
                 {
                     case SOARoleOperatorType.Role:
                         if (rowUsers.Row.Operator.IndexOf(":") < 0)
-                            FillInternalDynamicRoleUsers(rowUsers.Row.Operator, users);
+                            SOARolePropertyRow.FillInternalDynamicRoleUsers(rowUsers.Row.Operator, users);
                         else
                             FillRoleUsers(rowUsers.Row.Operator, users);
                         break;
@@ -391,20 +406,6 @@ namespace MCS.Library.SOA.DataObjects
 
             if (role != null)
                 role.FillUsers(SOARoleContext.CurrentProcess, users);
-        }
-
-        private static void FillInternalDynamicRoleUsers(string roleName, OguDataCollection<IUser> users)
-        {
-            SOARoleContext context = SOARoleContext.Current;
-
-            WfDynamicResourceDescriptor dynResource = new WfDynamicResourceDescriptor();
-
-            if (context != null)
-                dynResource.SetProcessInstance(context.Process);
-
-            dynResource.Condition.Expression = roleName;
-
-            dynResource.FillUsers(users);
         }
 
         private static Dictionary<string, IUser> GenerateUserDictionary(IEnumerable<IUser> users)

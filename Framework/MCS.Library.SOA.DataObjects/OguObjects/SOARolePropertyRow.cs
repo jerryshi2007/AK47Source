@@ -137,20 +137,35 @@ namespace MCS.Library.SOA.DataObjects
             SOARolePropertyRowCollection extractedRows = new SOARolePropertyRowCollection();
             bool extracted = false;
 
-            if (this.Operator.IsNotEmpty() && this.Operator.IndexOf(":") != -1)
+            if (this.Operator.IsNotEmpty())
             {
-                switch (this.OperatorType)
+                if (this.Operator.IndexOf(":") != -1)
                 {
-                    case SOARoleOperatorType.Role:
-                        extracted = this.ExtractSOARoleRows(new SOARole(this.Operator), extractedRows);
-                        break;
-                    case SOARoleOperatorType.AURole:
-                        WrappedAUSchemaRole wrappedRole = WrappedAUSchemaRole.FromCodeName(this.Operator);
+                    switch (this.OperatorType)
+                    {
+                        case SOARoleOperatorType.Role:
+                            extracted = this.ExtractSOARoleRows(new SOARole(this.Operator), extractedRows);
+                            break;
+                        case SOARoleOperatorType.AURole:
+                            WrappedAUSchemaRole wrappedRole = WrappedAUSchemaRole.FromCodeName(this.Operator);
 
-                        if (wrappedRole != null)
-                            wrappedRole.DoCurrentRoleAction(SOARoleContext.CurrentProcess,
-                                (role, auCodeName) => extracted = this.ExtractSOARoleRows(role, extractedRows));
-                        break;
+                            if (wrappedRole != null)
+                                wrappedRole.DoCurrentRoleAction(SOARoleContext.CurrentProcess,
+                                    (role, auCodeName) => extracted = this.ExtractSOARoleRows(role, extractedRows));
+                            break;
+                    }
+                }
+                else
+                {
+                    if (this.Values.GetValue("ActivityIsDynamic", false))
+                    {
+                        switch (this.OperatorType)
+                        {
+                            case SOARoleOperatorType.Role:
+                                extracted = this.ExtractDynamicRoleMatrixRows(this.Operator, extractedRows);
+                                break;
+                        }
+                    }
                 }
             }
 
@@ -288,22 +303,7 @@ namespace MCS.Library.SOA.DataObjects
                 {
                     using (SOARoleContext innerContext = SOARoleContext.CreateContext(innerRole, originalContext.Process))
                     {
-                        SOARoleContext.DoAction(innerRole, SOARoleContext.CurrentProcess, (context) =>
-                        {
-                            SOARolePropertyRowCollection subRows = innerRole.Rows.Query(context.QueryParams);
-
-                            if (((SOARole)this.Role).MatrixType == WfMatrixType.ActivityMatrix && innerRole.MatrixType != WfMatrixType.ActivityMatrix)
-                                subRows = MergeActivityRowProperties(subRows);
-
-                            foreach (SOARolePropertyRow subRow in subRows)
-                            {
-                                SOARolePropertyRowCollection subExtractedRows = subRow.ExtractMatrixRows();
-
-                                extractedRows.CopyFrom(subExtractedRows);
-                            }
-
-                            extracted = true;
-                        });
+                        extracted = this.ExtractSOARoleMatrixRows(innerRole, extractedRows);
                     }
                 }
                 finally
@@ -315,7 +315,81 @@ namespace MCS.Library.SOA.DataObjects
             return extracted;
         }
 
-        private SOARolePropertyRowCollection MergeActivityRowProperties(SOARolePropertyRowCollection subExtractedRows)
+        private bool ExtractSOARoleMatrixRows(SOARole innerRole, SOARolePropertyRowCollection extractedRows)
+        {
+            bool extracted = false;
+
+            SOARoleContext.DoAction(innerRole, SOARoleContext.CurrentProcess, (context) =>
+            {
+                SOARolePropertyRowCollection subRows = innerRole.Rows.Query(context.QueryParams);
+
+                if (((SOARole)this.Role).MatrixType == WfMatrixType.ActivityMatrix && innerRole.MatrixType != WfMatrixType.ActivityMatrix)
+                    subRows = MergeActivityRowPropertiesByRows(subRows);
+
+                foreach (SOARolePropertyRow subRow in subRows)
+                {
+                    SOARolePropertyRowCollection subExtractedRows = subRow.ExtractMatrixRows();
+
+                    extractedRows.CopyFrom(subExtractedRows);
+                }
+
+                extracted = true;
+            });
+
+            return extracted;
+        }
+
+        private bool ExtractDynamicRoleMatrixRows(string roleName, SOARolePropertyRowCollection extractedRows)
+        {
+            OguDataCollection<IUser> users = new OguDataCollection<IUser>();
+
+            FillInternalDynamicRoleUsers(roleName, users);
+
+            extractedRows.CopyFrom(this.MergeActivityRowPropertiesByUsers(users));
+
+            return users.Count > 0;
+        }
+
+        private SOARolePropertyRowCollection MergeActivityRowPropertiesByUsers(IEnumerable<IUser> users)
+        {
+            SOARolePropertyRowCollection result = new SOARolePropertyRowCollection();
+
+            int index = 0;
+            int activitySN = this.Values.GetValue("ActivitySN", 0);
+
+            foreach (IUser user in users)
+            {
+                SOARolePropertyRow newRow = new SOARolePropertyRow(this.Role);
+
+                foreach (SOARolePropertyValue originalValue in this.Values)
+                {
+                    SOARolePropertyValue newPV = new SOARolePropertyValue(originalValue.Column);
+                    newRow.Values.Add(newPV);
+                }
+
+                if (this.GetPropertyDefinitions().MatrixType == WfMatrixType.ActivityMatrix)
+                {
+                    SOARolePropertyValue pv = newRow.Values.Find(v => string.Compare(v.Column.Name, "ActivitySN", true) == 0);
+
+                    if (pv == null)
+                    {
+                        pv = new SOARolePropertyValue(this.GetPropertyDefinitions()["ActivitySN"]);
+                        newRow.Values.Add(pv);
+                    }
+
+                    pv.Value = string.Format("{0}.{1:0000}", activitySN, ++index);
+                }
+
+                newRow.OperatorType = SOARoleOperatorType.User;
+                newRow.Operator = user.LogOnName;
+
+                result.Add(newRow);
+            }
+
+            return result;
+        }
+
+        private SOARolePropertyRowCollection MergeActivityRowPropertiesByRows(SOARolePropertyRowCollection subExtractedRows)
         {
             SOARolePropertyRowCollection result = new SOARolePropertyRowCollection();
 
@@ -370,6 +444,20 @@ namespace MCS.Library.SOA.DataObjects
             }
 
             return result;
+        }
+
+        internal static void FillInternalDynamicRoleUsers(string roleName, OguDataCollection<IUser> users)
+        {
+            SOARoleContext context = SOARoleContext.Current;
+
+            WfDynamicResourceDescriptor dynResource = new WfDynamicResourceDescriptor();
+
+            if (context != null)
+                dynResource.SetProcessInstance(context.Process);
+
+            dynResource.Condition.Expression = roleName;
+
+            dynResource.FillUsers(users);
         }
     }
 }

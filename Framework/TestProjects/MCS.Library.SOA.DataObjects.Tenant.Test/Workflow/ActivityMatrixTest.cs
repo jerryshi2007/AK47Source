@@ -1,4 +1,5 @@
 ﻿using MCS.Library.Core;
+using MCS.Library.OGUPermission;
 using MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper;
 using MCS.Library.SOA.DataObjects.Workflow;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -29,6 +30,27 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
             WfOutputHelper.OutputEveryActivities(process);
 
             Assert.AreEqual(5, process.Activities.Count);
+        }
+
+        [TestMethod]
+        [Description("资源为活动矩阵时的，内部的活动包含动态活动")]
+        public void ActivityMatrixWithDynamicActivityTest()
+        {
+            WfActivityMatrixResourceDescriptor resource = ActivityMatrixHelper.PrepareOneRowDynamicActivityMatrixResourceDescriptor();
+            IWfProcessDescriptor processDesp = ProcessHelper.GetDynamicProcessDesp(resource, string.Empty);
+
+            IWfProcess process = ProcessHelper.StartupProcess(processDesp, new Dictionary<string, object>()
+				{
+					{ "CostCenter", "1001" },
+					{ "PayMethod", "1" },
+					{ "Age", 30 },
+                    { "ReportLine", new IUser[] {OguObjectSettings.GetConfig().Objects["approver1"].User, OguObjectSettings.GetConfig().Objects["cfo"].User}}
+				});
+
+            Console.WriteLine(process.Activities.Count);
+
+            WfOutputHelper.OutputMainStream(process);
+            WfOutputHelper.OutputEveryActivities(process);
         }
 
         [TestMethod]
