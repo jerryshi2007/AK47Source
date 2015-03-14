@@ -89,7 +89,8 @@ namespace MCS.Library.SOA.DataObjects
                 {
                     if (condition != null)
                     {
-                        condition.Expression = row.Values.GetValue("Condition", row.GetPropertyDefinitions().GetColumnDefaultValue("Condition", string.Empty));
+                        condition.Expression = row.Values.GetValue(SOARolePropertyDefinition.ConditionColumn,
+                            row.GetPropertyDefinitions().GetColumnDefaultValue(SOARolePropertyDefinition.ConditionColumn, string.Empty));
 
                         matched = row.EvaluateCondition(condition);
                     }
@@ -206,7 +207,7 @@ namespace MCS.Library.SOA.DataObjects
 
             foreach (SOARolePropertyRow row in this)
             {
-                SOARolePropertyValue snValue = row.Values.Find(pv => string.Compare("ActivitySN", pv.Column.Name) == 0);
+                SOARolePropertyValue snValue = row.Values.Find(pv => string.Compare(SOARolePropertyDefinition.ActivitySNColumn, pv.Column.Name) == 0);
 
                 if (snValue != null)
                     snValue.Value = (++index * 10).ToString();
@@ -285,10 +286,10 @@ namespace MCS.Library.SOA.DataObjects
 
                     switch (definition.Name)
                     {
-                        case "Operator":
+                        case SOARolePropertyDefinition.OperatorColumn:
                             mRow.Operator = row[definition.Name].ToString();
                             break;
-                        case "OperatorType":
+                        case SOARolePropertyDefinition.OperatorTypeColumn:
                             SOARoleOperatorType opType = SOARoleOperatorType.User;
                             Enum.TryParse(row[definition.Name].ToString(), out opType);
                             mRow.OperatorType = opType;
@@ -311,7 +312,8 @@ namespace MCS.Library.SOA.DataObjects
         /// <param name="row"></param>
         private static void InitTransitionTemplatesProperties(WfCreateActivityParam cap, SOARolePropertyDefinitionCollection definitions, SOARolePropertyRow row)
         {
-            string json = row.Values.GetValue("Transitions", row.GetPropertyDefinitions().GetColumnDefaultValue("Transitions", string.Empty));
+            string json = row.Values.GetValue(SOARolePropertyDefinition.TransitionsColumn,
+                row.GetPropertyDefinitions().GetColumnDefaultValue(SOARolePropertyDefinition.TransitionsColumn, string.Empty));
 
             if (json.IsNotEmpty())
                 cap.TransitionTemplates.FromJson(json);
@@ -432,21 +434,7 @@ namespace MCS.Library.SOA.DataObjects
 
         private static List<string> GenerateObjectIDs(SOARolePropertyRow row)
         {
-            List<string> objIds = new List<string>();
-
-            if (row.Operator != null)
-            {
-                string[] ids = row.Operator.Split(SOARolePropertyRow.OperatorSplitters, StringSplitOptions.RemoveEmptyEntries);
-
-                foreach (string id in ids)
-                {
-                    string trimmedID = id.Trim();
-
-                    objIds.Add(trimmedID);
-                }
-            }
-
-            return objIds;
+            return SOARolePropertyRow.GenerateObjectIDs(row.Operator);
         }
 
         protected override void OnInsert(int index, object value)

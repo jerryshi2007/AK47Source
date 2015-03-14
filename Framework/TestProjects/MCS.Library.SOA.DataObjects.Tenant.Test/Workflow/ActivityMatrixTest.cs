@@ -36,7 +36,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
         [Description("资源为活动矩阵时的，内部的活动包含动态活动")]
         public void ActivityMatrixWithDynamicActivityTest()
         {
-            WfActivityMatrixResourceDescriptor resource = ActivityMatrixHelper.PrepareOneRowDynamicActivityMatrixResourceDescriptor();
+            WfActivityMatrixResourceDescriptor resource = ActivityMatrixHelper.PrepareDynamicActivityMatrixResourceDescriptor();
             IWfProcessDescriptor processDesp = ProcessHelper.GetDynamicProcessDesp(resource, string.Empty);
 
             IWfProcess process = ProcessHelper.StartupProcess(processDesp, new Dictionary<string, object>()
@@ -51,6 +51,8 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
 
             WfOutputHelper.OutputMainStream(process);
             WfOutputHelper.OutputEveryActivities(process);
+
+            Assert.AreEqual(7, process.Activities.Count);
         }
 
         [TestMethod]
@@ -93,7 +95,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
 
             int originalCount = resource.Rows.Count;
 
-            resource.Rows[0].Values.FindByColumnName("ActivityCode").Value = "NotMatched";
+            resource.Rows[0].Values.FindByColumnName(SOARolePropertyDefinition.ActivityCodeColumn).Value = "NotMatched";
             WfApprovalMatrix approvalMatrix = ApprovalMatrixHelper.PrepareOneRowApprovalMatrixResourceDescriptor();
 
             resource.MergeApprovalMatrix(approvalMatrix);
@@ -111,7 +113,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
 
             int originalCount = resource.Rows.Count;
 
-            resource.Rows.ForEach(row => row.Values.FindByColumnName("ActivityCode").Value = "NotMatched");
+            resource.Rows.ForEach(row => row.Values.FindByColumnName(SOARolePropertyDefinition.ActivityCodeColumn).Value = "NotMatched");
 
             WfApprovalMatrix approvalMatrix = ApprovalMatrixHelper.PrepareApprovalMatrix();
 
@@ -159,7 +161,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
 
             WfActivityMatrixResourceDescriptor resource = ActivityMatrixHelper.PrepareActivityMatrixResourceDescriptor();
 
-            resource.Rows.ForEach(row => row.Values.FindByColumnName("ActivityCode").Value = "NotMatched");
+            resource.Rows.ForEach(row => row.Values.FindByColumnName(SOARolePropertyDefinition.ActivityCodeColumn).Value = "NotMatched");
 
             SOARolePropertyRowCollection activityRows = resource.Rows.Query(queryParam);
 
@@ -262,7 +264,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
 
             WfActivityMatrixResourceDescriptor resource = ActivityMatrixHelper.PrepareActivityMatrixResourceDescriptor();
 
-            resource.Rows.ForEach(row => row.Values.FindByColumnName("ActivityCode").Value = "NotMatched");
+            resource.Rows.ForEach(row => row.Values.FindByColumnName(SOARolePropertyDefinition.ActivityCodeColumn).Value = "NotMatched");
 
             IWfProcessDescriptor processDesp = ProcessHelper.GetDynamicProcessDesp(resource, approvalMatrix.ID);
 

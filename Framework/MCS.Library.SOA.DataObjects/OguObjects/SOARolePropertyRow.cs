@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using MCS.Library.Caching;
+﻿using MCS.Library.Caching;
 using MCS.Library.Core;
 using MCS.Library.Data.DataObjects;
 using MCS.Library.Data.Mapping;
@@ -12,8 +7,12 @@ using MCS.Library.Globalization;
 using MCS.Library.OGUPermission;
 using MCS.Library.SOA.DataObjects.Workflow;
 using MCS.Library.SOA.DataObjects.Workflow.Builders;
-using MCS.Web.Library.Script;
+using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
 
 namespace MCS.Library.SOA.DataObjects
 {
@@ -126,7 +125,8 @@ namespace MCS.Library.SOA.DataObjects
         /// <returns></returns>
         public bool IsMergeable()
         {
-            return this.Values.GetValue("IsMergeable", this.GetPropertyDefinitions().GetColumnDefaultValue("IsMergeable", false));
+            return this.Values.GetValue(SOARolePropertyDefinition.IsMergeableColumn,
+                this.GetPropertyDefinitions().GetColumnDefaultValue(SOARolePropertyDefinition.IsMergeableColumn, false));
         }
 
         /// <summary>
@@ -157,12 +157,15 @@ namespace MCS.Library.SOA.DataObjects
                 }
                 else
                 {
-                    if (this.Values.GetValue("ActivityIsDynamic", false))
+                    if (this.Values.GetValue(SOARolePropertyDefinition.AutoExtractColumn, false))
                     {
                         switch (this.OperatorType)
                         {
                             case SOARoleOperatorType.Role:
                                 extracted = this.ExtractDynamicRoleMatrixRows(this.Operator, extractedRows);
+                                break;
+                            case SOARoleOperatorType.User:
+                                extracted = this.ExtractUserMatrixRows(this.Operator, extractedRows);
                                 break;
                         }
                     }
@@ -224,7 +227,7 @@ namespace MCS.Library.SOA.DataObjects
 
                 this.Operator = string.Join(",", targetUsers.ToArray());
 
-                SOARolePropertyValue cell = this.Values.FindByColumnName("Operator");
+                SOARolePropertyValue cell = this.Values.FindByColumnName(SOARolePropertyDefinition.OperatorColumn);
 
                 if (cell != null)
                     cell.Value = this.Operator;
@@ -350,30 +353,53 @@ namespace MCS.Library.SOA.DataObjects
             return users.Count > 0;
         }
 
+        private bool ExtractUserMatrixRows(string operators, SOARolePropertyRowCollection extractedRows)
+        {
+            List<string> userIDs = GenerateObjectIDs(operators);
+
+            extractedRows.CopyFrom(this.MergeActivityRowPropertiesByOperators(userIDs));
+
+            return userIDs.Count > 0;
+        }
+
+        internal static List<string> GenerateObjectIDs(string operators)
+        {
+            List<string> objIds = new List<string>();
+
+            if (operators.IsNotEmpty())
+            {
+                string[] ids = operators.Split(SOARolePropertyRow.OperatorSplitters, StringSplitOptions.RemoveEmptyEntries);
+
+                foreach (string id in ids)
+                {
+                    string trimmedID = id.Trim();
+
+                    if (objIds.Exists(eid => string.Compare(eid, id, true) == 0) == false)
+                        objIds.Add(trimmedID);
+                }
+            }
+
+            return objIds;
+        }
+
         private SOARolePropertyRowCollection MergeActivityRowPropertiesByUsers(IEnumerable<IUser> users)
         {
             SOARolePropertyRowCollection result = new SOARolePropertyRowCollection();
 
             int index = 0;
-            int activitySN = this.Values.GetValue("ActivitySN", 0);
+            int activitySN = this.Values.GetValue(SOARolePropertyDefinition.ActivitySNColumn, 0);
 
             foreach (IUser user in users)
             {
-                SOARolePropertyRow newRow = new SOARolePropertyRow(this.Role);
-
-                foreach (SOARolePropertyValue originalValue in this.Values)
-                {
-                    SOARolePropertyValue newPV = new SOARolePropertyValue(originalValue.Column);
-                    newRow.Values.Add(newPV);
-                }
+                SOARolePropertyRow newRow = new SOARolePropertyRow(this, 0);
 
                 if (this.GetPropertyDefinitions().MatrixType == WfMatrixType.ActivityMatrix)
                 {
-                    SOARolePropertyValue pv = newRow.Values.Find(v => string.Compare(v.Column.Name, "ActivitySN", true) == 0);
+                    SOARolePropertyValue pv = newRow.Values.Find(v => string.Compare(v.Column.Name, SOARolePropertyDefinition.ActivitySNColumn, true) == 0);
 
                     if (pv == null)
                     {
-                        pv = new SOARolePropertyValue(this.GetPropertyDefinitions()["ActivitySN"]);
+                        pv = new SOARolePropertyValue(this.GetPropertyDefinitions()[SOARolePropertyDefinition.ActivitySNColumn]);
                         newRow.Values.Add(pv);
                     }
 
@@ -382,6 +408,39 @@ namespace MCS.Library.SOA.DataObjects
 
                 newRow.OperatorType = SOARoleOperatorType.User;
                 newRow.Operator = user.LogOnName;
+
+                result.Add(newRow);
+            }
+
+            return result;
+        }
+
+        private SOARolePropertyRowCollection MergeActivityRowPropertiesByOperators(IEnumerable<string> operators)
+        {
+            SOARolePropertyRowCollection result = new SOARolePropertyRowCollection();
+
+            int index = 0;
+            int activitySN = this.Values.GetValue(SOARolePropertyDefinition.ActivitySNColumn, 0);
+
+            foreach (string op in operators)
+            {
+                SOARolePropertyRow newRow = new SOARolePropertyRow(this, 0);
+
+                if (this.GetPropertyDefinitions().MatrixType == WfMatrixType.ActivityMatrix)
+                {
+                    SOARolePropertyValue pv = newRow.Values.Find(v => string.Compare(v.Column.Name, SOARolePropertyDefinition.ActivitySNColumn, true) == 0);
+
+                    if (pv == null)
+                    {
+                        pv = new SOARolePropertyValue(this.GetPropertyDefinitions()[SOARolePropertyDefinition.ActivitySNColumn]);
+                        newRow.Values.Add(pv);
+                    }
+
+                    pv.Value = string.Format("{0}.{1:0000}", activitySN, ++index);
+                }
+
+                newRow.OperatorType = SOARoleOperatorType.User;
+                newRow.Operator = op;
 
                 result.Add(newRow);
             }

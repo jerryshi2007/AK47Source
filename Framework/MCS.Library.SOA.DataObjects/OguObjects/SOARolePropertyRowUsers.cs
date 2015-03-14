@@ -50,10 +50,10 @@ namespace MCS.Library.SOA.DataObjects
 			this.Sort((x, y) =>
 			{
 				float xSN = 0;
-                float.TryParse(x.Row.Values.GetValue("ActivitySN", "0"), out xSN);
+                float.TryParse(x.Row.Values.GetValue(SOARolePropertyDefinition.ActivitySNColumn, "0"), out xSN);
 
                 float ySN = 0;
-                float.TryParse(y.Row.Values.GetValue("ActivitySN", "0"), out ySN);
+                float.TryParse(y.Row.Values.GetValue(SOARolePropertyDefinition.ActivitySNColumn, "0"), out ySN);
 
 				return (int)(xSN - ySN);
 			});

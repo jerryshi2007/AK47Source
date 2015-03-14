@@ -33,7 +33,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow.Builders
             WfCreateActivityParam cap = new WfCreateActivityParam();
 
             cap.Source = rowUsers.Row;
-            cap.ActivitySN = int.Parse(rowUsers.Row.Values.GetValue("ActivitySN", "0"));
+            cap.ActivitySN = int.Parse(rowUsers.Row.Values.GetValue(SOARolePropertyDefinition.ActivitySNColumn, "0"));
             cap.Template.Properties.MergeDefinedProperties(definedProperties);
 
             InitActivityTemplateProperties(cap, definitions, rowUsers.Row);

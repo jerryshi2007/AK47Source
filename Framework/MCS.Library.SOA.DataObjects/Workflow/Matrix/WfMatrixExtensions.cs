@@ -146,8 +146,8 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             amRow.OperatorType = SOARoleOperatorType.User;
             amRow.Operator = string.Empty;
 
-            SetCellValue(amRow, amDefinitions, "Operator", string.Empty);
-            SetCellValue(amRow, amDefinitions, "ActivitySN", activitySN.ToString());
+            SetCellValue(amRow, amDefinitions, SOARolePropertyDefinition.OperatorColumn, string.Empty);
+            SetCellValue(amRow, amDefinitions, SOARolePropertyDefinition.ActivitySNColumn, activitySN.ToString());
 
             return amRow;
         }
@@ -163,7 +163,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
             foreach (SOARolePropertyRow amRow in amRows)
             {
-                string activityCode = amRow.Values.GetValue("ActivityCode", string.Empty);
+                string activityCode = amRow.Values.GetValue(SOARolePropertyDefinition.ActivityCodeColumn, string.Empty);
 
                 if (activityCode.IsNotEmpty())
                 {
@@ -190,7 +190,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             SOARolePropertyDefinitionCollection amDefinitions,
             string apUser)
         {
-            SetCellValue(amRow, amDefinitions, "OperatorType", SOARoleOperatorType.User.ToString());
+            SetCellValue(amRow, amDefinitions, SOARolePropertyDefinition.OperatorTypeColumn, SOARoleOperatorType.User.ToString());
 
             AppendOperator(amRow, amDefinitions, apUser);
         }
@@ -213,7 +213,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
         private static void AppendOperator(SOARolePropertyRow row, SOARolePropertyDefinitionCollection columns, string apUser)
         {
-            string columnName = "Operator";
+            string columnName = SOARolePropertyDefinition.OperatorColumn;
 
             if (columns.ContainsKey(columnName))
             {
@@ -247,7 +247,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
             foreach (SOARolePropertyRow row in amRows)
             {
-                int activitySN = row.Values.GetValue<int>("ActivitySN", 0);
+                int activitySN = row.Values.GetValue<int>(SOARolePropertyDefinition.ActivitySNColumn, 0);
 
                 if (activitySN > result)
                     result = activitySN;

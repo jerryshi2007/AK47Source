@@ -21,7 +21,27 @@ namespace MCS.Library.SOA.DataObjects
     [TenantRelativeObject]
     public class SOARolePropertyDefinition : ColumnDefinitionBase
     {
-        private static readonly string[] ReservedPropertyName = new string[] { "OperatorType", "Operator", "ActivitySN", "ActivityName", "IsMergeable" };
+        public const string OperatorTypeColumn = "OperatorType";
+        public const string OperatorColumn = "Operator";
+        public const string ActivitySNColumn = "ActivitySN";
+        public const string ActivityNameColumn = "ActivityName";
+        public const string ActivityCodeColumn = "ActivityCode";
+        public const string IsMergeableColumn = "IsMergeable";
+        public const string AutoExtractColumn = "AutoExtract";
+        public const string ConditionColumn = "Condition";
+        public const string TransitionsColumn = "Transitions";
+
+        private static readonly string[] ReservedPropertyName = new string[] {
+            SOARolePropertyDefinition.OperatorTypeColumn, 
+            SOARolePropertyDefinition.OperatorColumn,
+            SOARolePropertyDefinition.ActivitySNColumn,
+            SOARolePropertyDefinition.ActivityNameColumn,
+            SOARolePropertyDefinition.ActivityCodeColumn,
+            SOARolePropertyDefinition.AutoExtractColumn,
+            SOARolePropertyDefinition.IsMergeableColumn,
+            SOARolePropertyDefinition.ConditionColumn,
+            SOARolePropertyDefinition.TransitionsColumn
+        };
 
         public static readonly SOARolePropertyDefinitionCollection EmptyInstance = new SOARolePropertyDefinitionCollection();
 
@@ -181,18 +201,6 @@ namespace MCS.Library.SOA.DataObjects
                 this.Add(new SOARolePropertyDefinition() { Name = column.ColumnName, SortOrder = columnIndex++ });
         }
 
-        ///// <summary>
-        ///// 是否是活动矩阵
-        ///// </summary>
-        //public bool IsActivityMatrix
-        //{
-        //    get
-        //    {
-        //        return this.ContainsKey("ActivitySN") ||
-        //                this.ContainsKey("ActivityName");
-        //    }
-        //}
-
         /// <summary>
         /// 矩阵的类型
         /// </summary>
@@ -202,11 +210,11 @@ namespace MCS.Library.SOA.DataObjects
             {
                 WfMatrixType result = WfMatrixType.ApprovalMatrix;
 
-                if (this.ContainsKey("OperatorType") || this.ContainsKey("Operator"))
+                if (this.ContainsKey(SOARolePropertyDefinition.OperatorTypeColumn) || this.ContainsKey(SOARolePropertyDefinition.OperatorColumn))
                 {
                     result = WfMatrixType.RoleMatrix;
 
-                    if (this.ContainsKey("ActivitySN") || this.ContainsKey("ActivityName"))
+                    if (this.ContainsKey(SOARolePropertyDefinition.ActivitySNColumn) || this.ContainsKey(SOARolePropertyDefinition.ActivityNameColumn))
                         result = WfMatrixType.ActivityMatrix;
                 }
 
