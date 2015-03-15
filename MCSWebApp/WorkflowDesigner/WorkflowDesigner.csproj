@@ -13,7 +13,8 @@
     <RootNamespace>WorkflowDesigner</RootNamespace>
     <AssemblyName>WorkflowDesigner</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
-    <SilverlightApplicationList>{9EB45ACC-52B7-4EAD-B1EB-D4BC23155678}|Designer\Designer.csproj|ClientBin|False</SilverlightApplicationList>
+    <SilverlightApplicationList>
+    </SilverlightApplicationList>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
@@ -115,14 +116,11 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ClientBin\Designer.xap" />
     <Content Include="css\dlg.css" />
     <Content Include="css\Input.css" />
     <Content Include="css\ListBosStyle.css" />
     <Content Include="css\StyleSheet1.css" />
     <Content Include="css\baseForm.css" />
-    <Content Include="DesignerTestPage.aspx" />
-    <Content Include="DesignerTestPage.html" />
     <Content Include="ExternalDialogs\AddActivityDialog.aspx" />
     <Content Include="ExternalDialogs\AddTransitionDialog.aspx" />
     <Content Include="ExternalDialogs\AdminAutoMoveToDialog.aspx" />

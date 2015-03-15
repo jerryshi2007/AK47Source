@@ -15,7 +15,8 @@
     <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
     <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
     <SilverlightApplication>true</SilverlightApplication>
-    <SupportedCultures></SupportedCultures>
+    <SupportedCultures>
+    </SupportedCultures>
     <XapOutputs>true</XapOutputs>
     <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
     <XapFilename>WorkflowRuntime.xap</XapFilename>
@@ -28,7 +29,8 @@
     <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
     <UsePlatformExtensions>false</UsePlatformExtensions>
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
-    <LinkedServerProject></LinkedServerProject>
+    <LinkedServerProject>
+    </LinkedServerProject>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
@@ -207,9 +209,8 @@ IF EXIST "$(ProjectDir)..\..\..\Bin\$(TargetName).xml" DEL "$(ProjectDir)..\..\.
   </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent>set path=%25path%25;C:\Windows\System32
- 
 
- XCOPY "$(TargetPath)"  "$(ProjectDir)..\..\..\Bin" /Y /D /R
+XCOPY "$(TargetPath)"  "$(ProjectDir)..\..\..\Bin" /Y /D /R
 IF EXIST "$(TargetDir)$(TargetName).xap" XCOPY "$(TargetDir)$(TargetName).xap" "$(ProjectDir)..\..\..\Bin" /Y /D /R
 IF EXIST "$(TargetDir)$(TargetName).pdb" XCOPY "$(TargetDir)$(TargetName).pdb" "$(ProjectDir)..\..\..\Bin" /Y /D /R
 IF EXIST "$(TargetDir)$(TargetName).xml"  XCOPY "$(TargetDir)$(TargetName).xml" "$(ProjectDir)..\..\..\Bin" /Y /D /R</PostBuildEvent>

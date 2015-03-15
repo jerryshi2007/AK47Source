@@ -43,6 +43,7 @@
     <ProjectItem Include="MCS.Library.SOA.Web.WebControls\MCS.Library.SOA.Web.WebControls.csproj" />
     <ProjectItem Include="MCS.Web.SOA.Responsive.WebControls\MCS.Web.SOA.Responsive.WebControls.csproj" />
     <ProjectItem Include="MCS.Library.SOA.Web.SilverlightControls\WorkflowRuntime\WorkflowRuntime.csproj" />
+    <ProjectItem Include="MCS.Library.SOA.Web.SilverlightControls\Designer\Designer.csproj" />
     <ProjectItem Include="MCS.Library.SOA.DataObjects.Schemas\MCS.Library.SOA.DataObjects.Schemas.csproj" />
     <ProjectItem Include="MCS.Library.SOA.DataObjects.Security\MCS.Library.SOA.DataObjects.Security.csproj" />
     <ProjectItem Include="MCS.Library.SOA.Security.ADSyncUtilities\MCS.Library.SOA.Security.ADSyncUtilities.csproj" />

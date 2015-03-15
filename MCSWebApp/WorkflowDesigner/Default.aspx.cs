@@ -15,6 +15,7 @@ using System.Data;
 using MCS.Library.Data;
 using MCS.Library.Data.Mapping;
 using MCS.Web.WebControls;
+using MCS.Web.WebControls.Configuration;
 
 namespace WorkflowDesigner
 {
@@ -22,7 +23,9 @@ namespace WorkflowDesigner
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.xapPath.Attributes["value"] = WfRuntimeViewerSettings.GetConfig().DesignerXapUrl;
             this.enableSimulation.Text = "<param name=\"InitParams\" value=\"enableSimulation=" + WfSimulationSettings.GetConfig().Enabled.ToString() + "\" />";
+
             PropertyEditorRegister();
 
             InitializeTemplate();

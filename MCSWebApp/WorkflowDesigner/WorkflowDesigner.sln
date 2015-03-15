@@ -10,8 +10,8 @@ Global
 		SccNumberOfProjects = 2
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = http://shsvr9141tfs.ciicsh.local:8080/tfs/rhso
-		SccProjectUniqueName0 = WorkflowDesigner.csproj
 		SccLocalPath0 = .
+		SccProjectUniqueName1 = WorkflowDesigner.csproj
 		SccLocalPath1 = .
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
