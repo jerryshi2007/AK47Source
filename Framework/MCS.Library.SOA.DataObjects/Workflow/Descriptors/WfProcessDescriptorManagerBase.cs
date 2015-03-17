@@ -88,9 +88,19 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
         #endregion Protected
 
+        /// <summary>
+        /// 根据租户和流程描述的Key计算Cache的Key
+        /// </summary>
+        /// <param name="processKey"></param>
+        /// <returns></returns>
         private static string NormalizeCacheKey(string processKey)
         {
-            return processKey.ToLower();
+            string result = processKey.ToLower();
+
+            if (TenantContext.Current.Enabled)
+                result = string.Format("{0}-{1}", result, TenantContext.Current.TenantCode.ToLower());
+
+            return result;
         }
     }
 }
