@@ -52,6 +52,12 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         /// 删除审批矩阵
         /// </summary>
         [EnumItemDescription("删除审批矩阵")]
-        DeleteApprovalMatrix
+        DeleteApprovalMatrix,
+
+        /// <summary>
+        /// 清除所有流程
+        /// </summary>
+        [EnumItemDescription("清除所有流程")]
+        ClearAll
     }
 }

@@ -17,8 +17,9 @@ namespace MCS.Library.WF.Contracts.Common.Test
             { "Approver1", new WfClientUser("80f4464f-e912-40c9-9502-c369a0d935ee", "樊海云")},
             { "CEO", new WfClientUser("5e03356b-0d68-4f58-82c3-900d2cb55feb", "李明")},
             { "CFO", new WfClientUser("0b7390ac-5578-44bc-a4dd-c4155ba5cca2", "曲毅民")},
+            { "InvalidUser", new WfClientUser("11111-5578-44bc-a4dd-c4155ba5cca2", "非法用户")},
 
-              { "OMP", new WfClientUser("D1ACF323-F725-4C5C-ACDA-D25C6F32A880", "黄揽")}
+            { "OMP", new WfClientUser("D1ACF323-F725-4C5C-ACDA-D25C6F32A880", "黄揽")}
         };
 
         public static Dictionary<string, WfClientOrganization> Departments = new Dictionary<string, WfClientOrganization>(StringComparer.OrdinalIgnoreCase)

@@ -69,14 +69,8 @@ namespace MCS.Library.WcfExtensions
             {
                 GenericTicketTokenContainer container = (GenericTicketTokenContainer)containerObject;
 
-                IPrincipalBuilder principalBuilder = PrincipalSettings.GetConfig().GetPrincipalBuilder(false);
-
-                if (principalBuilder != null)
-                {
-                    IPrincipal principal = principalBuilder.CreatePrincipal(container, null);
-
-                    PrincipaContextAccessor.SetPrincipal(principal);
-                }
+                //构造Principal，但是吃掉错误
+                ExceptionHelper.DoSilentAction(() => SetPrincipal(container));
             }
 
             return InvokeWithMonitor(instance, inputs, out outputs);
@@ -97,6 +91,18 @@ namespace MCS.Library.WcfExtensions
             get
             {
                 return this._InnerInvoker.IsSynchronous;
+            }
+        }
+
+        private static void SetPrincipal(GenericTicketTokenContainer container)
+        {
+            IPrincipalBuilder principalBuilder = PrincipalSettings.GetConfig().GetPrincipalBuilder(false);
+
+            if (principalBuilder != null)
+            {
+                IPrincipal principal = principalBuilder.CreatePrincipal(container, null);
+
+                PrincipaContextAccessor.SetPrincipal(principal);
             }
         }
 

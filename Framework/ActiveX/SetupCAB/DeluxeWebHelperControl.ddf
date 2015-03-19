@@ -1,0 +1,10 @@
+.OPTION EXPLICIT
+.Set CabinetNameTemplate=DeluxeWebHelperControl.cab 
+.set DiskDirectoryTemplate=CDROM
+.Set CompressionType=MSZIP
+.Set UniqueFiles="OFF"
+.Set Cabinet=on
+.Set DiskDirectory1=.
+
+DeluxeWebHelperControl.inf
+DeluxeWebHelperControl.dll

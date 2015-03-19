@@ -28,6 +28,14 @@ namespace MCS.Library.WF.Contracts.Proxies
             this.SingleCall(action => action.DeleteDescriptor(processDespKey));
         }
 
+        /// <summary>
+        /// 清空所有的流程
+        /// </summary>
+        public void ClearAll()
+        {
+            this.SingleCall(action => action.ClearAll());
+        }
+
         public WfClientProcessDescriptor GetDescriptor(string processDespKey)
         {
             return this.SingleCall(action => action.GetDescriptor(processDespKey));

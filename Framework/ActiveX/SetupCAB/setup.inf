@@ -1,0 +1,19 @@
+;*** BEGIN **********************************************************
+;**                                                                **
+;** Automatically generated on: Thu Mar 19 11:16:46 2015           **
+;**                                                                **
+;** MakeCAB Version: 6.3.9600.17415                                 **
+;**                                                                **
+;*** BEGIN **********************************************************
+[disk list]
+1,Disk 1
+[cabinet list]
+1,1,DeluxeWebHelperControl.cab
+[file list]
+1,1,DeluxeWebHelperControl.inf,266
+1,1,DeluxeWebHelperControl.dll,281600
+;*** END ************************************************************
+;**                                                                **
+;** Automatically generated on: Thu Mar 19 11:16:46 2015           **
+;**                                                                **
+;*** END ************************************************************

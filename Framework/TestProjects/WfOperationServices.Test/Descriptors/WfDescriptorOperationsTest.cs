@@ -242,7 +242,6 @@ namespace WfOperationServices.Test.Descriptors
             Assert.IsTrue(matrixTable.Rows.Count == 2);
             Assert.IsTrue(matrixTable.Rows[0]["CostCenter"].ToString() == "1001");
             Assert.IsTrue(matrixTable.Rows[1]["Age"].ToString() == "40");
-
         }
 
         [TestMethod()]
@@ -373,6 +372,26 @@ namespace WfOperationServices.Test.Descriptors
             WfClientProcessDescriptorServiceProxy.Instance.DeleteApprovalMatrix(matrix.ID);
 
             Assert.IsFalse(WfClientProcessDescriptorServiceProxy.Instance.ApprovalMatrixExists(matrix.ID));
+        }
+
+        [TestMethod()]
+        public void CopyOneTenantProcesDescriptorToAnotherTenant()
+        {
+            WfClientProcessDescriptorServiceProxy.Instance.ClearAll();
+
+            WfClientProcessDescriptor processDespTest1 = null;
+
+            InitPrincipal("Requestor");
+
+            TenantContext.Current.DoActions("Test1", () => processDespTest1 = OperationHelper.PrepareSimpleProcess());
+
+            TenantContext.Current.DoActions("Test2", () => WfClientProcessDescriptorServiceProxy.Instance.SaveDescriptor(processDespTest1));
+
+            WfClientProcessDescriptor processDespTest2 = null;
+
+            TenantContext.Current.DoActions("Test2", () => processDespTest2 = WfClientProcessDescriptorServiceProxy.Instance.LoadDescriptor(processDespTest1.Key));
+
+            Assert.AreEqual(processDespTest1.Key, processDespTest2.Key);
         }
 
         public static void InitPrincipal(string userKey)

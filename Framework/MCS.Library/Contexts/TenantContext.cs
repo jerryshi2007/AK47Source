@@ -39,6 +39,27 @@ namespace MCS.Library.Core
             set;
         }
 
+        /// <summary>
+        /// 使用某个TenantCode执行Action，执行完后会恢复原来的TenantCode
+        /// </summary>
+        /// <param name="tenantCode"></param>
+        /// <param name="action"></param>
+        public void DoActions(string tenantCode, Action action)
+        {
+            string oldTenantCode = this.TenantCode;
+
+            try
+            {
+                this.TenantCode = tenantCode;
+
+                base.DoActions(action);
+            }
+            finally
+            {
+                this.TenantCode = oldTenantCode;
+            }
+        }
+
         private void InitFromSettings()
         {
             TenantContextSettings settings = TenantContextSettings.GetConfig();

@@ -46,6 +46,11 @@ namespace MCS.Library.WF.Contracts.Operations
         [OperationContract]
         void DeleteDescriptor(string processDespKey);
 
+        /// <summary>
+        /// 清除所有的流程定义
+        /// </summary>
+        [OperationContract]
+        void ClearAll();
 
         /// <summary>
         /// 查询流程定义列表

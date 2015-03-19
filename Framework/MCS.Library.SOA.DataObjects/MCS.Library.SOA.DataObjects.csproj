@@ -487,6 +487,7 @@
     <Compile Include="Workflow\Executors\Admin\WfEditProcessPropertiesExecutor.cs" />
     <Compile Include="Workflow\Executors\Admin\WfEditPropertiesExecutorBase.cs" />
     <Compile Include="Workflow\Executors\Admin\WfEditTransitionPropertiesExecutor.cs" />
+    <Compile Include="Workflow\Executors\Designer\WfClearAllTemplatesExecutor.cs" />
     <Compile Include="Workflow\Executors\Designer\WfDeleteTemplateExecutor.cs" />
     <Compile Include="Workflow\Executors\Designer\WfDesignerExecutorDataContext.cs" />
     <Compile Include="Workflow\Executors\Designer\WfDesignerExecutorDelegations.cs" />

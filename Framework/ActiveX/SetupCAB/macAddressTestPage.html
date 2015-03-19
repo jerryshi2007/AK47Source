@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>测试获取MAC地址</title>
+    <script type="text/javascript">
+        function getMacAddressFromUuid() {
+            alert(clientEnv.GetMACAddressFromUuid());
+        }
+
+        function getAllMacAddresses() {
+            var addresses = clientEnv.GetAllMACAddresses().toArray();
+            var output = "";
+
+            for (var i = 0; i < addresses.length; i++) {
+                if (output != "")
+                    output += "\n";
+
+                output += addresses[i];
+            }
+
+            alert(output);
+        }
+
+        function getAllEncryptedMacAddresses() {
+            var encData = "0F19232D";
+
+            var addresses = clientEnv.GetAllEncryptedMACAddresses(encData).toArray();
+            var output = "";
+
+            for (var i = 0; i < addresses.length; i++) {
+                if (output != "")
+                    output += "\n";
+
+                output += addresses[i];
+            }
+
+            alert(output);
+        }
+    </script>
+</head>
+<body>
+    <object classid="clsid:44C5B98D-3B18-4821-8CA5-2139E95EE689" id="clientEnv" codebase="DeluxeWebHelperControl.cab#version=1,0,0,1"></object>
+    <button onclick="getMacAddressFromUuid();">GetMacAddressFromUuid</button>
+    <button onclick="getAllMacAddresses();">GetAllMacAddresses</button>
+    <button onclick="getAllEncryptedMacAddresses();">GetAllEncryptedMACAddresses</button>
+</body>
+</html>

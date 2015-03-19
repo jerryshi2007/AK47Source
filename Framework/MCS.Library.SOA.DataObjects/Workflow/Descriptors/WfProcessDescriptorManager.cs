@@ -71,6 +71,11 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             WorkflowSettings.GetConfig().GetDescriptorManager().DeleteDescriptor(processKey);
         }
 
+        public static void ClearAll()
+        {
+            WorkflowSettings.GetConfig().GetDescriptorManager().ClearAll();
+        }
+
         public static WfProcessBuilderInfo GetBuilderInfo(string processKey)
         {
             processKey.CheckStringIsNullOrEmpty("processKey");

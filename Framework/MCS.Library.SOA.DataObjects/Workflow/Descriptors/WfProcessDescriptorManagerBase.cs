@@ -54,21 +54,34 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
             SaveXml(processDesp, xml);
 
-            string cacheKey = NormalizeCacheKey(processDesp.Key);
+            SendCacheNotifyByProcessKey(processDesp.Key);
+        }
 
-            CacheNotifyData notifyData = new CacheNotifyData(typeof(WfProcessDescriptorXmlCache), cacheKey, CacheNotifyType.Invalid);
+        public void DeleteDescriptor(string processKey)
+        {
+            processKey.CheckStringIsNullOrEmpty("processKey");
+
+            DeleteXml(processKey);
+
+            SendCacheNotifyByProcessKey(processKey);
+        }
+
+        public void ClearAll()
+        {
+            this.ClearAllXml();
+
+            CacheNotifyData notifyData = new CacheNotifyData(typeof(WfProcessDescriptorXmlCache), null, CacheNotifyType.Clear);
 
             UdpCacheNotifier.Instance.SendNotifyAsync(notifyData);
             MmfCacheNotifier.Instance.SendNotify(notifyData);
         }
-
-        public abstract void DeleteDescriptor(string processKey);
 
         /// <summary>
         /// 流程的描述是否重复
         /// </summary>
         /// <param name="processKey"></param>
         public abstract bool ExsitsProcessKey(string processKey);
+
         #endregion
 
         #region Protected
@@ -86,7 +99,28 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         /// <param name="xml"></param>
         protected abstract void SaveXml(IWfProcessDescriptor processDesp, XElement xml);
 
+        /// <summary>
+        /// 根据Key删除流程
+        /// </summary>
+        /// <param name="processKey"></param>
+        protected abstract void DeleteXml(string processKey);
+
+        /// <summary>
+        /// 清除所有流程
+        /// </summary>
+        protected abstract void ClearAllXml();
+
         #endregion Protected
+
+        private static void SendCacheNotifyByProcessKey(string processKey)
+        {
+            string cacheKey = NormalizeCacheKey(processKey);
+
+            CacheNotifyData notifyData = new CacheNotifyData(typeof(WfProcessDescriptorXmlCache), cacheKey, CacheNotifyType.Invalid);
+
+            UdpCacheNotifier.Instance.SendNotifyAsync(notifyData);
+            MmfCacheNotifier.Instance.SendNotify(notifyData);
+        }
 
         /// <summary>
         /// 根据租户和流程描述的Key计算Cache的Key

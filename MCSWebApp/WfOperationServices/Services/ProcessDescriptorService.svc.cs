@@ -46,6 +46,17 @@ namespace WfOperationServices.Services
 
         [WfJsonFormatter]
         [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public void ClearAll()
+        {
+            OperationContext.Current.FillContextToOguServiceContext();
+
+            WfClearAllTemplatesExecutor executor = new WfClearAllTemplatesExecutor();
+
+            executor.Execute();
+        }
+
+        [WfJsonFormatter]
+        [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         public WfClientProcessDescriptor GetDescriptor(string processKey)
         {
             if (processKey.IsNullOrEmpty())
