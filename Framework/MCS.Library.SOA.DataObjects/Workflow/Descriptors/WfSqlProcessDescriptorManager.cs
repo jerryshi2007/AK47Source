@@ -63,7 +63,14 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
         protected override void ClearAllXml()
         {
-            WfProcessDescriptorInfoAdapter.Instance.ClearAll();
+            using (TransactionScope scope = TransactionScopeFactory.Create())
+            {
+                WfProcessDescriptorInfoAdapter.Instance.ClearAll();
+                WfMatrixAdapter.Instance.ClearAll();
+                WfProcessDescriptorDimensionAdapter.Instance.ClearAll();
+
+                scope.Complete();
+            }
         }
     }
 }

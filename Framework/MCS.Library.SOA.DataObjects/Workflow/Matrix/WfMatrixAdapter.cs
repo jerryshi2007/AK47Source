@@ -235,6 +235,16 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             return result;
         }
 
+        public override void ClearAll()
+        {
+            base.ClearAll();
+
+            CacheNotifyData notifyData = new CacheNotifyData(typeof(WfMatrixProcessKeyCache), null, CacheNotifyType.Clear);
+
+            UdpCacheNotifier.Instance.SendNotifyAsync(notifyData);
+            MmfCacheNotifier.Instance.SendNotify(notifyData);
+        }
+
         #region private method
         private static string BuildInsertCellSql(string wfMatrixID, WfMatrixRow row, WfMatrixCell cell)
         {

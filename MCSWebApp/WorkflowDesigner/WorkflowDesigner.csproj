@@ -751,6 +751,7 @@
     <Content Include="TestFiles\NoOperatorTypeActivityMatrix.xlsx" />
     <Content Include="TestFiles\MergeRequestorMatrix.xlsx" />
     <Content Include="TestFiles\SampleActivityMatrix.xlsx" />
+    <Content Include="TestFiles\ActivityMatrixWithTransitions.xlsx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="SaveWorkflow.ashx" />
