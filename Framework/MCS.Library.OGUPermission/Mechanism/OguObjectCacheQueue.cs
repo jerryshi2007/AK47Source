@@ -88,11 +88,27 @@ namespace MCS.Library.OGUPermission
 			return new MixedDependency(new UdpNotifierCacheDependency(), new MemoryMappedFileNotifierCacheDependency());
 		}
 
+        /// <summary>
+        /// 计算Cache的Key，在启用多租户的情况下，添加租户ID
+        /// </summary>
+        /// <param name="objKey"></param>
+        /// <returns></returns>
+        protected static string CalcCacheKey(string objKey)
+        {
+            string result = objKey;
+
+            if (TenantContext.Current.Enabled && TenantContext.Current.TenantCode.IsNotEmpty())
+                result = string.Format("{0}-{1}", objKey, TenantContext.Current.TenantCode);
+
+            return result;
+        }
+
 		private void FillObjectInCacheToList<T>(string id, IList<T> list, IList<string> notInCacheList) where T : IOguObject
 		{
 			List<IOguObject> objsInCache = null;
+            string cackeKey = CalcCacheKey(id);
 
-			if (this.TryGetValue(id, out objsInCache))
+            if (this.TryGetValue(cackeKey, out objsInCache))
 			{
 				objsInCache.ForEach(o =>
 				{
@@ -101,7 +117,7 @@ namespace MCS.Library.OGUPermission
 				});
 			}
 			else
-				notInCacheList.Add(id);
+                notInCacheList.Add(id);
 		}
 	}
 
@@ -112,11 +128,12 @@ namespace MCS.Library.OGUPermission
 		protected override void AddOneObjectToCache<T>(T obj)
 		{
 			List<IOguObject> existsList = null;
+            string cacheKey = CalcCacheKey(obj.ID);
 
-			if (this.TryGetValue(obj.ID, out existsList) == false)
+            if (this.TryGetValue(cacheKey, out existsList) == false)
 			{
 				existsList = new List<IOguObject>();
-				Add(obj.ID, existsList, CreateDependency());
+                Add(cacheKey, existsList, CreateDependency());
 			}
 
 			lock (existsList)
@@ -134,10 +151,12 @@ namespace MCS.Library.OGUPermission
 		{
 			List<IOguObject> existsList = null;
 
+            string cacheKey = CalcCacheKey(obj.FullPath);
+
 			if (this.TryGetValue(obj.FullPath, out existsList) == false)
 			{
 				existsList = new List<IOguObject>();
-				Add(obj.FullPath, existsList, CreateDependency());
+                Add(cacheKey, existsList, CreateDependency());
 			}
 
 			lock (existsList)
@@ -158,10 +177,12 @@ namespace MCS.Library.OGUPermission
 			List<IOguObject> existsList = null;
 			string logonName = ((IUser)obj).LogOnName;
 
+            string cacheKey = CalcCacheKey(logonName);
+
 			if (this.TryGetValue(logonName, out existsList) == false)
 			{
 				existsList = new List<IOguObject>();
-				Add(logonName, existsList, CreateDependency());
+                Add(cacheKey, existsList, CreateDependency());
 			}
 
 			lock (existsList)
