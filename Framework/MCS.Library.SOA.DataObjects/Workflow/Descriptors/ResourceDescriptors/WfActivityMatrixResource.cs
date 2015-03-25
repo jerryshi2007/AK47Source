@@ -177,12 +177,14 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                     {
                         SOARolePropertyRowCollection approvalRows = externalMatrix.Rows.Query(queryParams, true);
 
+                        matrixRows.SortActivitySN();
                         matrixRows.MergeApprovalMatrix(this.PropertyDefinitions, approvalRows, externalMatrix.PropertyDefinitions);
                     }
                     else
                     {
                         SOARolePropertyRowCollection approvalRows = externalMatrix.Rows.Query(queryParams, false);
 
+                        matrixRows.SortActivitySN();
                         matrixRows.MergeActivityMatrix(this.PropertyDefinitions, approvalRows, externalMatrix.PropertyDefinitions);
                     }
                 });

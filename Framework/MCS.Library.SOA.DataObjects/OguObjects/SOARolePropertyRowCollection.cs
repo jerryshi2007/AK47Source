@@ -196,12 +196,15 @@ namespace MCS.Library.SOA.DataObjects
             result.SortByActivitySN();
             result.RemoveMergeableRows();
 
-            this.ReSortActivitySN();
+            this.SortActivitySN();
 
             return result;
         }
 
-        private void ReSortActivitySN()
+        /// <summary>
+        /// 重新按照ActivitySN排序
+        /// </summary>
+        public void SortActivitySN()
         {
             int index = 0;
 

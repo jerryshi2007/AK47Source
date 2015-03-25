@@ -1,14 +1,3 @@
-#region
-// -------------------------------------------------
-// Assembly	：	DeluxeWorks.Library
-// FileName	：	ContextCacheQueueBase.cs
-// Remark	：	调用上下文中缓存的Cache队列的基类
-// -------------------------------------------------
-// VERSION  	AUTHOR		DATE			CONTENT
-// 1.0		    万振龙	    20070430		创建
-// -------------------------------------------------
-#endregion
-
 using System;
 using System.Text;
 using System.Collections;

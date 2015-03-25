@@ -56,6 +56,32 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
         }
 
         [TestMethod]
+        [Description("资源为活动矩阵时的，内部的活动包含动态活动，然后再合并审批矩阵的测试")]
+        public void MergeActivityMatrixWithDynamicActivityAndApprovalMatrixTest()
+        {
+            WfActivityMatrixResourceDescriptor resource = ActivityMatrixHelper.PrepareDynamicActivityMatrixResourceDescriptor();
+
+            WfApprovalMatrix approvalMatrix = ApprovalMatrixHelper.PrepareApprovalMatrix();
+
+            WfApprovalMatrixAdapter.Instance.Update(approvalMatrix);
+
+            IWfProcessDescriptor processDesp = ProcessHelper.GetDynamicProcessDesp(resource, approvalMatrix.ID);
+
+            IWfProcess process = ProcessHelper.StartupProcess(processDesp, new Dictionary<string, object>()
+				{
+					{ "CostCenter", "1001" },
+					{ "PayMethod", "1" },
+					{ "Age", 30 },
+                    { "ReportLine", new IUser[] {OguObjectSettings.GetConfig().Objects["approver1"].User, OguObjectSettings.GetConfig().Objects["cfo"].User}}
+				});
+
+            Console.WriteLine(process.Activities.Count);
+
+            WfOutputHelper.OutputMainStream(process);
+            WfOutputHelper.OutputEveryActivities(process);
+        }
+
+        [TestMethod]
         [Description("资源为单行活动矩阵时的，与审批矩阵能匹配上的合并测试")]
         public void MergeMatchedOneActivityMatrixAndApprovalMatrixTest()
         {

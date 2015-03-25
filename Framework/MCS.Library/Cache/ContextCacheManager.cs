@@ -23,6 +23,8 @@ namespace MCS.Library.Caching
     /// </summary>
     public static class ContextCacheManager
     {
+        private const string ContextCacheDictionaryKey = "MCS.Library.Caching.ContextCacheDictionary";
+
         [ThreadStatic]
         private static Dictionary<System.Type, ContextCacheQueueBase> cacheDictionary;
 
@@ -52,34 +54,34 @@ namespace MCS.Library.Caching
             Dictionary<System.Type, ContextCacheQueueBase> cacheDict;
 
             if (EnvironmentHelper.Mode == InstanceMode.Web)
-                cacheDict = (Dictionary<System.Type, ContextCacheQueueBase>)HttpContext.Current.Items["ContextCacheDictionary"];
+                cacheDict = (Dictionary<System.Type, ContextCacheQueueBase>)HttpContext.Current.Items[ContextCacheDictionaryKey];
             else
                 cacheDict = ContextCacheManager.cacheDictionary;
 
             if (cacheDict == null)
                 cacheDict = new Dictionary<Type, ContextCacheQueueBase>();
 
-			if (EnvironmentHelper.Mode == InstanceMode.Web)
-				HttpContext.Current.Items["ContextCacheDictionary"] = cacheDict;
-			else
-			{
-				ContextCacheManager.cacheDictionary = cacheDict;
+            if (EnvironmentHelper.Mode == InstanceMode.Web)
+                HttpContext.Current.Items[ContextCacheDictionaryKey] = cacheDict;
+            else
+            {
+                ContextCacheManager.cacheDictionary = cacheDict;
 
-				if (OperationContext.Current != null)
-					OperationContext.Current.OperationCompleted += new EventHandler(Current_OperationCompleted);
-			}
+                if (OperationContext.Current != null)
+                    OperationContext.Current.OperationCompleted += new EventHandler(Current_OperationCompleted);
+            }
 
             return cacheDict;
         }
 
-		/// <summary>
-		/// 在WCF操作结束后，清除当前的上下文缓存
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private static void Current_OperationCompleted(object sender, EventArgs e)
-		{
-			ContextCacheManager.cacheDictionary = null;
-		}
+        /// <summary>
+        /// 在WCF操作结束后，清除当前的上下文缓存
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private static void Current_OperationCompleted(object sender, EventArgs e)
+        {
+            ContextCacheManager.cacheDictionary = null;
+        }
     }
 }
