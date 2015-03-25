@@ -46,7 +46,7 @@ namespace PermissionCenter.CommandConsole
 
 					if (cmd != null)
 					{
-						ServiceBrokerContext.Current.Context["Amount"] = "1000";
+						ServiceBrokerContext.Current.Context["TenantCode"] = "Test1";
 						cmd.Execute(cmdParams.Value);
 					}
 					else

@@ -10,6 +10,7 @@ using MCS.Library.Caching;
 using MCS.Library.Data;
 using MCS.Library.Services;
 using MCS.Library.Services.Configuration;
+using MCS.Library.Core;
 
 namespace MCS.Library.Services
 {
@@ -233,9 +234,9 @@ namespace MCS.Library.Services
         /// </summary>
         private void InitAllParamsAndCounters(SoapMessage message)
         {
-            InitStreamAndMessage(message);
-            InitParameters(this._RequestMessage);
-            InitializeCounters(this._InstanceName);
+            this.InitStreamAndMessage(message);
+            this.InitParameters(this._RequestMessage);
+            this.InitializeCounters(this._InstanceName);
         }
 
         private void InitStreamAndMessage(SoapMessage message)
@@ -247,6 +248,9 @@ namespace MCS.Library.Services
             this._RequestMessage = this.CreateMessage(this._NewStream, this._Initializer.ServiceName);
 
             SimpleRequestSoapMessage.Current = this._RequestMessage;
+
+            if (SimpleRequestSoapMessage.Current.Context.ContainsKey("TenantCode"))
+                TenantContext.Current.TenantCode = SimpleRequestSoapMessage.Current.Context.GetValue("TenantCode", string.Empty);
 
             this._NewStream.Position = 0;
         }

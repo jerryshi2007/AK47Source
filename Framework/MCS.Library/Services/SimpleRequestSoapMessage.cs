@@ -144,7 +144,12 @@ namespace MCS.Library.Services
         {
             get
             {
-                return this.ServiceName + "~" + this.Action;
+                string result = this.ServiceName + "~" + this.Action;
+
+                if (TenantContext.Current.Enabled)
+                    result += "~" + TenantContext.Current.TenantCode;
+
+                return result;
             }
         }
 
