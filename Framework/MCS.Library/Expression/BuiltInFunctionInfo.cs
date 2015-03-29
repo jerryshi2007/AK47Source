@@ -88,6 +88,7 @@ namespace MCS.Library.Expression
                 }
             }
 
+            //如果方法的参数比表达式的参数多一个，则将调用上下文作为最后一个参数
             if (result.Length == arrParams.Count + 1)
                 result[arrParams.Count] = callerContext;
 

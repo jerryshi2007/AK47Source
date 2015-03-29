@@ -213,6 +213,9 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
                 OnError(ex, dataContext, ref autoThrow);
 
+                WfExecutorLogContextInfo.Writer.WriteLine("\t\t错误：{0}\n{1:yyyy-MM-dd HH:mm:ss.fff}",
+                    ex.GetRealException(), DateTime.Now);
+
                 if (autoThrow)
                     throw;
                 else

@@ -23,12 +23,15 @@ namespace MCS.Library.Security
 
             MemoryStream ms = new MemoryStream();
 
-            using (CryptoStream encStream = new CryptoStream(ms, GetDesObject().CreateEncryptor(), CryptoStreamMode.Write))
+            using (SymmetricAlgorithm algorithm = this.GetDesObject())
             {
-                encStream.Write(bytes, 0, bytes.Length);
-
-                return ms.ToArray();
+                using (CryptoStream encStream = new CryptoStream(ms, algorithm.CreateEncryptor(), CryptoStreamMode.Write))
+                {
+                    encStream.Write(bytes, 0, bytes.Length);
+                }
             }
+
+            return ms.ToArray();
         }
 
         /// <summary>
@@ -38,13 +41,22 @@ namespace MCS.Library.Security
         /// <returns></returns>
         public string DecryptString(byte[] encryptedData)
         {
+            string strResult = string.Empty;
+
             MemoryStream ms = new MemoryStream();
 
-            using (
-                CryptoStream decStream = new CryptoStream(ms, GetDesObject().CreateDecryptor(), CryptoStreamMode.Read))
+            ms.Write(encryptedData, 0, encryptedData.Length);
+            ms.Seek(0, SeekOrigin.Begin);
+
+            using (SymmetricAlgorithm algorithm = this.GetDesObject())
             {
-                return (new StreamReader(decStream, Encoding.UTF8)).ReadToEnd();
+                using (CryptoStream decStream = new CryptoStream(ms, algorithm.CreateDecryptor(), CryptoStreamMode.Read))
+                {
+                    strResult = (new StreamReader(decStream, Encoding.UTF8)).ReadToEnd();
+                }
             }
+
+            return strResult;
         }
 
         /// <summary>
