@@ -14,11 +14,12 @@
 // -------------------------------------------------
 #endregion
 
+using MCS.Library.Core;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Diagnostics;
-using MCS.Library.Core;
+using System.Security;
+using System.Text;
 
 namespace MCS.Library.Logging
 {
@@ -182,54 +183,37 @@ namespace MCS.Library.Logging
                 //取LogEntity对象的Source属性，如果为空则取来源于配置的缺省值
                 string sourceName = string.IsNullOrEmpty(logData.Source) ? this.source : logData.Source;
 
-                string registerLogName = RegisterSourceToLogName(sourceName, this.logName);
+                if (this.WriteTraceData(eventCache, this.logName, sourceName, logEventType, eventID, data) == false)
+                {
+                    string registerLogName = this.RegisterSourceToLogName(sourceName, this.logName);
 
-                EventLog eventlog = new EventLog(registerLogName, FormattedEventLogTraceListener.DefaultMachineName, sourceName);
-
-                //if (eventlog.OverflowAction == OverflowAction.OverwriteOlder && eventlog.MinimumRetentionDays > 3)
-                //    eventlog.ModifyOverflowPolicy(OverflowAction.OverwriteOlder, 3);
-
-                //if (eventlog.MaximumKilobytes < 1024)
-                //    eventlog.MaximumKilobytes = 2048;
-
-                (this.SlaveListener as EventLogTraceListener).EventLog = eventlog;
+                    this.WriteTraceData(eventCache, registerLogName, sourceName, logEventType, eventID, data);
+                }
             }
-
-            base.TraceData(eventCache, source, logEventType, eventID, data);
+            else
+                base.TraceData(eventCache, source, logEventType, eventID, data);
         }
 
-        #region 备用的扩充构造函数
-        ///// <summary>
-        ///// 构造函数，用EventLogTraceListener(string)初始化一个实例对象
-        ///// <see cref="EventLogTraceListener"/> initialized with a source name.
-        ///// </summary>
-        ///// <param name="source">The source name for the wrapped listener.</param>
-        //public FormattedEventLogTraceListener(string source)
-        //    : base(new EventLogTraceListener(source))
-        //{
-        //}
+        private bool WriteTraceData(TraceEventCache eventCache, string logName, string sourceName, TraceEventType logEventType, int eventID, object data)
+        {
+            try
+            {
+                EventLog eventlog = new EventLog(logName, FormattedEventLogTraceListener.DefaultMachineName, sourceName);
 
-        ///// <summary>
-        ///// 构造函数，用EventLogTraceListener(string)和Formatter初始化一个实例对象
-        ///// </summary>
-        ///// <param name="source">The source name for the wrapped listener.</param>
-        ///// <param name="formatter">The formatter for the wrapper.</param>
-        //public FormattedEventLogTraceListener(string source, ILogFormatter formatter)
-        //    : base(new EventLogTraceListener(source), formatter)
-        //{
-        //}
+                (this.SlaveListener as EventLogTraceListener).EventLog = eventlog;
 
-        ///// <summary>
-        ///// 构造函数，用EventLogTraceListener(EventLog)和Formatter初始化一个实例对象
-        ///// </summary>
-        ///// <param name="source">The source name for the wrapped listener.</param>
-        ///// <param name="logName">The name of the event log.</param>
-        ///// <param name="formatter">The formatter for the wrapper.</param>
-        //public FormattedEventLogTraceListener(string source, string logName, ILogFormatter formatter)
-        //    : base(new EventLogTraceListener(new EventLog(logName, DefaultMachineName, source)), formatter)
-        //{
-        //}
-        #endregion
+                base.TraceData(eventCache, source, logEventType, eventID, data);
+
+                return true;
+            }
+            catch (SecurityException ex)
+            {
+                if (ex.HResult == -2146233078)
+                    return false;
+
+                throw;
+            }
+        }
 
         private static string NormalizeMachineName(string machineName)
         {
@@ -268,6 +252,5 @@ namespace MCS.Library.Logging
 
             return registeredLogName;
         }
-
     }
 }

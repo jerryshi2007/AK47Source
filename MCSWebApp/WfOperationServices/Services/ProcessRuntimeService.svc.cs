@@ -77,6 +77,58 @@ namespace WfOperationServices.Services
             return process.ToClientProcessInfo(clientStartupParams.Creator).FillCurrentOpinion(process.CurrentActivity, clientStartupParams.Creator);
         }
 
+        /// <summary>
+        /// 启动一个流程实例，并且流转到下一个环节。
+        /// </summary>
+        /// <param name="clientStartupParams">流程启动参数</param>
+        /// <param name="clientTransferParams">流程下一步的流转参数，如果这个参数为空，则流转到默认环节</param>
+        /// <param name="runtimeContext">流转上下文信息</param>
+        /// <returns></returns>
+        [WfJsonFormatter]
+        [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public WfClientProcessInfo StartWorkflowAndMoveTo(WfClientProcessStartupParams clientStartupParams, WfClientTransferParams clientTransferParams, WfClientRuntimeContext runtimeContext)
+        {
+            if (clientStartupParams == null)
+                throw new ApplicationException(Translator.Translate(Define.DefaultCulture, "流程的启动参数不能为空"));
+
+            //设置标准参数
+            clientStartupParams.ApplicationRuntimeParameters["ProcessRequestor"] = clientStartupParams.Creator;
+
+            OperationContext.Current.FillContextToOguServiceContext();
+
+            WfProcessStartupParams startupParams = null;
+
+            WfClientProcessStartupParamsConverter.Instance.ClientToServer(clientStartupParams, ref startupParams);
+
+            IWfProcess process = null;
+
+            DoPrincipalAction(startupParams.Creator, () =>
+            {
+                WfStartWorkflowExecutor executor = new WfStartWorkflowExecutor(startupParams);
+
+                executor.AfterModifyWorkflow += (dataContext =>
+                {
+                    dataContext.CurrentProcess.GenerateCandidatesFromResources();
+                    clientStartupParams.ProcessContext.ForEach(kp => dataContext.CurrentProcess.Context[kp.Key] = kp.Value);
+
+                    WfClientProcessInfoBaseConverter.Instance.FillOpinionInfoByProcessByActivity(
+                        clientStartupParams.Opinion,
+                        dataContext.CurrentProcess.CurrentActivity,
+                        clientStartupParams.Creator,
+                        clientStartupParams.Creator);
+                });
+
+                executor.SaveApplicationData += (dataContext) => SaveOpinion(clientStartupParams.Opinion);
+
+                if (clientStartupParams.AutoPersist)
+                    process = executor.Execute();
+                else
+                    process = executor.ExecuteNotPersist();
+            });
+
+            return process.ToClientProcessInfo(clientStartupParams.Creator).FillCurrentOpinion(process.CurrentActivity, clientStartupParams.Creator);
+        }
+
         [WfJsonFormatter]
         [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         public WfClientProcessInfo MoveToNextDefaultActivity(string processID, WfClientRuntimeContext runtimeContext)

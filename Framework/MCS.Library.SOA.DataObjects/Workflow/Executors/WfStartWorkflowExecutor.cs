@@ -4,43 +4,89 @@ using System.Linq;
 using System.Text;
 using MCS.Library.Core;
 using MCS.Library.Principal;
+using MCS.Library.Globalization;
 
 namespace MCS.Library.SOA.DataObjects.Workflow
 {
-	public class WfStartWorkflowExecutor : WfExecutorBase
-	{
-		public WfProcessStartupParams StartupParams
-		{
-			get;
-			private set;
-		}
+    public class WfStartWorkflowExecutor : WfExecutorBase
+    {
+        private bool _AutoMoveTo = false;
 
-		public WfStartWorkflowExecutor(IWfActivity operatorActivity, WfProcessStartupParams startupParams)
-			: base(operatorActivity, WfControlOperationType.Startup)
-		{
-			startupParams.NullCheck("startupParams");
+        public WfProcessStartupParams StartupParams
+        {
+            get;
+            private set;
+        }
 
-			StartupParams = startupParams;
-		}
+        /// <summary>
+        /// 启动后流转到下一步的参数
+        /// </summary>
+        public WfTransferParams TransferParams
+        {
+            get;
+            private set;
+        }
 
-		public WfStartWorkflowExecutor(WfProcessStartupParams startupParams)
-			: base(null, WfControlOperationType.Startup)
-		{
-			startupParams.NullCheck("startupParams");
+        /// <summary>
+        /// 如果AutoMoveTo为True，则自动向下一步流转，流转的目标取决于TransferParams。如果TransferParams为null，则流转到默认下一个活动
+        /// </summary>
+        public bool AutoMoveTo
+        {
+            get
+            {
+                return this._AutoMoveTo;
+            }
+        }
 
-			StartupParams = startupParams;
-		}
+        public WfStartWorkflowExecutor(IWfActivity operatorActivity, WfProcessStartupParams startupParams, WfTransferParams transferParams, bool autoMoveTo = true)
+            : base(operatorActivity, WfControlOperationType.Startup)
+        {
+            startupParams.NullCheck("startupParams");
 
-		protected override void OnModifyWorkflow(WfExecutorDataContext dataContext)
-		{
-			IWfProcess process = WfRuntime.StartWorkflow(StartupParams);
+            this.StartupParams = startupParams;
+            this.TransferParams = transferParams;
+            this._AutoMoveTo = autoMoveTo;
+        }
 
-			if (OperatorActivity == null)
-			{
-				OperatorActivity = process.CurrentActivity;
-			}
+        public WfStartWorkflowExecutor(IWfActivity operatorActivity, WfProcessStartupParams startupParams)
+            : this(operatorActivity, startupParams, null)
+        {
+            startupParams.NullCheck("startupParams");
 
-			WfRuntime.ProcessContext.ResetContextByProcess(process);
-		}
-	}
+            this.StartupParams = startupParams;
+        }
+
+        public WfStartWorkflowExecutor(WfProcessStartupParams startupParams)
+            : this(null, startupParams)
+        {
+        }
+
+        protected override void OnModifyWorkflow(WfExecutorDataContext dataContext)
+        {
+            IWfProcess process = WfRuntime.StartWorkflow(StartupParams);
+
+            if (this.OperatorActivity == null)
+                this.OperatorActivity = process.CurrentActivity;
+
+            if (this.AutoMoveTo)
+            {
+                this.TransferParams.NullCheck("启动流程，自动向下流转时，必须提供流转参数");
+
+                WfMoveToExecutor.DoMoveToOperation(process, this.TransferParams);
+            }
+
+            WfRuntime.ProcessContext.ResetContextByProcess(process);
+        }
+
+        protected override void OnPrepareUserOperationLogDescription(WfExecutorDataContext dataContext, UserOperationLog log)
+        {
+            bool dealed = false;
+
+            if (this.AutoMoveTo)
+                dealed = WfMoveToExecutor.PrepareUserOperationLogDescriptionByTransferParams(dataContext, this.TransferParams, log);
+
+            if (dealed == false)
+                base.OnPrepareUserOperationLogDescription(dataContext, log);
+        }
+    }
 }

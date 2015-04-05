@@ -408,6 +408,8 @@ namespace MCS.Library.SOA.DataObjects
 
                 newRow.OperatorType = SOARoleOperatorType.User;
                 newRow.Operator = user.LogOnName;
+                newRow.Values.TrySetValue(SOARolePropertyDefinition.OperatorTypeColumn, SOARoleOperatorType.User.ToString());
+                newRow.Values.TrySetValue(SOARolePropertyDefinition.OperatorColumn, user.LogOnName);
 
                 result.Add(newRow);
             }

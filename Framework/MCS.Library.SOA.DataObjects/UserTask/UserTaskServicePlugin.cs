@@ -36,11 +36,12 @@ namespace MCS.Library.SOA.DataObjects.UserTaskSync
         /// <param name="context">上下文数据</param>
         public void eventContainer_DeleteUserAccomplishedTasks(UserTaskCollection tasks, Dictionary<object, object> context)
         {
-            ExecuteSyncOperation(tasks, context, (p, f) =>
+            this.ExecuteSyncOperation("DeleteUserAccomplishedTasksService", tasks, context, (p, f) =>
             {
                 UserTaskServicePluginBroker.Instance.DeleteUserAccomplishedTasks(p, f);
             });
         }
+
         /// <summary>
         /// 设置任务已完成
         /// </summary>
@@ -48,11 +49,12 @@ namespace MCS.Library.SOA.DataObjects.UserTaskSync
         /// <param name="context">上下文数据</param>
         public void eventContainer_SetUserTasksAccomplished(UserTaskCollection tasks, Dictionary<object, object> context)
         {
-            ExecuteSyncOperation(tasks, context, (p, f) =>
+            this.ExecuteSyncOperation("SetUserTasksAccomplishedService", tasks, context, (p, f) =>
             {
                 UserTaskServicePluginBroker.Instance.SetUserTasksAccomplished(p, f);
             });
         }
+
         /// <summary>
         /// 删除待办
         /// </summary>
@@ -60,7 +62,7 @@ namespace MCS.Library.SOA.DataObjects.UserTaskSync
         /// <param name="context">上下文数据</param>
         public void eventContainer_DeleteUserTasks(UserTaskCollection tasks, Dictionary<object, object> context)
         {
-            ExecuteSyncOperation(tasks, context, (p, f) =>
+            this.ExecuteSyncOperation("DeleteUserTasksService", tasks, context, (p, f) =>
             {
                 UserTaskServicePluginBroker.Instance.DeleteUserTasks(p, f);
             });
@@ -73,49 +75,49 @@ namespace MCS.Library.SOA.DataObjects.UserTaskSync
         /// <param name="context">上下文数据</param>
         public void eventContainer_SendUserTasks(UserTaskCollection tasks, Dictionary<object, object> context)
         {
-            ExecuteSyncOperation(tasks, context, (p, f) =>
+            this.ExecuteSyncOperation("SendUserTasksService", tasks, context, (p, f) =>
             {
                 UserTaskServicePluginBroker.Instance.SendUserTasks(p, f);
             });
         }
+
         /// <summary>
         /// 执行同步操作
         /// </summary>
         /// <param name="tasks"></param>
         /// <param name="context"></param>
         /// <param name="operation"></param>
-        public void ExecuteSyncOperation(UserTaskCollection tasks, Dictionary<object, object> context, Action<string, DictionaryEntry[]> operation)
+        private void ExecuteSyncOperation(string opName, UserTaskCollection tasks, Dictionary<object, object> context, Action<string, DictionaryEntry[]> operation)
         {
-            if (null == tasks || tasks.Count == 0)
+            if (tasks.Count > 0)
             {
-                return;
+                JavaScriptSerializer serializer = new JavaScriptSerializer();
+
+                Dictionary<string, string> result = new Dictionary<string, string>();
+
+                context.ToList().ForEach(p => result.Add(p.Key.ToString(), p.Value.ToString()));
+                result.Add(_TenantCode, GetTenantCode(tasks));
+                result.Add(_Department, GetDepartment(tasks));
+                result.Add(_MailCollector, GetMailCollector(tasks));
+
+                string seriTasks = serializer.Serialize(tasks);
+
+                PerformanceMonitorHelper.GetDefaultMonitor().WriteExecutionDuration(
+                    opName, () => operation(seriTasks, ConvertDictToEntry(result)));
             }
-
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
-
-            Dictionary<string, string> result = new Dictionary<string, string>();
-
-            context.ToList().ForEach(p => result.Add(p.Key.ToString(), p.Value.ToString()));
-            result.Add(_TenantCode, GetTenantCode(tasks));
-            result.Add(_Department, GetDepartment(tasks));
-            result.Add(_MailCollector, GetMailCollector(tasks));
-
-            string seriTasks = serializer.Serialize(tasks);
-
-            operation(seriTasks, ConvertDicToEntry(result));
         }
 
         /// <summary>
         /// 将字典转换为可传输的Entry
         /// </summary>
-        /// <param name="dics">字典</param>
+        /// <param name="dicts">字典</param>
         /// <returns></returns>
-        private static DictionaryEntry[] ConvertDicToEntry(Dictionary<string, string> dics)
+        private static DictionaryEntry[] ConvertDictToEntry(Dictionary<string, string> dicts)
         {
             List<DictionaryEntry> entries = new List<DictionaryEntry>();
 
-            if (null != dics)
-                dics.ForEach(kp => entries.Add(new DictionaryEntry() { Key = kp.Key, Value = kp.Value }));
+            if (null != dicts)
+                dicts.ForEach(kp => entries.Add(new DictionaryEntry() { Key = kp.Key, Value = kp.Value }));
 
             return entries.ToArray();
         }
@@ -130,9 +132,7 @@ namespace MCS.Library.SOA.DataObjects.UserTaskSync
             string tenantCode = TenantContext.Current.TenantCode;
 
             if (tenantCode.IsNullOrEmpty())
-            {
                 tenantCode = GetParameter(_TenantCode, tasks);
-            }
 
             return tenantCode;
         }

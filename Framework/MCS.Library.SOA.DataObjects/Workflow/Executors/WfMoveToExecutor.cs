@@ -62,39 +62,39 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
         protected override void OnModifyWorkflow(WfExecutorDataContext dataContext)
         {
-            this.TargetActivity.Process.Committed = true;
+            DoMoveToOperation(this.TargetActivity.Process, this.TransferParams);
+        }
 
-            IWfProcess process = this.TargetActivity.Process;
+        internal static void DoMoveToOperation(IWfProcess process, WfTransferParams transferParams)
+        {
+            process.Committed = true;
 
             WfRuntime.ProcessContext.BeginChangeActivityChangingContext();
 
             try
             {
-                IWfActivity nextActivity = process.Activities.FindActivityByDescriptorKey(TransferParams.NextActivityDescriptor.Key);
+                IWfActivity nextActivity = process.Activities.FindActivityByDescriptorKey(transferParams.NextActivityDescriptor.Key);
 
-                (nextActivity != null).FalseThrow("不能找到Key为{0}的活动", TransferParams.NextActivityDescriptor.Key);
+                (nextActivity != null).FalseThrow("不能找到Key为{0}的活动", transferParams.NextActivityDescriptor.Key);
 
                 if (nextActivity.Status != WfActivityStatus.NotRunning)
                 {
                     WfRuntime.ProcessContext.ActivityChangingContext.CreatorInstanceID = process.CurrentActivity.ID;
 
-                    IWfTransitionDescriptor returnTransition = process.CurrentActivity.CopyMainStreamActivities(nextActivity, this.TransferParams.FromTransitionDescriptor, WfControlOperationType.Return);
+                    IWfTransitionDescriptor returnTransition = process.CurrentActivity.CopyMainStreamActivities(nextActivity, transferParams.FromTransitionDescriptor, WfControlOperationType.Return);
 
                     IWfActivity nextCloneActivity = nextActivity;
 
                     if (returnTransition != null)
-                    { 
-                        this.TransferParams.FromTransitionDescriptor = returnTransition;
+                    {
+                        transferParams.FromTransitionDescriptor = returnTransition;
                         nextCloneActivity = returnTransition.ToActivity.Instance;
                     }
 
-                    //ydz: 2013 修改添加完新克隆活动点线的下一个活动点
-                    //IWfActivity nextCloneActivity = process.Activities.Find(act => string.Equals(act.Descriptor.ClonedKey, nextActivity.Descriptor.Key) == true);
-
                     if (nextCloneActivity != null)
-                        TransferParams.NextActivityDescriptor = nextCloneActivity.Descriptor;
+                        transferParams.NextActivityDescriptor = nextCloneActivity.Descriptor;
                     else
-                        TransferParams.NextActivityDescriptor = process.CurrentActivity.Descriptor.ToTransitions.FindDefaultSelectTransition().ToActivity;
+                        transferParams.NextActivityDescriptor = process.CurrentActivity.Descriptor.ToTransitions.FindDefaultSelectTransition().ToActivity;
 
                     IEnumerable<IUser> candidates = null;
 
@@ -110,10 +110,10 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                             candidates = nextCloneActivity.Descriptor.Resources.ToUsers();
                     }
 
-                    TransferParams.Assignees.Add(candidates);
+                    transferParams.Assignees.Add(candidates);
                 }
 
-                TargetActivity.Process.MoveTo(TransferParams);
+                process.MoveTo(transferParams);
 
                 while ((process.Status == WfProcessStatus.Completed || process.Status == WfProcessStatus.Aborted)
                     && process.EntryInfo != null)
@@ -202,32 +202,40 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             base.OnError(ex, dataContext, ref autoThrow);
         }
 
-        protected override void OnPrepareUserOperationLogDescription(WfExecutorDataContext dataContext, UserOperationLog log)
+        internal static bool PrepareUserOperationLogDescriptionByTransferParams(WfExecutorDataContext dataContext, WfTransferParams transferParams, UserOperationLog log)
         {
+            bool dealed = false;
+
             if (log.RealUser != null && log.OperationDescription.IsNullOrEmpty())
             {
                 string transitionName = string.Empty;
 
-                if (this.TransferParams.FromTransitionDescriptor != null)
+                if (transferParams.FromTransitionDescriptor != null)
                 {
-                    transitionName = this.TransferParams.FromTransitionDescriptor.Name;
+                    transitionName = transferParams.FromTransitionDescriptor.Name;
 
                     if (transitionName.IsNullOrEmpty())
-                        transitionName = this.TransferParams.FromTransitionDescriptor.Description;
+                        transitionName = transferParams.FromTransitionDescriptor.Description;
                 }
 
-                if (transitionName.IsNullOrEmpty())
-                {
-                    base.OnPrepareUserOperationLogDescription(dataContext, log);
-                }
-                else
+                if (transitionName.IsNotEmpty())
                 {
                     log.OperationDescription = string.Format("{0}:{1}->{2}, '{3}' {4:yyyy-MM-dd HH:mm:ss}",
                             log.OperationName, log.RealUser.DisplayName,
                             Translator.Translate(Define.DefaultCulture, transitionName),
                             log.Subject, DateTime.Now);
+
+                    dealed = true;
                 }
             }
+
+            return dealed;
+        }
+
+        protected override void OnPrepareUserOperationLogDescription(WfExecutorDataContext dataContext, UserOperationLog log)
+        {
+            if (PrepareUserOperationLogDescriptionByTransferParams(dataContext, this.TransferParams, log) == false)
+                base.OnPrepareUserOperationLogDescription(dataContext, log);
         }
     }
 }

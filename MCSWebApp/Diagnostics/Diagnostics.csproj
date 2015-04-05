@@ -82,6 +82,10 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AppPoolCheck\EventLogSourceTest.aspx" />
+    <Content Include="AppPoolCheck\FileWatchTest.aspx" />
+    <Content Include="AppPoolCheck\NotifyFiles\notify.txt" />
+    <Content Include="AppPoolCheck\UdpTest.aspx" />
     <Content Include="ClientCheck\ActiveXCheck.aspx" />
     <Content Include="ClientCheck\CACWSScriptCheckaspx.aspx" />
     <Content Include="ClientCheck\check.aspx" />
@@ -96,6 +100,27 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppPoolCheck\EventLogSourceTest.aspx.cs">
+      <DependentUpon>EventLogSourceTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppPoolCheck\EventLogSourceTest.aspx.designer.cs">
+      <DependentUpon>EventLogSourceTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppPoolCheck\FileWatchTest.aspx.cs">
+      <DependentUpon>FileWatchTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppPoolCheck\FileWatchTest.aspx.designer.cs">
+      <DependentUpon>FileWatchTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppPoolCheck\UdpTest.aspx.cs">
+      <DependentUpon>UdpTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppPoolCheck\UdpTest.aspx.designer.cs">
+      <DependentUpon>UdpTest.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ClientCheck\ActiveXCheck.aspx.cs">
       <DependentUpon>ActiveXCheck.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

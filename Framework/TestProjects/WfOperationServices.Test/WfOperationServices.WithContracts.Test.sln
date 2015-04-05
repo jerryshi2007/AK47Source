@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WfOperationServices.Test", "WfOperationServices.Test.csproj", "{30C92035-7D96-4EB2-96F5-B544392FBD46}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -50,23 +50,44 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library.WF.Contracts.Pr
 		{78CD90D6-129A-401C-8396-E7AD8996219E} = {78CD90D6-129A-401C-8396-E7AD8996219E}
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basic", "Basic", "{88A8E51E-0F0C-4281-B09C-3013E644C4BA}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 5
+		SccNumberOfProjects = 9
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = http://shsvr9141tfs.ciicsh.local:8080/tfs/rhso
-		SccProjectUniqueName0 = ..\\..\\MCS.Library.WcfExtensions\\MCS.Library.WcfExtensions.csproj
-		SccProjectName0 = ../../MCS.Library.WcfExtensions
-		SccLocalPath0 = ..\\..\\MCS.Library.WcfExtensions
-		SccProjectUniqueName1 = ..\\..\\MCS.Library.Services.Contracts\\MCS.Library.Services.Contracts.csproj
-		SccProjectName1 = ../../MCS.Library.Services.Contracts
-		SccLocalPath1 = ..\\..\\MCS.Library.Services.Contracts
-		SccProjectUniqueName2 = ..\\..\\MCS.Library.WF.Contracts\\MCS.Library.WF.Contracts.csproj
-		SccProjectName2 = ../../MCS.Library.WF.Contracts
-		SccLocalPath2 = ..\\..\\MCS.Library.WF.Contracts
-		SccLocalPath3 = .
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ..\\..\\MCS.Library.WcfExtensions\\MCS.Library.WcfExtensions.csproj
+		SccProjectTopLevelParentUniqueName1 = WfOperationServices.WithContracts.Test.sln
+		SccProjectName1 = ../../MCS.Library.WcfExtensions
+		SccLocalPath1 = ..\\..\\MCS.Library.WcfExtensions
+		SccProjectUniqueName2 = ..\\..\\MCS.Library.Services.Contracts\\MCS.Library.Services.Contracts.csproj
+		SccProjectTopLevelParentUniqueName2 = WfOperationServices.WithContracts.Test.sln
+		SccProjectName2 = ../../MCS.Library.Services.Contracts
+		SccLocalPath2 = ..\\..\\MCS.Library.Services.Contracts
+		SccProjectUniqueName3 = ..\\..\\MCS.Library.WF.Contracts\\MCS.Library.WF.Contracts.csproj
+		SccProjectTopLevelParentUniqueName3 = WfOperationServices.WithContracts.Test.sln
+		SccProjectName3 = ../../MCS.Library.WF.Contracts
+		SccLocalPath3 = ..\\..\\MCS.Library.WF.Contracts
 		SccProjectUniqueName4 = WfOperationServices.Test.csproj
 		SccLocalPath4 = .
+		SccProjectUniqueName5 = ..\\..\\MCS.Web.Library.Script.Json\\MCS.Web.Library.Script.Json.csproj
+		SccProjectTopLevelParentUniqueName5 = WfOperationServices.WithContracts.Test.sln
+		SccProjectName5 = ../../MCS.Web.Library.Script.Json
+		SccLocalPath5 = ..\\..\\MCS.Web.Library.Script.Json
+		SccProjectUniqueName6 = ..\\MCS.Library.WF.Contracts.Common.Test\\MCS.Library.WF.Contracts.Common.Test.csproj
+		SccProjectTopLevelParentUniqueName6 = WfOperationServices.WithContracts.Test.sln
+		SccProjectName6 = ../MCS.Library.WF.Contracts.Common.Test
+		SccLocalPath6 = ..\\MCS.Library.WF.Contracts.Common.Test
+		SccProjectUniqueName7 = ..\\..\\MCS.Library.WF.Contracts.Json\\MCS.Library.WF.Contracts.Json.csproj
+		SccProjectTopLevelParentUniqueName7 = WfOperationServices.WithContracts.Test.sln
+		SccProjectName7 = ../../MCS.Library.WF.Contracts.Json
+		SccLocalPath7 = ..\\..\\MCS.Library.WF.Contracts.Json
+		SccProjectUniqueName8 = ..\\..\\MCS.Library.WF.Contracts.Proxies\\MCS.Library.WF.Contracts.Proxies.csproj
+		SccProjectTopLevelParentUniqueName8 = WfOperationServices.WithContracts.Test.sln
+		SccProjectName8 = ../../MCS.Library.WF.Contracts.Proxies
+		SccLocalPath8 = ..\\..\\MCS.Library.WF.Contracts.Proxies
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -108,5 +129,14 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E24FAE52-428F-4B6E-8D9D-B24E7EE0A940} = {88A8E51E-0F0C-4281-B09C-3013E644C4BA}
+		{BCCA14A9-DC96-45C8-91C1-77CA6E51F70C} = {88A8E51E-0F0C-4281-B09C-3013E644C4BA}
+		{F4819ABF-3CD4-4158-BF86-8FE4D3F6A7A6} = {88A8E51E-0F0C-4281-B09C-3013E644C4BA}
+		{A423B431-45D1-4DE1-AF5F-160A3A4C8B19} = {88A8E51E-0F0C-4281-B09C-3013E644C4BA}
+		{78CD90D6-129A-401C-8396-E7AD8996219E} = {88A8E51E-0F0C-4281-B09C-3013E644C4BA}
+		{2BDA53BC-7BD9-4707-8DA4-A8B6DF7A46DC} = {88A8E51E-0F0C-4281-B09C-3013E644C4BA}
+		{907005FA-1172-4B50-B44A-5F208D191DD2} = {88A8E51E-0F0C-4281-B09C-3013E644C4BA}
 	EndGlobalSection
 EndGlobal

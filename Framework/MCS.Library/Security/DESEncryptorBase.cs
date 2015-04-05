@@ -25,9 +25,12 @@ namespace MCS.Library.Security
 
             using (SymmetricAlgorithm algorithm = this.GetDesObject())
             {
-                using (CryptoStream encStream = new CryptoStream(ms, algorithm.CreateEncryptor(), CryptoStreamMode.Write))
+                using (ICryptoTransform transform = algorithm.CreateEncryptor())
                 {
-                    encStream.Write(bytes, 0, bytes.Length);
+                    using (CryptoStream encStream = new CryptoStream(ms, transform, CryptoStreamMode.Write))
+                    {
+                        encStream.Write(bytes, 0, bytes.Length);
+                    }
                 }
             }
 
@@ -50,9 +53,12 @@ namespace MCS.Library.Security
 
             using (SymmetricAlgorithm algorithm = this.GetDesObject())
             {
-                using (CryptoStream decStream = new CryptoStream(ms, algorithm.CreateDecryptor(), CryptoStreamMode.Read))
+                using (ICryptoTransform transform = algorithm.CreateDecryptor())
                 {
-                    strResult = (new StreamReader(decStream, Encoding.UTF8)).ReadToEnd();
+                    using (CryptoStream decStream = new CryptoStream(ms, transform, CryptoStreamMode.Read))
+                    {
+                        strResult = (new StreamReader(decStream, Encoding.UTF8)).ReadToEnd();
+                    }
                 }
             }
 

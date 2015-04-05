@@ -175,14 +175,14 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                 {
                     if (externalMatrix.PropertyDefinitions.MatrixType == WfMatrixType.ApprovalMatrix)
                     {
-                        SOARolePropertyRowCollection approvalRows = externalMatrix.Rows.Query(queryParams, true);
+                        SOARolePropertyRowCollection approvalRows = externalMatrix.Rows.Query(context.QueryParams, true);
 
                         matrixRows.SortActivitySN();
                         matrixRows.MergeApprovalMatrix(this.PropertyDefinitions, approvalRows, externalMatrix.PropertyDefinitions);
                     }
                     else
                     {
-                        SOARolePropertyRowCollection approvalRows = externalMatrix.Rows.Query(queryParams, false);
+                        SOARolePropertyRowCollection approvalRows = externalMatrix.Rows.Query(context.QueryParams, false);
 
                         matrixRows.SortActivitySN();
                         matrixRows.MergeActivityMatrix(this.PropertyDefinitions, approvalRows, externalMatrix.PropertyDefinitions);

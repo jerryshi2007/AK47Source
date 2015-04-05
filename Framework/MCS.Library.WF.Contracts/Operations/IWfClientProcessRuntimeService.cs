@@ -23,6 +23,16 @@ namespace MCS.Library.WF.Contracts.Operations
         WfClientProcessInfo StartWorkflow(WfClientProcessStartupParams clientStartupParams);
 
         /// <summary>
+        /// 启动一个流程实例，并且流转到下一个环节。
+        /// </summary>
+        /// <param name="clientStartupParams">流程启动参数</param>
+        /// <param name="clientTransferParams">流程下一步的流转参数，如果这个参数为空，则流转到默认环节</param>
+        /// <param name="runtimeContext">流转上下文信息</param>
+        /// <returns></returns>
+        [OperationContract]
+        WfClientProcessInfo StartWorkflowAndMoveTo(WfClientProcessStartupParams clientStartupParams, WfClientTransferParams clientTransferParams, WfClientRuntimeContext runtimeContext);
+
+        /// <summary>
         /// 流转到流程默认的下一个活动，活动的候选人就是待办人
         /// </summary>
         /// <param name="processID">流程的ID</param>

@@ -68,6 +68,19 @@ namespace MCS.Library.Data.DataObjects
         }
 
         /// <summary>
+        /// 根据列名尝试去设置Cell的值，如果该列不存在，则忽略
+        /// </summary>
+        /// <param name="columnName"></param>
+        /// <param name="cellValue"></param>
+        public void TrySetValue(string columnName, TValue cellValue)
+        {
+            TRowValue rowValue = this.FindByColumnName(columnName);
+
+            if (rowValue != null)
+                rowValue.Value = cellValue;
+        }
+
+        /// <summary>
         /// 根据列名得到值
         /// </summary>
         /// <param name="name"></param>
