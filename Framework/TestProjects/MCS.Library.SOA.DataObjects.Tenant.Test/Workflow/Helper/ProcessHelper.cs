@@ -1,5 +1,7 @@
 ﻿using MCS.Library.Core;
+using MCS.Library.OGUPermission;
 using MCS.Library.SOA.DataObjects.Workflow;
+using MCS.Library.SOA.DataObjects.Workflow.Builders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,6 +57,18 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             return processDesp;
         }
 
+        public static IWfProcessDescriptor CreateFreeStepsProcessDescriptor(params IUser[] approvers)
+        {
+            string processKey = UuidHelper.NewUuidString();
+
+            WfFreeStepsProcessBuilder builder = new WfFreeStepsProcessBuilder(
+                Define.DefaultApplicationName,
+                Define.DefaultProgramName,
+                approvers);
+
+            return builder.Build(processKey, "测试流程");
+        }
+
         /// <summary>
         /// 创建一个带动态活动，且内嵌矩阵的流程
         /// </summary>
@@ -87,9 +101,23 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
         /// </summary>
         /// <param name="processDesp"></param>
         /// <returns></returns>
-        public static IWfProcess StartupProcess(IWfProcessDescriptor processDesp)
+        public static IWfProcess StartupProcess(this IWfProcessDescriptor processDesp)
         {
             return StartupProcess(processDesp, new Dictionary<string, object>());
+        }
+
+        /// <summary>
+        /// 启动流程
+        /// </summary>
+        /// <param name="processDesp"></param>
+        /// <returns></returns>
+        public static IWfProcess StartupProcessByExecutor(this IWfProcessDescriptor processDesp)
+        {
+            WfProcessStartupParams startupParams = processDesp.PrepareStartupParams();
+
+            WfStartWorkflowExecutor executor = new WfStartWorkflowExecutor(startupParams);
+
+            return executor.Execute();
         }
 
         /// <summary>
@@ -98,15 +126,23 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
         /// <param name="processDesp"></param>
         /// <param name="runtimeParameters"></param>
         /// <returns></returns>
-        public static IWfProcess StartupProcess(IWfProcessDescriptor processDesp, Dictionary<string, object> runtimeParameters)
+        public static IWfProcess StartupProcess(this IWfProcessDescriptor processDesp, Dictionary<string, object> runtimeParameters = null)
+        {
+            WfProcessStartupParams startupParams = PrepareStartupParams(processDesp, runtimeParameters);
+
+            return WfRuntime.StartWorkflow(startupParams);
+        }
+
+        public static WfProcessStartupParams PrepareStartupParams(this IWfProcessDescriptor processDesp, Dictionary<string, object> runtimeParameters = null)
         {
             WfProcessStartupParams startupParams = new WfProcessStartupParams();
             startupParams.ResourceID = UuidHelper.NewUuidString();
             startupParams.ProcessDescriptor = processDesp;
 
-            runtimeParameters.ForEach(kp => startupParams.ApplicationRuntimeParameters.Add(kp.Key, kp.Value));
+            if (runtimeParameters != null)
+                runtimeParameters.ForEach(kp => startupParams.ApplicationRuntimeParameters.Add(kp.Key, kp.Value));
 
-            return WfRuntime.StartWorkflow(startupParams);
+            return startupParams;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using MCS.Library.Core;
+using MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper;
 using MCS.Library.SOA.DataObjects.Workflow;
 using MCS.Library.SOA.DataObjects.Workflow.Builders;
 using MCS.Library.SOA.DataObjects.Workflow.Exporters;
@@ -22,9 +23,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
         [TestMethod]
         public void SaveAndLoadTenantProcessTest()
         {
-            string processKey = UuidHelper.NewUuidString();
-
-            IWfProcessDescriptor processDesp = CreateTestProcessDescriptor(processKey);
+            IWfProcessDescriptor processDesp = CreateTestProcessDescriptor();
 
             string tenantCode = UuidHelper.NewUuidString();
 
@@ -53,9 +52,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
         [TestMethod]
         public void CreateProcessTemplateExecutorTest()
         {
-            string processKey = UuidHelper.NewUuidString();
-
-            IWfProcessDescriptor processDesp = CreateTestProcessDescriptor(processKey);
+            IWfProcessDescriptor processDesp = CreateTestProcessDescriptor();
 
             WfSaveTemplateExecutor executor = new WfSaveTemplateExecutor(processDesp);
 
@@ -70,9 +67,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
         [TestMethod]
         public void ModifyProcessTemplateExecutorTest()
         {
-            string processKey = UuidHelper.NewUuidString();
-
-            IWfProcessDescriptor processDesp = CreateTestProcessDescriptor(processKey);
+            IWfProcessDescriptor processDesp = CreateTestProcessDescriptor();
 
             WfSaveTemplateExecutor createExecutor = new WfSaveTemplateExecutor(processDesp);
 
@@ -92,9 +87,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
         [TestMethod]
         public void DeleteProcessTemplateExecutorTest()
         {
-            string processKey = UuidHelper.NewUuidString();
-
-            IWfProcessDescriptor processDesp = CreateTestProcessDescriptor(processKey);
+            IWfProcessDescriptor processDesp = CreateTestProcessDescriptor();
 
             WfSaveTemplateExecutor createExecutor = new WfSaveTemplateExecutor(processDesp);
 
@@ -120,9 +113,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
         [TestMethod]
         public void ImportProcessTemplateExecutorTest()
         {
-            string processKey = UuidHelper.NewUuidString();
-
-            IWfProcessDescriptor processDesp = CreateTestProcessDescriptor(processKey);
+            IWfProcessDescriptor processDesp = CreateTestProcessDescriptor();
 
             WfSaveTemplateExecutor createExecutor = new WfSaveTemplateExecutor(processDesp);
 
@@ -150,14 +141,9 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
             return TenantContext.Current;
         }
 
-        private static IWfProcessDescriptor CreateTestProcessDescriptor(string processKey)
+        private static IWfProcessDescriptor CreateTestProcessDescriptor()
         {
-            WfFreeStepsProcessBuilder builder = new WfFreeStepsProcessBuilder(
-                Define.DefaultApplicationName,
-                Define.DefaultProgramName,
-                OguObjectSettings.GetConfig().Objects["approver1"].User);
-
-            return builder.Build(processKey, "测试流程");
+            return ProcessHelper.CreateFreeStepsProcessDescriptor(OguObjectSettings.GetConfig().Objects["approver1"].User);
         }
     }
 }

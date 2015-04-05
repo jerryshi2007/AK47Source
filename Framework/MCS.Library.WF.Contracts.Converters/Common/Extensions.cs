@@ -316,9 +316,12 @@ namespace MCS.Library.WF.Contracts.Converters
 
             WfClientProcessInfo clientProcessInfo = null;
 
-            WfClientProcessInfoConverter.Instance.ServerToClient(process, ref clientProcessInfo);
+            PerformanceMonitorHelper.GetDefaultMonitor().WriteExecutionDuration("ToClientProcessInfo", () =>
+            {
+                WfClientProcessInfoConverter.Instance.ServerToClient(process, ref clientProcessInfo);
 
-            clientProcessInfo.AuthorizationInfo = WfClientProcessInfoBaseConverter.Instance.GetAuthorizationInfo(process, originalActivity, clientUser);
+                clientProcessInfo.AuthorizationInfo = WfClientProcessInfoBaseConverter.Instance.GetAuthorizationInfo(process, originalActivity, clientUser);
+            });
 
             return clientProcessInfo;
         }

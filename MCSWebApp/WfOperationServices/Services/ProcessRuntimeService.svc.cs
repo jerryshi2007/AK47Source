@@ -100,11 +100,20 @@ namespace WfOperationServices.Services
 
             WfClientProcessStartupParamsConverter.Instance.ClientToServer(clientStartupParams, ref startupParams);
 
+            WfTransferParams transferParams = null;
+
+            if (clientTransferParams != null)
+            {
+                WfClientTransferParamsConverter.Instance.ClientToServer(clientTransferParams, null, ref transferParams);
+
+                MergeTransferParams(transferParams, runtimeContext);
+            }
+
             IWfProcess process = null;
 
             DoPrincipalAction(startupParams.Creator, () =>
             {
-                WfStartWorkflowExecutor executor = new WfStartWorkflowExecutor(startupParams);
+                WfStartWorkflowExecutor executor = new WfStartWorkflowExecutor(null, startupParams, transferParams);
 
                 executor.AfterModifyWorkflow += (dataContext =>
                 {
@@ -113,7 +122,7 @@ namespace WfOperationServices.Services
 
                     WfClientProcessInfoBaseConverter.Instance.FillOpinionInfoByProcessByActivity(
                         clientStartupParams.Opinion,
-                        dataContext.CurrentProcess.CurrentActivity,
+                        dataContext.CurrentProcess.InitialActivity,
                         clientStartupParams.Creator,
                         clientStartupParams.Creator);
                 });

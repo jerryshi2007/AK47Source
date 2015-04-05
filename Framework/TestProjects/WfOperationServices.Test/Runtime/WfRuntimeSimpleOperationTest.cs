@@ -79,6 +79,24 @@ namespace WfOperationServices.Test.Runtime
         }
 
         [TestMethod]
+        public void StartWorkflowAndMoveToNext()
+        {
+            WfClientProcessDescriptor processDesp = OperationHelper.PrepareSimpleProcess();
+
+            WfClientProcessStartupParams clientStartupParams = ProcessRuntimeHelper.PrepareClientProcessStartupParams(processDesp.Key);
+            clientStartupParams.Opinion = new WfClientOpinion() { Content = "我启动流程很高兴" };
+
+            WfClientProcessInfo processInfo = WfClientProcessRuntimeServiceProxy.Instance.StartWorkflowAndMoveTo(clientStartupParams, null, null);
+
+            processInfo.Output();
+
+            WfClientOpinionCollection opinions = WfClientProcessRuntimeServiceProxy.Instance.GetOpinionsByResourceID(processInfo.ResourceID);
+
+            Assert.IsTrue(opinions.Count > 0);
+            Assert.AreNotEqual(processInfo.CurrentActivity.ID, opinions[0].ActivityID);
+        }
+
+        [TestMethod]
         public void GetProcessByIDTest()
         {
             WfClientProcessInfo processInfo = OperationHelper.PreapreProcessWithConditionLinesInstance();

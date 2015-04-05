@@ -49,7 +49,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         }
 
         public WfStartWorkflowExecutor(IWfActivity operatorActivity, WfProcessStartupParams startupParams)
-            : this(operatorActivity, startupParams, null)
+            : this(operatorActivity, startupParams, null, false)
         {
             startupParams.NullCheck("startupParams");
 
@@ -70,7 +70,17 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
             if (this.AutoMoveTo)
             {
-                this.TransferParams.NullCheck("启动流程，自动向下流转时，必须提供流转参数");
+                if (this.TransferParams == null)
+                    this.TransferParams = WfTransferParams.FromNextDefaultActivity(process);
+
+                //如果流转参数中没有下一步的人员，则从下一步活动的候选人中复制
+                if (this.TransferParams.Assignees.Count == 0)
+                {
+                    IWfActivity nextActivity = process.Activities.FindActivityByDescriptorKey(this.TransferParams.NextActivityDescriptor.Key);
+
+                    if (nextActivity != null)
+                        this.TransferParams.Assignees.CopyFrom(nextActivity.Candidates);
+                }
 
                 WfMoveToExecutor.DoMoveToOperation(process, this.TransferParams);
             }
@@ -87,6 +97,13 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
             if (dealed == false)
                 base.OnPrepareUserOperationLogDescription(dataContext, log);
+        }
+
+        protected override void OnPrepareMoveToTasks(WfExecutorDataContext dataContext)
+        {
+            base.OnPrepareMoveToTasks(dataContext);
+
+            WfMoveToExecutor.SyncUrlsInAssigneesFromTasks(dataContext.MoveToTasks);
         }
     }
 }

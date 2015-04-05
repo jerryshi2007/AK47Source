@@ -1,4 +1,5 @@
-﻿using MCS.Library.Passport;
+﻿using MCS.Library.Core;
+using MCS.Library.Passport;
 using MCS.Web.Library.Script;
 using System;
 using System.Collections.Generic;
@@ -39,43 +40,46 @@ namespace MCS.Library.WcfExtensions
 
             try
             {
-                string jsonStr = WcfUtils.GetMessageRawContent(message);
-
-                Dictionary<string, object> paramsInfo = JSONSerializerExecute.Deserialize<Dictionary<string, object>>(jsonStr);
-
-                Dictionary<string, object> headers = PopHeaderInfo(paramsInfo);
-                PushHeaderInfoToMessageProperties(message, headers);
-
-                Dictionary<string, string> connectionMappings = PopConnectionMappings(paramsInfo);
-                PushConnectionMappingsToMessageProperties(message, connectionMappings);
-
-                Dictionary<string, object> context = PopContextInfo(paramsInfo);
-                PushContextToMessageProperties(message, context);
-
-                GenericTicketTokenContainer container = PopGenericTicketTokenContainer(paramsInfo);
-                PushGenericTicketTokenContainer(message, container);
-
-                for (int i = 0; i < _OperationDesc.Messages[0].Body.Parts.Count; i++)
-                {
-                    string paramName = _OperationDesc.Messages[0].Body.Parts[i].Name;
-                    Type targetType = this._OperationDesc.Messages[0].Body.Parts[i].Type;
-
-                    object val = paramsInfo[paramName];
-
-                    try
+                PerformanceMonitorHelper.GetDefaultMonitor().WriteExecutionDuration("DeserializeRequest", () =>
                     {
-                        parameters[i] = JSONSerializerExecute.DeserializeObject(val, targetType);
-                    }
-                    catch (System.Exception ex)
-                    {
-                        string errorMessage = string.Format("反序列化参数{0}错误，类型为{1}：{2}",
-                            paramName,
-                            targetType.ToString(),
-                            ex.Message);
+                        string jsonStr = WcfUtils.GetMessageRawContent(message);
 
-                        throw new InvalidDataException(errorMessage, ex);
-                    }
-                }
+                        Dictionary<string, object> paramsInfo = JSONSerializerExecute.Deserialize<Dictionary<string, object>>(jsonStr);
+
+                        Dictionary<string, object> headers = PopHeaderInfo(paramsInfo);
+                        PushHeaderInfoToMessageProperties(message, headers);
+
+                        Dictionary<string, string> connectionMappings = PopConnectionMappings(paramsInfo);
+                        PushConnectionMappingsToMessageProperties(message, connectionMappings);
+
+                        Dictionary<string, object> context = PopContextInfo(paramsInfo);
+                        PushContextToMessageProperties(message, context);
+
+                        GenericTicketTokenContainer container = PopGenericTicketTokenContainer(paramsInfo);
+                        PushGenericTicketTokenContainer(message, container);
+
+                        for (int i = 0; i < _OperationDesc.Messages[0].Body.Parts.Count; i++)
+                        {
+                            string paramName = _OperationDesc.Messages[0].Body.Parts[i].Name;
+                            Type targetType = this._OperationDesc.Messages[0].Body.Parts[i].Type;
+
+                            object val = paramsInfo[paramName];
+
+                            try
+                            {
+                                parameters[i] = JSONSerializerExecute.DeserializeObject(val, targetType);
+                            }
+                            catch (System.Exception ex)
+                            {
+                                string errorMessage = string.Format("反序列化参数{0}错误，类型为{1}：{2}",
+                                    paramName,
+                                    targetType.ToString(),
+                                    ex.Message);
+
+                                throw new InvalidDataException(errorMessage, ex);
+                            }
+                        }
+                    });
             }
             catch (Exception ex)
             {
@@ -85,29 +89,36 @@ namespace MCS.Library.WcfExtensions
 
         public System.ServiceModel.Channels.Message SerializeReply(System.ServiceModel.Channels.MessageVersion messageVersion, object[] parameters, object result)
         {
-            //返回值总是Raw格式的
-            string jsonResult = string.Empty;
+            Message returnMessage = null;
 
-            if (result is string)
-            {
-                if (this._AtlasEnabled)
+            PerformanceMonitorHelper.GetDefaultMonitor().WriteExecutionDuration("SerializeReply", () =>
                 {
-                    //asp.net ajax 返回值格式
-                    Dictionary<string, object> returnDict = new Dictionary<string, object>();
-                    returnDict.Add("d", result);
-                    jsonResult = JSONSerializerExecute.Serialize(returnDict);
-                }
-                else
-                {
-                    jsonResult = result.ToString();
-                }
-            }
-            else
-            {
-                jsonResult = JSONSerializerExecute.SerializeWithType(result);
-            }
+                    //返回值总是Raw格式的
+                    string jsonResult = string.Empty;
 
-            return WcfUtils.CreateJsonFormatReplyMessage(messageVersion, this._OperationDesc.Messages[1].Action, jsonResult);
+                    if (result is string)
+                    {
+                        if (this._AtlasEnabled)
+                        {
+                            //asp.net ajax 返回值格式
+                            Dictionary<string, object> returnDict = new Dictionary<string, object>();
+                            returnDict.Add("d", result);
+                            jsonResult = JSONSerializerExecute.Serialize(returnDict);
+                        }
+                        else
+                        {
+                            jsonResult = result.ToString();
+                        }
+                    }
+                    else
+                    {
+                        jsonResult = JSONSerializerExecute.SerializeWithType(result);
+                    }
+
+                    returnMessage = WcfUtils.CreateJsonFormatReplyMessage(messageVersion, this._OperationDesc.Messages[1].Action, jsonResult);
+                });
+
+            return returnMessage;
         }
 
         /// <summary>

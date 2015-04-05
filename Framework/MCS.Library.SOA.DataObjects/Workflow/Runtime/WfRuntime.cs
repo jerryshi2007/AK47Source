@@ -443,10 +443,14 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                         PerformanceMonitorHelper.GetDefaultMonitor().WriteExecutionDuration("PersistActions",
                             () => WfRuntime.ProcessContext.AffectedActions.PersistActions(actionParams));
 
-                        WfPendingActivityInfoAdapter.Instance.Delete(WfRuntime.ProcessContext.ReleasedPendingActivities);
-                        WfAclAdapter.Instance.Update(WfRuntime.ProcessContext.Acl);
+                        PerformanceMonitorHelper.GetDefaultMonitor().WriteExecutionDuration("DeletePendingActivities",
+                            () => WfPendingActivityInfoAdapter.Instance.Delete(WfRuntime.ProcessContext.ReleasedPendingActivities));
 
-                        CommonInfoMappingAdapter.Instance.Update(cimItems);
+                        PerformanceMonitorHelper.GetDefaultMonitor().WriteExecutionDuration("Update Acl",
+                            () => WfAclAdapter.Instance.Update(WfRuntime.ProcessContext.Acl));
+
+                        PerformanceMonitorHelper.GetDefaultMonitor().WriteExecutionDuration("Update CommonInfoMapping",
+                            () => CommonInfoMappingAdapter.Instance.Update(cimItems));
 
                         ProcessProgress.Current.MaxStep += WfRuntime.ProcessContext.AffectedProcesses.Count;
                         ProcessProgress.Current.Response();

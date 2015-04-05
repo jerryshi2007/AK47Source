@@ -69,6 +69,11 @@ namespace MCS.Library.WF.Contracts.Proxies
             return this.SingleCall(action => action.StartWorkflow(clientStartupParams));
         }
 
+        public WfClientProcessInfo StartWorkflowAndMoveTo(WfClientProcessStartupParams clientStartupParams, WfClientTransferParams clientTransferParams, WfClientRuntimeContext runtimeContext)
+        {
+            return this.SingleCall(action => action.StartWorkflowAndMoveTo(clientStartupParams, clientTransferParams, runtimeContext));
+        }
+
         public WfClientProcessInfo Withdraw(string processID, WfClientRuntimeContext runtimeContext)
         {
             return this.SingleCall(action => action.Withdraw(processID, runtimeContext));

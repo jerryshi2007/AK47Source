@@ -121,8 +121,11 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                 {
                     XElement extData = GetExtData(instanceData.ExtData);
 
-                    instanceData.BinaryData = GetCompressedStream(instanceData.Data, Encoding.GetEncoding(extData.Attribute("encoding", "utf-8")));
-                    instanceData.Data = string.Empty;
+                    PerformanceMonitorHelper.GetDefaultMonitor().WriteExecutionDuration("CompressProcess", () =>
+                        {
+                            instanceData.BinaryData = GetCompressedStream(instanceData.Data, Encoding.GetEncoding(extData.Attribute("encoding", "utf-8")));
+                            instanceData.Data = string.Empty;
+                        });
                 }
             }
 
@@ -156,25 +159,34 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
             using (TransactionScope scope = TransactionScopeFactory.Create())
             {
-                (DbHelper.RunSql(sql, GetConnectionName()) > 0).FalseThrow<WfRuntimeException>("更新流程{0}失败，流程状态已经改变", process.ID);
+                PerformanceMonitorHelper.GetDefaultMonitor().WriteExecutionDuration("WriteProcessToDB", () =>
+                    (DbHelper.RunSql(sql, GetConnectionName()) > 0).FalseThrow<WfRuntimeException>("更新流程{0}失败，流程状态已经改变", process.ID)
+                );
 
-                WfProcessCurrentActivityAdapter.Instance.UpdateProcessActivities(process);
+                PerformanceMonitorHelper.GetDefaultMonitor().WriteExecutionDuration("WriteProcessActivitiesToDB",
+                    () => WfProcessCurrentActivityAdapter.Instance.UpdateProcessActivities(process));
 
-                WfRelativeProcessAdapter.Instance.Delete(new WfRelativeProcess() { ProcessID = process.ID });
-
-                if (process.RelativeID.IsNotEmpty())
-                {
-                    WfRelativeProcessAdapter.Instance.Update(new WfRelativeProcess()
+                PerformanceMonitorHelper.GetDefaultMonitor().WriteExecutionDuration("WriteRelativeProcessInfoToDB", () =>
                     {
-                        Description = string.IsNullOrEmpty(process.Descriptor.Description) ? process.Descriptor.Name : process.Descriptor.Description,
-                        ProcessID = process.ID,
-                        RelativeID = process.RelativeID,
-                        RelativeURL = process.RelativeURL
+                        WfRelativeProcessAdapter.Instance.Delete(new WfRelativeProcess() { ProcessID = process.ID });
+
+                        if (process.RelativeID.IsNotEmpty())
+                        {
+                            WfRelativeProcessAdapter.Instance.Update(new WfRelativeProcess()
+                            {
+                                Description = string.IsNullOrEmpty(process.Descriptor.Description) ? process.Descriptor.Name : process.Descriptor.Description,
+                                ProcessID = process.ID,
+                                RelativeID = process.RelativeID,
+                                RelativeURL = process.RelativeURL
+                            });
+                        }
                     });
-                }
 
                 if (WorkflowSettings.GetConfig().SaveRelativeData)
-                    WfExtraPersistenceSettings.GetConfig().GetPersisters().SaveData(process, context);
+                {
+                    PerformanceMonitorHelper.GetDefaultMonitor().WriteExecutionDuration("WriteRelativeDataToDB",
+                        () => WfExtraPersistenceSettings.GetConfig().GetPersisters().SaveData(process, context));
+                }
 
                 scope.Complete();
             }
@@ -282,8 +294,12 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                     PerformanceMonitorHelper.GetDefaultMonitor().WriteExecutionDuration(string.Format("Extra Process Data:{0}", instanceData.InstanceID),
                         () => decompressedData = CompressManager.ExtractBytes(instanceData.BinaryData));
 
-                    preferedEncoding = GetPreferedEncoding(decompressedData, originalEncoding);
-                    instanceData.Data = BytesToProcessData(decompressedData, preferedEncoding);
+                    PerformanceMonitorHelper.GetDefaultMonitor().WriteExecutionDuration("EncodeProcessString", () =>
+                        {
+                            preferedEncoding = GetPreferedEncoding(decompressedData, originalEncoding);
+                            instanceData.Data = BytesToProcessData(decompressedData, preferedEncoding);
+                        }
+                    );
                 }
                 else
                 {

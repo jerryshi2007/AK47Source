@@ -121,26 +121,44 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             WfTransferParams transferParams = null;
 
             if (process.CurrentActivity != null)
-            {
-                WfTransitionDescriptorCollection toTransitions =
-                                process.CurrentActivity.Descriptor.ToTransitions.GetAllCanTransitTransitions();
-
-                //找到缺省的线
-                IWfTransitionDescriptor transition = toTransitions.FindDefaultSelectTransition();
-
-                if (transition != null)
-                {
-                    transferParams = new WfTransferParams(transition.ToActivity);
-
-                    transferParams.FromTransitionDescriptor = transition;
-                    transferParams.Assignees.CopyFrom(transition.ToActivity.Instance.Candidates);
-
-                    if (DeluxePrincipal.IsAuthenticated)
-                        transferParams.Operator = DeluxeIdentity.CurrentUser;
-                }
-            }
+                transferParams = FromNextDefaultActivity(process.CurrentActivity.Descriptor);
 
             (transferParams != null).FalseThrow("不能根据流程当前活动找到默认的下一步环节");
+
+            return transferParams;
+        }
+
+        /// <summary>
+        /// 根据当前活动定义找到默认的下一环节，生成流转参数
+        /// </summary>
+        /// <param name="currentActDesp"></param>
+        /// <returns></returns>
+        public static WfTransferParams FromNextDefaultActivity(IWfActivityDescriptor currentActDesp)
+        {
+            currentActDesp.NullCheck("actDesp");
+
+            WfTransferParams transferParams = null;
+
+            WfTransitionDescriptorCollection toTransitions =
+                                currentActDesp.ToTransitions.GetAllCanTransitTransitions();
+
+            //找到缺省的线
+            IWfTransitionDescriptor transition = toTransitions.FindDefaultSelectTransition();
+
+            if (transition != null)
+            {
+                transferParams = new WfTransferParams(transition.ToActivity);
+
+                transferParams.FromTransitionDescriptor = transition;
+
+                if (transition.ToActivity.Instance != null)
+                    transferParams.Assignees.CopyFrom(transition.ToActivity.Instance.Candidates);
+
+                if (DeluxePrincipal.IsAuthenticated)
+                    transferParams.Operator = DeluxeIdentity.CurrentUser;
+            }
+
+            (transferParams != null).FalseThrow("不能根据活动定义{0}找到默认的下一步环节", currentActDesp.Key);
 
             return transferParams;
         }

@@ -35,7 +35,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 			SyncUrlsInAssigneesFromTasks(dataContext.MoveToTasks);
 		}
 
-		private static void SyncUrlsInAssigneesFromTasks(UserTaskCollection tasks)
+		internal static void SyncUrlsInAssigneesFromTasks(UserTaskCollection tasks)
 		{
 			foreach (UserTask task in tasks)
 			{
