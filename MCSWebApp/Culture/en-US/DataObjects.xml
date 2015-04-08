@@ -61,4 +61,17 @@
 	<Item source="归档" target="Archive" />
 	<Item source="发送范围" target="Send Scope" />
 	<!--Enumerations-->
+    
+    <!--WF Prompt or Exceptions-->
+    <Item source="流程实例表的Data和BinaryData都为空" target="Both 'Data' and 'BinaryData' fields are null in process instance data" />
+    <Item source="更新流程{0}失败，流程状态已经改变" target="Process status changed. Update process {0} failed" />
+    <Item source="不能找到ProcessID为{0}的流程" target="Can not find process by processID {0}" />
+    <Item source="不能找到ActivityID为{0}的流程" target="Can not find process by activityID {0}" />
+    <Item source="不能根据活动定义{0}找到默认的下一步环节" target="Can not find next default activity by activity {0}'s definition" />
+    <Item source="不能根据流程当前活动找到默认的下一步环节" target="Can not find next default activity by activity definition" />
+
+    <Item source="保存了{0}/{1}条流程数据" target="Saving {0}/{1} processes" />
+    <Item source="只有流程起始活动的指派人才能启动流程" target="Only initial activity candidates can start workflow" />
+    <Item source="只有被允许启动流程的人才能启动流程" target="Only authorized users can start workflow" />
+    <!--WF Prompt or Exceptions-->
 </Dictionary>

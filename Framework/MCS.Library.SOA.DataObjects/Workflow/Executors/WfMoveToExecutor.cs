@@ -73,6 +73,8 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
             try
             {
+                (transferParams.NextActivityDescriptor != null).FalseThrow("流转参数的目标活动不能为空");
+
                 IWfActivity nextActivity = process.Activities.FindActivityByDescriptorKey(transferParams.NextActivityDescriptor.Key);
 
                 (nextActivity != null).FalseThrow("不能找到Key为{0}的活动", transferParams.NextActivityDescriptor.Key);

@@ -1,4 +1,11 @@
-﻿using System;
+﻿using MCS.Library.Compression;
+using MCS.Library.Core;
+using MCS.Library.Data;
+using MCS.Library.Data.Builder;
+using MCS.Library.Data.Mapping;
+using MCS.Library.Globalization;
+using MCS.Library.Logging;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
@@ -7,12 +14,6 @@ using System.Linq;
 using System.Text;
 using System.Transactions;
 using System.Xml.Linq;
-using MCS.Library.Compression;
-using MCS.Library.Core;
-using MCS.Library.Data;
-using MCS.Library.Data.Builder;
-using MCS.Library.Data.Mapping;
-using MCS.Library.Logging;
 
 namespace MCS.Library.SOA.DataObjects.Workflow
 {
@@ -31,7 +32,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
             WfProcessCollection processes = LoadProcesses(builder => builder.AppendItem("INSTANCE_ID", processID));
 
-            (processes.Count > 0).FalseThrow<WfRuntimeException>("不能找到ProcessID为{0}的流程", processID);
+            (processes.Count > 0).FalseThrow<WfRuntimeException>(Translator.Translate(Define.DefaultCulture, "不能找到ProcessID为{0}的流程", processID));
 
             return processes[0];
         }
@@ -42,7 +43,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
             WfProcessCollection processes = LoadProcessesByActivityID(activityID);
 
-            (processes.Count > 0).FalseThrow<WfRuntimeException>("不能找到ActivityID为{0}的流程", activityID);
+            (processes.Count > 0).FalseThrow<WfRuntimeException>(Translator.Translate(Define.DefaultCulture, "不能找到ActivityID为{0}的流程", activityID));
 
             return processes[0];
         }
@@ -51,9 +52,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         {
             resourceID.CheckStringIsNullOrEmpty("resourceID");
 
-            WfProcessCollection processes = LoadProcesses(builder => builder.AppendItem("RESOURCE_ID", resourceID));
-
-            return processes;
+            return LoadProcesses(builder => builder.AppendItem("RESOURCE_ID", resourceID));
         }
 
         /// <summary>
@@ -67,13 +66,12 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             activityID.CheckStringIsNullOrEmpty("activityID");
             templateKey.CheckStringIsNullOrEmpty("templateKey");
 
-            WfProcessCollection processes = LoadProcesses(builder =>
+            return LoadProcesses(builder =>
             {
                 builder.AppendItem("OWNER_ACTIVITY_ID", activityID);
                 builder.AppendItem("OWNER_TEMPLATE_KEY", templateKey);
             });
 
-            return processes;
         }
 
         /// <summary>
@@ -160,7 +158,8 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             using (TransactionScope scope = TransactionScopeFactory.Create())
             {
                 PerformanceMonitorHelper.GetDefaultMonitor().WriteExecutionDuration("WriteProcessToDB", () =>
-                    (DbHelper.RunSql(sql, GetConnectionName()) > 0).FalseThrow<WfRuntimeException>("更新流程{0}失败，流程状态已经改变", process.ID)
+                    (DbHelper.RunSql(sql, GetConnectionName()) > 0).FalseThrow<WfRuntimeException>(
+                        Translator.Translate(Define.DefaultCulture, "更新流程{0}失败，流程状态已经改变", process.ID))
                 );
 
                 PerformanceMonitorHelper.GetDefaultMonitor().WriteExecutionDuration("WriteProcessActivitiesToDB",
@@ -303,7 +302,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                 }
                 else
                 {
-                    (instanceData.Data != null).FalseThrow<ArgumentException>("流程实例表Data和BinaryData都是空");
+                    (instanceData.Data != null).FalseThrow<ArgumentException>(Translator.Translate(Define.DefaultCulture, "流程实例表的Data和BinaryData都为空"));
                 }
 
                 XElement root = null;

@@ -33,7 +33,7 @@ namespace MCS.Library.SOA.DataObjects
         {
             roleID.CheckStringIsNullOrEmpty("roleID");
 
-            SOARolePropertyDefinitionCollection result = SOARolePropertiesDefinitionCache.Instance.GetOrAddNewValue(roleID, (cache, key) =>
+            SOARolePropertyDefinitionCollection result = SOARolePropertiesDefinitionCache.Instance.GetOrAddNewValue(roleID.ToRoleIDCacheKey(), (cache, key) =>
             {
                 SOARolePropertyDefinitionCollection properties = LoadByRoleID(roleID);
 
@@ -58,8 +58,8 @@ namespace MCS.Library.SOA.DataObjects
         {
             roleID.CheckStringIsNullOrEmpty("roleID");
 
-            string sql = string.Format("SELECT * FROM WF.ROLE_PROPERTIES_DEFINITIONS WHERE ROLE_ID = {0} ORDER BY SORT_ORDER",
-                TSqlBuilder.Instance.CheckQuotationMark(roleID, true));
+            string sql = string.Format("SELECT * FROM WF.ROLE_PROPERTIES_DEFINITIONS WHERE {0} ORDER BY SORT_ORDER",
+                roleID.ToRoleIDCriteria());
 
             using (TransactionScope scope = TransactionScopeFactory.Create(TransactionScopeOption.Suppress))
             {
@@ -104,8 +104,17 @@ namespace MCS.Library.SOA.DataObjects
 
             if (result.Count > 0)
             {
-                string sql = string.Format("SELECT ROLE_ID FROM WF.ROLE_PROPERTIES_DEFINITIONS WHERE ROLE_ID IN ({0}) GROUP BY ROLE_ID",
-                    builder.ToSqlString(TSqlBuilder.Instance));
+                WhereSqlClauseBuilder tenantBuilder = new WhereSqlClauseBuilder();
+
+                tenantBuilder.AppendTenantCode();
+
+                string tenantCriteria = string.Empty;
+
+                if (tenantBuilder.IsEmpty == false)
+                    tenantCriteria = " AND " + tenantBuilder.ToSqlString(TSqlBuilder.Instance);
+
+                string sql = string.Format("SELECT ROLE_ID FROM WF.ROLE_PROPERTIES_DEFINITIONS WHERE ROLE_ID IN ({0}){1} GROUP BY ROLE_ID",
+                    builder.ToSqlString(TSqlBuilder.Instance), tenantCriteria);
 
                 DataTable table = DbHelper.RunSqlReturnDS(sql, GetConnectionName()).Tables[0];
 
@@ -131,8 +140,7 @@ namespace MCS.Library.SOA.DataObjects
 
             StringBuilder strB = new StringBuilder();
 
-            strB.AppendFormat("DELETE WF.ROLE_PROPERTIES_DEFINITIONS WHERE ROLE_ID = {0}",
-                TSqlBuilder.Instance.CheckQuotationMark(roleID, true));
+            strB.AppendFormat("DELETE WF.ROLE_PROPERTIES_DEFINITIONS WHERE {0}", roleID.ToRoleIDCriteria());
 
             foreach (SOARolePropertyDefinition property in properties)
             {
@@ -151,8 +159,10 @@ namespace MCS.Library.SOA.DataObjects
                 scope.Complete();
             }
 
-            CacheNotifyData notifyData1 = new CacheNotifyData(typeof(SOARolePropertiesDefinitionCache), roleID, CacheNotifyType.Invalid);
-            CacheNotifyData notifyData2 = new CacheNotifyData(typeof(SOARolePropertiesCache), roleID, CacheNotifyType.Invalid);
+            string cacheKey = roleID.ToRoleIDCacheKey();
+
+            CacheNotifyData notifyData1 = new CacheNotifyData(typeof(SOARolePropertiesDefinitionCache), cacheKey, CacheNotifyType.Invalid);
+            CacheNotifyData notifyData2 = new CacheNotifyData(typeof(SOARolePropertiesCache), cacheKey, CacheNotifyType.Invalid);
 
             UdpCacheNotifier.Instance.SendNotifyAsync(notifyData1, notifyData2);
             MmfCacheNotifier.Instance.SendNotify(notifyData1, notifyData2);
@@ -171,18 +181,15 @@ namespace MCS.Library.SOA.DataObjects
 
             StringBuilder strB = new StringBuilder();
 
-            strB.AppendFormat("DELETE WF.ROLE_PROPERTIES_DEFINITIONS WHERE ROLE_ID = {0}",
-                TSqlBuilder.Instance.CheckQuotationMark(roleID, true));
+            strB.AppendFormat("DELETE WF.ROLE_PROPERTIES_DEFINITIONS WHERE {0}", roleID.ToRoleIDCriteria());
 
             strB.Append(TSqlBuilder.Instance.DBStatementSeperator);
 
-            strB.AppendFormat("DELETE WF.ROLE_PROPERTIES_ROWS WHERE ROLE_ID = {0}",
-                TSqlBuilder.Instance.CheckQuotationMark(roleID, true));
+            strB.AppendFormat("DELETE WF.ROLE_PROPERTIES_ROWS WHERE {0}", roleID.ToRoleIDCriteria());
 
             strB.Append(TSqlBuilder.Instance.DBStatementSeperator);
 
-            strB.AppendFormat("DELETE WF.ROLE_PROPERTIES_CELLS WHERE ROLE_ID = {0}",
-                TSqlBuilder.Instance.CheckQuotationMark(roleID, true));
+            strB.AppendFormat("DELETE WF.ROLE_PROPERTIES_CELLS WHERE {0}", roleID.ToRoleIDCriteria());
 
             using (TransactionScope scope = TransactionScopeFactory.Create())
             {

@@ -20,6 +20,8 @@ namespace MCS.Library.WF.Contracts.Workflow.Runtime
         private Dictionary<string, object> _ApplicationRuntimeParameters = null;
         private Dictionary<string, object> _ProcessContext = null;
         private bool _AutoPersist = true;
+        private int _UpdateTag = -1;
+
         public WfClientRuntimeContext()
         {
         }
@@ -103,6 +105,21 @@ namespace MCS.Library.WF.Contracts.Workflow.Runtime
         {
             get;
             set;
+        }
+
+        /// <summary>
+        /// 流程上次的UpdateTag
+        /// </summary>
+        public int UpdateTag
+        {
+            get
+            {
+                return this._UpdateTag;
+            }
+            set
+            {
+                this._UpdateTag = value;
+            }
         }
 
         /// <summary>

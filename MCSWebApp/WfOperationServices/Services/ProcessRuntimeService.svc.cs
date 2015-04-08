@@ -146,7 +146,7 @@ namespace WfOperationServices.Services
 
             OperationContext.Current.FillContextToOguServiceContext();
 
-            IWfProcess process = WfRuntime.GetProcessByProcessID(processID);
+            IWfProcess process = GetProcessByProcessID(processID, runtimeContext);
 
             MeregeRuntimeContext(process, runtimeContext);
 
@@ -179,7 +179,7 @@ namespace WfOperationServices.Services
 
             OperationContext.Current.FillContextToOguServiceContext();
 
-            IWfProcess process = WfRuntime.GetProcessByProcessID(processID);
+            IWfProcess process = GetProcessByProcessID(processID, runtimeContext);
 
             MeregeRuntimeContext(process, runtimeContext);
 
@@ -214,7 +214,7 @@ namespace WfOperationServices.Services
 
             OperationContext.Current.FillContextToOguServiceContext();
 
-            IWfProcess process = WfRuntime.GetProcessByProcessID(processID);
+            IWfProcess process = GetProcessByProcessID(processID, runtimeContext);
 
             MeregeRuntimeContext(process, runtimeContext);
 
@@ -596,7 +596,7 @@ namespace WfOperationServices.Services
             processID.CheckStringIsNullOrEmpty("processID");
             getExecutor.NullCheck("getExecutor");
 
-            IWfProcess process = WfRuntime.GetProcessByProcessID(processID);
+            IWfProcess process = GetProcessByProcessID(processID, runtimeContext);
 
             MeregeRuntimeContext(process, runtimeContext);
 
@@ -635,7 +635,7 @@ namespace WfOperationServices.Services
             processID.CheckStringIsNullOrEmpty("processID");
             action.NullCheck("action");
 
-            IWfProcess process = WfRuntime.GetProcessByProcessID(processID);
+            IWfProcess process = GetProcessByProcessID(processID, runtimeContext);
 
             MeregeRuntimeContext(process, runtimeContext);
 
@@ -764,6 +764,16 @@ namespace WfOperationServices.Services
             nextSteps.ToXElement(nextStepsRoot);
 
             return nextStepsRoot.ToString();
+        }
+
+        private static IWfProcess GetProcessByProcessID(string processID, WfClientRuntimeContext runtimeContext)
+        {
+            IWfProcess process = WfRuntime.GetProcessByProcessID(processID);
+
+            if (runtimeContext.UpdateTag >= 0)
+                ((WfProcess)process).UpdateTag = runtimeContext.UpdateTag;
+
+            return process;
         }
     }
 }

@@ -82,6 +82,8 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                         this.TransferParams.Assignees.CopyFrom(nextActivity.Candidates);
                 }
 
+                this.TransferParams.FillActivityAndTransitionInfoFromContext(process);
+
                 WfMoveToExecutor.DoMoveToOperation(process, this.TransferParams);
             }
 

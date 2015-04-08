@@ -25,6 +25,9 @@ namespace MCS.Library.WF.Contracts.Converters.Runtime
             if (server == null)
                 server = new WfTransferParams();
 
+            server.Context["NextActivityDescriptorKey"] = client.NextActivityDescriptorKey;
+            server.Context["FromTransitionDescriptorKey"] = client.FromTransitionDescriptorKey;
+
             if (process != null)
             {
                 if (client.NextActivityDescriptorKey.IsNotEmpty())

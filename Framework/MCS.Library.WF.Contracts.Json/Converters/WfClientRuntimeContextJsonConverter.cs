@@ -26,6 +26,7 @@ namespace MCS.Library.WF.Contracts.Json.Converters
             context.Operator = JSONSerializerExecute.Deserialize<WfClientUser>(dictionary.GetValue("operator", (object)null));
             context.Opinion = JSONSerializerExecute.Deserialize<WfClientOpinion>(dictionary.GetValue("opinion", (object)null));
             context.AutoPersist = dictionary.GetValue("autoPersist", true);
+            context.UpdateTag = dictionary.GetValue("updateTag", -1);
 
             JSONSerializerExecute.FillDeserializedDictionary(dictionary, "applicationRuntimeParameters", context.ApplicationRuntimeParameters);
             JSONSerializerExecute.FillDeserializedDictionary(dictionary, "processContext", context.ProcessContext);
@@ -46,6 +47,8 @@ namespace MCS.Library.WF.Contracts.Json.Converters
             dictionary["autoPersist"] = context.AutoPersist;
             dictionary["applicationRuntimeParameters"] = context.ApplicationRuntimeParameters;
             dictionary["processContext"] = context.ProcessContext;
+            dictionary["updateTag"] = context.UpdateTag;
+
             dictionary.AddNonDefaultValue("opinion", context.Opinion);
 
             return dictionary;

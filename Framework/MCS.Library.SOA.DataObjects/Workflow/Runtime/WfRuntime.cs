@@ -1,14 +1,15 @@
-﻿using System;
+﻿using MCS.Library.Caching;
+using MCS.Library.Core;
+using MCS.Library.Data;
+using MCS.Library.Globalization;
+using MCS.Library.OGUPermission;
+using MCS.Library.Principal;
+using MCS.Library.SOA.DataObjects.Workflow.Actions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Transactions;
-using MCS.Library.Caching;
-using MCS.Library.Core;
-using MCS.Library.Data;
-using MCS.Library.OGUPermission;
-using MCS.Library.Principal;
-using MCS.Library.SOA.DataObjects.Workflow.Actions;
 
 namespace MCS.Library.SOA.DataObjects.Workflow
 {
@@ -187,7 +188,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                     if (allowed)
                         allowed = process.InitialActivity.Candidates.Contains(DeluxeIdentity.CurrentUser);
 
-                    allowed.FalseThrow("只有流程起始活动的指派人才能启动流程");
+                    allowed.FalseThrow(Translator.Translate(Define.DefaultCulture, "只有流程起始活动的指派人才能启动流程"));
                 }
                 else
                 {
@@ -195,7 +196,8 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                     {
                         OguDataCollection<IUser> starters = process.Descriptor.ProcessStarters.ToUsers();
 
-                        (starters.FindSingleObjectByID(DeluxeIdentity.CurrentUser.ID) != null).FalseThrow("只有被允许启动流程的人才能启动流程");
+                        (starters.FindSingleObjectByID(DeluxeIdentity.CurrentUser.ID) != null).FalseThrow(
+                            Translator.Translate(Define.DefaultCulture, "只有被允许启动流程的人才能启动流程"));
                     }
                 }
             }
@@ -466,7 +468,8 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
                                 i++;
                                 ProcessProgress.Current.Increment();
-                                ProcessProgress.Current.StatusText = string.Format("保存了{0}/{1}条流程数据", i, total);
+
+                                ProcessProgress.Current.StatusText = Translator.Translate(Define.DefaultCulture, "保存了{0}/{1}条流程数据", i, total);
                                 ProcessProgress.Current.Response();
                             });
 

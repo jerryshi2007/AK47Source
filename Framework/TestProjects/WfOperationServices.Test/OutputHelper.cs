@@ -16,6 +16,8 @@ namespace WfOperationServices.Test
         {
             Console.WriteLine("Process ID = {0}", processInfo.ID);
             Console.WriteLine("Process Status = {0}", processInfo.Status);
+            Console.WriteLine("UpdateTags = {0}", processInfo.UpdateTag);
+
             processInfo.Creator.Output("Process Creator");
 
             processInfo.CurrentActivity.Output("Current Activity");

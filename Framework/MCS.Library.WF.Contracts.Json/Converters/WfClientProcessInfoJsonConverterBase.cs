@@ -39,6 +39,7 @@ namespace MCS.Library.WF.Contracts.Json.Converters
             processInfo.AuthorizationInfo = dictionary.GetValue("authorizationInfo", processInfo.AuthorizationInfo);
             processInfo.CanWithdraw = dictionary.GetValue("canWithdraw", false);
             processInfo.CurrentOpinion = JSONSerializerExecute.Deserialize<WfClientOpinion>(dictionary.GetValue("currentOpinion", (object)null));
+            processInfo.UpdateTag = dictionary.GetValue("updateTag", -1);
 
             JSONSerializerExecute.FillDeserializedDictionary(dictionary, "processContext", processInfo.ProcessContext);
             JSONSerializerExecute.FillDeserializedDictionary(dictionary, "applicationRuntimeParameters", processInfo.ApplicationRuntimeParameters);
@@ -73,6 +74,7 @@ namespace MCS.Library.WF.Contracts.Json.Converters
             dictionary.AddNonDefaultValue("canWithdraw", processInfo.CanWithdraw);
             dictionary.AddNonDefaultValue("currentOpinion", processInfo.CurrentOpinion);
             dictionary.AddNonDefaultValue("mainStreamActivityDescriptors", processInfo.MainStreamActivityDescriptors);
+            dictionary.AddNonDefaultValue("updateTag", processInfo.UpdateTag);
 
             return dictionary;
         }

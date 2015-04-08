@@ -123,7 +123,7 @@ namespace MCS.Library.WF.Contracts.Workflow.Runtime
         /// <summary>
         /// 流程的更新标记
         /// </summary>
-        int UpdateTag
+        public int UpdateTag
         {
             get;
             set;

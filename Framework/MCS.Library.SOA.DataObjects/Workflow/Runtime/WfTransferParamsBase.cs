@@ -6,6 +6,7 @@ using MCS.Library.OGUPermission;
 using MCS.Library.Core;
 using MCS.Library.Data.DataObjects;
 using MCS.Library.Principal;
+using MCS.Library.Globalization;
 
 namespace MCS.Library.SOA.DataObjects.Workflow
 {
@@ -15,6 +16,8 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         private IUser _Operator = null;
         private WfAssigneeCollection _Assignees = null;
         private IWfTransitionDescriptor _FromTransitionDescriptor = null;
+
+        private Dictionary<string, object> _Context = null;
 
         public WfTransferParamsBase()
         {
@@ -79,6 +82,54 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                 this._FromTransitionDescriptor = value;
             }
         }
+
+        /// <summary>
+        /// 根据流程和上下文
+        /// </summary>
+        /// <param name="process"></param>
+        internal void FillActivityAndTransitionInfoFromContext(IWfProcess process)
+        {
+            process.NullCheck("process");
+
+            if (this._NextActivityDescriptor == null)
+            {
+                string nextActivityDescriptorKey = this.Context.GetValue("NextActivityDescriptorKey", string.Empty);
+
+                if (nextActivityDescriptorKey.IsNotEmpty())
+                {
+                    IWfActivity nextActivity = process.Activities.FindActivityByDescriptorKey(nextActivityDescriptorKey);
+
+                    if (nextActivity != null)
+                        this.NextActivityDescriptor = nextActivity.Descriptor;
+                }
+            }
+
+            if (this._FromTransitionDescriptor == null)
+            {
+                string fromTransitionDescriptorKey = this.Context.GetValue("FromTransitionDescriptorKey", string.Empty);
+
+                if (fromTransitionDescriptorKey.IsNotEmpty())
+                {
+                    IWfTransitionDescriptor fromTransition = process.Descriptor.FindTransitionByKey(fromTransitionDescriptorKey);
+
+                    this.FromTransitionDescriptor = fromTransition;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 上下文信息，用于存放一些传递过来的上下文信息
+        /// </summary>
+        public Dictionary<string, object> Context
+        {
+            get
+            {
+                if (this._Context == null)
+                    this._Context = new Dictionary<string, object>();
+
+                return this._Context;
+            }
+        }
     }
 
     /// <summary>
@@ -123,7 +174,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             if (process.CurrentActivity != null)
                 transferParams = FromNextDefaultActivity(process.CurrentActivity.Descriptor);
 
-            (transferParams != null).FalseThrow("不能根据流程当前活动找到默认的下一步环节");
+            (transferParams != null).FalseThrow(Translator.Translate(Define.DefaultCulture, "不能根据流程当前活动找到默认的下一步环节"));
 
             return transferParams;
         }
@@ -158,7 +209,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                     transferParams.Operator = DeluxeIdentity.CurrentUser;
             }
 
-            (transferParams != null).FalseThrow("不能根据活动定义{0}找到默认的下一步环节", currentActDesp.Key);
+            (transferParams != null).FalseThrow(Translator.Translate(Define.DefaultCulture, "不能根据活动定义{0}找到默认的下一步环节", currentActDesp.Key));
 
             return transferParams;
         }

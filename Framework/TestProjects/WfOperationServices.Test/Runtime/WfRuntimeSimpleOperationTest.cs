@@ -417,6 +417,34 @@ namespace WfOperationServices.Test.Runtime
         }
 
         [TestMethod]
+        public void InvalueUpdateTagTest()
+        {
+            WfClientProcessInfo processInfo = OperationHelper.PreapreProcessWithConditionLinesInstance();
+
+            WfClientRuntimeContext runtimeContext = new WfClientRuntimeContext(Consts.Users["Requestor"]);
+
+            processInfo = WfClientProcessRuntimeServiceProxy.Instance.GetProcessInfoByID(processInfo.ID, Consts.Users["Requestor"]);
+
+            processInfo.Output();
+
+            runtimeContext.UpdateTag = processInfo.UpdateTag + 1; //Invalid UpdateTag
+
+            bool thrown = false;
+
+            try
+            {
+                WfClientProcessRuntimeServiceProxy.Instance.MoveToNextDefaultActivity(processInfo.ID, runtimeContext);
+            }
+            catch (System.Exception ex)
+            {
+                thrown = true;
+                Assert.IsTrue(ex.Message.IndexOf("流程状态已经改变") >= 0);
+            }
+
+            Assert.IsTrue(thrown);
+        }
+
+        [TestMethod]
         public void CancelProcessWithOpinion()
         {
             WfClientProcessInfo processInfo = OperationHelper.PreapreProcessWithConditionLinesInstance();
