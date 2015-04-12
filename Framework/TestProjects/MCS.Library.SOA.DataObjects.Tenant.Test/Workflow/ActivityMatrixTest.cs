@@ -145,9 +145,9 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
 
             resource.MergeApprovalMatrix(approvalMatrix);
 
-            Assert.AreEqual(8 + originalCount, resource.Rows.Count);
-
             resource.AssertAndOutputMatrixOperators();
+
+            Assert.AreEqual(8 + originalCount, resource.Rows.Count);
         }
 
         [TestMethod]
@@ -281,6 +281,32 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
         }
 
         [TestMethod]
+        [Description("资源为多行活动矩阵时的，过滤后与审批矩阵能匹配的合并测试，审批矩阵的列和活动矩阵的行不匹配")]
+        public void MergeMatchedActivityMatrixAndExtraApprovalMatrixProcessTest()
+        {
+            WfApprovalMatrix approvalMatrix = ApprovalMatrixHelper.PrepareExtrApprovalMatrix();
+
+            WfApprovalMatrixAdapter.Instance.Update(approvalMatrix);
+
+            IWfProcessDescriptor processDesp = ProcessHelper.GetDynamicProcessDesp(approvalMatrix.ID);
+
+            IWfProcess process = ProcessHelper.StartupProcess(processDesp, new Dictionary<string, object>()
+				{
+					{ "CostCenter", "1001" },
+					{ "PayMethod", "1" },
+					{ "Age", 30 }
+				});
+
+            Console.WriteLine(process.Activities.Count);
+
+            WfOutputHelper.OutputMainStream(process);
+            WfOutputHelper.OutputEveryActivities(process);
+
+            //有一个非法用户，因此去掉一个环节
+            Assert.AreEqual(6, process.Activities.Count);
+        }
+
+        [TestMethod]
         [Description("资源为多行活动矩阵时的，过滤后与审批矩阵不能匹配的合并测试")]
         public void MergeNotMatchedActivityMatrixAndApprovalMatrixProcessTest()
         {
@@ -315,21 +341,5 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
 
             Assert.AreEqual(8, process.Activities.Count);
         }
-
-        //[TestMethod]
-        //[Description("资源为活动矩阵的动态序列化测试")]
-        //public void ActiveMatrixResourceSerializationTest()
-        //{
-        //    WfActivityMatrixResourceDescriptor expected = ActivityMatrixHelper.PrepareActivityMatrixResourceDescriptor();
-
-        //    string serializedData = SerializationHelper.SerializeObjectToString(expected, SerializationFormatterType.Binary);
-
-        //    WfActivityMatrixResourceDescriptor actual = SerializationHelper.DeserializeStringToObject<WfActivityMatrixResourceDescriptor>(serializedData, SerializationFormatterType.Binary);
-
-        //    Assert.AreEqual(expected.PropertyDefinitions.Count, actual.PropertyDefinitions.Count);
-        //    Assert.AreEqual(expected.Rows.Count, actual.Rows.Count);
-
-        //    Assert.AreEqual(expected.PropertyDefinitions.GetAllKeys().Count(), actual.PropertyDefinitions.GetAllKeys().Count());
-        //}
     }
 }

@@ -31,7 +31,7 @@ namespace MCS.Library.SOA.DataObjects
         public const string ConditionColumn = "Condition";
         public const string TransitionsColumn = "Transitions";
 
-        private static readonly string[] ReservedPropertyName = new string[] {
+        private static readonly string[] ActivityMatrixReservedPropertyNames = new string[] {
             SOARolePropertyDefinition.OperatorTypeColumn, 
             SOARolePropertyDefinition.OperatorColumn,
             SOARolePropertyDefinition.ActivitySNColumn,
@@ -41,6 +41,12 @@ namespace MCS.Library.SOA.DataObjects
             SOARolePropertyDefinition.IsMergeableColumn,
             SOARolePropertyDefinition.ConditionColumn,
             SOARolePropertyDefinition.TransitionsColumn
+        };
+
+        private static readonly string[] RoleMatrixReservedPropertyNames = new string[] {
+            SOARolePropertyDefinition.OperatorTypeColumn, 
+            SOARolePropertyDefinition.OperatorColumn,
+            SOARolePropertyDefinition.ConditionColumn
         };
 
         public static readonly SOARolePropertyDefinitionCollection EmptyInstance = new SOARolePropertyDefinitionCollection();
@@ -57,17 +63,17 @@ namespace MCS.Library.SOA.DataObjects
         }
 
         /// <summary>
-        /// 属性名是不是系统默认的保留字
+        /// 属性名是不是系统默认的活动矩阵保留字
         /// </summary>
         /// <param name="propertyName"></param>
         /// <returns></returns>
-        public static bool IsReservedPropertyName(string propertyName)
+        public static bool IsActivityMatrixReservedPropertyName(string propertyName)
         {
             propertyName.NullCheck("propertyName");
 
             bool result = false;
 
-            foreach (string rpName in ReservedPropertyName)
+            foreach (string rpName in ActivityMatrixReservedPropertyNames)
             {
                 result = string.Compare(rpName, propertyName, true) == 0;
 
@@ -77,6 +83,28 @@ namespace MCS.Library.SOA.DataObjects
 
             if (result == false)
                 result = propertyName.IndexOf("Activity", StringComparison.OrdinalIgnoreCase) == 0;
+
+            return result;
+        }
+
+        /// <summary>
+        /// 属性名是不是系统默认的角色矩阵保留字
+        /// </summary>
+        /// <param name="propertyName"></param>
+        /// <returns></returns>
+        public static bool IsRoleMatrixReservedPropertyName(string propertyName)
+        {
+            propertyName.NullCheck("propertyName");
+
+            bool result = false;
+
+            foreach (string rpName in RoleMatrixReservedPropertyNames)
+            {
+                result = string.Compare(rpName, propertyName, true) == 0;
+
+                if (result)
+                    break;
+            }
 
             return result;
         }

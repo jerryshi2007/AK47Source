@@ -31,6 +31,8 @@ namespace MCS.Web.Library.Script
         {
             JavaScriptSerializer serializer = new JavaScriptSerializer();
 
+            serializer.MaxJsonLength = GetMaxJsonLength();
+
             RegisterConverters(serializer);
 
             return serializer;
@@ -48,6 +50,8 @@ namespace MCS.Web.Library.Script
         {
             JavaScriptSerializer serializer = new JavaScriptSerializer(new DefaultTypeResolver(resolverType));
 
+            serializer.MaxJsonLength = GetMaxJsonLength();
+
             RegisterConverters(serializer);
 
             return serializer;
@@ -62,6 +66,28 @@ namespace MCS.Web.Library.Script
         public static JavaScriptConverter GetJavaScriptConverter(Type converterType)
         {
             return GetJavaScriptConverter(converterType, converterType, null);
+        }
+
+        /// <summary>
+        /// 从配置文件中读取配置的最大Json尺寸
+        /// </summary>
+        /// <returns></returns>
+        public static int GetMaxJsonLength()
+        {
+            int result = -1;
+
+            ScriptingJsonSerializationSection scriptSection = (ScriptingJsonSerializationSection)ConfigurationBroker.GetSection("jsonSerialization");
+
+            if (scriptSection == null)
+                scriptSection = (ScriptingJsonSerializationSection)ConfigurationBroker.GetSection("scriptJsonSerialization");
+
+            if (scriptSection != null)
+                result = scriptSection.MaxJsonLength;
+
+            if (result < 0)
+                result = int.MaxValue;
+
+            return result;
         }
 
         public static JavaScriptConverter GetJavaScriptConverter(Type converterType, Type compareType, JavaScriptConverter[] converters)

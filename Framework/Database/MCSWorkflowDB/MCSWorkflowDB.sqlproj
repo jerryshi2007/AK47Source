@@ -230,6 +230,7 @@
     <Build Include="WF\Tables\ROLE_PROPERTIES_ROWS.sql" />
     <Build Include="WF\Tables\ROLE_PROPERTIES_CELLS.sql" />
     <Build Include="WF\Tables\ROLE_PROPERTIES_USER_CONTAINERS.sql" />
+    <Build Include="WF\Stored Procedures\ClearProcessInstanceData.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="MCSWorkflowDB.local.test.publish.xml" />

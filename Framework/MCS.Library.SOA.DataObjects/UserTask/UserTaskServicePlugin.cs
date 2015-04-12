@@ -171,7 +171,7 @@ namespace MCS.Library.SOA.DataObjects.UserTaskSync
             if (task != null && task.ProcessID.IsNotEmpty())
             {
                 IWfProcess process = WfRuntime.GetProcessByProcessID(task.ProcessID);
-
+                
                 para = process.ApplicationRuntimeParameters.GetValue(key, string.Empty);
             }
 

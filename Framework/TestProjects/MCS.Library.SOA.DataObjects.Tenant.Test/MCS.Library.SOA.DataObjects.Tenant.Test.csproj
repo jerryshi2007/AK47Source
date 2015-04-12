@@ -69,7 +69,9 @@
     <Compile Include="Workflow\Helper\ApprovalMatrixHelper.cs" />
     <Compile Include="Workflow\Helper\ProcessHelper.cs" />
     <Compile Include="Workflow\ActivityMatrixTest.cs" />
+    <Compile Include="Workflow\Helper\QueryParamTest.cs" />
     <Compile Include="Workflow\Helper\WfOutputHelper.cs" />
+    <Compile Include="Workflow\MatrixQueryParamsTest.cs" />
     <Compile Include="Workflow\ProcessDescriptorTest.cs" />
     <Compile Include="Workflow\ApprovalMatrixTest.cs" />
     <Compile Include="Workflow\StartWorkflowExecutorTest.cs" />

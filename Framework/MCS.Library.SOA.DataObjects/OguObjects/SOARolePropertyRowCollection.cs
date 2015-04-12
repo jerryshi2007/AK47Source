@@ -81,7 +81,7 @@ namespace MCS.Library.SOA.DataObjects
                     condition = new WfConditionDescriptor(null);
             }
 
-            return Query(row =>
+            return this.Query(row =>
             {
                 bool matched = row.Values.MatchQueryValues(queryParams, matchAny);
 
@@ -94,6 +94,40 @@ namespace MCS.Library.SOA.DataObjects
 
                         matched = row.EvaluateCondition(condition);
                     }
+                }
+
+                return matched;
+            });
+        }
+
+        /// <summary>
+        /// 按照条件列进行数据行的筛选，返回筛选后的行集合
+        /// </summary>
+        /// <returns></returns>
+        public SOARolePropertyRowCollection FilterByConditionColumn()
+        {
+            WfConditionDescriptor condition = null;
+
+            SOARoleContext context = SOARoleContext.Current;
+
+            if (context != null)
+            {
+                if (context.Process != null)
+                    condition = new WfConditionDescriptor(context.Process.Descriptor);
+                else
+                    condition = new WfConditionDescriptor(null);
+            }
+
+            return this.Query(row =>
+            {
+                bool matched = true;
+
+                if (condition != null)
+                {
+                    condition.Expression = row.Values.GetValue(SOARolePropertyDefinition.ConditionColumn,
+                        row.GetPropertyDefinitions().GetColumnDefaultValue(SOARolePropertyDefinition.ConditionColumn, string.Empty));
+
+                    matched = row.EvaluateCondition(condition);
                 }
 
                 return matched;

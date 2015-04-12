@@ -417,7 +417,7 @@ namespace WfOperationServices.Test.Runtime
         }
 
         [TestMethod]
-        public void InvalueUpdateTagTest()
+        public void InvalidUpdateTagTest()
         {
             WfClientProcessInfo processInfo = OperationHelper.PreapreProcessWithConditionLinesInstance();
 

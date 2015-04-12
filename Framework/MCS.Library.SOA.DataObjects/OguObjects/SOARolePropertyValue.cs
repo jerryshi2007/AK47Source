@@ -123,15 +123,10 @@ namespace MCS.Library.SOA.DataObjects
         {
             bool matched = false;
 
-            if (queryParams.FirstOrDefault() != null)
-            {
-                if (matchAny == false)
-                    matched = queryParams.AllAndNotEmpty(queryParam => MatchQueryValue(queryParam));
-                else
-                    matched = queryParams.Any(queryParam => MatchQueryValue(queryParam));
-            }
+            if (matchAny == false)
+                matched = queryParams.AllAndNotEmpty(queryParam => this.MatchQueryValue(queryParam));
             else
-                matched = true;
+                matched = queryParams.Any(queryParam => this.MatchQueryValue(queryParam));
 
             return matched;
         }

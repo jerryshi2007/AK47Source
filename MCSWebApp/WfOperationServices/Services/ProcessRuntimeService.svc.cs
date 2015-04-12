@@ -127,7 +127,12 @@ namespace WfOperationServices.Services
                         clientStartupParams.Creator);
                 });
 
-                executor.SaveApplicationData += (dataContext) => SaveOpinion(clientStartupParams.Opinion);
+                WfClientOpinion opinion = clientStartupParams.Opinion;
+
+                if (opinion == null)
+                    opinion = runtimeContext.Opinion;
+
+                executor.SaveApplicationData += (dataContext) => SaveOpinion(opinion, dataContext.CurrentProcess.InitialActivity, executor.TransferParams);
 
                 if (clientStartupParams.AutoPersist)
                     process = executor.Execute();
@@ -731,7 +736,7 @@ namespace WfOperationServices.Services
                 nextSteps.Add(nextStep);
             }
 
-            if (transferParams.FromTransitionDescriptor != null)
+            if (transferParams != null && transferParams.FromTransitionDescriptor != null)
                 nextSteps.SelectedKey = transferParams.FromTransitionDescriptor.Key;
 
             XElement nextStepsRoot = new XElement("NextSteps");

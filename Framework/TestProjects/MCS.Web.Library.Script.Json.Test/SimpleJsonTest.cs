@@ -1,6 +1,9 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using MCS.Library.Configuration;
+using System.Web.Configuration;
+using System.Text;
 
 namespace MCS.Web.Library.Script.Json.Test
 {
@@ -74,6 +77,27 @@ namespace MCS.Web.Library.Script.Json.Test
             AssertObjects((JsonTestObj)source["Data"], (JsonTestObj)deserializedData["Data"]);
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void ExceedMaxJsonLengthSerializationLengthTest()
+        {
+            ScriptingJsonSerializationSection scriptSection = (ScriptingJsonSerializationSection)ConfigurationBroker.GetSection("scriptJsonSerialization");
+
+            Console.WriteLine(scriptSection.MaxJsonLength);
+            string data = PrepateTestStringByLength(1500);
+
+            string json = JSONSerializerExecute.Serialize(data);
+        }
+
+        private static string PrepateTestStringByLength(int length)
+        {
+            StringBuilder strB = new StringBuilder();
+
+            for (int i = 0; i < length; i++)
+                strB.Append('A');
+
+            return strB.ToString();
+        }
         private static void AssertObjects(JsonTestObj source, JsonTestObj dest)
         {
             Assert.AreEqual(source.ID, dest.ID);

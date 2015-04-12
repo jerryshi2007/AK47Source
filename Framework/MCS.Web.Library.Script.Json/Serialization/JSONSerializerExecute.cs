@@ -172,14 +172,14 @@ namespace MCS.Web.Library.Script
         /// <remarks>替代系统提供的序列化调用</remarks>
         public static string Serialize(object input, Type type, int resolverTypeLevel)
         {
-            JavaScriptSerializer ser = resolverTypeLevel > 0 ?
+            JavaScriptSerializer serializer = resolverTypeLevel > 0 ?
                 JSONSerializerFactory.GetJavaScriptSerializer(input.GetType()) :
                 JSONSerializerFactory.GetJavaScriptSerializer();
 
-            ser.MaxJsonLength = int.MaxValue;
+            serializer.MaxJsonLength = JSONSerializerFactory.GetMaxJsonLength();
             input = PreSerializeObject(input, type, resolverTypeLevel - 1);
 
-            return ser.Serialize(input);
+            return serializer.Serialize(input);
         }
 
         /// <summary>
@@ -191,6 +191,8 @@ namespace MCS.Web.Library.Script
         public static string SerializeWithType(object input, bool addPrimitiveConverters = false)
         {
             JavaScriptSerializer serializer = new JavaScriptSerializer(new SimpleTypeResolver());
+
+            serializer.MaxJsonLength = JSONSerializerFactory.GetMaxJsonLength();
             JSONSerializerFactory.RegisterConverters(serializer);
 
             if (addPrimitiveConverters)
@@ -389,6 +391,8 @@ namespace MCS.Web.Library.Script
         public static object DeserializeObject(string input)
         {
             JavaScriptSerializer serializer = new JavaScriptSerializer(new SimpleTypeResolver());
+
+            serializer.MaxJsonLength = JSONSerializerFactory.GetMaxJsonLength();
             JSONSerializerFactory.RegisterConverters(serializer);
 
             return serializer.DeserializeObject(input);

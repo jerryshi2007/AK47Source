@@ -106,7 +106,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
                 matchedRows = matchedRows.ExtractMatrixRows();
 
-                this.MergeExternalMatrix(matchedRows, context.QueryParams);
+                matchedRows = this.MergeExternalMatrix(matchedRows, context.QueryParams);
 
                 foreach (SOARolePropertyRowUsers rowUsers in matchedRows.GenerateRowsUsers())
                 {
@@ -131,7 +131,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
                 matchedRows = matchedRows.ExtractMatrixRows();
 
-                this.MergeExternalMatrix(matchedRows, context.QueryParams);
+                matchedRows = this.MergeExternalMatrix(matchedRows, context.QueryParams);
 
                 matchedRows.FillCreateActivityParams(capc, this.PropertyDefinitions, definedProperties);
             });
@@ -188,6 +188,8 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                         matrixRows.MergeActivityMatrix(this.PropertyDefinitions, approvalRows, externalMatrix.PropertyDefinitions);
                     }
                 });
+
+                matrixRows = matrixRows.FilterByConditionColumn();
             }
 
             return matrixRows;

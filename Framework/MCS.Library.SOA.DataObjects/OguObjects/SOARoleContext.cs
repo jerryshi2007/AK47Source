@@ -79,34 +79,96 @@ namespace MCS.Library.SOA.DataObjects
         {
             propertyDefines.NullCheck("propertyDefines");
 
-            SOARolePropertiesQueryParamCollection queryParams = new SOARolePropertiesQueryParamCollection();
-
-            WfApplicationParametersContext apContext = WfApplicationParametersContext.Current;
-
-            foreach (SOARolePropertyDefinition pd in propertyDefines)
-            {
-                //如果列定义和参数（流程）上下文中都存在，则放入到查询条件中
-                object arpValue = null;
-
-                if (apContext != null)
-                    arpValue = apContext.ApplicationRuntimeParameters.GetValue(pd.Name, (object)null);
-
-                if (arpValue == null && process != null)
-                    arpValue = process.ApplicationRuntimeParameters.GetValueRecursively(pd.Name, (object)null);
-
-                if (arpValue != null)
-                    queryParams.Add(new SOARolePropertiesQueryParam()
-                    {
-                        QueryName = pd.Name,
-                        QueryValue = arpValue
-                    });
-            }
+            SOARolePropertiesQueryParamCollection queryParams = CreateQueryParams(propertyDefines, process);
 
             SOARoleContext context = SOARoleContext.CreateContext(queryParams, process);
 
             context.PropertyDefinitions = propertyDefines;
 
             return context;
+        }
+
+        private static SOARolePropertiesQueryParamCollection CreateQueryParams(SOARolePropertyDefinitionCollection propertyDefines, IWfProcess process)
+        {
+            SOARolePropertiesQueryParamCollection queryParams = new SOARolePropertiesQueryParamCollection();
+
+            WfApplicationParametersContext apContext = WfApplicationParametersContext.Current;
+
+            //如果是审批矩阵，只取第一列作为条件
+            if (propertyDefines.MatrixType == WfMatrixType.ApprovalMatrix)
+            {
+                if (propertyDefines.Count > 0)
+                {
+                    SOARolePropertyDefinition pd = propertyDefines[0];
+
+                    object arpValue = GetQueryValueFromContext(pd, process);
+
+                    queryParams.Add(new SOARolePropertiesQueryParam()
+                    {
+                        QueryName = pd.Name,
+                        QueryValue = arpValue
+                    });
+                }
+            }
+            else
+            {
+                //活动矩阵和角色矩阵，排除保留字
+                foreach (SOARolePropertyDefinition pd in propertyDefines)
+                {
+                    //是否是可查询的列
+                    if (IsQueryableColumn(pd, propertyDefines))
+                    {
+                        object arpValue = GetQueryValueFromContext(pd, process);
+
+                        queryParams.Add(new SOARolePropertiesQueryParam()
+                        {
+                            QueryName = pd.Name,
+                            QueryValue = arpValue
+                        });
+                    }
+
+                }
+            }
+
+            return queryParams;
+        }
+
+        /// <summary>
+        /// 从上下文和流程中得到值
+        /// </summary>
+        /// <param name="pd"></param>
+        /// <param name="process"></param>
+        /// <returns></returns>
+        private static object GetQueryValueFromContext(SOARolePropertyDefinition pd, IWfProcess process)
+        {
+            WfApplicationParametersContext apContext = WfApplicationParametersContext.Current;
+
+            object arpValue = null;
+
+            if (apContext != null)
+                arpValue = apContext.ApplicationRuntimeParameters.GetValue(pd.Name, (string)null);
+
+            if (arpValue == null && process != null)
+                arpValue = process.ApplicationRuntimeParameters.GetValueRecursively(pd.Name, (string)null);
+
+            return arpValue;
+        }
+
+        private static bool IsQueryableColumn(SOARolePropertyDefinition pd, SOARolePropertyDefinitionCollection propertyDefines)
+        {
+            bool isReservered = true;
+
+            switch (propertyDefines.MatrixType)
+            {
+                case WfMatrixType.RoleMatrix:
+                    isReservered = SOARolePropertyDefinition.IsRoleMatrixReservedPropertyName(pd.Name);
+                    break;
+                case WfMatrixType.ActivityMatrix:
+                    isReservered = SOARolePropertyDefinition.IsActivityMatrixReservedPropertyName(pd.Name);
+                    break;
+            }
+
+            return isReservered == false;
         }
 
         public static SOARoleContext CreateContext(IEnumerable<SOARolePropertiesQueryParam> queryParams)

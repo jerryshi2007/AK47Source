@@ -10,45 +10,38 @@ using System.Text;
 
 namespace MCS.Library.WcfExtensions
 {
-	internal class WfErrorHandler : IErrorHandler
-	{
-		public bool HandleError(Exception error)
-		{
-			return true;
-		}
-
-		public void ProvideFault(Exception error, System.ServiceModel.Channels.MessageVersion version, ref System.ServiceModel.Channels.Message fault)
-		{
-			string errName = string.Format("调用 {0} 时异常", OperationContext.Current.IncomingMessageProperties["HttpOperationName"]);
-
-			WfErrorDTO errorDTO = new WfErrorDTO()
-			{
-				Number = 100,
-				Name = errName,
-				Message = error.Message,
-				Description = error.StackTrace
-			};
-
-			string jsonResult = JSONSerializerExecute.SerializeWithType(errorDTO);
-
-			fault = WcfUtils.CreateJsonFormatReplyMessage(version, null, jsonResult);
-            //fault = CreateJsonFaultMessage(version, jsonResult);
+    internal class WfErrorHandler : IErrorHandler
+    {
+        public bool HandleError(Exception error)
+        {
+            return true;
         }
 
-        //public static Message CreateJsonFaultMessage(MessageVersion msgVersion, string msgContent)
-        //{
-        //    var bodyBytes = Encoding.UTF8.GetBytes(msgContent);
+        public void ProvideFault(Exception error, System.ServiceModel.Channels.MessageVersion version, ref System.ServiceModel.Channels.Message fault)
+        {
+            string errName = string.Format("调用 {0} 时异常", OperationContext.Current.IncomingMessageProperties["HttpOperationName"]);
 
-        //    MessageFault fault = MessageFault.CreateFault(new FaultCode("Server"), new FaultReason("Error"));
+            WfErrorDTO errorDTO = new WfErrorDTO()
+            {
+                Number = 100,
+                Name = errName,
+                Message = error.Message,
+                Description = error.StackTrace
+            };
 
-        //    Message replyMessage = Message.CreateMessage(msgVersion, fault, msgContent);
-        //    replyMessage.Properties.Add(WebBodyFormatMessageProperty.Name, new WebBodyFormatMessageProperty(WebContentFormat.Raw));
+            string jsonResult = string.Empty;
 
-        //    HttpResponseMessageProperty respProp = new HttpResponseMessageProperty();
-        //    respProp.Headers[HttpResponseHeader.ContentType] = WcfUtils.JSON_CONTENT_TYPE_STR;
-        //    replyMessage.Properties.Add(HttpResponseMessageProperty.Name, respProp);
+            try
+            {
+                jsonResult = JSONSerializerExecute.SerializeWithType(errorDTO);
+            }
+            catch (InvalidOperationException)
+            {
+                errorDTO.Description = string.Empty;
+                jsonResult = JSONSerializerExecute.SerializeWithType(errorDTO);
+            }
 
-        //    return replyMessage;
-        //}
-	}
+            fault = WcfUtils.CreateJsonFormatReplyMessage(version, null, jsonResult);
+        }
+    }
 }

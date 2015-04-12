@@ -22,6 +22,36 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
         }
 
         /// <summary>
+        /// 创建一个与活动矩阵不匹配列的审批矩阵
+        /// </summary>
+        /// <returns></returns>
+        public static WfApprovalMatrix PrepareExtrApprovalMatrix()
+        {
+            WfApprovalMatrix matrix = new WfApprovalMatrix() { ID = UuidHelper.NewUuidString() };
+
+            matrix.PropertyDefinitions.Add(new SOARolePropertyDefinition() { Name = "CostCenter", SortOrder = 0 });
+            matrix.PropertyDefinitions.Add(new SOARolePropertyDefinition() { Name = "ExtraApprover", SortOrder = 1 });
+
+            SOARolePropertyDefinitionCollection pds = matrix.PropertyDefinitions;
+
+            SOARolePropertyRow row1 = new SOARolePropertyRow() { RowNumber = 1, OperatorType = SOARoleOperatorType.User, Operator = string.Empty };
+
+            row1.Values.Add(new SOARolePropertyValue(pds["CostCenter"]) { Value = "1001" });
+            row1.Values.Add(new SOARolePropertyValue(pds["ExtraApprover"]) { Value = "wangli5" });
+
+            matrix.Rows.Add(row1);
+
+            SOARolePropertyRow row2 = new SOARolePropertyRow() { RowNumber = 2, OperatorType = SOARoleOperatorType.User, Operator = string.Empty };
+
+            row2.Values.Add(new SOARolePropertyValue(pds["CostCenter"]) { Value = "1001" });
+            row2.Values.Add(new SOARolePropertyValue(pds["ExtraApprover"]) { Value = "InvalidUser" });
+
+            matrix.Rows.Add(row2);
+
+            return matrix;
+        }
+
+        /// <summary>
         /// 准备一个一行的矩阵
         /// </summary>
         /// <returns></returns>

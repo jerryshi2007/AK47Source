@@ -45,7 +45,8 @@ namespace MCS.Library.WcfExtensions
         public object DeserializeReply(System.ServiceModel.Channels.Message message, object[] parameters)
         {
             object bodyFormatProperty;
-            if (!message.Properties.TryGetValue(WebBodyFormatMessageProperty.Name, out bodyFormatProperty) ||
+
+            if (message.Properties.TryGetValue(WebBodyFormatMessageProperty.Name, out bodyFormatProperty) == false ||
                 (bodyFormatProperty as WebBodyFormatMessageProperty).Format != WebContentFormat.Raw)
             {
                 throw new InvalidOperationException("服务行为配置错误，请将WebHttpBinding的ContentTypeMapper属性设置为WfRawWebContentTypeMapper类型");

@@ -46,6 +46,7 @@
       <HintPath>..\..\..\Bin\MCS.Web.Library.Script.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Web.Extensions" />
   </ItemGroup>
   <Choose>
@@ -68,6 +69,9 @@
     <Compile Include="Voucher.cs" />
     <Compile Include="VoucherItemCollectionConverter.cs" />
     <Compile Include="VoucherJsonTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

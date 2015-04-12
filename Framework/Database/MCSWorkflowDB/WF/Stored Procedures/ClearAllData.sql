@@ -1,11 +1,20 @@
 ﻿CREATE PROCEDURE [WF].[ClearAllData]
 AS
 BEGIN
-	truncate table WF.ACL
 	truncate table WF.ACTIVITY_TEMPLATE
 	truncate table WF.APP_PROGRAM_AUTH
 	truncate table WF.APPLICATIONS
 	truncate table WF.APPLICATIONS_ALIAS
+	truncate table WF.MATRIX_CELLS
+	truncate table WF.MATRIX_DEFINITION
+	truncate table WF.MATRIX_DIMENSION_DEFINITION
+	truncate table WF.MATRIX_MAIN
+	truncate table WF.MATRIX_ROWS
+	truncate table WF.PROCESS_DESCRIPTOR_DIMENSIONS
+	truncate table WF.PROCESS_DESCRIPTORS
+	truncate table WF.PROGRAMS
+
+	truncate table WF.ACL
 	truncate table WF.APPLICATIONS_COMMON_INFO
 	truncate table WF.[COUNTER]
 	truncate table WF.COUNTRY_CODE
@@ -29,12 +38,6 @@ BEGIN
 	truncate table WF.MATERIAL
 	truncate table WF.MATERIAL_CONTENT
 
-	truncate table WF.MATRIX_CELLS
-	truncate table WF.MATRIX_DEFINITION
-	truncate table WF.MATRIX_DIMENSION_DEFINITION
-	truncate table WF.MATRIX_MAIN
-	truncate table WF.MATRIX_ROWS
-
 	truncate table WF.PENDING_ACTIVITIES
 	truncate table WF.PENDING_ACTIVITIES_SERVICE
 
@@ -47,13 +50,10 @@ BEGIN
 	truncate table WF.PROCESS_CURRENT_ACTIVITIES
 	truncate table WF.PROCESS_CURRENT_ASSIGNEES
 	truncate table WF.PROCESS_DESCRIPTOR_CATEGORY
-	truncate table WF.PROCESS_DESCRIPTOR_DIMENSIONS
 
-	truncate table WF.PROCESS_DESCRIPTORS
 	truncate table WF.PROCESS_DIMENSIONS
 	truncate table WF.PROCESS_INSTANCES
 	truncate table WF.PROCESS_RELATIVE_PARAMS
-	truncate table WF.PROGRAMS
 
 	truncate table WF.RELATIVE_PROCESSES
 	
