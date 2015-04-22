@@ -48,6 +48,16 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             return resource;
         }
 
+        public static WfActivityMatrixResourceDescriptor PrepareReservedActivityMatrixResourceDescriptor()
+        {
+            WfActivityMatrixResourceDescriptor resource = new WfActivityMatrixResourceDescriptor();
+
+            resource.PropertyDefinitions.CopyFrom(PrepareReservedPropertiesDefinition());
+            resource.Rows.CopyFrom(PrepareReservedRows(resource.PropertyDefinitions));
+
+            return resource;
+        }
+
         /// <summary>
         /// 准备一个一行的内部包含动态资源的矩阵
         /// </summary>
@@ -62,6 +72,66 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             resource.Rows.Add(PrepareInvalidUserDynamicRow(resource.PropertyDefinitions));
 
             return resource;
+        }
+
+        /// <summary>
+        /// 创建一个都是预定义列的属性集合
+        /// </summary>
+        /// <returns></returns>
+        public static SOARolePropertyDefinitionCollection PrepareReservedPropertiesDefinition()
+        {
+            SOARolePropertyDefinitionCollection propertiesDefinition = new SOARolePropertyDefinitionCollection();
+
+            propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = SOARolePropertyDefinition.ActivitySNColumn, SortOrder = 1 });
+            propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = SOARolePropertyDefinition.ConditionColumn, SortOrder = 3, DefaultValue = "RowOperators.Count > 0" });
+            propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = SOARolePropertyDefinition.ActivityCodeColumn, SortOrder = 4 });
+            propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = SOARolePropertyDefinition.ActivityNameColumn, SortOrder = 6, DefaultValue = "审批" });
+            propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = SOARolePropertyDefinition.AutoExtractColumn, SortOrder = 6, DataType = ColumnDataType.Boolean, DefaultValue = "False" });
+            propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = SOARolePropertyDefinition.OperatorTypeColumn, SortOrder = 8, DataType = ColumnDataType.String });
+            propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = SOARolePropertyDefinition.OperatorColumn, SortOrder = 9, DataType = ColumnDataType.String });
+
+            return propertiesDefinition;
+        }
+
+        private static SOARolePropertyRowCollection PrepareReservedRows(SOARolePropertyDefinitionCollection pds)
+        {
+            SOARolePropertyRowCollection rows = new SOARolePropertyRowCollection();
+
+            SOARolePropertyRow row1 = new SOARolePropertyRow() { RowNumber = 1, OperatorType = SOARoleOperatorType.User, Operator = "fanhy" };
+
+            row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivitySNColumn]) { Value = "10" });
+            row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivityCodeColumn]) { Value = "Approver1" });
+            row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.OperatorTypeColumn]) { Value = "User" });
+            row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.OperatorColumn]) { Value = "fanhy" });
+
+
+            SOARolePropertyRow row3 = new SOARolePropertyRow() { RowNumber = 3, OperatorType = SOARoleOperatorType.Role, Operator = RolesDefineConfig.GetConfig().RolesDefineCollection["nestedRole"].Roles };
+
+            row3.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivitySNColumn]) { Value = "20" });
+            row3.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivityCodeColumn]) { Value = "Approver2" });
+            row3.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.OperatorTypeColumn]) { Value = "Role" });
+            row3.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.OperatorColumn]) { Value = row3.Operator });
+
+            SOARolePropertyRow row4 = new SOARolePropertyRow() { RowNumber = 4, OperatorType = SOARoleOperatorType.User, Operator = "quym" };
+
+            row4.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivitySNColumn]) { Value = "20" });
+            row4.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivityCodeColumn]) { Value = "Approver2" });
+            row4.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.OperatorTypeColumn]) { Value = "User" });
+            row4.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.OperatorColumn]) { Value = "quym" });
+
+            SOARolePropertyRow row5 = new SOARolePropertyRow() { RowNumber = 5, OperatorType = SOARoleOperatorType.User, Operator = "invalidUser" };
+
+            row5.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivitySNColumn]) { Value = "30" });
+            row5.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivityCodeColumn]) { Value = "Approver3" });
+            row5.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.OperatorTypeColumn]) { Value = "User" });
+            row5.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.OperatorColumn]) { Value = "invalidUser" });
+
+            rows.Add(row1);
+            rows.Add(row3);
+            rows.Add(row4);
+            rows.Add(row5);
+
+            return rows;
         }
 
         public static SOARolePropertyDefinitionCollection PreparePropertiesDefinition()

@@ -22,6 +22,10 @@ namespace MCS.Library.WF.Contracts.Json.Converters
 
             JSONSerializerExecute.FillDeserializedCollection<WfClientVariableDescriptor>(dictionary.GetValue("variables", (object)null), actDesp.Variables);
             JSONSerializerExecute.FillDeserializedCollection<WfClientResourceDescriptor>(dictionary.GetValue("resources", (object)null), actDesp.Resources);
+
+            JSONSerializerExecute.FillDeserializedCollection<WfClientResourceDescriptor>(dictionary.GetValue("enterEventReceivers", (object)null), actDesp.EnterEventReceivers);
+            JSONSerializerExecute.FillDeserializedCollection<WfClientResourceDescriptor>(dictionary.GetValue("leaveEventReceivers", (object)null), actDesp.LeaveEventReceivers);
+
             JSONSerializerExecute.FillDeserializedCollection<WfClientTransitionDescriptor>(dictionary.GetValue("transition", (object)null), actDesp.ToTransitions);
             JSONSerializerExecute.FillDeserializedCollection<WfClientBranchProcessTemplateDescriptor>(dictionary.GetValue("branchProcessTemplates", (object)null), actDesp.BranchProcessTemplates);
             JSONSerializerExecute.FillDeserializedCollection<WfClientRelativeLinkDescriptor>(dictionary.GetValue("relativeLinks", (object)null), actDesp.RelativeLinks);
@@ -39,6 +43,8 @@ namespace MCS.Library.WF.Contracts.Json.Converters
 
             dictionary.Add("variables", actDesp.Variables);
             dictionary.Add("resources", actDesp.Resources);
+            dictionary.Add("enterEventReceivers", actDesp.EnterEventReceivers);
+            dictionary.Add("leaveEventReceivers", actDesp.LeaveEventReceivers);
             dictionary.Add("transition", actDesp.ToTransitions);
             dictionary.Add("branchProcessTemplates", actDesp.BranchProcessTemplates);
             dictionary.Add("relativeLinks", actDesp.RelativeLinks);

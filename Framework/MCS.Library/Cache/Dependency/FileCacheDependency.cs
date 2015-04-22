@@ -345,22 +345,7 @@ namespace MCS.Library.Caching
                             if (kp.Value.CacheItem != null)
                                 list.Add(kp.Value.CacheItem);
                         }
-
-                        /*
-                        for (int index = 0; index < f2dItem.Dependencies.Count; index++)
-                        {
-                            f2dItem.Dependencies[index].changed = true;
-
-                            if (f2dItem.Dependencies[index].CacheItem != null)
-                                list.Add(f2dItem.Dependencies[index].CacheItem);
-                        }*/
                     }
-
-                    /*不需要主动清除item，等待内存回收
-                    foreach (CacheItemBase item in list)
-                        item.RemoveCacheItem();
-                     */
-
                 }
             }
             catch (Exception ex)

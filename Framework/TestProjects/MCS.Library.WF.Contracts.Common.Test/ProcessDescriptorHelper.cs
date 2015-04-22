@@ -29,6 +29,7 @@ namespace MCS.Library.WF.Contracts.Common.Test
             processDesp.Activities.Add(ActivityDescriptorHelper.CreateSimpleClientActivity("End", "结束", WfClientActivityType.CompletedActivity));
 
             processDesp.RelativeLinks.Add(new WfClientRelativeLinkDescriptor("AP1") { Category = "Process", Url = "http://www.ak47.com" });
+            processDesp.CancelEventReceivers.Add(new WfClientUserResourceDescriptor(Consts.Users["Requestor"]));
 
             return processDesp;
         }

@@ -31,6 +31,8 @@ namespace MCS.Library.WF.Contracts.Converters.Descriptors
             server.Condition = serverCondition;
 
             WfClientResourceDescriptorCollectionConverter.Instance.ClientToServer(client.Resources, server.Resources);
+            WfClientResourceDescriptorCollectionConverter.Instance.ClientToServer(client.EnterEventReceivers, server.EnterEventReceivers);
+            WfClientResourceDescriptorCollectionConverter.Instance.ClientToServer(client.LeaveEventReceivers, server.LeaveEventReceivers);
             WfClientVariableDescriptorCollectionConverter.Instance.ClientToServer(client.Variables, server.Variables);
             WfClientBranchProcessTemplateDescriptorCollectionConverter.Instance.ClientToServer(client.BranchProcessTemplates, server.BranchProcessTemplates);
             WfClientRelativeLinkDescriptorCollectionConverter.Instance.ClientToServer(client.RelativeLinks, server.RelativeLinks);
@@ -52,6 +54,8 @@ namespace MCS.Library.WF.Contracts.Converters.Descriptors
             client.Condition = clientCondition;
 
             WfClientResourceDescriptorCollectionConverter.Instance.ServerToClient(server.Resources, client.Resources);
+            WfClientResourceDescriptorCollectionConverter.Instance.ServerToClient(server.EnterEventReceivers, client.EnterEventReceivers);
+            WfClientResourceDescriptorCollectionConverter.Instance.ServerToClient(server.LeaveEventReceivers, client.LeaveEventReceivers);
             WfClientVariableDescriptorCollectionConverter.Instance.ServerToClient(server.Variables, client.Variables);
             WfClientBranchProcessTemplateDescriptorCollectionConverter.Instance.ServerToClient(server.BranchProcessTemplates, client.BranchProcessTemplates);
             WfClientRelativeLinkDescriptorCollectionConverter.Instance.ServerToClient(server.RelativeLinks, client.RelativeLinks);

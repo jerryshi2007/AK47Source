@@ -113,7 +113,9 @@
     <Compile Include="Configuration\MetaConnectionStringConfigurationElement.cs" />
     <Compile Include="Configuration\TransactionConfigurationSection.cs" />
     <Compile Include="Database.cs" />
+    <Compile Include="DatabaseExtensions.cs" />
     <Compile Include="DatabaseFactory.cs" />
+    <Compile Include="Database_Async.cs" />
     <Compile Include="DbContext\AutoEnlistDbContext.cs" />
     <Compile Include="DbContext\DeluxeDbContextBase.cs" />
     <Compile Include="DbContext\NotEnlistDbContext.cs" />

@@ -12,18 +12,20 @@
 #endregion
 
 #region using
-using System;
-using System.Web;
-using System.Text;
-using System.Data;
-using System.Threading;
-using System.Diagnostics;
-using System.Data.Common;
-using System.Transactions;
-using System.Collections.Generic;
+using MCS.Library.Caching;
 using MCS.Library.Core;
 using MCS.Library.Data.Properties;
-using MCS.Library.Caching;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Common;
+using System.Diagnostics;
+using System.Runtime.Remoting.Messaging;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Transactions;
+using System.Web;
 #endregion
 
 namespace MCS.Library.Data
@@ -242,10 +244,7 @@ namespace MCS.Library.Data
         /// </summary>
         /// <param name="ts"></param>
         /// <returns></returns>
-        protected virtual DbConnection OnGetConnectionWithTransaction(Transaction ts)
-        {
-            return null;
-        }
+        protected abstract DbConnection OnGetConnectionWithTransaction(Transaction ts);
 
         protected virtual GraphWithoutTransaction GraphWithoutTx
         {
@@ -273,6 +272,16 @@ namespace MCS.Library.Data
 
                     return gwt;
                 });
+                //GraphWithoutTransaction gwt = (GraphWithoutTransaction)CallContext.LogicalGetData(itemKey);
+
+                //if (gwt == null)
+                //{
+                //    gwt = new GraphWithoutTransaction();
+
+                //    CallContext.LogicalSetData(itemKey, gwt);
+                //}
+
+                //return gwt;
             }
         }
 
@@ -281,7 +290,7 @@ namespace MCS.Library.Data
         /// </summary>
         protected void ReleaseConnection()
         {
-            Connections connections = GraphWithoutTx;
+            Connections connections = this.GraphWithoutTx;
 
             lock (connections)
             {
@@ -297,7 +306,7 @@ namespace MCS.Library.Data
         /// </summary>
         protected void RemoveConnection()
         {
-            Connections connections = GraphWithoutTx;
+            Connections connections = this.GraphWithoutTx;
 
             lock (connections)
             {
@@ -350,10 +359,37 @@ namespace MCS.Library.Data
             {
                 this._isInTransaction = true;
                 Transaction.Current.TransactionCompleted += new TransactionCompletedEventHandler(CompleteIndividualTransaction);
-                OnInitWithTransaction();
+                this.OnInitWithTransaction();
             }
 
-            this._connection = CreateConnection(name, out this._isConnectionCreator);
+            Tuple<DbConnection, bool> connectionInfo = this.CreateConnection(name);
+
+            this._connection = connectionInfo.Item1;
+            this._isConnectionCreator = connectionInfo.Item2;
+        }
+
+        protected async override Task InitDbContextAsync(string name, bool autoClose)
+        {
+            ExceptionHelper.CheckStringIsNullOrEmpty(name, "name");
+
+            this._name = name;
+
+            // current execution without transaction
+            if (Transaction.Current == null)
+            {
+                this._isInTransaction = false;
+            }
+            else
+            {
+                this._isInTransaction = true;
+                Transaction.Current.TransactionCompleted += new TransactionCompletedEventHandler(CompleteIndividualTransaction);
+                this.OnInitWithTransaction();
+            }
+
+            Tuple<DbConnection, bool> connectionInfo = await this.CreateConnectionAsync(name);
+
+            this._connection = connectionInfo.Item1;
+            this._isConnectionCreator = connectionInfo.Item2;
         }
 
         /// <summary>
@@ -364,26 +400,21 @@ namespace MCS.Library.Data
         ///     <item>if no transaction exists, this method create and return a new DbConnection instance</item>
         ///     <item>if transaction exists, this method should return a cached DbConnection instance</item>
         /// </list>
-        /// <param name="isConnectionCreator">输出参数，返回连接是否创建成功</param>
         /// <param name="name">数据库连接名称</param>
         /// </remarks>
         /// </summary>
-        private DbConnection CreateConnection(string name, out bool isConnectionCreator)
+        private Tuple<DbConnection, bool> CreateConnection(string name)
         {
-            DbConnection connection;
-            isConnectionCreator = false;
+            bool isConnectionCreator = false;
 
             // non-transactional operation
-            GraphWithoutTransaction connections = GraphWithoutTx;
+            GraphWithoutTransaction connections = this.GraphWithoutTx;
 
-            if (Transaction.Current == null)
-                connection = GetConnectionWithoutTx(name);
-            else
-                connection = OnGetConnectionWithTransaction(Transaction.Current);
+            DbConnection connection = GetConnection(name);
 
             if ((connection != null) && (connection.State != ConnectionState.Open))
             {
-                if (string.IsNullOrEmpty(connection.ConnectionString))
+                if (connection.ConnectionString.IsNullOrEmpty())
                     connection.ConnectionString = DbConnectionManager.GetConnectionString(name);
 
                 OpenConnection(name, connection);
@@ -391,6 +422,41 @@ namespace MCS.Library.Data
                 WriteTraceInfo(connection.DataSource + "." + connection.Database
                     + "[" + DateTime.Now.ToString("yyyyMMdd HH:mm:ss.fff") + "]", " Open Connection ");
             }
+
+            return new Tuple<DbConnection, bool>(connection, isConnectionCreator);
+        }
+
+        private async Task<Tuple<DbConnection, bool>> CreateConnectionAsync(string name)
+        {
+            bool isConnectionCreator = false;
+
+            // non-transactional operation
+            GraphWithoutTransaction connections = this.GraphWithoutTx;
+
+            DbConnection connection = GetConnection(name);
+
+            if ((connection != null) && (connection.State != ConnectionState.Open))
+            {
+                if (connection.ConnectionString.IsNullOrEmpty())
+                    connection.ConnectionString = DbConnectionManager.GetConnectionString(name);
+
+                await OpenConnectionAsync(name, connection);
+
+                WriteTraceInfo(connection.DataSource + "." + connection.Database
+                    + "[" + DateTime.Now.ToString("yyyyMMdd HH:mm:ss.fff") + "]", " Open Connection ");
+            }
+
+            return new Tuple<DbConnection, bool>(connection, isConnectionCreator);
+        }
+
+        private DbConnection GetConnection(string name)
+        {
+            DbConnection connection = null;
+
+            if (Transaction.Current == null)
+                connection = this.GetConnectionWithoutTx(name);
+            else
+                connection = this.OnGetConnectionWithTransaction(Transaction.Current);
 
             return connection;
         }
@@ -425,7 +491,8 @@ namespace MCS.Library.Data
         {
             ReferenceConnection refConnection = null;
 
-            GraphWithoutTransaction connections = GraphWithoutTx;
+            GraphWithoutTransaction connections = this.GraphWithoutTx;
+
             lock (connections)
             {
                 if (connections.TryGetValue(connName, out refConnection) == false)
@@ -468,6 +535,25 @@ namespace MCS.Library.Data
             try
             {
                 conn.Open();
+            }
+            catch (System.Exception ex)
+            {
+                string message = string.Format("Open connection '{0}' error. {1}", name, ex.Message);
+
+                throw new SystemSupportException(message);
+            }
+        }
+
+        /// <summary>
+        /// 打开连接，如果出错，则返回连接名称
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="conn"></param>
+        private static async Task OpenConnectionAsync(string name, DbConnection conn)
+        {
+            try
+            {
+                await conn.OpenAsync();
             }
             catch (System.Exception ex)
             {

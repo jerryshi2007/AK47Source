@@ -58,6 +58,15 @@ namespace MCS.Library.WF.Contracts.Converters.Descriptors
                 client.Operator = (WfClientUser)actInstance.Operator.ToClientOguObject();
                 client.BranchProcessGroupsCount = actInstance.BranchProcessGroups.Count;
 
+                if (actInstance.FromTransitionDescriptor != null)
+                {
+                    WfClientTransitionDescriptor fromTransitionDescriptor = null;
+
+                    WfClientTransitionDescriptorConverter.Instance.ServerToClient((WfTransitionDescriptor)actInstance.FromTransitionDescriptor, ref fromTransitionDescriptor);
+
+                    client.FromTransitionDescriptor = fromTransitionDescriptor;
+                }
+
                 if (actInstance.Assignees.Count != 0)
                 {
                     WfClientAssigneeCollectionConverter.Instance.ServerToClient(actInstance.Assignees, client.Assignees);

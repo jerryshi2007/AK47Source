@@ -1,9 +1,9 @@
+using MCS.Library.Caching;
+using MCS.Library.Core;
 using System;
 using System.Data;
 using System.Data.Common;
-
-using MCS.Library.Core;
-using MCS.Library.Caching;
+using System.Threading.Tasks;
 
 namespace MCS.Library.Data
 {
@@ -42,6 +42,29 @@ namespace MCS.Library.Data
             else
             {
                 database.DiscoverParameters(command);   // 将参数发现机制通过IOC交给实体Database类完成
+                cache.Add(CreateHashKey(command), Clone(command));
+            }
+        }
+
+        /// <summary>
+        /// 将缓冲好的参数组绑定到指定的Command对象上
+        /// </summary>
+        /// <param name="command">Command对象</param>
+        /// <param name="database">数据库实体</param>
+        public async Task SetParametersAsync(DbCommand command, Database database)
+        {
+            ExceptionHelper.TrueThrow<ArgumentNullException>(command == null, "command");
+
+            ExceptionHelper.TrueThrow<ArgumentNullException>(database == null, "database");
+
+            if (cache.ContainsKey(CreateHashKey(command)))
+            {
+                foreach (IDataParameter parameter in GetCommandParameters(command))
+                    command.Parameters.Add(parameter);
+            }
+            else
+            {
+                await database.DiscoverParametersAsync(command);   // 将参数发现机制通过IOC交给实体Database类完成
                 cache.Add(CreateHashKey(command), Clone(command));
             }
         }

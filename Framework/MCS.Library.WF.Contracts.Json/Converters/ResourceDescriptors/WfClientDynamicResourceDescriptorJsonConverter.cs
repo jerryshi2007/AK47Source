@@ -18,6 +18,8 @@ namespace MCS.Library.WF.Contracts.Json.Converters
         public override object Deserialize(IDictionary<string, object> dictionary, Type type, JavaScriptSerializer serializer)
         {
             WfClientDynamicResourceDescriptor conditionResourceDesp = (WfClientDynamicResourceDescriptor)base.Deserialize(dictionary, type, serializer);
+
+            conditionResourceDesp.Name = dictionary.GetValue("name", string.Empty);
             conditionResourceDesp.Condition = JSONSerializerExecute.Deserialize<WfClientConditionDescriptor>(dictionary.GetValue("condition", (object)null));
 
             return conditionResourceDesp;
@@ -29,6 +31,7 @@ namespace MCS.Library.WF.Contracts.Json.Converters
 
             IDictionary<string, object> dictionary = base.Serialize(obj, serializer);
 
+            dictionary.AddNonDefaultValue("name", conditionResourceDesp.Name);
             dictionary.AddNonDefaultValue("condition", conditionResourceDesp.Condition);
 
             return dictionary;

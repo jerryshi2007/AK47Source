@@ -545,7 +545,6 @@ namespace MCS.Library.SOA.DataObjects
 				else
 					if (obj is IOrganization)
 						result = new OguOrganization((IOrganization)obj);
-
 					else
 						if (obj is IGroup)
 							result = new OguGroup((IGroup)obj);

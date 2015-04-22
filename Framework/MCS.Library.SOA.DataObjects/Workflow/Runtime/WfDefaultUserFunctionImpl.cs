@@ -17,13 +17,11 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
             switch (funcName.ToLower())
             {
-                case "currentuserinrole":
-					//CurrentUserInRole
+                case "currentuserinrole":   //CurrentUserInRole
                     CheckParamsCount(funcName, arrParams, 1);
                     result = CurrentUserInRole((string)arrParams[0].Value, callerContext);
                     break;
-                case "userinrole":
-					//UserInRole
+                case "userinrole":  //UserInRole
                     CheckParamsCount(funcName, arrParams, 2);
 
                     if (arrParams[1].Value == null)
@@ -34,8 +32,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                         result = UserInRole((string)arrParams[0].Value, (IUser)arrParams[1].Value, callerContext);
                     }
                     break;
-                case "aresamecandidates":
-					//AreSameCandidates
+                case "aresamecandidates":   //AreSameCandidates
                     (arrParams.Count == 0 || arrParams.Count == 2).FalseThrow("用户自定义函数{0}必须没有参数或者有两个参数", funcName);
 
                     switch (arrParams.Count)
@@ -48,43 +45,41 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                             break;
                     }
                     break;
-				case "branchesreturnvalue": 
-					//BranchesReturnValue
-					result = BranchesReturnValue(callerContext);
+                case "branchesreturnvalue": //BranchesReturnValue
+                    result = BranchesReturnValue(callerContext);
                     break;
-				case "alltrue":
-					//AllTrue
-					result = BranchProcessReturnType.AllTrue.ToString();
-					break;
-				case "allfalse":
-					//AllFalse
-					result = BranchProcessReturnType.AllFalse.ToString();
-					break;
-				case "partialtrue":
-					//PartialTrue
-					result = BranchProcessReturnType.PartialTrue.ToString();
-					break;
-				case "containsuser":
-					//ContainsUser
-					result = ContainsUserImpl(funcName, arrParams, callerContext);
-					break;
+                case "alltrue": //AllTrue
+                    result = BranchProcessReturnType.AllTrue.ToString();
+                    break;
+                case "allfalse":    //AllFalse
+                    result = BranchProcessReturnType.AllFalse.ToString();
+                    break;
+                case "partialtrue": //PartialTrue
+                    result = BranchProcessReturnType.PartialTrue.ToString();
+                    break;
+                case "containsuser":    //ContainsUser
+                    result = ContainsUserImpl(funcName, arrParams, callerContext);
+                    break;
+                case "allelapsedoperators": //AllElapsedOperators
+                    result = AllElapsedOperators(callerContext);
+                    break;
             }
 
             return result;
         }
 
-		private static bool ContainsUserImpl(string funcName, ParamObjectCollection arrParams, object callerContext)
-		{
-			CheckParamsCount(funcName, arrParams, 2);
-		
-			(arrParams[0].Value is IEnumerable<IUser>).FalseThrow("用户自定义函数{0}的第一个参数值必须是IEnumerable<IUser>类型", funcName);
-			(arrParams[1].Value is IUser).FalseThrow("用户自定义函数{0}的第二个参数值必须是IUser类型", funcName);
+        private static bool ContainsUserImpl(string funcName, ParamObjectCollection arrParams, object callerContext)
+        {
+            CheckParamsCount(funcName, arrParams, 2);
 
-			IEnumerable<IUser> users = (IEnumerable<IUser>)arrParams[0].Value;
-			IUser target = (IUser)arrParams[1].Value;
+            (arrParams[0].Value is IEnumerable<IUser>).FalseThrow("用户自定义函数{0}的第一个参数值必须是IEnumerable<IUser>类型", funcName);
+            (arrParams[1].Value is IUser).FalseThrow("用户自定义函数{0}的第二个参数值必须是IUser类型", funcName);
 
-			return users.Contains(target, OguObjectIDEqualityComparer<IUser>.Default);
-		}
+            IEnumerable<IUser> users = (IEnumerable<IUser>)arrParams[0].Value;
+            IUser target = (IUser)arrParams[1].Value;
+
+            return users.Contains(target, OguObjectIDEqualityComparer<IUser>.Default);
+        }
 
         private static bool AreSameCandidates(object callerContext)
         {
@@ -123,24 +118,24 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             return result;
         }
 
-		private static string BranchesReturnValue(object callerContext)
-		{
-			string result = BranchProcessReturnType.AllTrue.ToString();
+        private static string BranchesReturnValue(object callerContext)
+        {
+            string result = BranchProcessReturnType.AllTrue.ToString();
 
-			if (callerContext is WfConditionDescriptor)
-			{
-				WfConditionDescriptor condition = (WfConditionDescriptor)callerContext;
+            if (callerContext is WfConditionDescriptor)
+            {
+                WfConditionDescriptor condition = (WfConditionDescriptor)callerContext;
 
-				if (condition.Owner != null)
-				{
-					IWfProcess process = condition.Owner.ProcessInstance;
+                if (condition.Owner != null)
+                {
+                    IWfProcess process = condition.Owner.ProcessInstance;
 
-					result = condition.Owner.ProcessInstance.CurrentActivity.BranchProcessReturnValue.ToString();
-				}
-			}
+                    result = condition.Owner.ProcessInstance.CurrentActivity.BranchProcessReturnValue.ToString();
+                }
+            }
 
-			return result;
-		}
+            return result;
+        }
 
         private static bool AreSameCandidates(IWfActivityDescriptor fromActDesp, IWfActivityDescriptor toActDesp)
         {
@@ -172,6 +167,33 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
                 if (result == false)
                     result = IsInSOARoles(DeluxeIdentity.CurrentUser, rolesNames, callerContext);
+            }
+
+            return result;
+        }
+
+        private static IEnumerable<IUser> AllElapsedOperators(object callerContext)
+        {
+            List<IUser> result = new List<IUser>();
+
+            if (callerContext is WfConditionDescriptor)
+            {
+                WfConditionDescriptor condition = (WfConditionDescriptor)callerContext;
+
+                if (condition.Owner != null)
+                {
+                    foreach (IWfActivity activity in condition.Owner.ProcessInstance.Activities)
+                    {
+                        if (activity.Status == WfActivityStatus.Completed)
+                        {
+                            if (OguUser.IsNotNullOrEmpty(activity.Operator))
+                            {
+                                if (result.NotExists(u => string.Compare(u.ID, activity.Operator.ID, true) == 0))
+                                    result.Add(activity.Operator);
+                            }
+                        }
+                    }
+                }
             }
 
             return result;
@@ -220,12 +242,12 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             if (callerContext is WfConditionDescriptor)
             {
                 WfConditionDescriptor condition = (WfConditionDescriptor)callerContext;
-				IWfProcess process = null;
+                IWfProcess process = null;
 
                 if (condition.Owner != null)
                     process = condition.Owner.ProcessInstance;
 
-				result = SOARoleContext.CreateContext(role, process);
+                result = SOARoleContext.CreateContext(role, process);
             }
 
             return result;

@@ -1484,6 +1484,249 @@
             Gets the current HTML document.
             </summary>
         </member>
+        <member name="T:MCS.Library.HtmlParser.HtmlSanitizeNode">
+            <summary>
+            需要
+            </summary>
+        </member>
+        <member name="M:MCS.Library.HtmlParser.HtmlSanitizeNode.#ctor(System.String,System.String[])">
+            <summary>
+            构造方法
+            </summary>
+        </member>
+        <member name="M:MCS.Library.HtmlParser.HtmlSanitizeNode.MatchAndAction(MCS.Library.HtmlParser.HtmlNode,System.Action{MCS.Library.HtmlParser.HtmlNode,MCS.Library.HtmlParser.HtmlAttribute})">
+            <summary>
+            是否匹配，匹配到了则执行操作
+            </summary>
+            <param name="node"></param>
+            <param name="action"></param>
+        </member>
+        <member name="P:MCS.Library.HtmlParser.HtmlSanitizeNode.TagName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Library.HtmlParser.HtmlSanitizeNode.AttributesName">
+            <summary>
+            标签的名称
+            </summary>
+        </member>
+        <member name="T:MCS.Library.HtmlParser.HtmlSanitizer">
+            <summary>
+            Html净化器
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.HtmlParser.HtmlSanitizer.GetSafeHtml(System.String)">
+            <summary>
+            得到安全的Html
+            </summary>
+            <param name="html"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.HtmlParser.HtmlSanitizer.FilterScriptRelAttributes(MCS.Library.HtmlParser.HtmlNode)">
+            <summary>
+            过滤有可能包含脚本的属性，如果包含javascript，则过滤掉此属性
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="T:MCS.Library.HtmlParser.HtmlStyleAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Library.HtmlParser.HtmlStyleAttribute.Key">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Library.HtmlParser.HtmlStyleAttribute.Value">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Library.HtmlParser.HtmlStyleAttribute.Expression">
+            <summary>
+            属性结构
+            </summary>
+        </member>
+        <member name="T:MCS.Library.HtmlParser.HtmlStyleAttributeCollection">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.HtmlParser.HtmlStyleAttributeCollection.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.HtmlParser.HtmlStyleAttributeCollection.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="M:MCS.Library.HtmlParser.HtmlStyleAttributeCollection.GetKeyForItem(MCS.Library.HtmlParser.HtmlStyleAttribute)">
+            <summary>
+            
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Library.HtmlParser.HtmlStyleParser">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.HtmlParser.HtmlStyleParser.Parse(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="style"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.HtmlParser.HtmlStyleParser.ParseValue(System.String)">
+            <summary>
+            分析样式的值，分解出其中的表达式和参数部分
+            </summary>
+            <param name="styleValue"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Library.HtmlParser.HtmlStyleParserContext">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Library.HtmlParser.HtmlStyleParserContextBase`1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.HtmlParser.HtmlStyleParserContextBase`1.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.HtmlParser.HtmlStyleParserContextBase`1.ChangeStage(`0)">
+            <summary>
+            
+            </summary>
+            <param name="stage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.HtmlParser.HtmlStyleParserContextBase`1.ResetWriter">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.HtmlParser.HtmlStyleParserContextBase`1.Dispose">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Library.HtmlParser.HtmlStyleParserContextBase`1.Index">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Library.HtmlParser.HtmlStyleParserContextBase`1.Stage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Library.HtmlParser.HtmlStyleParserContextBase`1.Writer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Library.HtmlParser.HtmlStyleParserContextBase`1.BufferIsEmpty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.HtmlParser.HtmlStyleParserContext.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Library.HtmlParser.HtmlStyleParsingStage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MCS.Library.HtmlParser.HtmlStyleParsingStage.None">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MCS.Library.HtmlParser.HtmlStyleParsingStage.KeyStage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MCS.Library.HtmlParser.HtmlStyleParsingStage.ValueStage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Library.HtmlParser.HtmlStyleValueExpression">
+            <summary>
+            Style中，属性值的表达式。例如属性值为width: expression(6 * 7)，那么Expression为expression，6*7为Value
+            </summary>
+        </member>
+        <member name="P:MCS.Library.HtmlParser.HtmlStyleValueExpression.Expression">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Library.HtmlParser.HtmlStyleValueExpression.Value">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Library.HtmlParser.HtmlStyleValueParserContext">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.HtmlParser.HtmlStyleValueParserContext.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.HtmlParser.HtmlStyleValueParserContext.ResetWriter">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:MCS.Library.HtmlParser.HtmlStyleValueParserContext.ParenthesesLevel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Library.HtmlParser.HtmlStyleValueParsingStage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MCS.Library.HtmlParser.HtmlStyleValueParsingStage.None">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MCS.Library.HtmlParser.HtmlStyleValueParsingStage.ExpressionStage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MCS.Library.HtmlParser.HtmlStyleValueParsingStage.ValueStage">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:MCS.Library.HtmlParser.HtmlWeb">
             <summary>
             A utility class to get HTML document from HTTP.

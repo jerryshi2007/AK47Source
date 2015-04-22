@@ -18,6 +18,8 @@ namespace MCS.Library.WF.Contracts.Workflow.Descriptors
         private WfClientVariableDescriptorCollection _Variables = null;
         private WfClientConditionDescriptor _Condition = null;
         private WfClientResourceDescriptorCollection _Resources = null;
+        private WfClientResourceDescriptorCollection _EnterEventReceivers = null;
+        private WfClientResourceDescriptorCollection _LeaveEventReceivers = null;
         private WfClientToTransitionDescriptorCollection _ToTransitions = null;
         private WfClientBranchProcessTemplateCollection _BranchProcessTemplates = null;
         private WfClientRelativeLinkDescriptorCollection _RelativeLinks = null;
@@ -73,6 +75,28 @@ namespace MCS.Library.WF.Contracts.Workflow.Descriptors
                     this._Resources = new WfClientResourceDescriptorCollection();
 
                 return this._Resources;
+            }
+        }
+
+        public WfClientResourceDescriptorCollection EnterEventReceivers
+        {
+            get
+            {
+                if (this._EnterEventReceivers == null)
+                    this._EnterEventReceivers = new WfClientResourceDescriptorCollection();
+
+                return this._EnterEventReceivers;
+            }
+        }
+
+        public WfClientResourceDescriptorCollection LeaveEventReceivers
+        {
+            get
+            {
+                if (this._LeaveEventReceivers == null)
+                    this._LeaveEventReceivers = new WfClientResourceDescriptorCollection();
+
+                return this._LeaveEventReceivers;
             }
         }
 

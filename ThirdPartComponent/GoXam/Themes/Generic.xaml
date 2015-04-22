@@ -1,0 +1,274 @@
+﻿<!--
+  Standard template and style definitions for Silverlight
+  Copyright © Northwoods Software Corporation, 2006-2010. All Rights Reserved.
+-->
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:go="clr-namespace:Northwoods.GoXam;assembly=Northwoods.GoSilverlight"
+    xmlns:gomodel="clr-namespace:Northwoods.GoXam.Model;assembly=Northwoods.GoSilverlight"
+    xmlns:golayout="clr-namespace:Northwoods.GoXam.Layout;assembly=Northwoods.GoSilverlight"
+    xmlns:gotool="clr-namespace:Northwoods.GoXam.Tool;assembly=Northwoods.GoSilverlight"
+  >
+
+  <!-- converters -->
+  <go:BooleanBrushConverter x:Key="SelectedTextForegroundConverter" Init="SelectedTextForeground" />
+  <go:BooleanBrushConverter x:Key="SelectedTextBackgroundConverter" Init="SelectedTextBackground" />
+  <go:BooleanBrushConverter x:Key="SelectedLineBrushConverter" Init="SelectedLineBrush" />
+
+  <!-- nodes -->
+  <DataTemplate x:Key="DefaultNodeTemplate">
+    <StackPanel Background="{Binding Path=Part.IsSelected, Converter={StaticResource SelectedTextBackgroundConverter}}">
+      <TextBlock Text="{Binding Path=Data}"
+                 Foreground="{Binding Path=Part.IsSelected, Converter={StaticResource SelectedTextForegroundConverter}}" />
+    </StackPanel>
+  </DataTemplate>
+  
+  <DataTemplate x:Key="DefaultGroupTemplate">
+    <Border go:Node.LocationElementName="GroupPanel" Padding="0 20 0 0"
+            BorderBrush="{Binding Path=Part.IsSelected, Converter={StaticResource SelectedLineBrushConverter}}" BorderThickness="1">
+      <go:GroupPanel x:Name="GroupPanel">
+        <StackPanel go:SpotPanel.Spot="0 0" go:SpotPanel.Alignment="0 1" 
+                    Background="{Binding Path=Part.IsSelected, Converter={StaticResource SelectedTextBackgroundConverter}}">
+          <TextBlock Text="{Binding Path=Data}"
+                     Foreground="{Binding Path=Part.IsSelected, Converter={StaticResource SelectedTextForegroundConverter}}" />
+        </StackPanel>
+      </go:GroupPanel>
+    </Border>
+  </DataTemplate>
+  
+  <DataTemplate x:Key="DefaultLinkLabelTemplate">
+    <Ellipse Fill="Black" Width="3" Height="3" go:Node.Selectable="False" go:Node.Avoidable="False" />
+  </DataTemplate>
+  
+  <DataTemplate x:Key="DefaultCommentTemplate">
+    <TextBlock Text="{Binding Path=Data}" Foreground="Brown" />
+  </DataTemplate>
+
+
+  <!-- nodes for tools -->
+  <DataTemplate x:Key="DefaultTemporaryNodeTemplate">
+    <Rectangle Stroke="Magenta" StrokeThickness="1" Width="1" Height="1" go:Node.Selectable="False" go:Node.LayerName="Tool" />
+  </DataTemplate>
+
+  <DataTemplate x:Key="DefaultDragSelectingBoxTemplate">
+    <Rectangle Stroke="Magenta" StrokeThickness="1" go:Node.Selectable="False" go:Node.LayerName="Tool" />
+  </DataTemplate>
+
+  <DataTemplate x:Key="DefaultDragZoomingBoxTemplate">
+    <Rectangle Stroke="Magenta" StrokeThickness="1" go:Node.Selectable="False" go:Node.LayerName="Tool" />
+  </DataTemplate>
+
+
+  <!-- links -->
+  <DataTemplate x:Key="DefaultLinkTemplate">
+    <go:LinkPanel go:Link.SelectionElementName="Path">
+      <Path x:Name="Path" go:LinkPanel.IsLinkShape="True"
+            Stroke="{Binding Path=Part.IsSelected, Converter={StaticResource SelectedLineBrushConverter}}" StrokeThickness="1" />
+      <Polygon Fill="Black" Points="8 4  0 8  2 4  0 0" go:LinkPanel.Alignment="1 0.5" go:LinkPanel.Index="-1" go:LinkPanel.Orientation="Along" />
+    </go:LinkPanel>
+  </DataTemplate>
+
+  <DataTemplate x:Key="DefaultCommentLinkTemplate">
+    <go:LinkPanel go:Link.SelectionElementName="Path">
+      <Path x:Name="Path" go:LinkPanel.IsLinkShape="True" Stroke="Brown" StrokeThickness="1" />
+    </go:LinkPanel>
+  </DataTemplate>
+
+
+  <!-- links for tools -->
+  <DataTemplate x:Key="DefaultTemporaryLinkTemplate">
+    <go:LinkPanel go:Node.Selectable="False" go:Link.LayerName="Tool" >
+      <Path x:Name="Path" go:LinkPanel.IsLinkShape="True" Stroke="Blue" StrokeThickness="1" />
+      <Polygon Fill="Blue" Points="8 4  0 8  2 4  0 0" go:LinkPanel.Alignment="1 0.5" go:LinkPanel.Index="-1" go:LinkPanel.Orientation="Along" />
+    </go:LinkPanel>
+  </DataTemplate>
+
+
+  <!-- diagram -->
+  <ControlTemplate x:Key="DefaultDiagramTemplate" TargetType="go:Diagram">
+    <Border Background="{TemplateBinding Background}"
+            BorderBrush="{TemplateBinding BorderBrush}"
+            BorderThickness="{TemplateBinding BorderThickness}">
+      <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                    VerticalScrollBarVisibility="Auto"
+                    Padding="0">
+          <go:DiagramPanel x:Name="Panel"
+                         Stretch="{TemplateBinding Stretch}"
+                         Padding="{TemplateBinding Padding}"
+                         HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                         VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+      </ScrollViewer>
+    </Border>
+  </ControlTemplate>
+
+  <Style TargetType="go:Diagram">
+    <Setter Property="Template" Value="{StaticResource DefaultDiagramTemplate}" />
+
+    <!-- data templates -->
+    <Setter Property="NodeTemplateDictionary">
+      <Setter.Value>
+        <go:DataTemplateDictionary Default="{StaticResource DefaultNodeTemplate}"
+                                   Comment="{StaticResource DefaultCommentTemplate}"
+                                   LinkLabel="{StaticResource DefaultLinkLabelTemplate}" />
+      </Setter.Value>
+    </Setter>
+    <Setter Property="GroupTemplateDictionary">
+      <Setter.Value>
+        <go:DataTemplateDictionary Default="{StaticResource DefaultGroupTemplate}" />
+      </Setter.Value>
+    </Setter>
+    <Setter Property="LinkTemplateDictionary">
+      <Setter.Value>
+        <go:DataTemplateDictionary Default="{StaticResource DefaultLinkTemplate}"
+                                   Comment="{StaticResource DefaultCommentLinkTemplate}" />
+      </Setter.Value>
+    </Setter>
+
+  </Style>
+
+  <DataTemplate x:Key="DefaultBackgroundGridTemplate">
+    <go:GridPattern CellSize="10 10">
+      <Path Stroke="LightGray" StrokeThickness="1" go:GridPattern.Figure="HorizontalLine" />
+      <Path Stroke="LightGray" StrokeThickness="1" go:GridPattern.Figure="VerticalLine" />
+      <Path Stroke="Gray" StrokeThickness="1" go:GridPattern.Figure="HorizontalLine" go:GridPattern.Interval="5" />
+      <Path Stroke="Gray" StrokeThickness="1" go:GridPattern.Figure="VerticalLine" go:GridPattern.Interval="5" />
+      <Path Stroke="DarkGray" StrokeThickness="1" go:GridPattern.Figure="HorizontalLine" go:GridPattern.Interval="10" />
+      <Path Stroke="DarkGray" StrokeThickness="1" go:GridPattern.Figure="VerticalLine" go:GridPattern.Interval="10" />
+      <Path Stroke="Black" StrokeThickness="1" go:GridPattern.Figure="HorizontalLine" go:GridPattern.Interval="50" />
+      <Path Stroke="Black" StrokeThickness="1" go:GridPattern.Figure="VerticalLine" go:GridPattern.Interval="50" />
+    </go:GridPattern>
+  </DataTemplate>
+
+
+  <!-- overview -->
+  <ControlTemplate x:Key="DefaultOverviewTemplate" TargetType="go:Overview">
+    <Border Background="{TemplateBinding Background}"
+            BorderBrush="{TemplateBinding BorderBrush}"
+            BorderThickness="{TemplateBinding BorderThickness}">
+        <go:DiagramPanel x:Name="Panel"
+                       Stretch="Uniform"
+                       Padding="{TemplateBinding Padding}"
+                       HorizontalContentAlignment="Center"
+                       VerticalContentAlignment="Center" />
+    </Border>
+  </ControlTemplate>
+  
+  <Style TargetType="go:Overview">
+    <Setter Property="Template" Value="{StaticResource DefaultOverviewTemplate}" />
+
+    <!-- this gets its data templates from the Observed Diagram -->
+
+    <Setter Property="IsReadOnly" Value="True" />
+    <Setter Property="AllowSelect" Value="False" />
+    <Setter Property="AllowCopy" Value="False" />
+    <Setter Property="AllowPrint" Value="False" />
+  </Style>
+  
+  <DataTemplate x:Key="DefaultOverviewBoxTemplate">
+    <Rectangle Stroke="Magenta" StrokeThickness="8" Fill="Transparent" go:Node.LayerName="Tool" />
+  </DataTemplate>
+
+
+  <!-- palette -->
+  <ControlTemplate x:Key="DefaultPaletteTemplate" TargetType="go:Palette">
+    <Border Background="{TemplateBinding Background}"
+            BorderBrush="{TemplateBinding BorderBrush}"
+            BorderThickness="{TemplateBinding BorderThickness}">
+      <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                    VerticalScrollBarVisibility="Auto"
+                    Padding="0">
+        <go:DiagramPanel x:Name="Panel"
+                         Stretch="{TemplateBinding Stretch}"
+                         Padding="{TemplateBinding Padding}"
+                         HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                         VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+      </ScrollViewer>
+    </Border>
+  </ControlTemplate>
+
+  <Style TargetType="go:Palette">
+    <Setter Property="Template" Value="{StaticResource DefaultPaletteTemplate}" />
+
+    <Setter Property="NodeTemplateDictionary">
+      <Setter.Value>
+        <go:DataTemplateDictionary Default="{StaticResource DefaultNodeTemplate}"
+                                   Comment="{StaticResource DefaultCommentTemplate}"
+                                   LinkLabel="{StaticResource DefaultLinkLabelTemplate}" />
+      </Setter.Value>
+    </Setter>
+    <Setter Property="GroupTemplateDictionary">
+      <Setter.Value>
+        <go:DataTemplateDictionary Default="{StaticResource DefaultGroupTemplate}" />
+      </Setter.Value>
+    </Setter>
+    <Setter Property="LinkTemplateDictionary">
+      <Setter.Value>
+        <go:DataTemplateDictionary Default="{StaticResource DefaultLinkTemplate}"
+                                   Comment="{StaticResource DefaultCommentLinkTemplate}" />
+      </Setter.Value>
+    </Setter>
+
+    <Setter Property="IsReadOnly" Value="True" />
+    <Setter Property="AllowDragOut" Value="True" />
+    <Setter Property="HorizontalContentAlignment" Value="Left" />
+    <Setter Property="VerticalContentAlignment" Value="Top" />
+  </Style>
+
+
+  <!-- node adornments -->
+  <DataTemplate x:Key="DefaultSelectionAdornmentTemplate">
+    <Path go:NodePanel.Figure="None" Stroke="DodgerBlue" StrokeThickness="3" go:Part.Selectable="False" />
+  </DataTemplate>
+
+  <DataTemplate x:Key="DefaultResizeAdornmentTemplate">
+    <go:SpotPanel>
+      <Path go:SpotPanel.Spot="0.0 0.0" go:NodePanel.Figure="Rectangle" Width="6" Height="6" Fill="DodgerBlue" Stroke="Black" StrokeThickness="1" />
+      <Path go:SpotPanel.Spot="0.5 0.0" go:NodePanel.Figure="Rectangle" Width="6" Height="6" Fill="DodgerBlue" Stroke="Black" StrokeThickness="1" />
+      <Path go:SpotPanel.Spot="1.0 0.0" go:NodePanel.Figure="Rectangle" Width="6" Height="6" Fill="DodgerBlue" Stroke="Black" StrokeThickness="1" />
+
+      <Path go:SpotPanel.Spot="0.0 0.5" go:NodePanel.Figure="Rectangle" Width="6" Height="6" Fill="DodgerBlue" Stroke="Black" StrokeThickness="1" />
+      <Path go:SpotPanel.Spot="1.0 0.5" go:NodePanel.Figure="Rectangle" Width="6" Height="6" Fill="DodgerBlue" Stroke="Black" StrokeThickness="1" />
+
+      <Path go:SpotPanel.Spot="0.0 1.0" go:NodePanel.Figure="Rectangle" Width="6" Height="6" Fill="DodgerBlue" Stroke="Black" StrokeThickness="1" />
+      <Path go:SpotPanel.Spot="0.5 1.0" go:NodePanel.Figure="Rectangle" Width="6" Height="6" Fill="DodgerBlue" Stroke="Black" StrokeThickness="1" />
+      <Path go:SpotPanel.Spot="1.0 1.0" go:NodePanel.Figure="Rectangle" Width="6" Height="6" Fill="DodgerBlue" Stroke="Black" StrokeThickness="1" />
+    </go:SpotPanel>
+  </DataTemplate>
+
+  <DataTemplate x:Key="DefaultRotateAdornmentTemplate">
+    <Path go:NodePanel.Figure="Ellipse" Width="6" Height="6" Fill="Yellow" Stroke="Black" StrokeThickness="1" />
+  </DataTemplate>
+
+
+  <!-- link adornments -->
+  <DataTemplate x:Key="DefaultLinkReshapeHandleTemplate">
+    <Path go:NodePanel.Figure="Rectangle" Width="6" Height="6" Fill="Yellow" Stroke="Black" StrokeThickness="1" />
+  </DataTemplate>
+
+  <DataTemplate x:Key="DefaultRelinkFromAdornmentTemplate">
+    <go:LinkPanel>
+      <Path go:LinkPanel.Index="0" go:NodePanel.Figure="Diamond" Width="8" Height="8" Fill="Cyan" Stroke="Black" StrokeThickness="1" Cursor="Hand" />
+    </go:LinkPanel>
+  </DataTemplate>
+
+  <DataTemplate x:Key="DefaultRelinkToAdornmentTemplate">
+    <go:LinkPanel>
+      <Path go:LinkPanel.Index="-1" go:NodePanel.Figure="Diamond" Width="8" Height="8" Fill="Cyan" Stroke="Black" StrokeThickness="1" Cursor="Hand" />
+    </go:LinkPanel>
+  </DataTemplate>
+
+  <DataTemplate x:Key="DefaultTextEditAdornmentTemplate">
+    <TextBox FontFamily="{Binding Path=Node.AdornedElement.FontFamily, Mode=OneTime}"
+             FontSize="{Binding Path=Node.AdornedElement.FontSize, Mode=OneTime}"
+             FontStretch="{Binding Path=Node.AdornedElement.FontStretch, Mode=OneTime}"
+             FontStyle="{Binding Path=Node.AdornedElement.FontStyle, Mode=OneTime}"
+             FontWeight="{Binding Path=Node.AdornedElement.FontWeight, Mode=OneTime}"
+             TextAlignment="{Binding Path=Node.AdornedElement.TextAlignment, Mode=OneTime}"
+             TextWrapping="{Binding Path=Node.AdornedElement.TextWrapping, Mode=OneTime}"
+             Background="White"
+             Foreground="Black" />
+    <!-- TextDecorations="{Binding Path=Node.AdornedElement.TextDecorations, Mode=OneTime}" -->
+  </DataTemplate>
+
+</ResourceDictionary>

@@ -194,7 +194,7 @@ namespace MCS.Library.Core
 
                 string xml = await reader.ReadToEndAsync();
 
-                return XElement.Load(xml);
+                return XElement.Parse(xml);
             }
         }
 

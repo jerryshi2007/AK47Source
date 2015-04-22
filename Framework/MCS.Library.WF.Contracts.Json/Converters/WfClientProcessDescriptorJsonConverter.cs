@@ -23,6 +23,7 @@ namespace MCS.Library.WF.Contracts.Json.Converters
             dictionary.Add("activities", processDesp.Activities);
             dictionary.Add("variables", processDesp.Variables);
             dictionary.Add("relativeLinks", processDesp.RelativeLinks);
+            dictionary.Add("cancelEventReceivers", processDesp.CancelEventReceivers);
 
             return dictionary;
         }
@@ -37,6 +38,7 @@ namespace MCS.Library.WF.Contracts.Json.Converters
 
             JSONSerializerExecute.FillDeserializedCollection<WfClientVariableDescriptor>(dictionary.GetValue("variables", (object)null), processDesp.Variables);
             JSONSerializerExecute.FillDeserializedCollection<WfClientRelativeLinkDescriptor>(dictionary.GetValue("relativeLinks", (object)null), processDesp.RelativeLinks);
+            JSONSerializerExecute.FillDeserializedCollection<WfClientResourceDescriptor>(dictionary.GetValue("cancelEventReceivers", (object)null), processDesp.CancelEventReceivers);
 
             return processDesp;
         }

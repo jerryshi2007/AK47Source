@@ -34,6 +34,8 @@ namespace MCS.Library.WF.Contracts.Common.Test
             WfClientActivityDescriptor actDesp = CreateSimpleClientActivity(key, name, actType);
 
             actDesp.Resources.Add(new WfClientUserResourceDescriptor(Consts.Users[userKey]));
+            actDesp.EnterEventReceivers.Add(new WfClientUserResourceDescriptor(Consts.Users[userKey]));
+            actDesp.LeaveEventReceivers.Add(new WfClientUserResourceDescriptor(Consts.Users[userKey]));
 
             return actDesp;
         }

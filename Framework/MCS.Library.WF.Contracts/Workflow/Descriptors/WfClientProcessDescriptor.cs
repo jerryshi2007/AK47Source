@@ -12,6 +12,7 @@ namespace MCS.Library.WF.Contracts.Workflow.Descriptors
         private WfClientVariableDescriptorCollection _Variables = null;
         private WfClientActivityDescriptorCollection _Activities = null;
         private WfClientRelativeLinkDescriptorCollection _RelativeLinks = null;
+        private WfClientResourceDescriptorCollection _CancelEventReceivers = null;
 
         public string ApplicationName
         {
@@ -79,6 +80,9 @@ namespace MCS.Library.WF.Contracts.Workflow.Descriptors
             }
         }
 
+        /// <summary>
+        /// 流程的活动
+        /// </summary>
         public WfClientActivityDescriptorCollection Activities
         {
             get
@@ -90,6 +94,9 @@ namespace MCS.Library.WF.Contracts.Workflow.Descriptors
             }
         }
 
+        /// <summary>
+        /// 相关链接
+        /// </summary>
         public WfClientRelativeLinkDescriptorCollection RelativeLinks
         {
             get
@@ -101,6 +108,9 @@ namespace MCS.Library.WF.Contracts.Workflow.Descriptors
             }
         }
 
+        /// <summary>
+        /// 流程上定义的变量
+        /// </summary>
         public WfClientVariableDescriptorCollection Variables
         {
             get
@@ -109,6 +119,20 @@ namespace MCS.Library.WF.Contracts.Workflow.Descriptors
                     this._Variables = new WfClientVariableDescriptorCollection();
 
                 return this._Variables;
+            }
+        }
+
+        /// <summary>
+        /// 作废流程时的通知人
+        /// </summary>
+        public WfClientResourceDescriptorCollection CancelEventReceivers
+        {
+            get
+            {
+                if (this._CancelEventReceivers == null)
+                    this._CancelEventReceivers = new WfClientResourceDescriptorCollection();
+
+                return this._CancelEventReceivers;
             }
         }
 

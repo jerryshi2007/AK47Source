@@ -36,6 +36,7 @@ namespace MCS.Library.WF.Contracts.Converters.Descriptors
 
             WfClientRelativeLinkDescriptorCollectionConverter.Instance.ClientToServer(client.RelativeLinks, server.RelativeLinks);
             WfClientVariableDescriptorCollectionConverter.Instance.ClientToServer(client.Variables, server.Variables);
+            WfClientResourceDescriptorCollectionConverter.Instance.ClientToServer(client.CancelEventReceivers, server.CancelEventReceivers);
 
             foreach (WfClientActivityDescriptor cad in client.Activities)
             {
@@ -60,6 +61,7 @@ namespace MCS.Library.WF.Contracts.Converters.Descriptors
 
             WfClientRelativeLinkDescriptorCollectionConverter.Instance.ServerToClient(server.RelativeLinks, client.RelativeLinks);
             WfClientVariableDescriptorCollectionConverter.Instance.ServerToClient(server.Variables, client.Variables);
+            WfClientResourceDescriptorCollectionConverter.Instance.ServerToClient(server.CancelEventReceivers, client.CancelEventReceivers);
 
             foreach (WfActivityDescriptor actDesp in server.Activities)
             {

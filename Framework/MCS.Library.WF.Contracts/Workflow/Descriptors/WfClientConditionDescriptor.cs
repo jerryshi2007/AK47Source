@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 
 namespace MCS.Library.WF.Contracts.Workflow.Descriptors
 {
@@ -12,8 +13,8 @@ namespace MCS.Library.WF.Contracts.Workflow.Descriptors
     public class WfClientConditionDescriptor
     {
         public WfClientConditionDescriptor()
-		{
-		}
+        {
+        }
 
         public WfClientConditionDescriptor(string expression)
         {
@@ -32,6 +33,7 @@ namespace MCS.Library.WF.Contracts.Workflow.Descriptors
         /// <summary>
         /// 是否条件为空
         /// </summary>
+        [ScriptIgnore]
         public bool IsEmpty
         {
             get

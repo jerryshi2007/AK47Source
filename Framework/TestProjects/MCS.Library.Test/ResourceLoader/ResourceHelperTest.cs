@@ -11,7 +11,7 @@ namespace MCS.Library.Test.ResourceLoader
     [TestClass]
     public class ResourceHelperTest
     {
-        private const string ResourcePath = "MCS.Library.Test.ResourceLoader.Data.xml";
+        internal const string ResourcePath = "MCS.Library.Test.ResourceLoader.Data.xml";
 
         [TestMethod]
         public void LoadResourceStringAsyncTest()

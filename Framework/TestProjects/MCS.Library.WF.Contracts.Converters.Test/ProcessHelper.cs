@@ -43,9 +43,11 @@ namespace MCS.Library.WF.Contracts.Converters.Test
             WfClientProcessDescriptorConverter.Instance.ClientToServer(client, ref processDesp);
             WfProcessStartupParams startupParams = GetInstanceOfWfProcessStartupParams(processDesp);
 
-            IWfProcess process = WfRuntime.StartWorkflow(startupParams);
+            startupParams.ApplicationRuntimeParameters["CostCenter"] = "1001";
+            startupParams.ApplicationRuntimeParameters["PayMethod"] = "1";
+            startupParams.ApplicationRuntimeParameters["Age"] = 30;
 
-            return process;
+            return WfRuntime.StartWorkflow(startupParams);
         }
 
         public static WfProcessStartupParams GetInstanceOfWfProcessStartupParams(IWfProcessDescriptor processDesp)

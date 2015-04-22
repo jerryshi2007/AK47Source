@@ -10,16 +10,16 @@
 // -------------------------------------------------
 #endregion
 #region using
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Transactions;
-using System.Data;
-using System.Data.Common;
-using System.Web;
-
 using MCS.Library.Core;
 using MCS.Library.Data.Properties;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Common;
+using System.Text;
+using System.Threading.Tasks;
+using System.Transactions;
+using System.Web;
 #endregion
 namespace MCS.Library.Data
 {
@@ -84,6 +84,53 @@ namespace MCS.Library.Data
         public static DbContext GetContext(string name)
         {
             return GetContext(name, true);
+        }
+
+        /// <summary>
+        /// 获取一个DbContext对象
+        /// </summary>
+        /// <param name="name">连接名称</param>
+        /// <param name="autoClose">是否自动关闭</param>
+        /// <returns>DbContext对象</returns>
+        public static async Task<DbContext> GetContextAsync(string name, bool autoClose)
+        {
+            //得到映射后连接名称
+            name = DbConnectionMappingContext.GetMappedConnectionName(name);
+
+            DbProviderFactory factory = DbConnectionManager.GetDbProviderFactory(name);
+
+            DbConnectionStringBuilder csb = factory.CreateConnectionStringBuilder();
+
+            csb.ConnectionString = DbConnectionManager.GetConnectionString(name);
+
+            bool enlist = true;
+
+            if (csb.ContainsKey("enlist"))
+                enlist = (bool)csb["enlist"];
+
+            DbContext result = null;
+
+            if (enlist)
+                result = new AutoEnlistDbContext(name, autoClose);
+            else
+                result = new NotEnlistDbContext(name, autoClose);
+
+            await result.InitDbContextAsync(name, autoClose);
+
+            result._autoClose = autoClose;
+            result._commandTimeout = DbConnectionManager.GetCommandTimeout(name);
+
+            return result;
+        }
+
+        /// <summary>
+        /// 异步获取DbContext对象
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public static async Task<DbContext> GetContextAsync(string name)
+        {
+            return await GetContextAsync(name, true);
         }
 
         #region Public 成员
@@ -163,6 +210,17 @@ namespace MCS.Library.Data
         /// <param name="autoClose"></param>
         protected virtual void InitDbContext(string name, bool autoClose)
         {
+        }
+
+        /// <summary>
+        /// 异步初始化DbContext
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="autoClose"></param>
+        /// <returns></returns>
+        protected async virtual Task InitDbContextAsync(string name, bool autoClose)
+        {
+            await Task.Delay(0);
         }
 
         /// <summary>

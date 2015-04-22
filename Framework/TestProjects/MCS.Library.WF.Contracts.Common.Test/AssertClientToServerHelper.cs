@@ -52,6 +52,8 @@ namespace MCS.Library.WF.Contracts.Common.Test
             cad.Condition.AreSame(sad.Condition);
             cad.Variables.AssertCollection(sad.Variables);
             cad.Resources.AssertResources(sad.Resources);
+            cad.EnterEventReceivers.AssertResources(sad.EnterEventReceivers);
+            cad.LeaveEventReceivers.AssertResources(sad.LeaveEventReceivers);
             cad.BranchProcessTemplates.AssertBranchProcessTemplateCollection(sad.BranchProcessTemplates);
 
             cad.ToTransitions.AssertCollection(sad.ToTransitions);
@@ -129,6 +131,8 @@ namespace MCS.Library.WF.Contracts.Common.Test
                 Assert.AreEqual(cpd.CompletedActivity.Key, spd.CompletedActivity.Key);
 
             cpd.RelativeLinks.AssertRelativeLinks(spd.RelativeLinks);
+
+            cpd.CancelEventReceivers.AssertResources(spd.CancelEventReceivers);
         }
 
         public static void AreSame(this WfClientConditionDescriptor c, WfConditionDescriptor s)

@@ -1,11 +1,12 @@
-using System;
-using System.IO;
-using System.Xml;
-using System.Web;
-using System.Text;
-using System.Collections.Generic;
-using MCS.Library.Core;
 using MCS.Library.Caching;
+using MCS.Library.Core;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+using System.Threading.Tasks;
+using System.Web;
+using System.Xml;
 
 namespace MCS.Web.Library
 {
@@ -21,24 +22,44 @@ namespace MCS.Web.Library
         /// <returns></returns>
         public static XmlDocument GetXmlDocument(string virtualPath)
         {
-            virtualPath.CheckStringIsNullOrEmpty("virtualPath");
+            return GetContentFromVirtualPath(
+                virtualPath,
+                WebXmlDocumentCacheQueue.Instance,
+                (path) => XmlHelper.LoadDocument(path));
+        }
 
-            XmlDocument result = null;
+        /// <summary>
+        /// 异步从虚目录加载Xml文档，加载过的文档会缓存在Cache中
+        /// </summary>
+        /// <param name="virtualPath"></param>
+        /// <returns></returns>
+        public static async Task<XmlDocument> GetXmlDocumentAsync(string virtualPath)
+        {
+            return await GetContentFromVirtualPathAsync(
+                virtualPath,
+                WebXmlDocumentCacheQueue.Instance,
+                (path) => XmlHelper.LoadDocumentAsync(path));
+        }
 
-            HttpContext context = HttpContext.Current;
+        /// <summary>
+        /// 异步得到虚拟目录所对应文件的文本
+        /// </summary>
+        /// <param name="virtualPath"></param>
+        /// <returns></returns>
+        public static async Task<string> GetDocumentAsync(string virtualPath)
+        {
+            return await GetContentFromVirtualPathAsync(
+                virtualPath,
+                WebDocumentCacheQueue.Instance,
+                (path) =>
+                {
+                    using (Stream stream = File.Open(path, FileMode.Open, FileAccess.Read, FileShare.Read))
+                    {
+                        StreamReader reader = new StreamReader(stream);
 
-            string strPath = context.Server.MapPath(virtualPath).ToLower();
-
-            if (WebXmlDocumentCacheQueue.Instance.TryGetValue(strPath, out result) == false)
-            {
-                result = XmlHelper.LoadDocument(strPath);
-
-                FileCacheDependency dependency = new FileCacheDependency(strPath);
-
-                WebXmlDocumentCacheQueue.Instance.Add(strPath, result, dependency);
-            }
-
-            return result;
+                        return reader.ReadToEndAsync();
+                    }
+                });
         }
 
         /// <summary>
@@ -48,21 +69,51 @@ namespace MCS.Web.Library
         /// <returns></returns>
         public static string GetDocument(string virtualPath)
         {
+            return GetContentFromVirtualPath(
+                virtualPath,
+                WebDocumentCacheQueue.Instance,
+                (path) => File.ReadAllText(path));
+        }
+
+        private static TResult GetContentFromVirtualPath<TResult, TCache>(string virtualPath, TCache cache, Func<string, TResult> getContent) where TCache : CacheQueue<string, TResult>
+        {
             ExceptionHelper.CheckStringIsNullOrEmpty(virtualPath, "virtualPath");
 
-            string result = null;
+            TResult result = default(TResult);
 
             HttpContext context = HttpContext.Current;
 
             string strPath = context.Server.MapPath(virtualPath).ToLower();
 
-            if (WebDocumentCacheQueue.Instance.TryGetValue(strPath, out result) == false)
+            if (cache.TryGetValue(strPath, out result) == false)
             {
-                result = File.ReadAllText(strPath);
+                result = getContent(strPath);
 
                 FileCacheDependency dependency = new FileCacheDependency(strPath);
 
-                WebDocumentCacheQueue.Instance.Add(strPath, result, dependency);
+                cache.Add(strPath, result, dependency);
+            }
+
+            return result;
+        }
+
+        private static async Task<TResult> GetContentFromVirtualPathAsync<TResult, TCache>(string virtualPath, TCache cache, Func<string, Task<TResult>> getContent) where TCache : CacheQueue<string, TResult>
+        {
+            ExceptionHelper.CheckStringIsNullOrEmpty(virtualPath, "virtualPath");
+
+            TResult result = default(TResult);
+
+            HttpContext context = HttpContext.Current;
+
+            string strPath = context.Server.MapPath(virtualPath).ToLower();
+
+            if (cache.TryGetValue(strPath, out result) == false)
+            {
+                result = await getContent(strPath);
+
+                FileCacheDependency dependency = new FileCacheDependency(strPath);
+
+                cache.Add(strPath, result, dependency);
             }
 
             return result;

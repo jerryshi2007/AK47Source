@@ -38,6 +38,8 @@ namespace MCS.Library.WF.Contracts.Common.Test
             cad.Condition.AreSame(sad.Condition);
             cad.Variables.AssertCollection(sad.Variables);
             cad.Resources.AssertResources(sad.Resources);
+            cad.EnterEventReceivers.AssertResources(sad.EnterEventReceivers);
+            cad.LeaveEventReceivers.AssertResources(sad.LeaveEventReceivers);
 
             cad.ToTransitions.AssertCollection(sad.ToTransitions);
             cad.ToTransitions.ForEach(ct => ct.IsValid());
@@ -121,6 +123,26 @@ namespace MCS.Library.WF.Contracts.Common.Test
                 Assert.AreEqual(expected, actual);
         }
 
+        public static void AreSame(this WfClientDynamicResourceDescriptor expected, WfClientDynamicResourceDescriptor actual)
+        {
+            if (expected != null && actual != null)
+            {
+                AssertStringEqual(expected.Name, actual.Name);
+
+                expected.Condition.AreSame(actual.Condition);
+            }
+            else
+                Assert.AreEqual(expected, actual);
+        }
+
+        public static void AreSame(this WfClientConditionDescriptor expected, WfClientConditionDescriptor actual)
+        {
+            if (expected != null && actual != null)
+                AssertStringEqual(expected.Expression, actual.Expression);
+            else
+                Assert.AreEqual(expected, actual);
+        }
+
         public static void AreSame(this WfClientTransferParams expected, WfClientTransferParams actual)
         {
             if (expected != null && actual != null)
@@ -176,13 +198,6 @@ namespace MCS.Library.WF.Contracts.Common.Test
             }
             else
                 Assert.AreEqual(expected, actual);
-        }
-
-        public static void AreSame(this WfClientConditionDescriptor c, WfClientConditionDescriptor s)
-        {
-            Assert.IsNotNull(c);
-            Assert.IsNotNull(s);
-            AssertStringEqual(c.Expression, s.Expression);
         }
 
         public static void AreSame(this WfClientKeyedDescriptorBase c, WfClientKeyedDescriptorBase s)

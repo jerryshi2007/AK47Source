@@ -104,5 +104,20 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
             Assert.IsNull(context.QueryParams[1].QueryValue);
             Assert.IsNull(context.QueryParams[2].QueryValue);
         }
+
+        [TestMethod]
+        public void AllReservedColumnsActivityMatrixQueryParamTest()
+        {
+            IWfProcessDescriptor processDesp = ProcessHelper.GetDynamicProcessDesp(ActivityMatrixHelper.PrepareReservedActivityMatrixResourceDescriptor());
+
+            IWfProcess process = ProcessHelper.StartupProcess(processDesp, new Dictionary<string, object>());
+
+            IWfActivityDescriptor normalActDesp = processDesp.Activities["NormalActivity"];
+            WfActivityMatrixResourceDescriptor resource = (WfActivityMatrixResourceDescriptor)normalActDesp.Resources[0];
+
+            SOARoleContext context = SOARoleContext.CreateContext(resource.PropertyDefinitions, process);
+
+            context.QueryParams.Output();
+        }
     }
 }

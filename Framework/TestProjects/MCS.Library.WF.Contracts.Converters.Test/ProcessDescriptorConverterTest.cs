@@ -77,6 +77,7 @@ namespace MCS.Library.WF.Contracts.Converters.Test
             Assert.AreEqual(processDesp.InitialActivity.Key, deserialized.InitialActivity.Key);
             Assert.AreEqual(processDesp.CompletedActivity.Key, deserialized.CompletedActivity.Key);
             Assert.AreEqual(processDesp.InitialActivity.ToTransitions.Count, deserialized.InitialActivity.ToTransitions.Count);
+            Assert.AreEqual(processDesp.CancelEventReceivers.Count, deserialized.CancelEventReceivers.Count);
             Assert.AreEqual(processDesp.CompletedActivity.GetFromTransitions().Count, deserialized.CompletedActivity.GetFromTransitions().Count);
 
             Assert.IsNotNull(deserialized.Activities["N1"]);
@@ -104,6 +105,7 @@ namespace MCS.Library.WF.Contracts.Converters.Test
             Assert.AreEqual(processDesp.InitialActivity.Key, deserialized.InitialActivity.Key);
             Assert.AreEqual(processDesp.CompletedActivity.Key, deserialized.CompletedActivity.Key);
             Assert.AreEqual(processDesp.InitialActivity.ToTransitions.Count, deserialized.InitialActivity.ToTransitions.Count);
+            Assert.AreEqual(processDesp.CancelEventReceivers.Count, deserialized.CancelEventReceivers.Count);
             Assert.AreEqual(processDesp.CompletedActivity.GetFromTransitions().Count, deserialized.CompletedActivity.GetFromTransitions().Count);
         }
 
@@ -162,22 +164,22 @@ namespace MCS.Library.WF.Contracts.Converters.Test
             WfCreateClientDynamicProcessParams createParams = ProcessDescriptorHelper.CreateClientDynamicProcessParams();
             WfClientDynamicProcessBuilder builder = new WfClientDynamicProcessBuilder(createParams);
             WfClientProcessDescriptor client = builder.Build(createParams.Key, createParams.Name);
- 
+
             string processKey = createParams.Key;
             System.Data.DataTable processTable = new System.Data.DataTable();
             System.Data.DataTable matrixTable = new System.Data.DataTable();
 
             using (Stream stream = WfClientProcessDescriptorConverter.Instance.ClientDynamicProcessToExcelStream(client))
             {
-                processTable =  DocumentHelper.GetRangeValuesAsTable(stream, "Process","A3");                 
-                matrixTable = DocumentHelper.GetRangeValuesAsTable(stream, "Matrix", "A3"); 
+                processTable = DocumentHelper.GetRangeValuesAsTable(stream, "Process", "A3");
+                matrixTable = DocumentHelper.GetRangeValuesAsTable(stream, "Matrix", "A3");
             }
             Assert.IsTrue(processTable.Rows.Count > 0);
-            Assert.IsTrue(matrixTable.Rows.Count ==  2);
-            Assert.IsTrue(matrixTable.Rows[0]["CostCenter"].ToString() ==  "1001");
+            Assert.IsTrue(matrixTable.Rows.Count == 2);
+            Assert.IsTrue(matrixTable.Rows[0]["CostCenter"].ToString() == "1001");
             Assert.IsTrue(matrixTable.Rows[1]["Age"].ToString() == "40");
         }
 
-      
+
     }
 }

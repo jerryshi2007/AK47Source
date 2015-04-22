@@ -1,10 +1,10 @@
-using System;
-using System.Diagnostics;
-using System.Data;
-using System.Data.Common;
-
 using MCS.Library.Core;
 using MCS.Library.Data.Properties;
+using System;
+using System.Data;
+using System.Data.Common;
+using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace MCS.Library.Data
 {
@@ -12,7 +12,7 @@ namespace MCS.Library.Data
     /// 抽象数据库实体类
     /// </summary>
     [System.Diagnostics.DebuggerNonUserCode]
-    public abstract class Database
+    public abstract partial class Database
     {
         #region Protected Fields
         /// <summary>
@@ -81,30 +81,6 @@ namespace MCS.Library.Data
         #endregion
 
         #region LoadDataSet
-        #region Del
-        ///// <summary>
-        ///// 向DataSet中填充SQL查询返回的结果
-        ///// </summary>
-        ///// <param name="commandType">Command类型</param>
-        ///// <param name="commandText">Command命令内容</param>
-        ///// <param name="dataSet">待填充的DataSet</param>
-        //public virtual void LoadDataSet(CommandType commandType, string commandText, DataSet dataSet)
-        //{
-        //    LoadDataSet(commandType, commandText, dataSet, SystemCreatedTableNameRoot);
-        //}
-
-        ///// <summary>
-        ///// 向DataSet中填充SQL返回的结果
-        ///// </summary>
-        ///// <param name="commandType">Command类型</param>
-        ///// <param name="commandText">Command命令内容</param>
-        ///// <param name="dataSet">待填充的DataSet</param>
-        ///// <param name="tableName">查询结果的DataTable名称</param>
-        //public virtual void LoadDataSet(CommandType commandType, string commandText, DataSet dataSet, string tableName)
-        //{
-        //    LoadDataSet(commandType, commandText, dataSet, new string[] { tableName });
-        //}
-        #endregion
         /// <summary>
         /// 向DataSet中填充SQL返回的结果
         /// </summary>
@@ -127,6 +103,7 @@ namespace MCS.Library.Data
                 LoadDataSet(command, dataSet, pageNo, pageSize, tableNames);
             }
         }
+
         /// <summary>
         /// 向DataSet中填充SQL返回的结果
         /// </summary>
@@ -145,6 +122,7 @@ namespace MCS.Library.Data
                 LoadDataSet(command, dataSet, tableNames);
             }
         }
+
         /// <summary>
         /// 向DataSet中填充存储过程返回的结果
         /// </summary>
@@ -160,6 +138,7 @@ namespace MCS.Library.Data
         {
             LoadDataSet(storedProcedureName, dataSet, new string[] { tableName }, parameterValues);
         }
+
         /// <summary>
         /// 向DataSet中填充Command返回的结果
         /// </summary>
@@ -178,6 +157,7 @@ namespace MCS.Library.Data
                 LoadDataSet(command, dataSet, tableNames);
             }
         }
+
         /// <summary>
         /// 向DataSet中填充Command返回的结果
         /// </summary>
@@ -188,9 +168,9 @@ namespace MCS.Library.Data
             DataSet dataSet,
             params string[] tableNames)
         {
-            //DoLoadDataSet(command, dataSet, tableNames);
             this.LoadDataSet(command, dataSet, 0, 0, tableNames);
         }
+
         /// <summary>
         /// 向DataSet中填充Command返回的结果
         /// </summary>
@@ -207,28 +187,6 @@ namespace MCS.Library.Data
         {
             this.DoLoadDataSet(command, dataSet, pageNo, pageSize, tableNames);
         }
-        #region del by yuanyong
-        ///// <summary>
-        ///// 向DataSet中填充Command返回的结果
-        ///// </summary>
-        ///// <param name="command">Command实例</param>
-        ///// <param name="dataSet">待填充的DataSet</param>
-        ///// <param name="tableName">查询结果的DataTable名称</param>
-        //public virtual void LoadDataSet(DbCommand command, DataSet dataSet, string tableName)
-        //{
-        //    LoadDataSet(command, dataSet, new string[] { tableName });
-        //}
-
-        ///// <summary>
-        ///// 向DataSet中填充Command返回的结果
-        ///// </summary>
-        ///// <param name="command">Command实例</param>
-        ///// <param name="dataSet">待填充的DataSet</param>
-        //public virtual void LoadDataSet(DbCommand command, DataSet dataSet)
-        //{
-        //    LoadDataSet(command, dataSet, SystemCreatedTableNameRoot);
-        //}
-        #endregion
         #endregion
 
         #region ExecuteDataSet
@@ -240,21 +198,9 @@ namespace MCS.Library.Data
         /// <returns>查询结果</returns>
         public virtual DataSet ExecuteDataSet(string storedProcedureName, params object[] parameterValues)
         {
-            return ExecuteDataSet(storedProcedureName, new string[] { SystemCreatedTableNameRoot }, parameterValues);
+            return this.ExecuteDataSet(storedProcedureName, new string[] { SystemCreatedTableNameRoot }, parameterValues);
         }
-        #region Del
-        ///// <summary>
-        ///// 返回存储过程查询结果
-        ///// </summary>
-        ///// <param name="storedProcedureName">存储过程名称</param>
-        ///// <param name="tableName">查询结果的DataTable名称</param>
-        ///// <param name="parameterValues">存储过程参数赋值</param>
-        ///// <returns>查询结果</returns>
-        //public virtual DataSet ExecuteDataSet(string storedProcedureName, string tableName, params object[] parameterValues)
-        //{
-        //    return ExecuteDataSet(storedProcedureName, new string[] { tableName }, parameterValues);
-        //}
-        #endregion
+
         /// <summary>
         /// 返回存储过程查询结果
         /// </summary>
@@ -266,33 +212,10 @@ namespace MCS.Library.Data
         {
             using (DbCommand command = InitStoredProcedureCommand(storedProcedureName, parameterValues))
             {
-                return ExecuteDataSet(command, tableNames);
+                return this.ExecuteDataSet(command, tableNames);
             }
         }
-        #region del
-        ///// <summary>
-        ///// 返回查询结果
-        ///// </summary>
-        ///// <param name="commandType">Command类型</param>
-        ///// <param name="commandText">Command命令内容</param>
-        ///// <returns>查询结果</returns>
-        //public virtual DataSet ExecuteDataSet(CommandType commandType, string commandText)
-        //{
-        //    return ExecuteDataSet(commandType, commandText, SystemCreatedTableNameRoot);
-        //}
 
-        ///// <summary>
-        ///// 返回查询结果
-        ///// </summary>
-        ///// <param name="commandType">Command类型</param>
-        ///// <param name="commandText">Command命令内容</param>
-        ///// <param name="tableName">查询结果的DataTable名称</param>
-        ///// <returns>查询结果</returns>
-        //public virtual DataSet ExecuteDataSet(CommandType commandType, string commandText, string tableName)
-        //{
-        //    return ExecuteDataSet(commandType, commandText, new string[]{tableName});
-        //}
-        #endregion
         /// <summary>
         /// 返回查询结果
         /// </summary>
@@ -303,12 +226,9 @@ namespace MCS.Library.Data
         /// <returns>查询结果</returns>
         public virtual DataSet ExecuteDataSet(CommandType commandType, string commandText, params string[] tableNames)
         {
-            //using (DbCommand command = CreateCommandByCommandType(commandType, commandText))
-            //{
-            //    return ExecuteDataSet(command, tableNames);
-            //}
-            return ExecuteDataSet(commandType, commandText, 0, 0, tableNames);
+            return this.ExecuteDataSet(commandType, commandText, 0, 0, tableNames);
         }
+
         /// <summary>
         /// 返回查询结果
         /// </summary>
@@ -317,13 +237,9 @@ namespace MCS.Library.Data
         /// <returns>查询结果</returns>
         public virtual DataSet ExecuteDataSet(DbCommand command, params string[] tableNames)
         {
-            //DataSet dataSet = new DataSet();
-            //dataSet.Locale = System.Globalization.CultureInfo.InvariantCulture;
-
-            //LoadDataSet(command, dataSet, tableNames);
-            //return dataSet;
-            return ExecuteDataSet(command, 0, 0, tableNames);
+            return this.ExecuteDataSet(command, 0, 0, tableNames);
         }
+
         /// <summary>
         /// 返回查询结果
         /// </summary>
@@ -342,7 +258,7 @@ namespace MCS.Library.Data
         {
             using (DbCommand command = CreateCommandByCommandType(commandType, commandText))
             {
-                return ExecuteDataSet(command, pageNo, pageSize, tableNames);
+                return this.ExecuteDataSet(command, pageNo, pageSize, tableNames);
             }
         }
 
@@ -360,33 +276,10 @@ namespace MCS.Library.Data
 
             dataSet.Locale = System.Globalization.CultureInfo.InvariantCulture;
 
-            LoadDataSet(command, dataSet, pageNo, pageSize, tableNames);
+            this.LoadDataSet(command, dataSet, pageNo, pageSize, tableNames);
 
             return dataSet;
         }
-
-        #region Del
-        ///// <summary>
-        ///// 返回查询结果
-        ///// </summary>
-        ///// <param name="command">Command实例</param>
-        ///// <param name="tableName">查询结果的DataTable名称</param>
-        ///// <returns>查询结果</returns>
-        //public virtual DataSet ExecuteDataSet(DbCommand command, string tableName)
-        //{
-        //    return ExecuteDataSet(command, new string[] { tableName });
-        //}
-
-        ///// <summary>
-        ///// 返回查询结果
-        ///// </summary>
-        ///// <param name="command">Command实例</param>
-        ///// <returns>查询结果</returns>
-        //public virtual DataSet ExecuteDataSet(DbCommand command)
-        //{
-        //    return ExecuteDataSet(command, SystemCreatedTableNameRoot);
-        //}
-        #endregion
         #endregion
 
         #region ExecuteScalar
@@ -860,18 +753,18 @@ namespace MCS.Library.Data
         /// </summary>
         internal void DiscoverParameters(DbCommand command)
         {
-            //if ((command == null) || (command.CommandType != CommandType.StoredProcedure)) return;
             if (command != null && command.CommandType == CommandType.StoredProcedure)
             {
                 using (DbContext context = DbContext.GetContext(this.name))
                 {
                     command.Connection = context.Connection;
+
                     using (DbCommand discoveryCommand = CreateCommandByCommandType(command))
                     {
-                        //OpenConnection(command);
-
                         discoveryCommand.Connection = command.Connection;
-                        DeriveParameters(discoveryCommand);
+
+                        this.DeriveParameters(discoveryCommand);
+
                         foreach (IDataParameter parameter in discoveryCommand.Parameters)
                         {
                             IDataParameter cloneParameter = (IDataParameter)((ICloneable)parameter).Clone();
@@ -895,13 +788,13 @@ namespace MCS.Library.Data
         {
             ExceptionHelper.TrueThrow<ArgumentNullException>(string.IsNullOrEmpty(storedProcedureName), "storedProcedureName");
 
-            DbCommand command = CreateCommandByCommandType(CommandType.StoredProcedure, storedProcedureName);
+            DbCommand command = this.CreateCommandByCommandType(CommandType.StoredProcedure, storedProcedureName);
 
             cache.SetParameters(command, this);
 
             ExceptionHelper.FalseThrow<InvalidOperationException>(SameNumberOfParametersAndValues(command, parameterValues), "parameterValues");
 
-            AssignParameterValues(command, parameterValues);
+            this.AssignParameterValues(command, parameterValues);
 
             return command;
         }
@@ -1023,15 +916,19 @@ namespace MCS.Library.Data
                 if (updateBatchSize != null)
                 {
                     adapter.UpdateBatchSize = (int)updateBatchSize;
+
                     if (insertCommand != null)
                         adapter.InsertCommand.UpdatedRowSource = UpdateRowSource.None;
+
                     if (updateCommand != null)
                         adapter.UpdateCommand.UpdatedRowSource = UpdateRowSource.None;
+
                     if (deleteCommand != null)
                         adapter.DeleteCommand.UpdatedRowSource = UpdateRowSource.None;
                 }
 
                 int rows = adapter.Update(table);
+
                 return rows;
             }
         }
@@ -1043,8 +940,6 @@ namespace MCS.Library.Data
         /// <returns>单值</returns>
         private object DoExecuteScalar(DbCommand command)
         {
-            //OpenConnection(command);
-
             ExceptionHelper.TrueThrow<ArgumentException>(command.CommandType == CommandType.TableDirect,
                 Resource.ExecuteScalarNotSupportTableDirectException);
 
@@ -1054,11 +949,13 @@ namespace MCS.Library.Data
 
                 DoDbEvent(command, DbEventType.BeforeExecution);
                 object returnValue = command.ExecuteScalar();
+
                 if (command.CommandType != CommandType.Text)
                 {
                     // 由于 SQL Server 在Stored Procedure和Function返回值处理方式上存在不同，因此增加了适应性修改
                     returnValue = (returnValue == null) ? command.Parameters[DefaultReturnValueParameterName].Value : returnValue;
                 }
+
                 DoDbEvent(command, DbEventType.AfterExecution);
 
                 return returnValue;
@@ -1084,6 +981,7 @@ namespace MCS.Library.Data
         {
             if (null == command.Connection)
                 command.Connection = DbContext.GetContext(this.name, false).Connection;
+
             if (ConnectionState.Open != command.Connection.State)
                 command.Connection.Open();
 
@@ -1102,12 +1000,10 @@ namespace MCS.Library.Data
         /// <param name="tableNames">每个查询结果的DataTable名称</param>
         /// <param name="pageNo">要求返回数据所在的页码【以0开始】</param>
         /// <param name="pageSize">要求返回数据每一页数据量【如果为零则表示所有数据】</param>
-        protected void DoLoadDataSet(DbCommand command, DataSet dataSet, int pageNo, int pageSize, string[] tableNames)
+        private void DoLoadDataSet(DbCommand command, DataSet dataSet, int pageNo, int pageSize, string[] tableNames)
         {
-            for (int i = 0; i < tableNames.Length; i++)
-                ExceptionHelper.CheckStringIsNullOrEmpty(tableNames[i], "tableNames[" + i + "]");
+            CheckTableNames(tableNames);
 
-            //OpenConnection(command);
             using (DbContext context = DbContext.GetContext(this.name))
             {
                 command.Connection = context.Connection;
@@ -1115,13 +1011,11 @@ namespace MCS.Library.Data
                 using (DbDataAdapter adapter = this.factory.CreateDataAdapter())
                 {
                     adapter.SelectCommand = command;
-                    for (int i = 0; i < tableNames.Length; i++)
-                    {
-                        string systemCreatedTableName = (i == 0) ? SystemCreatedTableNameRoot : SystemCreatedTableNameRoot + i;
-                        adapter.TableMappings.Add(systemCreatedTableName, tableNames[i]);
-                    }
+
+                    AddTableMappingsInAdapter(adapter, tableNames);
 
                     DoDbEvent(command, DbEventType.BeforeExecution);
+
                     if (pageSize == 0)
                         adapter.Fill(dataSet);
                     else
@@ -1129,29 +1023,26 @@ namespace MCS.Library.Data
                         string srcTableName = tableNames.Length > 0 ? tableNames[0] : "Table";
                         adapter.Fill(dataSet, pageNo * pageSize, pageSize, srcTableName);
                     }
+
                     DoDbEvent(command, DbEventType.AfterExecution);
                 }
             }
         }
 
-        ///// <summary>
-        ///// 将Command对象中设置的Connection对象Open
-        ///// </summary>
-        ///// <param name="command">待Open的Connection所在的Command对象</param>
-        ///// <remarks>将Command对象中设置的Connection对象Open。这里要求处理Command对象以及command.Connection是否存在。</remarks>
-        //protected static void OpenConnection(DbCommand command)
-        //{
-        //    ExceptionHelper.TrueThrow<ArgumentNullException>(command == null, "command");
-        //    ExceptionHelper.TrueThrow<ArgumentNullException>(command.Connection == null, "DbCommand未设置DbConnection");
+        private static void CheckTableNames(string[] tableNames)
+        {
+            for (int i = 0; i < tableNames.Length; i++)
+                ExceptionHelper.CheckStringIsNullOrEmpty(tableNames[i], "tableNames[" + i + "]");
+        }
 
-        //    if (command.Connection.State != ConnectionState.Open)
-        //    {
-        //        Trace.WriteLine(command.Connection.DataSource + "." + command.Connection.Database
-        //            + "[" + DateTime.Now.ToString("yyyyMMdd HH:mm:ss.fff") + "]", 
-        //            " Open Connection ");
-        //        command.Connection.Open();
-        //    }
-        //}
+        private static void AddTableMappingsInAdapter(DbDataAdapter adapter, string[] tableNames)
+        {
+            for (int i = 0; i < tableNames.Length; i++)
+            {
+                string systemCreatedTableName = (i == 0) ? SystemCreatedTableNameRoot : SystemCreatedTableNameRoot + i;
+                adapter.TableMappings.Add(systemCreatedTableName, tableNames[i]);
+            }
+        }
         #endregion
 
         #region Parameter Mechanism
@@ -1197,11 +1088,12 @@ namespace MCS.Library.Data
         /// <param name="values">需要添加的一组值</param>
         protected virtual void AssignParameterValues(DbCommand command, object[] values)
         {
-            int parameterIndexShift = UserParametersStartIndex();
+            int parameterIndexShift = this.UserParametersStartIndex();
+
             for (int i = 0; i < values.Length; i++)
             {
                 IDataParameter parameter = command.Parameters[i + parameterIndexShift];
-                SetParameterValue(command, parameter.ParameterName, values[i]);
+                this.SetParameterValue(command, parameter.ParameterName, values[i]);
             }
         }
 
@@ -1231,10 +1123,12 @@ namespace MCS.Library.Data
             DataRowVersion sourceVersion,
             object value)
         {
-            DbParameter parameter = CreateParameter(parameterName);
-            ConfigureParameter(parameter, parameterName, dbType, size, direction, nullable, precision, scale, sourceColumn, sourceVersion, value);
+            DbParameter parameter = this.CreateParameter(parameterName);
+            this.ConfigureParameter(parameter, parameterName, dbType, size, direction, nullable, precision, scale, sourceColumn, sourceVersion, value);
+
             return parameter;
         }
+
         /// <summary>
         /// 生成一个Parameter对象
         /// </summary>
@@ -1256,8 +1150,9 @@ namespace MCS.Library.Data
             bool nullable,
             string sourceColumn)
         {
-            DbParameter parameter = CreateParameter(parameterName);
-            ConfigureParameter(parameter, parameterName, dbType, size, direction, nullable, sourceColumn);
+            DbParameter parameter = this.CreateParameter(parameterName);
+            this.ConfigureParameter(parameter, parameterName, dbType, size, direction, nullable, sourceColumn);
+
             return parameter;
         }
 
@@ -1305,6 +1200,7 @@ namespace MCS.Library.Data
         {
             return 0;
         }
+
         /// <summary>
         /// 根据指定的内容为Prameter赋值
         /// </summary>
@@ -1355,7 +1251,7 @@ namespace MCS.Library.Data
             ParameterDirection direction,
             string sourceColumn)
         {
-            ConfigureParameter(parameter, parameterName, dbType, size, direction, true, sourceColumn);
+            this.ConfigureParameter(parameter, parameterName, dbType, size, direction, true, sourceColumn);
         }
 
         /// <summary>
@@ -1421,7 +1317,7 @@ namespace MCS.Library.Data
             DataRowVersion sourceVersion,
             object value)
         {
-            DbParameter parameter = CreateParameter(parameterName, dbType, size, direction, nullable, precision, scale, sourceColumn, sourceVersion, value);
+            DbParameter parameter = this.CreateParameter(parameterName, dbType, size, direction, nullable, precision, scale, sourceColumn, sourceVersion, value);
             command.Parameters.Add(parameter);
         }
         /// <summary>
@@ -1442,8 +1338,9 @@ namespace MCS.Library.Data
             DataRowVersion sourceVersion,
             object value)
         {
-            AddParameter(command, parameterName, dbType, 0, direction, false, 0, 0, sourceColumn, sourceVersion, value);
+            this.AddParameter(command, parameterName, dbType, 0, direction, false, 0, 0, sourceColumn, sourceVersion, value);
         }
+
         /// <summary>
         /// 增加一个Parameter
         /// </summary>
@@ -1466,7 +1363,7 @@ namespace MCS.Library.Data
             bool nullable,
             string sourceColumn)
         {
-            DbParameter parameter = CreateParameter(parameterName, dbType, size, direction, nullable, sourceColumn);
+            DbParameter parameter = this.CreateParameter(parameterName, dbType, size, direction, nullable, sourceColumn);
 
             command.Parameters.Add(parameter);
         }
@@ -1491,7 +1388,7 @@ namespace MCS.Library.Data
             ParameterDirection direction,
             string sourceColumn)
         {
-            DbParameter parameter = CreateParameter(parameterName, dbType, size, direction, sourceColumn);
+            DbParameter parameter = this.CreateParameter(parameterName, dbType, size, direction, sourceColumn);
             command.Parameters.Add(parameter);
         }
 
@@ -1504,7 +1401,7 @@ namespace MCS.Library.Data
         /// <param name="size">长度</param>
         public void AddOutParameter(DbCommand command, string parameterName, DbType dbType, int size)
         {
-            AddParameter(command, parameterName, dbType, size, ParameterDirection.Output, true, 0, 0, String.Empty, DataRowVersion.Default, DBNull.Value);
+            this.AddParameter(command, parameterName, dbType, size, ParameterDirection.Output, true, 0, 0, String.Empty, DataRowVersion.Default, DBNull.Value);
         }
 
         /// <summary>
@@ -1515,8 +1412,9 @@ namespace MCS.Library.Data
         /// <param name="parameterName">数据库参数名称</param>
         public void AddInParameter(DbCommand command, string parameterName, DbType dbType)
         {
-            AddInParameter(command, parameterName, dbType, null);
+            this.AddInParameter(command, parameterName, dbType, null);
         }
+
         /// <summary>
         /// 增加一个In Parameter
         /// </summary>
@@ -1526,8 +1424,9 @@ namespace MCS.Library.Data
         /// <param name="value">值</param>
         public void AddInParameter(DbCommand command, string parameterName, DbType dbType, object value)
         {
-            AddParameter(command, parameterName, dbType, ParameterDirection.Input, String.Empty, DataRowVersion.Default, value);
+            this.AddParameter(command, parameterName, dbType, ParameterDirection.Input, String.Empty, DataRowVersion.Default, value);
         }
+
         /// <summary>
         /// 增加一个In Parameter
         /// </summary>
@@ -1541,7 +1440,7 @@ namespace MCS.Library.Data
             string sourceColumn,
             DataRowVersion sourceVersion)
         {
-            AddParameter(command, parameterName, dbType, 0, ParameterDirection.Input, true, 0, 0, sourceColumn, sourceVersion, null);
+            this.AddParameter(command, parameterName, dbType, 0, ParameterDirection.Input, true, 0, 0, sourceColumn, sourceVersion, null);
         }
         #endregion
 
@@ -1582,7 +1481,6 @@ namespace MCS.Library.Data
         ///     面向批量处理增加的方法
         ///     added by wangxiang . May 21, 2008
         /// </remarks>
-
         protected DbDataAdapter GetDataAdapter(UpdateBehavior updateBehavior)
         {
             DbDataAdapter adapter = factory.CreateDataAdapter();
@@ -1622,6 +1520,7 @@ namespace MCS.Library.Data
                 return command;
             }
         }
+
         /// <summary>
         /// 生成简单的DbCommand对象 
         /// <remarks>
@@ -1632,7 +1531,7 @@ namespace MCS.Library.Data
         /// <returns>Command对象</returns>
         protected DbCommand CreateCommandByCommandType(IDbCommand originalCommand)
         {
-            return CreateCommandByCommandType(originalCommand.CommandType, originalCommand.CommandText);
+            return this.CreateCommandByCommandType(originalCommand.CommandType, originalCommand.CommandText);
         }
 
         /// <summary>

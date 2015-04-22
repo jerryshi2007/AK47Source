@@ -1,0 +1,2 @@
+﻿2010.10.30	D:\SourceCode\MCSFramework\02.Develop\ThirdPartComponent\GoXam\DiagramPanel.cs
+			取消验证
