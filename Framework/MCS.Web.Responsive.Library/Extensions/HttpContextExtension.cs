@@ -9,6 +9,7 @@ using MCS.Library.Core;
 using MCS.Library.Globalization;
 using MCS.Web.Responsive.Library.Resources;
 using MCS.Web.Library;
+using System.Web.Routing;
 
 namespace MCS.Web.Responsive.Library
 {
@@ -194,6 +195,39 @@ namespace MCS.Web.Responsive.Library
 
                     if (vs != null)
                         result = vs[key];
+                }
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// 从RouteData中获取值
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="context"></param>
+        /// <param name="key"></param>
+        /// <param name="defaultValue"></param>
+        /// <returns></returns>
+        public static T GetRouteDataValue<T>(this HttpContext context, string key, T defaultValue)
+        {
+            context.NullCheck("context");
+            ExceptionHelper.CheckStringIsNullOrEmpty(key, "key");
+
+            T result = defaultValue;
+
+            HttpContextWrapper wrapper = new HttpContextWrapper(context);
+
+            RouteData routeData = RouteTable.Routes.GetRouteData(wrapper);
+
+            if (routeData != null && routeData.Values.ContainsKey(key))
+            {
+                object data = RouteTable.Routes.GetRouteData(wrapper).Values[key];
+
+                if (data != null)
+                { 
+                    data = (T)DataConverter.ChangeType(data, typeof(T));
+                    result = (T)data;
                 }
             }
 

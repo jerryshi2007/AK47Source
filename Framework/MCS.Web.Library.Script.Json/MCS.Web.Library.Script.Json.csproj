@@ -69,7 +69,23 @@
     <Compile Include="Configuration\WindowFeatureElement.cs" />
     <Compile Include="DataObjects\IWindowFeature.cs" />
     <Compile Include="DataObjects\WindowFeature.cs" />
+    <Compile Include="Mechanism\AppSettings.cs" />
+    <Compile Include="Mechanism\JavaScriptConverter.cs" />
+    <Compile Include="Mechanism\JavaScriptObjectDeserializer.cs" />
+    <Compile Include="Mechanism\JavaScriptSerializer.cs" />
+    <Compile Include="Mechanism\JavaScriptString.cs" />
+    <Compile Include="Mechanism\JavaScriptTypeResolver.cs" />
+    <Compile Include="Mechanism\ObjectConverter.cs" />
+    <Compile Include="Mechanism\ScriptIgnoreAttribute.cs" />
+    <Compile Include="Mechanism\SecurityUtils.cs" />
+    <Compile Include="Mechanism\SimpleTypeResolver.cs" />
+    <Compile Include="Mechanism\Utf16StringValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\AtlasWeb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AtlasWeb.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\DeluxeJsonResource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -90,6 +106,10 @@
     <None Include="MCS.Library.snk" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Properties\AtlasWeb.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AtlasWeb.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\DeluxeJsonResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>DeluxeJsonResource.Designer.cs</LastGenOutput>

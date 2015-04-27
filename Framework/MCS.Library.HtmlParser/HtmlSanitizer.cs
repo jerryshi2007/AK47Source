@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using MCS.Library.Core;
 
 namespace MCS.Library.HtmlParser
 {
@@ -32,9 +33,17 @@ namespace MCS.Library.HtmlParser
             new HtmlSanitizeNode("link", "href")
         };
 
+        private static readonly SortedSet<string> _DefaultStyleAttributeBlackList = new SortedSet<string>(StringComparer.OrdinalIgnoreCase)
+        {
+            "expression",
+            "expression_r"
+        };
+
         private static readonly SortedSet<string> _DefaultNodeBlackList = new SortedSet<string>(StringComparer.OrdinalIgnoreCase)
         {
-            "script"
+            "script",
+            "style",
+            "link"
         };
 
         private static readonly SortedSet<string> _DefaultAttributeBlackList = new SortedSet<string>(StringComparer.OrdinalIgnoreCase)
@@ -110,6 +119,26 @@ namespace MCS.Library.HtmlParser
             return strB.ToString();
         }
 
+        /// <summary>
+        /// 属性值是否是脚本相关的
+        /// </summary>
+        /// <param name="attrValue"></param>
+        /// <returns></returns>
+        internal static bool IsScriptRelative(this string attrValue)
+        {
+            bool result = false;
+
+            if (attrValue.IsNotEmpty())
+            {
+                attrValue = attrValue.Replace(" ", string.Empty);
+
+                return attrValue.IndexOf("javascript:", 0, StringComparison.OrdinalIgnoreCase) == 0 ||
+                    attrValue.IndexOf("vbscript:", 0, StringComparison.OrdinalIgnoreCase) == 0;
+            }
+
+            return result;
+        }
+
         private static void FilterAttributes(HtmlNode node)
         {
             List<HtmlAttribute> attrsNeedToRemove = new List<HtmlAttribute>();
@@ -121,6 +150,20 @@ namespace MCS.Library.HtmlParser
             }
 
             attrsNeedToRemove.ForEach(attr => node.Attributes.Remove(attr));
+
+            FilterStyleAttributes(node.Attributes["style"]);
+        }
+
+        private static void FilterStyleAttributes(HtmlAttribute styleAttr)
+        {
+            if (styleAttr != null)
+            {
+                HtmlStyleAttributeCollection styles = HtmlStyleParser.Parse(styleAttr.Value);
+
+                styles.Remove(style => _DefaultStyleAttributeBlackList.Contains(style.Expression.Expression) || style.Expression.Value.IsScriptRelative());
+
+                styleAttr.Value = styles.Join();
+            }
         }
 
         /// <summary>
@@ -165,9 +208,7 @@ namespace MCS.Library.HtmlParser
 
         private static bool ContainsJavaScript(string attrValue)
         {
-            attrValue = attrValue.Replace(" ", string.Empty);
-
-            return attrValue.IndexOf("javascript:", 0, StringComparison.OrdinalIgnoreCase) == 0;
+            return attrValue.IsScriptRelative();
         }
     }
 }

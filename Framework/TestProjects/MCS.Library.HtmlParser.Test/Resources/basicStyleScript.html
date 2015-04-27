@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>简单的脚本</title>
+    <script type="text/javascript">
+        function onDocumentLoad() {
+        }
+    </script>
+
+    <script type="text/javascript">
+        function onDocumentLoad() {
+        }
+    </script>
+
+</head>
+<body>
+    <h1>简单的脚本页面</h1>
+    <div style="color: red; width: expression('XSS'); height: expression_r(alert('XSS'));border: 1px solid red;">Hello</div>
+    <div style="background-image: url(javascript:alert('XSS'));width:16px">World</div>
+</body>
+</html>

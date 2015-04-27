@@ -818,6 +818,9 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             return result;
         }
 
+        /// <summary>
+        /// 流转时该活动从哪一根线进入的
+        /// </summary>
         public IWfTransitionDescriptor FromTransitionDescriptor
         {
             get
@@ -839,6 +842,33 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                     transitionKey = value.Key;
 
                 this.Context["FromTransitionDescriptor"] = transitionKey;
+            }
+        }
+
+        /// <summary>
+        /// 从哪条线流转出去。有可能为null，例如结束点或者没有走到的点。如果活动被撤回，这个属性保持最后一次流转的线
+        /// </summary>
+        public IWfTransitionDescriptor ToTransitionDescriptor
+        {
+            get
+            {
+                IWfTransitionDescriptor result = null;
+
+                string transitionKey = this.Context.GetValue("ToTransitionDescriptor", string.Empty);
+
+                if (transitionKey.IsNotEmpty())
+                    result = this.Descriptor.Process.FindTransitionByKey(transitionKey);
+
+                return result;
+            }
+            set
+            {
+                string transitionKey = string.Empty;
+
+                if (value != null)
+                    transitionKey = value.Key;
+
+                this.Context["ToTransitionDescriptor"] = transitionKey;
             }
         }
 

@@ -21,437 +21,494 @@ using MCS.Library.Passport.Properties;
 
 namespace MCS.Library.Passport
 {
-	/// <summary>
-	/// 用户登录认证信息
-	/// </summary>
-	public class SignInInfo : ISignInInfo
-	{
-		private string userID = string.Empty;
-		private string originalUserID = string.Empty;
-		private string domain = string.Empty;
-		private string signInSessionID = string.Empty;
-		private string authenticateServer = string.Empty;
-		private bool windowsIntegrated;
-		private DateTime signInTime;
-		private DateTime signInTimeout = DateTime.MinValue;
-		
-		//add by yuanyong 20090416增加一个扩展属性内容，用于应用存储相应的数据
-		private readonly Dictionary<string, object> properties = new Dictionary<string, object>();
+    /// <summary>
+    /// 用户登录认证信息
+    /// </summary>
+    public class SignInInfo : ISignInInfo
+    {
+        private string userID = string.Empty;
+        private string originalUserID = string.Empty;
+        private string domain = string.Empty;
+        private string signInSessionID = string.Empty;
+        private string authenticateServer = string.Empty;
+        private bool windowsIntegrated;
+        private DateTime signInTime;
+        private DateTime signInTimeout = DateTime.MinValue;
 
-		/// <summary>
-		/// 从Cookie中读取认证信息
-		/// </summary>
-		/// <returns></returns>
-		public static ISignInInfo LoadFromCookie()
-		{
-			SignInInfo signInInfo = null;
+        //add by yuanyong 20090416增加一个扩展属性内容，用于应用存储相应的数据
+        private readonly Dictionary<string, object> properties = new Dictionary<string, object>();
 
-			Common.CheckHttpContext();
+        /// <summary>
+        /// 从Cookie中读取认证信息
+        /// </summary>
+        /// <returns></returns>
+        public static ISignInInfo LoadFromCookie()
+        {
+            SignInInfo signInInfo = null;
 
-			HttpRequest request = HttpContext.Current.Request;
+            Common.CheckHttpContext();
 
-			HttpCookie cookie = request.Cookies[PassportSignInSettings.GetConfig().SignInCookieKey];
+            HttpRequest request = HttpContext.Current.Request;
 
-			if (cookie != null)
-			{
-				string strSignIn = cookie.Value;
+            HttpCookie cookie = request.Cookies[GetLoadingCookieKey()];
 
-				try
-				{
-					signInInfo = new SignInInfo(Common.DecryptString(strSignIn));
-				}
-				catch (System.Exception)
-				{
-					//如果cookie的格式错误，不予理睬
-				}
-			}
+            if (cookie != null)
+            {
+                string strSignIn = cookie.Value;
 
-			return signInInfo;
-		}
+                try
+                {
+                    signInInfo = new SignInInfo(Common.DecryptString(strSignIn));
+                }
+                catch (System.Exception)
+                {
+                    //如果cookie的格式错误，不予理睬
+                }
+            }
 
-		/// <summary>
-		/// 根据ISignInUserInfo创建SignInInfo
-		/// </summary>
-		/// <param name="userInfo"></param>
-		/// <param name="bDontSaveUserID"></param>
-		/// <param name="bAutoSignIn"></param>
-		/// <returns></returns>
-		public static ISignInInfo Create(ISignInUserInfo userInfo, bool bDontSaveUserID, bool bAutoSignIn)
-		{
-			userInfo.NullCheck("userInfo");
+            return signInInfo;
+        }
 
-			XmlDocument signInXml = Common.GenerateSignInInfo(userInfo, bDontSaveUserID, bAutoSignIn);
+        /// <summary>
+        /// 根据ISignInUserInfo创建SignInInfo
+        /// </summary>
+        /// <param name="userInfo"></param>
+        /// <param name="bDontSaveUserID"></param>
+        /// <param name="bAutoSignIn"></param>
+        /// <returns></returns>
+        public static ISignInInfo Create(ISignInUserInfo userInfo, bool bDontSaveUserID, bool bAutoSignIn)
+        {
+            userInfo.NullCheck("userInfo");
 
-			return new SignInInfo(signInXml.InnerXml);
-		}
+            XmlDocument signInXml = Common.GenerateSignInInfo(userInfo, bDontSaveUserID, bAutoSignIn);
 
-		/// <summary>
-		/// 根据ISignInUserInfo创建SignInInfo
-		/// </summary>
-		/// <param name="userInfo"></param>
-		/// <returns></returns>
-		public static ISignInInfo Create(ISignInUserInfo userInfo)
-		{
-			return Create(userInfo, false, false);
-		}
+            return new SignInInfo(signInXml.InnerXml);
+        }
 
-		/// <summary>
-		/// 根据UserID创建SignInInfo
-		/// </summary>
-		/// <param name="userID"></param>
-		/// <param name="bDontSaveUserID"></param>
-		/// <param name="bAutoSignIn"></param>
-		/// <returns></returns>
-		public static ISignInInfo Create(string userID, bool bDontSaveUserID, bool bAutoSignIn)
-		{
-			LogOnIdentity loi = new LogOnIdentity(userID);
+        /// <summary>
+        /// 根据ISignInUserInfo创建SignInInfo
+        /// </summary>
+        /// <param name="userInfo"></param>
+        /// <returns></returns>
+        public static ISignInInfo Create(ISignInUserInfo userInfo)
+        {
+            return Create(userInfo, false, false);
+        }
 
-			DefaultSignInUserInfo userInfo = new DefaultSignInUserInfo();
+        /// <summary>
+        /// 根据UserID创建SignInInfo
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <param name="bDontSaveUserID"></param>
+        /// <param name="bAutoSignIn"></param>
+        /// <returns></returns>
+        public static ISignInInfo Create(string userID, bool bDontSaveUserID, bool bAutoSignIn)
+        {
+            LogOnIdentity loi = new LogOnIdentity(userID);
 
-			userInfo.UserID = loi.LogOnNameWithoutDomain;
-			userInfo.Domain = loi.Domain;
+            DefaultSignInUserInfo userInfo = new DefaultSignInUserInfo();
 
-			return Create(userInfo, bDontSaveUserID, bAutoSignIn);
-		}
+            userInfo.UserID = loi.LogOnNameWithoutDomain;
+            userInfo.Domain = loi.Domain;
 
-		/// <summary>
-		/// 根据UserID创建SignInInfo
-		/// </summary>
-		/// <param name="userID"></param>
-		/// <returns></returns>
-		public static ISignInInfo Create(string userID)
-		{
-			return Create(userID, false, false);
-		}
+            return Create(userInfo, bDontSaveUserID, bAutoSignIn);
+        }
 
-		/// <summary>
-		/// 构造类
-		/// </summary>
-		public SignInInfo()
-		{
-		}
-		/// <summary>
-		/// 构造类
-		/// </summary>
-		/// <param name="strXml">SignInInfo的Xml信息</param>
-		/// <remarks>
-		/// <code source="..\Framework\TestProjects\DeluxeWorks.Library.Passport.Test\DataObjectsTest.cs" region="SignInInfoTest" lang="cs" title="SignInInfo对象和Xml对象间的转换" />
-		/// </remarks>
-		public SignInInfo(string strXml)
-		{
-			InitFromXml(strXml);
-		}
+        /// <summary>
+        /// 根据UserID创建SignInInfo
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <returns></returns>
+        public static ISignInInfo Create(string userID)
+        {
+            return Create(userID, false, false);
+        }
 
-		#region ISignInInfo 成员
-		/// <summary>
-		/// 用户名
-		/// </summary>
-		public string UserID
-		{
-			get
-			{
-				return this.userID;
-			}
-			set
-			{
-				this.userID = value;
-			}
-		}
+        /// <summary>
+        /// 构造类
+        /// </summary>
+        public SignInInfo()
+        {
+        }
+        /// <summary>
+        /// 构造类
+        /// </summary>
+        /// <param name="strXml">SignInInfo的Xml信息</param>
+        /// <remarks>
+        /// <code source="..\Framework\TestProjects\DeluxeWorks.Library.Passport.Test\DataObjectsTest.cs" region="SignInInfoTest" lang="cs" title="SignInInfo对象和Xml对象间的转换" />
+        /// </remarks>
+        public SignInInfo(string strXml)
+        {
+            InitFromXml(strXml);
+        }
 
-		/// <summary>
-		/// 扮演前的登录名
-		/// </summary>
-		public string OriginalUserID
-		{
-			get
-			{
-				string result = this.userID;
+        #region ISignInInfo 成员
+        /// <summary>
+        /// 用户名
+        /// </summary>
+        public string UserID
+        {
+            get
+            {
+                return this.userID;
+            }
+            set
+            {
+                this.userID = value;
+            }
+        }
 
-				if (string.IsNullOrEmpty(this.originalUserID) == false)
-					result = this.originalUserID;
+        /// <summary>
+        /// 扮演前的登录名
+        /// </summary>
+        public string OriginalUserID
+        {
+            get
+            {
+                string result = this.userID;
 
-				return result;
-			}
-			set
-			{
-				this.originalUserID = value;
-			}
-		}
+                if (string.IsNullOrEmpty(this.originalUserID) == false)
+                    result = this.originalUserID;
 
-		/// <summary>
-		/// 域名
-		/// </summary>
-		public string Domain
-		{
-			get
-			{
-				return this.domain;
-			}
-		}
+                return result;
+            }
+            set
+            {
+                this.originalUserID = value;
+            }
+        }
 
-		/// <summary>
-		/// 带域名的用户ID
-		/// </summary>
-		public string UserIDWithDomain
-		{
-			get
-			{
-				string result = UserID;
+        /// <summary>
+        /// 域名
+        /// </summary>
+        public string Domain
+        {
+            get
+            {
+                return this.domain;
+            }
+        }
 
-				if (Domain.IsNotEmpty())
-				{
-					result = string.Format("{0}@{1}", UserID, Domain);
-				}
+        /// <summary>
+        /// 带域名的用户ID
+        /// </summary>
+        public string UserIDWithDomain
+        {
+            get
+            {
+                string result = UserID;
 
-				return result;
-			}
-		}
+                if (Domain.IsNotEmpty())
+                {
+                    result = string.Format("{0}@{1}", UserID, Domain);
+                }
 
-		/// <summary>
-		/// 是否Windows集成
-		/// </summary>
-		public bool WindowsIntegrated
-		{
-			get
-			{
-				return this.windowsIntegrated;
-			}
-		}
+                return result;
+            }
+        }
 
-		/// <summary>
-		/// 登录的SessionID
-		/// </summary>
-		public string SignInSessionID
-		{
-			get
-			{
-				return this.signInSessionID;
-			}
-		}
+        /// <summary>
+        /// 是否Windows集成
+        /// </summary>
+        public bool WindowsIntegrated
+        {
+            get
+            {
+                return this.windowsIntegrated;
+            }
+        }
 
-		/// <summary>
-		/// 登录时间
-		/// </summary>
-		public DateTime SignInTime
-		{
-			get
-			{
-				return this.signInTime;
-			}
-			set
-			{
-				this.signInTime = value;
-			}
-		}
+        /// <summary>
+        /// 登录的SessionID
+        /// </summary>
+        public string SignInSessionID
+        {
+            get
+            {
+                return this.signInSessionID;
+            }
+        }
 
-		/// <summary>
-		/// 注销时间
-		/// </summary>
-		public DateTime SignInTimeout
-		{
-			get
-			{
-				return this.signInTimeout;
-			}
-			set
-			{
-				this.signInTimeout = value;
-			}
-		}
+        /// <summary>
+        /// 登录时间
+        /// </summary>
+        public DateTime SignInTime
+        {
+            get
+            {
+                return this.signInTime;
+            }
+            set
+            {
+                this.signInTime = value;
+            }
+        }
 
-		/// <summary>
-		/// 认证服务器
-		/// </summary>
-		public string AuthenticateServer
-		{
-			get
-			{
-				return this.authenticateServer;
-			}
-		}
-		
-		/// <summary>
-		/// 是否登入后超时
-		/// </summary>
-		public bool ExistsSignInTimeout
-		{
-			get
-			{
-				return this.signInTimeout != DateTime.MaxValue && this.signInTimeout != DateTime.MinValue;
-			}
-		}
+        /// <summary>
+        /// 注销时间
+        /// </summary>
+        public DateTime SignInTimeout
+        {
+            get
+            {
+                return this.signInTimeout;
+            }
+            set
+            {
+                this.signInTimeout = value;
+            }
+        }
 
-		/// <summary>
-		/// 保存入Cookie中
-		/// </summary>
-		public void SaveToCookie()
-		{
-			Common.CheckHttpContext();
+        /// <summary>
+        /// 认证服务器
+        /// </summary>
+        public string AuthenticateServer
+        {
+            get
+            {
+                return this.authenticateServer;
+            }
+        }
 
-			HttpResponse response = HttpContext.Current.Response;
+        /// <summary>
+        /// 是否登入后超时
+        /// </summary>
+        public bool ExistsSignInTimeout
+        {
+            get
+            {
+                return this.signInTimeout != DateTime.MaxValue && this.signInTimeout != DateTime.MinValue;
+            }
+        }
 
-			XmlDocument xmlDoc = SaveToXml();
-			string strData = xmlDoc.InnerXml;
+        /// <summary>
+        /// 租户编码
+        /// </summary>
+        public string TenantCode
+        {
+            get
+            {
+                return this.Properties.GetValue("TenantCode", string.Empty);
+            }
+            set
+            {
+                this.Properties["TenantCode"] = value;
+            }
+        }
 
-			HttpCookie cookie = new HttpCookie(PassportSignInSettings.GetConfig().SignInCookieKey);
+        /// <summary>
+        /// 保存入Cookie中
+        /// </summary>
+        public void SaveToCookie()
+        {
+            Common.CheckHttpContext();
 
-			cookie.Value = Common.EncryptString(strData);
-			cookie.Expires = this.signInTimeout;
+            HttpResponse response = HttpContext.Current.Response;
 
-			response.Cookies.Add(cookie);
-		}
+            XmlDocument xmlDoc = SaveToXml();
+            string strData = xmlDoc.InnerXml;
 
-		/// <summary>
-		/// 存储到xml结构数据中
-		/// </summary>
-		/// <returns>xml结构的SignInInfo</returns>
-		/// <remarks>
-		/// <code source="..\Framework\TestProjects\DeluxeWorks.Library.Passport.Test\DataObjectsTest.cs" region="SignInInfoTest" lang="cs" title="SignInInfo对象和Xml对象间的转换" />
-		/// </remarks>
-		public System.Xml.XmlDocument SaveToXml()
-		{
-			XmlDocument xmlDoc = new XmlDocument();
+            HttpCookie cookie = new HttpCookie(this.GetSavingCookieKey());
 
-			xmlDoc.LoadXml("<SignInInfo/>");
+            cookie.Value = Common.EncryptString(strData);
+            cookie.Expires = this.signInTimeout;
+            cookie.HttpOnly = true;
 
-			XmlElement root = xmlDoc.DocumentElement;
+            response.Cookies.Add(cookie);
+        }
 
-			XmlHelper.AppendNode(root, "SSID", this.signInSessionID);
-			XmlHelper.AppendNode(root, "UID", this.userID);
-			XmlHelper.AppendNode(root, "DO", this.domain);
-			XmlHelper.AppendNode(root, "WI", this.windowsIntegrated);
-			XmlHelper.AppendNode(root, "AS", this.authenticateServer);
-			XmlHelper.AppendNode(root, "STime", Common.DateTimeStandardFormat(this.signInTime));
-			XmlHelper.AppendNode(root, "STimeout", Common.DateTimeStandardFormat(this.signInTimeout));
-			XmlHelper.AppendNode(root, "OUID", this.OriginalUserID);
+        /// <summary>
+        /// 存储到xml结构数据中
+        /// </summary>
+        /// <returns>xml结构的SignInInfo</returns>
+        /// <remarks>
+        /// <code source="..\Framework\TestProjects\DeluxeWorks.Library.Passport.Test\DataObjectsTest.cs" region="SignInInfoTest" lang="cs" title="SignInInfo对象和Xml对象间的转换" />
+        /// </remarks>
+        public System.Xml.XmlDocument SaveToXml()
+        {
+            XmlDocument xmlDoc = new XmlDocument();
 
-			if (this.properties.Count > 0) // Add By Yuanyong 20090416
-			{
-				XmlNode nodeProps = XmlHelper.AppendNode(root, Resource.SignInInfoExtraProperties);
+            xmlDoc.LoadXml("<SignInInfo/>");
 
-				foreach (KeyValuePair<string, object> kp in this.properties)
-				{
-					XmlNode nodeProp = XmlHelper.AppendNode(nodeProps, "add");
+            XmlElement root = xmlDoc.DocumentElement;
 
-					XmlHelper.AppendAttr(nodeProp, "key", kp.Key);
-					XmlHelper.AppendAttr(nodeProp, "value", kp.Value.ToString());
-				}
-			}
+            XmlHelper.AppendNode(root, "SSID", this.signInSessionID);
+            XmlHelper.AppendNode(root, "UID", this.userID);
+            XmlHelper.AppendNode(root, "DO", this.domain);
+            XmlHelper.AppendNode(root, "WI", this.windowsIntegrated);
+            XmlHelper.AppendNode(root, "AS", this.authenticateServer);
+            XmlHelper.AppendNode(root, "STime", Common.DateTimeStandardFormat(this.signInTime));
+            XmlHelper.AppendNode(root, "STimeout", Common.DateTimeStandardFormat(this.signInTimeout));
+            XmlHelper.AppendNode(root, "OUID", this.OriginalUserID);
 
-			return xmlDoc;
-		}
+            if (this.properties.Count > 0)
+            {
+                XmlNode nodeProps = XmlHelper.AppendNode(root, Resource.SignInInfoExtraProperties);
 
-		/// <summary>
-		/// SignInInfo是否合法
-		/// </summary>
-		/// <returns>true 或者 false</returns>
-		public bool IsValid()
-		{
-			bool bValid = false;
+                foreach (KeyValuePair<string, object> kp in this.properties)
+                {
+                    XmlNode nodeProp = XmlHelper.AppendNode(nodeProps, "add");
 
-			try
-			{
-				ExceptionHelper.TrueThrow(IsAbsoluteTimeExpired(), Resource.AbsoluteTimeExpired);
-				ExceptionHelper.TrueThrow(IsSlidingExpired(), Resource.SlidingTimeExpired);
-				ExceptionHelper.TrueThrow(IsDifferentAuthenticateServer(), Resource.DifferentAthenticateServer);
+                    XmlHelper.AppendAttr(nodeProp, "key", kp.Key);
+                    XmlHelper.AppendAttr(nodeProp, "value", kp.Value.ToString());
+                }
+            }
 
-				bValid = true;
-			}
-			catch (System.ApplicationException ex)
-			{
-				Trace.WriteLine(string.Format(Resource.TicketInvalidReason, this.UserID, ex.Message));
-			}
+            return xmlDoc;
+        }
 
-			return bValid;
-		}
+        /// <summary>
+        /// SignInInfo是否合法
+        /// </summary>
+        /// <returns>true 或者 false</returns>
+        public bool IsValid()
+        {
+            bool bValid = false;
 
-		/// <summary>
-		/// 扩展属性
-		/// </summary>
-		/// <remarks>
-		/// 存储应用中需要扩展的相应属性数据内容
-		/// </remarks>
-		public Dictionary<string, object> Properties // Add By Yuanyong 20090416
-		{
-			get
-			{
-				return this.properties;
-			}
-		}
-		#endregion
+            try
+            {
+                ExceptionHelper.TrueThrow(AreDifferentTenantCode(), Resource.DifferentTenantCode);
+                ExceptionHelper.TrueThrow(IsAbsoluteTimeExpired(), Resource.AbsoluteTimeExpired);
+                ExceptionHelper.TrueThrow(IsSlidingExpired(), Resource.SlidingTimeExpired);
+                ExceptionHelper.TrueThrow(IsDifferentAuthenticateServer(), Resource.DifferentAthenticateServer);
 
-		private bool IsAbsoluteTimeExpired()
-		{
-			DateTime newExpireDate = GetConfigExpireDate();
+                bValid = true;
+            }
+            catch (System.ApplicationException ex)
+            {
+                Trace.WriteLine(string.Format(Resource.TicketInvalidReason, this.UserID, ex.Message));
+            }
 
-			bool bExpired = (DateTime.Now >= newExpireDate);
+            return bValid;
+        }
+
+        /// <summary>
+        /// 扩展属性
+        /// </summary>
+        /// <remarks>
+        /// 存储应用中需要扩展的相应属性数据内容
+        /// </remarks>
+        public Dictionary<string, object> Properties // Add By Yuanyong 20090416
+        {
+            get
+            {
+                return this.properties;
+            }
+        }
+        #endregion
+
+        /// <summary>
+        /// 得到加载时的Cookie的Key
+        /// </summary>
+        /// <returns></returns>
+        public static string GetLoadingCookieKey()
+        {
+            string result = PassportSignInSettings.GetConfig().SignInCookieKey;
+
+            //暂时不按照租户分Cookie
+            //if (TenantContext.Current.Enabled)
+            //    result += "-" + HttpUtility.UrlEncode(TenantContext.Current.TenantCode);
+
+            return result;
+        }
+
+        private bool AreDifferentTenantCode()
+        {
+            bool result = false;
+
+            string envTenantCode = PassportManager.GetTenantCodeFromContext();
+
+            if (TenantContext.Current.Enabled && envTenantCode.IsNotEmpty())
+            {
+                result = string.Compare(envTenantCode, this.TenantCode, true) != 0;
+            }
+
+            return result;
+        }
+
+        private bool IsAbsoluteTimeExpired()
+        {
+            DateTime newExpireDate = GetConfigExpireDate();
+
+            bool bExpired = (DateTime.Now >= newExpireDate);
 #if DELUXEWORKSTEST
             Debug.WriteLineIf(bExpired, "Absolute Time Expired", "SignInPage Check");
 #endif
-			return (bExpired);		//绝对时间是否过期
-		}
+            return (bExpired);		//绝对时间是否过期
+        }
 
-		private DateTime GetConfigExpireDate()
-		{
-			DateTime dt = DateTime.MaxValue;
+        private DateTime GetConfigExpireDate()
+        {
+            DateTime dt = DateTime.MaxValue;
 
-			PassportSignInSettings settings = PassportSignInSettings.GetConfig();
+            PassportSignInSettings settings = PassportSignInSettings.GetConfig();
 
-			if (settings.DefaultTimeout >= TimeSpan.Zero)
-				dt = SignInTime.Add(settings.DefaultTimeout);
+            if (settings.DefaultTimeout >= TimeSpan.Zero)
+                dt = SignInTime.Add(settings.DefaultTimeout);
 
-			return dt;
-		}
+            return dt;
+        }
 
-		private bool IsSlidingExpired()
-		{
-			bool bExpired = false;
+        private bool IsSlidingExpired()
+        {
+            bool bExpired = false;
 
-			PassportSignInSettings settings = PassportSignInSettings.GetConfig();
+            PassportSignInSettings settings = PassportSignInSettings.GetConfig();
 
-			if (settings.HasSlidingExpiration)
-			{
-				DateTime dtTO = this.SignInTime.Add(settings.SlidingExpiration);
-				bExpired = (DateTime.Now >= dtTO);		//相对时间过期
-			}
+            if (settings.HasSlidingExpiration)
+            {
+                DateTime dtTO = this.SignInTime.Add(settings.SlidingExpiration);
+                bExpired = (DateTime.Now >= dtTO);		//相对时间过期
+            }
 #if DELUXEWORKSTEST
             Debug.WriteLineIf(bExpired, "Sliding Expired", "SignInPage Check");
 #endif
-			return bExpired;
-		}
+            return bExpired;
+        }
 
-		private bool IsDifferentAuthenticateServer()
-		{
-			HttpRequest request = HttpContext.Current.Request;
+        private bool IsDifferentAuthenticateServer()
+        {
+            HttpRequest request = HttpContext.Current.Request;
 
-			return string.Compare(this.AuthenticateServer, request.Url.Host + ":" + request.Url.Port, true) != 0;
-		}
+            return string.Compare(this.AuthenticateServer, request.Url.Host + ":" + request.Url.Port, true) != 0;
+        }
 
-		private void InitFromXml(string strXml)
-		{
-			XmlDocument xmlDoc = XmlHelper.CreateDomDocument(strXml);
+        private void InitFromXml(string strXml)
+        {
+            XmlDocument xmlDoc = XmlHelper.CreateDomDocument(strXml);
 
-			XmlElement root = xmlDoc.DocumentElement;
+            XmlElement root = xmlDoc.DocumentElement;
 
-			this.signInSessionID = XmlHelper.GetSingleNodeText(root, "SSID");
-			this.userID = XmlHelper.GetSingleNodeText(root, "UID");
-			this.domain = XmlHelper.GetSingleNodeText(root, "DO");
-			this.windowsIntegrated = XmlHelper.GetSingleNodeValue(root, "WI", false);
-			this.authenticateServer = XmlHelper.GetSingleNodeText(root, "AS");
+            this.signInSessionID = XmlHelper.GetSingleNodeText(root, "SSID");
+            this.userID = XmlHelper.GetSingleNodeText(root, "UID");
+            this.domain = XmlHelper.GetSingleNodeText(root, "DO");
+            this.windowsIntegrated = XmlHelper.GetSingleNodeValue(root, "WI", false);
+            this.authenticateServer = XmlHelper.GetSingleNodeText(root, "AS");
 
-			this.signInTime = XmlHelper.GetSingleNodeValue(root, "STime", DateTime.MinValue);
-			this.signInTimeout = XmlHelper.GetSingleNodeValue(root, "STimeout", DateTime.MinValue);
-			this.originalUserID = XmlHelper.GetSingleNodeValue(root, "OUID", this.userID);
+            this.signInTime = XmlHelper.GetSingleNodeValue(root, "STime", DateTime.MinValue);
+            this.signInTimeout = XmlHelper.GetSingleNodeValue(root, "STimeout", DateTime.MinValue);
+            this.originalUserID = XmlHelper.GetSingleNodeValue(root, "OUID", this.userID);
 
-			// Add By Yuanyong 20090416
-			XmlNode node = root.SelectSingleNode(Resource.SignInInfoExtraProperties);
-			if (node != null)
-			{
-				foreach (XmlNode nodeProp in node.ChildNodes)
-				{
-					this.properties.Add(XmlHelper.GetAttributeText(nodeProp, "key"), XmlHelper.GetAttributeText(nodeProp, "value"));
-				}
-			}
-		}
-	}
+            // Add By Yuanyong 20090416
+            XmlNode node = root.SelectSingleNode(Resource.SignInInfoExtraProperties);
+            if (node != null)
+            {
+                foreach (XmlNode nodeProp in node.ChildNodes)
+                {
+                    this.properties.Add(XmlHelper.GetAttributeText(nodeProp, "key"), XmlHelper.GetAttributeText(nodeProp, "value"));
+                }
+            }
+        }
+
+        private string GetSavingCookieKey()
+        {
+            string result = PassportSignInSettings.GetConfig().SignInCookieKey;
+
+            //暂时不按照租户分Cookie
+            //if (TenantContext.Current.Enabled)
+            //    result += "-" + HttpUtility.UrlEncode(this.TenantCode);
+
+            return result;
+        }
+    }
 }

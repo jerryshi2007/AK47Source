@@ -114,6 +114,15 @@ namespace MCS.Library.WF.Contracts.Workflow.Descriptors
             get;
             set;
         }
+
+        /// <summary>
+        /// 这个活动出线是哪一条
+        /// </summary>
+        public WfClientTransitionDescriptor ToTransitionDescriptor
+        {
+            get;
+            set;
+        }
     }
 
     [DataContract]

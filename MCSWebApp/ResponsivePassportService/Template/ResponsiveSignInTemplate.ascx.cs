@@ -55,7 +55,13 @@ namespace ResponsivePassportService.Template
             if (this._Owner != null)
             {
                 this.culture.Value = this._Owner.PageData.Properties.GetValue("SignInCulture", "zh-CN");
-                this.tenantCode.Text = this._Owner.PageData.Properties.GetValue("TenantCode", string.Empty);
+
+                string tenantCode = PassportManager.GetTenantCodeFromContext();
+
+                if (tenantCode.IsNullOrEmpty())
+                    tenantCode = this._Owner.PageData.Properties.GetValue("TenantCode", string.Empty);
+
+                this.tenantCode.Text = tenantCode;
             }
 
             base.OnPreRender(e);
@@ -89,7 +95,8 @@ namespace ResponsivePassportService.Template
 
                 SetCultureInfo(context, this.culture.Value);
 
-                context.SignInInfo.Properties["TenantCode"] = this.tenantCode.Text;
+                TenantContext.Current.TenantCode = this.tenantCode.Text;
+                context.SignInInfo.TenantCode = this.tenantCode.Text;
 
                 context.PageData.Properties["SignInCulture"] = this.culture.Value;
                 context.PageData.Properties["TenantCode"] = this.tenantCode.Text;

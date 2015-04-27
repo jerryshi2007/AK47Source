@@ -8,6 +8,7 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectItem Include="MCS.Library\MCS.Library.csproj" />
+    <ProjectItem Include="MCS.Library.HtmlParser\MCS.Library.HtmlParser.csproj" />
     <ProjectItem Include="MCS.Web.Library.Script.Json\MCS.Web.Library.Script.Json.csproj" />
     <ProjectItem Include="MCS.Library.Compression\MCS.Library.Compression.csproj" />
     <ProjectItem Include="MCS.Library.Services.Contracts\MCS.Library.Services.Contracts.csproj" />

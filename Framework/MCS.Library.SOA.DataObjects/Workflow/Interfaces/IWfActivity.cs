@@ -231,6 +231,14 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             get;
         }
 
+        /// <summary>
+        /// 从哪条线流转出去。有可能为null，例如结束点或者没有走到的点。如果活动被撤回，这个属性保持最后一次流转的线
+        /// </summary>
+        IWfTransitionDescriptor ToTransitionDescriptor
+        {
+            get;
+        }
+
         WfActionCollection EnterActions
         {
             get;

@@ -33,18 +33,23 @@ Global
 		SccProjectUniqueName1 = MCS.Library.SOA.DataObjects.Tenant.Test.csproj
 		SccLocalPath1 = .
 		SccProjectUniqueName2 = ..\\..\\MCS.Library\\MCS.Library.csproj
+		SccProjectTopLevelParentUniqueName2 = MCS.Library.SOA.DataObjects.Tenant.Test.sln
 		SccProjectName2 = ../../MCS.Library
 		SccLocalPath2 = ..\\..\\MCS.Library
 		SccProjectUniqueName3 = ..\\..\\MCS.Library.Data\\MCS.Library.Data.csproj
+		SccProjectTopLevelParentUniqueName3 = MCS.Library.SOA.DataObjects.Tenant.Test.sln
 		SccProjectName3 = ../../MCS.Library.Data
 		SccLocalPath3 = ..\\..\\MCS.Library.Data
 		SccProjectUniqueName4 = ..\\..\\MCS.Library.SOA.DataObjects\\MCS.Library.SOA.DataObjects.csproj
+		SccProjectTopLevelParentUniqueName4 = MCS.Library.SOA.DataObjects.Tenant.Test.sln
 		SccProjectName4 = ../../MCS.Library.SOA.DataObjects
 		SccLocalPath4 = ..\\..\\MCS.Library.SOA.DataObjects
 		SccProjectUniqueName5 = ..\\..\\MCS.Web.Library.Script.Json\\MCS.Web.Library.Script.Json.csproj
+		SccProjectTopLevelParentUniqueName5 = MCS.Library.SOA.DataObjects.Tenant.Test.sln
 		SccProjectName5 = ../../MCS.Web.Library.Script.Json
 		SccLocalPath5 = ..\\..\\MCS.Web.Library.Script.Json
 		SccProjectUniqueName6 = ..\\..\\MCS.Library.OGUPermission\\MCS.Library.OGUPermission.csproj
+		SccProjectTopLevelParentUniqueName6 = MCS.Library.SOA.DataObjects.Tenant.Test.sln
 		SccProjectName6 = ../../MCS.Library.OGUPermission
 		SccLocalPath6 = ..\\..\\MCS.Library.OGUPermission
 	EndGlobalSection
@@ -146,6 +151,7 @@ Global
 		{4077B0B7-062A-4F6D-8A45-A180A2ED3215} = {903363D1-D4CB-486E-A780-EECA4362F0AF}
 		{4313DE1E-738F-477D-B7FD-B237E9116670} = {903363D1-D4CB-486E-A780-EECA4362F0AF}
 		{7905642F-4630-4D16-AF40-CB1FB70D516F} = {EF242899-279E-4251-8E40-ACCE0DB2AF03}
+		{78CD90D6-129A-401C-8396-E7AD8996219E} = {903363D1-D4CB-486E-A780-EECA4362F0AF}
 		{6EA98729-9A07-4D1F-B389-07C6B9D43B1D} = {903363D1-D4CB-486E-A780-EECA4362F0AF}
 	EndGlobalSection
 EndGlobal

@@ -68,6 +68,25 @@ namespace MCS.Library.HtmlParser
         }
 
         /// <summary>
+        /// 把其中各项连接在一起
+        /// </summary>
+        /// <returns></returns>
+        public string Join()
+        {
+            StringBuilder strB = new StringBuilder();
+
+            foreach (HtmlStyleAttribute attr in this)
+            {
+                if (strB.Length > 0)
+                    strB.Append("; ");
+
+                strB.AppendFormat("{0}: {1}", attr.Key, attr.Value);
+            }
+
+            return strB.ToString();
+        }
+
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="item"></param>

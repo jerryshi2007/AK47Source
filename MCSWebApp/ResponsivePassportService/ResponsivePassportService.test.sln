@@ -12,6 +12,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResponsivePassportService",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library.Passport", "..\..\Framework\MCS.Library.Passport\MCS.Library.Passport.csproj", "{2B974479-EB50-46D1-A812-58BB45447D65}"
 	ProjectSection(ProjectDependencies) = postProject
+		{31B6A252-182E-48C0-8D6A-56E3C2DD856F} = {31B6A252-182E-48C0-8D6A-56E3C2DD856F}
 		{4077B0B7-062A-4F6D-8A45-A180A2ED3215} = {4077B0B7-062A-4F6D-8A45-A180A2ED3215}
 	EndProjectSection
 EndProject
@@ -33,20 +34,20 @@ Global
 		SccNumberOfProjects = 6
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = http://shsvr9141tfs.ciicsh.local:8080/tfs/rhso
-		SccProjectUniqueName0 = ..\\..\\Framework\\MCS.Library\\MCS.Library.csproj
-		SccProjectName0 = ../../Framework/MCS.Library
-		SccLocalPath0 = ..\\..\\Framework\\MCS.Library
-		SccProjectUniqueName1 = ..\\..\\Framework\\MCS.Web.Responsive.Library\\MCS.Web.Responsive.Library.csproj
-		SccProjectName1 = ../../Framework/MCS.Web.Responsive.Library
-		SccLocalPath1 = ..\\..\\Framework\\MCS.Web.Responsive.Library
-		SccProjectUniqueName2 = ..\\..\\Framework\\MCS.Library.Passport\\MCS.Library.Passport.csproj
-		SccProjectName2 = ../../Framework/MCS.Library.Passport
-		SccLocalPath2 = ..\\..\\Framework\\MCS.Library.Passport
-		SccProjectUniqueName3 = ..\\..\\Framework\\MCS.Library.Passport.Social\\MCS.Library.Passport.Social.csproj
-		SccProjectName3 = ../../Framework/MCS.Library.Passport.Social
-		SccLocalPath3 = ..\\..\\Framework\\MCS.Library.Passport.Social
-		SccProjectUniqueName4 = ResponsivePassportService.csproj
-		SccLocalPath4 = .
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ..\\..\\Framework\\MCS.Library\\MCS.Library.csproj
+		SccProjectName1 = ../../Framework/MCS.Library
+		SccLocalPath1 = ..\\..\\Framework\\MCS.Library
+		SccProjectUniqueName2 = ..\\..\\Framework\\MCS.Web.Responsive.Library\\MCS.Web.Responsive.Library.csproj
+		SccProjectName2 = ../../Framework/MCS.Web.Responsive.Library
+		SccLocalPath2 = ..\\..\\Framework\\MCS.Web.Responsive.Library
+		SccProjectUniqueName3 = ..\\..\\Framework\\MCS.Library.Passport\\MCS.Library.Passport.csproj
+		SccProjectName3 = ../../Framework/MCS.Library.Passport
+		SccLocalPath3 = ..\\..\\Framework\\MCS.Library.Passport
+		SccProjectUniqueName4 = ..\\..\\Framework\\MCS.Library.Passport.Social\\MCS.Library.Passport.Social.csproj
+		SccProjectName4 = ../../Framework/MCS.Library.Passport.Social
+		SccLocalPath4 = ..\\..\\Framework\\MCS.Library.Passport.Social
+		SccProjectUniqueName5 = ResponsivePassportService.csproj
 		SccLocalPath5 = .
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

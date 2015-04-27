@@ -1,14 +1,10 @@
-#region
-// -------------------------------------------------
-// Assembly	：	DeluxeWorks.Library.Passport
-// FileName	：	AuthenticationModuleBase.cs
-// Remark	：	
-// -------------------------------------------------
-// VERSION  	AUTHOR		DATE			CONTENT
-// 1.0
-// 1.1          胡自强      2008-12-2       添加注释
-// -------------------------------------------------
-#endregion
+using MCS.Library.Caching;
+using MCS.Library.Configuration;
+using MCS.Library.Core;
+using MCS.Library.Globalization;
+using MCS.Library.Passport.Properties;
+using MCS.Library.Principal;
+using MCS.Web.Responsive.Library;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -17,12 +13,6 @@ using System.Security.Principal;
 using System.Text;
 using System.Web;
 using System.Web.Configuration;
-using MCS.Library.Caching;
-using MCS.Library.Configuration;
-using MCS.Library.Core;
-using MCS.Library.Globalization;
-using MCS.Library.Passport.Properties;
-using MCS.Library.Principal;
 
 namespace MCS.Library.Passport
 {
@@ -87,6 +77,9 @@ namespace MCS.Library.Passport
 
         private static void context_BeginRequest(object sender, EventArgs e)
         {
+            //从环境中(url)获取TenantCode
+            TenantContext.Current.TenantCode = PassportManager.GetTenantCodeFromContext();
+
             HttpContext.Current.Items["IsDeluxeWorksAuthenticate"] = true;
 
             if (HttpContext.Current.Request.QueryString[AccessTicket.AccquireAccessTicketParamName].IsNotEmpty())
@@ -218,9 +211,7 @@ namespace MCS.Library.Passport
             }
 
             if (string.IsNullOrEmpty(userID))
-            {
                 userID = GetLogOnName(out ticket);
-            }
 
             return userID;
         }
@@ -251,10 +242,8 @@ namespace MCS.Library.Passport
         /// <param name="ticket"></param>
         private void SetTenantContext(ITicket ticket)
         {
-            TenantContext.Current.TenantCode = ticket.SignInInfo.Properties.GetValue("TenantCode", string.Empty);
-
-            if (TenantContext.Current.Enabled == false)
-                TenantContext.Current.Enabled = TenantContext.Current.TenantCode.IsNotEmpty();
+            if (TenantContext.Current.TenantCode.IsNullOrEmpty())
+                TenantContext.Current.TenantCode = ticket.SignInInfo.TenantCode;
         }
 
         private static void SetPrincipal(string userID, ITicket ticket)

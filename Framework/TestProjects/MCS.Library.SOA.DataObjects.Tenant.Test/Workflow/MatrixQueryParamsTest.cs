@@ -1,5 +1,4 @@
 ﻿using MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper;
-using MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper;
 using MCS.Library.SOA.DataObjects.Workflow;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;

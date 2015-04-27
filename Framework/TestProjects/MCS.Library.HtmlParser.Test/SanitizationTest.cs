@@ -18,6 +18,8 @@ namespace MCS.Library.HtmlParser.Test
             string safeHtml = HtmlSanitizer.GetSafeHtml(content);
 
             Console.WriteLine(safeHtml);
+
+            Assert.IsFalse(safeHtml.IndexOf("script") >= 0);
         }
 
         [TestMethod]
@@ -28,6 +30,8 @@ namespace MCS.Library.HtmlParser.Test
             string safeHtml = HtmlSanitizer.GetSafeHtml(content);
 
             Console.WriteLine(safeHtml);
+
+            Assert.IsFalse(safeHtml.IndexOf("onclick") >= 0);
         }
 
         [TestMethod]
@@ -38,6 +42,38 @@ namespace MCS.Library.HtmlParser.Test
             string safeHtml = HtmlSanitizer.GetSafeHtml(content);
 
             Console.WriteLine(safeHtml);
+
+            Assert.IsFalse(safeHtml.IndexOf("javascript:") >= 0);
+            Assert.IsFalse(safeHtml.IndexOf("vbscript:") >= 0);
+            Assert.IsFalse(safeHtml.IndexOf("expression:") >= 0);
+        }
+
+        [TestMethod]
+        public void RemoveStyleJavaScriptAttributesTest()
+        {
+            string content = LoadHtmlFromResource("basicStyleScript.html");
+
+            string safeHtml = HtmlSanitizer.GetSafeHtml(content);
+
+            Console.WriteLine(safeHtml);
+
+            Assert.IsFalse(safeHtml.IndexOf("javascript:") >= 0);
+            Assert.IsFalse(safeHtml.IndexOf("expression") >= 0);
+            Assert.IsFalse(safeHtml.IndexOf("expression_r") >= 0);
+        }
+
+        [TestMethod]
+        public void RemoveFragmentStyleJavaScriptAttributesTest()
+        {
+            string content = LoadHtmlFromResource("basicFragment.html");
+
+            string safeHtml = HtmlSanitizer.GetSafeHtml(content);
+
+            Console.WriteLine(safeHtml);
+
+            Assert.IsFalse(safeHtml.IndexOf("javascript:") >= 0);
+            Assert.IsFalse(safeHtml.IndexOf("vbscript:") >= 0);
+            Assert.IsFalse(safeHtml.IndexOf("expression:") >= 0);
         }
 
         private static string LoadHtmlFromResource(string resName)

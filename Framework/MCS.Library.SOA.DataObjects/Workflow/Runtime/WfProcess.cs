@@ -1035,7 +1035,10 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
                 //Set Original Activity Status
                 if (this.CurrentActivity != null)
+                {
+                    ((WfActivityBase)this.CurrentActivity).ToTransitionDescriptor = transferParams.FromTransitionDescriptor;
                     ExecuteOriginalActivityActionsAndSetStatus(this.CurrentActivity, transferParams.Operator);
+                }
 
                 WfMoveToEventArgs movetoEventArgs = new WfMoveToEventArgs(this.CurrentActivity, nextActivity, transferParams);
 

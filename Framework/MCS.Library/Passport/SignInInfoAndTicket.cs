@@ -94,6 +94,15 @@ namespace MCS.Library.Passport
 			get;
 		}
 
+        /// <summary>
+        /// 租户编码
+        /// </summary>
+        string TenantCode
+        {
+            get;
+            set;
+        }
+
 		/// <summary>
 		/// 扩展属性集合（不入库）
 		/// </summary>

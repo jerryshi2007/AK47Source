@@ -84,6 +84,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
             Assert.AreEqual(process.CurrentActivity.ID, processLoaded.CurrentActivity.ID);
             Assert.AreEqual(WfActivityStatus.Running, processLoaded.CurrentActivity.Status);
             Assert.IsTrue(processLoaded.CurrentActivity.Assignees.Count > 0);
+            Assert.AreEqual(processLoaded.CurrentActivity.FromTransitionDescriptor, processLoaded.InitialActivity.ToTransitionDescriptor);
         }
     }
 }

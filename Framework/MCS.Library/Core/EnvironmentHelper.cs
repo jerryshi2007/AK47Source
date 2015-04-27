@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Net;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -283,22 +284,22 @@ namespace MCS.Library.Core
         /// <returns></returns>
         public static string GetClientIP()
         {
-            string ip = string.Empty;
+            IPAddress ip = null;
 
             if (CheckIsWebApplication())
             {
-                ip = HttpContext.Current.Request.ServerVariables.GetValue("HTTP_X_FORWARDED_FOR", string.Empty);
+                ip = HttpContext.Current.Request.ServerVariables.GetValue("HTTP_X_FORWARDED_FOR", string.Empty).GetFirstIPAddress();
 
-                if (!ip.IsValidIPAddress())
+                if (ip == null)
                 {
-                    ip = HttpContext.Current.Request.ServerVariables.GetValue("REMOTE_ADDR", string.Empty);
+                    ip = HttpContext.Current.Request.ServerVariables.GetValue("REMOTE_ADDR", string.Empty).GetFirstIPAddress();
 
-                    if (!ip.IsValidIPAddress())
-                        ip = HttpContext.Current.Request.UserHostAddress;
+                    if (ip == null)
+                        ip = HttpContext.Current.Request.UserHostAddress.GetFirstIPAddress();
                 }
             }
 
-            return ip;
+            return (ip != null) ? ip.ToString() : string.Empty;
         }
         #endregion Public
 

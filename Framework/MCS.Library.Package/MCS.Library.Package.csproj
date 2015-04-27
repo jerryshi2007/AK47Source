@@ -122,14 +122,10 @@
   </Target>
   <PropertyGroup>
     <PostBuildEvent>set path=%25path%25;C:\Windows\System32
- 
- 
 set path=%25path%25;$(SolutionDir)\CIIC.HSR.TSP.Files
-
 cd $(ProjectDir)
 
-laucher $(ConfigurationName) $(TargetName)
-</PostBuildEvent>
+laucher $(ConfigurationName) $(TargetName)</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>

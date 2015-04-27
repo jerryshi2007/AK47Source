@@ -14,6 +14,7 @@ namespace MCS.Library.HtmlParser.Test
             HtmlStyleAttributeCollection result = HtmlStyleParser.Parse(style);
 
             Output(result);
+            Console.WriteLine(result.Join());
 
             Assert.AreEqual(1, result.Count);
             Assert.AreEqual("red", result["color"].Value);
@@ -27,6 +28,7 @@ namespace MCS.Library.HtmlParser.Test
             HtmlStyleAttributeCollection result = HtmlStyleParser.Parse(style);
 
             Output(result);
+            Console.WriteLine(result.Join());
 
             Assert.AreEqual(2, result.Count);
             Assert.AreEqual("red", result["color"].Value);
@@ -41,6 +43,7 @@ namespace MCS.Library.HtmlParser.Test
             HtmlStyleAttributeCollection result = HtmlStyleParser.Parse(style);
 
             Output(result);
+            Console.WriteLine(result.Join());
 
             Assert.AreEqual(2, result.Count);
             Assert.AreEqual("red", result["color"].Value);
@@ -55,6 +58,7 @@ namespace MCS.Library.HtmlParser.Test
             HtmlStyleAttributeCollection result = HtmlStyleParser.Parse(style);
 
             Output(result);
+            Console.WriteLine(result.Join());
 
             Assert.AreEqual(2, result.Count);
             Assert.AreEqual("red", result["color"].Value);
@@ -69,6 +73,7 @@ namespace MCS.Library.HtmlParser.Test
             HtmlStyleAttributeCollection result = HtmlStyleParser.Parse(style);
 
             Output(result);
+            Console.WriteLine(result.Join());
 
             Assert.AreEqual(2, result.Count);
             Assert.AreEqual("red", result["color"].Value);
@@ -83,6 +88,7 @@ namespace MCS.Library.HtmlParser.Test
             HtmlStyleAttributeCollection result = HtmlStyleParser.Parse(style);
 
             Output(result);
+            Console.WriteLine(result.Join());
 
             Assert.AreEqual(1, result.Count);
             Assert.AreEqual(null, result["color"].Value);

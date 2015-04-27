@@ -326,14 +326,17 @@ namespace MCS.Library.SOA.DataObjects
             {
                 SOARolePropertyRowCollection subRows = innerRole.Rows.Query(context.QueryParams);
 
-                if (((SOARole)this.Role).MatrixType == WfMatrixType.ActivityMatrix && innerRole.MatrixType != WfMatrixType.ActivityMatrix)
-                    subRows = MergeActivityRowPropertiesByRows(subRows);
-
-                foreach (SOARolePropertyRow subRow in subRows)
+                if (this.Role != null)
                 {
-                    SOARolePropertyRowCollection subExtractedRows = subRow.ExtractMatrixRows();
+                    if (((SOARole)this.Role).MatrixType == WfMatrixType.ActivityMatrix && innerRole.MatrixType != WfMatrixType.ActivityMatrix)
+                        subRows = MergeActivityRowPropertiesByRows(subRows);
 
-                    extractedRows.CopyFrom(subExtractedRows);
+                    foreach (SOARolePropertyRow subRow in subRows)
+                    {
+                        SOARolePropertyRowCollection subExtractedRows = subRow.ExtractMatrixRows();
+
+                        extractedRows.CopyFrom(subExtractedRows);
+                    }
                 }
 
                 extracted = true;

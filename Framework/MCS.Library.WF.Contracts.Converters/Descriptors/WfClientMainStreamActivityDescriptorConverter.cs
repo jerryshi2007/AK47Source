@@ -58,14 +58,8 @@ namespace MCS.Library.WF.Contracts.Converters.Descriptors
                 client.Operator = (WfClientUser)actInstance.Operator.ToClientOguObject();
                 client.BranchProcessGroupsCount = actInstance.BranchProcessGroups.Count;
 
-                if (actInstance.FromTransitionDescriptor != null)
-                {
-                    WfClientTransitionDescriptor fromTransitionDescriptor = null;
-
-                    WfClientTransitionDescriptorConverter.Instance.ServerToClient((WfTransitionDescriptor)actInstance.FromTransitionDescriptor, ref fromTransitionDescriptor);
-
-                    client.FromTransitionDescriptor = fromTransitionDescriptor;
-                }
+                client.FromTransitionDescriptor = ConvertServerTransitionToClient(actInstance.FromTransitionDescriptor);
+                client.ToTransitionDescriptor = ConvertServerTransitionToClient(actInstance.ToTransitionDescriptor);
 
                 if (actInstance.Assignees.Count != 0)
                 {
@@ -78,6 +72,16 @@ namespace MCS.Library.WF.Contracts.Converters.Descriptors
                     WfClientAssigneeCollectionConverter.Instance.ServerToClient(candidates, client.Assignees);
                 }
             }
+        }
+
+        private static WfClientTransitionDescriptor ConvertServerTransitionToClient(IWfTransitionDescriptor server)
+        {
+            WfClientTransitionDescriptor clientTransition = null;
+
+            if (server != null)
+                WfClientTransitionDescriptorConverter.Instance.ServerToClient((WfTransitionDescriptor)server, ref clientTransition);
+
+            return clientTransition;
         }
     }
 

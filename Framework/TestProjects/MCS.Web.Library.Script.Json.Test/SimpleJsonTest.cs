@@ -81,10 +81,10 @@ namespace MCS.Web.Library.Script.Json.Test
         [ExpectedException(typeof(InvalidOperationException))]
         public void ExceedMaxJsonLengthSerializationLengthTest()
         {
-            ScriptingJsonSerializationSection scriptSection = (ScriptingJsonSerializationSection)ConfigurationBroker.GetSection("scriptJsonSerialization");
+            ScriptingJsonSerializationSection scriptSection = (ScriptingJsonSerializationSection)ConfigurationBroker.GetSection("jsonSerialization");
 
             Console.WriteLine(scriptSection.MaxJsonLength);
-            string data = PrepateTestStringByLength(1500);
+            string data = PrepateTestStringByLength(15000);
 
             string json = JSONSerializerExecute.Serialize(data);
         }

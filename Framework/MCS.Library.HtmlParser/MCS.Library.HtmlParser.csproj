@@ -115,24 +115,35 @@
     <Compile Include="crc32.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Header.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="EncodingFoundException.cs" />
     <Compile Include="HtmlAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="HtmlAttributeCollection.cs" />
+    <Compile Include="HtmlCmdLine.cs" />
+    <Compile Include="HtmlCommentNode.cs" />
+    <Compile Include="HtmlConsoleListener.cs" />
     <Compile Include="HtmlDocument.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="HtmlDocument.PathMethods.cs" />
+    <Compile Include="HtmlDocument.Xpath.cs" />
+    <Compile Include="HtmlElementFlag.cs" />
     <Compile Include="HtmlEntity.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="HtmlNameTable.cs" />
     <Compile Include="HtmlNode.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="HtmlNode.Xpath.cs" />
+    <Compile Include="HtmlNodeCollection.cs" />
     <Compile Include="HtmlNodeNavigator.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="HtmlNodeType.cs" />
+    <Compile Include="HtmlParseError.cs" />
+    <Compile Include="HtmlParseErrorCode.cs" />
     <Compile Include="HtmlSanitizeNode.cs" />
     <Compile Include="HtmlSanitizer.cs" />
     <Compile Include="HtmlStyleAttribute.cs" />
@@ -143,18 +154,28 @@
     <Compile Include="HtmlStyleValueExpression.cs" />
     <Compile Include="HtmlStyleValueParserContext.cs" />
     <Compile Include="HtmlStyleValueParsingStage.cs" />
+    <Compile Include="HtmlTextNode.cs" />
     <Compile Include="HtmlWeb.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="HtmlWeb.Xpath.cs" />
+    <Compile Include="HtmlWebException.cs" />
+    <Compile Include="IOLibrary.cs" />
     <Compile Include="MixedCodeDocument.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="MixedCodeDocumentCodeFragment.cs" />
+    <Compile Include="MixedCodeDocumentFragment.cs" />
+    <Compile Include="MixedCodeDocumentFragmentList.cs" />
+    <Compile Include="MixedCodeDocumentFragmentType.cs" />
+    <Compile Include="MixedCodeDocumentTextFragment.cs" />
+    <Compile Include="NameValuePairList.cs" />
     <Compile Include="ParseReader.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="tools.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="Trace.cs" />
+    <Compile Include="Trace.FullFramework.cs" />
+    <Compile Include="Utilities.cs" />
     <None Include="MCS.Library.snk" />
   </ItemGroup>
   <ItemGroup>

@@ -1283,12 +1283,14 @@ namespace MCS.Library.Office.OpenXml.Excel
             var sheet = context.Package.GetXElementFromUri(this._SheetUri);
             context.Reader.ReadWorkSheet(this, sheet);
 
-            loadTableValues();
+            LoadTableValues();
         }
 
-        private void loadTableValues()
+        private void LoadTableValues()
         {
-            int row = 0, col = 0;
+            int row = 0;
+            int col = 0;
+
             foreach (Table tb in this.Tables)
             {
                 row = tb.Address.StartRow;
@@ -1296,16 +1298,19 @@ namespace MCS.Library.Office.OpenXml.Excel
 
                 row++;
 
-                loadTableRows(tb, row, col);
+                LoadTableRows(tb, row, col);
             }
         }
 
-        private void loadTableRows(Table tb, int row, int col)
+        private void LoadTableRows(Table tb, int row, int col)
         {
             Cell cell = null;
             TableCell tcell = null;
+
             for (int rowindex = row; rowindex <= tb.Address.EndRow; rowindex++)
             {
+                try
+                { 
                 TableRow trow = tb.Rows.NewTableRow();
                 foreach (TableColumn tc in tb.Columns)
                 {
@@ -1313,6 +1318,12 @@ namespace MCS.Library.Office.OpenXml.Excel
                     tcell = trow[tc];
                     tcell.Value = cell.Value;
                     tcell._Style = cell._Style;
+                }
+                    }
+                catch(System.Exception)
+                {
+                    Console.WriteLine(rowindex);
+                    throw;
                 }
             }
         }
