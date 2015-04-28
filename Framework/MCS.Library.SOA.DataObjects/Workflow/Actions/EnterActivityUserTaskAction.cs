@@ -79,7 +79,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow.Actions
 				WfPendingActivityInfoAdapter.Instance.Update(data);
 			});
 
-			ClearCache();
+			this.ClearCache();
 		}
 
 		public override void ClearCache()

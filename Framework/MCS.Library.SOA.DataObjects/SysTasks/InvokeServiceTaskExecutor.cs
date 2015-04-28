@@ -25,10 +25,7 @@ namespace MCS.Library.SOA.DataObjects
 
 				svcInvoker.Headers.Set("SysTaskID", task.TaskID);
 
-				object result = svcInvoker.Invoke();
-
-				if (svcDefinition.RtnXmlStoreParamName.IsNotEmpty())
-					WfServiceInvoker.InvokeContext[svcDefinition.RtnXmlStoreParamName] = result;
+                svcInvoker.Invoke();
 			}
 		}
 	}

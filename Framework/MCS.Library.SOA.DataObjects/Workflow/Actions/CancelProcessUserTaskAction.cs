@@ -67,7 +67,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow.Actions
 			WfPendingActivityInfoAdapter.Instance.DeleteByProcesses(WfRuntime.ProcessContext.AbortedProcesses);
 			WfPendingActivityInfoAdapter.Instance.DeleteByProcesses(WfRuntime.ProcessContext.ClosedProcesses);
 
-			ClearCache();
+			this.ClearCache();
 		}
 
 		public override void ClearCache()

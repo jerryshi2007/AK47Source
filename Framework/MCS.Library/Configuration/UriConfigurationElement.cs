@@ -18,39 +18,39 @@ using MCS.Library.Caching;
 
 namespace MCS.Library.Configuration
 {
-	/// <summary>
-	/// 关于Uri的配置项
-	/// </summary>
-	public class UriConfigurationElement : NamedConfigurationElement
-	{
-		/// <summary>
-		/// Uri的地址字符串
-		/// </summary>
-		[ConfigurationProperty("uri")]
-		private string UriString
-		{
-			get
-			{
-				return (string)this["uri"];
-			}
-		}
+    /// <summary>
+    /// 关于Uri的配置项
+    /// </summary>
+    public class UriConfigurationElement : NamedConfigurationElement
+    {
+        /// <summary>
+        /// Uri的地址字符串
+        /// </summary>
+        [ConfigurationProperty("uri")]
+        protected string UriString
+        {
+            get
+            {
+                return (string)this["uri"];
+            }
+        }
 
-		/// <summary>
-		/// 配置的Uri
-		/// </summary>
-		public Uri Uri
-		{
-			get
-			{
-				return UriContextCache.GetUri(this.UriString);
-			}
-		}
-	}
+        /// <summary>
+        /// 配置的Uri
+        /// </summary>
+        public Uri Uri
+        {
+            get
+            {
+                return UriContextCache.GetUri(this.UriString);
+            }
+        }
+    }
 
-	/// <summary>
-	/// 关于Uri的配置项集合
-	/// </summary>
-	public class UriConfigurationCollection : NamedConfigurationElementCollection<UriConfigurationElement>
-	{
-	}
+    /// <summary>
+    /// 关于Uri的配置项集合
+    /// </summary>
+    public class UriConfigurationCollection : NamedConfigurationElementCollection<UriConfigurationElement>
+    {
+    }
 }

@@ -9,12 +9,12 @@ using System.Web.Script.Serialization;
 
 namespace MCS.Library.SOA.DataObjects.Workflow.Actions
 {
-    public class ProcessStatusChangeSyncAction:IWfAction
+    public class ProcessStatusChangeSyncAction : IWfAction
     {
 
         public void PrepareAction(WfActionParams actionParams)
         {
-            
+
         }
 
         public void PersistAction(WfActionParams actionParams)
@@ -22,17 +22,19 @@ namespace MCS.Library.SOA.DataObjects.Workflow.Actions
             if (null != actionParams.Context.StatusChangedProcesses)
             {
                 List<object> result = new List<object>();
-                actionParams.Context.StatusChangedProcesses.ForEach(p => {
+                actionParams.Context.StatusChangedProcesses.ForEach(p =>
+                {
                     string tenantCode = p.ApplicationRuntimeParameters.GetValue(UserTaskServicePlugin._TenantCode, string.Empty);
                     string mailCollector = p.ApplicationRuntimeParameters.GetValue(UserTaskServicePlugin._MailCollector, string.Empty);
-                    result.Add(new { 
-                        ProcessId = p.ID, 
-                        ProcessKey=p.Descriptor.Key,
-                        ProcessName = p.Descriptor.Name, 
-                        Status=p.Status.ToString(),
+                    result.Add(new
+                    {
+                        ProcessId = p.ID,
+                        ProcessKey = p.Descriptor.Key,
+                        ProcessName = p.Descriptor.Name,
+                        Status = p.Status.ToString(),
                         CreatorId = p.Creator.ID,
-                        CreatorName=p.Creator.DisplayName,
-                        Created=p.StartTime,
+                        CreatorName = p.Creator.DisplayName,
+                        Created = p.StartTime,
                         TenantCode = tenantCode,
                         EmailCollector = mailCollector
                     });
@@ -48,7 +50,6 @@ namespace MCS.Library.SOA.DataObjects.Workflow.Actions
 
         public void ClearCache()
         {
-            
         }
     }
 }

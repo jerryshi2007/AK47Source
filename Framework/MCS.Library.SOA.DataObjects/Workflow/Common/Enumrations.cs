@@ -402,4 +402,35 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         [EnumItemDescription("审批矩阵")]
         ApprovalMatrix = 2,
     }
+
+    /// <summary>
+    /// 服务请求的类型
+    /// </summary>
+    public enum WfServiceRequestMethod
+    {
+        Get,
+        Post,
+        Soap
+    }
+
+    /// <summary>
+    /// 服务内容格式
+    /// </summary>
+    public enum WfServiceContentType
+    {
+        Form,
+        Json
+    }
+
+    /// <summary>
+    /// 服务操作的参数类型
+    /// </summary>
+    public enum WfSvcOperationParameterType
+    {
+        Int,
+        String,
+        DateTime,
+        RuntimeParameter,
+        Boolean
+    }
 }

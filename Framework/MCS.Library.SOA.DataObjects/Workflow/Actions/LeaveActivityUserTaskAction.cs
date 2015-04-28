@@ -81,7 +81,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow.Actions
             UserTaskAdapter.Instance.SetUserTasksAccomplished(WfRuntime.ProcessContext.AccomplishedUserTasks);
             UserTaskAdapter.Instance.DeleteUserTasks(WfRuntime.ProcessContext.DeletedUserTasks);
 
-            ClearCache();
+            this.ClearCache();
         }
 
         public override void ClearCache()

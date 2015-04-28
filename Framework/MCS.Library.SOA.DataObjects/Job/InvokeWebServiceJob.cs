@@ -50,10 +50,8 @@ namespace MCS.Library.SOA.DataObjects
 				WfServiceInvoker svcInvoker = new WfServiceInvoker(svcDefinition);
 
 				svcInvoker.Headers.Set("InvokeWebServiceJobID", this.JobID);
-				object result = svcInvoker.Invoke();
 
-				if (svcDefinition.RtnXmlStoreParamName.IsNotEmpty())
-					WfServiceInvoker.InvokeContext[svcDefinition.RtnXmlStoreParamName] = result;
+                svcInvoker.Invoke();
 			}
 		}
 	}

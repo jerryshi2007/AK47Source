@@ -440,6 +440,10 @@
     <Compile Include="Workflow\Configuration\WfExtraPersistenceSettings.cs" />
     <Compile Include="Workflow\Configuration\WfPersistenceSettingsBase.cs" />
     <Compile Include="Workflow\Configuration\WfQueuePersistenceSettings.cs" />
+    <Compile Include="Workflow\Configuration\WfServiceAddressDefinitionConfigurationElement.cs" />
+    <Compile Include="Workflow\Configuration\WfServiceDefinitionSettings.cs" />
+    <Compile Include="Workflow\Configuration\WfServiceOperationDefinitionConfigurationElement.cs" />
+    <Compile Include="Workflow\Configuration\WfServiceOperationParameterConfigurationElement.cs" />
     <Compile Include="Workflow\Configuration\WfSimulationSettings.cs" />
     <Compile Include="Workflow\Contracts\IWfProcessService.cs" />
     <Compile Include="Workflow\Controls\WfControlNextStepCollection.cs" />
@@ -468,6 +472,7 @@
     <Compile Include="CommonInfoMapping\ICommonInfoMappingUpdater.cs" />
     <Compile Include="Workflow\Converters\WfSimulationParametersConverter.cs" />
     <Compile Include="Workflow\Converters\WrappedAUSchemaRoleConverter.cs" />
+    <Compile Include="Workflow\DataObjects\WfServiceOperationParameter.cs" />
     <Compile Include="Workflow\Decorators\WfSecretaryDecorator.cs" />
     <Compile Include="Workflow\Decorators\WfSecretaryOperation.cs" />
     <Compile Include="Workflow\Converters\SOARolePropertyDefinitionConverter.cs" />
