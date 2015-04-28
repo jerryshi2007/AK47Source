@@ -289,8 +289,8 @@
 			grid.set_autoBindOnLoad(false);
 			grid.set_dataSource(svcOperation.Params || []);
 
-			if (svcOperation.TimeOut) {
-				$find("timeInput").set_TimeValue(svcOperation.TimeOut);
+			if (svcOperation.Timeout) {
+				$find("timeInput").set_TimeValue(svcOperation.Timeout);
 			}
 		}
 
@@ -320,7 +320,7 @@
 			svcOperation.RtnXmlStoreParamName = $("#rtnVar").val().trim();
 			svcOperation.InvokeWhenPersist = $get("invokeWhenPersist").checked;
 			svcOperation.Params = $find("detailGrid").get_dataSource();
-			svcOperation.TimeOut = $find("timeInput").get_TimeValue();
+			svcOperation.Timeout = $find("timeInput").get_TimeValue();
 
 			window.returnValue = { jsonStr: Sys.Serialization.JavaScriptSerializer.serialize(svcOperation) };
 			top.close();

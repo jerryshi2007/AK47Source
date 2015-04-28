@@ -38,7 +38,7 @@ namespace MCS.Library.Data
                 if (section == null)
                     return DefaultTimeout;
                 else
-                    return section.TimeOut;
+                    return section.Timeout;
             }
         }
 

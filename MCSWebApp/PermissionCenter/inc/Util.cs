@@ -542,7 +542,7 @@ namespace PermissionCenter
 
             WfServiceOperationDefinition serviceDef = new WfServiceOperationDefinition(address, methodName, parameters, string.Empty);
 
-            serviceDef.TimeOut = 24 * 60 * 60 * 1000;
+            serviceDef.Timeout = TimeSpan.FromSeconds(24 * 60 * 60);
             job.SvcOperationDefs.Add(serviceDef);
 
             return job;

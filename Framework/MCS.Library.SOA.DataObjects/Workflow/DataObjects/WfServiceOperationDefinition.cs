@@ -15,6 +15,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
     {
         private WfServiceAddressDefinition _AddressDef = null;
         private WfServiceOperationParameterCollection _Params;
+        private TimeSpan _Timeout = TimeSpan.FromSeconds(30);
 
         /// <summary>
         /// 构造方法
@@ -76,7 +77,8 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             this.OperationName = element.OperationName;
             this.Params = new WfServiceOperationParameterCollection(element.Parameters);
             this.RtnXmlStoreParamName = element.ReturnParamName;
-            this.TimeOut = element.Timeout.TotalSeconds;
+            this.Timeout = element.Timeout;
+            this.InvokeWhenPersist = element.InvokeWhenPersist;
         }
 
         ///// <summary>
@@ -144,21 +146,19 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             set;
         }
 
-        private double _TimeOut = 0;
-
         /// <summary>
         /// 调用服务超时间 
         /// </summary>
         //2012-11-28
-        public double TimeOut
+        public TimeSpan Timeout
         {
             get
             {
-                return this._TimeOut;
+                return this._Timeout;
             }
             set
             {
-                this._TimeOut = value;
+                this._Timeout = value;
             }
         }
 

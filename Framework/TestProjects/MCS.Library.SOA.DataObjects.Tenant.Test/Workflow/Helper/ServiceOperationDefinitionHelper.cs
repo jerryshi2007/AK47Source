@@ -17,6 +17,8 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             AssertStringEqual(actual.RtnXmlStoreParamName, element.ReturnParamName);
             AssertStringEqual(actual.AddressDef.Key, element.AddressKey);
 
+            Assert.AreEqual(actual.InvokeWhenPersist, element.InvokeWhenPersist);
+
             actual.Params.AreEqual(element.Parameters);
         }
 

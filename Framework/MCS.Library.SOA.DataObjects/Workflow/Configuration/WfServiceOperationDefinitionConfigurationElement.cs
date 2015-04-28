@@ -62,6 +62,18 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         }
 
         /// <summary>
+        /// 是否在流程持久化时调用。
+        /// </summary>
+        [ConfigurationProperty("invokeWhenPersist", IsRequired = false, DefaultValue = true)]
+        public bool InvokeWhenPersist
+        {
+            get
+            {
+                return (bool)this["invokeWhenPersist"];
+            }
+        }
+
+        /// <summary>
         /// 参数的定义
         /// </summary>
         [ConfigurationProperty("parameters", IsRequired = false)]

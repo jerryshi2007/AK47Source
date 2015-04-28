@@ -11,7 +11,7 @@ namespace MCS.Library.Data.Configuration
     class TransactionConfigurationSection : ConfigurationSection
     {
         [ConfigurationProperty("timeout", IsRequired=false, DefaultValue="00:10:00")]
-        public virtual TimeSpan TimeOut
+        public virtual TimeSpan Timeout
         {
             get
             {

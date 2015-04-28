@@ -97,12 +97,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         /// <returns></returns>
         public object Invoke()
         {
-            int timeout = 90000;
-
-            if (this._SvcOperationDef.TimeOut > 0)
-                int.TryParse(this._SvcOperationDef.TimeOut.ToString(), out timeout);
-
-            return Invoke(timeout);
+            return Invoke(this._SvcOperationDef.Timeout);
         }
 
         /// <summary>
@@ -110,7 +105,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         /// </summary>
         /// <param name="timeout">请求超时时间，单位毫秒</param>
         /// <returns></returns>
-        public object Invoke(int timeout)
+        public object Invoke(TimeSpan timeout)
         {
             try
             {
@@ -165,7 +160,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             }
         }
 
-        private HttpWebRequest GenerateWebRequestObj(int timeout)
+        private HttpWebRequest GenerateWebRequestObj(TimeSpan timeout)
         {
             ExceptionHelper.TrueThrow(string.IsNullOrEmpty(this._SvcOperationDef.AddressDef.Address), "服务地址定义不能为空.");
             ExceptionHelper.TrueThrow(string.IsNullOrEmpty(this._SvcOperationDef.OperationName), "调用方法名称不能为空.");
@@ -263,7 +258,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             return result;
         }
 
-        private HttpWebRequest CreateGetRequest(int timeout)
+        private HttpWebRequest CreateGetRequest(TimeSpan timeout)
         {
             string url = string.Concat(FormatUrl(this._SvcOperationDef.AddressDef.Address, true),
                 HttpUtility.UrlEncode(this._SvcOperationDef.OperationName));
@@ -275,7 +270,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
             HttpWebRequest result = (HttpWebRequest)HttpWebRequest.Create(url);
 
-            result.Timeout = timeout;
+            result.Timeout = (int)timeout.TotalMilliseconds;
             result.Method = "GET";
             result.ContentType = "text/xml";
             result.KeepAlive = false;
@@ -285,13 +280,13 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             return result;
         }
 
-        private HttpWebRequest CreatePostRequest(int timeout)
+        private HttpWebRequest CreatePostRequest(TimeSpan timeout)
         {
             HttpWebRequest result = (HttpWebRequest)HttpWebRequest.Create(FormatUrl(_SvcOperationDef.AddressDef.Address, true)
                 + HttpUtility.UrlEncode(_SvcOperationDef.OperationName));
 
             result.Method = "POST";
-            result.Timeout = timeout;
+            result.Timeout = (int)timeout.TotalMilliseconds;
             result.KeepAlive = false;
             result.ProtocolVersion = HttpVersion.Version10;
             result.Headers.CopyFrom(this.Headers);
@@ -315,13 +310,13 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             return result;
         }
 
-        private HttpWebRequest CreateSoapRequest(int timeout)
+        private HttpWebRequest CreateSoapRequest(TimeSpan timeout)
         {
             string url = FormatUrl(this._SvcOperationDef.AddressDef.Address, false);
 
             HttpWebRequest result = (HttpWebRequest)HttpWebRequest.Create(url);
             result.Method = "POST";
-            result.Timeout = timeout;
+            result.Timeout = (int)timeout.TotalMilliseconds;
             result.ContentType = "text/xml; charset=utf-8"; //soap1.1
             result.KeepAlive = false;
             result.ProtocolVersion = HttpVersion.Version10;
