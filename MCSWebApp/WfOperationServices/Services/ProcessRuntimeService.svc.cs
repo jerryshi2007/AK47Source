@@ -306,6 +306,29 @@ namespace WfOperationServices.Services
                 (process) => new WfRestoreProcessExecutor(process.CurrentActivity, process));
         }
 
+        /// <summary>
+        /// 替换某个活动中的办理人，无论该活动的状态。如果这个人有待办，待办也会被替换。
+        /// </summary>
+        /// <param name="activityID">需要替换的活动的ID</param>
+        /// <param name="originalUser">被替换的人。如果这个属性为null，则替换掉这个活动中所有的指派人和候选人</param>
+        /// <param name="targetUsers">替换成的人，如果为null，则不完成替换</param>
+        /// <param name="runtimeContext">流转上下文信息</param>
+        /// <returns></returns>
+        [WfJsonFormatter]
+        [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public WfClientProcessInfo ReplaceAssignees(string activityID, WfClientUser originalUser, List<WfClientUser> targetUsers, WfClientRuntimeContext runtimeContext)
+        {
+            OperationContext.Current.FillContextToOguServiceContext();
+
+            IWfProcess process = WfRuntime.GetProcessByActivityID(activityID);
+            IWfActivity targetActivity = process.Activities[activityID];
+
+            ExecuteExecutor(process, runtimeContext,
+                (p) => new WfReplaceAssigneesExecutor(targetActivity, targetActivity, (IUser)originalUser.ToOguObject(), targetUsers.ToOguObjects<WfClientUser, IUser>()));
+
+            return process.ToClientProcessInfo(runtimeContext.Operator).FillCurrentOpinion(process.CurrentActivity, runtimeContext.Operator);
+        }
+
         [WfJsonFormatter]
         [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         public WfClientProcess GetProcessByID(string processID, WfClientUser user, WfClientProcessInfoFilter filter)

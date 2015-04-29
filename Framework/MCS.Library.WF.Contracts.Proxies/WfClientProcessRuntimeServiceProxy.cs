@@ -20,6 +20,9 @@ namespace MCS.Library.WF.Contracts.Proxies
     {
         public static readonly WfClientProcessRuntimeServiceProxy Instance = new WfClientProcessRuntimeServiceProxy();
 
+        private static readonly List<WfClientUser> _EmptyClientUserList = new List<WfClientUser>();
+
+
         private WfClientProcessRuntimeServiceProxy()
         {
         }
@@ -62,6 +65,24 @@ namespace MCS.Library.WF.Contracts.Proxies
         public WfClientProcessInfo Resume(string processID, WfClientRuntimeContext runtimeContext)
         {
             return this.SingleCall(action => action.Resume(processID, runtimeContext));
+        }
+
+        /// <summary>
+        /// 替换某个活动中的办理人，无论该活动的状态。如果这个人有待办，待办也会被替换。
+        /// </summary>
+        /// <param name="activityID">需要替换的活动的ID</param>
+        /// <param name="originalUser">被替换的人。如果这个属性为null，则替换掉这个活动中所有的指派人和候选人</param>
+        /// <param name="targetUsers">替换成的人，如果为null，则不完成替换</param>
+        /// <param name="runtimeContext">流转上下文信息</param>
+        /// <returns></returns>
+        public WfClientProcessInfo ReplaceAssignees(string activityID, WfClientUser originalUser, IEnumerable<WfClientUser> targetUsers, WfClientRuntimeContext runtimeContext)
+        {
+            List<WfClientUser> targetUsersList = _EmptyClientUserList;
+
+            if (targetUsers != null)
+                targetUsersList = new List<WfClientUser>(targetUsers);
+
+            return this.SingleCall(action => action.ReplaceAssignees(activityID, originalUser, targetUsersList, runtimeContext));
         }
 
         public WfClientProcessInfo StartWorkflow(WfClientProcessStartupParams clientStartupParams)

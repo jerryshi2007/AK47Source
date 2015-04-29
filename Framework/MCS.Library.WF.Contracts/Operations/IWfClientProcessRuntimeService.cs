@@ -114,6 +114,17 @@ namespace MCS.Library.WF.Contracts.Operations
         WfClientProcessInfo Restore(string processID, WfClientRuntimeContext runtimeContext);
 
         /// <summary>
+        /// 替换某个活动中的办理人，无论该活动的状态。如果这个人有待办，待办也会被替换。
+        /// </summary>
+        /// <param name="activityID">需要替换的活动的ID</param>
+        /// <param name="originalUser">被替换的人。如果这个属性为null，则替换掉这个活动中所有的指派人和候选人</param>
+        /// <param name="targetUsers">替换成的人，如果为null，则不完成替换</param>
+        /// <param name="runtimeContext">流转上下文信息</param>
+        /// <returns></returns>
+        [OperationContract]
+        WfClientProcessInfo ReplaceAssignees(string activityID, WfClientUser originalUser, List<WfClientUser> targetUsers, WfClientRuntimeContext runtimeContext);
+
+        /// <summary>
         /// 根据流程ID得到流程的当前摘要信息
         /// </summary>
         /// <param name="processID"></param>

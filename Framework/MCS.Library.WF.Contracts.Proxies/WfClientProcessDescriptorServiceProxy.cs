@@ -17,7 +17,7 @@ namespace MCS.Library.WF.Contracts.Proxies
     public class WfClientProcessDescriptorServiceProxy : WfClientServiceProxyBase<IWfClientProcessDescriptorService>
     {
         public static readonly WfClientProcessDescriptorServiceProxy Instance = new WfClientProcessDescriptorServiceProxy();
-
+        
         private WfClientProcessDescriptorServiceProxy()
         {
         }

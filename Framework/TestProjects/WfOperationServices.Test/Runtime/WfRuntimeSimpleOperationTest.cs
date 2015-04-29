@@ -514,6 +514,22 @@ namespace WfOperationServices.Test.Runtime
             Assert.AreEqual(WfClientActivityStatus.Running, processInfo.CurrentActivity.Status);
         }
 
+        [TestMethod]
+        public void ReplaceAssignees()
+        {
+            WfClientProcessInfo processInfo = OperationHelper.PreapreProcessWithConditionLinesInstance();
+            WfClientRuntimeContext runtimeContext = new WfClientRuntimeContext(Consts.Users["Requestor"]);
+
+            processInfo = WfClientProcessRuntimeServiceProxy.Instance.MoveToNextDefaultActivity(processInfo.ID, runtimeContext);
+
+            processInfo = WfClientProcessRuntimeServiceProxy.Instance.ReplaceAssignees(
+                processInfo.CurrentActivity.ID, null, new WfClientUser[] { Consts.Users["CEO"] }, runtimeContext);
+
+            processInfo.Output();
+
+            Assert.AreEqual(Consts.Users["CEO"].ID, processInfo.CurrentActivity.Assignees[0].User.ID);
+        }
+
         /// <summary>
         /// 检查
         /// </summary>
