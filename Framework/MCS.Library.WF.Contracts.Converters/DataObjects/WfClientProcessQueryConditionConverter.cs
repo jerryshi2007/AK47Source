@@ -27,6 +27,7 @@ namespace MCS.Library.WF.Contracts.Converters.DataObjects
                 client = new WfClientProcessQueryCondition();
 
             client.ApplicationName = server.ApplicationName;
+            client.ProgramName = server.ProgramName;
             client.ProcessName = server.ProcessName;
             client.AssigneeExceptionFilterType = server.AssigneeExceptionFilterType.ToClientAssigneeExceptionFilterType();
             client.AssigneesSelectType = server.AssigneesSelectType.ToClientAssigneesFilterType();
@@ -51,6 +52,7 @@ namespace MCS.Library.WF.Contracts.Converters.DataObjects
                 server = new WfProcessQueryCondition();
 
             server.ApplicationName = client.ApplicationName;
+            server.ProgramName = client.ProgramName;
             server.ProcessName = client.ProcessName;
             server.AssigneeExceptionFilterType = client.AssigneeExceptionFilterType.ToAssigneeExceptionFilterType();
             server.AssigneesSelectType = client.AssigneesSelectType.ToAssigneesFilterType();

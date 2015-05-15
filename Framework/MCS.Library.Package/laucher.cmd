@@ -14,7 +14,8 @@ xcopy ..\..\bin\MCS.Library.SOA.Web.WebControls.??? lib\net451 /s /i /y
 xcopy ..\..\bin\MCS.Library.ADHelper.??? lib\net451 /s /i /y
 xcopy ..\..\bin\MCS.Library.Data.??? lib\net451 /s /i /y
 xcopy ..\..\bin\MCS.Library.Passport.??? lib\net451 /s /i /y
-xcopy ..\..\bin\MCS.Web.Responseive.Library.??? lib\net451 /s /i /y
+xcopy ..\..\bin\MCS.Web.Responsive.Library.??? lib\net451 /s /i /y
+xcopy ..\..\bin\MCS.Library.HtmlParser.??? lib\net451 /s /i /y
 
 set sver=%time%
 set "sver=%sver::=%"

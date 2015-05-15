@@ -56,6 +56,8 @@
     <Compile Include="CoreTest\UriTest.cs" />
     <Compile Include="DataObjects\ObjectCompareTest.cs" />
     <Compile Include="DataObjects\Order.cs" />
+    <Compile Include="DataObjects\OrgTreeNode.cs" />
+    <Compile Include="DataObjects\TreeGraphGeneratorTest.cs" />
     <Compile Include="DataObjects\Vendor.cs" />
     <Compile Include="Dynamic\DynamicMemberAccessorTest.cs" />
     <Compile Include="Environment\IPCheckTest.cs" />

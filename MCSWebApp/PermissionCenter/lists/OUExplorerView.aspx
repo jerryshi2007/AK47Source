@@ -174,6 +174,9 @@
 								<li>
 									<asp:LinkButton runat="server" CssClass="list-cmd" ID="btnExportFull2" OnClientClick="return ($pc.getEnabled(this) && invokeExportFull() && false);">导出全部对象及子对象</asp:LinkButton>
 								</li>
+                                <li>
+									<asp:LinkButton runat="server" CssClass="list-cmd" ID="LinkButton1" OnClientClick="return ($pc.getEnabled(this) && invokeShowOrgChart() && false);">显示组织架构图</asp:LinkButton>
+								</li>
 							</ul>
 						</div>
 					</div>
@@ -573,6 +576,14 @@
 			}
 
 			return false;
+		}
+
+		function invokeShowOrgChart() {
+		    if (confirm('显示组织架构图时，可能需要很长的数据准备时间，是否继续？')) {
+		        window.open($pc.appRoot + "Handlers/ShowOrgChart.ashx?ou=" + document.getElementById("hfOuId").value);
+		    }
+
+		    return false;
 		}
 
 		function invokeExportSelectedFull() {

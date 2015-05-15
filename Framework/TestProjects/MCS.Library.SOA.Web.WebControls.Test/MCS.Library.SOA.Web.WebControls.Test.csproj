@@ -225,6 +225,7 @@
     <Content Include="SubmitButtonTest\SubmitButtonWithProgress.aspx" />
     <Content Include="TestPages\PopupTestForIE10.aspx" />
     <Content Include="TestPages\UploadTestForIE10.aspx" />
+    <Content Include="TreeGraphTest\GenerateOrgTree.aspx" />
     <Content Include="UEditorWrapperTest\simpleUEditorWrapperTest.aspx" />
     <Content Include="UEditor\CHANGELOG.TXT" />
     <Content Include="UEditor\dialogs\anchor\anchor.html" />
@@ -1559,6 +1560,17 @@
     <Compile Include="TestPages\UploadTestForIE10.aspx.designer.cs">
       <DependentUpon>UploadTestForIE10.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TreeGraphTest\GenerateOrgTree.aspx.cs">
+      <DependentUpon>GenerateOrgTree.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TreeGraphTest\GenerateOrgTree.aspx.designer.cs">
+      <DependentUpon>GenerateOrgTree.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TreeGraphTest\OrgTreeNode.cs" />
+    <Compile Include="TreeGraphTest\ResponseOrgTree.ashx.cs">
+      <DependentUpon>ResponseOrgTree.ashx</DependentUpon>
+    </Compile>
     <Compile Include="UEditorWrapperTest\simpleUEditorWrapperTest.aspx.cs">
       <DependentUpon>simpleUEditorWrapperTest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1955,6 +1967,7 @@
     <Content Include="Handlers\ShowUEditorImage.ashx" />
     <None Include="MaterialControl\Templates\Test.xlsx" />
     <None Include="OfficeViewer\Expense.xls" />
+    <Content Include="TreeGraphTest\ResponseOrgTree.ashx" />
     <None Include="UEditor\server\submit\getContent.php" />
     <None Include="UEditor\server\upload\jsp\up.jsp" />
     <None Include="UEditor\server\upload\php\up.php" />

@@ -30,20 +30,24 @@ namespace MCS.Library.Data.DataObjects
 		/// 
 		/// </summary>
 		/// <param name="node"></param>
-		public void Add(TNode node)
+        public TNode Add(TNode node)
 		{
 			InnerAdd(node);
+
+            return node;
 		}
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="node"></param>
-		public void Remove(TNode node)
+        public TNode Remove(TNode node)
 		{
 			ExceptionHelper.FalseThrow<ArgumentNullException>(node != null, "node");
 
 			List.Remove(node);
+
+            return node;
 		}
 
 		/// <summary>

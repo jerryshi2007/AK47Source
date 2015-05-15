@@ -515,6 +515,11 @@
     <Compile Include="Handlers\ObjectExport.ashx.cs">
       <DependentUpon>ObjectExport.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Handlers\OrgTreeNode.cs" />
+    <Compile Include="Handlers\ShowOrgChart.ashx.cs">
+      <DependentUpon>ShowOrgChart.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\ShowOrgChartProgressResponser.cs" />
     <Compile Include="Handlers\TimelineData.ashx.cs">
       <DependentUpon>TimelineData.ashx</DependentUpon>
     </Compile>
@@ -861,6 +866,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Handlers\Transfer.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Handlers\ShowOrgChart.ashx" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v12.0\WebApplications\Microsoft.WebApplication.targets" />

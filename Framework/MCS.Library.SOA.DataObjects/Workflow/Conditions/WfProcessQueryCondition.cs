@@ -23,6 +23,13 @@ namespace MCS.Library.SOA.DataObjects.Workflow.Conditions
             set;
         }
 
+        [ConditionMapping("PROGRAM_NAME", EscapeLikeString = true, Prefix = "%", Postfix = "%", Operation = "LIKE")]
+        public string ProgramName
+        {
+            get;
+            set;
+        }
+
         [ConditionMapping("PROCESS_NAME", EscapeLikeString = true, Prefix = "%", Postfix = "%", Operation = "LIKE")]
         public string ProcessName
         {

@@ -1,0 +1,54 @@
+﻿.org-node {
+    display: table-cell;
+    width: 120px;
+    height: 60px;
+    padding: 0px 0px 0px 0px;
+}
+
+.org-label {
+    border-radius: 10px;
+    border: 1px solid silver;
+}
+
+.org-label-text-area {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: 1px solid silver;
+    text-align: center;
+    vertical-align: middle;
+    background-color: skyblue;
+    color: black;
+    height: 24px;
+}
+
+.org-label-text {
+    padding-top: 2px;
+    padding-left: 8px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 96px;
+    font-size: 12px;
+}
+
+.org-label-description_area {
+    padding-top: 6px;
+    padding-left: 6px;
+    text-align: left;
+}
+
+.org-label-description {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100px;
+    height: 32px;
+    font-size: 12px;
+}
+
+.org-placeholder {
+}
+
+.org-connector {
+    width: 120px;
+    height: 60px;
+}

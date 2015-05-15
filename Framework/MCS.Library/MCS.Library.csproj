@@ -273,9 +273,16 @@
     <Compile Include="Data\DataObjects\DataObjectCollectionBase.cs" />
     <Compile Include="Data\DataObjects\GroupNode.cs" />
     <Compile Include="Data\DataObjects\GroupNodeCollection.cs" />
+    <Compile Include="Data\DataObjects\ILabelTreeNode.cs" />
     <Compile Include="Data\DataObjects\IObjectCompareInfo.cs" />
     <Compile Include="Data\DataObjects\IObjectCompareResult.cs" />
     <Compile Include="Data\DataObjects\IPropertyCompareInfo.cs" />
+    <Compile Include="Data\DataObjects\ITreeNodeSize.cs" />
+    <Compile Include="Data\DataObjects\TraverseTreeGraphContext.cs" />
+    <Compile Include="Data\DataObjects\TreeGraph.cs" />
+    <Compile Include="Data\DataObjects\TreeGraphConnectorNode.cs" />
+    <Compile Include="Data\DataObjects\TreeGraphConnectorType.cs" />
+    <Compile Include="Data\DataObjects\TreeGraphLabelNode.cs" />
     <Compile Include="Data\DataObjects\LruDataObjectCollectionBase.cs" />
     <Compile Include="Data\DataObjects\ObjectCollectionCompareResult.cs" />
     <Compile Include="Data\DataObjects\ObjectCompareAttribute.cs" />
@@ -291,6 +298,8 @@
     <Compile Include="Data\DataObjects\RowValueBase.cs" />
     <Compile Include="Data\DataObjects\TableBase.cs" />
     <Compile Include="Data\DataObjects\TableRowBase.cs" />
+    <Compile Include="Data\DataObjects\TreeGraphGenerator.cs" />
+    <Compile Include="Data\DataObjects\TreeGraphNode.cs" />
     <Compile Include="Data\DataObjects\TreeNodeBase.cs" />
     <Compile Include="Data\DataObjects\TreeNodeBaseCollection.cs" />
     <Compile Include="Data\DbConnectionMappingContext.cs" />

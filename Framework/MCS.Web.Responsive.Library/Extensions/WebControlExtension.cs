@@ -70,9 +70,6 @@ namespace MCS.Web.Responsive.Library
 				return owner.FindControl(controlID);
 		}
 
-
-
-
 		/// <summary>
 		/// 在containerControl中查找类型为controlType的控件
 		/// </summary>

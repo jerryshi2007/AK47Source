@@ -23,6 +23,7 @@ namespace MCS.Library.WF.Contracts.Json.Converters.DataObjects
             WfClientProcessQueryCondition condition = new WfClientProcessQueryCondition();
 
             condition.ApplicationName = DictionaryHelper.GetValue(dictionary, "applicationName", string.Empty);
+            condition.ProgramName = DictionaryHelper.GetValue(dictionary, "programName", string.Empty);
 
             condition.BeginStartTime = DictionaryHelper.GetValue(dictionary, "beginStartTime", DateTime.MinValue);
             condition.EndStartTime = DictionaryHelper.GetValue(dictionary, "endStartTime", DateTime.MinValue);
@@ -49,6 +50,7 @@ namespace MCS.Library.WF.Contracts.Json.Converters.DataObjects
             WfClientProcessQueryCondition condition = (WfClientProcessQueryCondition)obj;
 
             DictionaryHelper.AddNonDefaultValue(dictionary, "applicationName", condition.ApplicationName);
+            DictionaryHelper.AddNonDefaultValue(dictionary, "programName", condition.ProgramName);
 
             DictionaryHelper.AddNonDefaultValue(dictionary, "beginStartTime", condition.BeginStartTime);
             DictionaryHelper.AddNonDefaultValue(dictionary, "endStartTime", condition.EndStartTime);

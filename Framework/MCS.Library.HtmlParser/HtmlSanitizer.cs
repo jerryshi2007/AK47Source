@@ -84,6 +84,9 @@ namespace MCS.Library.HtmlParser
         /// <returns></returns>
         public static string GetSafeHtml(string html)
         {
+            if (html.IsNullOrEmpty())
+                return html;
+
             HtmlDocument doc = new HtmlDocument();
 
             doc.LoadHtml(html);

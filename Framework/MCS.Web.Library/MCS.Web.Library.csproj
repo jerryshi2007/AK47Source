@@ -13,9 +13,11 @@
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>MCS.Library.snk</AssemblyOriginatorKeyFile>
-    <FileUpgradeFlags></FileUpgradeFlags>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
     <OldToolsVersion>3.5</OldToolsVersion>
-    <UpgradeBackupLocation></UpgradeBackupLocation>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
@@ -107,6 +109,7 @@
     <Compile Include="Common\ResponseExtensions.cs" />
     <Compile Include="Common\TextControlTranslator.cs" />
     <Compile Include="Common\TranslatorControlHelper.cs" />
+    <Compile Include="Common\TreeGraphExtensions.cs" />
     <Compile Include="Common\WindowFeatureHelper.cs" />
     <Compile Include="Configuration\ConfigSectionFactory.cs" />
     <Compile Include="Configuration\ContentTypesSection.cs" />
@@ -293,6 +296,18 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Globalization\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Images\cross.png" />
+    <EmbeddedResource Include="Resources\Images\hline.png" />
+    <EmbeddedResource Include="Resources\Images\lc.png" />
+    <EmbeddedResource Include="Resources\Images\rc.png" />
+    <EmbeddedResource Include="Resources\Images\reverseTee.png" />
+    <EmbeddedResource Include="Resources\Images\tee.png" />
+    <EmbeddedResource Include="Resources\Images\vline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\orgStyle.css" />
   </ItemGroup>
   <Target Name="AfterBuild">
     <!--<Copy SourceFiles="@(BinFiles)" DestinationFolder="..\..\Bin" SkipUnchangedFiles="True" />-->

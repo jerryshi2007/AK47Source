@@ -16,6 +16,12 @@ namespace MCS.Library.WF.Contracts.DataObjects
             set;
         }
 
+        public string ProgramName
+        {
+            get;
+            set;
+        }
+
         public string ProcessName
         {
             get;

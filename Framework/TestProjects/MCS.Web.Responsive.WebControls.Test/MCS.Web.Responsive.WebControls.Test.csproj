@@ -168,6 +168,16 @@
     <Content Include="Templates\SimpleHeader.ascx" />
     <Content Include="TextBox\inputChangeTest.aspx" />
     <Content Include="TextBox\normalInput.aspx" />
+    <Content Include="TreeGraphTest\GenerateOrgTree.aspx" />
+    <EmbeddedResource Include="TreeGraphTest\images\cross.png" />
+    <EmbeddedResource Include="TreeGraphTest\images\hline.png" />
+    <EmbeddedResource Include="TreeGraphTest\images\lc.png" />
+    <EmbeddedResource Include="TreeGraphTest\images\rc.png" />
+    <EmbeddedResource Include="TreeGraphTest\images\tee.png" />
+    <EmbeddedResource Include="TreeGraphTest\images\reverseTee.png" />
+    <EmbeddedResource Include="TreeGraphTest\images\vline.png" />
+    <Content Include="TreeGraphTest\orgStyle.css" />
+    <Content Include="TreeGraphTest\staticOrgTree.html" />
     <Content Include="WBWapperTest\WBWapperTest.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -383,6 +393,17 @@
     <Compile Include="TextBox\normalInput.aspx.designer.cs">
       <DependentUpon>normalInput.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TreeGraphTest\GenerateOrgTree.aspx.cs">
+      <DependentUpon>GenerateOrgTree.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TreeGraphTest\GenerateOrgTree.aspx.designer.cs">
+      <DependentUpon>GenerateOrgTree.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TreeGraphTest\OrgTreeNode.cs" />
+    <Compile Include="TreeGraphTest\ResponseOrgTree.ashx.cs">
+      <DependentUpon>ResponseOrgTree.ashx</DependentUpon>
+    </Compile>
     <Compile Include="WBWapperTest\WBWapperTest.aspx.cs">
       <DependentUpon>WBWapperTest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -401,6 +422,7 @@
     <None Include="Font-awesome\font\fontawesome-webfont.woff" />
     <None Include="Font-awesome\font\FontAwesome.otf" />
     <Content Include="MVC\controllerMethodContainer.ashx" />
+    <Content Include="TreeGraphTest\ResponseOrgTree.ashx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\MCS.Web.Responsive.Library\MCS.Web.Responsive.Library.csproj">
