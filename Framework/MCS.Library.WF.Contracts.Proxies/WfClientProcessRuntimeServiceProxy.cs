@@ -100,6 +100,11 @@ namespace MCS.Library.WF.Contracts.Proxies
             return this.SingleCall(action => action.Withdraw(processID, runtimeContext));
         }
 
+        public WfClientProcessInfo WithdrawAndCancel(string processID, WfClientRuntimeContext runtimeContext)
+        {
+            return this.SingleCall(action => action.WithdrawAndCancel(processID, runtimeContext));
+        }
+
         public WfClientProcess GetProcessByID(string processID, WfClientUser user)
         {
             return this.GetProcessByID(processID, user, WfClientProcessInfoFilter.Default);

@@ -1,6 +1,7 @@
 ﻿using MCS.Library.Caching;
 using MCS.Library.Core;
 using MCS.Library.Data.Configuration;
+using MCS.Library.Passport;
 using MCS.Library.WcfExtensions;
 using MCS.Library.WcfExtensions.Configuration;
 using MCS.Web.Library.Script;
@@ -28,12 +29,23 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         private WfServiceOperationDefinition _SvcOperationDef = null;
         private WebHeaderCollection _Headers = null;
         private Dictionary<string, string> _ConnectionMappings = null;
+        private WfApplicationRuntimeParameters _InvokeContext = null;
 
         public WfServiceInvoker(WfServiceOperationDefinition svcOperationDef)
         {
-            _SvcOperationDef = svcOperationDef;
+            this._SvcOperationDef = svcOperationDef;
 
             this.InitConnectionMappings();
+            this.InitHeaders();
+        }
+
+        public WfServiceInvoker(WfServiceOperationDefinition svcOperationDef, WfApplicationRuntimeParameters invokeContext)
+        {
+            this._SvcOperationDef = svcOperationDef;
+            this._InvokeContext = invokeContext;
+
+            this.InitConnectionMappings();
+            this.InitHeaders();
         }
 
         /// <summary>
@@ -101,15 +113,39 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         }
 
         /// <summary>
+        /// 调用服务，默认超时30秒
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
+        public object Invoke(WfApplicationRuntimeParameters context)
+        {
+            return Invoke(this._SvcOperationDef.Timeout, context);
+        }
+
+        /// <summary>
         /// 调用服务
         /// </summary>
         /// <param name="timeout">请求超时时间，单位毫秒</param>
         /// <returns></returns>
         public object Invoke(TimeSpan timeout)
         {
+            return this.Invoke(timeout, null);
+        }
+
+        /// <summary>
+        /// 调用服务
+        /// </summary>
+        /// <param name="timeout">请求超时时间，单位毫秒</param>
+        /// <param name="context">上下文参数</param>
+        /// <returns></returns>
+        public object Invoke(TimeSpan timeout, WfApplicationRuntimeParameters context)
+        {
             try
             {
-                HttpWebRequest request = GenerateWebRequestObj(timeout);
+                if (context == null)
+                    context = WfServiceInvoker.InvokeContext;
+
+                HttpWebRequest request = GenerateWebRequestObj(timeout, context);
 
                 try
                 {
@@ -140,7 +176,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                             }
 
                             if (this._SvcOperationDef.RtnXmlStoreParamName.IsNotEmpty())
-                                WfServiceInvoker.InvokeContext[this._SvcOperationDef.RtnXmlStoreParamName] = result;
+                                context[this._SvcOperationDef.RtnXmlStoreParamName] = result;
 
                             return result;
                         }
@@ -160,7 +196,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             }
         }
 
-        private HttpWebRequest GenerateWebRequestObj(TimeSpan timeout)
+        private HttpWebRequest GenerateWebRequestObj(TimeSpan timeout, WfApplicationRuntimeParameters context)
         {
             ExceptionHelper.TrueThrow(string.IsNullOrEmpty(this._SvcOperationDef.AddressDef.Address), "服务地址定义不能为空.");
             ExceptionHelper.TrueThrow(string.IsNullOrEmpty(this._SvcOperationDef.OperationName), "调用方法名称不能为空.");
@@ -170,10 +206,10 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             switch (this._SvcOperationDef.AddressDef.RequestMethod)
             {
                 case WfServiceRequestMethod.Get:
-                    request = this.CreateGetRequest(timeout);
+                    request = this.CreateGetRequest(timeout, context);
                     break;
                 case WfServiceRequestMethod.Post:
-                    request = this.CreatePostRequest(timeout);
+                    request = this.CreatePostRequest(timeout, context);
                     break;
                 case WfServiceRequestMethod.Soap:
                     request = this.CreateSoapRequest(timeout);
@@ -258,12 +294,12 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             return result;
         }
 
-        private HttpWebRequest CreateGetRequest(TimeSpan timeout)
+        private HttpWebRequest CreateGetRequest(TimeSpan timeout, WfApplicationRuntimeParameters context)
         {
             string url = string.Concat(FormatUrl(this._SvcOperationDef.AddressDef.Address, true),
                 HttpUtility.UrlEncode(this._SvcOperationDef.OperationName));
 
-            string strQuery = this.CreateQueryString();
+            string strQuery = this.CreateQueryString(context);
 
             if (strQuery.IsNotEmpty())
                 url = string.Format("{0}?{1}", url, strQuery);
@@ -280,7 +316,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             return result;
         }
 
-        private HttpWebRequest CreatePostRequest(TimeSpan timeout)
+        private HttpWebRequest CreatePostRequest(TimeSpan timeout, WfApplicationRuntimeParameters context)
         {
             HttpWebRequest result = (HttpWebRequest)HttpWebRequest.Create(FormatUrl(_SvcOperationDef.AddressDef.Address, true)
                 + HttpUtility.UrlEncode(_SvcOperationDef.OperationName));
@@ -290,18 +326,18 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             result.KeepAlive = false;
             result.ProtocolVersion = HttpVersion.Version10;
             result.Headers.CopyFrom(this.Headers);
-
+            
             string postData = string.Empty;
 
             switch (_SvcOperationDef.AddressDef.ContentType)
             {
                 case WfServiceContentType.Form:
                     result.ContentType = "application/x-www-form-urlencoded";
-                    postData = this.CreateQueryString();
+                    postData = this.CreateQueryString(context);
                     break;
                 case WfServiceContentType.Json:
                     result.ContentType = "application/json";
-                    postData = CreateJsonData();
+                    postData = this.CreateJsonData(context);
                     break;
                 default: break;
             }
@@ -372,8 +408,9 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         /// <summary>
         /// 构造请求字符串
         /// </summary>
+        /// <param name="context"></param>
         /// <returns></returns>
-        private string CreateQueryString()
+        private string CreateQueryString(WfApplicationRuntimeParameters context)
         {
             StringBuilder result = new StringBuilder();
             foreach (var item in this._SvcOperationDef.Params)
@@ -393,7 +430,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                     if (string.IsNullOrEmpty(paraName))
                         paraName = item.Name;		//流程运行时参数名与方法参数名相同
 
-                    string paraVal = WfServiceInvoker.InvokeContext.GetValueRecursively(paraName, string.Empty);
+                    string paraVal = context.GetValueRecursively(paraName, string.Empty);
 
                     result.Append(HttpUtility.UrlEncode(paraVal));
                 }
@@ -407,7 +444,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             return result.ToString();
         }
 
-        private string CreateJsonData()
+        private string CreateJsonData(WfApplicationRuntimeParameters context)
         {
             string result = string.Empty;
 
@@ -423,7 +460,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                 jsonDict["__Headers"] = headers;
                 jsonDict["__ConnectionMappings"] = this.ConnectionMappings;
 
-                foreach (var item in _SvcOperationDef.Params)
+                foreach (var item in this._SvcOperationDef.Params)
                 {
                     if (item.Type == WfSvcOperationParameterType.RuntimeParameter)
                     {
@@ -432,12 +469,10 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                         if (paraName.IsNullOrEmpty())
                             paraName = item.Name;		//流程运行时参数名与方法参数名相同
 
-                        var paramValue = WfServiceInvoker.InvokeContext.GetValueRecursively<object>(paraName, null);
+                        var paramValue = context.GetValueRecursively<object>(paraName, null);
 
                         if (paramValue == null)
-                        {
                             throw new ArgumentException("未能在CurrentProcess.ApplicationRuntimeParameters中找到参数" + paraName);
-                        }
 
                         jsonDict.Add(item.Name, paramValue);
                     }
@@ -458,17 +493,13 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         public string CreateSoapEnvelope(WfServiceOperationParameterCollection operationParams)
         {
             if (this._SvcOperationDef == null)
-            {
                 throw new ArgumentNullException("WfServiceOperationDefinition不能为空！");
-            }
 
             if (this._SvcOperationDef.OperationName.IsNullOrEmpty())
-            {
                 throw new ArgumentNullException("OperationName不能为空！");
-            }
 
-            XNamespace methodNs = this._SvcOperationDef.AddressDef.ServiceNS;
-            XElement operationElement = new XElement(methodNs + this._SvcOperationDef.OperationName);
+            XNamespace methodNS = this._SvcOperationDef.AddressDef.ServiceNS;
+            XElement operationElement = new XElement(methodNS + this._SvcOperationDef.OperationName);
 
             foreach (WfServiceOperationParameter paramDef in operationParams)
             {
@@ -523,6 +554,11 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             {
                 this.ConnectionMappings[mappingElement.Name] = mappingElement.Destination;
             }
+        }
+
+        private void InitHeaders()
+        {
+            this.Headers[PassportManager.TenantCodeParamName] = HttpUtility.UrlEncode(TenantContext.Current.TenantCode);
         }
     }
 }

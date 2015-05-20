@@ -249,10 +249,19 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             get;
         }
 
+        WfActionCollection WithdrawActions
+        {
+            get;
+        }
+
+        WfActionCollection BeWithdrawnActions
+        {
+            get;
+        }
+
         IWfActivity RootActivity
         {
             get;
-
         }
 
         /// <summary>

@@ -1,10 +1,11 @@
-﻿using System;
+﻿using MCS.Library.Configuration;
+using MCS.Library.Core;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MCS.Library.Configuration;
-using System.Configuration;
 
 namespace MCS.Library.SOA.DataObjects.Workflow
 {
@@ -46,6 +47,41 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             {
                 return (WfServiceOperationDefinitionConfigurationElementCollection)this["operations"];
             }
+        }
+
+        /// <summary>
+        /// 根据一组Operation Key的定义产生一组ServiceOperation类
+        /// </summary>
+        /// <param name="invokeWhenPersist">是否是持久化时调用</param>
+        /// <param name="opKeys"></param>
+        /// <returns></returns>
+        public WfServiceOperationDefinitionCollection GetOperations(bool invokeWhenPersist, params string[] opKeys)
+        {
+            WfServiceOperationDefinitionCollection result = new WfServiceOperationDefinitionCollection();
+
+            if (opKeys != null)
+            {
+                foreach (string opKey in opKeys)
+                {
+                    if (opKey.IsNotEmpty())
+                    {
+                        string key = opKey.Trim();
+
+                        if (key.IsNotEmpty())
+                        {
+                            WfServiceOperationDefinitionConfigurationElement opElement = this.Operations[key];
+
+                            if (opElement != null)
+                            {
+                                if (opElement.InvokeWhenPersist == invokeWhenPersist)
+                                    result.Add(new WfServiceOperationDefinition(opElement));
+                            }
+                        }
+                    }
+                }
+            }
+
+            return result;
         }
     }
 }

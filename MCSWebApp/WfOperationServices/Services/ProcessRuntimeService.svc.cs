@@ -262,6 +262,22 @@ namespace WfOperationServices.Services
 
         [WfJsonFormatter]
         [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public WfClientProcessInfo WithdrawAndCancel(string processID, WfClientRuntimeContext runtimeContext)
+        {
+            OperationContext.Current.FillContextToOguServiceContext();
+
+            return ExecuteProcessActionByProcessID(processID, runtimeContext,
+                (process) =>
+                {
+                    WfWithdrawExecutor executor = new WfWithdrawExecutor(process.CurrentActivity, process.CurrentActivity, true, true);
+
+                    executor.SaveApplicationData += (dataContext) => SaveAbortOpinion(runtimeContext.Opinion);
+                    return executor;
+                });
+        }
+
+        [WfJsonFormatter]
+        [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         public WfClientProcessInfo Cancel(string processID, WfClientRuntimeContext runtimeContext)
         {
             OperationContext.Current.FillContextToOguServiceContext();

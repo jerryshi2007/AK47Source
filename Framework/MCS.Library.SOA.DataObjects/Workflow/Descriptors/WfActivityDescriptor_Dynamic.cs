@@ -125,6 +125,12 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
                 cap.Template.LeaveEventExecuteServices.Clear();
                 cap.Template.LeaveEventExecuteServices.CopyFrom(templateActDesp.LeaveEventExecuteServices);
+
+                cap.Template.WithdrawExecuteServices.Clear();
+                cap.Template.WithdrawExecuteServices.CopyFrom(templateActDesp.WithdrawExecuteServices);
+
+                cap.Template.BeWithdrawnExecuteServices.Clear();
+                cap.Template.BeWithdrawnExecuteServices.CopyFrom(templateActDesp.BeWithdrawnExecuteServices);
             }
         }
 

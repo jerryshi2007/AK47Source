@@ -67,8 +67,8 @@
 			<li><a href="/MCSWebApp/MCSOAPortal/default.aspx" target="WorkflowCenter">流程中心</a></li>
 			<li><a href="/MCSWebApp/PermissionCenter" target="PermissionCenter">权限中心</a></li>
 			<li><a href="/MCSWebApp/WorkflowDesigner/Default.aspx" target="WorkflowDesigner">流程模版</a></li>
-			<li><a href="List/UnCompletedTaskList.aspx" target="UserTasks">待办</a></li>
-			<li><a href="/MCSWebApp/MCSOAPortal/TaskList/CompletedTaskList.aspx?process_status=Running" target="UserAccomplishedTasks">流转中</a></li>
+			<li><a href="List/UnCompletedTaskList.aspx">待办</a></li>
+			<li><a href="/MCSWebApp/MCSOAPortal/TaskList/CompletedTaskList.aspx?process_status=Running">流转中</a></li>
 			<li><a href="/MCSWebApp/WorkflowDesigner/PlanScheduleDialog/TaskMonitor.aspx" target="TaskMonitor">任务监控</a></li>
 		</ul>
 	</div>

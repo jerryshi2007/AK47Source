@@ -835,6 +835,8 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
                 this.Status = WfProcessStatus.Running;
 
+                RegisterAndPrepareActions(this.CurrentActivity.BeWithdrawnActions);
+
                 actionContext.OriginalActivity.CancelBranchProcesses(cancelAllBranchProcesses);
 
                 ((WfActivityBase)actionContext.OriginalActivity).Status = WfActivityStatus.NotRunning;
@@ -859,6 +861,8 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                 }
 
                 this.CurrentActivity = Activities[destinationActivity.ID];
+
+                RegisterAndPrepareActions(this.CurrentActivity.WithdrawActions);
 
                 WfRuntime.ProcessContext.AffectedProcesses.AddOrReplace(this);
                 RegisterAndPrepareActions(this.WithdrawActions);

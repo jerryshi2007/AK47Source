@@ -156,6 +156,14 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         }
 
         /// <summary>
+        /// 撤销流程时调用服务的Key，逗号分隔
+        /// </summary>
+        string CancelExecuteServiceKeys
+        {
+            get;
+        }
+
+        /// <summary>
         /// 外部人员
         /// </summary>
         WfExternalUserCollection ExternalUsers

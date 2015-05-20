@@ -307,7 +307,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             Activities.ForEach(activity => ((WfActivityDescriptor)activity).SetProcessInstance(process));
 
             //2011-8-2 徐磊修改  ..流程撤销时,撤销资源没有流程实例.
-            CancelEventReceivers.ForEach(receive => receive.SetProcessInstance(process));
+            this.CancelEventReceivers.ForEach(receive => receive.SetProcessInstance(process));
         }
 
         /// <summary>
@@ -444,6 +444,21 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             }
         }
 
+        /// <summary>
+        /// 撤销流程时调用服务的Key，逗号分隔
+        /// </summary>
+        public string CancelExecuteServiceKeys
+        {
+            get
+            {
+                return this.Properties.GetValue("CancelExecuteServiceKeys", string.Empty);
+            }
+            set
+            {
+                this.Properties.SetValue("CancelExecuteServiceKeys", value);
+            }
+        }
+
         public IWfProcessDescriptor Clone()
         {
             XElementFormatter formatter = new XElementFormatter();
@@ -516,7 +531,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         {
             Dictionary<string, IWfActivityDescriptor> elapsedActivities = new Dictionary<string, IWfActivityDescriptor>();
 
-            InnerFillMainStreamActivities(actDesp, msActivities, elapsedActivities);
+            this.InnerFillMainStreamActivities(actDesp, msActivities, elapsedActivities);
         }
 
         private void InnerFillMainStreamActivities(IWfActivityDescriptor actDesp, List<WfMainStreamActivityDescriptor> msActivities, Dictionary<string, IWfActivityDescriptor> elapsedActivities)

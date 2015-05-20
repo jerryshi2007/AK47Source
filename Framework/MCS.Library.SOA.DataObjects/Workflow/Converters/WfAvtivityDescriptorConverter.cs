@@ -32,8 +32,13 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             constKey.Add("LeaveEventReceivers", typeof(WfResourceDescriptorCollection));
             constKey.Add("InternalRelativeUsers", typeof(WfResourceDescriptorCollection));
             constKey.Add("ExternalUsers", typeof(WfExternalUserCollection));
+
             constKey.Add("EnterEventExecuteServices", typeof(WfServiceOperationDefinitionCollection));
             constKey.Add("LeaveEventExecuteServices", typeof(WfServiceOperationDefinitionCollection));
+
+            constKey.Add("WithdrawExecuteServices", typeof(WfServiceOperationDefinitionCollection));
+            constKey.Add("BeWithdrawnExecuteServices", typeof(WfServiceOperationDefinitionCollection));
+
             constKey.Add("ParametersNeedToBeCollected", typeof(WfParameterNeedToBeCollected));
 
             if (dictionary.ContainsKey("Properties"))
@@ -74,9 +79,13 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             actDesp.LeaveEventReceivers.Clear();
             actDesp.InternalRelativeUsers.Clear();
             actDesp.BranchProcessTemplates.Clear();
+            actDesp.ParametersNeedToBeCollected.Clear();
+
             actDesp.EnterEventExecuteServices.Clear();
             actDesp.LeaveEventExecuteServices.Clear();
-            actDesp.ParametersNeedToBeCollected.Clear();
+
+            actDesp.WithdrawExecuteServices.Clear();
+            actDesp.BeWithdrawnExecuteServices.Clear();
         }
 
         private void SetActivityProperties(WfActivityDescriptor actDesp, Dictionary<string, object> activityProperties, IDictionary<string, object> dictionary)
@@ -229,16 +238,46 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             if (activityProperties.ContainsKey("LeaveEventExecuteServices"))
             {
                 var item = (WfServiceOperationDefinitionCollection)activityProperties["LeaveEventExecuteServices"];
+
                 if (item != null)
-                {
                     actDesp.LeaveEventExecuteServices.CopyFrom(item);
-                }
             }
             else if (dictionary.ContainsKey("LeaveEventExecuteServices"))
             {
                 WfServiceOperationDefinitionCollection svcOperationDef =
                     JSONSerializerExecute.Deserialize<WfServiceOperationDefinitionCollection>(dictionary["LeaveEventExecuteServices"]);
+
                 actDesp.LeaveEventExecuteServices.CopyFrom(svcOperationDef);
+            }
+
+            if (activityProperties.ContainsKey("WithdrawExecuteServices"))
+            {
+                var item = (WfServiceOperationDefinitionCollection)activityProperties["WithdrawExecuteServices"];
+
+                if (item != null)
+                    actDesp.WithdrawExecuteServices.CopyFrom(item);
+            }
+            else if (dictionary.ContainsKey("WithdrawExecuteServices"))
+            {
+                WfServiceOperationDefinitionCollection svcOperationDef =
+                    JSONSerializerExecute.Deserialize<WfServiceOperationDefinitionCollection>(dictionary["WithdrawExecuteServices"]);
+
+                actDesp.WithdrawExecuteServices.CopyFrom(svcOperationDef);
+            }
+
+            if (activityProperties.ContainsKey("BeWithdrawnExecuteServices"))
+            {
+                var item = (WfServiceOperationDefinitionCollection)activityProperties["BeWithdrawnExecuteServices"];
+
+                if (item != null)
+                    actDesp.BeWithdrawnExecuteServices.CopyFrom(item);
+            }
+            else if (dictionary.ContainsKey("BeWithdrawnExecuteServices"))
+            {
+                WfServiceOperationDefinitionCollection svcOperationDef =
+                    JSONSerializerExecute.Deserialize<WfServiceOperationDefinitionCollection>(dictionary["BeWithdrawnExecuteServices"]);
+
+                actDesp.BeWithdrawnExecuteServices.CopyFrom(svcOperationDef);
             }
 
             if (activityProperties.ContainsKey("ParametersNeedToBeCollected"))
@@ -274,8 +313,13 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             SetPropertiesValue(actDesp, "BranchProcessTemplates", actDesp.BranchProcessTemplates);
             SetPropertiesValue(actDesp, "EnterEventReceivers", actDesp.EnterEventReceivers);
             SetPropertiesValue(actDesp, "LeaveEventReceivers", actDesp.LeaveEventReceivers);
+            
             SetPropertiesValue(actDesp, "EnterEventExecuteServices", actDesp.EnterEventExecuteServices);
             SetPropertiesValue(actDesp, "LeaveEventExecuteServices", actDesp.LeaveEventExecuteServices);
+
+            SetPropertiesValue(actDesp, "WithdrawExecuteServices", actDesp.WithdrawExecuteServices);
+            SetPropertiesValue(actDesp, "BeWithdrawnExecuteServices", actDesp.BeWithdrawnExecuteServices);
+
             SetPropertiesValue(actDesp, "InternalRelativeUsers", actDesp.InternalRelativeUsers);
             SetPropertiesValue(actDesp, "ExternalUsers", actDesp.ExternalUsers);
             SetPropertiesValue(actDesp, "ParametersNeedToBeCollected", actDesp.ParametersNeedToBeCollected);

@@ -421,11 +421,14 @@
     <Compile Include="Validators\StringByteLengthValidatorAttribute.cs" />
     <Compile Include="Group\WfGroupAdapter.cs" />
     <Compile Include="Workflow\Actions\ActivityInvokeServiceActionBase.cs" />
+    <Compile Include="Workflow\Actions\BeWithdrawnInvokeServiceAction.cs" />
     <Compile Include="Workflow\Actions\CancelExecuteInvokeServiceAction.cs" />
     <Compile Include="Workflow\Actions\EnterActivityInvokeServiceAction.cs" />
+    <Compile Include="Workflow\Actions\InvokeServiceActionBase.cs" />
     <Compile Include="Workflow\Actions\LeaveActivityInvokeServiceAction.cs" />
     <Compile Include="Workflow\Actions\ProcessStatusChangeSyncAction.cs" />
     <Compile Include="Workflow\Actions\RestoreProcessUserTaskAction.cs" />
+    <Compile Include="Workflow\Actions\WithdrawInvokeServiceAction.cs" />
     <Compile Include="Workflow\Builders\WfApprovalProcessBuilder.cs" />
     <Compile Include="Workflow\Builders\WfCirculationProcessBuilder.cs" />
     <Compile Include="Workflow\Builders\WfCreateActivityBuiltInFunctions.cs" />

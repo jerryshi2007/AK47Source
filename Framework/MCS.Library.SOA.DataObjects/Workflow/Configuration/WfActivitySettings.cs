@@ -11,224 +11,265 @@ using System.Diagnostics;
 
 namespace MCS.Library.SOA.DataObjects.Workflow
 {
-	/// <summary>
-	/// 工作流Activity配置
-	/// </summary>
-	public sealed class WfActivitySettings : ConfigurationSection
-	{
-		private Hashtable _Context = new Hashtable();
+    /// <summary>
+    /// 工作流Activity配置
+    /// </summary>
+    public sealed class WfActivitySettings : ConfigurationSection
+    {
+        private Hashtable _Context = new Hashtable();
 
-		public static WfActivitySettings GetConfig()
-		{
-			WfActivitySettings settings = (WfActivitySettings)ConfigurationBroker.GetSection("wfActivitySettings");
+        public static WfActivitySettings GetConfig()
+        {
+            WfActivitySettings settings = (WfActivitySettings)ConfigurationBroker.GetSection("wfActivitySettings");
 
-			if (settings == null)
-				settings = new WfActivitySettings();
+            if (settings == null)
+                settings = new WfActivitySettings();
 
-			return settings;
-		}
+            return settings;
+        }
 
-		public Hashtable Context
-		{
-			get { return _Context; }
-		}
+        public Hashtable Context
+        {
+            get { return _Context; }
+        }
 
-		public WfActivityBuilderBase GetActivityBuilder(IWfActivityDescriptor actDesp)
-		{
-			(actDesp != null).FalseThrow<ArgumentNullException>("actDesp");
+        public WfActivityBuilderBase GetActivityBuilder(IWfActivityDescriptor actDesp)
+        {
+            (actDesp != null).FalseThrow<ArgumentNullException>("actDesp");
 
-			return GetActivityBuilder(actDesp.ActivityType);
-		}
+            return GetActivityBuilder(actDesp.ActivityType);
+        }
 
-		public WfActivityBuilderBase GetActivityBuilder(WfActivityType activityType)
-		{
-			WfActivityConfigurationElement activityElement = Activities[activityType.ToString()];
+        public WfActivityBuilderBase GetActivityBuilder(WfActivityType activityType)
+        {
+            WfActivityConfigurationElement activityElement = Activities[activityType.ToString()];
 
-			(activityElement != null).FalseThrow<SettingsPropertyNotFoundException>("不能根据{0}找到对应的ActivityBuilder", activityType);
+            (activityElement != null).FalseThrow<SettingsPropertyNotFoundException>("不能根据{0}找到对应的ActivityBuilder", activityType);
 
-			return (WfActivityBuilderBase)activityElement.CreateInstance();
-		}
+            return (WfActivityBuilderBase)activityElement.CreateInstance();
+        }
 
-		[ConfigurationProperty("propertyGroups", IsRequired = false)]
-		public PropertyGroupConfigurationElementCollection PropertyGroups
-		{
-			get
-			{
-				return (PropertyGroupConfigurationElementCollection)this["propertyGroups"];
-			}
-		}
+        /// <summary>
+        /// 版本号
+        /// </summary>
+        [ConfigurationProperty("verson", IsRequired = false, DefaultValue = "1.0.0.0")]
+        public string Verson
+        {
+            get
+            {
+                return (string)this["verson"];
+            }
+        }
 
-		[ConfigurationProperty("activities", IsRequired = false)]
-		public WfActivityConfigurationCollection Activities
-		{
-			get
-			{
-				return (WfActivityConfigurationCollection)this["activities"];
-			}
-		}
+        [ConfigurationProperty("propertyGroups", IsRequired = false)]
+        public PropertyGroupConfigurationElementCollection PropertyGroups
+        {
+            get
+            {
+                return (PropertyGroupConfigurationElementCollection)this["propertyGroups"];
+            }
+        }
 
-		/// <summary>
-		/// 中止流程的操作类
-		/// </summary>
-		/// <returns></returns>
-		public WfActionCollection GetCancelProcessActions()
-		{
-			return WfActivityConfigurationElement.GetActions(this.CancelProcessActionsString);
-		}
+        [ConfigurationProperty("activities", IsRequired = false)]
+        public WfActivityConfigurationCollection Activities
+        {
+            get
+            {
+                return (WfActivityConfigurationCollection)this["activities"];
+            }
+        }
 
-		/// <summary>
-		/// 恢复终止流程的操作类
-		/// </summary>
-		/// <returns></returns>
-		public WfActionCollection GetRestoreProcessActions()
-		{
-			return WfActivityConfigurationElement.GetActions(this.RestoreProcessActionsString);
-		}
+        /// <summary>
+        /// 中止流程的操作类
+        /// </summary>
+        /// <returns></returns>
+        public WfActionCollection GetCancelProcessActions()
+        {
+            return WfActivityConfigurationElement.GetActions(this.CancelProcessActionsString);
+        }
 
-		/// <summary>
-		/// 流程撤回的操作类
-		/// </summary>
-		/// <returns></returns>
-		public WfActionCollection GetWithdrawActions()
-		{
-			return WfActivityConfigurationElement.GetActions(this.WithdrawActionsString);
-		}
+        /// <summary>
+        /// 恢复终止流程的操作类
+        /// </summary>
+        /// <returns></returns>
+        public WfActionCollection GetRestoreProcessActions()
+        {
+            return WfActivityConfigurationElement.GetActions(this.RestoreProcessActionsString);
+        }
 
-		/// <summary>
-		/// 流程状态改变的操作类
-		/// </summary>
-		/// <returns></returns>
-		public WfActionCollection GetProcessStatusChangeActions()
-		{
-			return WfActivityConfigurationElement.GetActions(this.ProcessStatusChangeActionsString);
-		}
+        /// <summary>
+        /// 流程撤回的操作类
+        /// </summary>
+        /// <returns></returns>
+        public WfActionCollection GetWithdrawActions()
+        {
+            return WfActivityConfigurationElement.GetActions(this.WithdrawActionsString);
+        }
 
-		[ConfigurationProperty("cancelProcessActions", IsRequired = false, DefaultValue = "CancelProcessUserTaskAction,CancelExecuteInvokeServiceAction")]
-		private string CancelProcessActionsString
-		{
-			get
-			{
-				return (string)this["cancelProcessActions"];
-			}
-		}
+        /// <summary>
+        /// 流程状态改变的操作类
+        /// </summary>
+        /// <returns></returns>
+        public WfActionCollection GetProcessStatusChangeActions()
+        {
+            return WfActivityConfigurationElement.GetActions(this.ProcessStatusChangeActionsString);
+        }
 
-		[ConfigurationProperty("restoreProcessActions", IsRequired = false, DefaultValue = "RestoreProcessUserTaskAction")]
-		private string RestoreProcessActionsString
-		{
-			get
-			{
-				return (string)this["restoreProcessActions"];
-			}
-		}
+        [ConfigurationProperty("cancelProcessActions", IsRequired = false, DefaultValue = "CancelProcessUserTaskAction,CancelExecuteInvokeServiceAction")]
+        private string CancelProcessActionsString
+        {
+            get
+            {
+                return (string)this["cancelProcessActions"];
+            }
+        }
 
-		[ConfigurationProperty("withdrawActions", IsRequired = false, DefaultValue = "WithdrawUserTaskAction")]
-		private string WithdrawActionsString
-		{
-			get
-			{
-				return (string)this["withdrawActions"];
-			}
-		}
+        [ConfigurationProperty("restoreProcessActions", IsRequired = false, DefaultValue = "RestoreProcessUserTaskAction")]
+        private string RestoreProcessActionsString
+        {
+            get
+            {
+                return (string)this["restoreProcessActions"];
+            }
+        }
 
-		[ConfigurationProperty("processStatusChangeActions", IsRequired = false, DefaultValue = "ProcessStatusChangeAction")]
-		private string ProcessStatusChangeActionsString
-		{
-			get
-			{
-				return (string)this["processStatusChangeActions"];
-			}
-		}
+        [ConfigurationProperty("withdrawActions", IsRequired = false, DefaultValue = "WithdrawUserTaskAction")]
+        private string WithdrawActionsString
+        {
+            get
+            {
+                return (string)this["withdrawActions"];
+            }
+        }
 
-		protected override bool OnDeserializeUnrecognizedAttribute(string name, string value)
-		{
-			return true;
-		}
+        [ConfigurationProperty("processStatusChangeActions", IsRequired = false, DefaultValue = "ProcessStatusChangeAction")]
+        private string ProcessStatusChangeActionsString
+        {
+            get
+            {
+                return (string)this["processStatusChangeActions"];
+            }
+        }
 
-		protected override bool OnDeserializeUnrecognizedElement(string elementName, System.Xml.XmlReader reader)
-		{
-			return true;
-		}
-	}
+        protected override bool OnDeserializeUnrecognizedAttribute(string name, string value)
+        {
+            return true;
+        }
 
-	public class WfActivityConfigurationElement : TypeConfigurationElement
-	{
-		public WfActivityConfigurationElement()
-		{
-		}
+        protected override bool OnDeserializeUnrecognizedElement(string elementName, System.Xml.XmlReader reader)
+        {
+            return true;
+        }
+    }
 
-		public WfActionCollection GetEnterActions()
-		{
-			return GetActions(EnterActionNames);
-		}
+    public class WfActivityConfigurationElement : TypeConfigurationElement
+    {
+        public WfActivityConfigurationElement()
+        {
+        }
 
-		public WfActionCollection GetLeaveActions()
-		{
-			return GetActions(LeaveActionNames);
-		}
+        public WfActionCollection GetEnterActions()
+        {
+            return GetActions(this.EnterActionNames);
+        }
 
-		internal static WfActionCollection GetActions(string actionNames)
-		{
-			WfActionCollection actions = new WfActionCollection();
+        public WfActionCollection GetLeaveActions()
+        {
+            return GetActions(this.LeaveActionNames);
+        }
 
-			if (actionNames.IsNotEmpty())
-			{
-				string[] actionStrArray = actionNames.Split(new char[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries);
+        public WfActionCollection GetWithdrawActions()
+        {
+            return GetActions(this.WithdrawActionNames);
+        }
 
-				WfActionSettings actionSettings = WfActionSettings.GetConfig();
+        public WfActionCollection GetBeWithdrawnActions()
+        {
+            return GetActions(this.BeWithdrawnActionNames);
+        }
 
-				foreach (string actionName in actionStrArray)
-				{
-					try
-					{
-						actions.Add(actionSettings.GetAction(actionName));
-					}
-					catch (Exception ex)
-					{
-						WriteToLog(ex);
-					}
-				}
-			}
+        internal static WfActionCollection GetActions(string actionNames)
+        {
+            WfActionCollection actions = new WfActionCollection();
 
-			return actions;
-		}
+            if (actionNames.IsNotEmpty())
+            {
+                string[] actionStrArray = actionNames.Split(new char[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries);
 
-		//ydz 2012/06/07 将获取
-		private static void WriteToLog(Exception ex)
-		{
-			Logger logger = LoggerFactory.Create("WfRuntime");
+                WfActionSettings actionSettings = WfActionSettings.GetConfig();
 
-			if (logger != null)
-			{
-				StringBuilder strB = new StringBuilder(1024);
+                foreach (string actionName in actionStrArray)
+                {
+                    try
+                    {
+                        actions.Add(actionSettings.GetAction(actionName));
+                    }
+                    catch (Exception ex)
+                    {
+                        WriteToLog(ex);
+                    }
+                }
+            }
 
-				strB.AppendLine(ex.Message);
+            return actions;
+        }
 
-				strB.AppendLine(EnvironmentHelper.GetEnvironmentInfo());
-				strB.AppendLine(ex.StackTrace);
+        //ydz 2012/06/07 将获取
+        private static void WriteToLog(Exception ex)
+        {
+            Logger logger = LoggerFactory.Create("WfRuntime");
 
-				logger.Write(strB.ToString(), LogPriority.Normal, 8004, TraceEventType.Error, "WfRuntime 获取Actions出错");
-			}
-		}
+            if (logger != null)
+            {
+                StringBuilder strB = new StringBuilder(1024);
 
-		[ConfigurationProperty("enterActions", IsRequired = false, DefaultValue = "")]
-		private string EnterActionNames
-		{
-			get
-			{
-				return (string)this["enterActions"];
-			}
-		}
+                strB.AppendLine(ex.Message);
 
-		[ConfigurationProperty("leaveActions", IsRequired = false, DefaultValue = "")]
-		private string LeaveActionNames
-		{
-			get
-			{
-				return (string)this["leaveActions"];
-			}
-		}
-	}
+                strB.AppendLine(EnvironmentHelper.GetEnvironmentInfo());
+                strB.AppendLine(ex.StackTrace);
 
-	public class WfActivityConfigurationCollection : NamedConfigurationElementCollection<WfActivityConfigurationElement>
-	{ }
+                logger.Write(strB.ToString(), LogPriority.Normal, 8004, TraceEventType.Error, "WfRuntime 获取Actions出错");
+            }
+        }
+
+        [ConfigurationProperty("enterActions", IsRequired = false, DefaultValue = "")]
+        private string EnterActionNames
+        {
+            get
+            {
+                return (string)this["enterActions"];
+            }
+        }
+
+        [ConfigurationProperty("leaveActions", IsRequired = false, DefaultValue = "")]
+        private string LeaveActionNames
+        {
+            get
+            {
+                return (string)this["leaveActions"];
+            }
+        }
+
+        [ConfigurationProperty("withdrawActions", IsRequired = false, DefaultValue = "")]
+        private string WithdrawActionNames
+        {
+            get
+            {
+                return (string)this["withdrawActions"];
+            }
+        }
+
+        [ConfigurationProperty("beWithdrawnActions", IsRequired = false, DefaultValue = "")]
+        private string BeWithdrawnActionNames
+        {
+            get
+            {
+                return (string)this["beWithdrawnActions"];
+            }
+        }
+    }
+
+    public class WfActivityConfigurationCollection : NamedConfigurationElementCollection<WfActivityConfigurationElement>
+    {
+    }
 }

@@ -35,7 +35,7 @@ namespace PermissionCenter.Extensions
 
         protected override void BeforeExecuteServerMethod(SoapMessage message)
         {
-            InitConnectionMappings();
+            this.InitConnectionMappings();
         }
 
         protected override PCServiceMethodCache CreateServiceMethodCache(string instanceName, int maxLength)

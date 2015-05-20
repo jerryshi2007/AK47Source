@@ -8,7 +8,7 @@
                     .DialogText("您确定要保存吗？").Name("ExpenseSave")
 )
 @(
- Html.HSRUIWF().WFWithdrawWorkflow().DialogText("您确定要撤回吗？").Name("WithdrawExpense").AfterClick("reloadPage").ProgressBar(true)
+ Html.HSRUIWF().WFWithdrawWorkflow().DialogText("您确定要撤回吗？").Name("WithdrawExpense").AfterClick("reloadPage").ProgressBar(true).CancelProcess(true)
 )
 @(
  Html.HSRUIWF().WFCancelWorkflow().DialogText("您确定要作废吗？").Name("CancelExpense").AfterClick("reloadPage").ProgressBar(true)

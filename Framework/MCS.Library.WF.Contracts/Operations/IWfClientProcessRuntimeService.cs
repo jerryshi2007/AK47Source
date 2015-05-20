@@ -78,6 +78,15 @@ namespace MCS.Library.WF.Contracts.Operations
         WfClientProcessInfo Withdraw(string processID, WfClientRuntimeContext runtimeContext);
 
         /// <summary>
+        /// 流程撤回一步，然后作废
+        /// </summary>
+        /// <param name="processID">流程的ID</param>
+        /// <param name="runtimeContext"></param>
+        /// <returns>流转上下文信息</returns>
+        [OperationContract]
+        WfClientProcessInfo WithdrawAndCancel(string processID, WfClientRuntimeContext runtimeContext);
+
+        /// <summary>
         /// 作废流程
         /// </summary>
         /// <param name="processID">流程的ID</param>

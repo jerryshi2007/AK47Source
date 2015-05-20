@@ -18,24 +18,6 @@ namespace MCS.Library.OGUPermission
     {
         private ListObjectMask listObjectCondition = ListObjectMask.Common;
 
-        //private static object AddNewContext(ContextCacheQueueBase<object, object> cache, object key)
-        //{
-        //    ServiceBrokerContext context = new ServiceBrokerContext();
-
-        //    OguPermissionSettings config = OguPermissionSettings.GetConfig();
-
-        //    context.Timeout = config.Timeout;
-        //    context.UseLocalCache = config.UseLocalCache;
-        //    context.UseServerCache = config.UseServerCache;
-
-        //    foreach (OguConnectionMappingElement cm in config.ConnectionMappings)
-        //        context.ConnectionMappings[cm.Name] = cm.Destination;
-
-        //    cache.Add(key, context);
-
-        //    return context;
-        //}
-
         /// <summary>
         /// 查询删除对象的掩码
         /// </summary>

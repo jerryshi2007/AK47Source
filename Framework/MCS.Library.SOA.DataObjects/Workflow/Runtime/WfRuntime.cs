@@ -451,6 +451,10 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                         PerformanceMonitorHelper.GetDefaultMonitor().WriteExecutionDuration("Update CommonInfoMapping",
                             () => CommonInfoMappingAdapter.Instance.Update(cimItems));
 
+                        //保存流程后再执行Actions
+                        PerformanceMonitorHelper.GetDefaultMonitor().WriteExecutionDuration("PersistActions",
+                            () => WfRuntime.ProcessContext.AffectedActions.PersistActions(actionParams));
+
                         ProcessProgress.Current.MaxStep += WfRuntime.ProcessContext.AffectedProcesses.Count;
                         ProcessProgress.Current.Response();
 
@@ -469,10 +473,6 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                                 ProcessProgress.Current.StatusText = Translator.Translate(Define.DefaultCulture, "保存了{0}/{1}条流程数据", i, total);
                                 ProcessProgress.Current.Response();
                             });
-
-                        //保存流程后再执行Actions
-                        PerformanceMonitorHelper.GetDefaultMonitor().WriteExecutionDuration("PersistActions",
-                            () => WfRuntime.ProcessContext.AffectedActions.PersistActions(actionParams));
 
                         ProcessProgress.Current.StatusText = string.Empty;
                         ProcessProgress.Current.Response();

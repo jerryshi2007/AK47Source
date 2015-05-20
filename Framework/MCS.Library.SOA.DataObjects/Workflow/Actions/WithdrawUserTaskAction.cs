@@ -20,18 +20,17 @@ namespace MCS.Library.SOA.DataObjects.Workflow.Actions
                             UserTaskAdapter.Instance.LoadUserTasks(builder => builder.AppendItem("ACTIVITY_ID",
                                 WfRuntime.ProcessContext.OriginalActivity.ID));
 
+                //删除已经发送的待办
                 WfRuntime.ProcessContext.DeletedUserTasks.CopyFrom(currentProcessTasks);
 
                 //对被撤回的点发送通知
-                PrepareNotifyTasks(WfRuntime.ProcessContext.OriginalActivity);
+                this.PrepareNotifyTasks(WfRuntime.ProcessContext.OriginalActivity);
 
                 IWfActivity currentActivity = WfRuntime.ProcessContext.CurrentActivity;
 
                 //对当前的活动点发送待办
                 if (currentActivity != null)
-                {
-                    PrepareMoveToTasks(currentActivity);
-                }
+                    this.PrepareMoveToTasks(currentActivity);
 
                 WfRuntime.ProcessContext.FireWithdrawPrepareAction();
             }

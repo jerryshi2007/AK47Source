@@ -308,7 +308,14 @@ namespace MCS.Library.Passport
             string tenantCode = HttpContext.Current.GetRouteDataValue(PassportManager.TenantCodeParamName, string.Empty);
 
             if (tenantCode.IsNullOrEmpty())
-                tenantCode = Request.GetRequestQueryString(PassportManager.TenantCodeParamName, string.Empty);
+            {
+                tenantCode = HttpContext.Current.Request.Headers.GetValue(PassportManager.TenantCodeParamName, string.Empty);
+
+                if (tenantCode.IsNullOrEmpty())
+                    tenantCode = Request.GetRequestQueryString(PassportManager.TenantCodeParamName, string.Empty);
+                else
+                    tenantCode = HttpUtility.UrlDecode(tenantCode);
+            }
 
             return tenantCode;
         }

@@ -200,6 +200,7 @@
     <Item source="接受" target="Accept"/>
     <Item source="冲销" target="Reverse"/>
     <Item source="批准" target="Approve"/>
+    <Item source="批退" target="Reject"/>
     <Item source="提交" target="Submit"/>
     <Item source="上传" target="Upload"/>
     <!--<Item source="关闭" target="Close"/>-->

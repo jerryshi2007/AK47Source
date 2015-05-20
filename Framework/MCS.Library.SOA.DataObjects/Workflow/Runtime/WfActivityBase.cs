@@ -40,6 +40,12 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         [NonSerialized]
         private WfActionCollection _LeaveActions = new WfActionCollection();
 
+        [NonSerialized]
+        private WfActionCollection _WithdrawActions = new WfActionCollection();
+
+        [NonSerialized]
+        private WfActionCollection _BeWithdrawnActions = new WfActionCollection();
+
         protected WfActivityBase()
         {
         }
@@ -255,6 +261,22 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             get
             {
                 return this._LeaveActions;
+            }
+        }
+
+        public WfActionCollection WithdrawActions
+        {
+            get
+            {
+                return this._WithdrawActions;
+            }
+        }
+
+        public WfActionCollection BeWithdrawnActions
+        {
+            get
+            {
+                return this._BeWithdrawnActions;
             }
         }
 

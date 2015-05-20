@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PermissionCenterServices", "PermissionCenterServices.csproj", "{1B601749-C27A-40E6-8F5C-00E2E1E92AA2}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -62,12 +62,20 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library.SOA.DataObjects
 	ProjectSection(ProjectDependencies) = postProject
 		{4313DE1E-738F-477D-B7FD-B237E9116670} = {4313DE1E-738F-477D-B7FD-B237E9116670}
 		{6EA98729-9A07-4D1F-B389-07C6B9D43B1D} = {6EA98729-9A07-4D1F-B389-07C6B9D43B1D}
+		{2B974479-EB50-46D1-A812-58BB45447D65} = {2B974479-EB50-46D1-A812-58BB45447D65}
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215} = {4077B0B7-062A-4F6D-8A45-A180A2ED3215}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library.Passport", "..\..\Framework\MCS.Library.Passport\MCS.Library.Passport.csproj", "{2B974479-EB50-46D1-A812-58BB45447D65}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4313DE1E-738F-477D-B7FD-B237E9116670} = {4313DE1E-738F-477D-B7FD-B237E9116670}
+		{6EA98729-9A07-4D1F-B389-07C6B9D43B1D} = {6EA98729-9A07-4D1F-B389-07C6B9D43B1D}
 		{4077B0B7-062A-4F6D-8A45-A180A2ED3215} = {4077B0B7-062A-4F6D-8A45-A180A2ED3215}
 	EndProjectSection
 EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 11
+		SccNumberOfProjects = 12
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = http://shsvr9141tfs.ciicsh.local:8080/tfs/rhso
 		SccLocalPath0 = .
@@ -100,6 +108,9 @@ Global
 		SccLocalPath9 = ..\\..\\Framework\\MCS.Library
 		SccProjectUniqueName10 = PermissionCenterServices.csproj
 		SccLocalPath10 = .
+		SccProjectUniqueName11 = ..\\..\\Framework\\MCS.Library.Passport\\MCS.Library.Passport.csproj
+		SccProjectName11 = ../../Framework/MCS.Library.Passport
+		SccLocalPath11 = ..\\..\\Framework\\MCS.Library.Passport
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -167,6 +178,12 @@ Global
 		{7905642F-4630-4D16-AF40-CB1FB70D516F}.DELUXEWORKSTEST|Any CPU.Build.0 = Debug|Any CPU
 		{7905642F-4630-4D16-AF40-CB1FB70D516F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7905642F-4630-4D16-AF40-CB1FB70D516F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B974479-EB50-46D1-A812-58BB45447D65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B974479-EB50-46D1-A812-58BB45447D65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B974479-EB50-46D1-A812-58BB45447D65}.DELUXEWORKSTEST|Any CPU.ActiveCfg = DELUXEWORKSTEST|Any CPU
+		{2B974479-EB50-46D1-A812-58BB45447D65}.DELUXEWORKSTEST|Any CPU.Build.0 = DELUXEWORKSTEST|Any CPU
+		{2B974479-EB50-46D1-A812-58BB45447D65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B974479-EB50-46D1-A812-58BB45447D65}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -98,13 +98,29 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 				actDesp.EnterEventExecuteServices.CopyFrom(svcOperationDef);
 			}
 
-			if (dictionary.ContainsKey("ExternalUsers"))
+            if (dictionary.ContainsKey("LeaveEventExecuteServices"))
 			{
 				WfServiceOperationDefinitionCollection svcOperationDef =
 					JSONSerializerExecute.Deserialize<WfServiceOperationDefinitionCollection>(dictionary["LeaveEventExecuteServices"]);
 				actDesp.LeaveEventExecuteServices.Clear();
 				actDesp.LeaveEventExecuteServices.CopyFrom(svcOperationDef);
 			}
+
+            if (dictionary.ContainsKey("WithdrawExecuteServices"))
+            {
+                WfServiceOperationDefinitionCollection svcOperationDef =
+                    JSONSerializerExecute.Deserialize<WfServiceOperationDefinitionCollection>(dictionary["WithdrawExecuteServices"]);
+                actDesp.WithdrawExecuteServices.Clear();
+                actDesp.WithdrawExecuteServices.CopyFrom(svcOperationDef);
+            }
+
+            if (dictionary.ContainsKey("BeWithdrawnExecuteServices"))
+            {
+                WfServiceOperationDefinitionCollection svcOperationDef =
+                    JSONSerializerExecute.Deserialize<WfServiceOperationDefinitionCollection>(dictionary["BeWithdrawnExecuteServices"]);
+                actDesp.BeWithdrawnExecuteServices.Clear();
+                actDesp.BeWithdrawnExecuteServices.CopyFrom(svcOperationDef);
+            }
 
 			return actDesp;
 		}
@@ -131,8 +147,12 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 			dictionary.Add("LeaveEventReceivers", actDesp.LeaveEventReceivers);
 			dictionary.Add("InternalRelativeUsers", actDesp.InternalRelativeUsers);
 			dictionary.Add("ExternalUsers", actDesp.ExternalUsers);
+
 			dictionary.Add("EnterEventExecuteServices", actDesp.EnterEventExecuteServices);
 			dictionary.Add("LeaveEventExecuteServices", actDesp.LeaveEventExecuteServices);
+
+            dictionary.Add("WithdrawExecuteServices", actDesp.WithdrawExecuteServices);
+            dictionary.Add("BeWithdrawnExecuteServices", actDesp.BeWithdrawnExecuteServices);
 
 			return dictionary;
 		}

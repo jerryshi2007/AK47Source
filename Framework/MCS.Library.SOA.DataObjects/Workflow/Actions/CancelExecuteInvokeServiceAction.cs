@@ -7,42 +7,43 @@ using MCS.Library.Core;
 namespace MCS.Library.SOA.DataObjects.Workflow.Actions
 {
     [Serializable]
-    public class CancelExecuteInvokeServiceAction : IWfAction
+    public class CancelExecuteInvokeServiceAction : InvokeServiceActionBase
     {
-        public void PrepareAction(WfActionParams actionParams)
-        {
-            if (WfRuntime.ProcessContext.EnableServiceCall)
-            {
-                if (WfRuntime.ProcessContext.CurrentProcess != null)
-                {
-                    foreach (WfServiceOperationDefinition svcDefinition in WfRuntime.ProcessContext.CurrentProcess.Descriptor.CancelBeforeExecuteServices)
-                    {
-                        WfServiceInvoker svcInvoker = new WfServiceInvoker(svcDefinition);
+        private IWfProcess _Process = null;
 
-                        svcInvoker.Invoke();
-                    }
-                }
-            }
+        public override void PrepareAction(WfActionParams actionParams)
+        {
+            this._Process = WfRuntime.ProcessContext.CurrentProcess;
+
+            base.PrepareAction(actionParams);
         }
 
-        public void PersistAction(WfActionParams actionParams)
+        protected override WfServiceOperationDefinitionCollection GetOperationsBeforePersist()
         {
-            if (WfRuntime.ProcessContext.EnableServiceCall)
-            {
-                if (WfRuntime.ProcessContext.CurrentProcess != null)
-                {
-                    foreach (WfServiceOperationDefinition svcDefinition in WfRuntime.ProcessContext.CurrentProcess.Descriptor.CancelAfterExecuteServices)
-                    {
-                        WfServiceInvoker svcInvoker = new WfServiceInvoker(svcDefinition);
+            WfServiceOperationDefinitionCollection result = this._Process.Descriptor.CancelBeforeExecuteServices.GetServiceOperationsBeforePersist();
 
-                        svcInvoker.Invoke();
-                    }
-                }
-            }
+            result.CopyFrom(this._Process.Descriptor.CancelAfterExecuteServices.GetServiceOperationsBeforePersist());
+
+            return result;
         }
 
-        public void ClearCache()
+        protected override WfServiceOperationDefinitionCollection GetOperationsWhenPersist()
         {
+            WfServiceOperationDefinitionCollection result = this._Process.Descriptor.CancelBeforeExecuteServices.GetServiceOperationsWhenPersist();
+
+            result.CopyFrom(this._Process.Descriptor.CancelAfterExecuteServices.GetServiceOperationsWhenPersist());
+
+            return result;
+        }
+
+        protected override string GetInvokeServiceKeys()
+        {
+            return this._Process.Descriptor.CancelExecuteServiceKeys;
+        }
+
+        protected override WfApplicationRuntimeParameters GetApplicationRuntimeParameters()
+        {
+            return this._Process.ApplicationRuntimeParameters;
         }
     }
 }

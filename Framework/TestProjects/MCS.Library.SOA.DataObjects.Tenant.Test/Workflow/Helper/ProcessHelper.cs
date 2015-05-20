@@ -107,13 +107,13 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
         }
 
         /// <summary>
-        /// 启动流程
+        /// 带上下文参数的启动流程
         /// </summary>
         /// <param name="processDesp"></param>
         /// <returns></returns>
-        public static IWfProcess StartupProcessByExecutor(this IWfProcessDescriptor processDesp)
+        public static IWfProcess StartupProcessByExecutor(this IWfProcessDescriptor processDesp, Dictionary<string, object> runtimeParameters = null)
         {
-            WfProcessStartupParams startupParams = processDesp.PrepareStartupParams();
+            WfProcessStartupParams startupParams = processDesp.PrepareStartupParams(runtimeParameters);
 
             WfStartWorkflowExecutor executor = new WfStartWorkflowExecutor(startupParams);
 
@@ -143,6 +143,35 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
                 runtimeParameters.ForEach(kp => startupParams.ApplicationRuntimeParameters.Add(kp.Key, kp.Value));
 
             return startupParams;
+        }
+
+        public static IWfProcess MoveToDefaultActivityByExecutor(this IWfProcess process)
+        {
+            WfTransferParams transferParams = WfTransferParams.FromNextDefaultActivity(process);
+
+            WfMoveToExecutor executor = new WfMoveToExecutor(process.CurrentActivity, process.CurrentActivity, transferParams);
+
+            executor.Execute();
+
+            return process;
+        }
+
+        public static IWfProcess WithdrawByExecutor(this IWfProcess process, bool cancelProcess = false)
+        {
+            WfWithdrawExecutor executor = new WfWithdrawExecutor(process.CurrentActivity, process.CurrentActivity, true, cancelProcess);
+
+            executor.Execute();
+
+            return process;
+        }
+
+        public static IWfProcess CancelByExecutor(this IWfProcess process)
+        {
+            WfCancelProcessExecutor executor = new WfCancelProcessExecutor(process.CurrentActivity, process);
+
+            executor.Execute();
+
+            return process;
         }
     }
 }

@@ -400,6 +400,23 @@ namespace WfOperationServices.Test.Runtime
         }
 
         [TestMethod]
+        public void WithdrawAndCancelProcess()
+        {
+            WfClientProcessInfo processInfo = OperationHelper.PreapreProcessWithConditionLinesInstance();
+
+            WfClientRuntimeContext runtimeContext = new WfClientRuntimeContext(Consts.Users["Requestor"]);
+
+            processInfo = WfClientProcessRuntimeServiceProxy.Instance.MoveToNextDefaultActivity(processInfo.ID, runtimeContext);
+
+            processInfo = WfClientProcessRuntimeServiceProxy.Instance.WithdrawAndCancel(processInfo.ID, runtimeContext);
+
+            processInfo.Output();
+
+            Assert.AreEqual("Start", processInfo.CurrentActivity.Descriptor.Key);
+            Assert.AreEqual(WfClientProcessStatus.Aborted, processInfo.Status);
+        }
+
+        [TestMethod]
         public void CancelProcess()
         {
             WfClientProcessInfo processInfo = OperationHelper.PreapreProcessWithConditionLinesInstance();
