@@ -91,19 +91,19 @@ namespace MCS.Library.SOA.DataObjects.Workflow.Actions
             WfRuntime.ProcessContext.AccomplishedUserTasks.Clear();
         }
 
-        internal static void ChangeUserTaskToAccomplishedTasks(IWfActivity originalActivity, UserTask u)
+        internal static void ChangeUserTaskToAccomplishedTasks(IWfActivity originalActivity, UserTask task)
         {
-            NameValueCollection urlParams = UriHelper.GetUriParamsCollection(u.Url);
+            NameValueCollection urlParams = UriHelper.GetUriParamsCollection(task.Url);
 
             urlParams["activityID"] = originalActivity.ID;
 
             urlParams["processID"] = originalActivity.Process.ApprovalRootProcess.ID;
 
-            u.Url = UriHelper.CombineUrlParams(u.Url, urlParams);
-            u.Context["ApprovalRootProcessID"] = originalActivity.Process.ApprovalRootProcess.ID;
-            u.Context["ApprovalRootActivityID"] = originalActivity.ApprovalRootActivity.ID;
+            task.Url = UriHelper.CombineUrlParams(task.Url, urlParams);
+            task.Context["ApprovalRootProcessID"] = originalActivity.Process.ApprovalRootProcess.ID;
+            task.Context["ApprovalRootActivityID"] = originalActivity.ApprovalRootActivity.ID;
 
-            WfRuntime.ProcessContext.AccomplishedUserTasks.Add(u);
+            WfRuntime.ProcessContext.AccomplishedUserTasks.Add(task);
         }
     }
 }

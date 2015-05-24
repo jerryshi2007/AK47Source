@@ -264,6 +264,8 @@ namespace MCS.Library.WF.Contracts.Converters.Runtime
             client.Creator = (WfClientUser)process.Creator.ToClientOguObject();
             client.OwnerDepartment = (WfClientOrganization)process.OwnerDepartment.ToClientOguObject();
             client.Status = process.Status.ToClientProcessStatus();
+            client.Committed = process.Committed;
+            client.RuntimeProcessName = process.RuntimeProcessName;
             client.UpdateTag = process.UpdateTag;
 
             if (process.HasParentProcess)

@@ -138,6 +138,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             WfProcessStartupParams startupParams = new WfProcessStartupParams();
             startupParams.ResourceID = UuidHelper.NewUuidString();
             startupParams.ProcessDescriptor = processDesp;
+            startupParams.Assignees.Add(OguObjectSettings.GetConfig().Objects["admin"].User);
 
             if (runtimeParameters != null)
                 runtimeParameters.ForEach(kp => startupParams.ApplicationRuntimeParameters.Add(kp.Key, kp.Value));

@@ -285,6 +285,27 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             }
         }
 
+        /// <summary>
+        /// 运行时的流程名称
+        /// </summary>
+        public string RuntimeProcessName
+        {
+            get
+            {
+                string result = this.Context.GetValue("RuntimeProcessName", string.Empty);
+                    
+                if (result.IsNullOrEmpty() && this.Descriptor != null)
+                    result = this.Descriptor.Name;
+
+                return result;
+
+            }
+            set
+            {
+                this.Context["RuntimeProcessName"] = value;
+            }
+        }
+
         public IUser Creator
         {
             get

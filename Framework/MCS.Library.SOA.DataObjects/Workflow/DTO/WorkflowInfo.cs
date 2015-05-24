@@ -196,7 +196,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow.DTO
 		{
 			targetDTO.Key = procInstance.ID;
 
-			targetDTO.Name = procInstance.Context.GetValue("RuntimeProcessName", string.Empty);
+            targetDTO.Name = procInstance.RuntimeProcessName;
 			targetDTO.UpdateTag = procInstance.UpdateTag;
 
 			IWfProcessDescriptor instanceDesc = GetProcessDescriptor(procInstance, isMainStream);

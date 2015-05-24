@@ -34,7 +34,7 @@ namespace MCS.Library.WF.Contracts.Converters.Runtime
 
             server.ApplicationName = client.ApplicationName;
             server.ProgramName = client.ProgramName;
-            server.ProcessName = client.ProcessName;
+
             server.DescriptorKey = client.DescriptorKey;
             server.OwnerActivityID = client.OwnerActivityID;
             server.OwnerTemplateKey = client.OwnerTemplateKey;

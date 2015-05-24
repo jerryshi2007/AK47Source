@@ -21,7 +21,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow.Actions
                                 WfRuntime.ProcessContext.OriginalActivity.ID));
 
                 //删除已经发送的待办
-                WfRuntime.ProcessContext.DeletedUserTasks.CopyFrom(currentProcessTasks);
+                WfRuntime.ProcessContext.DeletedUserTasks.CopyFromNotExistedTaskID(currentProcessTasks);
 
                 //对被撤回的点发送通知
                 this.PrepareNotifyTasks(WfRuntime.ProcessContext.OriginalActivity);

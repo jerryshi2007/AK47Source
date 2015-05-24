@@ -37,6 +37,8 @@ namespace MCS.Library.WF.Contracts.Converters.DataObjects
             client.EndStartTime = server.EndStartTime;
             client.ProcessStatus = server.ProcessStatus;
             client.DepartmentName = server.DepartmentName;
+            client.ProcessCreatorID = server.ProcessCreatorID;
+            client.ProcessCreatorName = server.ProcessCreatorName;
 
             foreach (IUser user in server.CurrentAssignees)
                 client.CurrentAssignees.Add((WfClientUser)(user.ToClientOguObject()));
@@ -62,6 +64,8 @@ namespace MCS.Library.WF.Contracts.Converters.DataObjects
             server.EndStartTime = client.EndStartTime;
             server.ProcessStatus = client.ProcessStatus;
             server.DepartmentName = client.DepartmentName;
+            server.ProcessCreatorID = client.ProcessCreatorID;
+            server.ProcessCreatorName = client.ProcessCreatorName;
 
             foreach (WfClientUser user in client.CurrentAssignees)
                 server.CurrentAssignees.Add((IUser)(user.ToOguObject()));

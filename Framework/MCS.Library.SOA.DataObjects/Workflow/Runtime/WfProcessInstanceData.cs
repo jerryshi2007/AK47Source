@@ -219,7 +219,8 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 			instanceData.EndTime = process.EndTime;
 			instanceData.ApplicationName = process.Descriptor.ApplicationName;
 			instanceData.ProcessName = GetRuntimeProcessName(process);
-			process.Context["RuntimeProcessName"] = instanceData.ProcessName;
+
+            process.RuntimeProcessName = instanceData.ProcessName;
 
 			instanceData.DescriptorKey = process.Descriptor.Key;
 			instanceData.ProgramName = process.Descriptor.ProgramName;

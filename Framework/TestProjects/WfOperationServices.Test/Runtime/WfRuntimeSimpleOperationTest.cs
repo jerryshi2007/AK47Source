@@ -602,6 +602,7 @@ namespace WfOperationServices.Test.Runtime
 
             condition.BeginStartTime = DateTime.Now.AddHours(-1);
             condition.EndStartTime = DateTime.Now.AddHours(1);
+            condition.ProcessCreatorID = Consts.Users["Requestor"].ID;
 
             WfClientProcessInfo process = OperationHelper.PrepareSimpleProcessInstance();
 

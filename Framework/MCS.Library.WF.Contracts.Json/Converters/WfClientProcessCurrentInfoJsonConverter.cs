@@ -59,7 +59,7 @@ namespace MCS.Library.WF.Contracts.Json.Converters
             dictionary.AddNonDefaultValue("ownerActivityID", processInfo.OwnerActivityID);
             dictionary.AddNonDefaultValue("ownerTemplateKey", processInfo.OwnerTemplateKey);
             dictionary.AddNonDefaultValue("currentActivityID", processInfo.CurrentActivityID);
-
+            
             dictionary.AddNonDefaultValue("sequence", processInfo.Sequence);
             dictionary.AddNonDefaultValue("committed", processInfo.Committed);
             dictionary.AddNonDefaultValue("createTime", processInfo.CreateTime);

@@ -38,4 +38,9 @@ namespace MCS.Library.Test.DataObjects
             set;
         }
     }
+
+    [Serializable]
+    public class OrderCollection : EditableDataObjectCollectionBase<Order>
+    {
+    }
 }

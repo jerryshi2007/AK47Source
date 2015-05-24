@@ -82,18 +82,18 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                 process.CancelProcess(this.CancelAllBranchProcesses);
         }
 
-        protected override void OnPrepareNotifyTasks(WfExecutorDataContext dataContext)
-        {
-            base.OnPrepareNotifyTasks(dataContext);
+        //protected override void OnPrepareNotifyTasks(WfExecutorDataContext dataContext)
+        //{
+        //    base.OnPrepareNotifyTasks(dataContext);
 
-            if (this.CancelProcess)
-            {
-                dataContext.NotifyTasks.Remove(t =>
-                    t.ActivityID == dataContext.GetValue("OriginalActivityID", string.Empty)
-                            && t.Status == TaskStatus.Yue
-                );
-            }
-        }
+        //    if (this.CancelProcess)
+        //    {
+        //        dataContext.NotifyTasks.Remove(t =>
+        //            t.ActivityID == dataContext.GetValue("OriginalActivityID", string.Empty)
+        //                    && t.Status == TaskStatus.Yue
+        //        );
+        //    }
+        //}
 
         private void InitProperties(IWfActivity operatorActivity, IWfActivity originalActivity, bool cancelAllBranchProcesses, bool cancelProcess)
         {

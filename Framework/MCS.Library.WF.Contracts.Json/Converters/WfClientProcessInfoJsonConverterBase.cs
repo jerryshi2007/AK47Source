@@ -23,6 +23,7 @@ namespace MCS.Library.WF.Contracts.Json.Converters
             processInfo.ID = dictionary.GetValue("id", string.Empty);
             processInfo.ProcessDescriptorKey = dictionary.GetValue("processDescriptorKey", string.Empty);
             processInfo.CurrentActivityKey = dictionary.GetValue("currentActivityKey", string.Empty);
+            processInfo.RuntimeProcessName = dictionary.GetValue("runtimeProcessName", string.Empty);
             processInfo.Committed = dictionary.GetValue("committed", true);
             processInfo.ProcessDescriptorKey = dictionary.GetValue("processDescriptorKey", string.Empty);
             processInfo.Creator = JSONSerializerExecute.Deserialize<WfClientUser>(dictionary.GetValue("creator", (object)null));
@@ -56,6 +57,7 @@ namespace MCS.Library.WF.Contracts.Json.Converters
             dictionary.AddNonDefaultValue("id", processInfo.ID);
             dictionary.AddNonDefaultValue("processDescriptorKey", processInfo.ProcessDescriptorKey);
             dictionary.AddNonDefaultValue("currentActivityKey", processInfo.CurrentActivityKey);
+            dictionary.AddNonDefaultValue("runtimeProcessName", processInfo.RuntimeProcessName);
             dictionary.AddNonDefaultValue("committed", processInfo.Committed);
             dictionary.AddNonDefaultValue("creator", processInfo.Creator);
             dictionary.AddNonDefaultValue("ownerDepartment", processInfo.OwnerDepartment);

@@ -8,75 +8,111 @@ using MCS.Library.OGUPermission;
 
 namespace MCS.Library.SOA.DataObjects.Workflow.Actions
 {
-	/// <summary>
-	/// 取消流程操作的UserTask生成器
-	/// </summary>
-	[Serializable]
-	public class CancelProcessUserTaskAction : UserTaskActionBase
-	{
-		public override void PrepareAction(WfActionParams actionParams)
-		{
-			IWfActivity currentActivity = WfRuntime.ProcessContext.CurrentActivity;
+    /// <summary>
+    /// 取消流程操作的UserTask生成器
+    /// </summary>
+    [Serializable]
+    public class CancelProcessUserTaskAction : UserTaskActionBase
+    {
+        public override void PrepareAction(WfActionParams actionParams)
+        {
+            IWfActivity currentActivity = WfRuntime.ProcessContext.CurrentActivity;
 
-			if (currentActivity != null)
-			{
-				//找到当前流程所有的待办，然后转为已办
-				UserTaskCollection currentProcessTasks =
-						UserTaskAdapter.Instance.LoadUserTasks(builder => builder.AppendItem("PROCESS_ID",
-							currentActivity.Process.ID));
+            if (currentActivity != null)
+            {
+                //找到当前流程所有的待办，然后转为已办
+                UserTaskCollection currentProcessTasks =
+                        UserTaskAdapter.Instance.LoadUserTasks(builder => builder.AppendItem("PROCESS_ID",
+                            currentActivity.Process.ID));
 
-				WfRuntime.ProcessContext.DeletedUserTasks.CopyFrom(currentProcessTasks);
+                WfRuntime.ProcessContext.DeletedUserTasks.CopyFromNotExistedTaskID(currentProcessTasks);
 
-				IList<UserTask> toAccomplishedTasks = currentProcessTasks.FindAll(u => u.Status == TaskStatus.Ban);
+                UserTaskCollection toAccomplishedTasks = new UserTaskCollection();
 
-				//将待办转到已办中，便于事后恢复
-				toAccomplishedTasks.ForEach(u => LeaveActivityUserTaskAction.ChangeUserTaskToAccomplishedTasks(currentActivity, u));
+                currentProcessTasks.ForEach(u =>
+                {
+                    if (u.Status == TaskStatus.Ban)
+                        toAccomplishedTasks.Add(u);
+                });
 
-				WfRuntime.ProcessContext.AccomplishedUserTasks.CopyFrom(toAccomplishedTasks);
+                UserTaskCollection userTasksInContext = RemoveTasksInContext(actionParams);
 
-				//暂时对当前活动的处理人发送通知
-				UserTaskCollection notifyTasks = BuildUserNotifiesFromActivity(currentActivity);
-				AppendResourcesToNotifiers(currentActivity, notifyTasks, currentActivity.Descriptor.Process.CancelEventReceivers);
+                //将上下文中的待办转到已办中
+                userTasksInContext.ForEach(t => toAccomplishedTasks.Add(t));
 
-				foreach (UserTask task in notifyTasks)
-				{
-					task.Status = TaskStatus.Yue;
-					task.TaskTitle = Translator.Translate(Define.DefaultCulture,
-						currentActivity.Process.Descriptor.Properties.GetValue("DefaultCancelTaskPrefix", "流程被取消:")) + task.TaskTitle;
-				}
+                //将上下文中标记为已删除的从准备转已办的记录中删除
+                toAccomplishedTasks.RemoveExistedTasks(WfRuntime.ProcessContext.DeletedUserTasks);
 
-				WfRuntime.ProcessContext.NotifyUserTasks.CopyFrom(notifyTasks);
+                //将待办转到已办中，便于事后恢复
+                toAccomplishedTasks.ForEach(u => LeaveActivityUserTaskAction.ChangeUserTaskToAccomplishedTasks(currentActivity, u));
 
-				WfRuntime.ProcessContext.Acl.CopyFrom(notifyTasks.ToAcl());
-				WfRuntime.ProcessContext.AbortedProcesses.AddOrReplace(currentActivity.Process);
-				WfRuntime.ProcessContext.FireCancelProcessPrepareAction();
-			}
-		}
+                WfRuntime.ProcessContext.AccomplishedUserTasks.CopyFromNotExistedTaskID(toAccomplishedTasks);
 
-		public override void PersistAction(WfActionParams actionParams)
-		{
-			WfRuntime.ProcessContext.FireCancelProcessPersistAction();
+                //暂时对当前活动的处理人发送通知
+                UserTaskCollection notifyTasks = BuildUserNotifiesFromActivity(currentActivity);
+                AppendResourcesToNotifiers(currentActivity, notifyTasks, currentActivity.Descriptor.Process.CancelEventReceivers);
 
-			WfRuntime.ProcessContext.NotifyUserTasks.DistinctByActivityUserAndStatus();
-			UserTaskAdapter.Instance.SendUserTasks(WfRuntime.ProcessContext.NotifyUserTasks);
-			UserTaskAdapter.Instance.SetUserTasksAccomplished(WfRuntime.ProcessContext.AccomplishedUserTasks);
-			UserTaskAdapter.Instance.DeleteUserTasks(WfRuntime.ProcessContext.DeletedUserTasks);
+                foreach (UserTask task in notifyTasks)
+                {
+                    task.Status = TaskStatus.Yue;
+                    task.TaskTitle = Translator.Translate(Define.DefaultCulture,
+                        currentActivity.Process.Descriptor.Properties.GetValue("DefaultCancelTaskPrefix", "流程被取消:")) + task.TaskTitle;
+                }
 
-			AppCommonInfoAdapter.Instance.UpdateProcessStatus(WfRuntime.ProcessContext.AffectedProcesses.FindAll(p => p.IsApprovalRootProcess));
+                WfRuntime.ProcessContext.NotifyUserTasks.CopyFrom(notifyTasks);
 
-			WfPendingActivityInfoAdapter.Instance.DeleteByProcesses(WfRuntime.ProcessContext.AbortedProcesses);
-			WfPendingActivityInfoAdapter.Instance.DeleteByProcesses(WfRuntime.ProcessContext.ClosedProcesses);
+                WfRuntime.ProcessContext.Acl.CopyFrom(notifyTasks.ToAcl());
+                WfRuntime.ProcessContext.AbortedProcesses.AddOrReplace(currentActivity.Process);
+                WfRuntime.ProcessContext.FireCancelProcessPrepareAction();
+            }
+        }
 
-			this.ClearCache();
-		}
+        public override void PersistAction(WfActionParams actionParams)
+        {
+            WfRuntime.ProcessContext.FireCancelProcessPersistAction();
 
-		public override void ClearCache()
-		{
-			WfRuntime.ProcessContext.AccomplishedUserTasks.Clear();
-			WfRuntime.ProcessContext.NotifyUserTasks.Clear();
-			WfRuntime.ProcessContext.DeletedUserTasks.Clear();
-			WfRuntime.ProcessContext.AbortedProcesses.Clear();
-			WfRuntime.ProcessContext.ClosedProcesses.Clear();
-		}
-	}
+            WfRuntime.ProcessContext.NotifyUserTasks.DistinctByActivityUserAndStatus();
+            UserTaskAdapter.Instance.SendUserTasks(WfRuntime.ProcessContext.NotifyUserTasks);
+            UserTaskAdapter.Instance.SetUserTasksAccomplished(WfRuntime.ProcessContext.AccomplishedUserTasks);
+            UserTaskAdapter.Instance.DeleteUserTasks(WfRuntime.ProcessContext.DeletedUserTasks);
+
+            AppCommonInfoAdapter.Instance.UpdateProcessStatus(WfRuntime.ProcessContext.AffectedProcesses.FindAll(p => p.IsApprovalRootProcess));
+
+            WfPendingActivityInfoAdapter.Instance.DeleteByProcesses(WfRuntime.ProcessContext.AbortedProcesses);
+            WfPendingActivityInfoAdapter.Instance.DeleteByProcesses(WfRuntime.ProcessContext.ClosedProcesses);
+
+            this.ClearCache();
+        }
+
+        public override void ClearCache()
+        {
+            WfRuntime.ProcessContext.AccomplishedUserTasks.Clear();
+            WfRuntime.ProcessContext.NotifyUserTasks.Clear();
+            WfRuntime.ProcessContext.DeletedUserTasks.Clear();
+            WfRuntime.ProcessContext.AbortedProcesses.Clear();
+            WfRuntime.ProcessContext.ClosedProcesses.Clear();
+        }
+
+        /// <summary>
+        /// 删除当前在上下文中的待办
+        /// </summary>
+        /// <param name="actionParams"></param>
+        /// <returns></returns>
+        private static UserTaskCollection RemoveTasksInContext(WfActionParams actionParams)
+        {
+            UserTaskCollection result = new UserTaskCollection();
+
+            actionParams.Context.MoveToUserTasks.Remove(t =>
+            {
+                bool remove = string.Compare(t.ProcessID, actionParams.Context.CurrentProcess.ID, true) == 0;
+
+                if (remove)
+                    result.Add(t);
+
+                return remove;
+            });
+
+            return result;
+        }
+    }
 }

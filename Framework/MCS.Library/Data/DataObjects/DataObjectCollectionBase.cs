@@ -237,11 +237,53 @@ namespace MCS.Library.Data.DataObjects
         /// 复制到别的集合中
         /// </summary>
         /// <param name="collection"></param>
-        public virtual void CopyTo(ICollection<T> collection)
+        public void CopyTo(ICollection<T> collection)
+        {
+            this.CopyTo(collection, null, null);
+        }
+
+        /// <summary>
+        /// 复制到别的集合中。带筛选条件
+        /// </summary>
+        /// <param name="collection">集合</param>
+        /// <param name="predicate">筛选条件</param>
+        public void CopyTo(ICollection<T> collection, Predicate<T> predicate)
+        {
+            this.CopyTo(collection, predicate, null);
+        }
+
+        /// <summary>
+        /// 复制到别的集合中。带筛选条件
+        /// </summary>
+        /// <param name="collection">集合</param>
+        /// <param name="converter">转换器</param>
+        public void CopyTo(ICollection<T> collection, Converter<T, T> converter)
+        {
+            this.CopyTo(collection, null, converter);
+        }
+
+        /// <summary>
+        /// 复制到别的集合中。过程中可以带筛选条件和转换器
+        /// </summary>
+        /// <param name="collection"></param>
+        /// <param name="predicate">筛选条件</param>
+        /// <param name="converter">转换器</param>
+        public virtual void CopyTo(ICollection<T> collection, Predicate<T> predicate, Converter<T, T> converter)
         {
             ExceptionHelper.FalseThrow<ArgumentNullException>(collection != null, "collection");
 
-            this.ForEach(delegate(T item) { collection.Add(item); });
+            this.ForEach(delegate(T item)
+            {
+                if (predicate == null || predicate(item))
+                {
+                    T newItem = item;
+
+                    if (converter != null)
+                        newItem = converter(item);
+
+                    collection.Add(newItem);
+                }
+            });
         }
 
         /// <summary>
@@ -350,15 +392,36 @@ namespace MCS.Library.Data.DataObjects
         /// <param name="data"></param>
         public void CopyFrom(IEnumerable<T> data)
         {
-            CopyFrom(data, null);
+            this.CopyFrom(data, null, null);
         }
 
         /// <summary>
-        /// 从别的集合中复制(添加到现有的集合中)，复制过程可以转换数据
+        /// 从别的集合中复制(添加到现有的集合中)，复制的过程可以筛选数据
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="predicate">筛选条件</param>
+        public void CopyFrom(IEnumerable<T> data, Predicate<T> predicate)
+        {
+            this.CopyFrom(data, predicate, null);
+        }
+
+        /// <summary>
+        /// 从别的集合中复制(添加到现有的集合中)，复制的过程可以转换数据
         /// </summary>
         /// <param name="data"></param>
         /// <param name="converter">数据转换器</param>
         public void CopyFrom(IEnumerable<T> data, Converter<T, T> converter)
+        {
+            this.CopyFrom(data, null, converter);
+        }
+
+        /// <summary>
+        /// 从别的集合中复制(添加到现有的集合中)。复制的过程可以筛选和转换数据
+        /// </summary>
+        /// <param name="data">源集合</param>
+        /// <param name="predicate">筛选条件</param>
+        /// <param name="converter">转换器</param>
+        public virtual void CopyFrom(IEnumerable<T> data, Predicate<T> predicate, Converter<T, T> converter)
         {
             ExceptionHelper.FalseThrow<ArgumentNullException>(data != null, "data");
 
@@ -367,12 +430,16 @@ namespace MCS.Library.Data.DataObjects
             while (enumerator.MoveNext())
             {
                 T item = (T)enumerator.Current;
-                T newItem = item;
 
-                if (converter != null)
-                    newItem = converter(item);
+                if (predicate == null || predicate(item))
+                {
+                    T newItem = item;
 
-                InnerAdd(newItem);
+                    if (converter != null)
+                        newItem = converter(item);
+
+                    this.InnerAdd(newItem);
+                }
             }
         }
 

@@ -38,7 +38,7 @@ namespace MCS.Library.Test.DataObjects
     /// 用于测试对象比较的供应商集合类
     /// </summary>
     [Serializable]
-    public class VendorCollection : MCS.Library.Data.DataObjects.EditableDataObjectCollectionBase<Vendor>
+    public class VendorCollection : EditableDataObjectCollectionBase<Vendor>
     {
     }
 }

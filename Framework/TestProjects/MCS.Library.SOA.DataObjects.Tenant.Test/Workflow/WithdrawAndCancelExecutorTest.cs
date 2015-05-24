@@ -32,10 +32,10 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
             Assert.AreEqual(WfProcessStatus.Running, process.Status);
             Assert.AreEqual(WfActivityType.InitialActivity, process.CurrentActivity.Descriptor.ActivityType);
 
-            UserTaskCollection tasks = UserTaskAdapter.Instance.GetUserTasks(UserTaskIDType.ActivityID, UserTaskFieldDefine.ActivityID | UserTaskFieldDefine.Status, activityIDBeforeWithdraw);
+            UserTaskCollection notifies = UserTaskAdapter.Instance.GetUserTasks(UserTaskIDType.ActivityID, UserTaskFieldDefine.ActivityID | UserTaskFieldDefine.Status, activityIDBeforeWithdraw);
 
-            Assert.AreEqual(1, tasks.Count);
-            Assert.AreEqual(TaskStatus.Yue, tasks[0].Status);
+            Assert.AreEqual(1, notifies.Count);
+            Assert.AreEqual(TaskStatus.Yue, notifies[0].Status);
         }
 
         [TestMethod]
@@ -51,7 +51,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
 
             Assert.AreEqual(WfActivityType.NormalActivity, process.CurrentActivity.Descriptor.ActivityType);
 
-            Console.WriteLine("ActivityID Before Withdraw = {0}", activityIDBeforeWithdraw);
+            Console.WriteLine("ActivityID Before Withdraw = {0}, Process ID = {1}", activityIDBeforeWithdraw, process.ID);
 
             process = process.WithdrawByExecutor(true);
 
@@ -59,9 +59,18 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
 
             Assert.AreEqual(WfProcessStatus.Aborted, process.Status);
 
-            UserTaskCollection tasks = UserTaskAdapter.Instance.GetUserTasks(UserTaskIDType.ActivityID, UserTaskFieldDefine.ActivityID | UserTaskFieldDefine.Status, activityIDBeforeWithdraw);
+            UserTaskCollection notifies = UserTaskAdapter.Instance.GetUserTasks(UserTaskIDType.ActivityID, UserTaskFieldDefine.ActivityID | UserTaskFieldDefine.Status, activityIDBeforeWithdraw);
 
-            Assert.AreEqual(0, tasks.Count);
+            Assert.AreEqual(1, notifies.Count);
+
+            UserTaskCollection tasks = UserTaskAdapter.Instance.GetUserTasks(UserTaskIDType.ActivityID, UserTaskFieldDefine.ActivityID | UserTaskFieldDefine.Status, process.InitialActivity.ID);
+
+            Assert.AreEqual(1, tasks.Count);
+            Assert.AreEqual(TaskStatus.Yue, tasks[0].Status);
+
+            UserTaskCollection accomplishedTasks = UserTaskAdapter.Instance.GetUserAccomplishedTasks(UserTaskIDType.ActivityID, UserTaskFieldDefine.ActivityID | UserTaskFieldDefine.Status, false, activityIDBeforeWithdraw);
+
+            Assert.AreEqual(1, tasks.Count);
         }
     }
 }

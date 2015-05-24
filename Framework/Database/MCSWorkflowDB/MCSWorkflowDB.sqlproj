@@ -241,19 +241,14 @@
     <None Include="MCSWorkflowDB.archive.publish.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="MCS.SqlServer.Compression">
-      <HintPath>Assemblies\MCS.SqlServer.Compression.dll</HintPath>
-      <SqlAssemblyName>MCSCompression</SqlAssemblyName>
-      <IsModelAware>True</IsModelAware>
-      <GenerateSqlClrDdl>False</GenerateSqlClrDdl>
-      <SqlOwnerName>dbo</SqlOwnerName>
-      <SqlPermissionSet>SAFE</SqlPermissionSet>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <PostDeploy Include="Script.PostDeployment.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="MCSWorkflowDB.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="MCS.SqlServer.Compression">
+      <HintPath>..\..\..\Bin\MCS.SqlServer.Compression.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>

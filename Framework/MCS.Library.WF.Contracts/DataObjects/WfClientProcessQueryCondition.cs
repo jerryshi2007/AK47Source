@@ -52,6 +52,18 @@ namespace MCS.Library.WF.Contracts.DataObjects
             set;
         }
 
+        public string ProcessCreatorID
+        {
+            get;
+            set;
+        }
+
+        public string ProcessCreatorName
+        {
+            get;
+            set;
+        }
+
         private WfClientAssigneeExceptionFilterType _AssigneeExceptionFilterType = WfClientAssigneeExceptionFilterType.All;
 
         public WfClientAssigneeExceptionFilterType AssigneeExceptionFilterType

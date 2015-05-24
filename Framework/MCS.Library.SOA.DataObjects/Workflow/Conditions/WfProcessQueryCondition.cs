@@ -65,6 +65,20 @@ namespace MCS.Library.SOA.DataObjects.Workflow.Conditions
             set;
         }
 
+        [ConditionMapping("CREATOR_ID")]
+        public string ProcessCreatorID
+        {
+            get;
+            set;
+        }
+
+        [ConditionMapping("CREATOR_NAME", EscapeLikeString = true, Prefix = "%", Postfix = "%", Operation = "LIKE")]
+        public string ProcessCreatorName
+        {
+            get;
+            set;
+        }
+
         [NoMapping]
         private WfAssigneeExceptionFilterType _AssigneeExceptionFilterType = WfAssigneeExceptionFilterType.All;
 

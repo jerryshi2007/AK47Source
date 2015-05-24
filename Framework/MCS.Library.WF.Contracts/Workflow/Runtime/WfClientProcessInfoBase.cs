@@ -136,6 +136,15 @@ namespace MCS.Library.WF.Contracts.Workflow.Runtime
         }
 
         /// <summary>
+        /// 运行时的流程名称
+        /// </summary>
+        public string RuntimeProcessName
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// 流程的授权信息get
         /// </summary>
         public WfClientAuthorizationInfo AuthorizationInfo

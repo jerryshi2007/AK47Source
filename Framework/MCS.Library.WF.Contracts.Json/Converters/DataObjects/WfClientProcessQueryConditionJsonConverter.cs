@@ -38,6 +38,9 @@ namespace MCS.Library.WF.Contracts.Json.Converters.DataObjects
 
             condition.ProcessStatus = DictionaryHelper.GetValue(dictionary, "processStatus", string.Empty);
 
+            condition.ProcessCreatorID = DictionaryHelper.GetValue(dictionary, "processCreatorID", string.Empty);
+            condition.ProcessCreatorName = DictionaryHelper.GetValue(dictionary, "processCreatorName", string.Empty);
+
             JSONSerializerExecute.FillDeserializedCollection(dictionary.GetValue("currentAssignees", (ArrayList)null), condition.CurrentAssignees);
 
             return condition;
@@ -64,6 +67,9 @@ namespace MCS.Library.WF.Contracts.Json.Converters.DataObjects
             DictionaryHelper.AddNonDefaultValue(dictionary, "assigneeExceptionFilterType", condition.AssigneeExceptionFilterType);
 
             DictionaryHelper.AddNonDefaultValue(dictionary, "processStatus", condition.ProcessStatus);
+
+            DictionaryHelper.AddNonDefaultValue(dictionary, "processCreatorID", condition.ProcessCreatorID);
+            DictionaryHelper.AddNonDefaultValue(dictionary, "processCreatorName", condition.ProcessCreatorName);
 
             DictionaryHelper.AddNonDefaultValue(dictionary, "currentAssignees", condition.CurrentAssignees);
 

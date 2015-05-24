@@ -9,6 +9,5 @@ Post-Deployment Script Template
                SELECT * FROM [$(TableName)]					
 --------------------------------------------------------------------------------------
 */
-TRUNCATE TABLE [dbo].[SWITCHES]
-
-INSERT [dbo].[SWITCHES] ([SWITCH_NAME], [SWITCH_VALUE], [DESCRIPTION]) VALUES('AllowSignIn', '0', '现在是系统维护期，禁止登录')
+IF NOT EXISTS(SELECT TOP 1 * FROM [dbo].[SWITCHES] WHERE [SWITCH_NAME] = 'AllowSignIn')
+	INSERT [dbo].[SWITCHES] ([SWITCH_NAME], [SWITCH_VALUE], [DESCRIPTION]) VALUES('AllowSignIn', '0', '现在是系统维护期，禁止登录')
