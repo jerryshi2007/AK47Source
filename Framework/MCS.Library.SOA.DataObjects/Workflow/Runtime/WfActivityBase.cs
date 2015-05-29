@@ -1,13 +1,13 @@
-﻿using System;
+﻿using MCS.Library.Core;
+using MCS.Library.Expression;
+using MCS.Library.OGUPermission;
+using MCS.Library.SOA.DataObjects.Workflow.Builders;
+using MCS.Web.Library.Script;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MCS.Library.Core;
-using MCS.Library.OGUPermission;
-using MCS.Library.Expression;
-using MCS.Web.Library.Script;
-using MCS.Library.SOA.DataObjects.Workflow.Builders;
 using System.Xml.Linq;
 
 namespace MCS.Library.SOA.DataObjects.Workflow
@@ -56,7 +56,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
             this._ProcessDescKey = descriptor.Process.Key;
             this._ActivityDescKey = descriptor.Key;
-            this._StartTime = DateTime.Now;
+            this._StartTime = DateTime.MinValue;
         }
 
         #region IWfActivity Members

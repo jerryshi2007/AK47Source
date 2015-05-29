@@ -17,6 +17,17 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library", "..\..\MCS.Library\MCS.Library.csproj", "{4077B0B7-062A-4F6D-8A45-A180A2ED3215}"
 EndProject
 Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://shsvr9141tfs.ciicsh.local:8080/tfs/rhso
+		SccProjectUniqueName0 = ..\\..\\MCS.Library\\MCS.Library.csproj
+		SccProjectName0 = ../../MCS.Library
+		SccLocalPath0 = ..\\..\\MCS.Library
+		SccProjectUniqueName1 = MCS.Library.Test.csproj
+		SccLocalPath1 = .
+		SccLocalPath2 = .
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		DELUXEWORKSTEST|Any CPU = DELUXEWORKSTEST|Any CPU

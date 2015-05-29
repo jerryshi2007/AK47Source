@@ -29,7 +29,7 @@ namespace MCS.Library.Services
 
 			if (targetCulture.Name != sourceCulture.Name && string.IsNullOrEmpty(category) == false)
 			{
-				DictionaryItemKey key = new DictionaryItemKey()
+				ServiceDictionaryItemKey key = new ServiceDictionaryItemKey()
 				{
 					SourceText = sourceText,
 					SourceCultureName = sourceCulture.Name,
@@ -37,7 +37,7 @@ namespace MCS.Library.Services
 					Category = category
 				};
 
-				if (DictionaryCache.Instance.TryGetValue(key, out targetText) == false)
+				if (ServiceDictionaryCache.Instance.TryGetValue(key, out targetText) == false)
 				{
 					string physicalFileName = GetCultureFilePath(category, targetCulture) + ".xml";
 					bool loaded = false;
@@ -68,11 +68,11 @@ namespace MCS.Library.Services
 					{
 						FileCacheDependency dependency = new FileCacheDependency(physicalFileName);
 
-						DictionaryCache.Instance.Add(key, targetText, dependency);
+						ServiceDictionaryCache.Instance.Add(key, targetText, dependency);
 					}
 					else
 					{
-						DictionaryCache.Instance.Add(key, targetText);
+						ServiceDictionaryCache.Instance.Add(key, targetText);
 					}
 				}
 			}

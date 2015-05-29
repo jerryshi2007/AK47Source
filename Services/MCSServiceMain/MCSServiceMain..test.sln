@@ -1,9 +1,13 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCSServiceMain", "MCSServiceMain.csproj", "{CC58A8A2-E86E-47F5-8A4B-2E0D793D2252}"
 	ProjectSection(ProjectDependencies) = postProject
+		{7905642F-4630-4D16-AF40-CB1FB70D516F} = {7905642F-4630-4D16-AF40-CB1FB70D516F}
+		{90B002AA-161D-406E-A030-7FBE21D17A89} = {90B002AA-161D-406E-A030-7FBE21D17A89}
 		{4077B0B7-062A-4F6D-8A45-A180A2ED3215} = {4077B0B7-062A-4F6D-8A45-A180A2ED3215}
+		{57346CDA-ACB1-42C4-BDCE-E93705FE6F2E} = {57346CDA-ACB1-42C4-BDCE-E93705FE6F2E}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library", "..\..\Framework\MCS.Library\MCS.Library.csproj", "{4077B0B7-062A-4F6D-8A45-A180A2ED3215}"
@@ -14,12 +18,37 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library.SOA.DataObjects
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library.ServiceBase", "..\..\Framework\MCS.Library.ServiceBase\MCS.Library.ServiceBase.csproj", "{90B002AA-161D-406E-A030-7FBE21D17A89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivateWfProcessService", "..\ActivateWfProcessService\ActivateWfProcessService.csproj", "{E1AF2D04-05F7-4325-B0A1-9C95CEBE3191}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvalidAssigneesNotificationService", "..\InvalidAssigneesNotificationService\InvalidAssigneesNotificationService.csproj", "{9156D3BD-76E4-40B6-82BB-8DE30360AE25}"
-EndProject
 Global
-	
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://shsvr9141tfs.ciicsh.local:8080/tfs/rhso
+		SccProjectUniqueName0 = ..\\..\\Framework\\MCS.Library\\MCS.Library.csproj
+		SccProjectName0 = ../../Framework/MCS.Library
+		SccAuxPath0 = http://shsvr9141tfs.ciicsh.local:8080/tfs/rhso
+		SccLocalPath0 = ..\\..\\Framework\\MCS.Library
+		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName1 = MCSServiceMain.csproj
+		SccProjectName1 = .
+		SccAuxPath1 = http://shsvr9141tfs.ciicsh.local:8080/tfs/rhso
+		SccLocalPath1 = .
+		SccProvider1 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName2 = ..\\..\\Framework\\MCS.Library.SOA.DataObjects\\MCS.Library.SOA.DataObjects.csproj
+		SccProjectName2 = ../../Framework/MCS.Library.SOA.DataObjects
+		SccAuxPath2 = http://shsvr9141tfs.ciicsh.local:8080/tfs/rhso
+		SccLocalPath2 = ..\\..\\Framework\\MCS.Library.SOA.DataObjects
+		SccProvider2 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName3 = ..\\MCS.Services.Messages\\MCS.Services.Messages.csproj
+		SccProjectName3 = ../MCS.Services.Messages
+		SccAuxPath3 = http://shsvr9141tfs.ciicsh.local:8080/tfs/rhso
+		SccLocalPath3 = ..\\MCS.Services.Messages
+		SccProvider3 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName4 = ..\\..\\Framework\\MCS.Library.ServiceBase\\MCS.Library.ServiceBase.csproj
+		SccProjectName4 = ../../Framework/MCS.Library.ServiceBase
+		SccAuxPath4 = http://shsvr9141tfs.ciicsh.local:8080/tfs/rhso
+		SccLocalPath4 = ..\\..\\Framework\\MCS.Library.ServiceBase
+		SccProvider4 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		DELUXEWORKSTEST|Any CPU = DELUXEWORKSTEST|Any CPU
@@ -56,18 +85,6 @@ Global
 		{90B002AA-161D-406E-A030-7FBE21D17A89}.DELUXEWORKSTEST|Any CPU.Build.0 = Debug|Any CPU
 		{90B002AA-161D-406E-A030-7FBE21D17A89}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90B002AA-161D-406E-A030-7FBE21D17A89}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E1AF2D04-05F7-4325-B0A1-9C95CEBE3191}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E1AF2D04-05F7-4325-B0A1-9C95CEBE3191}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E1AF2D04-05F7-4325-B0A1-9C95CEBE3191}.DELUXEWORKSTEST|Any CPU.ActiveCfg = Debug|Any CPU
-		{E1AF2D04-05F7-4325-B0A1-9C95CEBE3191}.DELUXEWORKSTEST|Any CPU.Build.0 = Debug|Any CPU
-		{E1AF2D04-05F7-4325-B0A1-9C95CEBE3191}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E1AF2D04-05F7-4325-B0A1-9C95CEBE3191}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9156D3BD-76E4-40B6-82BB-8DE30360AE25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9156D3BD-76E4-40B6-82BB-8DE30360AE25}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9156D3BD-76E4-40B6-82BB-8DE30360AE25}.DELUXEWORKSTEST|Any CPU.ActiveCfg = Debug|Any CPU
-		{9156D3BD-76E4-40B6-82BB-8DE30360AE25}.DELUXEWORKSTEST|Any CPU.Build.0 = Debug|Any CPU
-		{9156D3BD-76E4-40B6-82BB-8DE30360AE25}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9156D3BD-76E4-40B6-82BB-8DE30360AE25}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

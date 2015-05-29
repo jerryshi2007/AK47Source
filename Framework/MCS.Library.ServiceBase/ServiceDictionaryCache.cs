@@ -8,14 +8,14 @@ namespace MCS.Library.Services
 	/// <summary>
 	/// 基于字典的Cache
 	/// </summary>
-	internal sealed class DictionaryCache : CacheQueue<DictionaryItemKey, string>
+	public sealed class ServiceDictionaryCache : CacheQueue<ServiceDictionaryItemKey, string>
 	{
 		/// <summary>
 		/// Instance
 		/// </summary>
-		public static readonly DictionaryCache Instance = CacheManager.GetInstance<DictionaryCache>();
+		public static readonly ServiceDictionaryCache Instance = CacheManager.GetInstance<ServiceDictionaryCache>();
 
-		private DictionaryCache()
+		private ServiceDictionaryCache()
 		{
 		}
 	}
@@ -23,7 +23,7 @@ namespace MCS.Library.Services
 	/// <summary>
 	/// 
 	/// </summary>
-	internal struct DictionaryItemKey
+    public struct ServiceDictionaryItemKey
 	{
 		/// <summary>
 		/// 

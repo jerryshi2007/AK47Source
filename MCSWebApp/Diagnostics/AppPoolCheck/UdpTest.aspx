@@ -9,7 +9,7 @@
 <body>
     <form id="serverForm" runat="server">
         <div>
-            <h1>文件通知测试</h1>
+            <h1>Udp通知测试</h1>
         </div>
         <div>
             <asp:Button runat="server" ID="sendNotify" OnClick="sendNotify_Click" Text="发送通知" />

@@ -1,0 +1,71 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UDPCacheChat", "UDPCacheChat.csproj", "{507C6A6F-8438-43A1-841B-D4A5B4F3D4C7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215} = {4077B0B7-062A-4F6D-8A45-A180A2ED3215}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library", "..\..\..\MCS.Library\MCS.Library.csproj", "{4077B0B7-062A-4F6D-8A45-A180A2ED3215}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://shsvr9141tfs.ciicsh.local:8080/tfs/rhso
+		SccProjectUniqueName0 = ..\\..\\..\\MCS.Library\\MCS.Library.csproj
+		SccProjectName0 = ../../../MCS.Library
+		SccLocalPath0 = ..\\..\\..\\MCS.Library
+		SccLocalPath1 = .
+		SccProjectUniqueName2 = UDPCacheChat.csproj
+		SccLocalPath2 = .
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		DELUXEWORKSTEST|Any CPU = DELUXEWORKSTEST|Any CPU
+		DELUXEWORKSTEST|Mixed Platforms = DELUXEWORKSTEST|Mixed Platforms
+		DELUXEWORKSTEST|x86 = DELUXEWORKSTEST|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{507C6A6F-8438-43A1-841B-D4A5B4F3D4C7}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{507C6A6F-8438-43A1-841B-D4A5B4F3D4C7}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{507C6A6F-8438-43A1-841B-D4A5B4F3D4C7}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{507C6A6F-8438-43A1-841B-D4A5B4F3D4C7}.Debug|x86.ActiveCfg = Debug|x86
+		{507C6A6F-8438-43A1-841B-D4A5B4F3D4C7}.Debug|x86.Build.0 = Debug|x86
+		{507C6A6F-8438-43A1-841B-D4A5B4F3D4C7}.DELUXEWORKSTEST|Any CPU.ActiveCfg = Debug|x86
+		{507C6A6F-8438-43A1-841B-D4A5B4F3D4C7}.DELUXEWORKSTEST|Mixed Platforms.ActiveCfg = Debug|x86
+		{507C6A6F-8438-43A1-841B-D4A5B4F3D4C7}.DELUXEWORKSTEST|Mixed Platforms.Build.0 = Debug|x86
+		{507C6A6F-8438-43A1-841B-D4A5B4F3D4C7}.DELUXEWORKSTEST|x86.ActiveCfg = Debug|x86
+		{507C6A6F-8438-43A1-841B-D4A5B4F3D4C7}.DELUXEWORKSTEST|x86.Build.0 = Debug|x86
+		{507C6A6F-8438-43A1-841B-D4A5B4F3D4C7}.Release|Any CPU.ActiveCfg = Release|x86
+		{507C6A6F-8438-43A1-841B-D4A5B4F3D4C7}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{507C6A6F-8438-43A1-841B-D4A5B4F3D4C7}.Release|Mixed Platforms.Build.0 = Release|x86
+		{507C6A6F-8438-43A1-841B-D4A5B4F3D4C7}.Release|x86.ActiveCfg = Release|x86
+		{507C6A6F-8438-43A1-841B-D4A5B4F3D4C7}.Release|x86.Build.0 = Release|x86
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.DELUXEWORKSTEST|Any CPU.ActiveCfg = DELUXEWORKSTEST|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.DELUXEWORKSTEST|Any CPU.Build.0 = DELUXEWORKSTEST|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.DELUXEWORKSTEST|Mixed Platforms.ActiveCfg = DELUXEWORKSTEST|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.DELUXEWORKSTEST|Mixed Platforms.Build.0 = DELUXEWORKSTEST|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.DELUXEWORKSTEST|x86.ActiveCfg = DELUXEWORKSTEST|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{4077B0B7-062A-4F6D-8A45-A180A2ED3215}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

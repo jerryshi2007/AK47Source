@@ -21,7 +21,7 @@ namespace MCS.Library.Services
 		private ServiceLog log = null;
 		private static MCSServiceMain instance = new MCSServiceMain();
 
-		internal string[] args;
+		public string[] args;
 
 		private MCSServiceMain()
 		{

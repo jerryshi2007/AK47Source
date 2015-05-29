@@ -16,7 +16,7 @@ namespace MCS.Library.Services
 		public string ServiceName
 		{
 			get;
-			internal set;
+			set;
 		}
 
 		/// <summary>
@@ -25,13 +25,13 @@ namespace MCS.Library.Services
 		public ServiceEntryType EntryType
 		{
 			get;
-			internal set;
+			set;
 		}
 
 		public string Port
 		{
 			get;
-			internal set;
+			set;
 		}
 
 		/// <summary>

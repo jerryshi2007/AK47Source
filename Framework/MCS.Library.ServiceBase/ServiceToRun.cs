@@ -1,26 +1,21 @@
-﻿using System;
+﻿using MCS.Library.Core;
+using MCS.Library.Logging;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
 using System.Runtime.Remoting;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Http;
 using System.ServiceProcess;
 using System.Text;
 using System.Windows.Forms;
-using MCS.Library.Core;
-using MCS.Library.Logging;
-using System.Runtime.InteropServices;
 
 namespace MCS.Library.Services
 {
-	static class ServiceToRun
+	public static class ServiceToRun
 	{
-		[System.Runtime.InteropServices.DllImport("kernel32.dll")]
-		private static extern bool AttachConsole(int dwProcessId);
-		[System.Runtime.InteropServices.DllImport("kernel32.dll")]
-		private static extern bool FreeConsole();
-
 		private static readonly string HelpMessage = @"
 Start Service
 Command line： ServiceMain.exe [-serviceName=SERVICENAME] [-displayName=DISPLAYNAME]
@@ -35,7 +30,7 @@ Arguments:
 		/// <summary>
 		/// 应用程序的主入口点。
 		/// </summary>
-		static int Main(string[] args)
+		public static int Main(string[] args)
 		{
 			//#if DEBUG
 			//            Debugger.Launch();
@@ -48,8 +43,6 @@ Arguments:
 			//
 			//   ServicesToRun = new ServiceBase[] {new Service1(), new MySecondUserService()};
 			//
-
-
 			if (IsRequestHelp(args))
 			{
 				ShowHelp();
@@ -109,12 +102,6 @@ Arguments:
 
 		private static void ShowHelp()
 		{
-			//if (!AttachConsole(ATTACH_PARENT_PROCESS))
-			//    throw new ConsoleException(ATTACH_CONSOLE_FAILED);
-
-			//if (!FreeConsole())
-			//    throw new ConsoleException(FREE_CONSOLE_FAILED);
-
 			MessageBox.Show(HelpMessage, "帮助", MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 

@@ -10,9 +10,11 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MCS.Library.Services</RootNamespace>
     <AssemblyName>MCSServiceMain</AssemblyName>
-    <FileUpgradeFlags></FileUpgradeFlags>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
     <OldToolsVersion>4.0</OldToolsVersion>
-    <UpgradeBackupLocation></UpgradeBackupLocation>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -82,40 +84,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DictionaryCache.cs" />
-    <Compile Include="MCSServiceMain.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="MCSServiceMain.Designer.cs">
-      <DependentUpon>MCSServiceMain.cs</DependentUpon>
-    </Compile>
     <Compile Include="MCSServiceInstaller.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="MCSServiceInstaller.Designer.cs">
       <DependentUpon>MCSServiceInstaller.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ServiceArguments.cs" />
-    <Compile Include="ServiceToRun.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceTranslator.cs" />
-    <Compile Include="StatusControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="StatusControl.Designer.cs">
-      <DependentUpon>StatusControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="TestServiceControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -124,28 +105,15 @@
     </Compile>
     <Compile Include="TestServiceControlCreator.cs" />
     <Compile Include="TestServiceThread.cs" />
-    <Compile Include="ThreadStatusService.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MCSServiceInstaller.resx">
       <DependentUpon>MCSServiceInstaller.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="MCSServiceMain.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>MCSServiceMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="StatusControl.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>StatusControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TestServiceControl.resx">
       <DependentUpon>TestServiceControl.cs</DependentUpon>
@@ -201,6 +169,7 @@
  
 
     </PostBuildEvent>
-    <PreBuildEvent></PreBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
   </PropertyGroup>
 </Project>
