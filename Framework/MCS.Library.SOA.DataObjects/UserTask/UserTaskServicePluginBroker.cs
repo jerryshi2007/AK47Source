@@ -54,34 +54,34 @@ namespace MCS.Library.SOA.DataObjects.UserTaskPlugin
         }
 
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SendUserTasks", RequestNamespace = "http://tempuri.org/", ResponseNamespace = "http://tempuri.org/", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void SendUserTasks(string josn, [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)] DictionaryEntry[] args)
+        public void SendUserTasks(string json, [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)] DictionaryEntry[] args)
         {
             this.Invoke("SendUserTasks", new object[] {
-                        josn,
+                        json,
                         args});
         }
 
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SetUserTasksAccomplished", RequestNamespace = "http://tempuri.org/", ResponseNamespace = "http://tempuri.org/", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void SetUserTasksAccomplished(string josn, [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)] DictionaryEntry[] args)
+        public void SetUserTasksAccomplished(string json, [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)] DictionaryEntry[] args)
         {
             this.Invoke("SetUserTasksAccomplished", new object[] {
-                        josn,
+                        json,
                         args});
         }
 
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DeleteUserAccomplishedTasks", RequestNamespace = "http://tempuri.org/", ResponseNamespace = "http://tempuri.org/", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void DeleteUserAccomplishedTasks(string josn, [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)] DictionaryEntry[] args)
+        public void DeleteUserAccomplishedTasks(string json, [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)] DictionaryEntry[] args)
         {
             this.Invoke("DeleteUserAccomplishedTasks", new object[] {
-                        josn,
+                        json,
                         args});
         }
 
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DeleteUserTasks", RequestNamespace = "http://tempuri.org/", ResponseNamespace = "http://tempuri.org/", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void DeleteUserTasks(string josn, [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)] DictionaryEntry[] args)
+        public void DeleteUserTasks(string json, [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)] DictionaryEntry[] args)
         {
             this.Invoke("DeleteUserTasks", new object[] {
-                        josn,
+                        json,
                         args});
         }
 

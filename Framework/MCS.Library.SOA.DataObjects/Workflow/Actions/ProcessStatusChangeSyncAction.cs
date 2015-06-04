@@ -1,5 +1,6 @@
 ﻿using MCS.Library.SOA.DataObjects.UserTaskPlugin;
 using MCS.Library.SOA.DataObjects.UserTaskSync;
+using MCS.Web.Library.Script;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,7 +46,12 @@ namespace MCS.Library.SOA.DataObjects.Workflow.Actions
                     JavaScriptSerializer serializer = new JavaScriptSerializer();
                     UserTaskServicePluginBroker.Instance.SyncProcess(serializer.Serialize(result));
                 }
+                    
             }
+        }
+
+        public void AfterWorkflowPersistAction(WfActionParams actionParams)
+        {
         }
 
         public void ClearCache()

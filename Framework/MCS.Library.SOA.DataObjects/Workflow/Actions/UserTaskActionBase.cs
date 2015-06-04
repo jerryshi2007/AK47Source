@@ -10,202 +10,206 @@ using System.Collections.Specialized;
 
 namespace MCS.Library.SOA.DataObjects.Workflow.Actions
 {
-	[Serializable]
-	public abstract class UserTaskActionBase : IWfAction
-	{
-		#region IWfAction Members
+    [Serializable]
+    public abstract class UserTaskActionBase : IWfAction
+    {
+        #region IWfAction Members
 
-		public virtual void PrepareAction(WfActionParams actionParams)
-		{
-		}
+        public virtual void PrepareAction(WfActionParams actionParams)
+        {
+        }
 
-		public virtual void PersistAction(WfActionParams actionParams)
-		{
+        public virtual void PersistAction(WfActionParams actionParams)
+        {
 
-		}
+        }
 
-		public virtual void ClearCache()
-		{
+        public virtual void AfterWorkflowPersistAction(WfActionParams actionParams)
+        {
+        }
 
-		}
-		#endregion
+        public virtual void ClearCache()
+        {
 
-		internal static UserTaskCollection BuildUserTasksFromActivity(IWfActivity activity, IEnumerable<IUser> users, TaskStatus status)
-		{
-			UserTaskCollection tasks = new UserTaskCollection();
+        }
+        #endregion
 
-			foreach (IUser user in users)
-			{
-				UserTask task = BuildOneUserTaskFromActivity(activity, status);
+        internal static UserTaskCollection BuildUserTasksFromActivity(IWfActivity activity, IEnumerable<IUser> users, TaskStatus status)
+        {
+            UserTaskCollection tasks = new UserTaskCollection();
 
-				task.SendToUserID = user.ID;
-				task.SendToUserName = user.DisplayName;
-				task.Emergency = WfRuntime.ProcessContext.Emergency;
-				task.Purpose = WfRuntime.ProcessContext.Purpose;
+            foreach (IUser user in users)
+            {
+                UserTask task = BuildOneUserTaskFromActivity(activity, status);
 
-				tasks.Add(task);
-			}
+                task.SendToUserID = user.ID;
+                task.SendToUserName = user.DisplayName;
+                task.Emergency = WfRuntime.ProcessContext.Emergency;
+                task.Purpose = WfRuntime.ProcessContext.Purpose;
 
-			return tasks;
-		}
+                tasks.Add(task);
+            }
 
-		internal static UserTaskCollection BuildUserTasksFromActivity(IWfActivity activity, TaskStatus status)
-		{
-			return BuildUserTasksFromActivity(activity, activity.Assignees.ToUsers(), status);
-		}
+            return tasks;
+        }
 
-		internal static UserTaskCollection BuildUserTasksFromActivity(IWfActivity activity)
-		{
-			return BuildUserTasksFromActivity(activity, TaskStatus.Ban);
-		}
+        internal static UserTaskCollection BuildUserTasksFromActivity(IWfActivity activity, TaskStatus status)
+        {
+            return BuildUserTasksFromActivity(activity, activity.Assignees.ToUsers(), status);
+        }
 
-		internal static UserTaskCollection BuildUserNotifiesFromActivity(IWfActivity activity)
-		{
-			UserTaskCollection tasks = BuildUserTasksFromActivity(activity, TaskStatus.Yue);
+        internal static UserTaskCollection BuildUserTasksFromActivity(IWfActivity activity)
+        {
+            return BuildUserTasksFromActivity(activity, TaskStatus.Ban);
+        }
 
-			foreach (UserTask task in tasks)
-			{
-				task.Level = TaskLevel.Low;
-				task.Url = GenerateNotifyUrl(task, activity);
-			}
+        internal static UserTaskCollection BuildUserNotifiesFromActivity(IWfActivity activity)
+        {
+            UserTaskCollection tasks = BuildUserTasksFromActivity(activity, TaskStatus.Yue);
 
-			return tasks;
-		}
+            foreach (UserTask task in tasks)
+            {
+                task.Level = TaskLevel.Low;
+                task.Url = GenerateNotifyUrl(task, activity);
+            }
 
-		internal static UserTask BuildOneUserNotifyFromActivity(IWfActivity activity)
-		{
-			UserTask task = BuildOneUserTaskFromActivity(activity, TaskStatus.Yue);
+            return tasks;
+        }
 
-			task.Url = GenerateNotifyUrl(task, activity);
+        internal static UserTask BuildOneUserNotifyFromActivity(IWfActivity activity)
+        {
+            UserTask task = BuildOneUserTaskFromActivity(activity, TaskStatus.Yue);
 
-			return task;
-		}
+            task.Url = GenerateNotifyUrl(task, activity);
 
-		private static string GenerateNotifyUrl(UserTask task, IWfActivity activity)
-		{
-			NameValueCollection uriParams = UriHelper.GetUriParamsCollection(task.Url);
+            return task;
+        }
 
-			uriParams.Clear();
-			uriParams["resourceID"] = activity.Process.ResourceID;
-			uriParams["processID"] = activity.Process.ID;
-			uriParams["_op"] = "notifyDialog";
-			uriParams["taskID"] = task.TaskID;
+        private static string GenerateNotifyUrl(UserTask task, IWfActivity activity)
+        {
+            NameValueCollection uriParams = UriHelper.GetUriParamsCollection(task.Url);
 
-			return UriHelper.CombineUrlParams(task.Url, false, uriParams);
-		}
+            uriParams.Clear();
+            uriParams["resourceID"] = activity.Process.ResourceID;
+            uriParams["processID"] = activity.Process.ID;
+            uriParams["_op"] = "notifyDialog";
+            uriParams["taskID"] = task.TaskID;
 
-		internal static UserTask BuildOneUserTaskFromActivity(IWfActivity activity)
-		{
-			return BuildOneUserTaskFromActivity(activity, TaskStatus.Ban);
-		}
+            return UriHelper.CombineUrlParams(task.Url, false, uriParams);
+        }
 
-		internal static UserTask BuildOneUserTaskFromActivity(IWfActivity activity, TaskStatus status)
-		{
-			UserTask task = new UserTask();
+        internal static UserTask BuildOneUserTaskFromActivity(IWfActivity activity)
+        {
+            return BuildOneUserTaskFromActivity(activity, TaskStatus.Ban);
+        }
 
-			task.TaskID = UuidHelper.NewUuidString();
+        internal static UserTask BuildOneUserTaskFromActivity(IWfActivity activity, TaskStatus status)
+        {
+            UserTask task = new UserTask();
 
-			task.ApplicationName = activity.Process.Descriptor.ApplicationName;
-			task.ProgramName = activity.Process.Descriptor.ProgramName;
-			task.ResourceID = activity.Process.ResourceID;
-			task.ActivityID = activity.ID;
-			task.ProcessID = activity.Process.ID;
-			task.Status = status;
-			task.TaskStartTime = activity.Process.StartTime;
+            task.TaskID = UuidHelper.NewUuidString();
 
-			DateTime estimateEndTime = activity.Descriptor.Properties.GetValue("EstimateEndTime", DateTime.MinValue);
+            task.ApplicationName = activity.Process.Descriptor.ApplicationName;
+            task.ProgramName = activity.Process.Descriptor.ProgramName;
+            task.ResourceID = activity.Process.ResourceID;
+            task.ActivityID = activity.ID;
+            task.ProcessID = activity.Process.ID;
+            task.Status = status;
+            task.TaskStartTime = activity.Process.StartTime;
 
-			if (estimateEndTime != DateTime.MinValue)
-				task.ExpireTime = estimateEndTime;
+            DateTime estimateEndTime = activity.Descriptor.Properties.GetValue("EstimateEndTime", DateTime.MinValue);
 
-			if (status == TaskStatus.Yue)
-				task.TaskTitle = GetNotifyTitle(activity);
+            if (estimateEndTime != DateTime.MinValue)
+                task.ExpireTime = estimateEndTime;
 
-			if (string.IsNullOrEmpty(task.TaskTitle))
-				task.TaskTitle = GetTaskTitle(activity);
+            if (status == TaskStatus.Yue)
+                task.TaskTitle = GetNotifyTitle(activity);
 
-			task.Level = TaskLevel.Normal;
+            if (string.IsNullOrEmpty(task.TaskTitle))
+                task.TaskTitle = GetTaskTitle(activity);
 
-			IWfProcess rootProcess = activity.Process.RootProcess;
+            task.Level = TaskLevel.Normal;
 
-			if (OguBase.IsNotNullOrEmpty(rootProcess.Creator))
-			{
-				task.DraftUserID = rootProcess.Creator.ID;
-				task.DraftUserName = rootProcess.Creator.DisplayName;
-			}
+            IWfProcess rootProcess = activity.Process.RootProcess;
 
-			if (OguBase.IsNotNullOrEmpty(activity.Process.OwnerDepartment))
-			{
-				task.DraftDepartmentName = rootProcess.OwnerDepartment.GetDepartmentDescription();
-			}
+            if (OguBase.IsNotNullOrEmpty(rootProcess.Creator))
+            {
+                task.DraftUserID = rootProcess.Creator.ID;
+                task.DraftUserName = rootProcess.Creator.DisplayName;
+            }
 
-			if (DeluxePrincipal.IsAuthenticated)
-			{
-				task.SourceID = DeluxeIdentity.CurrentUser.ID;
-				task.SourceName = DeluxeIdentity.CurrentUser.DisplayName;
-			}
+            if (OguBase.IsNotNullOrEmpty(activity.Process.OwnerDepartment))
+            {
+                task.DraftDepartmentName = rootProcess.OwnerDepartment.GetDepartmentDescription();
+            }
 
-			task.Url = GetTaskUrl(activity);
+            if (DeluxePrincipal.IsAuthenticated)
+            {
+                task.SourceID = DeluxeIdentity.CurrentUser.ID;
+                task.SourceName = DeluxeIdentity.CurrentUser.DisplayName;
+            }
 
-			return task;
-		}
+            task.Url = GetTaskUrl(activity);
 
-		internal static void AppendResourcesToNotifiers(IWfActivity currentActivity, UserTaskCollection notifyTasks, WfResourceDescriptorCollection resources)
-		{
-			foreach (IUser user in resources.ToUsers())
-			{
-				UserTask task = BuildOneUserNotifyFromActivity(currentActivity);
+            return task;
+        }
 
-				task.SendToUserID = user.ID;
-				task.SendToUserName = user.DisplayName;
+        internal static void AppendResourcesToNotifiers(IWfActivity currentActivity, UserTaskCollection notifyTasks, WfResourceDescriptorCollection resources)
+        {
+            foreach (IUser user in resources.ToUsers())
+            {
+                UserTask task = BuildOneUserNotifyFromActivity(currentActivity);
 
-				notifyTasks.Add(task);
-			}
-		}
+                task.SendToUserID = user.ID;
+                task.SendToUserName = user.DisplayName;
 
-		private static string GetTaskTitle(IWfActivity activity)
-		{
-			string title = activity.Descriptor.TaskTitle;
+                notifyTasks.Add(task);
+            }
+        }
 
-			if (string.IsNullOrEmpty(title))
-				title = activity.Process.Descriptor.DefaultTaskTitle;
+        private static string GetTaskTitle(IWfActivity activity)
+        {
+            string title = activity.Descriptor.TaskTitle;
 
-			return title;
-		}
+            if (string.IsNullOrEmpty(title))
+                title = activity.Process.Descriptor.DefaultTaskTitle;
 
-		/// <summary>
-		/// %%%%%%%%%%%%%%%%%%%
-		/// </summary>
-		/// <param name="activity"></param>
-		/// <returns></returns>
-		private static string GetNotifyTitle(IWfActivity activity)
-		{
-			string title = activity.Descriptor.NotifyTaskTitle;
+            return title;
+        }
 
-			if (string.IsNullOrEmpty(title))
-				title = activity.Process.Descriptor.DefaultNotifyTaskTitle;
+        /// <summary>
+        /// %%%%%%%%%%%%%%%%%%%
+        /// </summary>
+        /// <param name="activity"></param>
+        /// <returns></returns>
+        private static string GetNotifyTitle(IWfActivity activity)
+        {
+            string title = activity.Descriptor.NotifyTaskTitle;
 
-			return title;
-		}
+            if (string.IsNullOrEmpty(title))
+                title = activity.Process.Descriptor.DefaultNotifyTaskTitle;
 
-		private static string GetTaskUrl(IWfActivity activity)
-		{
-			string url = activity.Descriptor.Url;
+            return title;
+        }
 
-			if (string.IsNullOrEmpty(url))
-				url = activity.Process.Descriptor.Url;
+        private static string GetTaskUrl(IWfActivity activity)
+        {
+            string url = activity.Descriptor.Url;
 
-			if (url.IsNotEmpty())
-			{
-				NameValueCollection urlParams = UriHelper.GetUriParamsCollection(url);
+            if (string.IsNullOrEmpty(url))
+                url = activity.Process.Descriptor.Url;
 
-				urlParams["resourceID"] = activity.Process.ResourceID;
-				urlParams["activityID"] = activity.ID;
+            if (url.IsNotEmpty())
+            {
+                NameValueCollection urlParams = UriHelper.GetUriParamsCollection(url);
 
-				url = UriHelper.CombineUrlParams(url, false, urlParams);
-			}
+                urlParams["resourceID"] = activity.Process.ResourceID;
+                urlParams["activityID"] = activity.ID;
 
-			return url;
-		}
-	}
+                url = UriHelper.CombineUrlParams(url, false, urlParams);
+            }
+
+            return url;
+        }
+    }
 }

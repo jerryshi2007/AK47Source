@@ -11,19 +11,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library.AccreditSync", 
 EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 2
+		SccNumberOfProjects = 3
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = http://shsvr9141tfs.ciicsh.local:8080/tfs/rhso
 		SccProjectUniqueName0 = MCS.Services.AD2Accredit.csproj
-		SccProjectName0 = .
-		SccAuxPath0 = http://shsvr9141tfs.ciicsh.local:8080/tfs/rhso
 		SccLocalPath0 = .
-		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccProjectUniqueName1 = ..\\..\\Framework\\MCS.Library.AccreditSync\\MCS.Library.AccreditSync.csproj
 		SccProjectName1 = ../../Framework/MCS.Library.AccreditSync
-		SccAuxPath1 = http://shsvr9141tfs.ciicsh.local:8080/tfs/rhso
 		SccLocalPath1 = ..\\..\\Framework\\MCS.Library.AccreditSync
-		SccProvider1 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccLocalPath2 = .
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

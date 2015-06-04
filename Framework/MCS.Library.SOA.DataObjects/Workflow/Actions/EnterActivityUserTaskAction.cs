@@ -57,7 +57,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow.Actions
 			}
 		}
 
-		public override void PersistAction(WfActionParams actionParams)
+        public override void AfterWorkflowPersistAction(WfActionParams actionParams)
 		{
 			WfRuntime.ProcessContext.FireEnterActivityPersistAction();
 

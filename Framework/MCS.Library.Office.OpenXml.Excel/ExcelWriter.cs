@@ -2015,6 +2015,10 @@ namespace MCS.Library.Office.OpenXml.Excel
 			table.Attributes.Remove("dataCellStyle");
 			table.Attributes.Remove("tableBorderDxfId");
 
+            //沈峥删除这两个属性，影响Table的格式
+            table.Attributes.Remove("headerRowBorderDxfId");
+            table.Attributes.Remove("totalsRowBorderDxfId");
+            
 			XElement tableXml = WriteAttributes(table);
 			/*
 			new XElement(ExcelCommon.Schema_WorkBook_Main + "table",

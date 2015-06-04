@@ -8,6 +8,7 @@ using MCS.Library.Core;
 using MCS.Library.OGUPermission;
 using MCS.Library.SOA.DataObjects.UserTaskPlugin;
 using MCS.Library.SOA.DataObjects.Workflow;
+using MCS.Web.Library.Script;
 
 namespace MCS.Library.SOA.DataObjects.UserTaskSync
 {
@@ -91,15 +92,32 @@ namespace MCS.Library.SOA.DataObjects.UserTaskSync
         {
             if (tasks.Count > 0)
             {
+                Dictionary<string, object> result = new Dictionary<string, object>();
                 JavaScriptSerializer serializer = new JavaScriptSerializer();
+                //获取流程ID以及流程参数
+                List<string> listProcessId = new List<string>();
 
-                Dictionary<string, string> result = new Dictionary<string, string>();
+                foreach (var item in tasks)
+                {
+                    if (!listProcessId.Contains(item.ProcessID))
+                    {
+                        listProcessId.Add(item.ProcessID);
+                    }
+                }
 
-                context.ToList().ForEach(p => result.Add(p.Key.ToString(), p.Value.ToString()));
-                result.Add(_TenantCode, GetTenantCode(tasks));
-                result.Add(_Department, GetDepartment(tasks));
-                result.Add(_MailCollector, GetMailCollector(tasks));
+                foreach (var item in listProcessId)
+                {
+                    Dictionary<string, object> resultTemp = new Dictionary<string, object>();
 
+                    context.ToList().ForEach(p => result.Add(p.Key.ToString(), p.Value.ToString()));
+                    resultTemp.Add(_TenantCode, GetTenantCode(item));
+                    resultTemp.Add(_Department, GetDepartment(item));
+                    resultTemp.Add(_MailCollector, GetMailCollector(item));
+
+                    result.Add(item, ConvertDictToEntry(resultTemp));
+                }
+
+                //序列化待办信息
                 string seriTasks = serializer.Serialize(tasks);
 
                 PerformanceMonitorHelper.GetDefaultMonitor().WriteExecutionDuration(
@@ -112,7 +130,7 @@ namespace MCS.Library.SOA.DataObjects.UserTaskSync
         /// </summary>
         /// <param name="dicts">字典</param>
         /// <returns></returns>
-        private static DictionaryEntry[] ConvertDictToEntry(Dictionary<string, string> dicts)
+        private static DictionaryEntry[] ConvertDictToEntry(Dictionary<string, object> dicts)
         {
             List<DictionaryEntry> entries = new List<DictionaryEntry>();
 
@@ -127,12 +145,12 @@ namespace MCS.Library.SOA.DataObjects.UserTaskSync
         /// </summary>
         /// <param name="tasks">待办列表</param>
         /// <returns></returns>
-        private static string GetTenantCode(UserTaskCollection tasks)
+        private static string GetTenantCode(string processID)
         {
             string tenantCode = TenantContext.Current.TenantCode;
 
             if (tenantCode.IsNullOrEmpty())
-                tenantCode = GetParameter(_TenantCode, tasks);
+                tenantCode = GetParameter(_TenantCode, processID);
 
             return tenantCode;
         }
@@ -142,9 +160,9 @@ namespace MCS.Library.SOA.DataObjects.UserTaskSync
         /// </summary>
         /// <param name="tasks">任务列表</param>
         /// <returns>部门</returns>
-        private static string GetDepartment(UserTaskCollection tasks)
+        private static string GetDepartment(string processID)
         {
-            return GetParameter(_Department, tasks);
+            return GetParameter(_Department, processID);
         }
 
         /// <summary>
@@ -152,9 +170,9 @@ namespace MCS.Library.SOA.DataObjects.UserTaskSync
         /// </summary>
         /// <param name="tasks">任务列表</param>
         /// <returns>客户端传递的邮件参数</returns>
-        private static string GetMailCollector(UserTaskCollection tasks)
+        private static string GetMailCollector(string processID)
         {
-            return GetParameter(_MailCollector, tasks);
+            return GetParameter(_MailCollector, processID);
         }
 
         /// <summary>
@@ -163,15 +181,14 @@ namespace MCS.Library.SOA.DataObjects.UserTaskSync
         /// <param name="key">Key</param>
         /// <param name="tasks">任务列表</param>
         /// <returns>值</returns>
-        private static string GetParameter(string key, UserTaskCollection tasks)
+        private static string GetParameter(string key, string processID)
         {
             string para = string.Empty;
-            UserTask task = tasks.FirstOrDefault();
 
-            if (task != null && task.ProcessID.IsNotEmpty())
+            if (!string.IsNullOrEmpty(processID))
             {
-                IWfProcess process = WfRuntime.GetProcessByProcessID(task.ProcessID);
-                
+                IWfProcess process = WfRuntime.GetProcessByProcessID(processID);
+
                 para = process.ApplicationRuntimeParameters.GetValue(key, string.Empty);
             }
 

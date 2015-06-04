@@ -31,6 +31,10 @@ namespace MCS.Library.SOA.DataObjects.Workflow.Actions
             this.ClearCache();
         }
 
+        public virtual void AfterWorkflowPersistAction(WfActionParams actionParams)
+        {
+        }
+
         public virtual void ClearCache()
         {
             WfRuntime.ProcessContext.ServiceOperations.Clear();

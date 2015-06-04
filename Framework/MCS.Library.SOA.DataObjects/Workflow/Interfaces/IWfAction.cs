@@ -81,8 +81,27 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
     public interface IWfAction
     {
+        /// <summary>
+        /// 发生在流程持久化的事务之前
+        /// </summary>
+        /// <param name="actionParams"></param>
         void PrepareAction(WfActionParams actionParams);
+
+        /// <summary>
+        /// 发生在流程持久化的事务之中，但是发生在流程本身的持久化操作之前
+        /// </summary>
+        /// <param name="actionParams"></param>
         void PersistAction(WfActionParams actionParams);
+
+        /// <summary>
+        /// 发生在流程持久化的事务之中，但是发生在流程本身的持久化操作之后
+        /// </summary>
+        /// <param name="actionParams"></param>
+        void AfterWorkflowPersistAction(WfActionParams actionParams);
+
+        /// <summary>
+        /// 清理上下文缓存中的内容
+        /// </summary>
         void ClearCache();
     }
 
@@ -96,17 +115,28 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
         public void PersistActions(WfActionParams actionParams)
         {
-            ProcessProgress.Current.MaxStep += this.Count;
-            ProcessProgress.Current.Response();
-
             this.ForEach(action =>
                 {
                     PerformanceMonitorHelper.GetDefaultMonitor().WriteExecutionDuration(
                         string.Format("Persist Action: {0}", action.GetType().FullName),
                         () => action.PersistAction(actionParams));
-                    ProcessProgress.Current.Increment();
-                    ProcessProgress.Current.Response();
                 });
+        }
+
+        public void AfterWorkflowPersistAction(WfActionParams actionParams)
+        {
+            ProcessProgress.Current.MaxStep += this.Count;
+            ProcessProgress.Current.Response();
+
+            this.ForEach(action =>
+            {
+                PerformanceMonitorHelper.GetDefaultMonitor().WriteExecutionDuration(
+                    string.Format("AfterWorkflowPersist Action: {0}", action.GetType().FullName),
+                    () => action.AfterWorkflowPersistAction(actionParams));
+
+                ProcessProgress.Current.Increment();
+                ProcessProgress.Current.Response();
+            });
         }
 
         public void ClearCache()
