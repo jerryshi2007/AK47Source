@@ -22,5 +22,25 @@ BEGIN
 	PRINT @todoCount
 
 	IF (@todoCount > 0)
-		EXEC SC.GenerateFullPaths
+	BEGIN
+		DECLARE @sourceID NVARCHAR(36)
+
+		DECLARE JobCursor CURSOR FOR 
+		SELECT data.SourceID
+		FROM SC.CompletedJobList data INNER JOIN @tempList todo ON data.ID = todo.ID
+
+		OPEN JobCursor
+  
+		FETCH NEXT FROM JobCursor INTO @sourceID
+
+		WHILE @@FETCH_STATUS = 0
+		BEGIN
+			EXEC SC.GenerateFullPaths @sourceID
+
+			FETCH NEXT FROM JobCursor INTO @sourceID
+		END
+
+		CLOSE JobCursor;
+		DEALLOCATE JobCursor;
+	END
 END

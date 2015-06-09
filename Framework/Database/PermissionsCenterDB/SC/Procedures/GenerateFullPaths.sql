@@ -1,5 +1,6 @@
 ﻿/*生成所有的全路径*/
 CREATE PROCEDURE [SC].[GenerateFullPaths]
+	@objectID NVARCHAR(36) = N'e588c4c6-4097-4979-94c2-9e2429989932'
 AS
 BEGIN
 	DECLARE @currentObjs [SC].[ObjectWithParentTable]
@@ -17,7 +18,7 @@ BEGIN
 			'',
 			''
 		FROM SC.SchemaObjectAndParentView T LEFT JOIN SC.SchemaObjectAndParentView R ON R.ID = T.ParentID
-		WHERE T.ParentID = 'e588c4c6-4097-4979-94c2-9e2429989932' AND T.VersionStartTime <= @time AND T.VersionEndTime > @time AND T.R_VersionStartTime <= @time AND T.R_VersionEndTime > @time
+		WHERE T.ParentID = @objectID AND T.VersionStartTime <= @time AND T.VersionEndTime > @time AND T.R_VersionStartTime <= @time AND T.R_VersionEndTime > @time
 			AND T.Status = 1 AND T.R_Status = 1
 			AND (R.VersionStartTime <= @time AND R.VersionEndTime > @time AND R.R_VersionStartTime <= @time AND R.R_VersionEndTime > @time AND R.Status = 1 AND R.R_Status = 1 OR R.ID IS NULL)
 
