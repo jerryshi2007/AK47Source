@@ -22,6 +22,7 @@ namespace MCS.Library.WF.Contracts.Json.Converters
             auInfo.IsProcessAdmin = dictionary.GetValue("isProcessAdmin", false);
             auInfo.IsProcessViewer = dictionary.GetValue("isProcessViewer", false);
             auInfo.InMoveToMode = dictionary.GetValue("inMoveToMode", false);
+            auInfo.InMoveToStatus = dictionary.GetValue("inMoveToStatus", false);
             auInfo.IsInAcl = dictionary.GetValue("isInAcl", false);
 
             return auInfo;
@@ -38,6 +39,7 @@ namespace MCS.Library.WF.Contracts.Json.Converters
             dictionary.AddNonDefaultValue("isProcessAdmin", auInfo.IsProcessAdmin);
             dictionary.AddNonDefaultValue("isProcessViewer", auInfo.IsProcessViewer);
             dictionary.AddNonDefaultValue("inMoveToMode", auInfo.InMoveToMode);
+            dictionary.AddNonDefaultValue("inMoveToStatus", auInfo.InMoveToStatus);
             dictionary.AddNonDefaultValue("isInAcl", auInfo.IsInAcl);
 
             return dictionary;

@@ -292,10 +292,13 @@
     <Item source="操作人" target="Operator" />
     <Item source="活动" target="Activity" />
     <Item source="模板" target="Template" />
+    
     <Item source="运行中" target="Running" />
     <Item source="已完成" target="Completed" />
     <Item source="被终止" target="Aborted" />
     <Item source="未运行" target="Not running" />
+    <Item source="已暂停" target="Paused" />
+    <Item source="维护中" target="Maintaining" />
 
     <Item source="异步作废" target="Async reject" />
     <Item source="异步撤回" target="Async withdraw" />

@@ -11,6 +11,17 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.Library.Office.OpenXml.Excel", "..\..\MCS.Library.Office.OpenXml.Excel\MCS.Library.Office.OpenXml.Excel.csproj", "{69A1E346-A9A4-49A3-B9B0-CAA03BCE8A62}"
 EndProject
 Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://shsvr9141tfs.ciicsh.local:8080/tfs/rhso
+		SccProjectUniqueName0 = ..\\..\\MCS.Library.Office.OpenXml.Excel\\MCS.Library.Office.OpenXml.Excel.csproj
+		SccProjectName0 = ../../MCS.Library.Office.OpenXml.Excel
+		SccLocalPath0 = ..\\..\\MCS.Library.Office.OpenXml.Excel
+		SccLocalPath1 = .
+		SccProjectUniqueName2 = OpenAndSaveExcelTest.csproj
+		SccLocalPath2 = .
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU

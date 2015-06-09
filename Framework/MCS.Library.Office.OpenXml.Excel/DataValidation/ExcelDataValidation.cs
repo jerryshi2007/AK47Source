@@ -17,7 +17,7 @@ namespace MCS.Library.Office.OpenXml.Excel.DataValidation
 		public Range Address
 		{
 			get;
-			private set;
+			set;
 		}
 
 		public DataValidationType ValidationType

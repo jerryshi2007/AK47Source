@@ -101,6 +101,29 @@ namespace MCS.Library.SOA.DataObjects
         }
 
         /// <summary>
+        /// 不带条件地筛选
+        /// </summary>
+        /// <param name="queryParams"></param>
+        /// <param name="matchAny"></param>
+        /// <returns></returns>
+        public SOARolePropertyRowCollection QueryWithoutCondition(IEnumerable<SOARolePropertiesQueryParam> queryParams, bool matchAny = false)
+        {
+            WfConditionDescriptor condition = null;
+
+            SOARoleContext context = SOARoleContext.Current;
+
+            if (context != null)
+            {
+                if (context.Process != null)
+                    condition = new WfConditionDescriptor(context.Process.Descriptor);
+                else
+                    condition = new WfConditionDescriptor(null);
+            }
+
+            return this.Query(row => row.Values.MatchQueryValues(queryParams, matchAny));
+        }
+
+        /// <summary>
         /// 按照条件列进行数据行的筛选，返回筛选后的行集合
         /// </summary>
         /// <returns></returns>

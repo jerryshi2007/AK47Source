@@ -13,7 +13,7 @@ namespace MCS.Library.Office.OpenXml.Excel
 		/// <summary>
 		/// 地址
 		/// </summary>
-		Range Address { get; }
+        Range Address { get; set; }
 
 		/// <summary>
 		/// 验证类型

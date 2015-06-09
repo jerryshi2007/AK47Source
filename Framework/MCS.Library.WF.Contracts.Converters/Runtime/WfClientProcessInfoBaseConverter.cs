@@ -143,6 +143,7 @@ namespace MCS.Library.WF.Contracts.Converters.Runtime
             WfClientAuthorizationInfo result = new WfClientAuthorizationInfo();
 
             result.InMoveToMode = GetInMoveToMode(process, originalActivityID, userID);
+            result.InMoveToStatus = GetInMoveToStatus(process, originalActivityID);
             result.IsProcessAdmin = GetIsProcessAdmin(process, userID);
             result.IsProcessViewer = GetIsProcessViewer(process, userID);
             result.IsInAcl = process.IsUserInAcl(new OguUser(userID));
@@ -154,6 +155,21 @@ namespace MCS.Library.WF.Contracts.Converters.Runtime
 
         private static bool GetInMoveToMode(IWfProcess process, string originalActivityID, string userID)
         {
+            bool result = GetInMoveToStatus(process, originalActivityID);
+
+            if (result)
+            {
+                IWfActivity currentActivity = process.Activities[originalActivityID];
+
+                if (result)
+                    result = IsUserInAssignees(userID, currentActivity.Assignees);
+            }
+
+            return result;
+        }
+
+        private static bool GetInMoveToStatus(IWfProcess process, string originalActivityID)
+        {
             bool result = false;
 
             IWfActivity currentActivity = process.Activities[originalActivityID];
@@ -164,9 +180,6 @@ namespace MCS.Library.WF.Contracts.Converters.Runtime
                 //result = this.LockResult == null || this.LockResult.Succeed;
                 result = process.Status == WfProcessStatus.Running
                                 && currentActivity.Status == WfActivityStatus.Running;
-
-                if (result)
-                    result = IsUserInAssignees(userID, currentActivity.Assignees);
             }
 
             return result;
@@ -255,6 +268,10 @@ namespace MCS.Library.WF.Contracts.Converters.Runtime
                 client.CurrentActivityKey = process.CurrentActivity.Descriptor.Key;
 
             client.CanWithdraw = process.CanWithdraw;
+            client.CanCancel = process.CanCancel;
+            client.CanPause = process.CanPause;
+            client.CanResume = process.CanResume;
+            client.CanRestore = process.CanRestore;
             client.RelativeID = process.RelativeID;
             client.RelativeUrl = process.RelativeURL;
             client.ResourceID = process.ResourceID;

@@ -1,4 +1,5 @@
-﻿using MCS.Library.Data.DataObjects;
+﻿using MCS.Library.Core;
+using MCS.Library.Data.DataObjects;
 using MCS.Library.WF.Contracts.Ogu;
 using MCS.Library.WF.Contracts.Workflow.Descriptors;
 using System;
@@ -143,6 +144,18 @@ namespace MCS.Library.WF.Contracts.Workflow.Runtime
     [Serializable]
     public class WfClientActivityCollection : SerializableEditableKeyedDataObjectCollectionBase<string, WfClientActivity>
     {
+        /// <summary>
+        /// 根据活动描述的Key查找到对应的活动
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public WfClientActivity FindActivityByDescriptorKey(string key)
+        {
+            key.CheckStringIsNullOrEmpty("key");
+
+            return this.Find(act => string.Compare(act.Descriptor.Key, key, true) == 0);
+        }
+
         protected override string GetKeyForItem(WfClientActivity item)
         {
             return item.ID;

@@ -102,11 +102,13 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         {
             SOARoleContext.DoAction(this.PropertyDefinitions, this.ProcessInstance, (context) =>
             {
-                SOARolePropertyRowCollection matchedRows = this.Rows.Query(context.QueryParams);
+                SOARolePropertyRowCollection matchedRows = this.Rows.QueryWithoutCondition(context.QueryParams);
 
                 matchedRows = matchedRows.ExtractMatrixRows();
 
                 matchedRows = this.MergeExternalMatrix(matchedRows, context.QueryParams);
+
+                matchedRows = matchedRows.FilterByConditionColumn();
 
                 foreach (SOARolePropertyRowUsers rowUsers in matchedRows.GenerateRowsUsers())
                 {
@@ -127,11 +129,13 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         {
             SOARoleContext.DoAction(this.PropertyDefinitions, this.ProcessInstance, (context) =>
             {
-                SOARolePropertyRowCollection matchedRows = this.Rows.Query(context.QueryParams);
+                SOARolePropertyRowCollection matchedRows = this.Rows.QueryWithoutCondition(context.QueryParams);
 
                 matchedRows = matchedRows.ExtractMatrixRows();
 
                 matchedRows = this.MergeExternalMatrix(matchedRows, context.QueryParams);
+
+                matchedRows = matchedRows.FilterByConditionColumn();
 
                 matchedRows.FillCreateActivityParams(capc, this.PropertyDefinitions, definedProperties);
             });
@@ -175,14 +179,14 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                 {
                     if (externalMatrix.PropertyDefinitions.MatrixType == WfMatrixType.ApprovalMatrix)
                     {
-                        SOARolePropertyRowCollection approvalRows = externalMatrix.Rows.Query(context.QueryParams, true);
+                        SOARolePropertyRowCollection approvalRows = externalMatrix.Rows.QueryWithoutCondition(context.QueryParams, true);
 
                         matrixRows.SortActivitySN();
                         matrixRows.MergeApprovalMatrix(this.PropertyDefinitions, approvalRows, externalMatrix.PropertyDefinitions);
                     }
                     else
                     {
-                        SOARolePropertyRowCollection approvalRows = externalMatrix.Rows.Query(context.QueryParams, false);
+                        SOARolePropertyRowCollection approvalRows = externalMatrix.Rows.QueryWithoutCondition(context.QueryParams, false);
 
                         matrixRows.SortActivitySN();
                         matrixRows.MergeActivityMatrix(this.PropertyDefinitions, approvalRows, externalMatrix.PropertyDefinitions);

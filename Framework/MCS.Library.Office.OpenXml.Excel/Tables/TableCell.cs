@@ -34,7 +34,6 @@ namespace MCS.Library.Office.OpenXml.Excel
 				return true;
 
 			return false;
-
 		}
 	}
 }

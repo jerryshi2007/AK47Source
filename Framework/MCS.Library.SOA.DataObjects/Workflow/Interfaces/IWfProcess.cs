@@ -349,6 +349,38 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         }
 
         /// <summary>
+        /// 流程逻辑上是否可以作废。包括流程的状态（不含业务逻辑和管理逻辑）
+        /// </summary>
+        bool CanCancel
+        {
+            get;
+        }
+
+        /// <summary>
+        /// 流程逻辑上是否可以暂停。包括流程的状态（不含业务逻辑和管理逻辑）
+        /// </summary>
+        bool CanPause
+        {
+            get;
+        }
+
+        /// <summary>
+        /// 流程逻辑上是否可以继续。包括流程的状态（不含业务逻辑和管理逻辑）
+        /// </summary>
+        bool CanResume
+        {
+            get;
+        }
+
+        /// <summary>
+        /// 流程逻辑上是否可以恢复。包括流程的状态（不含业务逻辑和管理逻辑）
+        /// </summary>
+        bool CanRestore
+        {
+            get;
+        }
+
+        /// <summary>
         /// 是否有父流程
         /// </summary>
         bool HasParentProcess

@@ -1,6 +1,7 @@
 ﻿using MCS.Library.Core;
 using MCS.Library.Data.Builder;
 using MCS.Library.Data.Mapping;
+using MCS.Library.Globalization;
 using MCS.Library.OGUPermission;
 using MCS.Library.Passport;
 using MCS.Library.Principal;
@@ -48,9 +49,21 @@ namespace MCS.OA.CommonPages.AppTrace
         protected void Page_Load(object sender, EventArgs e)
         {
             //RolesDefineConfig.GetConfig().IsCurrentUserInRoles("ProcessAdmin", "AdminFormQuery", "WorkflowQueryAdmin").FalseThrow("您没有权限执行此页面");
-
             Response.Cache.SetNoStore();
+            
+            BindProcessStatus(processStatusSelector);
+
             bindingControl.Data = QueryCondition;
+        }
+
+        private static void BindProcessStatus(ListControl control)
+        {
+            EnumItemDescriptionList statusDesp = EnumItemDescriptionAttribute.GetDescriptionList(typeof(WfProcessStatus));
+
+            List<EnumItemDescription> list = statusDesp.ToList();
+
+            control.BindData(list, "Name", "Description");
+            control.Items.Insert(0, new ListItem(Translator.Translate("Workflow", "全部"), string.Empty));
         }
 
         protected void QueryBtnClick(object sender, EventArgs e)

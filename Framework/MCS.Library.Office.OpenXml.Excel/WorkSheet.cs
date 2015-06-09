@@ -1202,7 +1202,7 @@ namespace MCS.Library.Office.OpenXml.Excel
                 row = tb.Address.StartRow;
                 col = tb.Address.StartColumn;
 
-                if (tb.Address.Equals(tb.OldRange) == false && tb.Address.ValidatorRange() && tb.OldRange.ValidatorRange())
+                if (tb.Address.Equals(tb.OldRange) == false && tb.Address.IsValidRange() && tb.OldRange.IsValidRange())
                     this.ClearOldTableRangeValues(row, col, tb.OldRange);
 
                 this.SaveChangeTableColumns(row, col, tb);

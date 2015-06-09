@@ -68,6 +68,7 @@
     <Compile Include="BookWithAttributes.cs" />
     <Compile Include="BookWithoutAttributes.cs" />
     <Compile Include="OutputHelper.cs" />
+    <Compile Include="RangeTest.cs" />
     <Compile Include="ReadWorkBookTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WriteWorkBookTest.cs" />

@@ -336,7 +336,10 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
             {
                 if (act.Descriptor.ActivityType == WfActivityType.NormalActivity)
                     if (act.Descriptor.Properties.GetValue("IsDynamic", false) == false)
-                        Assert.AreEqual("审批", act.Descriptor.Name);
+                    {
+                        Console.WriteLine(act.Descriptor.Name);
+                        Assert.IsTrue(act.Descriptor.Name.IndexOf("审批") >= 0);
+                    }
             });
 
             Assert.AreEqual(8, process.Activities.Count);

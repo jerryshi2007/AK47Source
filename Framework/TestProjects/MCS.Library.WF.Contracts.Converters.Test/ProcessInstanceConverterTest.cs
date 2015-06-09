@@ -14,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MCS.Library.WF.Contracts.Workflow.Descriptors;
+using MCS.Library.WF.Contracts.Converters.Descriptors;
 
 namespace MCS.Library.WF.Contracts.Converters.Test
 {
@@ -72,6 +73,27 @@ namespace MCS.Library.WF.Contracts.Converters.Test
             Assert.IsNotNull(deserializedProcess.CompletedActivity);
 
             Assert.AreEqual(deserializedProcess.InitialActivity.ID, deserializedProcess.CurrentActivity.ID);
+        }
+
+        [TestMethod]
+        public void SimpleProcessSortedActivitiesTest()
+        {
+            WfClientProcessDescriptor clientProcessDesp = ProcessDescriptorHelper.CreateClientProcessWithConditionLines();
+
+            IWfProcess process = ProcessHelper.CreateProcessInstance(clientProcessDesp);
+
+            WfClientProcess client = null;
+
+            WfClientProcessConverter.InstanceWithoutActivityBindings.ServerToClient(process, ref client);
+
+            client.NormalizeActivities();
+
+            WfClientActivityCollection sortedActivities = client.GetSortedActivities();
+
+            foreach (WfClientActivity act in sortedActivities)
+            {
+                Console.WriteLine(act.Descriptor.Key);
+            }
         }
 
         [TestMethod]

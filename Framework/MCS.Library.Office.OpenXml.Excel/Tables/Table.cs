@@ -286,7 +286,7 @@ namespace MCS.Library.Office.OpenXml.Excel
         public Range Address
         {
             get;
-            internal set;
+            set;
         }
 
         /// <summary>
@@ -363,7 +363,6 @@ namespace MCS.Library.Office.OpenXml.Excel
             }
         }
 
-
         void IPersistable.Save(ExcelSaveContext context)
         {
             this.ID = context.NextTableID;
@@ -375,6 +374,7 @@ namespace MCS.Library.Office.OpenXml.Excel
         {
             PackageRelationship tableRelation = context.Package.GetPart(this._WorkSheet.SheetUri).GetRelationship(this.RelationshipID);
             this._TableUri = PackUriHelper.ResolvePartUri(tableRelation.SourceUri, tableRelation.TargetUri);
+
             XElement tableElement = context.Package.GetXElementFromUri(PackUriHelper.ResolvePartUri(tableRelation.SourceUri, tableRelation.TargetUri));
             context.Reader.ReadTable(this, tableElement);
         }
@@ -385,23 +385,49 @@ namespace MCS.Library.Office.OpenXml.Excel
         /// <param name="dv"></param>
         public void FillData(DataView dv)
         {
+            this.FillData(dv, null);
+        }
+
+        /// <summary>
+        /// 填充数据。可以在填充数据时定制单元格的内容
+        /// </summary>
+        /// <param name="dv"></param>
+        /// <param name="creatingDataCellAction"></param>
+        public void FillData(DataView dv, CreatingDataCellAction<DataRowView> creatingDataCellAction)
+        {
             dv.NullCheck("数据源不能为空");
-            foreach (DataRowView dr in dv)
+            int rowIndex = 0;
+
+            this.Rows.Clear();
+
+            foreach (DataRowView drv in dv)
             {
-                TableRow tr = this.Rows.NewTableRow();
+                TableRow newRow = this.Rows.NewTableRow();
                 TableColumn excelColumn;
+
                 foreach (DataColumn col in dv.Table.Columns)
                 {
                     if (this.TryTableColumn(col.ColumnName, col.Caption, out excelColumn))
-                        tr[excelColumn].Value = dr[col.ColumnName];
+                    {
+                        if (creatingDataCellAction == null)
+                            newRow[excelColumn].Value = drv[col.ColumnName];
+                        else
+                            creatingDataCellAction(newRow[excelColumn], new CreatingDataCellParameters<DataRowView>(drv, drv[col.ColumnName], col.ColumnName, rowIndex));
+                    }
                 }
+
+                rowIndex++;
             }
+
+            this.SyncTablePropertiesAfterFillData(dv);
         }
 
         internal void FillData(DataView dv, TableDescription tableDesp, CreatingDataCellAction<DataRowView> creatingDataCellAction)
         {
             dv.NullCheck("数据源不能为空");
             int rowIndex = 0;
+
+            this.Rows.Clear();
 
             foreach (DataRowView drv in dv)
             {
@@ -422,6 +448,8 @@ namespace MCS.Library.Office.OpenXml.Excel
 
                 rowIndex++;
             }
+
+            this.SyncTablePropertiesAfterFillData(dv);
         }
 
         internal void FillData<T>(IEnumerable<T> collection, TableDescription tableDesp, CreatingDataCellAction<T> creatingDataCellAction, LoadFormTableMode fillMode = LoadFormTableMode.FillData)
@@ -541,6 +569,36 @@ namespace MCS.Library.Office.OpenXml.Excel
         protected internal override string NodeName
         {
             get { return "table"; }
+        }
+
+        /// <summary>
+        /// 填充数据后同步表格的属性
+        /// </summary>
+        /// <param name="dv"></param>
+        private void SyncTablePropertiesAfterFillData(DataView dv)
+        {
+            Range address = this.Address;
+
+            this.Address = Range.Parse(address.StartColumn, address.StartRow, address.EndColumn, address.StartRow + dv.Count);
+
+            this.SyncDataValidationRange();
+        }
+
+        /// <summary>
+        /// 同步校验规则的范围
+        /// </summary>
+        private void SyncDataValidationRange()
+        {
+            foreach (IDataValidation validation in this._WorkSheet.Validations)
+            {
+                if (validation.Address.IsSubset(this.Address))
+                {
+                    if (validation.Address.EndRow < this.Address.EndRow)
+                    {
+                        validation.Address = Range.Parse(validation.Address.StartColumn, this.Address.StartRow + 1, validation.Address.EndColumn, this.Address.EndRow);
+                    }
+                }
+            }
         }
     }
 }

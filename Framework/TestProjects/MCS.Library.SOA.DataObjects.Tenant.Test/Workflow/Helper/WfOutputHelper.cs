@@ -75,6 +75,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
                 strB.Append("->");
 
             strB.Append(actDesp.Key);
+            strB.Append(":" + actDesp.Name);
 
             if (actDesp.AssociatedActivityKey.IsNotEmpty())
                 strB.AppendFormat("[{0}]", actDesp.AssociatedActivityKey);

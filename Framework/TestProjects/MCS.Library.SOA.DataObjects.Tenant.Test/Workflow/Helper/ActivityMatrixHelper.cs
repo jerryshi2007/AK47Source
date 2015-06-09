@@ -162,6 +162,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivitySNColumn]) { Value = "10" });
             row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ConditionColumn]) { Value = "RowOperators.Count > 0" });
             row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivityCodeColumn]) { Value = "Approver1" });
+            row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivityNameColumn]) { Value = "一级审批" });
             row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.OperatorTypeColumn]) { Value = "User" });
             row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.OperatorColumn]) { Value = "fanhy" });
 
@@ -178,6 +179,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivitySNColumn]) { Value = "10" });
             row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ConditionColumn]) { Value = "RowOperators.Count > 0" });
             row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivityCodeColumn]) { Value = "Approver1" });
+            row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivityNameColumn]) { Value = "一级审批" });
             row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.AutoExtractColumn]) { Value = "True" });
             row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.OperatorTypeColumn]) { Value = "Role" });
             row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.OperatorColumn]) { Value = "ReportLine" });
@@ -195,6 +197,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivitySNColumn]) { Value = "20" });
             row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ConditionColumn]) { Value = "RowOperators.Count > 0" });
             row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivityCodeColumn]) { Value = "Approver1" });
+            row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivityNameColumn]) { Value = "二级审批" });
             row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.AutoExtractColumn]) { Value = "True" });
             row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.OperatorTypeColumn]) { Value = "User" });
             row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.OperatorColumn]) { Value = "liming,liming,yangrui1" });
@@ -231,6 +234,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivitySNColumn]) { Value = "10" });
             //row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ConditionColumn]) { Value = "RowOperators.Count > 0" });
             row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivityCodeColumn]) { Value = "Approver1" });
+            row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivityNameColumn]) { Value = "一级审批" });
             row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.OperatorTypeColumn]) { Value = "User" });
             row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.OperatorColumn]) { Value = "fanhy" });
 
@@ -253,6 +257,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             row3.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivitySNColumn]) { Value = "20" });
             //row3.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ConditionColumn]) { Value = "RowOperators.Count > 0" });
             row3.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivityCodeColumn]) { Value = "Approver2" });
+            row3.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivityNameColumn]) { Value = "二级审批" });
             row3.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.OperatorTypeColumn]) { Value = "Role" });
             row3.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.OperatorColumn]) { Value = row3.Operator });
 
@@ -264,6 +269,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             row4.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivitySNColumn]) { Value = "20" });
             //row4.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ConditionColumn]) { Value = "RowOperators.Count > 0" });
             row4.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivityCodeColumn]) { Value = "Approver2" });
+            row4.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivityNameColumn]) { Value = "二级审批" });
             row4.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.OperatorTypeColumn]) { Value = "User" });
             row4.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.OperatorColumn]) { Value = "quym" });
 
@@ -275,6 +281,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             row5.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivitySNColumn]) { Value = "30" });
             //row5.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ConditionColumn]) { Value = "RowOperators.Count > 0" });
             row5.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivityCodeColumn]) { Value = "Approver3" });
+            row5.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivityNameColumn]) { Value = "三级审批" });
             row5.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.OperatorTypeColumn]) { Value = "User" });
             row5.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.OperatorColumn]) { Value = "invalidUser" });
 

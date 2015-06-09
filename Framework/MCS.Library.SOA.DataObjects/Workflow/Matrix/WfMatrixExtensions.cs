@@ -109,23 +109,27 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
                 while (columnIndex < apDefinitions.Count)
                 {
-                    SOARolePropertyRow templateRow = null;
-
-                    SOARolePropertyRow amRow = FindMatchedActivityMatrixRow(amRows, apDefinitions[columnIndex].Name, apRow, out templateRow);
+                    List<SOARolePropertyRow> amUserRows = FindMatchedActivityMatrixUserRows(amRows, apDefinitions[columnIndex].Name, apRow);
+                    List<SOARolePropertyRow> amTemplateRows = FindMatchedActivityMatrixTemplateRows(amRows, apDefinitions[columnIndex].Name, apRow);
 
                     string apUser = apRow.Values.GetValue(apDefinitions[columnIndex].Name, string.Empty);
 
-                    if (amRow == null && apUser.IsNotEmpty())
+                    if (amUserRows.Count == 0 && apUser.IsNotEmpty())
                     {
-                        maxActivitySN += 10;
+                        SOARolePropertyRow templateRow = amTemplateRows.LastOrDefault();
 
-                        amRow = CreateNewActivityMatrixRow(maxActivitySN, ++maxRowNumber, amDefinitions, templateRow);
+                        maxActivitySN += 10;
+                        SOARolePropertyRow amRow = CreateNewActivityMatrixRow(maxActivitySN, ++maxRowNumber, amDefinitions, templateRow);
 
                         newAmRows.Add(amRow);
-                    }
 
-                    if (amRow != null)
                         MergeToActivityMatrixRow(amRow, amDefinitions, apUser);
+                    }
+                    else
+                    {
+                        foreach (SOARolePropertyRow amRow in amUserRows)
+                            MergeToActivityMatrixRow(amRow, amDefinitions, apUser);
+                    }
 
                     columnIndex++;
                 }
@@ -133,6 +137,56 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
             amRows.CopyFrom(newAmRows);
         }
+
+        ///// <summary>
+        ///// 将活动矩阵与审批矩阵进行合并
+        ///// </summary>
+        ///// <param name="amRows"></param>
+        ///// <param name="amDefinitions"></param>
+        ///// <param name="apRows"></param>
+        ///// <param name="apDefinitions"></param>
+        //public static void MergeApprovalMatrix(this SOARolePropertyRowCollection amRows, SOARolePropertyDefinitionCollection amDefinitions, IEnumerable<SOARolePropertyRow> apRows, SOARolePropertyDefinitionCollection apDefinitions)
+        //{
+        //    amDefinitions.NullCheck("amDefinitions");
+        //    amRows.NullCheck("amRows");
+        //    apDefinitions.NullCheck("apDefinitions");
+        //    apRows.NullCheck("apRows");
+
+        //    int maxActivitySN = GetMaxActivitySN(amRows);
+        //    int maxRowNumber = GetMaxRowNumber(amRows);
+
+        //    List<SOARolePropertyRow> newAmRows = new List<SOARolePropertyRow>();
+
+        //    foreach (SOARolePropertyRow apRow in apRows)
+        //    {
+        //        int columnIndex = 1;
+
+        //        while (columnIndex < apDefinitions.Count)
+        //        {
+        //            SOARolePropertyRow templateRow = null;
+
+        //            SOARolePropertyRow amRow = FindMatchedActivityMatrixRow(amRows, apDefinitions[columnIndex].Name, apRow, out templateRow);
+
+        //            string apUser = apRow.Values.GetValue(apDefinitions[columnIndex].Name, string.Empty);
+
+        //            if (amRow == null && apUser.IsNotEmpty())
+        //            {
+        //                maxActivitySN += 10;
+
+        //                amRow = CreateNewActivityMatrixRow(maxActivitySN, ++maxRowNumber, amDefinitions, templateRow);
+
+        //                newAmRows.Add(amRow);
+        //            }
+
+        //            if (amRow != null)
+        //                MergeToActivityMatrixRow(amRow, amDefinitions, apUser);
+
+        //            columnIndex++;
+        //        }
+        //    }
+
+        //    amRows.CopyFrom(newAmRows);
+        //}
 
         private static SOARolePropertyRow CreateNewActivityMatrixRow(int activitySN, int rowNumber, SOARolePropertyDefinitionCollection amDefinitions, SOARolePropertyRow templateRow)
         {
@@ -152,14 +206,62 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             return amRow;
         }
 
-        private static SOARolePropertyRow FindMatchedActivityMatrixRow(
+        //private static SOARolePropertyRow FindMatchedActivityMatrixRow(
+        //    IEnumerable<SOARolePropertyRow> amRows,
+        //    string apColumnName,
+        //    SOARolePropertyRow apRow,
+        //    out SOARolePropertyRow templateRow)
+        //{
+        //    SOARolePropertyRow result = null;
+        //    templateRow = null;
+
+        //    foreach (SOARolePropertyRow amRow in amRows)
+        //    {
+        //        string activityCode = amRow.Values.GetValue(SOARolePropertyDefinition.ActivityCodeColumn, string.Empty);
+
+        //        if (activityCode.IsNotEmpty())
+        //        {
+        //            if (string.Compare(apColumnName, activityCode, true) == 0)
+        //            {
+        //                if (amRow.OperatorType == SOARoleOperatorType.User)
+        //                {
+        //                    result = amRow;
+        //                    break;
+        //                }
+        //                else
+        //                {
+        //                    templateRow = amRow;
+        //                }
+        //            }
+        //        }
+        //    }
+
+        //    return result;
+        //}
+
+        private static List<SOARolePropertyRow> FindMatchedActivityMatrixUserRows(
+            IEnumerable<SOARolePropertyRow> amRows,
+            string apColumnName,
+            SOARolePropertyRow apRow)
+        {
+            return FindMatchedActivityMatrixRows(amRows, apColumnName, apRow, (amRow) => amRow.OperatorType == SOARoleOperatorType.User);
+        }
+
+        private static List<SOARolePropertyRow> FindMatchedActivityMatrixTemplateRows(
+            IEnumerable<SOARolePropertyRow> amRows,
+            string apColumnName,
+            SOARolePropertyRow apRow)
+        {
+            return FindMatchedActivityMatrixRows(amRows, apColumnName, apRow, (amRow) => amRow.OperatorType != SOARoleOperatorType.User);
+        }
+
+        private static List<SOARolePropertyRow> FindMatchedActivityMatrixRows(
             IEnumerable<SOARolePropertyRow> amRows,
             string apColumnName,
             SOARolePropertyRow apRow,
-            out SOARolePropertyRow templateRow)
+            Func<SOARolePropertyRow, bool> condition)
         {
-            SOARolePropertyRow result = null;
-            templateRow = null;
+            List<SOARolePropertyRow> result = new List<SOARolePropertyRow>();
 
             foreach (SOARolePropertyRow amRow in amRows)
             {
@@ -169,15 +271,8 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                 {
                     if (string.Compare(apColumnName, activityCode, true) == 0)
                     {
-                        if (amRow.OperatorType == SOARoleOperatorType.User)
-                        {
-                            result = amRow;
-                            break;
-                        }
-                        else
-                        {
-                            templateRow = amRow;
-                        }
+                        if (condition(amRow))
+                            result.Add(amRow);
                     }
                 }
             }

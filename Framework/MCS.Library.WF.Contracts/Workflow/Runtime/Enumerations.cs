@@ -1,4 +1,5 @@
 ﻿using MCS.Library.Core;
+using MCS.Library.WF.Contracts.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,31 +22,37 @@ namespace MCS.Library.WF.Contracts.Workflow.Runtime
         /// <summary>
         /// 运行中
         /// </summary>
+        [EnumItemDescription("运行中", Define.WorkflowCulture)]
         Running,
 
         /// <summary>
         /// 已完成
         /// </summary>
+        [EnumItemDescription("已完成", Define.WorkflowCulture)]
         Completed,
 
         /// <summary>
         /// 被终止
         /// </summary>
+        [EnumItemDescription("被终止", Define.WorkflowCulture)]
         Aborted,
 
         /// <summary>
         /// 未运行
         /// </summary>
+        [EnumItemDescription("未运行", Define.WorkflowCulture)]
         NotRunning,
 
         /// <summary>
         /// 已暂停
         /// </summary>
+        [EnumItemDescription("已暂停", Define.WorkflowCulture)]
         Paused,
 
         /// <summary>
         /// 维护中
         /// </summary>
+        [EnumItemDescription("维护中", Define.WorkflowCulture)]
         Maintaining
     }
 
@@ -57,26 +64,31 @@ namespace MCS.Library.WF.Contracts.Workflow.Runtime
         /// <summary>
         /// 未运行
         /// </summary>
+        [EnumItemDescription("未运行", Define.WorkflowCulture)]
         NotRunning,
 
         /// <summary>
         /// 运行中
         /// </summary>
+        [EnumItemDescription("运行中", Define.WorkflowCulture)]
         Running,
 
         /// <summary>
         /// 等待中
         /// </summary>
+        [EnumItemDescription("等待中", Define.WorkflowCulture)]
         Pending,
 
         /// <summary>
         /// 已完成
         /// </summary>
+        [EnumItemDescription("已完成", Define.WorkflowCulture)]
         Completed,
 
         /// <summary>
         /// 被终止
         /// </summary>
+        [EnumItemDescription("被终止", Define.WorkflowCulture)]
         Aborted,
     }
 

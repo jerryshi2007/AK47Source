@@ -60,6 +60,15 @@ namespace MCS.Library.WF.Contracts.Workflow.Runtime
         }
 
         /// <summary>
+        /// 当前流程是否在可流转的状态（与人无关）
+        /// </summary>
+        public bool InMoveToStatus
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// 当期人员是否在流程的Acl中
         /// </summary>
         public bool IsInAcl

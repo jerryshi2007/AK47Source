@@ -39,6 +39,10 @@ namespace MCS.Library.WF.Contracts.Json.Converters
             processInfo.Status = dictionary.GetValue("status", WfClientProcessStatus.NotRunning);
             processInfo.AuthorizationInfo = dictionary.GetValue("authorizationInfo", processInfo.AuthorizationInfo);
             processInfo.CanWithdraw = dictionary.GetValue("canWithdraw", false);
+            processInfo.CanCancel = dictionary.GetValue("canCancel", false);
+            processInfo.CanPause = dictionary.GetValue("canPause", false);
+            processInfo.CanResume = dictionary.GetValue("canResume", false);
+            processInfo.CanRestore = dictionary.GetValue("canRestore", false);
             processInfo.CurrentOpinion = JSONSerializerExecute.Deserialize<WfClientOpinion>(dictionary.GetValue("currentOpinion", (object)null));
             processInfo.UpdateTag = dictionary.GetValue("updateTag", -1);
 
@@ -74,6 +78,11 @@ namespace MCS.Library.WF.Contracts.Json.Converters
             dictionary.AddNonDefaultValue("processContext", processInfo.ProcessContext);
             dictionary.AddNonDefaultValue("applicationRuntimeParameters", processInfo.ApplicationRuntimeParameters);
             dictionary.AddNonDefaultValue("canWithdraw", processInfo.CanWithdraw);
+            dictionary.AddNonDefaultValue("canCancel", processInfo.CanCancel);
+            dictionary.AddNonDefaultValue("canPause", processInfo.CanPause);
+            dictionary.AddNonDefaultValue("canResume", processInfo.CanResume);
+            dictionary.AddNonDefaultValue("canRestore", processInfo.CanRestore);
+
             dictionary.AddNonDefaultValue("currentOpinion", processInfo.CurrentOpinion);
             dictionary.AddNonDefaultValue("mainStreamActivityDescriptors", processInfo.MainStreamActivityDescriptors);
             dictionary.AddNonDefaultValue("updateTag", processInfo.UpdateTag);

@@ -72,6 +72,42 @@ namespace MCS.Library.WF.Contracts.Workflow.Runtime
             set;
         }
 
+        /// <summary>
+        /// 流程逻辑上是否可以作废。包括流程的状态（不含业务逻辑和管理逻辑）
+        /// </summary>
+        public bool CanCancel
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 流程逻辑上是否可以暂停。包括流程的状态（不含业务逻辑和管理逻辑）
+        /// </summary>
+        public bool CanPause
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 流程逻辑上是否可以继续。包括流程的状态（不含业务逻辑和管理逻辑）
+        /// </summary>
+        public bool CanResume
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 流程逻辑上是否可以恢复。包括流程的状态（不含业务逻辑和管理逻辑）
+        /// </summary>
+        public bool CanRestore
+        {
+            get;
+            set;
+        }
+
         public WfClientProcessStatus Status
         {
             get

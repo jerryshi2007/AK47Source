@@ -262,6 +262,53 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         }
 
         /// <summary>
+        /// 流程逻辑上是否可以作废。包括流程的状态（不含业务逻辑和管理逻辑）
+        /// </summary>
+        public bool CanCancel
+        {
+            get
+            {
+                return (this.Status == WfProcessStatus.Running ||
+                            this.Status == WfProcessStatus.Completed ||
+                            this.Status == WfProcessStatus.Paused ||
+                            this.Status == WfProcessStatus.Maintaining);
+            }
+        }
+
+        /// <summary>
+        /// 流程逻辑上是否可以暂停。包括流程的状态（不含业务逻辑和管理逻辑）
+        /// </summary>
+        public bool CanPause
+        {
+            get
+            {
+                return this.Status == WfProcessStatus.Running;
+            }
+        }
+
+        /// <summary>
+        /// 流程逻辑上是否可以继续。包括流程的状态（不含业务逻辑和管理逻辑）
+        /// </summary>
+        public bool CanResume
+        {
+            get
+            {
+                return this.Status == WfProcessStatus.Paused;
+            }
+        }
+
+        /// <summary>
+        /// 流程逻辑上是否可以恢复。包括流程的状态（不含业务逻辑和管理逻辑）
+        /// </summary>
+        public bool CanRestore
+        {
+            get
+            {
+                return this.Status == WfProcessStatus.Aborted;
+            }
+        }
+
+        /// <summary>
         /// 更新标记
         /// </summary>
         public int UpdateTag
@@ -293,7 +340,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             get
             {
                 string result = this.Context.GetValue("RuntimeProcessName", string.Empty);
-                    
+
                 if (result.IsNullOrEmpty() && this.Descriptor != null)
                     result = this.Descriptor.Name;
 

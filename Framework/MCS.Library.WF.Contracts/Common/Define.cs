@@ -9,5 +9,6 @@ namespace MCS.Library.WF.Contracts.Common
     internal static class Define
     {
         public const string DefaultCulture = "ClientContracts";
+        public const string WorkflowCulture = "Workflow";
     }
 }
