@@ -14,6 +14,7 @@ namespace MCS.Library.SOA.DataObjects
 	[Serializable]
     [XElementSerializable]
     [ORTableMapping("KB.RELATIVE_LINK_GROUP")]
+    [TenantRelativeObject]
     public class RelativeLinkGroup
     {  
 		/// <summary>

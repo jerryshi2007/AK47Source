@@ -175,7 +175,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
 			this.ForEach(r => r.FillUsers(result));
 
-			result.Distinct((src, dest) => string.Compare(src.FullPath, dest.FullPath) == 0);
+			result.Distinct((src, dest) => string.Compare(src.ID, dest.ID) == 0);
 
 			return result;
 		}

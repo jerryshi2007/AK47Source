@@ -1,10 +1,11 @@
-﻿using System;
+﻿using MCS.Library.Core;
+using MCS.Library.Data.Builder;
+using MCS.Library.Data.DataObjects;
+using MCS.Library.Data.Mapping;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MCS.Library.Core;
-using MCS.Library.Data.Builder;
-using MCS.Library.Data.DataObjects;
 
 namespace MCS.Library.SOA.DataObjects.Workflow
 {
@@ -38,20 +39,20 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 		/// 删除流程运行时活动节点的Assignees
 		/// </summary>
 		/// <param name="activityID"></param>
-		public void Delete(WfProcessCurrentInfoCollection processesInfo)
-		{
-			InSqlClauseBuilder builder = new InSqlClauseBuilder("PROCESS_ID");
+        public void Delete(WfProcessCurrentInfoCollection processesInfo)
+        {
+            InSqlClauseBuilder builder = new InSqlClauseBuilder("PROCESS_ID");
 
-			processesInfo.ForEach(p => builder.AppendItem(p.CurrentActivityID));
+            processesInfo.ForEach(p => builder.AppendItem(p.CurrentActivityID));
 
-			if (builder.Count > 0)
-			{
-				string sql = string.Format("DELETE {0} WHERE {1}",
-					GetMappingInfo(new Dictionary<string, object>()).TableName,
-					builder.ToSqlStringWithInOperator(TSqlBuilder.Instance));
+            if (builder.Count > 0)
+            {
+                string sql = string.Format("DELETE {0} WHERE {1}",
+                    GetMappingInfo(new Dictionary<string, object>()).TableName,
+                    builder.AppendTenantCodeSqlClause().ToSqlString(TSqlBuilder.Instance));
 
-				DbHelper.RunSql(sql, GetConnectionName());
-			}
-		}
+                DbHelper.RunSql(sql, GetConnectionName());
+            }
+        }
 	}
 }

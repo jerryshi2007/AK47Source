@@ -45,6 +45,21 @@ namespace MCS.Library.SOA.DataObjects
             }
         }
 
+        public SOARolePropertyRowCollection Clone()
+        {
+            SOARolePropertyRowCollection cloned = new SOARolePropertyRowCollection();
+
+            this.FillClonedRows(cloned);
+
+            return cloned;
+        }
+
+        public void FillClonedRows(SOARolePropertyRowCollection cloned)
+        {
+            foreach (SOARolePropertyRow row in this)
+                cloned.Add(new SOARolePropertyRow(row, row.RowNumber));
+        }
+
         public SOARolePropertyRowCollection Query(Predicate<SOARolePropertyRow> predicate)
         {
             SOARolePropertyRowCollection result = new SOARolePropertyRowCollection(this._Role);
@@ -55,8 +70,10 @@ namespace MCS.Library.SOA.DataObjects
 
                 matched = predicate(row);
 
+                //if (matched)
+                //    result.Add(row);
                 if (matched)
-                    result.Add(row);
+                    result.Add(new SOARolePropertyRow(row, row.RowNumber));
             }
 
             return result;
@@ -253,7 +270,7 @@ namespace MCS.Library.SOA.DataObjects
             result.SortByActivitySN();
             result.RemoveMergeableRows();
 
-            this.SortActivitySN();
+            //this.SortActivitySN();
 
             return result;
         }
@@ -265,12 +282,29 @@ namespace MCS.Library.SOA.DataObjects
         {
             int index = 0;
 
+            Dictionary<string, string> snDictionary = new Dictionary<string, string>();
+
             foreach (SOARolePropertyRow row in this)
             {
                 SOARolePropertyValue snValue = row.Values.Find(pv => string.Compare(SOARolePropertyDefinition.ActivitySNColumn, pv.Column.Name) == 0);
 
                 if (snValue != null)
-                    snValue.Value = (++index * 10).ToString();
+                {
+                    string existedSN = string.Empty;
+
+                    if (snDictionary.TryGetValue(snValue.Value, out existedSN))
+                    {
+                        snValue.Value = existedSN;
+                    }
+                    else
+                    {
+                        string originalValue = snValue.Value;
+                        snValue.Value = (++index * 10).ToString();
+
+                        snDictionary.Add(originalValue, snValue.Value);
+                    }
+                }
+                //snValue.Value = (++index * 10).ToString();
             }
         }
 
@@ -315,8 +349,11 @@ namespace MCS.Library.SOA.DataObjects
             {
                 SOARolePropertyRowCollection extractedRows = row.ExtractMatrixRows();
 
-                result.CopyFrom(extractedRows);
+                extractedRows.FillClonedRows(result);
+                //result.CopyFrom(extractedRows);
             }
+
+            result.SortActivitySN();
 
             return result;
         }

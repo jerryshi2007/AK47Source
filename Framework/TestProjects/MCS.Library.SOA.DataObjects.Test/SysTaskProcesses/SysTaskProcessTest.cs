@@ -9,6 +9,9 @@ using DO = MCS.Library.SOA.DataObjects;
 
 namespace MCS.Library.SOA.DataObjects.Test.SysTaskProcesses
 {
+    /// <summary>
+    /// 已经迁移到MCS.Library.SOA.DataObjects.Tenant.Test
+    /// </summary>
 	[TestClass]
 	public class SysTaskProcessTest
 	{

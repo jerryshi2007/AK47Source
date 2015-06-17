@@ -51,7 +51,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 		{
 			sourceUserID.CheckStringIsNullOrEmpty("sourceUserID");
 
-			WfDelegationCollection delegationsInCache = WfDelegationCache.Instance.GetOrAddNewValue(sourceUserID, (cache, key) =>
+            WfDelegationCollection delegationsInCache = WfDelegationCache.Instance.GetOrAddNewValue(CalculateCacheKey(sourceUserID), (cache, key) =>
 			{
 				WfDelegationCollection delegations = Load(builder => builder.AppendItem("SOURCE_USER_ID", sourceUserID));
 
@@ -104,5 +104,15 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 		{
 			return WorkflowSettings.GetConfig().ConnectionName;
 		}
+
+        private static string CalculateCacheKey(string sourceUserID)
+        {
+            string result = sourceUserID;
+
+            if (TenantContext.Current.Enabled)
+                result = string.Format("{0}-{1}", TenantContext.Current.TenantCode, sourceUserID);
+
+            return result;
+        }
 	}
 }

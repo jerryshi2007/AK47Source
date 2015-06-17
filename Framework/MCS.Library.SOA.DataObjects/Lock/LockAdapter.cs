@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using MCS.Library.Core;
-using System.Transactions;
-using System.Data;
+﻿using MCS.Library.Core;
 using MCS.Library.Data;
 using MCS.Library.Data.Builder;
+using MCS.Library.Data.Mapping;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Transactions;
 
 namespace MCS.Library.SOA.DataObjects
 {
@@ -32,6 +33,7 @@ namespace MCS.Library.SOA.DataObjects
 											  lockInfo.PersonID,
 											  lockInfo.EffectiveTime.TotalSeconds,
 											  lockInfo.LockType,
+                                              TenantContext.Current.TenantCode,
 											  forceLock ? "y" : "n").Tables[0];
 				ts.Complete();
 
@@ -44,8 +46,13 @@ namespace MCS.Library.SOA.DataObjects
 			ExceptionHelper.CheckStringIsNullOrEmpty(lockID, "lockID");
 			ExceptionHelper.CheckStringIsNullOrEmpty(personID, "personID");
 
-			string sql = string.Format("SELECT *, GETDATE() AS [CURRENT_TIME] FROM WF.LOCK WHERE LOCK_ID = {0}",
-				TSqlBuilder.Instance.CheckQuotationMark(lockID, true));
+            WhereSqlClauseBuilder builder = new WhereSqlClauseBuilder();
+
+            builder.AppendItem("LOCK_ID", lockID);
+            builder.AppendTenantCode();
+
+			string sql = string.Format("SELECT *, GETDATE() AS [CURRENT_TIME] FROM WF.LOCK WHERE {0}",
+                builder.ToSqlString(TSqlBuilder.Instance));
 
 			DataTable table = DbHelper.RunSqlReturnDS(sql).Tables[0];
 
@@ -93,8 +100,10 @@ namespace MCS.Library.SOA.DataObjects
 					strWhere.Append(" OR ");
 
 				WhereSqlClauseBuilder objWCB = new WhereSqlClauseBuilder();
+
 				objWCB.AppendItem("LOCK_ID", lockEntity[i].LockID);
 				objWCB.AppendItem("LOCK_PERSON_ID", lockEntity[i].PersonID);
+                objWCB.AppendTenantCode();
 
 				strWhere.AppendFormat("({0})", objWCB.ToSqlString(TSqlBuilder.Instance));
 			}
@@ -111,14 +120,14 @@ namespace MCS.Library.SOA.DataObjects
 		{
 			ExceptionHelper.FalseThrow<ArgumentNullException>(lockEntity != null, "lockEntity");
 
-			InSqlClauseBuilder builder = new InSqlClauseBuilder();
+			InSqlClauseBuilder builder = new InSqlClauseBuilder("LOCK_ID");
 
 			for (int i = 0; i < lockEntity.Length; i++)
-				builder.AppendItem(lockEntity[i].LockID);
+                builder.AppendItem(lockEntity[i].LockID);
 
 			if (builder.Count > 0)
 			{
-				string sql = string.Format("DELETE FROM WF.LOCK WHERE LOCK_ID {0}", builder.ToSqlStringWithInOperator(TSqlBuilder.Instance));
+				string sql = string.Format("DELETE FROM WF.LOCK WHERE {0}", builder.AppendTenantCodeSqlClause().ToSqlString(TSqlBuilder.Instance));
 
 				DbHelper.RunSqlWithTransaction(sql);
 			}
@@ -132,14 +141,14 @@ namespace MCS.Library.SOA.DataObjects
 		{
 			ExceptionHelper.FalseThrow<ArgumentNullException>(lockIDs != null, "lockID");
 
-			InSqlClauseBuilder builder = new InSqlClauseBuilder();
+			InSqlClauseBuilder builder = new InSqlClauseBuilder("LOCK_ID");
 
 			for (int i = 0; i < lockIDs.Length; i++)
 				builder.AppendItem(lockIDs[i]);
 
 			if (builder.Count > 0)
 			{
-				string sql = string.Format("DELETE FROM WF.LOCK WHERE LOCK_ID {0}", builder.ToSqlStringWithInOperator(TSqlBuilder.Instance));
+                string sql = string.Format("DELETE FROM WF.LOCK WHERE {0}", builder.AppendTenantCodeSqlClause().ToSqlString(TSqlBuilder.Instance));
 
 				DbHelper.RunSqlWithTransaction(sql);
 			}

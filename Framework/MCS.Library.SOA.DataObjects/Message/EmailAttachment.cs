@@ -12,6 +12,7 @@ namespace MCS.Library.SOA.DataObjects
 {
 	[Serializable]
 	[ORTableMapping("MSG.EMAIL_ATTACHMENTS")]
+    [TenantRelativeObject]
 	public class EmailAttachment
 	{
 		public EmailAttachment()

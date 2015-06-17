@@ -14,6 +14,7 @@ namespace MCS.Library.SOA.DataObjects
 	[Serializable]
     [XElementSerializable]
     [ORTableMapping("KB.TIP")]
+    [TenantRelativeObject]
     public class Tip
     {  
 		/// <summary>

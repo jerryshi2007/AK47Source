@@ -18,6 +18,7 @@ namespace MCS.Library.SOA.DataObjects
 	/// </summary>
 	[Serializable]
 	[ORTableMapping("WF.COMMON_INFO_MAPPING")]
+    [TenantRelativeObject]
 	public class CommonInfoMapping
 	{
 		[ORFieldMapping("COMMON_INFO_ID")]

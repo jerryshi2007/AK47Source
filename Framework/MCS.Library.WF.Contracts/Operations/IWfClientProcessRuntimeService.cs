@@ -240,5 +240,12 @@ namespace MCS.Library.WF.Contracts.Operations
         /// <returns>分页查询结果，里面包含总行数和每一行的结果。其总行数在翻页时需要传入到totalCount参数中</returns>
         [OperationContract]
         WfClientProcessCurrentInfoPageQueryResult QueryProcesses(WfClientProcessQueryCondition condition, int startRowIndex, int maximumRows, string orderBy, int totalCount);
+
+        /// <summary>
+        /// 清除租户的业务流程相关的数据
+        /// </summary>
+        /// <param name="tenantCode">租户编码</param>
+        [OperationContract]
+        void ClearTenantProcessInstanceData(string tenantCode);
     }
 }

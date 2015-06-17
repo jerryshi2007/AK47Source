@@ -12,256 +12,262 @@ using MCS.Library.Data.Mapping;
 
 namespace MCS.Library.SOA.DataObjects.Workflow
 {
-	public class WfPersistQueueAdapter
-	{
-		public static readonly WfPersistQueueAdapter Instance = new WfPersistQueueAdapter();
+    public class WfPersistQueueAdapter
+    {
+        public static readonly WfPersistQueueAdapter Instance = new WfPersistQueueAdapter();
 
-		private WfPersistQueueAdapter()
-		{
-		}
+        private WfPersistQueueAdapter()
+        {
+        }
 
-		public WfPersistQueue Load(string processID)
-		{
-			ORMappingItemCollection mappingInfo = ORMapping.GetMappingInfo(typeof(WfPersistQueue));
+        public WfPersistQueue Load(string processID)
+        {
+            ORMappingItemCollection mappingInfo = ORMapping.GetMappingInfo(typeof(WfPersistQueue));
 
-			processID.CheckStringIsNullOrEmpty("processID");
+            processID.CheckStringIsNullOrEmpty("processID");
 
-			string sql = string.Format("SELECT * FROM {0} WHERE PROCESS_ID = {1}",
-				mappingInfo.TableName,
-				TSqlBuilder.Instance.CheckUnicodeQuotationMark(processID)
-			);
+            string sql = string.Format("SELECT * FROM {0} WHERE PROCESS_ID = {1}",
+                mappingInfo.TableName,
+                TSqlBuilder.Instance.CheckUnicodeQuotationMark(processID)
+            );
 
-			DataTable table = DbHelper.RunSqlReturnDS(sql, GetConnectionName()).Tables[0];
+            DataTable table = DbHelper.RunSqlReturnDS(sql, GetConnectionName()).Tables[0];
 
-			WfPersistQueue result = null;
+            WfPersistQueue result = null;
 
-			if (table.Rows.Count > 0)
-			{
-				result = new WfPersistQueue();
+            if (table.Rows.Count > 0)
+            {
+                result = new WfPersistQueue();
 
-				ORMapping.DataRowToObject(table.Rows[0], result);
-			}
+                ORMapping.DataRowToObject(table.Rows[0], result);
+            }
 
-			return result;
-		}
+            return result;
+        }
 
-		public WfPersistQueue LoadArchived(string processID)
-		{
-			ORMappingItemCollection mappingInfo = ORMapping.GetMappingInfo(typeof(WfPersistQueue));
+        public WfPersistQueue LoadArchived(string processID)
+        {
+            ORMappingItemCollection mappingInfo = ORMapping.GetMappingInfo(typeof(WfPersistQueue));
 
-			processID.CheckStringIsNullOrEmpty("processID");
+            processID.CheckStringIsNullOrEmpty("processID");
 
-			string sql = string.Format("SELECT * FROM {0} WHERE PROCESS_ID = {1}",
-				"WF.PERSIST_QUEUE_ARCHIEVED",
-				TSqlBuilder.Instance.CheckUnicodeQuotationMark(processID)
-			);
+            string sql = string.Format("SELECT * FROM {0} WHERE PROCESS_ID = {1}",
+                "WF.PERSIST_QUEUE_ARCHIEVED",
+                TSqlBuilder.Instance.CheckUnicodeQuotationMark(processID)
+            );
 
-			DataTable table = DbHelper.RunSqlReturnDS(sql, GetConnectionName()).Tables[0];
+            DataTable table = DbHelper.RunSqlReturnDS(sql, GetConnectionName()).Tables[0];
 
-			WfPersistQueue result = null;
+            WfPersistQueue result = null;
 
-			if (table.Rows.Count > 0)
-			{
-				result = new WfPersistQueue();
+            if (table.Rows.Count > 0)
+            {
+                result = new WfPersistQueue();
 
-				ORMapping.DataRowToObject(table.Rows[0], result);
-			}
+                ORMapping.DataRowToObject(table.Rows[0], result);
+            }
 
-			return result;
-		}
+            return result;
+        }
 
-		public void UpdatePersistQueue(IWfProcess process)
-		{
-			process.NullCheck("process");
+        public void UpdatePersistQueue(IWfProcess process)
+        {
+            process.NullCheck("process");
 
-			WfPersistQueue pq = WfPersistQueue.FromProcess(process);
+            WfPersistQueue pq = WfPersistQueue.FromProcess(process);
 
-			string sql = GetUpdatePersistQueueSql(pq);
+            string sql = GetUpdatePersistQueueSql(pq);
 
-			using (TransactionScope scope = TransactionScopeFactory.Create())
-			{
-				DbHelper.RunSql(sql, GetConnectionName());
+            using (TransactionScope scope = TransactionScopeFactory.Create())
+            {
+                DbHelper.RunSql(sql, GetConnectionName());
 
-				scope.Complete();
-			}
-		}
+                scope.Complete();
+            }
+        }
 
-		public void DeletePersistQueue(WfProcessCurrentInfoCollection processesInfo)
-		{
-			processesInfo.NullCheck("processesInfo");
+        public void DeletePersistQueue(WfProcessCurrentInfoCollection processesInfo)
+        {
+            processesInfo.NullCheck("processesInfo");
 
-			InSqlClauseBuilder builder = new InSqlClauseBuilder("PROCESS_ID");
+            InSqlClauseBuilder builder = new InSqlClauseBuilder("PROCESS_ID");
 
-			processesInfo.ForEach(pi => builder.AppendItem(pi.InstanceID));
+            processesInfo.ForEach(pi => builder.AppendItem(pi.InstanceID));
 
-			if (builder.IsEmpty == false)
-			{
-				ORMappingItemCollection mappingInfo = ORMapping.GetMappingInfo(typeof(WfPersistQueue));
+            if (builder.IsEmpty == false)
+            {
+                ORMappingItemCollection mappingInfo = ORMapping.GetMappingInfo(typeof(WfPersistQueue));
 
-				string sql = string.Format("DELETE {0} WHERE {0}",
-					mappingInfo.TableName, builder.ToSqlStringWithInOperator(TSqlBuilder.Instance));
+                string sql = string.Format("DELETE {0} WHERE {0}",
+                    mappingInfo.TableName, builder.ToSqlStringWithInOperator(TSqlBuilder.Instance));
 
-				DbHelper.RunSql(sql, GetConnectionName());
-			}
-		}
+                DbHelper.RunSql(sql, GetConnectionName());
+            }
+        }
 
-		/// <summary>
-		/// 执行一项队列操作
-		/// </summary>
-		/// <param name="pq"></param>
-		public void DoQueueOperation(WfPersistQueue pq)
-		{
-			pq.NullCheck("pq");
+        /// <summary>
+        /// 执行一项队列操作
+        /// </summary>
+        /// <param name="pq"></param>
+        public void DoQueueOperation(WfPersistQueue pq)
+        {
+            pq.NullCheck("pq");
 
-			Dictionary<object, object> context = new Dictionary<object, object>();
-
-			IWfProcess process = WfRuntime.GetProcessByProcessID(pq.ProcessID);
-			try
-			{
-				WfQueuePersistenceSettings.GetConfig().GetPersisters().SaveData(process, context);
-			}
-			finally
-			{
-				WfRuntime.ClearCache();
-			}
-		}
-
-		public void MoveQueueItemToArchived(WfPersistQueue pq)
-		{
-			pq.NullCheck("pq");
-
-			ORMappingItemCollection mappingInfo = ORMapping.GetMappingInfo(typeof(WfPersistQueue));
-
-			InsertSqlClauseBuilder builder = ORMapping.GetInsertSqlClauseBuilder(pq, mappingInfo);
-
-			builder.AppendItem("SORT_ID", pq.SortID);
-			builder.AppendItem("PROCESS_TIME", "GETDATE()", "=", true);
-
-			StringBuilder sql = new StringBuilder();
-
-			sql.AppendFormat("DELETE {0} WHERE SORT_ID = {1}", "WF.PERSIST_QUEUE_ARCHIEVED", pq.SortID);
-			sql.Append(TSqlBuilder.Instance.DBStatementSeperator);
-			sql.AppendFormat("INSERT INTO {0}{1}", "WF.PERSIST_QUEUE_ARCHIEVED", builder.ToSqlString(TSqlBuilder.Instance));
-			sql.Append(TSqlBuilder.Instance.DBStatementSeperator);
-			sql.AppendFormat("DELETE {0} WHERE PROCESS_ID = {1}", mappingInfo.TableName, TSqlBuilder.Instance.CheckUnicodeQuotationMark(pq.ProcessID));
+            Dictionary<object, object> context = new Dictionary<object, object>();
+
+            IWfProcess process = WfRuntime.GetProcessByProcessID(pq.ProcessID);
+            try
+            {
+                WfQueuePersistenceSettings.GetConfig().GetPersisters().SaveData(process, context);
+            }
+            finally
+            {
+                WfRuntime.ClearCache();
+            }
+        }
+
+        public void MoveQueueItemToArchived(WfPersistQueue pq)
+        {
+            pq.NullCheck("pq");
+
+            ORMappingItemCollection mappingInfo = ORMapping.GetMappingInfo(typeof(WfPersistQueue));
+
+            InsertSqlClauseBuilder builder = ORMapping.GetInsertSqlClauseBuilder(pq, mappingInfo);
+
+            builder.AppendItem("SORT_ID", pq.SortID);
+            builder.AppendItem("PROCESS_TIME", "GETDATE()", "=", true);
+
+            StringBuilder sql = new StringBuilder();
+
+            sql.AppendFormat("DELETE {0} WHERE SORT_ID = {1}", "WF.PERSIST_QUEUE_ARCHIEVED", pq.SortID);
+            sql.Append(TSqlBuilder.Instance.DBStatementSeperator);
+            sql.AppendFormat("INSERT INTO {0}{1}", "WF.PERSIST_QUEUE_ARCHIEVED", builder.ToSqlString(TSqlBuilder.Instance));
+            sql.Append(TSqlBuilder.Instance.DBStatementSeperator);
+            sql.AppendFormat("DELETE {0} WHERE PROCESS_ID = {1}", mappingInfo.TableName, TSqlBuilder.Instance.CheckUnicodeQuotationMark(pq.ProcessID));
 
-			DbHelper.RunSqlWithTransaction(sql.ToString(), GetConnectionName());
-		}
+            DbHelper.RunSqlWithTransaction(sql.ToString(), GetConnectionName());
+        }
 
-		/// <summary>
-		/// 执行队列项的操作，并且移动到已完成中
-		/// </summary>
-		/// <param name="pq"></param>
-		public void DoQueueOperationAndMove(WfPersistQueue pq)
-		{
-			using (TransactionScope scope = TransactionScopeFactory.Create())
-			{
-				try
-				{
-					DoQueueOperation(pq);
-				}
-				catch (System.Exception ex)
-				{
-					if (ex is TransactionException || ex is DbException)
-						throw;
+        /// <summary>
+        /// 执行队列项的操作，并且移动到已完成中
+        /// </summary>
+        /// <param name="pq"></param>
+        public void DoQueueOperationAndMove(WfPersistQueue pq)
+        {
+            using (TransactionScope scope = TransactionScopeFactory.Create())
+            {
+                try
+                {
+                    DoQueueOperation(pq);
+                }
+                catch (System.Exception ex)
+                {
+                    if (ex is TransactionException || ex is DbException)
+                        throw;
 
-					pq.StatusText = ex.ToString();
-				}
+                    pq.StatusText = ex.ToString();
+                }
 
-				MoveQueueItemToArchived(pq);
+                MoveQueueItemToArchived(pq);
 
-				scope.Complete();
-			}
-		}
+                scope.Complete();
+            }
+        }
 
-		/// <summary>
-		/// 从队列中获取n条记录，并进行处理
-		/// </summary>
-		/// <param name="count"></param>
-		/// <returns></returns>
-		public WfPersistQueueCollection FetchQueueItemsAndDoOperation(int count)
-		{
-			ORMappingItemCollection mappingInfo = ORMapping.GetMappingInfo(typeof(WfPersistQueue));
+        /// <summary>
+        /// 从队列中获取n条记录，并进行处理
+        /// </summary>
+        /// <param name="count"></param>
+        /// <returns></returns>
+        public WfPersistQueueCollection FetchQueueItemsAndDoOperation(int count)
+        {
+            ORMappingItemCollection mappingInfo = ORMapping.GetMappingInfo(typeof(WfPersistQueue));
 
-			string top = count < 0 ? string.Empty : "TOP " + count;
+            string top = count < 0 ? string.Empty : "TOP " + count;
 
-			string sql = string.Format("SELECT {0} * FROM {1} WITH (UPDLOCK READPAST) ORDER BY SORT_ID", top, mappingInfo.TableName);
+            string sql = string.Format("SELECT {0} * FROM {1} WITH (UPDLOCK READPAST) ORDER BY SORT_ID", top, mappingInfo.TableName);
 
-			WfPersistQueueCollection result = new WfPersistQueueCollection();
+            WfPersistQueueCollection result = new WfPersistQueueCollection();
 
-			using (TransactionScope scope = TransactionScopeFactory.Create())
-			{
-				DataView view = DbHelper.RunSqlReturnDS(sql, GetConnectionName()).Tables[0].DefaultView;
+            using (TransactionScope scope = TransactionScopeFactory.Create())
+            {
+                DataView view = DbHelper.RunSqlReturnDS(sql, GetConnectionName()).Tables[0].DefaultView;
 
-				ORMapping.DataViewToCollection(result, view);
+                ORMapping.DataViewToCollection(result, view);
 
-				foreach (WfPersistQueue pq in result)
-					DoQueueOperationAndMove(pq);
+                foreach (WfPersistQueue pq in result)
+                    DoQueueOperationAndMove(pq);
 
-				scope.Complete();
-			}
+                scope.Complete();
+            }
 
-			return result;
-		}
+            return result;
+        }
 
-		public void ClearQueue()
-		{
-			string sql = "TRUNCATE TABLE WF.PERSIST_QUEUE";
+        public void ClearQueue()
+        {
+            string sql = "TRUNCATE TABLE WF.PERSIST_QUEUE";
 
-			DbHelper.RunSql(sql, GetConnectionName());
-		}
+            DbHelper.RunSql(sql, GetConnectionName());
+        }
 
-		public void ClearArchivedQueue()
-		{
-			string sql = "TRUNCATE TABLE WF.PERSIST_QUEUE_ARCHIEVED";
+        public void ClearArchivedQueue()
+        {
+            string sql = "TRUNCATE TABLE WF.PERSIST_QUEUE_ARCHIEVED";
 
-			DbHelper.RunSql(sql, GetConnectionName());
-		}
+            DbHelper.RunSql(sql, GetConnectionName());
+        }
 
-		protected virtual string GetConnectionName()
-		{
-			return WfRuntime.ProcessContext.SimulationContext.GetConnectionName(WorkflowSettings.GetConfig().ConnectionName);
-		}
+        protected virtual string GetConnectionName()
+        {
+            return WfRuntime.ProcessContext.SimulationContext.GetConnectionName(WorkflowSettings.GetConfig().ConnectionName);
+        }
 
-		private static string GetUpdatePersistQueueSql(WfPersistQueue pq)
-		{
-			StringBuilder sql = new StringBuilder();
+        private static string GetUpdatePersistQueueSql(WfPersistQueue pq)
+        {
+            StringBuilder sql = new StringBuilder();
 
-			//仅仅插入数据
-			//sql.Append(GetUpdateSql(pq));
-			//sql.Append(TSqlBuilder.Instance.DBStatementSeperator);
-			//sql.Append("IF @@ROWCOUNT = 0");
-			//sql.Append(TSqlBuilder.Instance.DBStatementBegin);
-			sql.Append(GetInsertSql(pq));
-			//sql.Append(TSqlBuilder.Instance.DBStatementEnd);
+            //仅仅插入数据
+            //sql.Append(GetUpdateSql(pq));
+            //sql.Append(TSqlBuilder.Instance.DBStatementSeperator);
+            //sql.Append("IF @@ROWCOUNT = 0");
+            //sql.Append(TSqlBuilder.Instance.DBStatementBegin);
+            sql.Append(GetInsertSql(pq));
+            //sql.Append(TSqlBuilder.Instance.DBStatementEnd);
 
-			return sql.ToString();
-		}
+            return sql.ToString();
+        }
 
-		private static string GetUpdateSql(WfPersistQueue pq)
-		{
-			ORMappingItemCollection mappingInfo = ORMapping.GetMappingInfo(pq.GetType());
+        private static string GetUpdateSql(WfPersistQueue pq)
+        {
+            ORMappingItemCollection mappingInfo = ORMapping.GetMappingInfo(pq.GetType());
 
-			UpdateSqlClauseBuilder builder = ORMapping.GetUpdateSqlClauseBuilder(pq, mappingInfo, "UpdateTag");
+            UpdateSqlClauseBuilder uBuilder = ORMapping.GetUpdateSqlClauseBuilder(pq, mappingInfo, "UpdateTag");
 
-			builder.AppendItem("UPDATE_TAG", "WF.PROCESS_INSTANCES.UPDATE_TAG", "=", true);
+            uBuilder.AppendItem("UPDATE_TAG", "WF.PROCESS_INSTANCES.UPDATE_TAG", "=", true);
 
-			string sql = string.Format("UPDATE {0} SET {1} FROM {0} INNER JOIN WF.PROCESS_INSTANCES ON INSTANCE_ID = PROCESS_ID WHERE PROCESS_ID = {2}",
-				mappingInfo.TableName,
-				builder.ToSqlString(TSqlBuilder.Instance),
-				TSqlBuilder.Instance.CheckUnicodeQuotationMark(pq.ProcessID));
+            WhereSqlClauseBuilder wBuilder = new WhereSqlClauseBuilder();
 
-			return sql;
-		}
+            wBuilder.AppendItem("PROCESS_ID", pq.ProcessID);
+            wBuilder.AppendTenantCode();
 
-		private static string GetInsertSql(WfPersistQueue pq)
-		{
-			ORMappingItemCollection mappingInfo = ORMapping.GetMappingInfo(pq.GetType());
+            string sql = string.Format("UPDATE {0} SET {1} FROM {0} INNER JOIN WF.PROCESS_INSTANCES ON INSTANCE_ID = PROCESS_ID WHERE {2}",
+                mappingInfo.TableName,
+                uBuilder.ToSqlString(TSqlBuilder.Instance),
+                wBuilder.ToSqlString(TSqlBuilder.Instance));
 
-			string sql = string.Format("INSERT INTO {0}(PROCESS_ID, UPDATE_TAG) SELECT INSTANCE_ID, UPDATE_TAG FROM WF.PROCESS_INSTANCES WHERE INSTANCE_ID = {1}",
-				mappingInfo.TableName, TSqlBuilder.Instance.CheckUnicodeQuotationMark(pq.ProcessID));
+            return sql;
+        }
 
-			return sql;
-		}
-	}
+        private static string GetInsertSql(WfPersistQueue pq)
+        {
+            ORMappingItemCollection mappingInfo = ORMapping.GetMappingInfo(pq.GetType());
+
+            string sql = string.Format("INSERT INTO {0}(PROCESS_ID, UPDATE_TAG, TENANT_CODE) SELECT INSTANCE_ID, UPDATE_TAG, TENANT_CODE FROM WF.PROCESS_INSTANCES WHERE INSTANCE_ID = {1}",
+                mappingInfo.TableName,
+                TSqlBuilder.Instance.CheckUnicodeQuotationMark(pq.ProcessID));
+
+            return sql;
+        }
+    }
 }

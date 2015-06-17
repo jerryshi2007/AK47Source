@@ -18,6 +18,7 @@ namespace MCS.Library.SOA.DataObjects
 	/// </summary>
 	[Serializable]
 	[ORTableMapping("WF.SYS_TASK_ACTIVITY")]
+    [TenantRelativeObject]
 	public class SysTaskActivity
 	{
 		private SysTaskActivityStatus _Status = SysTaskActivityStatus.NotRunning;

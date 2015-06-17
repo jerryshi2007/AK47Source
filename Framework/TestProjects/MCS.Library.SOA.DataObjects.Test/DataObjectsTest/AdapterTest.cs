@@ -13,6 +13,9 @@ namespace MCS.Library.SOA.DataObjects.Test
 	[TestClass]
 	public class AdapterTest
 	{
+        /// <summary>
+        /// 已经迁移到MCS.Library.SOA.DataObjects.Tenant.Test
+        /// </summary>
 		[TestMethod]
 		[Description("应用程序的数据")]
 		[TestCategory(ProcessTestHelper.Data)]
@@ -35,6 +38,9 @@ namespace MCS.Library.SOA.DataObjects.Test
 			AppCommonInfoAdapter.Instance.Delete(info);
 		}
 
+        /// <summary>
+        /// 已经迁移到MCS.Library.SOA.DataObjects.Tenant.Test
+        /// </summary>
 		[TestMethod]
 		[Description("资源可访问的ACL")]
 		[TestCategory(ProcessTestHelper.Data)]
@@ -60,12 +66,14 @@ namespace MCS.Library.SOA.DataObjects.Test
 			WfAclAdapter.Instance.Delete(item);
 		}
 
+        /// <summary>
+        /// 已经迁移到MCS.Library.SOA.DataObjects.Tenant.Test
+        /// </summary>
 		[TestMethod]
 		[Description("流程流转时，查看同一资源的Assignee")]
 		[TestCategory(ProcessTestHelper.Data)]
 		public void WfAclAdapterDataTest()
 		{
-
 			IWfProcess process = WfProcessTestCommon.StartupProcessWithAssignee();
 			((WfProcess)process).ResourceID = "resource2";
 

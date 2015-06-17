@@ -10,6 +10,9 @@ using MCS.Library.Data.Builder;
 
 namespace MCS.Library.SOA.DataObjects.Test.WfApplicationTest
 {
+    /// <summary>
+    /// 已经迁移到MCS.Library.SOA.DataObjects.Tenant.Test
+    /// </summary>
 	[TestClass]
 	public class WfApplicationAuthTest
 	{
@@ -57,7 +60,8 @@ namespace MCS.Library.SOA.DataObjects.Test.WfApplicationTest
 			string sql = auth.GetApplicationAndProgramBuilder("APPLICATION_NAME", "PROGRAM_NAME").ToSqlString(TSqlBuilder.Instance);
 			Console.WriteLine(sql);
 
-			Assert.AreEqual("(APPLICATION_NAME = N'秘书服务' AND PROGRAM_NAME = N'部门通知') OR (APPLICATION_NAME = N'秘书服务' AND PROGRAM_NAME = N'集团通知')", sql);
+			Assert.IsTrue(sql.IndexOf("(APPLICATION_NAME = N'秘书服务' AND PROGRAM_NAME = N'部门通知') OR (APPLICATION_NAME = N'秘书服务' AND PROGRAM_NAME = N'集团通知')") >= 0);
+            Assert.IsTrue(sql.IndexOf("TENANT_CODE") >= 0);
 		}
 
 		private static WfApplicationAuth PrepareData(string appName, string progName)

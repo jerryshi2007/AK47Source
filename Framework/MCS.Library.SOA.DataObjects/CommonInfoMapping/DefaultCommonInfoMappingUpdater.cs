@@ -11,25 +11,25 @@ using MCS.Library.Data;
 
 namespace MCS.Library.SOA.DataObjects
 {
-	internal class DefaultCommonInfoMappingUpdater : UpdatableAdapterBase<CommonInfoMapping>, ICommonInfoMappingUpdater
-	{
-		public static readonly DefaultCommonInfoMappingUpdater Instance = new DefaultCommonInfoMappingUpdater();
+    internal class DefaultCommonInfoMappingUpdater : UpdatableAdapterBase<CommonInfoMapping>, ICommonInfoMappingUpdater
+    {
+        public static readonly DefaultCommonInfoMappingUpdater Instance = new DefaultCommonInfoMappingUpdater();
 
-		private DefaultCommonInfoMappingUpdater()
-		{
-		}
+        private DefaultCommonInfoMappingUpdater()
+        {
+        }
 
-		public void Update(CommonInfoMappingCollection cimItems)
-		{
-			cimItems.NullCheck("cimItems");
+        public void Update(CommonInfoMappingCollection cimItems)
+        {
+            cimItems.NullCheck("cimItems");
 
-			string sqlString = string.Empty;
-			StringBuilder strB = new StringBuilder();
+            string sqlString = string.Empty;
+            StringBuilder strB = new StringBuilder();
 
-			ConnectiveSqlClauseCollection connective = new ConnectiveSqlClauseCollection(LogicOperatorDefine.Or);
+            ConnectiveSqlClauseCollection connective = new ConnectiveSqlClauseCollection(LogicOperatorDefine.Or);
 
-			foreach (CommonInfoMapping cim in cimItems)
-			{
+            foreach (CommonInfoMapping cim in cimItems)
+            {
                 if (cim.ResourceID.IsNotEmpty() && cim.ProcessID.IsNotEmpty())
                 {
                     if (strB.Length > 0)
@@ -39,6 +39,7 @@ namespace MCS.Library.SOA.DataObjects
 
                     wBuilder.AppendItem("RESOURCE_ID", cim.ResourceID);
                     wBuilder.AppendItem("PROCESS_ID", cim.ProcessID);
+                    wBuilder.AppendTenantCode(typeof(CommonInfoMapping));
 
                     connective.Add(wBuilder);
 
@@ -46,17 +47,17 @@ namespace MCS.Library.SOA.DataObjects
 
                     strB.Append(ORMapping.GetInsertSql(cim, TSqlBuilder.Instance));
                 }
-			}
+            }
 
-			if (connective.Count > 0)
-			{
-				sqlString = string.Format("DELETE WF.COMMON_INFO_MAPPING WHERE {0}", connective.ToSqlString(TSqlBuilder.Instance));
+            if (connective.Count > 0)
+            {
+                sqlString = string.Format("DELETE WF.COMMON_INFO_MAPPING WHERE {0}", connective.ToSqlString(TSqlBuilder.Instance));
 
-				sqlString += strB.ToString();
-			}
+                sqlString += strB.ToString();
+            }
 
-			if (sqlString.Length > 0)
-				DbHelper.RunSqlWithTransaction(sqlString, WorkflowSettings.GetConfig().ConnectionName);
-		}
-	}
+            if (sqlString.Length > 0)
+                DbHelper.RunSqlWithTransaction(sqlString, WorkflowSettings.GetConfig().ConnectionName);
+        }
+    }
 }

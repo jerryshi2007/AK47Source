@@ -5,6 +5,8 @@
     <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
     <VisualStudioVersion Condition="'$(SSDTExists)' == ''">10.0</VisualStudioVersion>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DacVersion>1.0.0.1</DacVersion>
+    <DacDescription>为所有重要的表添加了TENANT_CODE字段</DacDescription>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -231,6 +233,7 @@
     <Build Include="WF\Tables\ROLE_PROPERTIES_CELLS.sql" />
     <Build Include="WF\Tables\ROLE_PROPERTIES_USER_CONTAINERS.sql" />
     <Build Include="WF\Stored Procedures\ClearProcessInstanceData.sql" />
+    <Build Include="WF\Stored Procedures\ClearTenantProcessInstanceData.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="MCSWorkflowDB.local.test.publish.xml" />
@@ -239,6 +242,7 @@
     <None Include="MCSWorkflowDB.local.simulation.test.publish.xml" />
     <None Include="MCSWorkflowDB.local.simulation.publish.xml" />
     <None Include="MCSWorkflowDB.archive.publish.xml" />
+    <None Include="Assemblies\MCS.SqlServer.Compression.dll" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.PostDeployment.sql" />
@@ -248,7 +252,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MCS.SqlServer.Compression">
-      <HintPath>..\..\..\Bin\MCS.SqlServer.Compression.dll</HintPath>
+      <HintPath>Assemblies\MCS.SqlServer.Compression.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>

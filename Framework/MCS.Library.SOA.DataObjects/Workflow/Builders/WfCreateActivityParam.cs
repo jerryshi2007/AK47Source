@@ -33,7 +33,14 @@ namespace MCS.Library.SOA.DataObjects.Workflow.Builders
             WfCreateActivityParam cap = new WfCreateActivityParam();
 
             cap.Source = rowUsers.Row;
-            cap.ActivitySN = int.Parse(rowUsers.Row.Values.GetValue(SOARolePropertyDefinition.ActivitySNColumn, "0"));
+
+            string strActivitySN = rowUsers.Row.Values.GetValue(SOARolePropertyDefinition.ActivitySNColumn, "0");
+
+            int activitySN = 0;
+
+            int.TryParse(strActivitySN, out activitySN).FalseThrow("不能将值为{0}的ActivitySN转换为整数", strActivitySN);
+
+            cap.ActivitySN = activitySN;
             cap.Template.Properties.MergeDefinedProperties(definedProperties);
 
             InitActivityTemplateProperties(cap, definitions, rowUsers.Row);

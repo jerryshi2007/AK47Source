@@ -1,14 +1,15 @@
-﻿using System;
+﻿using MCS.Library.Caching;
+using MCS.Library.Core;
+using MCS.Library.Data.Builder;
+using MCS.Library.Data.DataObjects;
+using MCS.Library.Data.Mapping;
+using MCS.Library.OGUPermission;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using MCS.Library.Caching;
-using MCS.Library.Core;
-using MCS.Library.Data.Builder;
-using MCS.Library.Data.DataObjects;
-using MCS.Library.OGUPermission;
 
 namespace MCS.Library.SOA.DataObjects.Workflow
 {
@@ -18,7 +19,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
         internal static readonly string INSERT_MR_SQL_CLAUSE_PREFIX = "INSERT INTO [WF].[MATRIX_ROWS] ";
         internal static readonly string INSERT_MC_SQL_CLAUSE_PREFIX = "INSERT INTO [WF].[MATRIX_CELLS] ";
-        internal static readonly string SELECT_SQL_CLAUSE = "SELECT R.[MATRIX_ID],R.[MATRIX_ROW_ID],R.[OPERATOR_TYPE],R.[OPERATOR],C.DIMENSION_KEY,C.STRING_VALUE FROM [WF].[MATRIX_ROWS] R JOIN [WF].[MATRIX_CELLS] C ON R.MATRIX_ID = C.MATRIX_ID AND R.MATRIX_ROW_ID = C.MATRIX_ROW_ID  WHERE ";
+        internal static readonly string SELECT_SQL_CLAUSE = "SELECT R.[MATRIX_ID],R.[MATRIX_ROW_ID],R.[OPERATOR_TYPE],R.[OPERATOR],C.DIMENSION_KEY,C.STRING_VALUE FROM [WF].[MATRIX_ROWS] R JOIN [WF].[MATRIX_CELLS] C ON R.MATRIX_ID = C.MATRIX_ID AND R.MATRIX_ROW_ID = C.MATRIX_ROW_ID AND R.TENANT_CODE = C.TENANT_CODE WHERE ";
         internal static readonly string SELECT_MC_CLAUSE = "SELECT MATRIX_ROW_ID FROM [WF].[MATRIX_CELLS] WHERE ";
         internal static readonly string DELETE_SQL_CLAUSE = "DELETE [WF].[MATRIX_MAIN] WHERE ";
         internal static readonly string DELETE_MR_SQL_CLAUSE = "DELETE [WF].[MATRIX_ROWS] WHERE ";
@@ -50,10 +51,11 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         public WfMatrix GetByProcessKey(string processKey)
         {
             processKey.CheckStringIsNullOrEmpty("processKey");
+            string cacheKey = CalculateCacheKey(processKey);
 
-            WfMatrix result = WfMatrixProcessKeyCache.Instance.GetOrAddNewValue(processKey, (cache, key) =>
+            WfMatrix result = WfMatrixProcessKeyCache.Instance.GetOrAddNewValue(cacheKey, (cache, key) =>
             {
-                WfMatrix m = LoadByProcessKey(key, false);
+                WfMatrix m = LoadByProcessKey(processKey, false);
 
                 MixedDependency dependency = new MixedDependency(new UdpNotifierCacheDependency(), new MemoryMappedFileNotifierCacheDependency());
 
@@ -92,6 +94,10 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                 "MCS.Library.SOA.DataObjects.Workflow.DataObjects.UserRelativeProcessMatrices.sql");
 
             sql = string.Format(sql, TSqlBuilder.Instance.CheckUnicodeQuotationMark(userID));
+
+            if (TenantContext.Current.Enabled)
+                sql += string.Format(" AND D.TENANT_CODE = {0}",
+                    TSqlBuilder.Instance.CheckUnicodeQuotationMark(TenantContext.Current.TenantCode));
 
             return DbHelper.RunSqlReturnDS(sql, GetConnectionName()).Tables[0];
         }
@@ -132,7 +138,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             if (sqlClause.Length > 0)
                 DbHelper.RunSql(sqlClause.ToString(), GetConnectionName());
 
-            CacheNotifyData notifyData = new CacheNotifyData(typeof(WfMatrixProcessKeyCache), data.ProcessKey, CacheNotifyType.Invalid);
+            CacheNotifyData notifyData = new CacheNotifyData(typeof(WfMatrixProcessKeyCache), CalculateCacheKey(data.ProcessKey), CacheNotifyType.Invalid);
 
             UdpCacheNotifier.Instance.SendNotifyAsync(notifyData);
             MmfCacheNotifier.Instance.SendNotify(notifyData);
@@ -140,7 +146,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
         protected override void AfterLoad(WfMatrixCollection data)
         {
-            foreach (var matrix in data)
+            foreach (WfMatrix matrix in data)
             {
                 matrix.Definition = WfMatrixDefinitionAdapter.Instance.Get(matrix.Definition.Key);
             }
@@ -149,9 +155,11 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         internal void FillMatrixRows(string matrixID, WfMatrixRowCollection rows)
         {
             WhereSqlClauseBuilder whereBuilder = new WhereSqlClauseBuilder();
+            
             whereBuilder.AppendItem("R." + DB_FIELD_MATRIX_ID, matrixID);
+            whereBuilder.AppendTenantCode("R.TENANT_CODE");
 
-            var ds = DbHelper.RunSqlReturnDS(SELECT_SQL_CLAUSE + whereBuilder.ToSqlString(TSqlBuilder.Instance));
+            DataSet ds = DbHelper.RunSqlReturnDS(SELECT_SQL_CLAUSE + whereBuilder.ToSqlString(TSqlBuilder.Instance));
 
             rows.CopyFrom(ds.Tables[0].DefaultView);
         }
@@ -169,7 +177,9 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         public int Delete(string wfMatrixID)
         {
             WhereSqlClauseBuilder whereBuilder = new WhereSqlClauseBuilder();
+
             whereBuilder.AppendItem(DB_FIELD_MATRIX_ID, wfMatrixID);
+            whereBuilder.AppendTenantCode();
 
             StringBuilder strBuilder = new StringBuilder();
 
@@ -255,6 +265,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             insertBuilder.AppendItem(DB_FIELD_MATRIX_ROW_ID, row.RowNumber);
             insertBuilder.AppendItem(DB_FIELD_DIMENSION_KEY, cell.Definition.DimensionKey);
             insertBuilder.AppendItem(DB_FIELD_STRING_VALUE, cell.StringValue);
+            insertBuilder.AppendTenantCode();
 
             result.Append(INSERT_MC_SQL_CLAUSE_PREFIX);
             result.Append(insertBuilder.ToSqlString(TSqlBuilder.Instance));
@@ -272,6 +283,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             insertBuilder.AppendItem(DB_FIELD_MATRIX_ROW_ID, row.RowNumber);
             insertBuilder.AppendItem(DB_FIELD_OPERATOR_TYPE, (int)row.OperatorType);
             insertBuilder.AppendItem(DB_FIELD_OPERATOR, row.Operator);
+            insertBuilder.AppendTenantCode();
 
             result.Append(INSERT_MR_SQL_CLAUSE_PREFIX);
             result.Append(insertBuilder.ToSqlString(TSqlBuilder.Instance));
@@ -283,7 +295,9 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         private static int DeleteRelatedData(string wfMatrixID)
         {
             WhereSqlClauseBuilder whereBuilder = new WhereSqlClauseBuilder();
+
             whereBuilder.AppendItem(DB_FIELD_MATRIX_ID, wfMatrixID);
+            whereBuilder.AppendTenantCode();
 
             StringBuilder strBuilder = new StringBuilder();
 
@@ -328,25 +342,30 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         {
             var matrixIdParam = queryParams.Find(p => p.QueryName == DB_FIELD_MATRIX_ID);
 
-            string inSqlClause = "";
+            string inSqlClause = string.Empty;
 
             foreach (var para in queryParams)
             {
-                if (para == matrixIdParam) continue;  //|| string.IsNullOrEmpty(para.QueryValue) 空值也作为条件 
+                if (para == matrixIdParam)
+                    continue;  //|| string.IsNullOrEmpty(para.QueryValue) 空值也作为条件 
 
                 inSqlClause = BuilderSubSqlClause(para, matrixIdParam.QueryValue, inSqlClause);
             }
 
             StringBuilder result = new StringBuilder(SELECT_SQL_CLAUSE);
+
             WhereSqlClauseBuilder builder = new WhereSqlClauseBuilder();
 
             builder.AppendItem("R." + matrixIdParam.QueryName, matrixIdParam.QueryValue);
+            builder.AppendTenantCode("R.TENANT_CODE");
+
             result.Append(builder.ToSqlString(TSqlBuilder.Instance));
 
             if (!string.IsNullOrEmpty(inSqlClause))
             {
                 result.AppendFormat(" AND R.{0} IN ({1})", DB_FIELD_MATRIX_ROW_ID, inSqlClause);
             }
+
             return result;
         }
 
@@ -354,16 +373,21 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         {
             WhereSqlClauseBuilder matrixIdBuilder = new WhereSqlClauseBuilder();
             matrixIdBuilder.AppendItem(DB_FIELD_MATRIX_ID, wfMatrixID);
+            matrixIdBuilder.AppendTenantCode();
 
             WhereSqlClauseBuilder fieldBuilder = new WhereSqlClauseBuilder();
+
             fieldBuilder.AppendItem(DB_FIELD_DIMENSION_KEY, para.QueryName);
             fieldBuilder.AppendItem(DB_FIELD_STRING_VALUE, para.QueryValue);
+            fieldBuilder.AppendTenantCode();
 
             WhereSqlClauseBuilder fieldEmptyBuilder = new WhereSqlClauseBuilder();
             fieldEmptyBuilder.AppendItem(DB_FIELD_DIMENSION_KEY, para.QueryName);
             fieldEmptyBuilder.AppendItem(DB_FIELD_STRING_VALUE, "");
+            fieldEmptyBuilder.AppendTenantCode();
 
             ConnectiveSqlClauseCollection fieldClauseConnector = new ConnectiveSqlClauseCollection(LogicOperatorDefine.Or);
+
             fieldClauseConnector.Add(fieldBuilder);
             fieldClauseConnector.Add(fieldEmptyBuilder);
 
@@ -397,6 +421,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                     builder.AppendItem("MATRIX_ROW_ID", rowUsers.Row.RowNumber);
                     builder.AppendItem("USER_ID", user.ID);
                     builder.AppendItem("USER_NAME", user.DisplayName);
+                    builder.AppendTenantCode();
 
                     if (strB.Length > 0)
                         strB.Append(TSqlBuilder.Instance.DBStatementSeperator);
@@ -406,6 +431,16 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             }
 
             return strB.ToString();
+        }
+
+        private static string CalculateCacheKey(string processKey)
+        {
+            string result = processKey;
+
+            if (TenantContext.Current.Enabled)
+                result = string.Format("{0}-{1}", TenantContext.Current.TenantCode, processKey);
+
+            return result.ToLower();
         }
         #endregion
     }

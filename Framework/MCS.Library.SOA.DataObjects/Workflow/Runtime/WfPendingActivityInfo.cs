@@ -10,6 +10,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 {
 	[ORTableMapping("WF.PENDING_ACTIVITIES")]
 	[Serializable]
+    [TenantRelativeObject]
 	public class WfPendingActivityInfo
 	{
 		public WfPendingActivityInfo()

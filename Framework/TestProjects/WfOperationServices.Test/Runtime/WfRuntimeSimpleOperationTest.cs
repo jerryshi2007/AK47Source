@@ -610,5 +610,36 @@ namespace WfOperationServices.Test.Runtime
 
             Assert.IsTrue(result.QueryResult.ContainsKey(process.ID));
         }
+
+        [TestMethod()]
+        public void ClearTenantProcessInstanceDataTest()
+        {
+            WfClientProcessQueryCondition condition = new WfClientProcessQueryCondition();
+
+            condition.BeginStartTime = DateTime.Now.AddHours(-1);
+            condition.EndStartTime = DateTime.Now.AddHours(1);
+            condition.ProcessCreatorID = Consts.Users["Requestor"].ID;
+
+            TenantContext.Current.DoActions("Test2", () =>
+                {
+                    WfClientProcessInfo process = OperationHelper.PrepareSimpleProcessInstance();
+
+                    WfClientProcess processLoaded = WfClientProcessRuntimeServiceProxy.Instance.GetProcessByID(process.ID, Consts.Users["Requestor"]);
+
+                    Assert.IsNotNull(processLoaded);
+
+                    WfClientProcessRuntimeServiceProxy.Instance.ClearTenantProcessInstanceData("Test2");
+
+                    try
+                    {
+                        processLoaded = WfClientProcessRuntimeServiceProxy.Instance.GetProcessByID(process.ID, Consts.Users["Requestor"]);
+
+                        Assert.Fail("流程已经被删除，加载流程不能成功");
+                    }
+                    catch (System.Exception)
+                    {
+                    }
+                });
+        }
     }
 }

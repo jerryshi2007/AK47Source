@@ -9,6 +9,9 @@ using System.Xml.Linq;
 
 namespace MCS.Library.SOA.DataObjects.Test.PersistQueue
 {
+    /// <summary>
+    /// 已经迁移到MCS.Library.SOA.DataObjects.Tenant.Test
+    /// </summary>
 	[TestClass]
 	public class PersistQueueTest
 	{

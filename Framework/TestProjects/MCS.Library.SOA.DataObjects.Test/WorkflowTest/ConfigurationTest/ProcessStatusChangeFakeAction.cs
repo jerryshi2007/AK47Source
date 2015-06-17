@@ -7,22 +7,26 @@ using MCS.Library.SOA.DataObjects.Workflow;
 
 namespace MCS.Library.SOA.DataObjects.Test.WorkflowTest.ConfigurationTest
 {
-	public class ProcessStatusChangeFakeAction : IWfAction
-	{
-		public void PrepareAction(WfActionParams actionParams)
-		{
-		}
+    public class ProcessStatusChangeFakeAction : IWfAction
+    {
+        public void PrepareAction(WfActionParams actionParams)
+        {
+        }
 
-		public void PersistAction(WfActionParams actionParams)
-		{
-			actionParams.Context.StatusChangedProcesses.ForEach(process =>
-			{
-				Console.WriteLine("状态改变的流程{0},Status={1}", process.ID, process.Status);
-			});
-		}
+        public void PersistAction(WfActionParams actionParams)
+        {
+            actionParams.Context.StatusChangedProcesses.ForEach(process =>
+            {
+                Console.WriteLine("状态改变的流程{0},Status={1}", process.ID, process.Status);
+            });
+        }
 
-		public void ClearCache()
-		{
-		}
-	}
+        public void ClearCache()
+        {
+        }
+
+        public void AfterWorkflowPersistAction(WfActionParams actionParams)
+        {
+        }
+    }
 }

@@ -13,156 +13,167 @@ using MCS.Library.Data.Mapping;
 
 namespace MCS.Library.SOA.DataObjects
 {
-	public class InvokeWebServiceJobAdapter : UpdatableAndLoadableAdapterBase<InvokeWebServiceJob, InvokeWebServiceJobCollection>
-	{
-		internal const string SingleData_InvokeWebService = "SELECT TOP(1) * FROM  WF.JOB_INVOKE_SERVICE WHERE {0}";
+    public class InvokeWebServiceJobAdapter : UpdatableAndLoadableAdapterBase<InvokeWebServiceJob, InvokeWebServiceJobCollection>
+    {
+        internal const string SingleData_InvokeWebService = "SELECT TOP(1) * FROM  WF.JOB_INVOKE_SERVICE WHERE {0}";
 
-		public static readonly InvokeWebServiceJobAdapter Instance = new InvokeWebServiceJobAdapter();
+        public static readonly InvokeWebServiceJobAdapter Instance = new InvokeWebServiceJobAdapter();
 
-		protected override void AfterInnerDelete(InvokeWebServiceJob data, Dictionary<string, object> context)
-		{
-			JobBaseAdapter.Instance.Delete(data);
-		}
+        protected override void AfterInnerDelete(InvokeWebServiceJob data, Dictionary<string, object> context)
+        {
+            JobBaseAdapter.Instance.Delete(data);
+        }
 
-		public InvokeWebServiceJob LoadSingleDataByJobID(string jobID)
-		{
-			jobID.CheckStringIsNullOrEmpty("jobID");
+        public InvokeWebServiceJob LoadSingleDataByJobID(string jobID)
+        {
+            jobID.CheckStringIsNullOrEmpty("jobID");
 
-			InSqlClauseBuilder builder = new InSqlClauseBuilder("JOB_ID");
+            InSqlClauseBuilder inBuilder = new InSqlClauseBuilder("JOB_ID");
 
-			builder.AppendItem(jobID);
+            inBuilder.AppendItem(jobID);
+            ConnectiveSqlClauseCollection builder = new ConnectiveSqlClauseCollection(
+                inBuilder, new WhereSqlClauseBuilder().AppendTenantCode(typeof(InvokeWebServiceJob)));
 
-			return LoadSingleData(builder);
-		}
+            return LoadSingleData(builder);
+        }
 
-		public InvokeWebServiceJob LoadSingleData(IConnectiveSqlClause whereClause)
-		{
-			InvokeWebServiceJob result = null;
-			if (whereClause.IsEmpty == false)
-			{
-				using (DbContext dbi = DbHelper.GetDBContext(GetConnectionName()))
-				{
-					using (IDataReader dr = DbHelper.RunSqlReturnDR(string.Format(SingleData_InvokeWebService, whereClause.ToSqlString(TSqlBuilder.Instance)), GetConnectionName()))
-					{
-						while (dr.Read())
-						{
-							result = new InvokeWebServiceJob();
-							ORMapping.DataReaderToObject(dr, result);
-							break;
-						}
-					}
+        public InvokeWebServiceJob LoadSingleData(IConnectiveSqlClause whereClause)
+        {
+            InvokeWebServiceJob result = null;
 
-					if (result != null)
-					{
-						XElementFormatter formatter = new XElementFormatter();
-						formatter.OutputShortType = WorkflowSettings.GetConfig().OutputShortType;
-						XElement root = XElement.Parse(result.XmlData);
-						result.SvcOperationDefs = (WfServiceOperationDefinitionCollection)formatter.Deserialize(root);
+            if (whereClause.IsEmpty == false)
+            {
+                using (DbContext dbi = DbHelper.GetDBContext(GetConnectionName()))
+                {
+                    using (IDataReader dr = DbHelper.RunSqlReturnDR(string.Format(SingleData_InvokeWebService,
+                        whereClause.ToSqlString(TSqlBuilder.Instance)), GetConnectionName()))
+                    {
+                        while (dr.Read())
+                        {
+                            result = new InvokeWebServiceJob();
+                            ORMapping.DataReaderToObject(dr, result);
+                            break;
+                        }
+                    }
 
-						result.InitJobBaseData(JobBaseAdapter.Instance.LoadSingleDataByJobID(whereClause));
-					}
-				}
-			}
+                    if (result != null)
+                    {
+                        XElementFormatter formatter = new XElementFormatter();
+                        formatter.OutputShortType = WorkflowSettings.GetConfig().OutputShortType;
+                        XElement root = XElement.Parse(result.XmlData);
+                        result.SvcOperationDefs = (WfServiceOperationDefinitionCollection)formatter.Deserialize(root);
 
-			return result;
-		}
+                        result.InitJobBaseData(JobBaseAdapter.Instance.LoadSingleDataByJobID(whereClause));
+                    }
+                }
+            }
 
-		protected override void AfterLoad(InvokeWebServiceJobCollection data)
-		{
-			base.AfterLoad(data);
-			XElementFormatter formatter = new XElementFormatter();
-			formatter.OutputShortType = WorkflowSettings.GetConfig().OutputShortType;
+            return result;
+        }
 
-			foreach (var job in data)
-			{
-				XElement root = XElement.Parse(job.XmlData);
-				job.SvcOperationDefs = (WfServiceOperationDefinitionCollection)formatter.Deserialize(root);
+        protected override void AfterLoad(InvokeWebServiceJobCollection data)
+        {
+            base.AfterLoad(data);
+            XElementFormatter formatter = new XElementFormatter();
+            formatter.OutputShortType = WorkflowSettings.GetConfig().OutputShortType;
 
-				var baseColl = JobBaseAdapter.Instance.Load(p => p.AppendItem("JOB_ID", job.JobID));
+            foreach (var job in data)
+            {
+                XElement root = XElement.Parse(job.XmlData);
+                job.SvcOperationDefs = (WfServiceOperationDefinitionCollection)formatter.Deserialize(root);
 
-				if (baseColl.Count == 0)
-					return;
+                var baseColl = JobBaseAdapter.Instance.Load(p => p.AppendItem("JOB_ID", job.JobID));
 
-				job.InitJobBaseData(baseColl[0]);
-			}
-		}
+                if (baseColl.Count == 0)
+                    return;
 
-		protected override void BeforeInnerUpdate(InvokeWebServiceJob data, Dictionary<string, object> context)
-		{
-			base.BeforeInnerUpdate(data, context);
+                job.InitJobBaseData(baseColl[0]);
+            }
+        }
 
-			XElementFormatter formatter = new XElementFormatter();
-			formatter.OutputShortType = WorkflowSettings.GetConfig().OutputShortType;
-			data.XmlData = formatter.Serialize(data.SvcOperationDefs).ToString();
-		}
+        protected override void BeforeInnerUpdate(InvokeWebServiceJob data, Dictionary<string, object> context)
+        {
+            base.BeforeInnerUpdate(data, context);
 
-		protected override int InnerUpdate(InvokeWebServiceJob data, Dictionary<string, object> context)
-		{
-			UpdateSqlClauseBuilder builder = new UpdateSqlClauseBuilder();
+            XElementFormatter formatter = new XElementFormatter();
+            formatter.OutputShortType = WorkflowSettings.GetConfig().OutputShortType;
+            data.XmlData = formatter.Serialize(data.SvcOperationDefs).ToString();
+        }
 
-			FillSqlBuilder(builder, data);
+        protected override int InnerUpdate(InvokeWebServiceJob data, Dictionary<string, object> context)
+        {
+            UpdateSqlClauseBuilder uBuilder = new UpdateSqlClauseBuilder();
 
-			string sql = string.Format("UPDATE {0} SET {1} WHERE JOB_ID = {2}",
-				GetMappingInfo(context).TableName,
-				builder.ToSqlString(TSqlBuilder.Instance),
-				TSqlBuilder.Instance.CheckUnicodeQuotationMark(data.JobID));
+            FillSqlBuilder(uBuilder, data);
 
-			int result = DbHelper.RunSql(sql, GetConnectionName());
+            WhereSqlClauseBuilder wBuilder = new WhereSqlClauseBuilder();
 
-			if (result > 0)
-				JobBaseAdapter.Instance.Update(data);
+            wBuilder.AppendItem("JOB_ID", data.JobID).AppendTenantCode(typeof(InvokeWebServiceJob));
 
-			return result;
-		}
+            string sql = string.Format("UPDATE {0} SET {1} WHERE {2}",
+                GetMappingInfo(context).TableName,
+                uBuilder.ToSqlString(TSqlBuilder.Instance),
+                wBuilder.ToSqlString(TSqlBuilder.Instance));
 
-		protected override void InnerInsert(InvokeWebServiceJob data, Dictionary<string, object> context)
-		{
-			InsertSqlClauseBuilder builder = new InsertSqlClauseBuilder();
+            int result = DbHelper.RunSql(sql, GetConnectionName());
 
-			FillSqlBuilder(builder, data);
+            if (result > 0)
+                JobBaseAdapter.Instance.Update(data);
 
-			string sql = string.Format("INSERT INTO {0} {1}",
-				GetMappingInfo(context).TableName,
-				builder.ToSqlString(TSqlBuilder.Instance));
+            return result;
+        }
 
-			DbHelper.RunSql(sql, GetConnectionName());
+        protected override void InnerInsert(InvokeWebServiceJob data, Dictionary<string, object> context)
+        {
+            InsertSqlClauseBuilder builder = new InsertSqlClauseBuilder();
 
-			JobBaseAdapter.Instance.Update(data);
-		}
+            FillSqlBuilder(builder, data);
 
-		private static void FillSqlBuilder(SqlClauseBuilderIUW builder, InvokeWebServiceJob data)
-		{
-			builder.AppendItem("JOB_ID", data.JobID).AppendItem("SERVICE_DEF_DATA", data.XmlData);
-		}
+            string sql = string.Format("INSERT INTO {0} {1}",
+                GetMappingInfo(context).TableName,
+                builder.ToSqlString(TSqlBuilder.Instance));
 
-		public int Delete(string[] ids)
-		{
-			InSqlClauseBuilder builder = new InSqlClauseBuilder();
-			builder.AppendItem(ids);
+            DbHelper.RunSql(sql, GetConnectionName());
 
-			int result = 0;
+            JobBaseAdapter.Instance.Update(data);
+        }
 
-			if (builder.Count > 0)
-			{
-				string where = builder.ToSqlStringWithInOperator(TSqlBuilder.Instance);
+        private static void FillSqlBuilder(SqlClauseBuilderIUW builder, InvokeWebServiceJob data)
+        {
+            builder.AppendItem("JOB_ID", data.JobID).AppendItem("SERVICE_DEF_DATA", data.XmlData).AppendTenantCode(typeof(InvokeWebServiceJob));
+        }
 
-				StringBuilder sqlString = new StringBuilder();
+        public int Delete(string[] ids)
+        {
+            InSqlClauseBuilder inBuilder = new InSqlClauseBuilder("JOB_ID");
+            inBuilder.AppendItem(ids);
 
-				sqlString.AppendFormat(" DELETE FROM WF.JOB_SCHEDULES  WHERE JOB_ID {0} ", where);
-				sqlString.Append(TSqlBuilder.Instance.DBStatementSeperator);
+            int result = 0;
 
-				sqlString.AppendFormat(" DELETE FROM WF.JOB_INVOKE_SERVICE WHERE JOB_ID {0} ", where);
-				sqlString.Append(TSqlBuilder.Instance.DBStatementSeperator);
+            if (inBuilder.Count > 0)
+            {
+                ConnectiveSqlClauseCollection builder = new ConnectiveSqlClauseCollection(inBuilder,
+                    new WhereSqlClauseBuilder().AppendTenantCode(typeof(InvokeWebServiceJob)));
 
-				sqlString.AppendFormat(" DELETE FROM WF.JOB_START_WORKFLOW WHERE JOB_ID {0} ", where);
-				sqlString.Append(TSqlBuilder.Instance.DBStatementSeperator);
+                string where = builder.ToSqlString(TSqlBuilder.Instance);
 
-				sqlString.AppendFormat(" DELETE WF.JOBS WHERE JOB_ID {0} ", where);
+                StringBuilder sqlString = new StringBuilder();
 
-				result = DbHelper.RunSqlWithTransaction(sqlString.ToString());
-			}
+                sqlString.AppendFormat("DELETE FROM WF.JOB_SCHEDULES WHERE {0} ", where);
+                sqlString.Append(TSqlBuilder.Instance.DBStatementSeperator);
 
-			return result;
-		}
-	}
+                sqlString.AppendFormat("DELETE FROM WF.JOB_INVOKE_SERVICE WHERE {0} ", where);
+                sqlString.Append(TSqlBuilder.Instance.DBStatementSeperator);
+
+                sqlString.AppendFormat("DELETE FROM WF.JOB_START_WORKFLOW WHERE {0} ", where);
+                sqlString.Append(TSqlBuilder.Instance.DBStatementSeperator);
+
+                sqlString.AppendFormat("DELETE WF.JOBS WHERE {0} ", where);
+
+                result = DbHelper.RunSqlWithTransaction(sqlString.ToString());
+            }
+
+            return result;
+        }
+    }
 }

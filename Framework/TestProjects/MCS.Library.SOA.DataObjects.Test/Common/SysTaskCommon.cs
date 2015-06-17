@@ -10,7 +10,7 @@ using MCS.Library.Core;
 namespace MCS.Library.SOA.DataObjects.Test
 {
 	/// <summary>
-	/// 与任务相关辅助方法
+    /// 与任务相关辅助方法(已经迁移到MCS.Library.SOA.DataObjects.Tenant.Test)
 	/// </summary>
 	public static class SysTaskCommon
 	{

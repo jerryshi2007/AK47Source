@@ -187,6 +187,11 @@ namespace MCS.Library.WF.Contracts.Proxies
             return this.SingleCall(action => action.QueryProcesses(condition, startRowIndex, maximumRows, orderBy, totalCount));
         }
 
+        public void ClearTenantProcessInstanceData(string tenantCode)
+        {
+            this.SingleCall(action => action.ClearTenantProcessInstanceData(tenantCode));
+        }
+
         protected override WfClientChannelFactory<IWfClientProcessRuntimeService> GetService()
         {
             EndpointAddress endPoint = new EndpointAddress(WfContractsProxySettings.GetConfig().ProcessRuntimeServiceUrl.ToString());

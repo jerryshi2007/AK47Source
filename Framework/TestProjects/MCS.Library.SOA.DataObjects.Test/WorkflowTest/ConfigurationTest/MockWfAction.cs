@@ -6,21 +6,26 @@ using MCS.Library.SOA.DataObjects.Workflow;
 
 namespace MCS.Library.SOA.DataObjects.Test.WorkflowTest.ConfigurationTest
 {
-	class MockWfAction : IWfAction
-	{
-		public void PrepareAction(WfActionParams actionParams)
-		{
-			Console.WriteLine("prepare action");
-		}
+    class MockWfAction : IWfAction
+    {
+        public void PrepareAction(WfActionParams actionParams)
+        {
+            Console.WriteLine("prepare action");
+        }
 
-		public void PersistAction(WfActionParams actionParams)
-		{
-			Console.WriteLine("persist action");
-		}
+        public void PersistAction(WfActionParams actionParams)
+        {
+            Console.WriteLine("persist action");
+        }
 
-		public void ClearCache()
-		{
-			Console.WriteLine("clear cache");
-		}
-	}
+        public void ClearCache()
+        {
+            Console.WriteLine("clear cache");
+        }
+
+        public void AfterWorkflowPersistAction(WfActionParams actionParams)
+        {
+            Console.WriteLine("after workflow persist action");
+        }
+    }
 }

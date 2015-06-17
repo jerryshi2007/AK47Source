@@ -8,6 +8,9 @@ using MCS.Library.OGUPermission;
 
 namespace MCS.Library.SOA.DataObjects.Test.TaskAssignees
 {
+    /// <summary>
+    /// 已经迁移到MCS.Library.SOA.DataObjects.Tenant.Test
+    /// </summary>
 	[TestClass]
 	public class TaskAssigneeTest
 	{

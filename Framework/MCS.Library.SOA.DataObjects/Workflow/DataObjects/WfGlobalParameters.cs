@@ -1,18 +1,20 @@
-﻿using System;
+﻿using MCS.Library.Caching;
+using MCS.Library.Core;
+using MCS.Library.Data;
+using MCS.Library.Data.Builder;
+using MCS.Library.Data.Mapping;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MCS.Library.Core;
-using MCS.Library.Data.Builder;
-using System.Xml.Linq;
-using MCS.Library.Caching;
-using MCS.Library.Data;
 using System.Transactions;
+using System.Xml.Linq;
 
 namespace MCS.Library.SOA.DataObjects.Workflow
 {
     [Serializable]
     [XElementSerializable]
+    [TenantRelativeObject]
     public class WfGlobalParameters
     {
         private PropertyValueCollection _Properties = null;
@@ -120,9 +122,9 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
             string properties = formatter.Serialize(this).ToString();
 
-            string updateSQL = string.Format("UPDATE WF.GLOBAL_PARAMETERS SET [PROPERTIES] = {0} WHERE [KEY] = {1}",
+            string updateSQL = string.Format("UPDATE WF.GLOBAL_PARAMETERS SET [PROPERTIES] = {0} WHERE {1}",
                 TSqlBuilder.Instance.CheckQuotationMark(properties, true),
-                TSqlBuilder.Instance.CheckQuotationMark(this.Key, true));
+                GetWhereSqlClauseBuilder(this.Key).ToSqlString(TSqlBuilder.Instance));
 
             using (DbContext context = DbContext.GetContext(WorkflowSettings.GetConfig().ConnectionName))
             {
@@ -130,9 +132,14 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                 {
                     if (DbHelper.RunSql(updateSQL, WorkflowSettings.GetConfig().ConnectionName) == 0)
                     {
-                        string insertSQL = string.Format("INSERT INTO WF.GLOBAL_PARAMETERS([KEY], [PROPERTIES]) VALUES({0}, {1})",
-                            TSqlBuilder.Instance.CheckQuotationMark(this.Key, true),
-                            TSqlBuilder.Instance.CheckQuotationMark(properties, true));
+                        InsertSqlClauseBuilder iBuilder = new InsertSqlClauseBuilder();
+
+                        iBuilder.AppendItem("[KEY]", this.Key);
+                        iBuilder.AppendItem("[PROPERTIES]", properties);
+                        iBuilder.AppendTenantCode(typeof(WfGlobalParameters));
+
+                        string insertSQL = string.Format("INSERT INTO WF.GLOBAL_PARAMETERS {0}",
+                            iBuilder.ToSqlString(TSqlBuilder.Instance));
 
                         DbHelper.RunSql(insertSQL, WorkflowSettings.GetConfig().ConnectionName);
                     }
@@ -141,7 +148,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                 }
             }
 
-            CacheNotifyData notifyData = new CacheNotifyData(typeof(WfGlobalParametersCache), this.Key.ToLower(), CacheNotifyType.Invalid);
+            CacheNotifyData notifyData = new CacheNotifyData(typeof(WfGlobalParametersCache), CalculateCacheKey(this.Key), CacheNotifyType.Invalid);
             UdpCacheNotifier.Instance.SendNotifyAsync(notifyData);
             MmfCacheNotifier.Instance.SendNotify(notifyData);
         }
@@ -182,11 +189,11 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         public static WfGlobalParameters GetProperties(string propsKey)
         {
             propsKey.CheckStringIsNullOrEmpty("propsKey");
-            propsKey = propsKey.ToLower();
+            string cacheKey = CalculateCacheKey(propsKey);
 
-            WfGlobalParameters parameters = WfGlobalParametersCache.Instance.GetOrAddNewValue(propsKey, (cache, key) =>
+            WfGlobalParameters parameters = WfGlobalParametersCache.Instance.GetOrAddNewValue(cacheKey, (cache, key) =>
             {
-                WfGlobalParameters ps = LoadProperties(key);
+                WfGlobalParameters ps = LoadProperties(propsKey);
 
                 MixedDependency dependency = new MixedDependency(new UdpNotifierCacheDependency(), new MemoryMappedFileNotifierCacheDependency());
 
@@ -200,8 +207,8 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
         private static WfGlobalParameters LoadFromDB(string key)
         {
-            string sql = string.Format("SELECT [PROPERTIES] FROM WF.GLOBAL_PARAMETERS WHERE [KEY] = {0}",
-                TSqlBuilder.Instance.CheckQuotationMark(key, true));
+            string sql = string.Format("SELECT [PROPERTIES] FROM WF.GLOBAL_PARAMETERS WHERE {0}",
+                GetWhereSqlClauseBuilder(key).ToSqlString(TSqlBuilder.Instance));
 
             WfGlobalParameters result = null;
 
@@ -230,6 +237,26 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             }
 
             return result;
+        }
+
+        private static WhereSqlClauseBuilder GetWhereSqlClauseBuilder(string key)
+        {
+            WhereSqlClauseBuilder builder = new WhereSqlClauseBuilder();
+
+            builder.AppendItem("[KEY]", key);
+            builder.AppendTenantCode(typeof(WfGlobalParameters));
+
+            return builder;
+        }
+
+        private static string CalculateCacheKey(string key)
+        {
+            string result = key;
+
+            if (TenantContext.Current.Enabled)
+                result = string.Format("{0}-{1}", TenantContext.Current.TenantCode, key);
+
+            return result.ToLower();
         }
     }
 

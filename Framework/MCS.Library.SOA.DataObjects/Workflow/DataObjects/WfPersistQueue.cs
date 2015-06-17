@@ -13,6 +13,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 	/// </summary>
 	[Serializable]
 	[ORTableMapping("WF.PERSIST_QUEUE")]
+    [TenantRelativeObject]
 	public class WfPersistQueue
 	{
 		[ORFieldMapping("SORT_ID", IsIdentity = true, PrimaryKey = true)]

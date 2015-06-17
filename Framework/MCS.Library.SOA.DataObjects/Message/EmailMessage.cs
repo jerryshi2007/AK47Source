@@ -18,6 +18,7 @@ namespace MCS.Library.SOA.DataObjects
 
 	[Serializable]
 	[ORTableMapping("MSG.EMAIL_MESSAGES")]
+    [TenantRelativeObject]
 	public class EmailMessage
 	{
 		public EmailMessage()

@@ -10,70 +10,75 @@ using MCS.Library.Data.Builder;
 
 namespace MCS.Library.SOA.DataObjects
 {
-	/// <summary>
-	/// TaskAssignee相关的参数
-	/// </summary>
-	/// <typeparam name="TTaskAssignee"></typeparam>
-	/// <typeparam name="TOguObject"></typeparam>
-	[Serializable]
-	public abstract class TaskAssigneeAdapterBase<TTaskAssignee, TTaskAssigneeCollection, TOguObject> :
-		UpdatableAndLoadableAdapterBase<TTaskAssignee, TTaskAssigneeCollection>
-		where TOguObject : IOguObject
-		where TTaskAssignee : TaskAssigneeBase<TOguObject>, new()
-		where TTaskAssigneeCollection : TaskAssigneeCollectionBase<TTaskAssignee, TOguObject>, new()
-	{
-		/// <summary>
-		/// 按照ResourceID加载集合
-		/// </summary>
-		/// <param name="resourceID"></param>
-		/// <returns></returns>
-		public virtual TTaskAssigneeCollection Load(string resourceID)
-		{
-			resourceID.CheckStringIsNullOrEmpty("resourceID");
+    /// <summary>
+    /// TaskAssignee相关的参数
+    /// </summary>
+    /// <typeparam name="TTaskAssignee"></typeparam>
+    /// <typeparam name="TOguObject"></typeparam>
+    [Serializable]
+    public abstract class TaskAssigneeAdapterBase<TTaskAssignee, TTaskAssigneeCollection, TOguObject> :
+        UpdatableAndLoadableAdapterBase<TTaskAssignee, TTaskAssigneeCollection>
+        where TOguObject : IOguObject
+        where TTaskAssignee : TaskAssigneeBase<TOguObject>, new()
+        where TTaskAssigneeCollection : TaskAssigneeCollectionBase<TTaskAssignee, TOguObject>, new()
+    {
+        /// <summary>
+        /// 按照ResourceID加载集合
+        /// </summary>
+        /// <param name="resourceID"></param>
+        /// <returns></returns>
+        public virtual TTaskAssigneeCollection Load(string resourceID)
+        {
+            resourceID.CheckStringIsNullOrEmpty("resourceID");
 
-			return Load(wb => wb.AppendItem("RESOURCE_ID", resourceID),
-				ob => ob.AppendItem("INNER_ID", Data.Builder.FieldSortDirection.Ascending));
-		}
+            return Load(wb => wb.AppendItem("RESOURCE_ID", resourceID),
+                ob => ob.AppendItem("INNER_ID", Data.Builder.FieldSortDirection.Ascending));
+        }
 
-		/// <summary>
-		/// 按照ResourceID来更新数据
-		/// </summary>
-		/// <param name="resourceID"></param>
-		/// <param name="assignees"></param>
-		public virtual void Update(string resourceID, TTaskAssigneeCollection assignees)
-		{
-			resourceID.CheckStringIsNullOrEmpty("resourceID");
-			assignees.NullCheck("assignees");
+        /// <summary>
+        /// 按照ResourceID来更新数据
+        /// </summary>
+        /// <param name="resourceID"></param>
+        /// <param name="assignees"></param>
+        public virtual void Update(string resourceID, TTaskAssigneeCollection assignees)
+        {
+            resourceID.CheckStringIsNullOrEmpty("resourceID");
+            assignees.NullCheck("assignees");
 
-			StringBuilder strB = new StringBuilder();
+            StringBuilder strB = new StringBuilder();
 
-			ORMappingItemCollection mappings = GetMappingInfo(new Dictionary<string, object>());
+            ORMappingItemCollection mappings = GetMappingInfo(new Dictionary<string, object>());
 
-			strB.AppendFormat("DELETE {0} WHERE RESOURCE_ID = {1}",
-				mappings.TableName,
-				TSqlBuilder.Instance.CheckUnicodeQuotationMark(resourceID));
+            WhereSqlClauseBuilder wBuilder = new WhereSqlClauseBuilder();
 
-			foreach (TTaskAssignee assignee in assignees)
-			{
-				strB.Append(TSqlBuilder.Instance.DBStatementSeperator);
+            wBuilder.AppendItem("RESOURCE_ID", resourceID);
+            wBuilder.AppendTenantCode();
 
-				InsertSqlClauseBuilder builder = ORMapping.GetInsertSqlClauseBuilder(assignee, mappings);
+            strB.AppendFormat("DELETE {0} WHERE {1}",
+                mappings.TableName,
+                wBuilder.ToSqlString(TSqlBuilder.Instance));
 
-				strB.AppendFormat("INSERT INTO {0}{1}",
-					mappings.TableName,
-					builder.ToSqlString(TSqlBuilder.Instance));
-			}
+            foreach (TTaskAssignee assignee in assignees)
+            {
+                strB.Append(TSqlBuilder.Instance.DBStatementSeperator);
 
-			DbHelper.RunSqlWithTransaction(strB.ToString(), GetConnectionName());
-		}
+                InsertSqlClauseBuilder builder = ORMapping.GetInsertSqlClauseBuilder(assignee, mappings);
 
-		/// <summary>
-		/// 设置对象的连接名称
-		/// </summary>
-		/// <returns></returns>
-		protected override string GetConnectionName()
-		{
-			return WorkflowSettings.GetConfig().ConnectionName;
-		}
-	}
+                strB.AppendFormat("INSERT INTO {0}{1}",
+                    mappings.TableName,
+                    builder.ToSqlString(TSqlBuilder.Instance));
+            }
+
+            DbHelper.RunSqlWithTransaction(strB.ToString(), GetConnectionName());
+        }
+
+        /// <summary>
+        /// 设置对象的连接名称
+        /// </summary>
+        /// <returns></returns>
+        protected override string GetConnectionName()
+        {
+            return WorkflowSettings.GetConfig().ConnectionName;
+        }
+    }
 }

@@ -15,6 +15,7 @@ namespace MCS.Library.SOA.DataObjects
 	[Serializable]
 	[ORTableMapping("WF.GENERIC_OPINIONS")]
 	[XmlRootMapping("GenericOpinion", OnlyMapMarkedProperties = false)]
+    [TenantRelativeObject]
 	public class GenericOpinion
 	{
 		private string id = String.Empty;

@@ -38,6 +38,7 @@ namespace MCS.Web.WebControls
 	[ClientScriptResource("MCS.Web.WebControls.DialogMaterialVersionControl",
 	   "MCS.Web.WebControls.MaterialControl.DialogMaterialVersionControl.js")]
 	[ParseChildren(true), PersistChildren(true),]
+    //[Obsolete("里面的方法过期了")]
 	internal class DialogMaterialVersionControl : ScriptControlBase, INamingContainer
 	{
 		DeluxeTree treeControl = null;

@@ -30,12 +30,12 @@ namespace MCS.Library.SOA.DataObjects
 
 			context["Stream"] = stream;
 
-			BeforeInnerUpdate(data, context);
+			this.BeforeInnerUpdate(data, context);
 
 			using (TransactionScope scope = TransactionScopeFactory.Create())
 			{
-				if (InnerUpdate(data, context) == 0)
-					InnerInsert(data, context);
+				if (this.InnerUpdate(data, context) == 0)
+					this.InnerInsert(data, context);
 
 				AfterInnerUpdate(data, context);
 

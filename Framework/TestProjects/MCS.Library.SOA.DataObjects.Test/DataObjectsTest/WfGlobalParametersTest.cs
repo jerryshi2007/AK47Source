@@ -1,10 +1,10 @@
-﻿using System;
-using System.Text;
+﻿using MCS.Library.SOA.DataObjects.Workflow;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Text;
 using System.Threading;
-using MCS.Library.SOA.DataObjects.Workflow;
 
 namespace MCS.Library.SOA.DataObjects.Test.DataObjectsTest
 {
@@ -58,6 +58,9 @@ namespace MCS.Library.SOA.DataObjects.Test.DataObjectsTest
 		//
 		#endregion
 
+        /// <summary>
+        /// 已经迁移到MCS.Library.SOA.DataObjects.Tenant.Test
+        /// </summary>
 		[TestMethod]
 		[Description("全局设置的测试")]
 		[TestCategory(ProcessTestHelper.BasicDataObject)]
@@ -77,6 +80,9 @@ namespace MCS.Library.SOA.DataObjects.Test.DataObjectsTest
 				settingsLoaded.Properties["AppName"].StringValue);
 		}
 
+        /// <summary>
+        /// 已经迁移到MCS.Library.SOA.DataObjects.Tenant.Test
+        /// </summary>
 		[TestMethod]
 		[Description("App和Program的参数读取测试")]
 		[TestCategory(ProcessTestHelper.BasicDataObject)]
@@ -96,6 +102,9 @@ namespace MCS.Library.SOA.DataObjects.Test.DataObjectsTest
 				settingsLoaded.Properties["AppName"].StringValue);
 		}
 
+        /// <summary>
+        /// 已经迁移到MCS.Library.SOA.DataObjects.Tenant.Test
+        /// </summary>
 		[TestMethod]
 		[Description("App和Program的参数类别大小写无关读取测试")]
 		[TestCategory(ProcessTestHelper.BasicDataObject)]
@@ -117,7 +126,9 @@ namespace MCS.Library.SOA.DataObjects.Test.DataObjectsTest
 				settingsLoaded.Properties["AppName"].StringValue);
 		}
 
-
+        /// <summary>
+        /// 已经迁移到MCS.Library.SOA.DataObjects.Tenant.Test
+        /// </summary>
 		[TestMethod]
 		[Description("App和Program的递归参数读取测试")]
 		[TestCategory(ProcessTestHelper.BasicDataObject)]

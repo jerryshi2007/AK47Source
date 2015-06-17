@@ -590,6 +590,21 @@ namespace WfOperationServices.Services
             return QueryProcessInfo(qc, totalCount);
         }
 
+        /// <summary>
+        /// 清除租户的业务流程相关的数据
+        /// </summary>
+        /// <param name="tenantCode">租户编码</param>
+        [WfJsonFormatter]
+        [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public void ClearTenantProcessInstanceData(string tenantCode)
+        {
+            string connectionName = WfRuntime.ProcessContext.SimulationContext.GetConnectionName(WorkflowSettings.GetConfig().ConnectionName);
+
+            string sql = string.Format("EXECUTE WF.ClearTenantProcessInstanceData {0}", TSqlBuilder.Instance.CheckUnicodeQuotationMark(tenantCode));
+
+            DbHelper.RunSql(sql, connectionName);
+        }
+
         private static WfClientProcessCurrentInfoPageQueryResult QueryProcessInfo(QueryCondition qc, int totalCount)
         {
             CommonAdapter adapter = new CommonAdapter(WfProcessCurrentInfoAdapter.Instance.ConnectionName);

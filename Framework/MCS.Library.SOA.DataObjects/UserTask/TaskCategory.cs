@@ -28,6 +28,7 @@ namespace MCS.Library.SOA.DataObjects
 	/// </summary>
 	[Serializable]
 	[ORTableMapping("WF.USER_TASK_CATEGORY")]
+    [TenantRelativeObject]
 	public class TaskCategory
 	{
 		private string categoryID = string.Empty;

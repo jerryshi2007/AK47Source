@@ -15,6 +15,7 @@ namespace MCS.Library.SOA.DataObjects
 	[Serializable]
 	[XElementSerializable]
 	[ORTableMapping("WF.USER_OPERATION_TASKS_LOG")]
+    [TenantRelativeObject]
 	public class UserOperationTasksLog
 	{
 		private Int64 _ID = 0;

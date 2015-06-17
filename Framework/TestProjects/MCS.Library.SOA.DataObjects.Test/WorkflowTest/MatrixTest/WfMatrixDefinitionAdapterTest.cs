@@ -8,6 +8,9 @@ using MCS.Library.Core;
 
 namespace MCS.Library.SOA.DataObjects.Test.WorkflowTest.MatrixTest
 {
+    /// <summary>
+    /// 已经迁移到MCS.Library.SOA.DataObjects.Tenant.Test
+    /// </summary>
 	[TestClass]
 	public class WfMatrixDefinitionAdapterTest
 	{

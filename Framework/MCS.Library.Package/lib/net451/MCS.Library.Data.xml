@@ -1,0 +1,3927 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MCS.Library.Data</name>
+    </assembly>
+    <members>
+        <member name="T:MCS.Library.Data.Accessories.CryptoHelper">
+            <summary>
+            处理常规的密码操作，包括：加密/解密/散列/散列验证操作
+            </summary>
+            <remarks>
+                <list type="bullet">
+                    <item>采用标准DES算法进行基于固定密钥的加密/解密处理</item>
+                    <item>采用标准SHA1算法计算散列</item>
+                </list>
+            </remarks>
+        </member>
+        <member name="F:MCS.Library.Data.Accessories.CryptoHelper.sha">
+            <summary>
+            Hash algorithm
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.Accessories.CryptoHelper.et">
+            <summary>
+            Crypto transformer of encryption
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.Accessories.CryptoHelper.dt">
+            <summary>
+            Crypto transformer of decryption
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Accessories.CryptoHelper.#cctor">
+            <summary>
+            构造函数。
+            </summary>
+            <remarks>无参数的构造函数，用默认的方式初始化各个属性。
+            </remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Accessories.CryptoHelper.CreateHash(System.Byte[])">
+            <overrides>
+            Computes the hash value of plain text using the given hash provider instance
+            </overrides>
+            <summary>
+            Computes the hash value of plain text using the given hash provider instance
+            </summary>
+            <param name="plaintext">The input for which to compute the hash.</param>
+            <returns>The computed hash code.</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Accessories.CryptoHelper.CreateHash(System.String)">
+            <summary>
+            为纯文本字符串计算哈希值
+            </summary>
+            <param name="plaintext">需要计算哈希值的纯文本字符串</param>
+            <returns>计算出的哈希值</returns>
+            <remarks>
+            为纯文本字符串计算哈希值。
+            <code source="..\Framework\TestProjects\DeluxeWorks.Library.Test\Core\CryptoHelperTest.cs" lang="cs" region="CreateHashTest" title="生成字符串的散列结果(string)"/>
+            </remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Accessories.CryptoHelper.HashCheck(System.Byte[],System.Byte[])">
+            <overrides>
+            Compares plain text input with a computed hash using the given hash provider instance.
+            </overrides>
+            <summary>
+            Compares plain text input with a computed hash using the given hash provider instance.
+            </summary>
+            <remarks>
+            Use this method to compare hash values. Since hashes may contain a random "salt" value, two seperately generated
+            hashes of the same plain text may result in different values. 
+            </remarks>
+            <param name="plaintext">The input for which you want to compare the hash to.</param>
+            <param name="hashedText">The hash value for which you want to compare the input to.</param>
+            <returns><c>true</c> if plainText hashed is equal to the hashedText. Otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Accessories.CryptoHelper.HashCheck(System.String,System.String)">
+            <summary>
+            比较由纯文本串计算出的哈希值与给定的哈希值是否一致。
+            </summary>
+            <param name="plaintext">输入需要进行哈希比较的字符串</param>
+            <param name="hashedText">哈希串</param>
+            <returns><c>true</c> 如果纯文本哈希值与给定的哈希值相等，否则返回<c>false</c>.</returns>
+            <remarks>
+            运用这个方法来比较由纯文本串计算的哈希值和给定的哈希值是否一致。
+            <code source="..\Framework\TestProjects\DeluxeWorks.Library.Test\Core\CryptoHelperTest.cs" lang="cs" region="HashCheckTest" title="验证字符串的散列结果(string)"/>
+            </remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Accessories.CryptoHelper.Decrypt(System.String)">
+            <summary>
+            对字符串的解密处理
+            </summary>
+            <param name="source">需要解密的字符串</param>
+            <returns>解密后的字符串</returns>
+            <remarks>对字符串的解密处理
+            <code source="..\Framework\TestProjects\DeluxeWorks.Library.Test\Core\CryptoHelperTest.cs" lang="cs" region="DecryptTest" title="DES算法字符串解密"/>
+            </remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Accessories.CryptoHelper.Encrypt(System.String)">
+            <summary>
+            对字符串的加密处理
+            </summary>
+            <param name="source">需要加密的字符串</param>
+            <returns>加密后的字符串</returns>
+            <remarks>对字符串的加密处理
+            <code source="..\Framework\TestProjects\DeluxeWorks.Library.Test\Core\CryptoHelperTest.cs" lang="cs" region="EncryptTest" title="DES算法字符串加密"/>
+            </remarks>
+        </member>
+        <member name="T:MCS.Library.Data.Accessories.DbTraceHelper">
+            <summary>
+            将数据结果输出到Trace的工具类
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Accessories.DbTraceHelper.TraceException(System.Exception)">
+            <summary>
+            输出异常信息 （包括对内部异常信息的输出）
+            </summary>
+            <param name="exception">异常</param>
+        </member>
+        <member name="M:MCS.Library.Data.Accessories.DbTraceHelper.ConvertDataReaderToDataSet(System.Data.Common.DbDataReader)">
+            <summary>
+            由于DataSet得灵活性，提供了一个将DataReader转换为DataSet的工具方法
+            </summary>
+            <param name="reader">DbDataReader对象</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Accessories.DbTraceHelper.TraceData(System.Data.DataView)">
+            <summary>
+            将数据内容输出到Trace
+            </summary>
+            <remarks>该方法主要协助开发人员对提取的数据内容进行观察</remarks>
+            <param name="result">数据</param>
+        </member>
+        <member name="M:MCS.Library.Data.Accessories.DbTraceHelper.TraceData(System.Data.DataTable)">
+            <summary>
+            将数据内容输出到Trace
+            </summary>
+            <remarks>该方法主要协助开发人员对提取的数据内容进行观察</remarks>
+            <param name="result">数据</param>
+        </member>
+        <member name="M:MCS.Library.Data.Accessories.DbTraceHelper.TraceData(System.Data.Common.DbDataReader)">
+            <summary>
+            将数据内容输出到Trace
+            </summary>
+            <remarks>该方法主要协助开发人员对提取的数据内容进行观察</remarks>
+            <param name="result">数据</param>
+        </member>
+        <member name="M:MCS.Library.Data.Accessories.DbTraceHelper.TraceData(System.Data.DataSet)">
+            <summary>
+            将数据内容输出到Trace
+            </summary>
+            <remarks>该方法主要协助开发人员对提取的数据内容进行观察</remarks>
+            <param name="result">数据</param>
+        </member>
+        <member name="T:MCS.Library.Data.Builder.DataDescriptionGeneratorBase">
+            <summary>
+            数据转换成Sql描述的生成器的基类
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.DataDescriptionGeneratorBase.IsMatched(MCS.Library.Data.Builder.SqlCaluseBuilderItemWithData)">
+            <summary>
+            是否匹配。确定是否由自己这个类处理
+            </summary>
+            <param name="builderItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.DataDescriptionGeneratorBase.DecideIsMatched(MCS.Library.Data.Builder.SqlCaluseBuilderItemWithData)">
+            <summary>
+            
+            </summary>
+            <param name="builderItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.DataDescriptionGeneratorBase.GetDescription(MCS.Library.Data.Builder.SqlCaluseBuilderItemWithData,MCS.Library.Data.Builder.ISqlBuilder)">
+            <summary>
+            需要重载
+            </summary>
+            <param name="builderItem"></param>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Library.Data.Builder.SqlClauseBuilderItemBase">
+            <summary>
+            所有Sql语句构造项的基类
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.SqlClauseBuilderItemBase.GetDataDesp(MCS.Library.Data.Builder.ISqlBuilder)">
+            <summary>
+            得到Data的Sql字符串描述
+            </summary>
+            <param name="builder">构造器</param>
+            <returns>返回将data翻译成sql语句的结果</returns>
+        </member>
+        <member name="T:MCS.Library.Data.Builder.SqlCaluseBuilderItemWithData">
+            <summary>
+            带数据的Sql语句构造项的基类
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.SqlCaluseBuilderItemWithData.GetDataDesp(MCS.Library.Data.Builder.ISqlBuilder)">
+            <summary>
+            得到Data的Sql字符串描述
+            </summary>
+            <param name="builder">构造器</param>
+            <returns>返回将data翻译成sql语句的结果</returns>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.SqlCaluseBuilderItemWithData.Data">
+            <summary>
+            数据
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.SqlCaluseBuilderItemWithData.IsExpression">
+            <summary>
+            构想项中的Data是否是sql表达式
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Data.Builder.SqlCaluseBuilderItemInOperator">
+            <summary>
+            In操作的语句项
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Data.Builder.SqlClauseBuilderItemIUW">
+            <summary>
+            适合INSERT、UPDATE、WHERE的每一个构造项，包括字段名称和字段的值等内容
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.SqlClauseBuilderItemIUW.#ctor">
+            <summary>
+            构造方法
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.Builder.SqlClauseBuilderItemIUW.dataField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.SqlClauseBuilderItemIUW.DataField">
+            <summary>
+            Sql语句中的字段名
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.SqlClauseBuilderItemIUW.Operation">
+            <summary>
+            字段和数据之间的操作符
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Data.Builder.SqlClauseBuilderItemUW">
+            <summary>
+            适合UPDATE、WHERE的每一个构造项，包括字段名称和字段的值等内容
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.Builder.SqlClauseBuilderItemUW.DefaultTemplate">
+            <summary>
+            默认的表达式模板
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.SqlClauseBuilderItemUW.ToSqlString(System.Text.StringBuilder,MCS.Library.Data.Builder.ISqlBuilder)">
+            <summary>
+            根据模板生成SQL子句
+            </summary>
+            <param name="strB"></param>
+            <param name="builder"></param>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.SqlClauseBuilderItemUW.Template">
+            <summary>
+            表达式模板。如果没有提供，则使用默认模板(${DataField}$ ${Operation}$ ${Data}$)。
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Data.Builder.SqlClauseBuilderItemOrd">
+            <summary>
+            构造排序表达式的构造项
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.Builder.SqlClauseBuilderItemOrd.sortDirection">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.Builder.SqlClauseBuilderItemOrd.dataField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.SqlClauseBuilderItemOrd.#ctor">
+            <summary>
+            构造方法
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.SqlClauseBuilderItemOrd.GetDataDesp(MCS.Library.Data.Builder.ISqlBuilder)">
+            <summary>
+            得到Data的Sql字符串描述
+            </summary>
+            <param name="builder">构造器</param>
+            <returns>返回将data翻译成sql语句的结果</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.SqlClauseBuilderItemOrd.ToSqlString(System.Text.StringBuilder,MCS.Library.Data.Builder.ISqlBuilder)">
+            <summary>
+            生成SQL子句（“字段 ASC|DESC”）
+            </summary>
+            <param name="strB"></param>
+            <param name="builder"></param>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.SqlClauseBuilderItemOrd.DataField">
+            <summary>
+            Sql语句中的字段名
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.SqlClauseBuilderItemOrd.SortDirection">
+            <summary>
+            排序方向
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Data.Builder.FieldSortDirection">
+            <summary>
+            字段的排序方向定义
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.Builder.FieldSortDirection.Ascending">
+            <summary>
+            升序
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.Builder.FieldSortDirection.Descending">
+            <summary>
+            降序
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Data.Builder.LogicOperatorDefine">
+            <summary>
+            逻辑运算符
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.Builder.LogicOperatorDefine.And">
+            <summary>
+            “与”操作
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.Builder.LogicOperatorDefine.Or">
+            <summary>
+            “或”操作
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Data.Configuration.DbEventArgsConfigurationElement">
+            <summary>
+            自定义数据库执行过程事件参数的配置项
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Data.Configuration.TransactionConfigurationSection">
+            <summary>
+            配置有关TransactionScope的参数
+            执行中该套参数仅作为默认配置，应用可以根据需要通过构造参数或属性修改相关参数。
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Data.Database">
+            <summary>
+            抽象数据库实体类
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.Database.SystemCreatedTableNameRoot">
+            <summary>
+            系统默认输出DataSet中的数据表名称
+            </summary>
+            <remarks>
+            系统默认输出DataSet中的数据表名称(常量)，用于处理ExecuteDataSet和LoadDataSet中的TableName命名处理
+            </remarks>
+        </member>
+        <member name="F:MCS.Library.Data.Database.name">
+            <summary>
+            当前数据库对象的逻辑名称
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.Database.factory">
+            <summary>
+            数据库引擎工厂
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Database.#ctor(System.String)">
+            <summary>
+            通过逻辑名称构造数据库对象实例
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:MCS.Library.Data.Database.LoadDataSet(System.Data.CommandType,System.String,System.Data.DataSet,System.Int32,System.Int32,System.String[])">
+            <summary>
+            向DataSet中填充SQL返回的结果
+            </summary>
+            <remarks>该方法Oracle不支持， 如果需要查询返回多个DataTable请将其写成存储过程</remarks>
+            <param name="commandType">Command类型</param>
+            <param name="commandText">Command命令内容</param>
+            <param name="dataSet">待填充的DataSet</param>
+            <param name="pageNo">要求返回数据所在的页码【以0开始】</param>
+            <param name="pageSize">要求返回数据每一页数据量【如果为零则表示所有数据】</param>
+            <param name="tableNames">每个查询结果的DataTable名称</param>
+        </member>
+        <member name="M:MCS.Library.Data.Database.LoadDataSet(System.Data.CommandType,System.String,System.Data.DataSet,System.String[])">
+            <summary>
+            向DataSet中填充SQL返回的结果
+            </summary>
+            <remarks>该方法Oracle不支持， 如果需要查询返回多个DataTable请将其写成存储过程</remarks>
+            <param name="commandType">Command类型</param>
+            <param name="commandText">Command命令内容</param>
+            <param name="dataSet">待填充的DataSet</param>
+            <param name="tableNames">每个查询结果的DataTable名称</param>
+        </member>
+        <member name="M:MCS.Library.Data.Database.LoadDataSet(System.String,System.Data.DataSet,System.String,System.Object[])">
+            <summary>
+            向DataSet中填充存储过程返回的结果
+            </summary>
+            <remarks>如果是Oracle查询，需要在定义存储过程的时候把REF CURSOR放在其他参数的后面</remarks>
+            <param name="storedProcedureName">存储过程名称</param>
+            <param name="dataSet">待填充的DataSet</param>
+            <param name="tableName">查询结果的DataTable名称</param>
+            <param name="parameterValues">存储过程参数赋值</param>
+        </member>
+        <member name="M:MCS.Library.Data.Database.LoadDataSet(System.String,System.Data.DataSet,System.String[],System.Object[])">
+            <summary>
+            向DataSet中填充Command返回的结果
+            </summary>
+            <remarks>如果是Oracle查询，需要在定义存储过程的时候把REF CURSOR放在其他参数的后面</remarks>
+            <param name="storedProcedureName">存储过程名称</param>
+            <param name="dataSet">待填充的DataSet</param>
+            <param name="tableNames">每个查询结果的DataTable名称</param>
+            <param name="parameterValues">存储过程参数赋值</param>
+        </member>
+        <member name="M:MCS.Library.Data.Database.LoadDataSet(System.Data.Common.DbCommand,System.Data.DataSet,System.String[])">
+            <summary>
+            向DataSet中填充Command返回的结果
+            </summary>
+            <param name="command">Command实例(要求此时Command对象的Connection已经设置并初始化)</param>
+            <param name="dataSet">待填充的DataSet</param>
+            <param name="tableNames">每个查询结果的DataTable名称</param>
+        </member>
+        <member name="M:MCS.Library.Data.Database.LoadDataSet(System.Data.Common.DbCommand,System.Data.DataSet,System.Int32,System.Int32,System.String[])">
+            <summary>
+            向DataSet中填充Command返回的结果
+            </summary>
+            <param name="command">Command实例(要求此时Command对象的Connection已经设置并初始化)</param>
+            <param name="dataSet">待填充的DataSet</param>
+            <param name="tableNames">每个查询结果的DataTable名称</param>
+            <param name="pageNo">要求返回数据所在的页码【以0开始】</param>
+            <param name="pageSize">要求返回数据每一页数据量【如果为零则表示所有数据】</param>
+        </member>
+        <member name="M:MCS.Library.Data.Database.ExecuteDataSet(System.String,System.Object[])">
+            <summary>
+            返回存储过程查询结果
+            </summary>
+            <param name="storedProcedureName">存储过程名称</param>
+            <param name="parameterValues">存储过程参数赋值</param>
+            <returns>查询结果</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.ExecuteDataSet(System.String,System.String[],System.Object[])">
+            <summary>
+            返回存储过程查询结果
+            </summary>
+            <param name="storedProcedureName">存储过程名称</param>
+            <param name="tableNames">每个查询结果的DataTable名称</param>
+            <param name="parameterValues">存储过程参数赋值</param>
+            <returns>查询结果</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.ExecuteDataSet(System.Data.CommandType,System.String,System.String[])">
+            <summary>
+            返回查询结果
+            </summary>
+            <remarks>该方法Oracle不支持， 如果需要查询返回多个DataTable请将其写成存储过程</remarks>
+            <param name="commandType">Command类型</param>
+            <param name="commandText">Command命令内容</param>
+            <param name="tableNames">每个查询结果的DataTable名称</param>
+            <returns>查询结果</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.ExecuteDataSet(System.Data.Common.DbCommand,System.String[])">
+            <summary>
+            返回查询结果
+            </summary>
+            <param name="command">Command实例</param>
+            <param name="tableNames">每个查询结果的DataTable名称</param>
+            <returns>查询结果</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.ExecuteDataSet(System.Data.CommandType,System.String,System.Int32,System.Int32,System.String[])">
+            <summary>
+            返回查询结果
+            </summary>
+            <param name="commandType">Command类型</param>
+            <param name="commandText">Command命令内容</param>
+            <param name="pageNo">要求返回数据所在的页码【以0开始】</param>
+            <param name="pageSize">要求返回数据每一页数据量【如果为零则表示所有数据】</param>
+            <param name="tableNames">每个查询结果的DataTable名称</param>
+            <returns>查询结果</returns>
+            <remarks>该方法Oracle不支持， 如果需要查询返回多个DataTable请将其写成存储过程</remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Database.ExecuteDataSet(System.Data.Common.DbCommand,System.Int32,System.Int32,System.String[])">
+            <summary>
+            返回查询结果
+            </summary>
+            <param name="command">Command实例</param>
+            <param name="pageNo">要求返回数据所在的页码【以0开始】</param>
+            <param name="pageSize">要求返回数据每一页数据量【如果为零则表示所有数据】</param>
+            <param name="tableNames">每个查询结果的DataTable名称</param>
+            <returns>查询结果</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.ExecuteScalar(System.Data.Common.DbCommand)">
+            <summary>
+            执行Command返回单值
+            </summary>
+            <param name="command">Command实例(要求此时Command对象的Connection已经设置并初始化)</param>
+            <returns>单值</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.ExecuteScalar(System.String,System.Object[])">
+            <summary>
+            执行存储过程返回单值
+            </summary>
+            <param name="storedProcedureName">存储过程名称</param>
+            <param name="parameterValues">存储过程参数赋值</param>
+            <returns>单值</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.ExecuteScalar(System.Data.CommandType,System.String)">
+            <summary>
+            执行指定查询返回单值
+            </summary>
+            <param name="commandType">Command类型</param>
+            <param name="commandText">SQL语句或者SPName，与commandType匹配使用</param>
+            <returns>单值</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.ExecuteReader(System.Data.Common.DbCommand)">
+            <summary>
+            返回一个DataReader对象
+            </summary>
+            <remarks>
+            <list>
+                <item>对于存储过程方式返回DataReader需包括有返回查询结果的情况</item>
+                <item>需要外部应用显示关闭Reader</item>
+            </list>
+            </remarks>
+            <param name="command">命令实例</param>
+            <returns>DataReader对象</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.ExecuteReader(System.String,System.Object[])">
+            <summary>
+            返回一个DataReader对象
+            </summary>
+            <remarks>
+            <list>
+                <item>对于存储过程方式返回DataReader需包括有返回查询结果的情况</item>
+                <item>需要外部应用显示关闭Reader</item>
+            </list>
+            </remarks>
+            <param name="storedProcedureName">存储过程名称</param>
+            <param name="parameterValues">存储过程参数赋值</param>
+            <returns>DataReader对象</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.ExecuteReader(System.Data.CommandType,System.String)">
+            <summary>
+            返回一个DataReader对象
+            </summary>
+            <remarks>
+            <list>
+                <item>对于存储过程方式返回DataReader需包括有返回查询结果的情况</item>
+                <item>需要外部应用显示关闭Reader</item>
+            </list>
+            </remarks>
+            <param name="commandType">Command类型</param>
+            <param name="commandText">SQL语句</param>
+            <returns>DataReader对象</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.ExecuteNonQuery(System.Data.Common.DbCommand)">
+            <summary>
+            执行数据更新操作(DML)
+            </summary>
+            <param name="command">Command实例(要求此时Command对象的Connection已经设置并初始化)</param>
+            <returns>受影响的行数</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.ExecuteNonQuery(System.String,System.Object[])">
+            <summary>
+            执行数据更新操作(DML)
+            </summary>
+            <param name="storedProcedureName">存储过程名称</param>
+            <param name="parameterValues">存储过程参数赋值</param>
+            <returns>受影响的行数</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.ExecuteNonQuery(System.Data.CommandType,System.String)">
+            <summary>
+            执行数据更新操作(DML)
+            </summary>
+            <param name="commandType">Command类型</param>
+            <param name="commandText">SQL语句</param>
+            <returns>受影响的行数</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.UpdateDataSet(MCS.Library.Data.UpdateBehavior,System.Data.DataSet,System.String,System.Data.Common.DbCommand,System.Data.Common.DbCommand,System.Data.Common.DbCommand,System.Nullable{System.Int32})">
+            <summary>
+            批量更新
+            </summary>
+            <param name="behavior">更新行为</param>
+            <param name="dataSet">待更新的数据</param>
+            <param name="tableName">需要更新的数据表名称</param>
+            <param name="insertCommand">增加数据DbCommand</param>
+            <param name="updateCommand">更新数据DbCommand</param>
+            <param name="deleteCommand">删除数据DbCommand</param>
+            <param name="updateBatchSize">每批更新的数据量</param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.UpdateDataSet(MCS.Library.Data.UpdateBehavior,System.Data.DataSet,System.String,System.Data.Common.DbCommand,System.Data.Common.DbCommand,System.Data.Common.DbCommand)">
+            <summary>
+            批量更新
+            </summary>
+            <param name="behavior">更新行为</param>
+            <param name="dataSet">待更新的数据</param>
+            <param name="tableName">需要更新的数据表名称</param>
+            <param name="insertCommand">增加数据DbCommand</param>
+            <param name="updateCommand">更新数据DbCommand</param>
+            <param name="deleteCommand">删除数据DbCommand</param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.UpdateDataSet(System.Data.DataSet,System.String,System.Data.Common.DbCommand,System.Data.Common.DbCommand,System.Data.Common.DbCommand,System.Nullable{System.Int32})">
+            <summary>
+            批量更新
+            </summary>
+            <param name="dataSet">待更新的数据</param>
+            <param name="tableName">需要更新的数据表名称</param>
+            <param name="insertCommand">增加数据DbCommand</param>
+            <param name="updateCommand">更新数据DbCommand</param>
+            <param name="deleteCommand">删除数据DbCommand</param>
+            <param name="updateBatchSize">每批更新的数据量</param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.UpdateDataSet(System.Data.DataSet,System.String,System.Data.Common.DbCommand,System.Data.Common.DbCommand,System.Data.Common.DbCommand)">
+            <summary>
+            批量更新
+            </summary>
+            <param name="dataSet">待更新的数据</param>
+            <param name="tableName">需要更新的数据表名称</param>
+            <param name="insertCommand">增加数据DbCommand</param>
+            <param name="updateCommand">更新数据DbCommand</param>
+            <param name="deleteCommand">删除数据DbCommand</param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.UpdateDataSet(MCS.Library.Data.UpdateBehavior,System.Data.DataTable,System.Data.Common.DbCommand,System.Data.Common.DbCommand,System.Data.Common.DbCommand,System.Nullable{System.Int32})">
+            <summary>
+            批量更新
+            </summary>
+            <param name="behavior">更新行为</param>
+            <param name="table">需要更新的数据表</param>
+            <param name="insertCommand">增加数据DbCommand</param>
+            <param name="updateCommand">更新数据DbCommand</param>
+            <param name="deleteCommand">删除数据DbCommand</param>
+            <param name="updateBatchSize">每批更新的数据量</param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.UpdateDataSet(MCS.Library.Data.UpdateBehavior,System.Data.DataTable,System.Data.Common.DbCommand,System.Data.Common.DbCommand,System.Data.Common.DbCommand)">
+            <summary>
+            批量更新
+            </summary>
+            <param name="behavior">更新行为</param>
+            <param name="table">需要更新的数据表</param>
+            <param name="insertCommand">增加数据DbCommand</param>
+            <param name="updateCommand">更新数据DbCommand</param>
+            <param name="deleteCommand">删除数据DbCommand</param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.UpdateDataSet(System.Data.DataTable,System.Data.Common.DbCommand,System.Data.Common.DbCommand,System.Data.Common.DbCommand,System.Nullable{System.Int32})">
+            <summary>
+            批量更新
+            </summary>
+            <param name="table">需要更新的数据表</param>
+            <param name="insertCommand">增加数据DbCommand</param>
+            <param name="updateCommand">更新数据DbCommand</param>
+            <param name="deleteCommand">删除数据DbCommand</param>
+            <param name="updateBatchSize">每批更新的数据量</param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.UpdateDataSet(System.Data.DataTable,System.Data.Common.DbCommand,System.Data.Common.DbCommand,System.Data.Common.DbCommand)">
+            <summary>
+            批量更新
+            </summary>
+            <param name="table">需要更新的数据表</param>
+            <param name="insertCommand">增加数据DbCommand</param>
+            <param name="updateCommand">更新数据DbCommand</param>
+            <param name="deleteCommand">删除数据DbCommand</param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.BatchInsert(MCS.Library.Data.UpdateBehavior,System.Data.DataTable,System.Data.Common.DbCommand,System.Nullable{System.Int32})">
+            <summary>
+            批量Insert
+            </summary>
+            <param name="behavior">更新行为</param>
+            <param name="table">需要更新的数据表</param>
+            <param name="insertCommand">增加数据DbCommand</param>
+            <param name="updateBatchSize">每批更新的数据量</param>
+            <returns>影响行数</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.BatchInsert(System.Data.DataTable,System.Data.Common.DbCommand,System.Nullable{System.Int32})">
+            <summary>
+            批量Insert
+            </summary>
+            <param name="table">需要更新的数据表</param>
+            <param name="insertCommand">增加数据DbCommand</param>
+            <param name="updateBatchSize">每批更新的数据量</param>
+            <returns>影响行数</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.BatchInsert(MCS.Library.Data.UpdateBehavior,System.Data.DataTable,System.Data.Common.DbCommand)">
+            <summary>
+            批量Insert
+            </summary>
+            <param name="behavior">更新行为</param>
+            <param name="table">需要更新的数据表</param>
+            <param name="insertCommand">增加数据DbCommand</param>
+            <returns>影响行数</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.BatchInsert(System.Data.DataTable,System.Data.Common.DbCommand)">
+            <summary>
+            批量Insert
+            </summary>
+            <param name="table">需要更新的数据表</param>
+            <param name="insertCommand">增加数据DbCommand</param>
+            <returns>影响行数</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.BatchUpdate(MCS.Library.Data.UpdateBehavior,System.Data.DataTable,System.Data.Common.DbCommand,System.Nullable{System.Int32})">
+            <summary>
+            批量Update
+            </summary>
+            <param name="behavior">更新行为</param>
+            <param name="table">需要更新的数据表</param>
+            <param name="updateCommand">更新数据DbCommand</param>
+            <param name="updateBatchSize">每批更新的数据量</param>
+            <returns>影响行数</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.BatchUpdate(System.Data.DataTable,System.Data.Common.DbCommand,System.Nullable{System.Int32})">
+            <summary>
+            批量Update
+            </summary>
+            <param name="table">需要更新的数据表</param>
+            <param name="updateCommand">更新数据DbCommand</param>
+            <param name="updateBatchSize">每批更新的数据量</param>
+            <returns>影响行数</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.BatchUpdate(MCS.Library.Data.UpdateBehavior,System.Data.DataTable,System.Data.Common.DbCommand)">
+            <summary>
+            批量Update
+            </summary>
+            <param name="behavior">更新行为</param>
+            <param name="table">需要更新的数据表</param>
+            <param name="updateCommand">更新数据DbCommand</param>
+            <returns>影响行数</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.BatchUpdate(System.Data.DataTable,System.Data.Common.DbCommand)">
+            <summary>
+            批量Update
+            </summary>
+            <param name="table">需要更新的数据表</param>
+            <param name="updateCommand">更新数据DbCommand</param>
+            <returns>影响行数</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.BatchDelete(MCS.Library.Data.UpdateBehavior,System.Data.DataTable,System.Data.Common.DbCommand,System.Nullable{System.Int32})">
+            <summary>
+            批量Delete
+            </summary>
+            <param name="behavior">更新行为</param>
+            <param name="table">需要更新的数据表</param>
+            <param name="BatchDelete">BatchDeleteDbCommand</param>
+            <param name="updateBatchSize">每批更新的数据量</param>
+            <returns>影响行数</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.BatchDelete(System.Data.DataTable,System.Data.Common.DbCommand,System.Nullable{System.Int32})">
+            <summary>
+            批量Delete
+            </summary>
+            <param name="table">需要更新的数据表</param>
+            <param name="BatchDelete">BatchDeleteDbCommand</param>
+            <param name="updateBatchSize">每批更新的数据量</param>
+            <returns>影响行数</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.BatchDelete(MCS.Library.Data.UpdateBehavior,System.Data.DataTable,System.Data.Common.DbCommand)">
+            <summary>
+            批量Delete
+            </summary>
+            <param name="behavior">更新行为</param>
+            <param name="table">需要更新的数据表</param>
+            <param name="BatchDelete">BatchDeleteDbCommand</param>
+            <returns>影响行数</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.BatchDelete(System.Data.DataTable,System.Data.Common.DbCommand)">
+            <summary>
+            批量Delete
+            </summary>
+            <param name="table">需要更新的数据表</param>
+            <param name="BatchDelete">BatchDeleteDbCommand</param>
+            <returns>影响行数</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.DeriveParameters(System.Data.Common.DbCommand)">
+            <summary>
+            根据Command对象指向存储过程获取其所需的参数组
+            <remarks>
+                将参数发现机制以IOC方式交给实体Database类完成
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Database.DiscoverParameters(System.Data.Common.DbCommand)">
+            <summary>
+            根据Command对象指向存储过程获取其所需的参数组
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Database.InitStoredProcedureCommand(System.String,System.Object[])">
+            <summary>
+            获取执行指定存储过程需要的Command实例
+            </summary>
+            <param name="storedProcedureName">存储过程名称</param>
+            <param name="parameterValues">对应的一组参数赋值</param>
+            <returns>Command实例</returns>
+            <remarks>获取执行指定存储过程需要的Command实例，此时要求其参数匹配齐全否则内部的参数检查将报出异常。</remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Database.CreateStoredProcedureCommand(System.String)">
+            <summary>
+            创建一个存储过程Command对象
+            </summary>
+            <param name="storedProcedureName">存储过程名称</param>
+            <returns>制定的Command对象</returns>
+            <remarks>创建一个存储过程Command对象，仅仅用于创建而不做任何参数检查处理。</remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Database.GetSqlStringCommand(System.String)">
+            <summary>
+            获的一个可以执行SQL语句的Command对象
+            </summary>
+            <param name="sql">SQL语句</param>
+            <returns>Command对象</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.SameNumberOfParametersAndValues(System.Data.Common.DbCommand,System.Object[])">
+            <summary>
+            判断Command对象所需的参数数量是否与待赋值的数组成员数量匹配
+            </summary>
+            <param name="command">Command对象</param>
+            <param name="values">待赋值的数组</param>
+            <returns>是否匹配</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.DoUpdateDataSet(MCS.Library.Data.UpdateBehavior,System.Data.DataSet,System.String,System.Data.Common.DbCommand,System.Data.Common.DbCommand,System.Data.Common.DbCommand,System.Nullable{System.Int32})">
+            <summary>
+            批量更新
+            </summary>
+            <param name="behavior">更新行为</param>
+            <param name="dataSet">待更新的数据</param>
+            <param name="tableName">需要更新的数据表名称</param>
+            <param name="insertCommand">增加数据DbCommand</param>
+            <param name="updateCommand">更新数据DbCommand</param>
+            <param name="deleteCommand">删除数据DbCommand</param>
+            <param name="updateBatchSize">每批更新的数据量</param>
+            <returns></returns>
+            <remarks>
+                面向批量处理增加的方法
+                added by wangxiang . May 21, 2008
+            </remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Database.DoUpdateDataSet(MCS.Library.Data.UpdateBehavior,System.Data.DataTable,System.Data.Common.DbCommand,System.Data.Common.DbCommand,System.Data.Common.DbCommand,System.Nullable{System.Int32})">
+            <summary>
+            批量更新
+            </summary>
+            <param name="behavior">更新行为</param>
+            <param name="table">需要更新的数据表</param>
+            <param name="insertCommand">增加数据DbCommand</param>
+            <param name="updateCommand">更新数据DbCommand</param>
+            <param name="deleteCommand">删除数据DbCommand</param>
+            <param name="updateBatchSize">每批更新的数据量</param>
+            <returns></returns>
+            <remarks>
+                面向批量处理增加的方法
+                added by wangxiang . May 21, 2008
+            </remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Database.DoExecuteScalar(System.Data.Common.DbCommand)">
+            <summary>
+            执行Command返回单值
+            </summary>
+            <param name="command">Command实例</param>
+            <returns>单值</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.DoLoadDataSet(System.Data.Common.DbCommand,System.Data.DataSet,System.Int32,System.Int32,System.String[])">
+            <summary>
+            向DataSet中填充Command返回的结果
+            </summary>
+            <param name="command">Command实例(要求此时Command对象的Connection已经设置并初始化)</param>
+            <param name="dataSet">待填充的DataSet</param>
+            <param name="tableNames">每个查询结果的DataTable名称</param>
+            <param name="pageNo">要求返回数据所在的页码【以0开始】</param>
+            <param name="pageSize">要求返回数据每一页数据量【如果为零则表示所有数据】</param>
+        </member>
+        <member name="M:MCS.Library.Data.Database.BuildParameterName(System.String)">
+            <summary>
+            根据数据库类型提供指定的参数名称
+            <remarks>
+                为了真正做到数据库无关，建议所有参数名称均通过该方法进行参数名称匹配。
+                例如存储过程参数entryId, 在Oracle中采用entryId，而在SQL Server中采用@entryId
+            </remarks>
+            </summary>
+            <param name="parameterName">应用定义的参数名称</param>
+            <returns>根据不同数据库命名规则处理后的参数名称</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.SetParameterValue(System.Data.Common.DbCommand,System.String,System.Object)">
+            <summary>
+            为一个Parameter对象赋值
+            </summary>
+            <param name="command">命令类型</param>
+            <param name="value">值</param>
+            <param name="parameterName">数据库参数名称</param>
+        </member>
+        <member name="M:MCS.Library.Data.Database.GetParameterValue(System.Data.Common.DbCommand,System.String)">
+            <summary>
+            获取一个Parameter对象的值
+            </summary>
+            <param name="command">命令类型</param>
+            <param name="parameterName">数据库参数名称</param>
+        </member>
+        <member name="M:MCS.Library.Data.Database.AssignParameterValues(System.Data.Common.DbCommand,System.Object[])">
+            <summary>
+            依次为Command对象的每个Parameter赋值
+            </summary>
+            <param name="command">命令类型</param>
+            <param name="values">需要添加的一组值</param>
+        </member>
+        <member name="M:MCS.Library.Data.Database.CreateParameter(System.String,System.Data.DbType,System.Int32,System.Data.ParameterDirection,System.Boolean,System.Byte,System.Byte,System.String,System.Data.DataRowVersion,System.Object)">
+            <summary>
+            生成一个Parameter对象，同时为其赋值
+            </summary>
+            <param name="parameterName">参数名称</param>
+            <param name="dbType">参数对应的数据类型</param>
+            <param name="size">参数数据长度要求</param>
+            <param name="direction">参数输入输出类型（枚举）</param>
+            <param name="nullable">参数是否允许为空</param>
+            <param name="precision">参数精确值</param>
+            <param name="scale">参数大小</param>
+            <param name="sourceColumn">对应的Source的Column</param>
+            <param name="sourceVersion">对应SourceClumn的版本号</param>
+            <param name="value">参数具体数据值</param>
+            <returns>准备好参数内容的DBParameter对象</returns>
+            <remarks>生成一个Parameter对象，同时为期赋值</remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Database.CreateParameter(System.String,System.Data.DbType,System.Int32,System.Data.ParameterDirection,System.Boolean,System.String)">
+            <summary>
+            生成一个Parameter对象
+            </summary>
+            <param name="parameterName">参数名称</param>
+            <param name="dbType">参数对应的数据类型</param>
+            <param name="size">参数数据长度要求</param>
+            <param name="direction">参数输入输出类型（枚举）</param>
+            <param name="nullable">参数是否允许为空</param>
+            <param name="sourceColumn">对应的Source的Column</param>
+            <returns>生成一个Parameter对象，同时为期赋值</returns>
+            <remarks>
+                面向批量处理增加的方法
+                added by wangxiang . May 21, 2008
+            </remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Database.CreateParameter(System.String,System.Data.DbType,System.Int32,System.Data.ParameterDirection,System.String)">
+            <summary>
+            生成一个Parameter对象
+            </summary>
+            <param name="parameterName">参数名称</param>
+            <param name="dbType">执行类型</param>
+            <param name="size">大小</param>
+            <param name="direction">参数类型</param>
+            <param name="sourceColumn">类名称</param>
+            <returns>生成一个Parameter对象，同时为期赋值</returns>
+            <remarks>
+                面向批量处理增加的方法
+                added by wangxiang . May 21, 2008
+            </remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Database.CreateParameter(System.String)">
+            <summary>
+            生成一个Parameter对象
+            </summary>
+            <param name="parameterName">参数名称</param>
+            <returns>生成一个Parameter对象，同时为期赋值</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.UserParametersStartIndex">
+            <summary>
+            获得特定数据库类型下，Parameter在Command中的起始位置。
+            </summary>
+            <returns>起始下标</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.ConfigureParameter(System.Data.Common.DbParameter,System.String,System.Data.DbType,System.Int32,System.Data.ParameterDirection,System.Boolean,System.String)">
+            <summary>
+            根据指定的内容为Prameter赋值
+            </summary>
+            <param name="parameter">参数</param>
+            <param name="parameterName">参数名称</param>
+            <param name="dbType">操作类型</param>
+            <param name="size">大小</param>
+            <param name="direction">参数类型</param>
+            <param name="nullable">是否可空</param>
+            <param name="sourceColumn">数据项名称</param>
+            <remarks>
+                面向批量处理增加的方法
+                added by wangxiang . May 21, 2008
+            </remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Database.ConfigureParameter(System.Data.Common.DbParameter,System.String,System.Data.DbType,System.Int32,System.Data.ParameterDirection,System.String)">
+            <summary>
+            根据指定的内容为Prameter赋值
+            </summary>
+            <param name="parameter">参数</param>
+            <param name="parameterName">参数名称</param>
+            <param name="dbType">操作类型</param>
+            <param name="size">大小</param>
+            <param name="direction">参数类型</param>
+            <param name="sourceColumn">数据项名称</param>
+            <remarks>
+                面向批量处理增加的方法
+                added by wangxiang . May 21, 2008
+            </remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Database.ConfigureParameter(System.Data.Common.DbParameter,System.String,System.Data.DbType,System.Int32,System.Data.ParameterDirection,System.Boolean,System.Byte,System.Byte,System.String,System.Data.DataRowVersion,System.Object)">
+            <summary>
+            根据指定的内容为Prameter赋值
+            </summary>
+            <param name="dbType">操作类型</param>
+            <param name="direction">参数输入输出类型</param>
+            <param name="nullable">是否可空</param>
+            <param name="parameter">参数</param>
+            <param name="parameterName">参数名称</param>
+            <param name="precision">精度</param>
+            <param name="scale">大小</param>
+            <param name="size">长度</param>
+            <param name="sourceColumn">数据项名称</param>
+            <param name="sourceVersion">版本</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:MCS.Library.Data.Database.AddParameter(System.Data.Common.DbCommand,System.String,System.Data.DbType,System.Int32,System.Data.ParameterDirection,System.Boolean,System.Byte,System.Byte,System.String,System.Data.DataRowVersion,System.Object)">
+            <summary>
+            增加一个Parameter
+            </summary>
+            <param name="dbType">操作类型</param>
+            <param name="direction">参数输入输出类型</param>
+            <param name="nullable">是否可空</param>
+            <param name="command">Sql语句</param>
+            <param name="parameterName">参数名称</param>
+            <param name="precision">精度</param>
+            <param name="scale">大小</param>
+            <param name="size">长度</param>
+            <param name="sourceColumn">数据项名称</param>
+            <param name="sourceVersion">版本</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:MCS.Library.Data.Database.AddParameter(System.Data.Common.DbCommand,System.String,System.Data.DbType,System.Data.ParameterDirection,System.String,System.Data.DataRowVersion,System.Object)">
+            <summary>
+            增加一个Parameter
+            </summary>
+            <param name="dbType">操作类型</param>
+            <param name="direction">参数输入输出类型</param>
+            <param name="command">Sql语句</param>
+            <param name="parameterName">参数名称</param>
+            <param name="sourceColumn">数据项名称</param>
+            <param name="sourceVersion">版本</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:MCS.Library.Data.Database.AddParameter(System.Data.Common.DbCommand,System.String,System.Data.DbType,System.Int32,System.Data.ParameterDirection,System.Boolean,System.String)">
+            <summary>
+            增加一个Parameter
+            </summary>
+            <param name="command">Sql语句</param>
+            <param name="parameterName">参数名称</param>
+            <param name="dbType">操作类型</param>
+            <param name="size">长度</param>
+            <param name="direction">参数类型</param>
+            <param name="nullable">是否可空</param>
+            <param name="sourceColumn">数据项名称</param>
+            <remarks>
+                面向批量处理增加的方法
+                added by wangxiang . May 21, 2008
+            </remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Database.AddParameter(System.Data.Common.DbCommand,System.String,System.Data.DbType,System.Int32,System.Data.ParameterDirection,System.String)">
+            <summary>
+            增加一个Parameter
+            </summary>
+            <param name="command">Sql语句</param>
+            <param name="parameterName">参数名称</param>
+            <param name="dbType">操作类型</param>
+            <param name="size">长度</param>
+            <param name="direction">参数类型</param>
+            <param name="sourceColumn">数据项名称</param>
+            <remarks>
+                面向批量处理增加的方法
+                added by wangxiang . May 21, 2008
+            </remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Database.AddOutParameter(System.Data.Common.DbCommand,System.String,System.Data.DbType,System.Int32)">
+            <summary>
+            增加一个Out Parameter
+            </summary>
+            <param name="command">命令类型</param>
+            <param name="dbType">数据类型</param>
+            <param name="parameterName">数据库参数名称</param>
+            <param name="size">长度</param>
+        </member>
+        <member name="M:MCS.Library.Data.Database.AddInParameter(System.Data.Common.DbCommand,System.String,System.Data.DbType)">
+            <summary>
+            增加一个In Parameter
+            </summary>
+            <param name="command">命令类型</param>
+            <param name="dbType">数据类型</param>
+            <param name="parameterName">数据库参数名称</param>
+        </member>
+        <member name="M:MCS.Library.Data.Database.AddInParameter(System.Data.Common.DbCommand,System.String,System.Data.DbType,System.Object)">
+            <summary>
+            增加一个In Parameter
+            </summary>
+            <param name="command">命令类型</param>
+            <param name="dbType">数据类型</param>
+            <param name="parameterName">数据库参数名称</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:MCS.Library.Data.Database.AddInParameter(System.Data.Common.DbCommand,System.String,System.Data.DbType,System.String,System.Data.DataRowVersion)">
+            <summary>
+            增加一个In Parameter
+            </summary>
+            <param name="command">命令类型</param>
+            <param name="dbType">数据类型</param>
+            <param name="parameterName">数据库参数名称</param>
+            <param name="sourceColumn">数据库数据项名称</param>
+            <param name="sourceVersion">类型</param>
+        </member>
+        <member name="M:MCS.Library.Data.Database.DoDbEvent(System.Data.IDbCommand,MCS.Library.Data.DbEventType)">
+            <summary>
+            通过事件暴露内部的命令对象
+            </summary>
+            <remarks>由于大多数应用不会使用这个特性，出于性能优化的考虑，先把Delegate放在前面判断</remarks>
+            <param name="command">内部的命令对象</param>
+            <param name="eventType">数据访问调用时机类型</param>
+        </member>
+        <member name="M:MCS.Library.Data.Database.GetDataAdapter(MCS.Library.Data.UpdateBehavior)">
+            <summary>
+            根据更新特征构造Data Adapter
+            </summary>
+            <param name="updateBehavior">
+            </param>        
+            <returns>Data Adapter适配器</returns>
+            <remarks>
+                面向批量处理增加的方法
+                added by wangxiang . May 21, 2008
+            </remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Database.CreateCommandByCommandType(System.Data.CommandType,System.String)">
+            <summary>
+            生成简单的DbCommand对象 
+            <remarks>
+                相当于Provider Identpendent的new()出一个Command对象
+            </remarks>
+            </summary>
+            <param name="commandText">Command执行语句</param>
+            <param name="commandType">Command类型</param>
+            <returns>Command对象</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.CreateCommandByCommandType(System.Data.IDbCommand)">
+            <summary>
+            生成简单的DbCommand对象 
+            <remarks>
+                相当于Provider Identpendent的new()出一个Command对象
+            </remarks>
+            </summary>
+            <param name="originalCommand">需要执行的数据库语句</param>
+            <returns>Command对象</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.SetUpRowUpdatedEvent(System.Data.Common.DbDataAdapter)">
+            <summary>
+            为DataAdapter更新过程设置事件委托
+            </summary>
+            <param name="adapter">Data Adapter</param>
+            <remarks>
+                面向批量处理增加的方法
+                added by wangxiang . May 21, 2008
+            </remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Database.DiscoverParametersAsync(System.Data.Common.DbCommand)">
+            <summary>
+            根据Command对象指向存储过程获取其所需的参数组
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Database.InitStoredProcedureCommandAsync(System.String,System.Object[])">
+            <summary>
+            获取执行指定存储过程需要的Command实例
+            </summary>
+            <param name="storedProcedureName">存储过程名称</param>
+            <param name="parameterValues">对应的一组参数赋值</param>
+            <returns>Command实例</returns>
+            <remarks>获取执行指定存储过程需要的Command实例，此时要求其参数匹配齐全否则内部的参数检查将报出异常。</remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Database.CreateStoredProcedureCommandAsync(System.String)">
+            <summary>
+            创建一个存储过程Command对象
+            </summary>
+            <param name="storedProcedureName">存储过程名称</param>
+            <returns>制定的Command对象</returns>
+            <remarks>创建一个存储过程Command对象，仅仅用于创建而不做任何参数检查处理。</remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Database.ExecuteNonQueryAsync(System.Data.Common.DbCommand)">
+            <summary>
+            执行数据更新操作(DML)
+            </summary>
+            <param name="command">Command实例(要求此时Command对象的Connection已经设置并初始化)</param>
+            <returns>受影响的行数</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.ExecuteNonQueryAsync(System.String,System.Object[])">
+            <summary>
+            执行数据更新操作(DML)
+            </summary>
+            <param name="storedProcedureName">存储过程名称</param>
+            <param name="parameterValues">存储过程参数赋值</param>
+            <returns>受影响的行数</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.ExecuteNonQueryAsync(System.Data.CommandType,System.String)">
+            <summary>
+            执行数据更新操作(DML)
+            </summary>
+            <param name="commandType">Command类型</param>
+            <param name="commandText">SQL语句</param>
+            <returns>受影响的行数</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.ExecuteScalarAsync(System.Data.Common.DbCommand)">
+            <summary>
+            执行Command返回单值
+            </summary>
+            <param name="command">Command实例(要求此时Command对象的Connection已经设置并初始化)</param>
+            <returns>单值</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.ExecuteScalarAsync(System.String,System.Object[])">
+            <summary>
+            执行存储过程返回单值
+            </summary>
+            <param name="storedProcedureName">存储过程名称</param>
+            <param name="parameterValues">存储过程参数赋值</param>
+            <returns>单值</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.ExecuteScalarAsync(System.Data.CommandType,System.String)">
+            <summary>
+            执行指定查询返回单值
+            </summary>
+            <param name="commandType">Command类型</param>
+            <param name="commandText">SQL语句或者SPName，与commandType匹配使用</param>
+            <returns>单值</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.ExecuteReaderAsync(System.Data.Common.DbCommand)">
+            <summary>
+            返回一个DataReader对象
+            </summary>
+            <remarks>
+            <list>
+                <item>对于存储过程方式返回DataReader需包括有返回查询结果的情况</item>
+                <item>需要外部应用显示关闭Reader</item>
+            </list>
+            </remarks>
+            <param name="command">命令实例</param>
+            <returns>DataReader对象</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.ExecuteReaderAsync(System.String,System.Object[])">
+            <summary>
+            返回一个DataReader对象
+            </summary>
+            <remarks>
+            <list>
+                <item>对于存储过程方式返回DataReader需包括有返回查询结果的情况</item>
+                <item>需要外部应用显示关闭Reader</item>
+            </list>
+            </remarks>
+            <param name="storedProcedureName">存储过程名称</param>
+            <param name="parameterValues">存储过程参数赋值</param>
+            <returns>DataReader对象</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.ExecuteReaderAsync(System.Data.CommandType,System.String)">
+            <summary>
+            返回一个DataReader对象
+            </summary>
+            <remarks>
+            <list>
+                <item>对于存储过程方式返回DataReader需包括有返回查询结果的情况</item>
+                <item>需要外部应用显示关闭Reader</item>
+            </list>
+            </remarks>
+            <param name="commandType">Command类型</param>
+            <param name="commandText">SQL语句</param>
+            <returns>DataReader对象</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.LoadDataSetAsync(System.Data.CommandType,System.String,System.Data.DataSet,System.Int32,System.Int32,System.String[])">
+            <summary>
+            向DataSet中填充SQL返回的结果
+            </summary>
+            <remarks>该方法Oracle不支持， 如果需要查询返回多个DataTable请将其写成存储过程</remarks>
+            <param name="commandType">Command类型</param>
+            <param name="commandText">Command命令内容</param>
+            <param name="dataSet">待填充的DataSet</param>
+            <param name="pageNo">要求返回数据所在的页码【以0开始】</param>
+            <param name="pageSize">要求返回数据每一页数据量【如果为零则表示所有数据】</param>
+            <param name="tableNames">每个查询结果的DataTable名称</param>
+        </member>
+        <member name="M:MCS.Library.Data.Database.LoadDataSetAsync(System.Data.CommandType,System.String,System.Data.DataSet,System.String[])">
+            <summary>
+            向DataSet中填充SQL返回的结果
+            </summary>
+            <remarks>该方法Oracle不支持， 如果需要查询返回多个DataTable请将其写成存储过程</remarks>
+            <param name="commandType">Command类型</param>
+            <param name="commandText">Command命令内容</param>
+            <param name="dataSet">待填充的DataSet</param>
+            <param name="tableNames">每个查询结果的DataTable名称</param>
+        </member>
+        <member name="M:MCS.Library.Data.Database.LoadDataSetAsync(System.String,System.Data.DataSet,System.String,System.Object[])">
+            <summary>
+            向DataSet中填充存储过程返回的结果
+            </summary>
+            <remarks>如果是Oracle查询，需要在定义存储过程的时候把REF CURSOR放在其他参数的后面</remarks>
+            <param name="storedProcedureName">存储过程名称</param>
+            <param name="dataSet">待填充的DataSet</param>
+            <param name="tableName">查询结果的DataTable名称</param>
+            <param name="parameterValues">存储过程参数赋值</param>
+        </member>
+        <member name="M:MCS.Library.Data.Database.LoadDataSetAsync(System.String,System.Data.DataSet,System.String[],System.Object[])">
+            <summary>
+            向DataSet中填充Command返回的结果
+            </summary>
+            <remarks>如果是Oracle查询，需要在定义存储过程的时候把REF CURSOR放在其他参数的后面</remarks>
+            <param name="storedProcedureName">存储过程名称</param>
+            <param name="dataSet">待填充的DataSet</param>
+            <param name="tableNames">每个查询结果的DataTable名称</param>
+            <param name="parameterValues">存储过程参数赋值</param>
+        </member>
+        <member name="M:MCS.Library.Data.Database.LoadDataSetAsync(System.Data.Common.DbCommand,System.Data.DataSet,System.String[])">
+            <summary>
+            向DataSet中填充Command返回的结果
+            </summary>
+            <param name="command">Command实例(要求此时Command对象的Connection已经设置并初始化)</param>
+            <param name="dataSet">待填充的DataSet</param>
+            <param name="tableNames">每个查询结果的DataTable名称</param>
+        </member>
+        <member name="M:MCS.Library.Data.Database.LoadDataSetAsync(System.Data.Common.DbCommand,System.Data.DataSet,System.Int32,System.Int32,System.String[])">
+            <summary>
+            向DataSet中填充Command返回的结果
+            </summary>
+            <param name="command">Command实例(要求此时Command对象的Connection已经设置并初始化)</param>
+            <param name="dataSet">待填充的DataSet</param>
+            <param name="tableNames">每个查询结果的DataTable名称</param>
+            <param name="pageNo">要求返回数据所在的页码【以0开始】</param>
+            <param name="pageSize">要求返回数据每一页数据量【如果为零则表示所有数据】</param>
+        </member>
+        <member name="M:MCS.Library.Data.Database.ExecuteDataSetAsync(System.String,System.Object[])">
+            <summary>
+            返回存储过程查询结果
+            </summary>
+            <param name="storedProcedureName">存储过程名称</param>
+            <param name="parameterValues">存储过程参数赋值</param>
+            <returns>查询结果</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.ExecuteDataSetAsync(System.String,System.String[],System.Object[])">
+            <summary>
+            返回存储过程查询结果
+            </summary>
+            <param name="storedProcedureName">存储过程名称</param>
+            <param name="tableNames">每个查询结果的DataTable名称</param>
+            <param name="parameterValues">存储过程参数赋值</param>
+            <returns>查询结果</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.ExecuteDataSetAsync(System.Data.CommandType,System.String,System.String[])">
+            <summary>
+            返回查询结果
+            </summary>
+            <remarks>该方法Oracle不支持， 如果需要查询返回多个DataTable请将其写成存储过程</remarks>
+            <param name="commandType">Command类型</param>
+            <param name="commandText">Command命令内容</param>
+            <param name="tableNames">每个查询结果的DataTable名称</param>
+            <returns>查询结果</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.ExecuteDataSetAsync(System.Data.Common.DbCommand,System.String[])">
+            <summary>
+            返回查询结果
+            </summary>
+            <param name="command">Command实例</param>
+            <param name="tableNames">每个查询结果的DataTable名称</param>
+            <returns>查询结果</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.ExecuteDataSetAsync(System.Data.CommandType,System.String,System.Int32,System.Int32,System.String[])">
+            <summary>
+            返回查询结果
+            </summary>
+            <param name="commandType">Command类型</param>
+            <param name="commandText">Command命令内容</param>
+            <param name="pageNo">要求返回数据所在的页码【以0开始】</param>
+            <param name="pageSize">要求返回数据每一页数据量【如果为零则表示所有数据】</param>
+            <param name="tableNames">每个查询结果的DataTable名称</param>
+            <returns>查询结果</returns>
+            <remarks>该方法Oracle不支持， 如果需要查询返回多个DataTable请将其写成存储过程</remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Database.ExecuteDataSetAsync(System.Data.Common.DbCommand,System.Int32,System.Int32,System.String[])">
+            <summary>
+            返回查询结果
+            </summary>
+            <param name="command">Command实例</param>
+            <param name="pageNo">要求返回数据所在的页码【以0开始】</param>
+            <param name="pageSize">要求返回数据每一页数据量【如果为零则表示所有数据】</param>
+            <param name="tableNames">每个查询结果的DataTable名称</param>
+            <returns>查询结果</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.DoExecuteScalarAsync(System.Data.Common.DbCommand)">
+            <summary>
+            异步执行Command返回单值
+            </summary>
+            <param name="command">Command实例</param>
+            <returns>单值</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.DoLoadDataSetAsync(System.Data.Common.DbCommand,System.Data.DataSet,System.Int32,System.Int32,System.String[])">
+            <summary>
+            异步向DataSet中填充Command返回的结果
+            </summary>
+            <param name="command">Command实例(要求此时Command对象的Connection已经设置并初始化)</param>
+            <param name="dataSet">待填充的DataSet</param>
+            <param name="tableNames">每个查询结果的DataTable名称</param>
+            <param name="pageNo">要求返回数据所在的页码【以0开始】</param>
+            <param name="pageSize">要求返回数据每一页数据量【如果为零则表示所有数据】</param>
+        </member>
+        <member name="M:MCS.Library.Data.Database.CreateCommandByCommandTypeAsync(System.Data.CommandType,System.String)">
+            <summary>
+            生成简单的DbCommand对象 
+            </summary>
+            <remarks>
+                相当于Provider Identpendent的new()出一个Command对象
+            </remarks>
+            <param name="commandText">Command执行语句</param>
+            <param name="commandType">Command类型</param>
+            <returns>Command对象</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Database.CreateCommandByCommandTypeAsync(System.Data.IDbCommand)">
+            <summary>
+            生成简单的DbCommand对象 
+            <remarks>
+                相当于Provider Identpendent的new()出一个Command对象
+            </remarks>
+            </summary>
+            <param name="originalCommand">需要执行的数据库语句</param>
+            <returns>Command对象</returns>
+        </member>
+        <member name="P:MCS.Library.Data.Database.Name">
+            <summary>
+            数据库逻辑名称
+            </summary>
+        </member>
+        <member name="E:MCS.Library.Data.Database.BeforeExecution">
+            <summary>
+            数据库调用执行之前的事件
+            </summary>
+        </member>
+        <member name="E:MCS.Library.Data.Database.AfterExecution">
+            <summary>
+            数据库调用执行之后的事件
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Database.DefaultReturnValueParameterName">
+            <summary>
+            对于存储过程（尤其是Function），一般ExecuteScalar的返回结果保存在RETURN_VALUE中，
+            但不同数据库该参数命名不同，因此需要由各数据库实例自己实现该属性
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Data.DatabaseExtensions">
+            <summary>
+            数据库操作相关的扩展方法
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.DatabaseExtensions.FillAsync(System.Data.Common.DbDataAdapter,System.Data.DataSet)">
+            <summary>
+            异步填充数据集
+            </summary>
+            <param name="adapter"></param>
+            <param name="dataSet"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.DatabaseExtensions.FillAsync(System.Data.Common.DbDataAdapter,System.Data.DataSet,System.String)">
+            <summary>
+            异步填充一个数据集中一个数据表
+            </summary>
+            <param name="adapter"></param>
+            <param name="dataSet"></param>
+            <param name="srcTable"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.DatabaseExtensions.FillAsync(System.Data.Common.DbDataAdapter,System.Data.DataTable)">
+            <summary>
+            异步填充数据表
+            </summary>
+            <param name="adapter"></param>
+            <param name="dataTable"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.DatabaseExtensions.FillAsync(System.Data.Common.DbDataAdapter,System.Int32,System.Int32,System.Data.DataTable[])">
+            <summary>
+            异步填充一组数据表
+            </summary>
+            <param name="adapter"></param>
+            <param name="startRecord"></param>
+            <param name="maxRecords"></param>
+            <param name="dataTables"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.DatabaseExtensions.FillAsync(System.Data.Common.DbDataAdapter,System.Data.DataSet,System.Int32,System.Int32,System.String)">
+            <summary>
+            异步填充一个数据集中的一个数据表
+            </summary>
+            <param name="adapter"></param>
+            <param name="dataSet"></param>
+            <param name="startRecord"></param>
+            <param name="maxRecords"></param>
+            <param name="srcTable"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Library.Data.DatabaseFactory">
+            <summary>
+            根据数据库的逻辑名称创建Database实例的工厂类
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.DatabaseFactory.Create(System.String)">
+            <summary>
+            根据数据库的逻辑名称创建Database实例
+            </summary>
+            <param name="name">数据库逻辑名称</param>
+            <returns>Database实例</returns>
+        </member>
+        <member name="M:MCS.Library.Data.DatabaseFactory.Create(MCS.Library.Data.DbContext)">
+            <summary>
+            通过Context获取数据库对象实例
+            </summary>
+            <param name="context">调用上下文对象</param>
+            <returns>Database实例</returns>
+        </member>
+        <member name="T:MCS.Library.Data.DbContext">
+            <summary>
+            Generic database processing context.
+            <remarks>
+            <list type="bullet">
+                <item>this context is attatch to current HttpContext(web app) or Thread CurrentContext property.</item>
+                <item>the primary goal is to harmonize the Transaction management in a call stack.</item>
+                <item>itself could be disposed automatically.</item>
+            </list>
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.DbContext.GetContext(System.String,System.Boolean)">
+            <summary>
+            获取一个DbContext对象
+            </summary>
+            <param name="name">连接名称</param>
+            <param name="autoClose">是否自动关闭</param>
+            <returns>DbContext对象</returns>
+        </member>
+        <member name="M:MCS.Library.Data.DbContext.GetContext(System.String)">
+            <summary>
+            重载获取DbContext对象
+            </summary>
+            <param name="name">连接名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.DbContext.GetContextAsync(System.String,System.Boolean)">
+            <summary>
+            获取一个DbContext对象
+            </summary>
+            <param name="name">连接名称</param>
+            <param name="autoClose">是否自动关闭</param>
+            <returns>DbContext对象</returns>
+        </member>
+        <member name="M:MCS.Library.Data.DbContext.GetContextAsync(System.String)">
+            <summary>
+            异步获取DbContext对象
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.DbContext.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.DbContext.InitDbContext(System.String,System.Boolean)">
+            <summary>
+            初始化DbContext
+            </summary>
+            <param name="name"></param>
+            <param name="autoClose"></param>
+        </member>
+        <member name="M:MCS.Library.Data.DbContext.InitDbContextAsync(System.String,System.Boolean)">
+            <summary>
+            异步初始化DbContext
+            </summary>
+            <param name="name"></param>
+            <param name="autoClose"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.DbContext.Dispose(System.Boolean)">
+            <summary>
+            释放资源
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="P:MCS.Library.Data.DbContext.AutoClose">
+            <summary>
+            是否自动关闭
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.DbContext.Connection">
+            <summary>
+            数据连接对象
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.DbContext.LocalTransaction">
+            <summary>
+            数据事务对象
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.DbContext.Name">
+            <summary>
+            数据连接名称
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.DbContext.CommandTimeout">
+            <summary>
+            SQL命令的超时时间
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.DeluxeDbContextBase.NamePrefix">
+            <summary>
+            Private const
+            <remarks>
+                db context key name prefix
+            </remarks>
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.DeluxeDbContextBase.NamePostfixWithoutTransaction">
+            <summary>
+            Private const
+            <remarks>
+                the context key name postfix that doesn't exists in transaction.
+            </remarks>
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.DeluxeDbContextBase._name">
+            <summary>
+            Logical database name
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.DeluxeDbContextBase._connection">
+            <summary>
+            Internal connection object for non-transactional context
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.DeluxeDbContextBase._localTransaction">
+            <summary>
+            Internal transaction object for non-transactional context
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.DeluxeDbContextBase._isInTransaction">
+            <summary>
+            Whether exists a transaction in constructor
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.DeluxeDbContextBase._isConnectionCreator">
+            <summary>
+            Whether this context created a new DbConnection instance.
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.DeluxeDbContextBase.#ctor(System.String,System.Boolean)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="name">连接名称</param>
+            <param name="autoClose">随即关闭</param>
+        </member>
+        <member name="M:MCS.Library.Data.DeluxeDbContextBase.Dispose(System.Boolean)">
+            <summary>
+            删除数据连接
+            <remarks>
+                the dispose process is varied according to whether a Current Transaction exists.
+            <list type="bullet">
+            </list>
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.DeluxeDbContextBase.OnInitWithTransaction">
+            <summary>
+            事务初始化
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.DeluxeDbContextBase.OnGetConnectionWithTransaction(System.Transactions.Transaction)">
+            <summary>
+            获取事务连接
+            </summary>
+            <param name="ts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.DeluxeDbContextBase.ReleaseConnection">
+            <summary>
+            释放连接
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.DeluxeDbContextBase.RemoveConnection">
+            <summary>
+            删除连接
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.DeluxeDbContextBase.InitDbContext(System.String,System.Boolean)">
+            <summary>
+            初始化数据事物操作
+            </summary>
+            <param name="name">数据连接名称</param>
+            <param name="autoClose">是否自动关闭</param>
+        </member>
+        <member name="M:MCS.Library.Data.DeluxeDbContextBase.CreateConnection(System.String)">
+            <summary>
+            创建一个连接
+            <remarks>
+                the connection retrieve process is as the following procedure:
+            <list type="bullet">
+                <item>if no transaction exists, this method create and return a new DbConnection instance</item>
+                <item>if transaction exists, this method should return a cached DbConnection instance</item>
+            </list>
+            <param name="name">数据库连接名称</param>
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.DeluxeDbContextBase.GetConnectionWithoutTx(System.String)">
+            <summary>
+            根据名称得到GraphWithoutTx的连接对象。如果不存在，自动创建一个新的连接对象（没有Open）
+            </summary>
+            <param name="connName">数据库连接名称</param>
+            <returns>GraphWithoutTx的连接对象</returns>
+        </member>
+        <member name="M:MCS.Library.Data.DeluxeDbContextBase.GetRefConnectionWithoutTx(System.String)">
+            <summary>
+            根据名称得到当前引用的连接
+            </summary>
+            <param name="connName">数据库连接名称</param>
+            <returns>连接对象</returns>
+        </member>
+        <member name="M:MCS.Library.Data.DeluxeDbContextBase.OpenConnection(System.String,System.Data.Common.DbConnection)">
+            <summary>
+            打开连接，如果出错，则返回连接名称
+            </summary>
+            <param name="name"></param>
+            <param name="conn"></param>
+        </member>
+        <member name="M:MCS.Library.Data.DeluxeDbContextBase.OpenConnectionAsync(System.String,System.Data.Common.DbConnection)">
+            <summary>
+            打开连接，如果出错，则返回连接名称
+            </summary>
+            <param name="name"></param>
+            <param name="conn"></param>
+        </member>
+        <member name="M:MCS.Library.Data.DeluxeDbContextBase.CompleteIndividualTransaction(System.Object,System.Transactions.TransactionEventArgs)">
+            <summary>
+            Event handler when transaction has completed.
+            <remarks>
+                clear all associated DbConnection and remove associated graph element.
+            </remarks>
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.DeluxeDbContextBase.Name">
+            <summary>
+            数据库逻辑名称
+            </summary>
+            <remarks>
+            数据库连接对象别名，仅仅在GenericDatabaseFactory调用
+            </remarks>
+        </member>
+        <member name="P:MCS.Library.Data.DeluxeDbContextBase.IsConnectionCreator">
+            <summary>
+            当前上下文是否是连接的创建者
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.DeluxeDbContextBase.Connection">
+            <summary>
+            Current context connection.
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.DeluxeDbContextBase.IsInTransaction">
+            <summary>
+            是否在事务中构造的上下文
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.DeluxeDbContextBase.StaticGraphWithoutTx">
+            <summary>
+            获取事务不相关数据连接字典
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.DeluxeDbContextBase.ReferenceConnection.#ctor(System.String,System.Data.Common.DbConnection)">
+            <summary>
+            引用连接
+            </summary>
+            <param name="connName">连接名称</param>
+            <param name="conn">数据库连接对象</param>
+        </member>
+        <member name="F:MCS.Library.Data.AutoEnlistDbContext.graphWithTx">
+            <summary>
+            Current context entity management target (with transaction support).
+            <remarks>
+                the Key type is a System.Transaction.Transaction
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.AutoEnlistDbContext.#ctor(System.String,System.Boolean)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="name">连接名称</param>
+            <param name="autoClose">是否自动关闭连接</param>
+        </member>
+        <member name="M:MCS.Library.Data.AutoEnlistDbContext.OnGetConnectionWithTransaction(System.Transactions.Transaction)">
+            <summary>
+            重写获取当前事物所使用的数据连接的函数
+            </summary>
+            <param name="ts">事物对象</param>
+            <returns>数据连接</returns>
+        </member>
+        <member name="M:MCS.Library.Data.AutoEnlistDbContext.OnTransactionCompleted(System.Transactions.TransactionEventArgs)">
+            <summary>
+            重新数据库事物结束时触发的事件
+            </summary>
+            <param name="args">事件对象</param>
+        </member>
+        <member name="P:MCS.Library.Data.AutoEnlistDbContext.GraphWithTx">
+            <summary>
+            Get connection graph when executing without transaction.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:MCS.Library.Data.NotEnlistDbContext.graphWithTx">
+            <summary>
+            Current context entity management target (with transaction support).
+            <remarks>
+                the Key type is a System.Transaction.Transaction
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.NotEnlistDbContext.#ctor(System.String,System.Boolean)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="name">连接名称</param>
+            <param name="autoClose">是否自动关闭</param>
+        </member>
+        <member name="P:MCS.Library.Data.NotEnlistDbContext.GraphWithTx">
+            <summary>
+            Get connection graph when executing without transaction.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Library.Data.DbEventType">
+            <summary>
+            数据访问调用时机类型
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.DbEventType.BeforeExecution">
+            <summary>
+            调用执行前
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.DbEventType.AfterExecution">
+            <summary>
+            调用执行后
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.DbEventType.Exception">
+            <summary>
+            调用异常阶段
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Data.Mapping.AdjustConditionValueDelegate">
+            <summary>
+            根据Condition生成WhereSqlClauseBuilder的时候，对赋与条件表达式的值进行调整
+            </summary>
+            <param name="propertyName"></param>
+            <param name="propertyValue"></param>
+            <param name="ignored"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Library.Data.Mapping.ConditionMapping">
+            <summary>
+            条件表达式和对象的映射关系类
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ConditionMapping.GetMappingInfo(System.Type)">
+            <summary>
+            得到某个类型的条件表达式映射方式
+            </summary>
+            <param name="type">类型信息</param>
+            <returns>映射方式</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ConditionMapping.GetWhereSqlClauseBuilder(System.Object)">
+            <summary>
+            根据条件对象生成WhereSqlClauseBuilder
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ConditionMapping.GetWhereSqlClauseBuilder(System.Object,MCS.Library.Data.Mapping.AdjustConditionValueDelegate)">
+            <summary>
+            根据条件对象生成WhereSqlClauseBuilder
+            </summary>
+            <param name="condition"></param>
+            <param name="acv"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ConditionMapping.GetWhereSqlClauseBuilder(System.Object,System.Boolean)">
+            <summary>
+            根据条件对象生成WhereSqlClauseBuilder
+            </summary>
+            <param name="condition"></param>
+            <param name="ignoreDefaultValue">如果对象的属性值为缺省值时，不进入到WhereSqlClauseBuilder</param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ConditionMapping.GetWhereSqlClauseBuilder(System.Object,System.Boolean,MCS.Library.Data.Mapping.AdjustConditionValueDelegate)">
+            <summary>
+            根据条件对象生成WhereSqlClauseBuilder
+            </summary>
+            <param name="condition"></param>
+            <param name="ignoreDefaultValue"></param>
+            <param name="acv"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Library.Data.Mapping.ConditionMappingItem">
+            <summary>
+            条件表达式和对象属性的映射关系
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.ConditionMappingItem.PropertyName">
+            <summary>
+            对象的属性名称
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.ConditionMappingItem.SubClassTypeDescription">
+            <summary>
+            对应的子对象的类型描述
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.ConditionMappingItem.SubClassPropertyName">
+            <summary>
+            子对象的属性名称
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.ConditionMappingItem.Operation">
+            <summary>
+            操作符，缺省为“=”
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.ConditionMappingItem.IsExpression">
+            <summary>
+            是否是表达式
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.ConditionMappingItem.DataFieldName">
+            <summary>
+            数据字段的类型
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.ConditionMappingItem.EnumUsage">
+            <summary>
+            枚举类型的使用方法（值/还是描述）
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.ConditionMappingItem.MemberInfo">
+            <summary>
+            对应的成员对象信息
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.ConditionMappingItem.Prefix">
+            <summary>
+            生成Value时的前缀
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.ConditionMappingItem.Postfix">
+            <summary>
+            生成Value时的后缀
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.ConditionMappingItem.AdjustDays">
+            <summary>
+            如果是日期型，需要调整天数。
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.ConditionMappingItem.Template">
+            <summary>
+            生成的SQL子句的表达式模板。默认是${DataField}$ ${Operation}$ ${Data}$
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.ConditionMappingItem.EscapeLikeString">
+            <summary>
+            是否按照LIKE子句转义字符串中的LIKE保留字
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Data.Mapping.ConditionMappingItemCollection">
+            <summary>
+            条件表达式和对象映射条目集合
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ConditionMappingItemCollection.Add(MCS.Library.Data.Mapping.ConditionMappingItem)">
+            <summary>
+            添加一个条件项
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ConditionMappingItemCollection.Remove(MCS.Library.Data.Mapping.ConditionMappingItem)">
+            <summary>
+            删除一个条件项
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ConditionMappingItemCollection.OnValidate(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.ConditionMappingItemCollection.Item(System.Int32)">
+            <summary>
+            按照索引添加或设置一个条件项
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Library.Data.Mapping.ORMappingContext">
+            <summary>
+            ORMapping过程中的上下文对象
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Data.Mapping.ORMapping">
+            <summary>
+            ORMapping的partial class，主要封装了公有方法
+            </summary>
+            <summary>
+            进行ORMapping的功能类
+            </summary>
+            <remarks>
+            提供一些对象和数据字段进行转换的静态方法
+            </remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.GetMappingInfo``1">
+            <summary>
+            获取对象和数据字段之间的映射关系
+            </summary>
+            <typeparam name="T">对象的类型</typeparam>
+            <returns>映射关系集合</returns>
+            <remarks>获取对象和数据字段之间的映射关系
+            <see cref="T:MCS.Library.Data.Mapping.ORMappingItemCollection"/>
+            <code source="..\Framework\TestProjects\DeluxeWorks.Library.Data.SqlBuilder.Test\ORMappingTest.cs" region="GetMappingInfo" lang="cs" title="获取对象和数据字段之间的映射关系"/>
+            </remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.GetMappingInfo(System.Type)">
+            <summary>
+             获取对象和数据字段之间的映射关系
+            </summary>
+            <param name="type">对象的类型</param>
+            <returns>获取对象和数据字段之间的映射关系</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.GetSelectFieldsName(MCS.Library.Data.Mapping.ORMappingItemCollection,System.String[])">
+            <summary>
+            根据映射关系，得到Select语句中返回的字段名称数组
+            </summary>
+            <param name="mapping"></param>
+            <param name="ignoreProperties"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.GetSelectFieldsNameSql(MCS.Library.Data.Mapping.ORMappingItemCollection,System.String[])">
+            <summary>
+            根据映射关系，得到Select语句中返回的字段名称的SQL语句部分
+            </summary>
+            <param name="mapping"></param>
+            <param name="ignoreProperties"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.GetSelectFieldsNameSql``1(System.String[])">
+            <summary>
+            根据类型，得到Select语句中返回的字段名称的SQL语句部分
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="ignoreProperties"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.GetSelectFieldsName``1(System.String[])">
+            <summary>
+            根据数据类型，得到Select语句中返回的字段名称数组
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="ignoreProperties"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.GetInsertSql``1(``0,MCS.Library.Data.Builder.ISqlBuilder,System.String[])">
+            <summary>
+            根据对象拼Insert语句
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="graph">对象</param>
+            <param name="builder">生成Sql语句类型的Builder如TSqlBuilder或PlSqlBuilder</param>
+            <param name="ignoreProperties">忽略的字段</param>
+            <returns>根据传入的对象和对象映射时需要忽略的字段以及类定义上的表名，生成完整的Insert语句</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.GetInsertSql``1(``0,MCS.Library.Data.Mapping.ORMappingItemCollection,MCS.Library.Data.Builder.ISqlBuilder,System.String[])">
+            <summary>
+            根据对象拼Insert语句
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="graph">对象</param>
+            <param name="mapping">映射关系</param>
+            <param name="builder">生成Sql语句类型的Builder如TSqlBuilder或PlSqlBuilder</param>
+            <param name="ignoreProperties">忽略的字段</param>
+            <returns>根据传入的对象和对象映射时需要忽略的字段以及类定义上的表名，生成完整的Insert语句</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.GetInsertSqlClauseBuilder``1(``0,System.String[])">
+            <summary>
+            根据对象拼Insert语句时的方法
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="graph">对象</param>
+            <param name="ignoreProperties">忽略的字段</param>
+            <returns>InsertSqlClauseBuilder对象，供拼Insert语句使用</returns>
+            <remarks>
+            根据传入的对象和对象映射时需要忽略的字段，返回InsertSqlClauseBuilder对象，以供后续拼Insert语句的字段名称和Values部分
+            <code source="..\Framework\TestProjects\DeluxeWorks.Library.Data.SqlBuilder.Test\ORMappingTest.cs" region="GetInsertSqlClauseBuilder" lang="cs" title="拼Insert语句"/>
+            <see cref="T:MCS.Library.Data.Builder.InsertSqlClauseBuilder"/>
+            </remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.GetInsertSqlClauseBuilder``1(``0,MCS.Library.Data.Mapping.ORMappingItemCollection,System.String[])">
+            <summary>
+            根据对象拼Insert语句时的方法
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="graph">对象</param>
+            <param name="mapping">映射关系</param>
+            <param name="ignoreProperties">忽略的字段</param>
+            <returns>InsertSqlClauseBuilder对象，供拼Insert语句使用</returns>
+            <remarks>
+            根据传入的对象和对象映射时需要忽略的字段，返回InsertSqlClauseBuilder对象，以供后续拼Insert语句的字段名称和Values部分
+            <code source="..\Framework\TestProjects\DeluxeWorks.Library.Data.SqlBuilder.Test\ORMappingTest.cs" region="GetInsertSqlClauseBuilder" lang="cs" title="拼Insert语句"/>
+            <see cref="T:MCS.Library.Data.Builder.InsertSqlClauseBuilder"/>
+            </remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.GetUpdateSql``1(``0,MCS.Library.Data.Builder.ISqlBuilder,System.String[])">
+            <summary>
+            根据对象拼Update语句
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="graph">对象</param>
+            <param name="builder">生成Sql语句类型的Builder如TSqlBuilder或PlSqlBuilder</param>
+            <param name="ignoreProperties">忽略的字段</param>
+            <returns>根据传入的对象和对象映射时需要忽略的字段以及类定义上的表名，生成完整的Update语句</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.GetUpdateSql``1(``0,MCS.Library.Data.Mapping.ORMappingItemCollection,MCS.Library.Data.Builder.ISqlBuilder,System.String[])">
+            <summary>
+            根据对象拼Insert语句
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="graph">对象</param>
+            <param name="mapping">映射关系</param>
+            <param name="builder">生成Sql语句类型的Builder如TSqlBuilder或PlSqlBuilder</param>
+            <param name="ignoreProperties">忽略的字段</param>
+            <returns>根据传入的对象和对象映射时需要忽略的字段以及类定义上的表名，生成完整的Insert语句</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.GetUpdateSqlClauseBuilder``1(``0,System.String[])">
+            <summary>
+            根据对象拼Update语句时的方法
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="graph">对象</param>
+            <param name="ignoreProperties">忽略的字段</param>
+            <returns>UpdateSqlClauseBuilder对象，供拼Update语句使用</returns>
+            <remarks>
+            根据传入的对象和对象映射时需要忽略的字段，返回UpdateSqlClauseBuilder对象，以供后续拼Update语句的字段名称和Values部分
+            <code source="..\Framework\TestProjects\DeluxeWorks.Library.Data.SqlBuilder.Test\ORMappingTest.cs" region="GetUpdateSqlClauseBuilder" lang="cs" title="拼Update语句"/>
+            <see cref="T:MCS.Library.Data.Builder.UpdateSqlClauseBuilder"/>
+            </remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.GetUpdateSqlClauseBuilder``1(``0,MCS.Library.Data.Mapping.ORMappingItemCollection,System.String[])">
+            <summary>
+            根据对象拼Update语句时的方法
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="graph">对象</param>
+            <param name="mapping">映射关系</param>
+            <param name="ignoreProperties">忽略的字段</param>
+            <returns>UpdateSqlClauseBuilder对象，供拼Update语句使用</returns>
+            <remarks>
+            根据传入的对象和对象映射时需要忽略的字段，返回UpdateSqlClauseBuilder对象，以供后续拼Update语句的字段名称和Values部分
+            <code source="..\Framework\TestProjects\DeluxeWorks.Library.Data.SqlBuilder.Test\ORMappingTest.cs" region="GetUpdateSqlClauseBuilder" lang="cs" title="拼Update语句"/>
+            <see cref="T:MCS.Library.Data.Builder.UpdateSqlClauseBuilder"/>
+            </remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.GetWhereSqlClauseBuilder``1(``0,System.String[])">
+            <summary>
+            根据对象拼Where子句的方法
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="graph">对象</param>
+            <param name="ignoreProperties">忽略的字段</param>
+            <returns>WhereSqlClauseBuilder，供拼Where子句使用</returns>
+            <remarks>
+            根据传入的对象和对象映射时需要忽略的字段，返回WhereSqlClauseBuilder对象，以供后续拼Where子句使用
+            <code source="..\Framework\TestProjects\DeluxeWorks.Library.Data.SqlBuilder.Test\ORMappingTest.cs" region="GetWhereSqlClauseBuilder" lang="cs" title="根据传入的对象拼Where子句"/>
+            <see cref="T:MCS.Library.Data.Builder.WhereSqlClauseBuilder"/>
+            </remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.GetWhereSqlClauseBuilder``1(``0,MCS.Library.Data.Mapping.ORMappingItemCollection,System.String[])">
+            <summary>
+            根据对象拼Where子句的方法
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="graph">对象</param>
+            <param name="mapping">映射关系</param>
+            <param name="ignoreProperties">忽略的字段</param>
+            <returns>WhereSqlClauseBuilder，供拼Where子句使用</returns>
+            <remarks>
+            根据传入的对象和对象映射时需要忽略的字段，返回WhereSqlClauseBuilder对象，以供后续拼Where子句使用
+            <code source="..\Framework\TestProjects\DeluxeWorks.Library.Data.SqlBuilder.Test\ORMappingTest.cs" region="GetWhereSqlClauseBuilder" lang="cs" title="根据传入的对象拼Where子句"/>
+            <see cref="T:MCS.Library.Data.Builder.WhereSqlClauseBuilder"/>
+            </remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.GetWhereSqlClauseBuilderByPrimaryKey``1(``0,System.String[])">
+            <summary>
+            根据对象、主键、忽略的属性，生成WhereSqlClauseBuilder对象
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="graph">对象</param>
+            <param name="ignoreProperties">忽略的字段属性</param>
+            <returns>WhereSqlClauseBuilder，供拼Where子句使用</returns>
+            <remarks>
+            根据传入的对象、主键、忽略的属性，返回WhereSqlClauseBuilder对象，以供后续拼Where子句使用
+            <code source="..\Framework\TestProjects\DeluxeWorks.Library.Data.SqlBuilder.Test\ORMappingTest.cs" region="GetWhereSqlClauseBuilderByPrimaryKey" lang="cs" title="根据主键生成WhereSqlClauseBuilder对象"/>
+            <see cref="T:MCS.Library.Data.Builder.WhereSqlClauseBuilder"/>
+            </remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.GetWhereSqlClauseBuilderByPrimaryKey``1(``0,MCS.Library.Data.Mapping.ORMappingItemCollection,System.String[])">
+            <summary>
+            根据对象、主键、忽略的属性，生成WhereSqlClauseBuilder对象
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="graph">对象</param>
+            <param name="mapping">映射关系</param>
+            <param name="ignoreProperties">忽略的字段属性</param>
+            <returns>WhereSqlClauseBuilder，供拼Where子句使用</returns>
+            <remarks>
+            根据传入的对象、主键、忽略的属性，返回WhereSqlClauseBuilder对象，以供后续拼Where子句使用
+            <code source="..\Framework\TestProjects\DeluxeWorks.Library.Data.SqlBuilder.Test\ORMappingTest.cs" region="GetWhereSqlClauseBuilderByPrimaryKey" lang="cs" title="根据主键生成WhereSqlClauseBuilder对象"/>
+            <see cref="T:MCS.Library.Data.Builder.WhereSqlClauseBuilder"/>
+            </remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.AppendTenantCode``1(``0,System.String)">
+            <summary>
+            从Tenant上下文中获取TenantCode并且添加到Builder中
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="builder"></param>
+            <param name="tenantCodeFieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.AppendTenantCode``1(``0,System.Type)">
+            <summary>
+            根据类型上的TenantRelativeObjectAttribute以及TenantContext.Current.Enabled决定是否在builder上添加租户编码字段
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="builder"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.DataRowToObject``1(System.Data.DataRow,``0)">
+            <summary>
+            将DataRow的值写入到对象中
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="row">DataRow对象</param>
+            <param name="graph">对象</param>
+            <remarks>
+            将传入的DataRow中的数值写入到对象graph中
+            <code source="..\Framework\TestProjects\DeluxeWorks.Library.Data.SqlBuilder.Test\ORMappingTest.cs" region="DataRowToObject" lang="cs" title="将DataRow的值写入到对象中"/>
+            </remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.DataViewToCollection``1(MCS.Library.Data.DataObjects.EditableDataObjectCollectionBase{``0},System.Data.DataView)">
+            <summary>
+            DataView的数据转换到集合中
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="collection"></param>
+            <param name="view"></param>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.DataViewToCollection``1(MCS.Library.Data.DataObjects.EditableDataObjectCollectionBase{``0},MCS.Library.Data.Mapping.ORMappingItemCollection,System.Data.DataView,MCS.Library.Data.Mapping.DataToObjectDeligations)">
+            <summary>
+            DataView的数据转换到集合中
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="collection"></param>
+            <param name="items"></param>
+            <param name="view"></param>
+            <param name="dod"></param>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.DataViewToCollection``1(MCS.Library.Data.DataObjects.EditableDataObjectCollectionBase{``0},MCS.Library.Data.Mapping.ORMappingItemCollection,System.Data.DataView)">
+            <summary>
+            DataView的数据转换到集合中
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="collection"></param>
+            <param name="items"></param>
+            <param name="view"></param>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.DataViewToCollection``1(MCS.Library.Data.DataObjects.EditableDataObjectCollectionBase{``0},System.Data.DataView,MCS.Library.Data.Mapping.DataToObjectDeligations)">
+            <summary>
+            DataView的数据转换到集合中
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="collection"></param>
+            <param name="view"></param>
+            <param name="dod"></param>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.DataRowToObject``1(System.Data.DataRow,``0,MCS.Library.Data.Mapping.DataToObjectDeligations)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="row"></param>
+            <param name="graph"></param>
+            <param name="dod"></param>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.DataRowToObject(System.Data.DataRow,MCS.Library.Data.Mapping.ORMappingItemCollection,System.Object)">
+            <summary>
+            将DataRow的值写入到对象中
+            </summary>
+            <param name="row">DataRow对象</param>
+            <param name="items">映射关系</param>
+            <param name="graph">对象</param>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.DataRowToObject(System.Data.DataRow,MCS.Library.Data.Mapping.ORMappingItemCollection,System.Object,MCS.Library.Data.Mapping.DataToObjectDeligations)">
+            <summary>
+            
+            </summary>
+            <param name="row">DataRow对象</param>
+            <param name="items">映射关系</param>
+            <param name="graph">对象</param>
+            <param name="dod"></param>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.DataReaderToObject``1(System.Data.IDataReader,``0)">
+            <summary>
+            将DataReader的值写入到对象中
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="dr">IDataReader对象</param>
+            <param name="graph">对象</param>
+            <remarks>
+            将传入的DataReader中的数值写入到对象graph中
+            <code source="..\Framework\TestProjects\DeluxeWorks.Library.Data.SqlBuilder.Test\ORMappingTest.cs" region="DataReaderToObject" lang="cs" title="将DataRow的值写入到对象中"/>
+            </remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.DataReaderToObject``1(System.Data.IDataReader,``0,MCS.Library.Data.Mapping.DataToObjectDeligations)">
+            <summary>
+            将DataReader的值写入到对象中
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dr"></param>
+            <param name="graph"></param>
+            <param name="dod"></param>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.DataReaderToObject``1(System.Data.IDataReader,MCS.Library.Data.Mapping.ORMappingItemCollection,``0)">
+            <summary>
+            将DataReader的值写入到对象中
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="dr">IDataReader对象</param>
+            <param name="items">映射关系</param>
+            <param name="graph">对象</param>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.DataReaderToObject``1(System.Data.IDataReader,MCS.Library.Data.Mapping.ORMappingItemCollection,``0,MCS.Library.Data.Mapping.DataToObjectDeligations)">
+            <summary>
+            将DataReader的值写入到对象中
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="dr">IDataReader对象</param>
+            <param name="items">映射关系</param>
+            <param name="graph">对象</param>
+            <param name="dod"></param>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.DataReaderToCollection``1(MCS.Library.Data.DataObjects.EditableDataObjectCollectionBase{``0},System.Data.IDataReader)">
+            <summary>
+            DataReader到Collection
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="collection"></param>
+            <param name="dr"></param>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.DataReaderToCollection``1(MCS.Library.Data.DataObjects.EditableDataObjectCollectionBase{``0},System.Data.IDataReader,MCS.Library.Data.Mapping.DataToObjectDeligations)">
+            <summary>
+            DataReader到Collection
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="collection"></param>
+            <param name="dr"></param>
+            <param name="dod"></param>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.DataReaderToCollection``1(MCS.Library.Data.DataObjects.EditableDataObjectCollectionBase{``0},System.Data.IDataReader,MCS.Library.Data.Mapping.ORMappingItemCollection)">
+            <summary>
+            DataReader到Collection
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="collection"></param>
+            <param name="dr"></param>
+            <param name="items"></param>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.DataReaderToCollection``1(MCS.Library.Data.DataObjects.EditableDataObjectCollectionBase{``0},System.Data.IDataReader,MCS.Library.Data.Mapping.ORMappingItemCollection,MCS.Library.Data.Mapping.DataToObjectDeligations)">
+            <summary>
+            DataReader到Collection
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="collection"></param>
+            <param name="dr"></param>
+            <param name="items"></param>
+            <param name="dod"></param>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.DecorateDate(System.Object)">
+            <summary>
+            对数据进行最后的修饰，例如对日期类型的属性加工
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.EncryptPropertyValue(MCS.Library.Data.Mapping.ORMappingItem,System.Object)">
+            <summary>
+            加密数据
+            </summary>
+            <param name="item"></param>
+            <param name="originalData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMapping.GetLeaveMemberInfo(System.String,MCS.Library.Data.Mapping.ORMapping.RelativeAttributes,System.Reflection.MemberInfo)">
+            <summary>
+            得到属性路径中最低级别的MemberInfo
+            </summary>
+            <param name="propertyName"></param>
+            <param name="attrs"></param>
+            <param name="sourceMI"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Library.Data.Mapping.ORMappintItemEncryption">
+            <summary>
+            对象映射过程中，属性加密和解密的类
+            此类非线程安全的。
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMappintItemEncryption.#ctor(System.String)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMappintItemEncryption.GetDesObject">
+            <summary>
+            得到DES对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.ORMappintItemEncryption.Name">
+            <summary>
+            名称。
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Data.Mapping.ORMappintItemEncryptionCollection">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMappintItemEncryptionCollection.GetKeyForItem(MCS.Library.Data.Mapping.ORMappintItemEncryption)">
+            <summary>
+            
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Library.Data.Mapping.ORMappingItemEncryptionHelper">
+            <summary>
+            得到加密器
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMappingItemEncryptionHelper.GetEncryptor(System.String)">
+            <summary>
+            得到加密器
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Library.Data.DbParameterCache">
+            <summary>
+            存储过程参数缓冲
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.DbParameterCache.SetParameters(System.Data.Common.DbCommand,MCS.Library.Data.Database)">
+            <summary>
+            将缓冲好的参数组绑定到指定的Command对象上
+            </summary>
+            <param name="command">Command对象</param>
+            <param name="database">数据库实体</param>
+        </member>
+        <member name="M:MCS.Library.Data.DbParameterCache.SetParametersAsync(System.Data.Common.DbCommand,MCS.Library.Data.Database)">
+            <summary>
+            将缓冲好的参数组绑定到指定的Command对象上
+            </summary>
+            <param name="command">Command对象</param>
+            <param name="database">数据库实体</param>
+        </member>
+        <member name="M:MCS.Library.Data.DbParameterCache.Clear">
+            <summary>
+            清理缓冲
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.DbParameterCache.Clone(System.Data.IDbCommand)">
+            <summary>
+            提供某组参数的一个副本
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.DbParameterCache.Clone(System.Data.IDataParameter[])">
+            <summary>
+            提供某组参数的一个副本
+            </summary>
+            <param name="originalParameters">参数数组</param>
+        </member>
+        <member name="M:MCS.Library.Data.DbParameterCache.GetCommandParameters(System.Data.IDbCommand)">
+            <summary>
+            获取一组缓冲的参数
+            </summary>
+            <param name="command">Command对象</param>
+        </member>
+        <member name="T:MCS.Library.Data.Builder.ISqlBuilder">
+            <summary>
+            定义了一些SQL语句通用语法接口，可以由不同的实现类来实现
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.ISqlBuilder.CheckQuotationMark(System.String,System.Boolean)">
+            <summary>
+            进行单引号检查，如果发现字符串中有单引号，那么替换成两个单引号，防止注入式攻击
+            </summary>
+            <param name="data">字符串的值</param>
+            <param name="addQuotation">返回值是否在data的两端添加单引号</param>
+            <returns>检查后的字符串</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.ISqlBuilder.CheckUnicodeQuotationMark(System.String)">
+            <summary>
+            进行单引号检查，如果发现字符串中有单引号，那么替换成两个单引号，防止注入式攻击。然后在头尾各添加一个引号。然后添加Unicode说明
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.ISqlBuilder.GetDBStringLengthFunction(System.String,System.Boolean)">
+            <summary>
+            返回数据库中获得字符串长度的函数名称
+            </summary>
+            <param name="data">字段、变量或常量的名称</param>
+            <param name="addQuotation">data参数是否需要加引号</param>
+            <returns>字符串长度的函数名称</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.ISqlBuilder.GetDBByteLengthFunction(System.String,System.Boolean)">
+            <summary>
+            返回数据库中获得字节长度的函数名称
+            </summary>
+            <param name="data">字段、变量或常量的名称</param>
+            <param name="addQuotation">data参数是否需要加引号</param>
+            <returns>字节长度的函数名称</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.ISqlBuilder.GetDBSubStringStr(System.String,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            返回数据库中SubString函数的字符串
+            </summary>
+            <param name="data">字段、变量或常量的名称</param>
+            <param name="start">起始位</param>
+            <param name="length">长度</param>
+            <param name="addQuotation">data参数是否需要加引号</param>
+            <returns>SubString函数的字符串</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.ISqlBuilder.FormatDateTime(System.DateTime)">
+            <summary>
+            将DateTime格式化为数据库所识别的日期格式
+            </summary>
+            <param name="dt">日期</param>
+            <returns>数据库中的日期常量表示</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.ISqlBuilder.EscapeLikeString(System.String)">
+            <summary>
+            将LIKE对应的查询子句转义
+            </summary>
+            <param name="likeString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.ISqlBuilder.FormatFullTextString(MCS.Library.Data.Builder.LogicOperatorDefine,System.String)">
+            <summary>
+            格式化全文检索字符串。默认按照SQL Server的规则，消除双引号。并且将空格替换成逻辑运算符
+            </summary>
+            <param name="logicOp">逻辑运算符，默认是AND</param>
+            <param name="searchText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.ISqlBuilder.DBNullToString(System.String,System.String,System.Boolean)">
+            <summary>
+            得到SQL Server中的ISNULL或Oracle中的NVL
+            </summary>
+            <param name="data">需要检查的值</param>
+            <param name="nullStr">如果data为null, 则转化成的字符串</param>
+            <param name="addQuotation">data参数是否需要加引号</param>
+            <returns>得到SQL Server中的ISNULL或Oracle中的NVL</returns>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.ISqlBuilder.DBCurrentTimeFunction">
+            <summary>
+            数据库端返回当前时间的函数名称
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.ISqlBuilder.DBStrConcatSymbol">
+            <summary>
+            SQL语句中，字符串之间的连接符
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.ISqlBuilder.DBStatementBegin">
+            <summary>
+            批量SQL的开始标识，SQL Server中没有，Oracle中是BEGIN
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.ISqlBuilder.DBStatementEnd">
+            <summary>
+            批量SQL的结束标识，SQL Server中没有，Oracle中是BEGIN
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.ISqlBuilder.DBStatementSeperator">
+            <summary>
+            SQL语句之间的分隔符，SQL Server中是“;”或CR/LF，Oracle中是“;”+CR/LF
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Data.Builder.PlSqlBuilder">
+            <summary>
+            基于PL/SQL的ISqlBuilder的实现类
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Data.Builder.SqlBuilderBase">
+            <summary>
+            ISqlBuilder的实现基类
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.SqlBuilderBase.CheckQuotationMark(System.String,System.Boolean)">
+            <summary>
+            检查并修改引号标记
+            </summary>
+            <param name="data">需要检查的字符串</param>
+            <param name="addQuotation">是否添加引号</param>
+            <returns>返回检查后的字符串</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.SqlBuilderBase.CheckUnicodeQuotationMark(System.String)">
+            <summary>
+            进行单引号检查，如果发现字符串中有单引号，那么替换成两个单引号，防止注入式攻击。然后在头尾各添加一个引号。然后添加Unicode说明
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.SqlBuilderBase.GetDBStringLengthFunction(System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="data"></param>
+            <param name="addQuotation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.SqlBuilderBase.GetDBByteLengthFunction(System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="data"></param>
+            <param name="addQuotation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.SqlBuilderBase.GetDBSubStringStr(System.String,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="data"></param>
+            <param name="start"></param>
+            <param name="length"></param>
+            <param name="addQuotation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.SqlBuilderBase.FormatDateTime(System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.SqlBuilderBase.FormatFullTextString(MCS.Library.Data.Builder.LogicOperatorDefine,System.String)">
+            <summary>
+            格式化全文检索字符串。默认按照SQL Server的规则，消除双引号。并且将空格替换成逻辑运算符
+            </summary>
+            <param name="logicOp">逻辑运算符，默认是AND</param>
+            <param name="searchText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.SqlBuilderBase.DBNullToString(System.String,System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="data"></param>
+            <param name="nullStr"></param>
+            <param name="addQuotation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.SqlBuilderBase.EscapeLikeString(System.String)">
+            <summary>
+            将LIKE对应的查询子句转义。将语句中的%、[、_转义
+            </summary>
+            <param name="likeString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.SqlBuilderBase.AddQuotation(System.String,System.Boolean)">
+            <summary>
+            添加引号
+            </summary>
+            <param name="data">需要操作的字符串</param>
+            <param name="addQuotation">添加引号</param>
+            <returns></returns>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.SqlBuilderBase.DBCurrentTimeFunction">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.SqlBuilderBase.DBStrConcatSymbol">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.SqlBuilderBase.DBStatementBegin">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.SqlBuilderBase.DBStatementEnd">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.SqlBuilderBase.DBStatementSeperator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.Builder.PlSqlBuilder.Instance">
+            <summary>
+            PlSql的实例
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.PlSqlBuilder.DBNullToString(System.String,System.String,System.Boolean)">
+            <summary>
+            重写将空数据转化成字符串格式
+            </summary>
+            <param name="data">字符串数据</param>
+            <param name="nullStr">空字符串</param>
+            <param name="addQuotation">是否增加引用</param>
+            <returns>返回转化后的字符串</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.PlSqlBuilder.FormatDateTime(System.DateTime)">
+            <summary>
+            将DateTime格式化为数据库所识别的日期格式
+            </summary>
+            <param name="dt">时间类型的数据</param>
+            <returns>数据库所识别的日期格式</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.PlSqlBuilder.GetDBByteLengthFunction(System.String,System.Boolean)">
+            <summary>
+            返回数据库中获得字节长度的函数名称
+            </summary>
+            <param name="data">字符串数据</param>
+            <param name="addQuotation">是否添加</param>
+            <returns>返回数据库中获得字节长度的函数名称</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.PlSqlBuilder.GetDBStringLengthFunction(System.String,System.Boolean)">
+            <summary>
+            返回数据库中获得字符串长度的函数名称
+            </summary>
+            <param name="data"></param>
+            <param name="addQuotation"></param>
+            <returns>返回数据库中获得字符串长度的函数名称</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.PlSqlBuilder.GetDBSubStringStr(System.String,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            返回数据库中SubString函数的字符串
+            </summary>
+            <param name="data">需要格式化的数据</param>
+            <param name="start">开始位置</param>
+            <param name="length">结束位置</param>
+            <param name="addQuotation">是否作为字符串参数执行</param>
+            <returns>返回数据库中SubString函数的字符串</returns>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.PlSqlBuilder.DBCurrentTimeFunction">
+            <summary>
+             数据库端返回当前时间的函数名称
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.PlSqlBuilder.DBStatementBegin">
+            <summary>
+            批量SQL的开始标识，SQL Server中没有，Oracle中是BEGIN
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.PlSqlBuilder.DBStatementEnd">
+            <summary>
+            批量SQL的结束标识，SQL Server中没有，Oracle中是END
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.PlSqlBuilder.DBStatementSeperator">
+            <summary>
+            QL语句之间的分隔符，SQL Server中是“;”或CR/LF，Oracle中是“;”+CR/LF
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.PlSqlBuilder.DBStrConcatSymbol">
+            <summary>
+            SQL语句中，字符串之间的连接符
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Data.Builder.SqlClauseBuilderBase">
+            <summary>
+            Sql子句构造器的抽象基类
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.Builder.SqlClauseBuilderBase.EqualTo">
+            <summary>
+            等号
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.Builder.SqlClauseBuilderBase.GreaterThanOrEqualTo">
+            <summary>
+            大于等于
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.Builder.SqlClauseBuilderBase.GreaterThan">
+            <summary>
+            大于
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.Builder.SqlClauseBuilderBase.LessThanOrEqualTo">
+            <summary>
+            小于等于
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.Builder.SqlClauseBuilderBase.LessThan">
+            <summary>
+            小于
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.Builder.SqlClauseBuilderBase.NotEqualTo">
+            <summary>
+            不等于
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.Builder.SqlClauseBuilderBase.Like">
+            <summary>
+            LIKE运算符
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.Builder.SqlClauseBuilderBase.Is">
+            <summary>
+            IS运算符
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.Builder.SqlClauseBuilderBase.In">
+            <summary>
+            IN运算符
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.SqlClauseBuilderBase.ToSqlString(MCS.Library.Data.Builder.ISqlBuilder)">
+            <summary>
+            抽象方法，将所有的构造项生成一个SQL
+            </summary>
+            <param name="sqlBuilder"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Library.Data.Builder.InSqlClauseBuilder">
+            <summary>
+            In操作的Sql语句构造器
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Data.Builder.IConnectiveSqlClause">
+            <summary>
+            可连接的Sql子句的接口
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.IConnectiveSqlClause.ToSqlString(MCS.Library.Data.Builder.ISqlBuilder)">
+            <summary>
+            生成Sql子句
+            </summary>
+            <param name="sqlBuilder"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.IConnectiveSqlClause.IsEmpty">
+            <summary>
+            子句是否为空
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.InSqlClauseBuilder.#ctor">
+            <summary>
+            构造方法
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.InSqlClauseBuilder.#ctor(System.Boolean)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="isNotIn">是否组合成NOT IN子句</param>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.InSqlClauseBuilder.#ctor(System.String)">
+            <summary>
+            数据字段
+            </summary>
+            <param name="dataField"></param>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.InSqlClauseBuilder.AppendItem``1(``0[])">
+            <summary>
+            添加一个构造项
+            </summary>SqlCaluseBuilderBase
+            <typeparam name="T">数据的类型</typeparam>
+            <param name="data">In操作的数据</param>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.InSqlClauseBuilder.AppendItem``1(System.Boolean,``0[])">
+            <summary>
+            添加一个构造项
+            </summary>
+            <typeparam name="T">数据的类型</typeparam>
+            <param name="data">In操作的数据</param>
+            <param name="isExpression">是否是表达式</param>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.InSqlClauseBuilder.ToSqlString(MCS.Library.Data.Builder.ISqlBuilder)">
+            <summary>
+            生成Sql语句（格式为：数据1,数据2，...）
+            </summary>
+            <param name="builder">Sql语句构造器</param>
+            <returns>生成Sql语句（格式为：数据1,数据2，...）</returns>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.InSqlClauseBuilder.ToSqlStringWithInOperator(MCS.Library.Data.Builder.ISqlBuilder)">
+            <summary>
+            生成Sql语句，加上In操作符。如果没有数据，In操作符也不生成
+            </summary>
+            <param name="builder">Sql语句构造器</param>
+            <returns>构造的In语句</returns>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.InSqlClauseBuilder.IsNotIn">
+            <summary>
+            是否组合成NOT IN子句
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.InSqlClauseBuilder.DataField">
+            <summary>
+            对应的数据字段，如果不为空，那么构造的时候，会自动带上字段名
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.InSqlClauseBuilder.IsEmpty">
+            <summary>
+            是否为空
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Data.Builder.SqlClauseBuilderIUW">
+            <summary>
+            Insert、Update、Where语句构造器的基类
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.SqlClauseBuilderIUW.AppendItem``1(System.String,``0)">
+            <summary>
+            添加一个构造项
+            </summary>SqlCaluseBuilderBase
+            <typeparam name="T">数据的类型</typeparam>
+            <returns>返回这个Builder自己，便于编写连续AppendItem语句，例如b.AppendItem(...).AppendItem(...)</returns>
+            <param name="dataField">Sql语句中的字段名</param>
+            <param name="data">操作的数据</param>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.SqlClauseBuilderIUW.AppendItem``1(System.String,``0,System.String)">
+            <summary>
+            添加一个构造项
+            </summary>
+            <typeparam name="T">数据的类型</typeparam>
+            <returns>返回这个Builder自己，便于编写连续AppendItem语句，例如b.AppendItem(...).AppendItem(...)</returns>
+            <param name="dataField">Sql语句中的字段名</param>
+            <param name="data">操作的数据</param>
+            <param name="op">操作运算符</param>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.SqlClauseBuilderIUW.AppendItem``1(System.String,``0,System.String,System.Boolean)">
+            <summary>
+            添加一个构造项
+            </summary>
+            <typeparam name="T">数据的类型</typeparam>
+            <returns>返回这个Builder自己，便于编写连续AppendItem语句，例如b.AppendItem(...).AppendItem(...)</returns>
+            <param name="dataField">Sql语句中的字段名</param>
+            <param name="data">操作的数据</param>
+            <param name="op">操作运算符</param>
+            <param name="isExpression">操作的数据是否是表达式</param>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.SqlClauseBuilderIUW.GetAllDataFields">
+            <summary>
+            得到所有的数据字段名
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.SqlClauseBuilderIUW.CreateBuilderItem">
+            <summary>
+            创建一个BuilderItem。派生类可以重载，创建自己的BuilderItem。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Library.Data.Builder.SqlClauseBuilderUW">
+            <summary>
+            UPDATE和WHERE语句构造器的基类
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.SqlClauseBuilderUW.CreateBuilderItem">
+            <summary>
+            创建SqlClauseBuilderItemUW
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.SqlClauseBuilderUW.AppendItem``1(System.String,``0,System.String,System.String)">
+            <summary>
+            添加一个构造项
+            </summary>
+            <typeparam name="T">数据的类型</typeparam>
+            <returns>返回这个Builder自己，便于编写连续AppendItem语句，例如b.AppendItem(...).AppendItem(...)</returns>
+            <param name="dataField">Sql语句中的字段名</param>
+            <param name="data">操作的数据</param>
+            <param name="op">操作运算符</param>
+            <param name="template">模板的样式</param>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.SqlClauseBuilderUW.AppendItem``1(System.String,``0,System.String,System.String,System.Boolean)">
+            <summary>
+            添加一个构造项
+            </summary>
+            <typeparam name="T">数据的类型</typeparam>
+            <returns>返回这个Builder自己，便于编写连续AppendItem语句，例如b.AppendItem(...).AppendItem(...)</returns>
+            <param name="dataField">Sql语句中的字段名</param>
+            <param name="data">操作的数据</param>
+            <param name="op">操作运算符</param>
+            <param name="template">模板的样式</param>
+            <param name="isExpression">操作的数据是否是表达式</param>
+        </member>
+        <member name="T:MCS.Library.Data.Builder.UpdateSqlClauseBuilder">
+            <summary>
+            提供一组字段和值的集合，帮助生成UPDATE语句的SET部分
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.UpdateSqlClauseBuilder.ToSqlString(MCS.Library.Data.Builder.ISqlBuilder)">
+            <summary>
+            生成Update语句的SET部分（不包括SET）
+            </summary>
+            <param name="sqlBuilder">Sql语句构造器</param>
+            <returns>构造的Update子句(不含update部分)</returns>
+        </member>
+        <member name="T:MCS.Library.Data.Builder.InsertSqlClauseBuilder">
+            <summary>
+            提供一组字段和值的集合，帮助生成INSERT语句的字段名称和VALUES部分
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.InsertSqlClauseBuilder.ToSqlString(MCS.Library.Data.Builder.ISqlBuilder)">
+            <summary>
+            生成INSERT语句的字段名称和VALUES部分
+            </summary>
+            <param name="sqlBuilder">Sql语句构造器</param>
+            <returns>构造的Insert子句(不含insert部分)</returns>
+        </member>
+        <member name="T:MCS.Library.Data.Builder.WhereSqlClauseBuilder">
+            <summary>
+            提供一组字段和值的集合，帮助生成WHERE语句
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.WhereSqlClauseBuilder.#ctor">
+            <summary>
+            构造方法
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.WhereSqlClauseBuilder.#ctor(MCS.Library.Data.Builder.LogicOperatorDefine)">
+            <summary>
+            构造方法，可以指定生成条件表达式时的逻辑运算符
+            </summary>
+            <param name="lod">逻辑运算符</param>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.WhereSqlClauseBuilder.ToSqlString(MCS.Library.Data.Builder.ISqlBuilder)">
+            <summary>
+            帮助生成WHERE语句
+            </summary>
+            <param name="sqlBuilder">语句构造器</param>
+            <returns>构造的Where子句(不含where部分)</returns>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.WhereSqlClauseBuilder.LogicOperator">
+            <summary>
+            条件表达式之间的逻辑运算符
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.WhereSqlClauseBuilder.IsEmpty">
+            <summary>
+            判断是否不存在任何条件表达式
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Data.Builder.OrderBySqlClauseBuilder">
+            <summary>
+            提供一组字段和值的集合，帮助生成ORDER BY语句的字段排序部分
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.OrderBySqlClauseBuilder.AppendItem(System.String,MCS.Library.Data.Builder.FieldSortDirection)">
+            <summary>
+            添加一个构造项
+            </summary>
+            <returns>返回这个Builder自己，便于编写连续AppendItem语句，例如b.AppendItem(...).AppendItem(...)</returns>
+            <param name="dataField">操作的数据</param>
+            <param name="sortDirection">排序方式</param>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.OrderBySqlClauseBuilder.ToSqlString(MCS.Library.Data.Builder.ISqlBuilder)">
+            <summary>
+            帮助生成ORDER BY语句的字段排序部分
+            </summary>
+            <param name="sqlBuilder">Sql语句构造器</param>
+            <returns>构造出的Order By子句</returns>
+        </member>
+        <member name="T:MCS.Library.Data.Builder.ConnectiveSqlClauseCollection">
+            <summary>
+            可连接的Sql子句的集合，可以统一生成Sql语句，各语句之间使用括号隔离
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.ConnectiveSqlClauseCollection.#ctor">
+            <summary>
+            构造方法
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.ConnectiveSqlClauseCollection.#ctor(MCS.Library.Data.Builder.IConnectiveSqlClause[])">
+            <summary>
+            
+            </summary>
+            <param name="sqlClause"></param>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.ConnectiveSqlClauseCollection.#ctor(MCS.Library.Data.Builder.LogicOperatorDefine)">
+            <summary>
+            构造方法，可以指定生成条件表达式时的逻辑运算符
+            </summary>
+            <param name="lo">逻辑运算符</param>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.ConnectiveSqlClauseCollection.#ctor(MCS.Library.Data.Builder.LogicOperatorDefine,MCS.Library.Data.Builder.IConnectiveSqlClause[])">
+            <summary>
+            
+            </summary>
+            <param name="lo"></param>
+            <param name="sqlClause"></param>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.ConnectiveSqlClauseCollection.Add(MCS.Library.Data.Builder.IConnectiveSqlClause)">
+            <summary>
+            增加一个可连接的Sql子句
+            </summary>
+            <returns>返回自身的对象，便于连续地执行Add，例如c.Add(...).Add(...)</returns>
+            <param name="clause">Sql子句</param>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.ConnectiveSqlClauseCollection.ToSqlString(MCS.Library.Data.Builder.ISqlBuilder)">
+            <summary>
+            将所有的构造项生成一个SQL
+            </summary>
+            <param name="sqlBuilder">Sql语句的构造器</param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.ConnectiveSqlClauseCollection.OnInsert(System.Int32,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="index"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.ConnectiveSqlClauseCollection.OnSet(System.Int32,System.Object,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="index"></param>
+            <param name="oldValue"></param>
+            <param name="newValue"></param>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.ConnectiveSqlClauseCollection.Item(System.Int32)">
+            <summary>
+            获取或设置一个可连接的Sql子句
+            </summary>
+            <param name="index">Sql子句</param>
+            <returns>可连接的Sql子句</returns>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.ConnectiveSqlClauseCollection.LogicOperator">
+            <summary>
+            Sql子句之间的逻辑运算符
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.ConnectiveSqlClauseCollection.IsEmpty">
+            <summary>
+            判断条件表达式是否为空
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Data.Builder.TSqlBuilder">
+            <summary>
+            基于T-SQL的ISqlBuilder的实现类
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.Builder.TSqlBuilder.Instance">
+            <summary>
+            TSqlBuilder的实例
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.TSqlBuilder.CheckUnicodeQuotationMark(System.String)">
+            <summary>
+            进行单引号检查，如果发现字符串中有单引号，那么替换成两个单引号，防止注入式攻击。然后在头尾各添加一个引号。然后添加Unicode前缀N
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.TSqlBuilder.DBNullToString(System.String,System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="data"></param>
+            <param name="nullStr"></param>
+            <param name="addQuotation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.TSqlBuilder.FormatDateTime(System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.TSqlBuilder.GetDBByteLengthFunction(System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="data"></param>
+            <param name="addQuotation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.TSqlBuilder.GetDBStringLengthFunction(System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="data"></param>
+            <param name="addQuotation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Builder.TSqlBuilder.GetDBSubStringStr(System.String,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="data"></param>
+            <param name="start"></param>
+            <param name="length"></param>
+            <param name="addQuotation"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.TSqlBuilder.DBCurrentTimeFunction">
+            <summary>
+            获取数据库同步时间函数
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.TSqlBuilder.DBStatementBegin">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.TSqlBuilder.DBStatementEnd">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.TSqlBuilder.DBStatementSeperator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Builder.TSqlBuilder.DBStrConcatSymbol">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Configuration.BuilderConfigurationElement.AttributeName">
+            <summary>
+            Builder适用于ConnectionString的Attribute名称
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Data.ConnectionStringElement">
+            <summary>
+            抽象来自于配置文件或者配置数据库的连接串对象
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.ConnectionStringElement.Name">
+            <summary>
+            连接串逻辑名称
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.ConnectionStringElement.ProviderName">
+            <summary>
+            数据驱动名称
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.ConnectionStringElement.ConnectionString">
+            <summary>
+            连接串
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.ConnectionStringElement.EventArgsType">
+            <summary>
+            数据访问事件对象类型
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.ConnectionStringElement.CommandTimeout">
+            <summary>
+            Command执行的超时时间
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Data.ConnectionStringBuilderBase">
+            <summary>
+            所有连接串解析对象的基类
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Data.Configuration.ConnectionStringConfigurationElement">
+            <summary>
+            连接串对象的配置元素
+            </summary>
+            <remarks>由于Builders是在该节点构造完毕后才有，因此对各属性的处理采用后加载处置的办法</remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Configuration.ConnectionManagerConfigurationSection.GetConfig">
+            <summary>
+            获取配置文件中的数据库连接（ConnectionManager）集合
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Library.Data.DbConnectionManager">
+            <summary>
+            解析配置文件，获取相应得ConnectionString及ProviderName，进而获取数据库连接和Provider信息的管理类
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.DbConnectionManager.GetConnectionString(System.String)">
+            <summary>
+            获取指定连接的ConnectionString
+            </summary>
+            <param name="name">数据库逻辑名称</param>
+            <returns>ConnectionString</returns>
+        </member>
+        <member name="M:MCS.Library.Data.DbConnectionManager.ConnectionNameIsConfiged(System.String)">
+            <summary>
+            数据库联接是否定义
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:MCS.Library.Data.DbConnectionManager.GetConnection(System.String)">
+            <summary>
+            根据数据库逻辑名称获得连接实例
+            </summary>
+            <param name="name">数据库逻辑名称</param>
+            <returns>数据库连接实例</returns>
+        </member>
+        <member name="M:MCS.Library.Data.DbConnectionManager.GetDbProviderName(System.String)">
+            <summary>
+            获取指定连接的ProviderName
+            </summary>
+            <param name="name">数据库逻辑名称</param>
+            <returns>ProviderName</returns>
+        </member>
+        <member name="M:MCS.Library.Data.DbConnectionManager.GetDataProvider(System.String)">
+            <summary>
+            获取指定连接的Database对象
+            </summary>
+            <param name="name">数据库逻辑名称</param>
+            <returns>连接的Database对象</returns>
+        </member>
+        <member name="M:MCS.Library.Data.DbConnectionManager.GetCommandTimeout(System.String)">
+            <summary>
+            获取指定连接的Command执行超时时间
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.DbConnectionManager.GetDbProviderFactory(System.String)">
+            <summary>
+            获取指定连接的DbProviderFactory对象(Added by Shen Zheng)
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.DbConnectionManager.GetEventArgsType(System.String)">
+            <summary>
+            根据配置信息获得指定逻辑数据库的自定义事件参数类型
+            </summary>
+            <param name="name">数据库逻辑名称</param>
+            <returns>事件参数类型</returns>
+        </member>
+        <member name="T:MCS.Library.Data.DbEventHandler">
+            <summary>
+            数据访问过程的委托方法定义。
+            </summary>
+            <param name="sender">事件源</param>
+            <param name="e">事件参数</param>
+        </member>
+        <member name="T:MCS.Library.Data.DbEventArgs">
+            <summary>
+            数据访问过程的事件参数
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.DbEventArgs.Executor">
+            <summary>
+            根据访问方法的不同，可能是Command或者DataAdapter对象，由具体的Database对象负责绑定。
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Data.Mapping.MappingEventArgs">
+            <summary>
+            映射过程中，事件的参数
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.MappingEventArgs.PropertyName">
+            <summary>
+            数据对象的属性名
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.MappingEventArgs.DataFieldName">
+            <summary>
+            数据源的字段名称
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.MappingEventArgs.Graph">
+            <summary>
+            映射时的数据对象
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Data.Mapping.CreateSubObjectDelegate">
+            <summary>
+            数据源映射到对象时，如果需要创建子对象，则触发此对象
+            </summary>
+            <param name="dataSource">数据源</param>
+            <param name="args"></param>
+            <param name="useDefaultObject">是否使用缺省的构造对象</param>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Library.Data.Mapping.DataToObjectDeligations">
+            <summary>
+            映射Data到对象时的委托集合定义
+            </summary>
+        </member>
+        <member name="E:MCS.Library.Data.Mapping.DataToObjectDeligations.CreateSubObject">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Data.Mapping.ORMappingItem">
+            <summary>
+            映射关系类
+            </summary>
+            <remarks>
+            本类描述了数据实体类与数据库字段间进行映射时的关系
+            </remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMappingItem.#ctor">
+            <summary>
+            构造方法
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMappingItem.WriteToXml(System.Xml.XmlWriter)">
+            <summary>
+            写入到XmlWriter
+            </summary>
+            <param name="writer">XML编写器</param>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMappingItem.ReadFromXml(System.Xml.XmlReader,System.Type,System.Reflection.MemberInfo)">
+            <summary>
+            从XmlReader中设置属性
+            </summary>
+            <param name="reader">Xml阅读器</param>
+            <param name="dType">DeclaringType</param>
+            <param name="mi">成员属性</param>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMappingItem.Clone">
+            <summary>
+            复制一个MappingItem
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.ORMappingItem.Format">
+            <summary>
+            生成SQL Value时候的格式化串。例如{0:0000}
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.ORMappingItem.EnumUsage">
+            <summary>
+            Enum的值或其描述
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.ORMappingItem.DefaultExpression">
+            <summary>
+            对应的属性为空时，所提供的缺省值表达式
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.ORMappingItem.BindingFlags">
+            <summary>
+            对应的属性值会出现在哪些Sql语句中
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.ORMappingItem.IsNullable">
+            <summary>
+            字段是否为空
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.ORMappingItem.Length">
+            <summary>
+            字段长度
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.ORMappingItem.PropertyName">
+            <summary>
+            属性名
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.ORMappingItem.SubClassPropertyName">
+            <summary>
+            如果有子对象，对应的子对象属性的名称
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.ORMappingItem.DataFieldName">
+            <summary>
+            对应的数据库字段名
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.ORMappingItem.IsIdentity">
+            <summary>
+            是否标识列
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.ORMappingItem.PrimaryKey">
+            <summary>
+            是否主键
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.ORMappingItem.MemberInfo">
+            <summary>
+            MemberInfo类
+            </summary>
+            <remarks>
+            Obtains information about the attributes of a member and provides access to member metadata. 
+            </remarks>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.ORMappingItem.DeclaringType">
+            <summary>
+            属性所属于的类
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.ORMappingItem.SubClassTypeDescription">
+            <summary>
+            子对象的类型描述
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.ORMappingItem.EncryptProperty">
+            <summary>
+            是否加密属性
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.ORMappingItem.EncryptorName">
+            <summary>
+            加密器的名称
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Data.Mapping.ORMappingItemCollection">
+            <summary>
+            映射关系集合类
+            </summary>
+            <remarks>
+            映射关系集合类
+            <seealso cref="T:MCS.Library.Data.Mapping.ORMappingItem"/>
+            </remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMappingItemCollection.#ctor">
+            <summary>
+            ORMappingItemCollection类的构造函数
+            </summary>
+            <remarks>
+            ORMappingItemCollection类，一个ORMappingItem的集合类，不区分大小写
+            </remarks>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMappingItemCollection.WriteToXml(System.Xml.XmlWriter)">
+            <summary>
+            写入到XmlWriter
+            </summary>
+            <param name="writer">Xml编写器对象</param>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMappingItemCollection.ReadFromXml(System.Xml.XmlReader,System.Type)">
+            <summary>
+            从XmlReader中读取
+            </summary>
+            <param name="reader">Xml阅读器对象</param>
+            <param name="type">对象类型</param>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMappingItemCollection.FilterMappingInfoByDeclaringType(System.Type)">
+            <summary>
+            根据映射关系的中的对象类型来过滤
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMappingItemCollection.Clone">
+            <summary>
+            复制Mapping的集合
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMappingItemCollection.Contains(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMappingItemCollection.Remove(System.String)">
+            <summary>
+            删除
+            </summary>
+            <param name="fieldName"></param>
+        </member>
+        <member name="M:MCS.Library.Data.Mapping.ORMappingItemCollection.GetKeyForItem(MCS.Library.Data.Mapping.ORMappingItem)">
+            <summary>
+            
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MCS.Library.Data.Mapping.ORMappingItemCollection.TableName">
+            <summary>
+            表名
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Data.Mapping.ORMappingContextCache">
+            <summary>
+            上下文中的ORMapping Cache，通常先在这里面查找，如果没有，再去ORMappingsCache查找
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.Mapping.ORMappingContextCache.Instance">
+            <summary>
+            获取实例
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Data.Properties.Resource">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Properties.Resource.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Properties.Resource.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Properties.Resource.ArgumentNotNull">
+            <summary>
+              Looks up a localized string similar to 参数{0}不允许为空（Null Or Empty）。.
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Properties.Resource.CanNotFindConnectionName">
+            <summary>
+              Looks up a localized string similar to 不能找到数据库连接名称为{0}的配置信息，请检查connectionManager配置节.
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Properties.Resource.CanNotFindProviderName">
+            <summary>
+              Looks up a localized string similar to 不能找到数据库连接信息为&quot;{0}&quot;所对应的dataProvider:&quot;{1}&quot;，请检查connectionManager配置节的dataProviders配置项.
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Properties.Resource.ConvertDataFieldToPropertyError">
+            <summary>
+              Looks up a localized string similar to 字段{0}转换到属性{1}出错，{2}.
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Properties.Resource.DbEventTypeIsNotValidException">
+            <summary>
+              Looks up a localized string similar to {0} 配置的事件参数类型有误.
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Properties.Resource.DuplicateDescriptorKey">
+            <summary>
+              Looks up a localized string similar to 在集合类型{0}中添加对象类型{1}时，Key属性值&quot;{2}&quot;重复.
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Properties.Resource.ExceptionMessageUpdateDataSetRowFailure">
+            <summary>
+              Looks up a localized string similar to 当前记录更新时异常.
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Properties.Resource.ExecuteScalarNotSupportTableDirectException">
+            <summary>
+              Looks up a localized string similar to Execute Scalar() 方法不支持TableDirect模式.
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Properties.Resource.InvalidMemberInfoType">
+            <summary>
+              Looks up a localized string similar to 成员{0}，对象映射时不支持的成员类型{1}.
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.Properties.Resource.OracleMultiTablesError">
+            <summary>
+              Looks up a localized string similar to Oracle DB 中SQL语句多Table输出性能表现较差，故不支持输出多个TableName方法,如果需要查询返回多个DataTable请将其写成存储过程.
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Data.SqlServer.SqlDatabase">
+            <summary>
+            SQL Server数据库对象
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.SqlServer.SqlDatabase.parameterToken">
+            <summary>
+            SQL Server 存储过程参数的标识符号
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.SqlServer.SqlDatabase.#ctor(System.String)">
+            <summary>
+            通过逻辑名称构造数据库对象实例
+            </summary>
+            <param name="name">逻辑名称</param>
+        </member>
+        <member name="M:MCS.Library.Data.SqlServer.SqlDatabase.DeriveParameters(System.Data.Common.DbCommand)">
+            <summary>
+            根据Command对象指向存储过程获取其所需的参数组
+            </summary>
+            <param name="discoveryCommand"></param>
+        </member>
+        <member name="M:MCS.Library.Data.SqlServer.SqlDatabase.UserParametersStartIndex">
+            <summary>
+            获得特定数据库类型下，Parameter在Command中的起始位置。
+            </summary>
+            <returns>起始下标</returns>
+        </member>
+        <member name="M:MCS.Library.Data.SqlServer.SqlDatabase.BuildParameterName(System.String)">
+            <summary>
+            根据数据库类型提供指定的参数名称
+            </summary>
+            <remarks>为了真正做到数据库无关，建议所有参数名称均通过该方法进行参数名称匹配</remarks>
+            <param name="name">应用定义的参数名称</param>
+            <returns>根据SQL Server命名规则处理后的参数名称</returns>
+        </member>
+        <member name="M:MCS.Library.Data.SqlServer.SqlDatabase.SameNumberOfParametersAndValues(System.Data.Common.DbCommand,System.Object[])">
+            <summary>
+            判断Command对象所需的参数数量是否与待赋值的数组成员数量匹配
+            </summary>
+            <remarks>SQL Server是N+1:N匹配</remarks>
+            <param name="command">Command对象</param>
+            <param name="values">待赋值的数组</param>
+            <returns>是否匹配</returns>
+        </member>
+        <member name="M:MCS.Library.Data.SqlServer.SqlDatabase.ConfigureParameter(System.Data.Common.DbParameter,System.String,System.Data.DbType,System.Int32,System.Data.ParameterDirection,System.Boolean,System.Byte,System.Byte,System.String,System.Data.DataRowVersion,System.Object)">
+            <summary>
+            生成一个Parameter对象，同时为期赋值
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.SqlServer.SqlDatabase.ConfigureParameter(System.Data.Common.DbParameter,System.String,System.Data.DbType,System.Int32,System.Data.ParameterDirection,System.Boolean,System.String)">
+            <summary>
+            生成一个Parameter对象
+            </summary>
+            <param name="parameter"></param>
+            <param name="parameterName"></param>
+            <param name="dbType"></param>
+            <param name="size"></param>
+            <param name="direction"></param>
+            <param name="nullable"></param>
+            <param name="sourceColumn"></param>
+            <remarks>
+                面向批量处理增加的方法
+                added by wangxiang . May 21, 2008
+            </remarks>
+        </member>
+        <member name="M:MCS.Library.Data.SqlServer.SqlDatabase.ConfigureParameter(System.Data.Common.DbParameter,System.String,System.Data.DbType,System.Int32,System.Data.ParameterDirection,System.String)">
+            <summary>
+            生成一个Parameter对象
+            </summary>
+            <param name="parameter"></param>
+            <param name="parameterName"></param>
+            <param name="dbType"></param>
+            <param name="size"></param>
+            <param name="direction"></param>
+            <param name="sourceColumn"></param>
+            <remarks>
+                面向批量处理增加的方法
+                added by wangxiang . May 21, 2008
+            </remarks>
+        </member>
+        <member name="M:MCS.Library.Data.SqlServer.SqlDatabase.SetUpRowUpdatedEvent(System.Data.Common.DbDataAdapter)">
+            <summary>
+            为DataAdapter更新过程设置事件委托
+            </summary>
+            <param name="adapter">Data Adapter</param>
+        </member>
+        <member name="M:MCS.Library.Data.SqlServer.SqlDatabase.OnSqlRowUpdated(System.Object,System.Data.SqlClient.SqlRowUpdatedEventArgs)">
+            <summary>
+            对记录更新过程的响应
+            </summary>
+            <param name="sender"></param>
+            <param name="rowThatCouldNotBeWritten"></param>
+        </member>
+        <member name="P:MCS.Library.Data.SqlServer.SqlDatabase.DefaultReturnValueParameterName">
+            <summary>
+            对于存储过程（尤其是Function）返回结果的参数名称
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Data.TransactionScopeFactory">
+            <summary>
+            为了定制TransactionScope的配置参数设计的专用工厂类。
+            </summary>
+        </member>
+        <member name="M:MCS.Library.Data.TransactionScopeFactory.AttachCommittedAction(System.Action{System.Transactions.TransactionEventArgs},System.Boolean)">
+            <summary>
+            在事物对象上绑定提交成功后的事件
+            </summary>
+            <param name="action"></param>
+            <param name="throwError">是否抛出异常</param>
+        </member>
+        <member name="M:MCS.Library.Data.TransactionScopeFactory.Create">
+            <summary>
+            创建 TransactionScope 对象实例
+            </summary>
+            <returns>事务性范围对象</returns>
+        </member>
+        <member name="M:MCS.Library.Data.TransactionScopeFactory.CreateWithAsyncFlow">
+            <summary>
+            创建 TransactionScope 对象实例
+            </summary>
+            <returns>事务性范围对象</returns>
+        </member>
+        <member name="M:MCS.Library.Data.TransactionScopeFactory.Create(System.TimeSpan,System.Transactions.TransactionScopeAsyncFlowOption)">
+            <summary>
+            创建 TransactionScope 对象实例，设置超时时间
+            </summary>
+            <param name="timeout">超时时间</param>
+            <param name="asyncFlowOption">是否支持异步</param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Library.Data.TransactionScopeFactory.Create(System.Transactions.TransactionScopeOption,System.Transactions.TransactionScopeAsyncFlowOption)">
+            <summary>
+            创建 TransactionScope 对象实例
+            </summary>
+            <param name="scopeOption">事务范围复选项</param>
+            <param name="asyncFlowOption">是否支持异步</param>
+            <returns>事务性范围对象</returns>
+        </member>
+        <member name="M:MCS.Library.Data.TransactionScopeFactory.Create(System.Transactions.TransactionScopeOption,System.TimeSpan,System.Transactions.TransactionScopeAsyncFlowOption)">
+            <summary>
+            创建 TransactionScope 对象实例
+            </summary>
+            <param name="scopeOption">事务范围复选项</param>
+            <param name="scopeTimeout">TimeSpan方式表示的超时时间</param>
+            <param name="asyncFlowOption">是否支持异步</param>
+            <returns>事务性范围对象</returns>
+        </member>
+        <member name="M:MCS.Library.Data.TransactionScopeFactory.Create(System.Transactions.TransactionScopeOption,System.TimeSpan,System.Transactions.IsolationLevel,System.Transactions.TransactionScopeAsyncFlowOption)">
+            <summary>
+            创建 TransactionScope 对象实例
+            </summary>
+            <param name="scopeOption">事务范围复选项</param>
+            <param name="scopeTimeout">超时时间</param>
+            <param name="isolationLevel">隔离级别</param>
+            <param name="asyncFlowOption">是否支持异步</param>
+            <returns>事务性范围对象</returns>
+        </member>
+        <member name="M:MCS.Library.Data.TransactionScopeFactory.DoAction(System.Action)">
+            <summary>
+            创建TransactionScope并且执行操作
+            </summary>
+            <param name="action"></param>
+        </member>
+        <member name="M:MCS.Library.Data.TransactionScopeFactory.DoAction(System.Transactions.TransactionScopeOption,System.Action)">
+            <summary>
+            创建TransactionScope并且执行操作
+            </summary>
+            <param name="scopeOption"></param>
+            <param name="action"></param>
+        </member>
+        <member name="M:MCS.Library.Data.TransactionScopeFactory.Create(System.Transactions.TransactionScopeOption,System.Transactions.TransactionOptions,System.Transactions.TransactionScopeAsyncFlowOption)">
+            <summary>
+            创建 TransactionScope 对象实例
+            </summary>
+            <param name="scopeOption">事务复选项</param>
+            <param name="transactionOptions">事务附加信息</param>
+            <param name="asyncFlowOption">是否支持异步</param>
+            <returns>事务性范围对象</returns>
+        </member>
+        <member name="M:MCS.Library.Data.TransactionScopeFactory.Create(System.Transactions.TransactionScopeOption,System.Transactions.IsolationLevel,System.Transactions.TransactionScopeAsyncFlowOption)">
+            <summary>
+            创建 TransactionScope 对象实例
+            </summary>
+            <param name="scopeOption">事务范围复选项</param>
+            <param name="isolationLevel">隔离级别</param>
+            <param name="asyncFlowOption">是否支持异步</param>
+            <returns>事务性范围对象</returns>
+        </member>
+        <member name="M:MCS.Library.Data.TransactionScopeFactory.Create(System.Transactions.Transaction,System.TimeSpan,System.Transactions.TransactionScopeAsyncFlowOption)">
+            <summary>
+            创建 TransactionScope 对象实例
+            由于 Transaction 自带交易隔离度说明，因此不涉及从配置提取该参数的操作
+            </summary>
+            <param name="transactionToUse">事务</param>
+            <param name="scopeTimeout">超时范围</param>
+            <param name="asyncFlowOption">是否支持异步</param>
+            <returns>事务性范围对象</returns>
+        </member>
+        <member name="P:MCS.Library.Data.TransactionScopeFactory.Timeout">
+            <summary>
+            工厂类对 TransactionScope 设置的超时参数
+            </summary>
+        </member>
+        <member name="P:MCS.Library.Data.TransactionScopeFactory.IsolationLevel">
+            <summary>
+            工厂类对 TransactionScope 设置的交易隔离度
+            </summary>
+        </member>
+        <member name="T:MCS.Library.Data.UpdateBehavior">
+            <summary>
+            指导批量更新过程的枚举
+            </summary>
+            <remarks>
+                面向批量处理增加的枚举
+                added by wangxiang . May 21, 2008
+            </remarks>
+        </member>
+        <member name="F:MCS.Library.Data.UpdateBehavior.Standard">
+            <summary>
+            DataAdapter的标准过程，执行至出错为止
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.UpdateBehavior.Continue">
+            <summary>
+            出错继续执行后续更新
+            </summary>
+        </member>
+        <member name="F:MCS.Library.Data.UpdateBehavior.Transactional">
+            <summary>
+            整体作为一个事务提交
+            </summary>
+        </member>
+    </members>
+</doc>

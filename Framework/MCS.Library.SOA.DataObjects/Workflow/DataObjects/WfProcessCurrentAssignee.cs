@@ -10,6 +10,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 {
 	[Serializable]
 	[ORTableMapping("WF.PROCESS_CURRENT_ASSIGNEES")]
+    [TenantRelativeObject]
 	public class WfProcessCurrentAssignee
 	{
 		public WfProcessCurrentAssignee()

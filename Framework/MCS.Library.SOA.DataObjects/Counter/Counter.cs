@@ -21,7 +21,7 @@ namespace MCS.Library.SOA.DataObjects
 			using (DbContext dbi = DbHelper.GetDBContext())
 			{
 				Database db = DatabaseFactory.Create(dbi);
-				return (int)db.ExecuteScalar("WF.NewCountValue", counterID);
+                return (int)db.ExecuteScalar("WF.NewCountValue", PrepareParameters(counterID));
 			}
 		}
 
@@ -37,7 +37,7 @@ namespace MCS.Library.SOA.DataObjects
 			using (DbContext dbi = DbHelper.GetDBContext())
 			{
 				Database db = DatabaseFactory.Create(dbi);
-				return (int)db.ExecuteScalar("WF.PeekCountValue", counterID);
+                return (int)db.ExecuteScalar("WF.PeekCountValue", PrepareParameters(counterID));
 			}
 		}
 
@@ -55,8 +55,18 @@ namespace MCS.Library.SOA.DataObjects
 			using (DbContext dbi = DbHelper.GetDBContext())
 			{
 				Database db = DatabaseFactory.Create(dbi);
-				db.ExecuteScalar("WF.SetCountValue", counterID, countValue);
+                db.ExecuteScalar("WF.SetCountValue", PrepareParameters(counterID, countValue));
 			}
 		}
+
+        private static object[] PrepareParameters(params object[] parameters)
+        {
+            List<object> result = new List<object>(parameters);
+
+            if (TenantContext.Current.Enabled)
+                result.Add(TenantContext.Current.TenantCode);
+
+            return result.ToArray();
+        }
 	}
 }

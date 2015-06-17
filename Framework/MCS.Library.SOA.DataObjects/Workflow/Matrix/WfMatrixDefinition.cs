@@ -15,6 +15,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 	/// </summary>
 	[Serializable]
 	[ORTableMapping("WF.MATRIX_DEFINITION")]
+    [TenantRelativeObject]
 	public class WfMatrixDefinition
 	{
 		[ORFieldMapping("DEF_KEY", PrimaryKey = true)]

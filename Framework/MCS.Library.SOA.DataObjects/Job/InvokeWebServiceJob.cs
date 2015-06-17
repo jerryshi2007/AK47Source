@@ -11,6 +11,7 @@ namespace MCS.Library.SOA.DataObjects
 {
 	[Serializable]
 	[ORTableMapping("WF.JOB_INVOKE_SERVICE")]
+    [TenantRelativeObject]
 	public class InvokeWebServiceJob : JobBase
 	{
 		public InvokeWebServiceJob()

@@ -14,6 +14,7 @@ namespace MCS.Library.SOA.DataObjects
 	/// </summary>
 	[Serializable]
 	[ORTableMapping("WF.SYS_TASK_PROCESS")]
+    [TenantRelativeObject]
 	public class SysTaskProcess
 	{
 		private SysTaskProcessStatus _Status = SysTaskProcessStatus.NotRunning;
@@ -222,7 +223,7 @@ namespace MCS.Library.SOA.DataObjects
 		/// 处理进入下一个活动的操作
 		/// </summary>
 		/// <param name="nextActivity"></param>
-		private static void EnterNextActivity(SysTaskActivity nextActivity, DateTime now)
+		internal static void EnterNextActivity(SysTaskActivity nextActivity, DateTime now)
 		{
 			nextActivity.StartTime = now;
 

@@ -42,6 +42,7 @@ namespace MCS.Library.SOA.DataObjects
 	/// </summary>
 	[Serializable]
 	[ORTableMapping("WF.MATERIAL")]
+    [TenantRelativeObject]
 	public class Material
 	{
 		#region к╫сп╠Да©

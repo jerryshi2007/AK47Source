@@ -9,6 +9,7 @@ CREATE PROCEDURE [WF].[SetLock]
 	@lockPerson nvarchar(36),
 	@effectiveTime int,
 	@lockType int,
+	@tenantCode NVARCHAR(36) = N'D5561180-7617-4B67-B68B-1F0EA604B509',
 	@forceLock nchar(1) = 'n'
 AS
 BEGIN
@@ -34,11 +35,12 @@ BEGIN
 				LOCK_TYPE INT)
 	BEGIN TRY
 	
-		INSERT INTO WF.LOCK(LOCK_ID, RESOURCE_ID, LOCK_PERSON_ID, LOCK_TIME, EFFECTIVE_TIME, LOCK_TYPE)
-			VALUES(@lockID, @resourceID, @lockPerson, @CurrentTime, @effectiveTime, @lockType)
+		INSERT INTO WF.LOCK(LOCK_ID, RESOURCE_ID, LOCK_PERSON_ID, LOCK_TIME, EFFECTIVE_TIME, LOCK_TYPE, TENANT_CODE)
+			VALUES(@lockID, @resourceID, @lockPerson, @CurrentTime, @effectiveTime, @lockType, @tenantCode)
 
 		INSERT INTO @resultTable
 			SELECT @lockID, @resourceID, @lockPerson, @CurrentTime, @effectiveTime, @lockType
+
 		INSERT INTO @resultTable	--插入空行
 			SELECT @ORI_LOCK_ID, @ORI_RESOURCE_ID, @ORI_LOCK_PERSON_ID, @ORI_LOCK_TIME, @ORI_EFFECTIVE_TIME, @ORI_LOCK_TYPE
 
@@ -72,8 +74,7 @@ BEGIN
 					UPDATE WF.LOCK
 						SET RESOURCE_ID = @resourceID, LOCK_PERSON_ID = @lockPerson, LOCK_TIME = @CurrentTime, EFFECTIVE_TIME = @effectiveTime, LOCK_TYPE = @lockType,
 						@ORI_LOCK_ID = LOCK_ID, @ORI_RESOURCE_ID = RESOURCE_ID, @ORI_LOCK_PERSON_ID = LOCK_PERSON_ID, @ORI_LOCK_TIME = LOCK_TIME, @ORI_EFFECTIVE_TIME = EFFECTIVE_TIME, @ORI_LOCK_TYPE = LOCK_TYPE
-					WHERE LOCK_ID = @lockID
-					
+					WHERE LOCK_ID = @lockID AND TENANT_CODE = @tenantCode
 				END
 				ELSE
 				BEGIN
@@ -81,7 +82,7 @@ BEGIN
 					UPDATE WF.LOCK
 						SET RESOURCE_ID = @resourceID, LOCK_PERSON_ID = @lockPerson, LOCK_TIME = @CurrentTime, EFFECTIVE_TIME = @effectiveTime, LOCK_TYPE = @lockType,
 						@ORI_LOCK_ID = LOCK_ID, @ORI_RESOURCE_ID = RESOURCE_ID, @ORI_LOCK_PERSON_ID = LOCK_PERSON_ID, @ORI_LOCK_TIME = LOCK_TIME, @ORI_EFFECTIVE_TIME = EFFECTIVE_TIME, @ORI_LOCK_TYPE = LOCK_TYPE
-					WHERE LOCK_ID = @lockID
+					WHERE LOCK_ID = @lockID AND TENANT_CODE = @tenantCode
 						AND (@lockPerson = LOCK_PERSON_ID
 							OR (@lockPerson <> LOCK_PERSON_ID AND DATEDIFF(s, LOCK_TIME, @CurrentTime) > EFFECTIVE_TIME))
 				END
@@ -97,7 +98,6 @@ BEGIN
 				END
 				ELSE
 				BEGIN
-				
 					INSERT INTO @resultTable
 					SELECT @lockID, @resourceID, @lockPerson, @CurrentTime, @effectiveTime, @lockType
 

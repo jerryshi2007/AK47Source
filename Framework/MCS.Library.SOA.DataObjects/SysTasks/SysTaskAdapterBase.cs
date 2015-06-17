@@ -52,6 +52,7 @@ namespace MCS.Library.SOA.DataObjects
 
 			WhereSqlClauseBuilder wb = new WhereSqlClauseBuilder();
 			wb.AppendItem("TASK_GUID", taskID);
+            wb.AppendTenantCode(typeof(T));
 
 			string sql = string.Format("UPDATE {0} SET {1} WHERE {2}",
 				mapping.TableName,

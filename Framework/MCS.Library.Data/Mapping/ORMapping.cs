@@ -168,6 +168,8 @@ namespace MCS.Library.Data.Mapping
 					}
 				}
 			}
+
+            builder.AppendTenantCode(typeof(T));
 		}
 
 		private static void DoInsertUpdateSqlClauseBuilder<T>(SqlClauseBuilderIUW builder, ORMappingItem item, T graph)

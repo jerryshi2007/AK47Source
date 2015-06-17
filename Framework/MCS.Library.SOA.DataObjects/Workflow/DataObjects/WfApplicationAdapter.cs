@@ -9,46 +9,50 @@ using MCS.Library.Data.Builder;
 
 namespace MCS.Library.SOA.DataObjects.Workflow
 {
-	public class WfApplicationAdapter : UpdatableAndLoadableAdapterBase<WfApplication, WfApplicationCollection>
-	{
-		public static readonly WfApplicationAdapter Instance = new WfApplicationAdapter();
+    public class WfApplicationAdapter : UpdatableAndLoadableAdapterBase<WfApplication, WfApplicationCollection>
+    {
+        public static readonly WfApplicationAdapter Instance = new WfApplicationAdapter();
 
-		private WfApplicationAdapter()
-		{
-		}
+        private WfApplicationAdapter()
+        {
+        }
 
-		public WfApplicationCollection LoadAll()
-		{
-			string sql = "SELECT * FROM WF.APPLICATIONS ORDER BY SORT";
+        public WfApplicationCollection LoadAll()
+        {
+            string sql = "SELECT * FROM WF.APPLICATIONS ORDER BY SORT";
 
-			DataTable table = DbHelper.RunSqlReturnDS(sql, GetConnectionName()).Tables[0];
+            DataTable table = DbHelper.RunSqlReturnDS(sql, GetConnectionName()).Tables[0];
 
-			WfApplicationCollection result = new WfApplicationCollection();
+            WfApplicationCollection result = new WfApplicationCollection();
 
-			ORMapping.DataViewToCollection(result, table.DefaultView);
+            ORMapping.DataViewToCollection(result, table.DefaultView);
 
-			return result;
-		}
+            return result;
+        }
 
-		public WfProgramInApplicationCollection LoadProgramsByApplication(string appCodeName)
-		{
-			appCodeName.CheckStringIsNullOrEmpty("appCodeName");
+        public WfProgramInApplicationCollection LoadProgramsByApplication(string appCodeName)
+        {
+            appCodeName.CheckStringIsNullOrEmpty("appCodeName");
 
-			string sql = string.Format("SELECT * FROM WF.PROGRAM_AND_ALIAS_VIEW WHERE APPLICATION_CODE_NAME = {0} ORDER BY SORT",
-				TSqlBuilder.Instance.CheckUnicodeQuotationMark(appCodeName));
+            WhereSqlClauseBuilder builder = new WhereSqlClauseBuilder();
 
-			DataTable table = DbHelper.RunSqlReturnDS(sql, GetConnectionName()).Tables[0];
+            builder.AppendItem("APPLICATION_CODE_NAME", appCodeName);
 
-			WfProgramInApplicationCollection result = new WfProgramInApplicationCollection();
+            string sql = string.Format("SELECT * FROM WF.PROGRAM_AND_ALIAS_VIEW WHERE {0} ORDER BY SORT",
+                builder.ToSqlString(TSqlBuilder.Instance));
 
-			ORMapping.DataViewToCollection(result, table.DefaultView);
+            DataTable table = DbHelper.RunSqlReturnDS(sql, GetConnectionName()).Tables[0];
 
-			return result;
-		}
+            WfProgramInApplicationCollection result = new WfProgramInApplicationCollection();
 
-		protected override string GetConnectionName()
-		{
-			return WorkflowSettings.GetConfig().ConnectionName;
-		}
-	}
+            ORMapping.DataViewToCollection(result, table.DefaultView);
+
+            return result;
+        }
+
+        protected override string GetConnectionName()
+        {
+            return WorkflowSettings.GetConfig().ConnectionName;
+        }
+    }
 }

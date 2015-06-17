@@ -28,8 +28,13 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
 			WfProcessCurrentActivityCollection result = new WfProcessCurrentActivityCollection();
 
-			string sql = string.Format("SELECT * FROM WF.PROCESS_CURRENT_ACTIVITIES WHERE PROCESS_ID = {0}",
-				TSqlBuilder.Instance.CheckQuotationMark(processID, true));
+            WhereSqlClauseBuilder wBuilder = new WhereSqlClauseBuilder();
+
+            wBuilder.AppendItem("PROCESS_ID", processID);
+            wBuilder.AppendTenantCodeSqlClause(typeof(WfProcessCurrentActivity));
+
+			string sql = string.Format("SELECT * FROM WF.PROCESS_CURRENT_ACTIVITIES WHERE {0}",
+                wBuilder.ToSqlString(TSqlBuilder.Instance));
 
 			DataTable table = DbHelper.RunSqlReturnDS(sql, GetConnectionName()).Tables[0];
 
@@ -44,7 +49,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 			pcas.NullCheck("pcas");
 
 			StringBuilder strB = new StringBuilder();
-			InSqlClauseBuilder deleteActivityIDs = new InSqlClauseBuilder();
+			InSqlClauseBuilder deleteActivityIDs = new InSqlClauseBuilder("ACTIVITY_ID");
 
 			foreach (WfProcessCurrentActivity pca in pcas)
 			{
@@ -56,11 +61,16 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 				deleteActivityIDs.AppendItem(pca.ActivityID);
 			}
 
-			string sqlDelete = string.Format("DELETE WF.PROCESS_CURRENT_ACTIVITIES WHERE PROCESS_ID = {0}",
-				TSqlBuilder.Instance.CheckQuotationMark(processID, true));
+            WhereSqlClauseBuilder wBuilder = new WhereSqlClauseBuilder();
+
+            wBuilder.AppendItem("PROCESS_ID", processID);
+            wBuilder.AppendTenantCodeSqlClause(typeof(WfProcessCurrentActivity));
+
+			string sqlDelete = string.Format("DELETE WF.PROCESS_CURRENT_ACTIVITIES WHERE {0}",
+                wBuilder.ToSqlString(TSqlBuilder.Instance));
 
 			if (deleteActivityIDs.Count > 0)
-				sqlDelete += string.Format(" AND ACTIVITY_ID {0}", deleteActivityIDs.ToSqlStringWithInOperator(TSqlBuilder.Instance));
+				sqlDelete += string.Format(" AND {0}", deleteActivityIDs.ToSqlString(TSqlBuilder.Instance));
 
 			string sql = sqlDelete;
 
@@ -90,14 +100,14 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 		{
 			processes.NullCheck("processes");
 
-			InSqlClauseBuilder builder = new InSqlClauseBuilder();
+			InSqlClauseBuilder builder = new InSqlClauseBuilder("PROCESS_ID");
 
 			processes.ForEach(p => builder.AppendItem(p.InstanceID));
 
 			if (builder.Count > 0)
 			{
 				string sql = string.Format("DELETE WF.PROCESS_CURRENT_ACTIVITIES WHERE PROCESS_ID {0}",
-					builder.ToSqlStringWithInOperator(TSqlBuilder.Instance));
+					builder.AppendTenantCodeSqlClause(typeof(WfProcessCurrentActivity)).ToSqlString(TSqlBuilder.Instance));
 
 				DbHelper.RunSql(sql, GetConnectionName());
 			}

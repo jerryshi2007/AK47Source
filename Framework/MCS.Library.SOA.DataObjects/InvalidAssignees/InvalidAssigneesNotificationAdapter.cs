@@ -18,7 +18,7 @@ namespace MCS.Library.SOA.DataObjects
 	{
 		public static readonly InvalidAssigneesNotificationAdapter Instance = new InvalidAssigneesNotificationAdapter();
 
-		protected const string InsertSql = @"INSERT INTO WF.INVALID_ASSIGNEES_NOTIFICATION (NOTIFICATION_ID, DESCRIPTION, CREATE_TIME) VALUES (@NOTIFICATION_ID,@DESCRIPTION,@CREATETIME) ";
+		protected const string InsertSql = @"INSERT INTO WF.INVALID_ASSIGNEES_NOTIFICATION (NOTIFICATION_ID, DESCRIPTION, CREATE_TIME) VALUES (@NOTIFICATION_ID, @DESCRIPTION, @CREATETIME) ";
 
 		private InvalidAssigneesNotificationAdapter()
 		{

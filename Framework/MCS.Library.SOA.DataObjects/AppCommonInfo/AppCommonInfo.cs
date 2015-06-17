@@ -14,6 +14,7 @@ namespace MCS.Library.SOA.DataObjects
 {
 	[Serializable]
 	[ORTableMapping("WF.APPLICATIONS_COMMON_INFO")]
+    [TenantRelativeObject]
 	public class AppCommonInfo
 	{
 		private string applicationName = string.Empty;

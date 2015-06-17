@@ -17,6 +17,7 @@ namespace MCS.Library.SOA.DataObjects
 	[XElementSerializable]
 	[ORTableMapping("WF.GENERIC_FORM_RELATIVE_DATA")]
 	[ObjectCompare("RESOURCE_ID")]
+    [TenantRelativeObject]
 	public class GenericFormRelativeData
 	{
 		[Description("父表单的ID")]

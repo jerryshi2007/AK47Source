@@ -68,6 +68,7 @@ namespace MCS.Library.SOA.DataObjects
 			WhereSqlClauseBuilder builder = new WhereSqlClauseBuilder();
 
 			builder.AppendItem("RESOURCE_ID", resourceID).AppendItem("CLASS", className);
+            builder.AppendTenantCode(typeof(TRelative));
 
 			string sql = string.Format("SELECT * FROM WF.GENERIC_FORM_RELATIVE_DATA WHERE {0} ORDER BY SORT_ID",
 				builder.ToSqlString(TSqlBuilder.Instance));
@@ -102,6 +103,7 @@ namespace MCS.Library.SOA.DataObjects
 			WhereSqlClauseBuilder builder = new WhereSqlClauseBuilder();
 
 			builder.AppendItem("RESOURCE_ID", resourceID).AppendItem("CLASS", className);
+            builder.AppendTenantCode(typeof(TRelative));
 
 			StringBuilder strB = new StringBuilder();
 
@@ -159,6 +161,7 @@ namespace MCS.Library.SOA.DataObjects
 				WhereSqlClauseBuilder whereBuilder = new WhereSqlClauseBuilder();
 
 				whereBuilder.AppendItem("RESOURCE_ID", data.ResourceID).AppendItem("CLASS", data.Class).AppendItem("SORT_ID", data.SortID);
+                whereBuilder.AppendTenantCode(typeof(TRelative));
 
 				strB.AppendFormat("UPDATE WF.GENERIC_FORM_RELATIVE_DATA SET {0} WHERE {1}",
 					updateBuilder.ToSqlString(TSqlBuilder.Instance), whereBuilder.ToSqlString(TSqlBuilder.Instance));

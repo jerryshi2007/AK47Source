@@ -24,6 +24,7 @@ namespace MCS.Library.SOA.DataObjects
 
 	[Serializable]
 	[ORTableMapping("WF.JOB_SCHEDULE_DEF")]
+    [TenantRelativeObject]
 	public class JobSchedule
 	{
 		/// <summary>

@@ -11,6 +11,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 {
 	[Serializable]
 	[ORTableMapping("WF.PROCESS_RELATIVE_PARAMS")]
+    [TenantRelativeObject]
 	public class WfProcessRelativeParam
 	{
 		[ORFieldMapping("PROCESS_ID", PrimaryKey = true)]

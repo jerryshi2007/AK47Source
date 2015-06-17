@@ -21,20 +21,20 @@ namespace MCS.Library.SOA.DataObjects
 
 			process.Status = SysTaskProcessStatus.Running;
 
-			ProcessContext.AffectedProcesses.AddOrReplace(process);
+            ProcessContext.AffectedProcesses.AddOrReplace(process);
 
-			if (process.Activities.Count == 0)
-				process.Status = SysTaskProcessStatus.Completed;
+            if (process.Activities.Count == 0)
+                process.Status = SysTaskProcessStatus.Completed;
 
-			using (TransactionScope scope = TransactionScopeFactory.Create())
-			{
-				Persist();
+            using (TransactionScope scope = TransactionScopeFactory.Create())
+            {
+                Persist();
 
-				if (process.Activities.Count > 0)
-					ExecuteSysTaskActivityTask.SendTask(process.Activities[0]);
+                if (process.Activities.Count > 0)
+                    ExecuteSysTaskActivityTask.SendTask(process.Activities[0]);
 
-				scope.Complete();
-			}
+                scope.Complete();
+            }
 		}
 
 		/// <summary>

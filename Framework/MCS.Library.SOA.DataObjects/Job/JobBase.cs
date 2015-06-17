@@ -37,6 +37,7 @@ namespace MCS.Library.SOA.DataObjects
 
 	[Serializable]
 	[ORTableMapping("WF.JOBS")]
+    [TenantRelativeObject]
 	public class JobBase
 	{
 		public JobBase()

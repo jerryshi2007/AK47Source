@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using MCS.Library.Data.Mapping;
 using MCS.Library.Data.DataObjects;
+using MCS.Library.Core;
 
 namespace MCS.Library.SOA.DataObjects.Workflow
 {
@@ -12,6 +13,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 	/// </summary>
     [Serializable]
 	[ORTableMapping("WF.ACL")]
+    [TenantRelativeObject]
 	public class WfAclItem
 	{
 		[ORFieldMapping("RESOURCE_ID", PrimaryKey = true)]

@@ -174,5 +174,19 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
 
             return process;
         }
+
+        public static void OutputExecutionTime(this Action action, string description)
+        {
+            Console.WriteLine("执行操作: {0}", description);
+
+            DateTime startTime = DateTime.Now;
+
+            Console.WriteLine("开始时间: {0:yyyy-MM-dd HH:mm:ss}", startTime);
+            action();
+
+            DateTime endTime = DateTime.Now;
+            Console.WriteLine("结束时间: {0:yyyy-MM-dd HH:mm:ss}", endTime);
+            Console.WriteLine("经过时间: {0:#,##0.00}ms", (endTime - startTime).TotalMilliseconds);
+        }
     }
 }

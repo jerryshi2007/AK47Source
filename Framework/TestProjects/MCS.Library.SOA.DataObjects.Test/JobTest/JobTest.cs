@@ -201,7 +201,7 @@ namespace MCS.Library.SOA.DataObjects.Test.JobTest
 			WfServiceOperationDefinition serviceDef = new WfServiceOperationDefinition(address, "GetVersion", parameters, string.Empty);
 
 			serviceDef.RtnXmlStoreParamName = "Version";
-			serviceDef.TimeOut = 30000;
+			serviceDef.Timeout = TimeSpan.FromSeconds(30);
 			job.SvcOperationDefs.Add(serviceDef);
 
 			return job;

@@ -6,9 +6,13 @@
     [END_TIME]       DATETIME      NULL,
     [ENABLED]        NCHAR (1)     NULL,
     [FREQUENCY_DATA] XML           NULL,
+	[TENANT_CODE] NVARCHAR(36) NULL DEFAULT 'D5561180-7617-4B67-B68B-1F0EA604B509'
     CONSTRAINT [PK_SCHEDULE] PRIMARY KEY CLUSTERED ([SCHEDULE_ID] ASC)
 );
 
+GO
+
+CREATE INDEX [IX_JOB_SCHEDULE_DEF_TENANT_CODE] ON [WF].[JOB_SCHEDULE_DEF] ([TENANT_CODE])
 
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'计划定义表', @level0type = N'SCHEMA', @level0name = N'WF', @level1type = N'TABLE', @level1name = N'JOB_SCHEDULE_DEF';

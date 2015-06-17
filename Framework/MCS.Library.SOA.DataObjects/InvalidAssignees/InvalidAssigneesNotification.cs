@@ -1,8 +1,9 @@
-﻿using System;
+﻿using MCS.Library.Core;
+using MCS.Library.Data.DataObjects;
+using MCS.Library.Data.Mapping;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using MCS.Library.Data.Mapping;
-using MCS.Library.Data.DataObjects;
 
 namespace MCS.Library.SOA.DataObjects
 {
@@ -11,6 +12,7 @@ namespace MCS.Library.SOA.DataObjects
 	/// </summary>
 	[Serializable]
 	[ORTableMapping("WF.INVALID_ASSIGNEES_NOTIFICATION")]
+    [TenantRelativeObject]
 	public class InvalidAssigneesNotification
 	{
 		private string _NotificationID = string.Empty;
@@ -26,6 +28,7 @@ namespace MCS.Library.SOA.DataObjects
 		}
 
 		private string _Description = string.Empty;
+
 		/// <summary>
 		/// 消息体
 		/// </summary>

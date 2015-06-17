@@ -51,7 +51,7 @@ namespace MCS.Library.SOA.DataObjects.Test.WorkflowTest
 		[TestMethod]
 		public void GetMethodTest()
 		{
-			SvcOpDef.AddressKey = "";
+			//SvcOpDef.AddressKey = "";
 
 			//SvcOpDef.AddressDef.RequestMethod = WfServiceRequestMethod.Get;
 			InvokeService();

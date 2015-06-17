@@ -14,6 +14,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 	[Serializable]
 	[XElementSerializable]
 	[ORTableMapping("WF.DELEGATIONS")]
+    [TenantRelativeObject]
 	public class WfDelegation
 	{
 		private bool _Enabled = true;

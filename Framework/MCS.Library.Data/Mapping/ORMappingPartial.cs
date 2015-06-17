@@ -272,7 +272,7 @@ namespace MCS.Library.Data.Mapping
             FillSqlClauseBuilder(builder, graph, mapping, ClauseBindingFlags.Update,
                 new DoSqlClauseBuilder<T>(DoInsertUpdateSqlClauseBuilder<T>), ignoreProperties);
 
-            builder.AppendTenantCode(typeof(T));
+            //builder.AppendTenantCode(typeof(T));
 
             return builder;
         }
@@ -375,7 +375,10 @@ namespace MCS.Library.Data.Mapping
             if (builder != null)
             {
                 if (TenantContext.Current.Enabled)
-                    builder.AppendItem(tenantCodeFieldName, TenantContext.Current.TenantCode);
+                {
+                    if (builder.ContainsDataField(tenantCodeFieldName) == false)
+                        builder.AppendItem(tenantCodeFieldName, TenantContext.Current.TenantCode);
+                }
             }
 
             return builder;
@@ -401,6 +404,51 @@ namespace MCS.Library.Data.Mapping
             return builder;
         }
 
+        /// <summary>
+        /// 从Tenant上下文中获取TenantCode并且在某个条件子句添加租户编码的过滤字段
+        /// </summary>
+        /// <param name="connective"></param>
+        /// <param name="tenantCodeFieldName"></param>
+        /// <returns></returns>
+        public static ConnectiveSqlClauseCollection AppendTenantCodeSqlClause(this IConnectiveSqlClause connective, string tenantCodeFieldName = "TENANT_CODE")
+        {
+            ConnectiveSqlClauseCollection result = new ConnectiveSqlClauseCollection(LogicOperatorDefine.And);
+
+            if (connective != null)
+            {
+                WhereSqlClauseBuilder wBuilder = new WhereSqlClauseBuilder();
+
+                wBuilder.AppendTenantCode(tenantCodeFieldName);
+
+                result.Add(connective);
+                result.Add(wBuilder);
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// 根据类型上的TenantRelativeObjectAttribute以及TenantContext.Current.Enabled决定是否在某个条件子句添加租户编码的过滤字段
+        /// </summary>
+        /// <param name="connective"></param>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static ConnectiveSqlClauseCollection AppendTenantCodeSqlClause(this IConnectiveSqlClause connective, Type type)
+        {
+            ConnectiveSqlClauseCollection result = new ConnectiveSqlClauseCollection(LogicOperatorDefine.And);
+
+            if (connective != null)
+            {
+                WhereSqlClauseBuilder wBuilder = new WhereSqlClauseBuilder();
+
+                wBuilder.AppendTenantCode(type);
+
+                result.Add(connective);
+                result.Add(wBuilder);
+            }
+
+            return result;
+        }
         #endregion Object To Sql
 
         #region DataRow or DataRead to Object

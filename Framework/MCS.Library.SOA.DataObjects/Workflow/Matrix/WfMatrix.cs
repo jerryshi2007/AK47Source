@@ -17,6 +17,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 {
 	[Serializable]
 	[ORTableMapping("WF.MATRIX_MAIN")]
+    [TenantRelativeObject]
 	public class WfMatrix : ILoadableDataEntity
 	{
 		public WfMatrix()

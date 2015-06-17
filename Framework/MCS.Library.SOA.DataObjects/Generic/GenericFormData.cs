@@ -16,6 +16,7 @@ namespace MCS.Library.SOA.DataObjects
 	[XElementSerializable]
 	[ORTableMapping("WF.GENERIC_FORM_DATA")]
 	[ObjectCompare("ID")]
+    [TenantRelativeObject]
 	public class GenericFormData : WorkflowObjectBase
 	{
 		[Description("编号")]

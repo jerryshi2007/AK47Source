@@ -82,11 +82,14 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
             if (roleIDs.Count > 0)
             {
-                InSqlClauseBuilder builder = new InSqlClauseBuilder("ROLE_ID");
+                InSqlClauseBuilder inBuilder = new InSqlClauseBuilder("ROLE_ID");
 
-                builder.AppendItem(roleIDs.ToArray());
+                inBuilder.AppendItem(roleIDs.ToArray());
 
-                sql = string.Format(sql, builder.ToSqlStringWithInOperator(TSqlBuilder.Instance));
+                ConnectiveSqlClauseCollection builder = new ConnectiveSqlClauseCollection(LogicOperatorDefine.And,
+                        inBuilder, new WhereSqlClauseBuilder().AppendTenantCode(typeof(WfApplicationAuth)));
+
+                sql = string.Format(sql, inBuilder.ToSqlStringWithInOperator(TSqlBuilder.Instance));
 
                 DataView view = DbHelper.RunSqlReturnDS(sql, GetConnectionName()).Tables[0].DefaultView;
 

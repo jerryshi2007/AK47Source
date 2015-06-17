@@ -13,34 +13,34 @@ namespace MCS.Library.SOA.DataObjects.Test.DataObjectsTest
     [TestClass]
     public class BasicDataObjectsTest
     {
-        [TestMethod]
-        [TestCategory(ProcessTestHelper.BasicDataObject)]
-        public void TreeNodeTest()
-        {
-            SampleTreeNode root = CreateTestTree();
+        //[TestMethod]
+        //[TestCategory(ProcessTestHelper.BasicDataObject)]
+        //public void TreeNodeTest()
+        //{
+        //    SampleTreeNode root = CreateTestTree();
 
-            //遍历树
-            root.TraverseChildren((node, context) =>
-            {
-                Console.WriteLine(((SampleTreeNode)node).Data);
-                return true;
-            });
-        }
+        //    //遍历树
+        //    root.TraverseChildren((node, context) =>
+        //    {
+        //        Console.WriteLine(((SampleTreeNode)node).Data);
+        //        return true;
+        //    });
+        //}
 
-        private static SampleTreeNode CreateTestTree()
-        {
-            SampleTreeNode root = new SampleTreeNode("Root");
+        //private static SampleTreeNode CreateTestTree()
+        //{
+        //    SampleTreeNode root = new SampleTreeNode("Root");
 
-            root.Children.Add(new SampleTreeNode("Child1"));
-            root.Children.Add(new SampleTreeNode("Child2"));
+        //    root.Children.Add(new SampleTreeNode("Child1"));
+        //    root.Children.Add(new SampleTreeNode("Child2"));
 
-            root.FirstChild.Children.Add(new SampleTreeNode("Child11"));
-            root.FirstChild.Children.Add(new SampleTreeNode("Child12"));
-            root.LastChild.Children.Add(new SampleTreeNode("Child121"));
-            root.LastChild.Children.Add(new SampleTreeNode("Child122"));
+        //    root.FirstChild.Children.Add(new SampleTreeNode("Child11"));
+        //    root.FirstChild.Children.Add(new SampleTreeNode("Child12"));
+        //    root.LastChild.Children.Add(new SampleTreeNode("Child121"));
+        //    root.LastChild.Children.Add(new SampleTreeNode("Child122"));
 
-            return root;
-        }
+        //    return root;
+        //}
 
         [TestMethod]
         [TestCategory(ProcessTestHelper.BasicDataObject)]

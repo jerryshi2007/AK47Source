@@ -1,0 +1,4626 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MCS.Web.Library</name>
+    </assembly>
+    <members>
+        <member name="T:MCS.Web.Library.AttributeAccessorControlTranslator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.ControlTranslatorGenericBase`1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.IControlTranslator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.IControlTranslator.Translate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.ControlTranslatorGenericBase`1.#ctor(`0)">
+            <summary>
+            
+            </summary>
+            <param name="control"></param>
+        </member>
+        <member name="M:MCS.Web.Library.ControlTranslatorGenericBase`1.Translate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.ControlTranslatorGenericBase`1.CheckControlType(`0,System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="control"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:MCS.Web.Library.ControlTranslatorGenericBase`1.Translate(System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="text"></param>
+            <param name="objParams"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MCS.Web.Library.ControlTranslatorGenericBase`1.Control">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.ControlTranslatorGenericBase`1.AttributeAccessor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.ControlTranslatorGenericBase`1.Category">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.ControlTranslatorGenericBase`1.CategoryDefined">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.AttributeAccessorControlTranslator.#ctor(System.Web.UI.IAttributeAccessor)">
+            <summary>
+            
+            </summary>
+            <param name="control"></param>
+        </member>
+        <member name="M:MCS.Web.Library.AttributeAccessorControlTranslator.Translate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.AttributeAccessorControlTranslator.TranslateAttribute(System.String)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.ButtonControlTranslator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.ButtonControlTranslator.#ctor(System.Web.UI.WebControls.IButtonControl)">
+            <summary>
+            
+            </summary>
+            <param name="control"></param>
+        </member>
+        <member name="M:MCS.Web.Library.ButtonControlTranslator.Translate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.ResponseContentTypeKey">
+            <summary>
+            定义页面或控件输出ContentType的关键字
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseContentTypeKey.WORD">
+            <summary>
+            MSWord类型
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseContentTypeKey.EXCEL">
+            <summary>
+            MSExcel类型
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseContentTypeKey.HTML">
+            <summary>
+            HTML类型
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseContentTypeKey.BMP">
+            <summary>
+            BMP图片
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseContentTypeKey.GIF">
+            <summary>
+            GIF图片
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseContentTypeKey.GD">
+            <summary>
+            GD文件
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseContentTypeKey.GW">
+            <summary>
+            GW，GW2文件
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseContentTypeKey.SPD">
+            <summary>
+            SPD文件
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseContentTypeKey.SEP">
+            <summary>
+            SEP文件
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseContentTypeKey.RM">
+            <summary>
+            RM文件
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseContentTypeKey.RMVB">
+            <summary>
+            RMVB文件
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseContentTypeKey.RA">
+            <summary>
+            RA文件
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseContentTypeKey.SEDS92">
+            <summary>
+            SEDS92文件
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseContentTypeKey.JPEG">
+            <summary>
+            JPEG文件
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseContentTypeKey.MP3">
+            <summary>
+            MP3文件
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseContentTypeKey.MPEG">
+            <summary>
+            MPEG文件
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseContentTypeKey.MHTML">
+            <summary>
+            MHTML文件
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseContentTypeKey.PDF">
+            <summary>
+            PDF文件
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseContentTypeKey.PNG">
+            <summary>
+            PNG文件
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseContentTypeKey.PPT">
+            <summary>
+            PPT文件
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseContentTypeKey.PostScript">
+            <summary>
+            PostScript文件
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseContentTypeKey.Text">
+            <summary>
+            Text文件
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseContentTypeKey.Tiff">
+            <summary>
+            ///文件
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseContentTypeKey.Visio">
+            <summary>
+            Visio文件
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseContentTypeKey.WMD">
+            <summary>
+            WMD文件
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseContentTypeKey.WMP">
+            <summary>
+            WMP文件
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseContentTypeKey.WMA">
+            <summary>
+            WMA文件
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseContentTypeKey.WMZ">
+            <summary>
+            WMZ文件
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseContentTypeKey.WMV">
+            <summary>
+            WMV文件
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseContentTypeKey.AVI">
+            <summary>
+            AVI文件
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseContentTypeKey.ICO">
+            <summary>
+            ICO文件
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseContentTypeKey.XML">
+            <summary>
+            XML文件
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseContentTypeKey.BIN">
+            <summary>
+            BIN文件
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.ResponseDispositionType">
+            <summary>
+            HttpResponse 返回流 客户端打开类型
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseDispositionType.Undefine">
+            <summary>
+            未定义
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseDispositionType.InnerBrowser">
+            <summary>
+            在浏览器内打开
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseDispositionType.Inline">
+            <summary>
+            不提示用户直接打开文件
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ResponseDispositionType.Attachment">
+            <summary>
+            提示用户，用户选择打开文件、保存文件或取消
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.GlobalizationUserControlBase">
+            <summary>
+            支持本地化的User Control的基类
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.GlobalizationUserControlBase.OnInit(System.EventArgs)">
+            <summary>
+            Init
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="T:MCS.Web.Library.HtmlControlTranslator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.HtmlControlTranslator.#ctor(System.Web.UI.HtmlControls.HtmlControl)">
+            <summary>
+            
+            </summary>
+            <param name="control"></param>
+        </member>
+        <member name="M:MCS.Web.Library.HtmlControlTranslator.Translate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.HtmlInputControlTranslator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.HtmlInputControlTranslator.#ctor(System.Web.UI.HtmlControls.HtmlInputControl)">
+            <summary>
+            
+            </summary>
+            <param name="control"></param>
+        </member>
+        <member name="M:MCS.Web.Library.HtmlInputControlTranslator.Translate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.HtmlContainerControlTranslator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.HtmlContainerControlTranslator.#ctor(System.Web.UI.HtmlControls.HtmlContainerControl)">
+            <summary>
+            
+            </summary>
+            <param name="control"></param>
+        </member>
+        <member name="M:MCS.Web.Library.HtmlContainerControlTranslator.Translate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.HtmlTitleControlTranslator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.HtmlTitleControlTranslator.#ctor(System.Web.UI.HtmlControls.HtmlTitle)">
+            <summary>
+            
+            </summary>
+            <param name="control"></param>
+        </member>
+        <member name="M:MCS.Web.Library.HtmlTitleControlTranslator.Translate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.HtmlImageControlTranslator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.HtmlImageControlTranslator.#ctor(System.Web.UI.HtmlControls.HtmlImage)">
+            <summary>
+            
+            </summary>
+            <param name="control"></param>
+        </member>
+        <member name="M:MCS.Web.Library.HtmlImageControlTranslator.Translate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.HtmlSelectControlTranslator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.HtmlSelectControlTranslator.#ctor(System.Web.UI.HtmlControls.HtmlSelect)">
+            <summary>
+            
+            </summary>
+            <param name="control"></param>
+        </member>
+        <member name="M:MCS.Web.Library.HtmlSelectControlTranslator.Translate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.ImageControlTranslator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.ImageControlTranslator.#ctor(System.Web.UI.WebControls.Image)">
+            <summary>
+            
+            </summary>
+            <param name="control"></param>
+        </member>
+        <member name="M:MCS.Web.Library.ImageControlTranslator.Translate">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:MCS.Web.Library.IPageModule">
+            <summary>
+            IPageModule
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.IPageModule.Init(System.Web.UI.Page)">
+            <summary>
+            Init
+            </summary>
+            <param name="page"></param>
+        </member>
+        <member name="M:MCS.Web.Library.IPageModule.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.BasePageModule">
+            <summary>
+            BasePageModule
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.BasePageModule.Init(System.Web.UI.Page)">
+            <summary>
+            Init
+            </summary>
+            <param name="page"></param>
+        </member>
+        <member name="M:MCS.Web.Library.BasePageModule.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.ListControlTranslator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.ListControlTranslator.#ctor(System.Web.UI.WebControls.ListControl)">
+            <summary>
+            
+            </summary>
+            <param name="control"></param>
+        </member>
+        <member name="M:MCS.Web.Library.ListControlTranslator.Translate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.PageContentModule">
+            <summary>
+            加载PageContentModule
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.PageContentModule.Init(System.Web.UI.Page)">
+            <summary>
+            Init
+            </summary>
+            <param name="page"></param>
+        </member>
+        <member name="M:MCS.Web.Library.PageContentModule.RegisterDefaultNameTable">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.PageRenderMode">
+            <summary>
+            定义页面的输出状态
+            </summary>
+            <remarks>定义页面的输出状态</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.PageRenderMode.#ctor">
+            <summary>
+            页面输出状态
+            </summary>
+            <remarks>页面输出状态</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.PageRenderMode.#ctor(System.String,System.String)">
+            <summary>
+            单独页面输出某控件状态
+            </summary>
+            <param name="renderControlUniqueID">单独输出控件UniqueID</param>
+            <param name="renderArgument">输出参数</param>
+            <remarks>单独页面输出某控件状态</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.PageRenderMode.#ctor(System.String,MCS.Web.Library.ResponseDispositionType,System.String,System.String)">
+            <summary>
+            文件方式输出页面状态
+            </summary>
+            <param name="contentTypeKey">页面内容类型ContentType的Key值</param>
+            <param name="dispositionType">页面打开文件类型</param>
+            <param name="attachmentFileName">文件名称</param>
+            <param name="renderArgument">输出参数</param>
+        </member>
+        <member name="M:MCS.Web.Library.PageRenderMode.#ctor(MCS.Web.Library.ResponseContentTypeKey,MCS.Web.Library.ResponseDispositionType,System.String,System.String)">
+            <summary>
+            文件方式输出页面状态
+            </summary>
+            <param name="contentTypeKey">页面内容类型ContentType的Key值</param>
+            <param name="dispositionType">页面内容类型</param>
+            <param name="attachmentFileName">页面打开文件类型</param>
+            <param name="renderArgument">输出参数</param>
+        </member>
+        <member name="M:MCS.Web.Library.PageRenderMode.#ctor(System.String,MCS.Web.Library.ResponseDispositionType,System.String,System.String,System.String)">
+            <summary>
+            文件方式输出某控件状态
+            </summary>
+            <param name="contentTypeKey">页面内容类型ContentType的Key值</param>
+            <param name="dispositionType">页面内容类型</param>
+            <param name="attachmentFileName">页面打开文件类型</param>
+            <param name="renderControlUniqueID">单独输出控件UniqueID</param>
+            <param name="renderArgument">输出参数</param>
+        </member>
+        <member name="M:MCS.Web.Library.PageRenderMode.#ctor(MCS.Web.Library.ResponseContentTypeKey,MCS.Web.Library.ResponseDispositionType,System.String,System.String,System.String)">
+            <summary>
+            文件方式输出某控件状态
+            </summary>
+            <param name="contentTypeKey">页面内容类型ContentType的Key值</param>
+            <param name="dispositionType">页面内容类型</param>
+            <param name="attachmentFileName">页面打开文件类型</param>
+            <param name="renderControlUniqueID">单独输出控件UniqueID</param>
+            <param name="renderArgument">输出参数</param>
+        </member>
+        <member name="M:MCS.Web.Library.PageRenderMode.#ctor(System.String)">
+            <summary>
+            通过字符串数据构造实例
+            </summary>
+            <param name="strData">字符串数据</param>
+        </member>
+        <member name="M:MCS.Web.Library.PageRenderMode.ToString">
+            <summary>
+            转换成字符串数据
+            
+            </summary>
+            <returns>字符串数据</returns>
+        </member>
+        <member name="P:MCS.Web.Library.PageRenderMode.UseNewPage">
+            <summary>
+            是否使用新页面输出
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.PageRenderMode.ContentTypeKey">
+            <summary>
+            输出内容的ContentTypeKey，根据ContentTypeKey可以查到相应的ContentType
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.PageRenderMode.DispositionType">
+            <summary>
+            HttpResponse 返回流 客户端打开类型
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.PageRenderMode.AttachmentFileName">
+            <summary>
+            如果为文件输出则设置文件名称。
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.PageRenderMode.RenderControlUniqueID">
+            <summary>
+            输出控件的UniqueID，如果不单独输出某一控件，则不设置
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.PageRenderMode.PageCache">
+            <summary>
+            页面缓存
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.PageRenderMode.RenderArgument">
+            <summary>
+            输出参数
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.PageRenderMode.IsHtmlRender">
+            <summary>
+            是否位Html输出状态
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.PageRenderModePageCache">
+            <summary>
+            PageRenderModePageCache
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.PageRenderModePageCache.GetValue``1(System.String,``0)">
+            <summary>
+            获取值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="defautValue"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Web.Library.ResponseExtensions">
+            <summary>
+            为HttpResponse添加的扩展方法类
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.ResponseExtensions.EncodeFileNameInContentDisposition(System.Web.HttpResponse,System.String)">
+            <summary>
+            为Http Head中的ContentDisposition项的文件名进行编码。真对于不同的浏览器编码方式不同
+            </summary>
+            <param name="response"></param>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Web.Library.TextControlTranslator">
+            <summary>
+            For Label, TextBox
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.TextControlTranslator.#ctor(System.Web.UI.ITextControl)">
+            <summary>
+            
+            </summary>
+            <param name="control"></param>
+        </member>
+        <member name="M:MCS.Web.Library.TextControlTranslator.Translate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.TranslatorControlHelper.GetControlTranslators(System.Web.UI.Control)">
+            <summary>
+            
+            </summary>
+            <param name="control"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Web.Library.TreeGraphExtensions">
+            <summary>
+            TreeGraph的扩展
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.TreeGraphExtensions.RegisterInlineStyles">
+            <summary>
+            注册树型图相关的样式
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.TreeGraphExtensions.ResponseInlineStyles">
+            <summary>
+            输出树型图相关的样式
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.TreeGraphExtensions.WriteInlineStyles(System.IO.TextWriter)">
+            <summary>
+            输出Inline的样式
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:MCS.Web.Library.TreeGraphExtensions.WriteHtmlGraph(MCS.Library.Data.DataObjects.TreeGraph,System.IO.TextWriter,System.Boolean)">
+            <summary>
+            输出树型图
+            </summary>
+            <param name="graph"></param>
+            <param name="writer"></param>
+            <param name="outputStyle">是否输出样式，默认为true</param>
+        </member>
+        <member name="T:MCS.Web.Library.WindowFeatureHelper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.WindowFeatureHelper.ToAdjustWindowScriptBlock(MCS.Web.Library.IWindowFeature,System.Boolean)">
+            <summary>
+            获取调整窗口大小和位置脚本
+            </summary>
+            <param name="windowFeature"></param>
+            <param name="addScriptTags"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.WindowFeatureHelper.GetClientObject(MCS.Web.Library.IWindowFeature)">
+            <summary>
+            
+            </summary>
+            <param name="windowFeature"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.WindowFeatureHelper.ToDialogFeatureClientString(MCS.Web.Library.IWindowFeature)">
+            <summary>
+            
+            </summary>
+            <param name="windowFeature"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.WindowFeatureHelper.ToWindowFeatureClientString(MCS.Web.Library.IWindowFeature)">
+            <summary>
+            
+            </summary>
+            <param name="windowFeature"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.WindowFeatureHelper.ToDialogFeatureClientString(MCS.Web.Library.IWindowFeature,MCS.Web.Library.QuatationMarkType)">
+            <summary>
+            
+            </summary>
+            <param name="windowFeature"></param>
+            <param name="quatationMarkType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.WindowFeatureHelper.ToWindowFeatureClientString(MCS.Web.Library.IWindowFeature,MCS.Web.Library.QuatationMarkType)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Web.Library.ConfigSectionFactory">
+            <summary>
+            获取ConfigSection的工厂类
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.ConfigSectionFactory.GetWebControlsSection">
+            <summary>
+            获取WebControlsSection
+            </summary>
+            <returns>WebControlsSection</returns>
+            <remarks>获取WebControlsSection</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.ConfigSectionFactory.GetContentTypesSection">
+            <summary>
+            获取ContentTypesSection
+            </summary>
+            <returns>ContentTypesSection</returns>
+            <remarks>获取ContentTypesSection</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.ConfigSectionFactory.GetJsonSerializationSection">
+            <summary>
+            获取JsonSerializationSection
+            </summary>
+            <returns>JsonSerializationSection</returns>
+            <remarks>获取JsonSerializationSection</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.ConfigSectionFactory.GetPageExtensionSection">
+            <summary>
+            获取PageExtensionSection
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.ConfigSectionFactory.GetHttpModulesSection">
+            <summary>
+            获取HttpModulesSection
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.ConfigSectionFactory.GetPageModulesSection">
+            <summary>
+            获取PageModulesSection
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Web.Library.WebFileOpenMode">
+            <summary>
+            Web应用，附件的打开方式
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.WebFileOpenMode.Attachment">
+            <summary>
+            附件方式打开
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.WebFileOpenMode.Inline">
+            <summary>
+            内嵌方式打开
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.ContentTypesSection">
+            <summary>
+            文档类型配置信息的实现类
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.ContentTypesSection.GetConfig">
+            <summary>
+            得到文档类型的配置
+            </summary>
+            <returns>文档类型的配置信息</returns>
+        </member>
+        <member name="P:MCS.Web.Library.ContentTypesSection.ContentTypes">
+            <summary>
+            文档的类型
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.ContentTypesSection.DefaultElement">
+            <summary>
+            得到缺省的配置项
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.ContentTypeConfigElementCollection">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.ContentTypeConfigElementCollection.CreateNewElement">
+            <summary>
+            建立新的配置元素
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.ContentTypeConfigElementCollection.GetElementKey(System.Configuration.ConfigurationElement)">
+            <summary>
+            得到元素的键值
+            </summary>
+            <param name="element"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.ContentTypeConfigElementCollection.FindElementByFileName(System.String)">
+            <summary>
+            根据文件名得到文件的配置信息
+            </summary>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MCS.Web.Library.ContentTypeConfigElementCollection.Item(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MCS.Web.Library.ContentTypeConfigElementCollection.Item(System.String)">
+            <summary>
+            按照key值查找内容的配置元素
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Web.Library.ContentTypeConfigElement">
+            <summary>
+            文档类型的配置项
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.ContentTypeConfigElement.Key">
+            <summary>
+            配置项的key
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.ContentTypeConfigElement.ContentType">
+            <summary>
+            文档的类型
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.ContentTypeConfigElement.FileExtensionNames">
+            <summary>
+            文件的扩展名集合
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.ContentTypeConfigElement.LogoImage">
+            <summary>
+            得到文档对应的Logo
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.ContentTypeConfigElement.OpenMode">
+            <summary>
+            附件的打开方式
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.Performance.CountersInstaller">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Performance.CountersInstaller.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.Performance.CountersInstaller.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Performance.CountersInstaller.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:MCS.Web.Library.Performance.CountersInstaller.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.DeluxeWebSectionGroup">
+            <summary>
+            DeluxeWeb配置组
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.FilePathConfigElementCollection">
+            <summary>
+            文件配置节集合
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.FilePathConfigElementCollection.CreateNewElement">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.FilePathConfigElementCollection.GetElementKey(System.Configuration.ConfigurationElement)">
+            <summary>
+            
+            </summary>
+            <param name="element"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Web.Library.FilePathConfigElement">
+            <summary>
+            文件配置节
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.FilePathConfigElement.Path">
+            <summary>
+            文件路径
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.PageContentSection">
+            <summary>
+            页面扩展信息配置节
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.PageContentSection.CssClasses">
+            <summary>
+            Css文件配置节集合
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.PageContentSection.Scripts">
+            <summary>
+            脚本文件配置节集合
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.PageContentSection.NotAutoLoadPages">
+            <summary>
+            不自动加载的页面配置节集合
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.PageContentSection.AutoEncryptControlIDs">
+            <summary>
+            自动加密内容的控件ID
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.PageContentSection.AutoLoad">
+            <summary>
+            是否自动为每个页面加载扩展
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.NotAutoLoadPageConfigElementCollection">
+            <summary>
+            不自动加载的页面配置节集合
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.NotAutoLoadPageConfigElementCollection.CreateNewElement">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.NotAutoLoadPageConfigElementCollection.GetElementKey(System.Configuration.ConfigurationElement)">
+            <summary>
+            
+            </summary>
+            <param name="element"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Web.Library.NotAutoLoadPageConfigElement">
+            <summary>
+            不自动加载的页面配置节
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.NotAutoLoadPageConfigElement.Path">
+            <summary>
+            page路径
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.PageModulesSection">
+            <summary>
+            PageModules配置信息
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.PageModulesSection.Create">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:MCS.Web.Library.PageModulesSection.PageModules">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.PageModuleElementCollection">
+            <summary>
+            PageModule配置节集合
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.PageModuleElementCollection.CreateNewElement">
+            <summary>
+            CreateNewElement
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.PageModuleElementCollection.GetElementKey(System.Configuration.ConfigurationElement)">
+            <summary>
+            GetElementKey
+            </summary>
+            <param name="element"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Web.Library.PageModuleElement">
+            <summary>
+            PageModule配置节
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.PageModuleElement.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.PageModuleElement.Type">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.ScriptControlSection">
+            <summary>
+            脚本控件相关的配置节
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.ScriptControlSection.GetSection">
+            <summary>
+            得到脚本控件相关的配置节
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:MCS.Web.Library.ScriptControlSection.UseScriptReferencesInAssembly">
+            <summary>
+            是否使用内嵌在Assembly中的脚本，如果不是脚本会在虚目录(LocalScriptVirtualDir)中生成
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.ScriptControlSection.LocalScriptVirtualDir">
+            <summary>
+            从Assembly中生成脚本的虚目录
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.WebControlsSection">
+            <summary>
+            WebControl相关配置信息
+            </summary>
+            <remarks>WebControl相关配置信息</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.WebControlsSection.GetConfigCssUrl(System.Type)">
+            <summary>
+            获取某类型控件的配置CssUrl
+            </summary>
+            <param name="controlType">控件类别</param>
+            <returns>CssUrl</returns>
+            <remarks>获取某类型控件的配置CssUrl</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.WebControlsSection.GetConfigCssUrl(System.Web.UI.Control)">
+            <summary>
+            获取某类型控件的配置CssUrl
+            </summary>
+            <param name="control">控件实例</param>
+            <returns>CssUrl</returns>
+            <remarks>获取某类型控件的配置CssUrl</remarks>
+        </member>
+        <member name="P:MCS.Web.Library.WebControlsSection.Properties">
+            <summary>
+            Gets the collection of properties.
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.WebControlsSection.Controls">
+            <summary>
+            WebControl配置信息集合
+            </summary>
+            <remarks>WebControl配置信息集合</remarks>
+        </member>
+        <member name="T:MCS.Web.Library.WebControlConfigElementCollection">
+            <summary>
+            WebControl配置节点集合
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.WebControlConfigElementCollection.CreateNewElement">
+            <summary>
+            creates a new WebControlConfigElement
+            </summary>
+            <returns>new WebControlConfigElement</returns>
+        </member>
+        <member name="M:MCS.Web.Library.WebControlConfigElementCollection.GetElementKey(System.Configuration.ConfigurationElement)">
+            <summary>
+            Gets the element key for a specified configuration element 
+            </summary>
+            <param name="element">The ConfigurationElement to return the key for.</param>
+            <returns>An Object that acts as the key for the specified ConfigurationElement.</returns>
+        </member>
+        <member name="P:MCS.Web.Library.WebControlConfigElementCollection.Item(System.Type)">
+            <summary>
+            通过控件类型，返回相应配置节点
+            </summary>
+            <param name="controlType">控件类型</param>
+            <returns>配置节点</returns>
+        </member>
+        <member name="P:MCS.Web.Library.WebControlConfigElementCollection.Item(System.Web.UI.Control)">
+            <summary>
+            通过控件实例，返回相应配置节点
+            </summary>
+            <param name="control">控件实例</param>
+            <returns>配置节点</returns>
+        </member>
+        <member name="T:MCS.Web.Library.WebControlConfigElement">
+            <summary>
+            控件配置节点信息
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.WebControlConfigElement.Properties">
+            <summary>
+            Gets the collection of properties.
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.WebControlConfigElement.Type">
+            <summary>
+            控件类型
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.WebControlConfigElement.StrType">
+            <summary>
+            控件类型
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.WebControlConfigElement.CssUrl">
+            <summary>
+            控件对应的CssUrl
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.ApplicationErrorLogSection">
+            <summary>
+            应用错误日志配置
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.ApplicationErrorLogSection.GetSection">
+            <summary>
+            获取Section实例
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.ApplicationErrorLogSection.GetExceptionLogEventType(System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MCS.Web.Library.ApplicationErrorLogSection.ExceptionLogs">
+            <summary>
+            异常和日志对应配置
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.ApplicationErrorLogSection.LogoImage">
+            <summary>
+            Logo的图片地址
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.ApplicationErrorLogSection.GlobalStyle">
+            <summary>
+            全局样式文件地址
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.ApplicationErrorLogSection.DefaultLogEventType">
+            <summary>
+            默认事件类型
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.ApplicationErrorLogSection.NotifyMailAddress">
+            <summary>
+            显示错误信息时的，显示的邮件通知人
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.ApplicationErrorLogSection.OutputStackTrace">
+            <summary>
+            用何种形式输出堆栈信息
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.ApplicationErrorLogSection.HttpStatusCode">
+            <summary>
+            用何种形式输出堆栈信息
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.OutputStackTraceMode">
+            <summary>
+            输出的堆栈信息的选项
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.OutputStackTraceMode.False">
+            <summary>
+            禁止输出
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.OutputStackTraceMode.True">
+            <summary>
+            允许输出
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.OutputStackTraceMode.ByCompilationMode">
+            <summary>
+            由Web.config中的system.web/compilation的debug属性决定
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.ExceptionLogElementColletion">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.ExceptionLogElementColletion.CreateNewElement">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.ExceptionLogElementColletion.GetElementKey(System.Configuration.ConfigurationElement)">
+            <summary>
+            
+            </summary>
+            <param name="element"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.ExceptionLogElementColletion.GetElement(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Web.Library.ExceptionLogElement">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.ExceptionLogElement.LogEventType">
+            <summary>
+            事件类型
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.ApplicationErrorModule">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.ApplicationErrorModule.ExceptionItemKey">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.ApplicationErrorModule.ChangeResponseStatus">
+            <summary>
+            根据异常，调整Response的Status和StatusDescription
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.ControlStylePageModule">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.ControlStylePageModule.Init(System.Web.UI.Page)">
+            <summary>
+            
+            </summary>
+            <param name="page"></param>
+        </member>
+        <member name="M:MCS.Web.Library.ControlStylePageModule.IsCompatibleSet(System.Web.UI.Page)">
+            <summary>
+            是否在Header中已经设置了X-UA-Compatible
+            </summary>
+            <param name="page"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Web.Library.HttpEntryModule">
+            <summary>
+            通过此HttpModule加载deluxe.web/httpModules节点中配置的HttpModule集合
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.HttpEntryModule.Init(System.Web.HttpApplication)">
+            <summary>
+            Init HttpModule
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:MCS.Web.Library.HttpEntryModule.Dispose">
+            <summary>
+            Dispose HttpModule
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.PageModuleHttpModule">
+            <summary>
+            加载PageModule的HttpModule
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.PageModuleHttpModule.Init(System.Web.HttpApplication)">
+            <summary>
+            Init HttpModule
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:MCS.Web.Library.PageModuleHttpModule.Dispose">
+            <summary>
+            Dispose HttpModule
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.PageMonitorSettings">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.PageMonitorSettings.GetConfig">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:MCS.Web.Library.PageMonitorSettings.Enabled">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.PageMonitorSettings.Pages">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.PageMonitorElementCollection">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.PageMonitorElementCollection.GetMatchedElement">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Web.Library.PageMonitorElement">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.PageMonitorElement.IsUrlMatched">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.PageMonitorElement.IsVerbMatched">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:MCS.Web.Library.PageMonitorElement.UrlIncluding">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.PageMonitorElement.EnableLogging">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.PageMonitorElement.EnablePFCounter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.PageMonitorElement.CounterInstanceName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.PageMonitorElement.Verb">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.PMPerformanceCounters">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.PMPerformanceCounters.GetCounters(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="instName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MCS.Web.Library.PMPerformanceCounters.PageAccessCount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.PMPerformanceCounters.PageSuccessCount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.PMPerformanceCounters.PageErrorCount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.PMPerformanceCounters.PageSuccessRatio">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.PMPerformanceCounters.PageSuccessRatioBase">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.PMPerformanceCounters.PageAccessCurrentAverage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.PMPerformanceCounters.PageAccessCurrentAverageBase">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.PMPerformanceCounters.PageAccessTotalAverage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.PMPerformanceCounters.PageAccessTotalAverageBase">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.PMPerformanceCounters.PageAccessCountPerSecond">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.MVC.ControllerHelper">
+            <summary>
+            控制器用到的辅助工具，帮助从request串映射到类的方法
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.MVC.ControllerHelper.ExecuteMethodByRequest(System.Object)">
+            <summary>
+            根据HttpRequest找到匹配的类方法，然后执行
+            </summary>
+            <returns>方法的返回值</returns>
+            <param name="controller">包含方法的控制器类实例</param>
+        </member>
+        <member name="M:MCS.Web.Library.MVC.ControllerHelper.GetMethodInfoByCurrentUri(System.Type)">
+            <summary>
+            根据HttpRequest找到匹配的类方法
+            </summary>
+            <param name="controllerType">包含方法的控制器类型</param>
+            <returns>匹配到的方法类型信息</returns>
+        </member>
+        <member name="M:MCS.Web.Library.MVC.ControllerHelper.FindControllerMethods(System.Type)">
+            <summary>
+            得到一个类型中，所有标记为ControllerMethod的方法
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Web.Library.MVC.ControllerMethodAttribute">
+            <summary>
+            标识出类中的方法是控制器方法
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.MVC.ControllerMethodAttribute.#ctor">
+            <summary>
+            构造方法
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.MVC.ControllerMethodAttribute.#ctor(System.Boolean)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="defaultMethod"></param>
+        </member>
+        <member name="M:MCS.Web.Library.MVC.ControllerMethodAttribute.#ctor(System.String)">
+            <summary>
+            构造方法。用逗号或分号分隔的参数名称列表。一旦有这里面的参数，则强制忽略此方法
+            </summary>
+            <param name="forceIgnoreParameters"></param>
+        </member>
+        <member name="P:MCS.Web.Library.MVC.ControllerMethodAttribute.Default">
+            <summary>
+            是否是缺省的方法
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.MVC.ControllerMethodAttribute.ForceIgnoreParameters">
+            <summary>
+            用逗号或分号分隔的参数名称列表。一旦有这里面的参数，则强制忽略此方法
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.MVC.ControllerMethodInfoExtensions.GetMatchedMethodInfoByParameterNames(System.Collections.Generic.IEnumerable{MCS.Web.Library.MVC.ControllerMethodInfo},System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            找到参数名称最匹配的方法
+            </summary>
+            <param name="mbs"></param>
+            <param name="parameterNames"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.MVC.ControllerMethodInfoExtensions.GetNotIgnoredMethods(System.Collections.Generic.IEnumerable{MCS.Web.Library.MVC.ControllerMethodInfo},System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            过滤掉存在需要忽略掉的参数的方法
+            </summary>
+            <param name="mbs"></param>
+            <param name="parameterNames"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Web.Library.DeluxeScript">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.DeluxeScript.C_CommandIputClientID">
+            <summary>
+            接收命令的客户端Input控件ID
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.Resources.DeluxeWebResource">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Resources.DeluxeWebResource.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Resources.DeluxeWebResource.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Resources.DeluxeWebResource.DesignerTimeErrorMessage">
+            <summary>
+              Looks up a localized string similar to Error generating design-time HTML:\n\n.
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Resources.DeluxeWebResource.E_CanNotConvertTypeTo">
+            <summary>
+              Looks up a localized string similar to 不能从类别{0}转换到类别{1}.
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Resources.DeluxeWebResource.E_ConverterConflict">
+            <summary>
+              Looks up a localized string similar to JavaScriptConverter注册时冲突：{0}和{1}不能同时都支持对{2}的序列化！.
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Resources.DeluxeWebResource.E_HasExistUrl">
+            <summary>
+              Looks up a localized string similar to 已经存在此Url：{0}.
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Resources.DeluxeWebResource.E_HttpHandlerMustBePageClass">
+            <summary>
+              Looks up a localized string similar to 执行此操作时，当前的执行的HttpHandler必须是Page类实例.
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Resources.DeluxeWebResource.E_InvalidContentLogoImagePath">
+            <summary>
+              Looks up a localized string similar to {0}是非法的文档图标路径格式.
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Resources.DeluxeWebResource.E_InvokeLevelTooDeep">
+            <summary>
+              Looks up a localized string similar to 调用级别太深大于{0}级.
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Resources.DeluxeWebResource.E_NoInheritFrom">
+            <summary>
+              Looks up a localized string similar to {0}不是{1}的子类或实现类.
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Resources.DeluxeWebResource.E_NoScriptManager">
+            <summary>
+              Looks up a localized string similar to A ScriptManager is required on the page to use ASP.NET AJAX Script Components..
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Resources.DeluxeWebResource.E_NotControl">
+            <summary>
+              Looks up a localized string similar to {0}的基类不是Control.
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Resources.DeluxeWebResource.E_NotJavaScriptConverter">
+            <summary>
+              Looks up a localized string similar to {0}的基类不是JavaScriptConverter.
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Resources.DeluxeWebResource.E_SciptPathNotAllowed">
+            <summary>
+              Looks up a localized string similar to This class does not allow setting of ScriptPath..
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Resources.DeluxeWebResource.E_TypeKeyExist">
+            <summary>
+              Looks up a localized string similar to TypeKey{0}已经存在.
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Resources.DeluxeWebResource.E_UnknownType">
+            <summary>
+              Looks up a localized string similar to 未知的类{0}.
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.Resources.ClientMsgResources">
+            <summary>
+            与资源脚本MCS.Web.Library.Resources.ClientMsg.ClientMsg.js"相关联的类
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.Resources.ClientMsgResources.ScriptFileName">
+            <summary>
+            脚本文件名
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Resources.ClientMsgResources.GetClientMsgResourceUrl(System.Web.UI.ClientScriptManager,System.String)">
+            <summary>
+            获取资源文件url
+            </summary>
+            <param name="clientScript"></param>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Resources.ClientMsgResources.GetFileFullName(System.String)">
+            <summary>
+            获取资源文件全名
+            </summary>
+            <param name="fileName">资源文件</param>
+            <returns>资源文件全名</returns>
+        </member>
+        <member name="T:MCS.Web.Library.Script.ClientCssResourceAttribute">
+            <summary>
+            客户端Css资源文件引用Attribute
+            </summary>
+            <remarks>客户端Css资源文件引用Attribute</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ClientCssResourceAttribute.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="fullResourceName">css资源文件名称</param>
+            <remarks>构造函数</remarks>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ClientCssResourceAttribute.ResourcePath">
+            <summary>
+            css资源文件全名称，命名空间+文件名称
+            </summary>
+            <remarks>css资源文件全名称，命名空间+文件名称</remarks>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ClientCssResourceAttribute.LoadOrder">
+            <summary>
+            加载顺序
+            </summary>
+            <remarks>加载顺序</remarks>
+        </member>
+        <member name="T:MCS.Web.Library.Script.ClientScriptCacheability">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.Script.ClientScriptCacheability.None">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.Script.ClientScriptCacheability.File">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.Script.ClientScriptResourceAttribute">
+            <summary>
+            关联控件与脚本资源，控件通过此属性可获取客户端控件的类型和脚本资源。
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ClientScriptResourceAttribute.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ClientScriptResourceAttribute.#ctor(System.String)">
+            <summary>
+            Called from other constructors to set the prefix and the name.
+            </summary>
+            <param name="componentType">The name given to the class in the Web.TypeDescriptor.addType call</param>        
+        </member>
+        <member name="M:MCS.Web.Library.Script.ClientScriptResourceAttribute.#ctor(System.String,System.Type,System.String)">
+            <summary>
+            Associates a client script resource with the class.
+            </summary>
+            <param name="componentType">The name given to the class in the Web.TypeDescriptor.addType call</param>
+            <param name="baseType">A Type that lives in the same folder as the script file</param>
+            <param name="resourceName">The name of the script file itself (e.g. 'foo.cs')</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ClientScriptResourceAttribute.#ctor(System.String,System.String)">
+            <summary>
+            Associates a client script resource with the class.
+            </summary>
+            <param name="componentType">The name given to the class in the Web.TypeDescriptor.addType call</param>
+            <param name="fullResourceName">The name of the script resource, e.g. 'ControlLibrary1.FooExtender.Foo.js'</param>       
+        </member>
+        <member name="P:MCS.Web.Library.Script.ClientScriptResourceAttribute.ComponentType">
+            <summary>
+            客户端对象类型
+            </summary>        
+        </member>
+        <member name="P:MCS.Web.Library.Script.ClientScriptResourceAttribute.LoadOrder">
+            <summary>
+            加载顺序
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ClientScriptResourceAttribute.ResourcePath">
+            <summary>
+            资源文件全名称，命名空间+文件名称
+            This is the path to the resource in the assembly.  This is usually defined as
+            [default namespace].[Folder name].FileName.  In a project called "ControlLibrary1", a
+            JScript file called Foo.js in the "Script" subdirectory would be named "ControlLibrary1.Script.Foo.js" by default.
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ClientScriptResourceAttribute.Cacheability">
+            <summary>
+            可缓存性
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.Script.ComponentReferenceAttribute">
+            <summary>
+            Signifies that this property references a ScriptComponent
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ComponentReferenceAttribute.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.Script.ScriptControlHelper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlHelper.EnsureScriptManager(System.Web.UI.ScriptManager@,System.Web.UI.Page)">
+            <summary>
+            
+            </summary>
+            <param name="sm"></param>
+            <param name="page"></param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlHelper.GetBasePageTypeInfo(System.Type)">
+            <summary>
+            得到页面Page类型
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlHelper.GetPageLevel(MCS.Web.Library.PageRenderModePageCache)">
+            <summary>
+            
+            </summary>
+            <param name="cache"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlHelper.SetPageLevel(MCS.Web.Library.PageRenderModePageCache,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="cache"></param>
+            <param name="level"></param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlHelper.GetPageUniqueID(MCS.Web.Library.PageRenderModePageCache)">
+            <summary>
+            
+            </summary>
+            <param name="cache"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlHelper.SetPageUniqueID(MCS.Web.Library.PageRenderModePageCache,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="cache"></param>
+            <param name="id"></param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlHelper.CheckOnlyRenderSelf(System.Web.UI.Control,MCS.Web.Library.ControlRenderMode)">
+            <summary>
+            
+            </summary>
+            <param name="ctr"></param>
+            <param name="renderMode"></param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlHelper.dialogPage_PreRenderComplete(System.Object,System.EventArgs)">
+            <summary>
+            对话框状态下，根据ViewState属性生成客户端清理ViewState的脚本
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlHelper.GetControlRenderMode(System.Web.UI.Control)">
+            <summary>
+            
+            </summary>
+            <param name="ctr"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Web.Library.Script.ScriptGridViewBase">
+            <summary>
+            脚本GridView控件基类
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.Script.IControlResolver">
+            <summary>
+            Describes an object that can be used to resolve references to a control by its ID
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.IControlResolver.ResolveControl(System.String)">
+            <summary>
+            Resolves a reference to a control by its ID
+            </summary>
+            <param name="controlId">控件ID</param>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Web.Library.Script.IClientStateManager">
+            <summary>
+            Describes an object which supports ClientState
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.IClientStateManager.LoadClientState(System.String)">
+            <summary>
+            Loads the client state for the object
+            </summary>
+            <param name="clientState"></param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.IClientStateManager.SaveClientState">
+            <summary>
+            Saves the client state for the object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:MCS.Web.Library.Script.IClientStateManager.SupportsClientState">
+            <summary>
+            Whether ClientState is supported by the object instance
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptGridViewBase.EnsureScriptManager">
+            <summary>
+            Ensures a ScriptManager exists on the Page for this Control
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptGridViewBase.OnInit(System.EventArgs)">
+            <summary>
+            重载OnInit，增加事件
+            </summary>
+            <param name="e">事件参数</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptGridViewBase.FindControl(System.String)">
+            <summary>
+            Finds a control reference by its ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptGridViewBase.OnPagePreLoad(System.Object,System.EventArgs)">
+            <summary>
+            在页面Load之前，确保ScriptManager加载
+            </summary>
+            <param name="sender">事件触发对象</param>
+            <param name="e">事件参数</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptGridViewBase.OnPreRender(System.EventArgs)">
+            <summary>
+            Fires the PreRender event
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptGridViewBase.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptGridViewBase.LoadClientState(System.String)">
+            <summary>
+            Loads the client state data
+            </summary>
+            <param name="clientState"></param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptGridViewBase.SaveClientState">
+            <summary>
+            Saves the client state data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptGridViewBase.LoadPostData(System.String,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Executed when post data is loaded from the request
+            </summary>
+            <param name="postDataKey"></param>
+            <param name="postCollection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptGridViewBase.RaisePostDataChangedEvent">
+            <summary>
+            Executed when post data changes should invoke a chagned event
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptGridViewBase.GetScriptDescriptors">
+            <summary>
+            Gets the ScriptDescriptors that make up this control
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptGridViewBase.GetScriptReferences">
+            <summary>
+            Gets the script references for this control
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptGridViewBase.DescribeComponent(System.Web.UI.ScriptComponentDescriptor)">
+            <summary>
+            Describes the settings for this control.
+            </summary>
+            <param name="descriptor"></param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptGridViewBase.LoadViewState(System.Object)">
+            <summary>
+            Restores view-state information from a previous request that was saved with the SaveViewState method.
+            并在LoadViewState之前缓存ViewState中所有IStateManager类型项
+            以及在LoadViewState之后从缓存中恢复将ViewState中ViewSateItemInternal类型项恢复成IStateManager类型项
+            </summary>
+            <param name="savedState">An object that represents the control state to restore.</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptGridViewBase.SaveViewState">
+            <summary>
+            Saves any state that was modified after the TrackViewState method was invoked
+            并在SaveViewState之前，将ViewState中所有IStateManager类型项转换为可序列化的ViewSateItemInternal类型项
+            以及在SaveViewState之后，将ViewState中所有ViewSateItemInternal类型项恢复成IStateManager类型项
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptGridViewBase.TrackViewState">
+            <summary>
+            Causes the control to track changes to its view state so they can be stored in the object's ViewState property
+            并将ViewState中所有IStateManager类型项标记为TrackViewState
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptGridViewBase.RenderControl(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            判断是否只是输出本控件，如果是则进行只输出本控件处理，否则进行正常的控件输出
+            </summary>
+            <param name="writer">接收控件内容的 HtmlTextWriter 对象。</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptGridViewBase.ResolveControl(System.String)">
+            <summary>
+            通过controlId，查找相应Control
+            </summary>
+            <param name="controlId">controlId</param>
+            <returns>Control</returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptGridViewBase.CheckIfValid(System.Boolean)">
+            <summary>
+            Checks if all properties are valid
+            </summary>
+            <param name="throwException">true iff an exception is to be thrown for invalid parameters</param>
+            <returns>true iff all parameters are valid</returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptGridViewBase.EnsureValid">
+            <summary>
+            Called during rendering to give derived classes a chance to validate their properties
+            </summary>
+            <remarks>
+            If the properties aren't valid, an exception of type ArgumentException should be thrown
+            </remarks>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptGridViewBase.GetPropertyValue``1(System.String,``0)">
+            <summary>
+            从ViewState中获取某属性值，如果为空则返回默认值nullValue
+            </summary>
+            <typeparam name="V">属性类型</typeparam>
+            <param name="propertyName">属性名称</param>
+            <param name="nullValue">默认值</param>
+            <returns>属性值</returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptGridViewBase.SetPropertyValue``1(System.String,``0)">
+            <summary>
+            设置某属性的值
+            </summary>
+            <typeparam name="V">属性类型</typeparam>
+            <param name="propertyName">属性名称</param>
+            <param name="value">属性值</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptGridViewBase.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptGridViewBase.#ctor(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="enableClientState"></param>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptGridViewBase.RenderMode">
+            <summary>
+            控件输出模式
+            </summary>        
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptGridViewBase.ReadOnly">
+            <summary>
+            是否只读
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptGridViewBase.ScriptPath">
+            <summary>
+            For debugging - setting this causes the extender to load the specified script instead of the one out of the resources.  This
+            lets you set breakpoints and modify the script without rebuilding, etc.
+            </summary>
+            <remarks>
+            Note to inheritors: If you do not wish the user to set the script path, override script path and throw a NotSupportedException on set.  Also decorate the ScriptPath attribute with a [Browsable(false)] and [EditorBrowsableState(EditorBrowsableState.Never)]
+            </remarks>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptGridViewBase.ClientControlType">
+            <summary>
+            The script type to use for the ScriptControl
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptGridViewBase.SupportsClientState">
+            <summary>
+            Whether this control supports ClientState
+            </summary>
+            <remarks>
+            Note to inheritors: You should either pass true to the constructor for enableClientState or override this property to enable client state for inherited controls.
+            </remarks>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptGridViewBase.ScriptManager">
+            <summary>
+            Gets the ScriptManager for the page
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptGridViewBase.AutoClearClientStateFieldValue">
+            <summary>
+            是否自动清除客户端ClientStateField中的值
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptGridViewBase.ClientStateFieldID">
+            <summary>
+            The ID of the ClientState field
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptGridViewBase.TagName">
+            <summary>
+            Gets the tag name used when rendering the outer wrapper element for this user control
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptGridViewBase.IsRenderScript">
+            <summary>
+            是否输出本控件脚本
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.Script.ScriptListControlBase">
+            <summary>
+            脚本ListContro控件基类
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptListControlBase.EnsureScriptManager">
+            <summary>
+            Ensures a ScriptManager exists on the Page for this Control
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptListControlBase.OnInit(System.EventArgs)">
+            <summary>
+            重载OnInit，增加事件
+            </summary>
+            <param name="e">事件参数</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptListControlBase.FindControl(System.String)">
+            <summary>
+            Finds a control reference by its ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptListControlBase.OnPagePreLoad(System.Object,System.EventArgs)">
+            <summary>
+            在页面Load之前，确保ScriptManager加载
+            </summary>
+            <param name="sender">事件触发对象</param>
+            <param name="e">事件参数</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptListControlBase.OnPreRender(System.EventArgs)">
+            <summary>
+            Fires the PreRender event
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptListControlBase.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptListControlBase.LoadClientState(System.String)">
+            <summary>
+            Loads the client state data
+            </summary>
+            <param name="clientState"></param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptListControlBase.SaveClientState">
+            <summary>
+            Saves the client state data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptListControlBase.LoadPostData(System.String,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Executed when post data is loaded from the request
+            </summary>
+            <param name="postDataKey"></param>
+            <param name="postCollection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptListControlBase.RaisePostDataChangedEvent">
+            <summary>
+            Executed when post data changes should invoke a chagned event
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptListControlBase.GetScriptDescriptors">
+            <summary>
+            Gets the ScriptDescriptors that make up this control
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptListControlBase.GetScriptReferences">
+            <summary>
+            Gets the script references for this control
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptListControlBase.DescribeComponent(System.Web.UI.ScriptComponentDescriptor)">
+            <summary>
+            Describes the settings for this control.
+            </summary>
+            <param name="descriptor"></param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptListControlBase.GetCallbackResult">
+            <summary>
+            Handles a callback event
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptListControlBase.RaiseCallbackEvent(System.String)">
+            <summary>
+            Raises a callback event
+            </summary>
+            <param name="eventArgument"></param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptListControlBase.RaisePostBackEvent(System.String)">
+            <summary>
+            处理将窗体发送到服务器时引发的事件
+            </summary>
+            <param name="eventArgument">表示要传递到事件处理程序的可选事件参数的 String</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptListControlBase.LoadViewState(System.Object)">
+            <summary>
+            Restores view-state information from a previous request that was saved with the SaveViewState method.
+            并在LoadViewState之前缓存ViewState中所有IStateManager类型项
+            以及在LoadViewState之后从缓存中恢复将ViewState中ViewSateItemInternal类型项恢复成IStateManager类型项
+            </summary>
+            <param name="savedState">An object that represents the control state to restore.</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptListControlBase.SaveViewState">
+            <summary>
+            Saves any state that was modified after the TrackViewState method was invoked
+            并在SaveViewState之前，将ViewState中所有IStateManager类型项转换为可序列化的ViewSateItemInternal类型项
+            以及在SaveViewState之后，将ViewState中所有ViewSateItemInternal类型项恢复成IStateManager类型项
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptListControlBase.TrackViewState">
+            <summary>
+            Causes the control to track changes to its view state so they can be stored in the object's ViewState property
+            并将ViewState中所有IStateManager类型项标记为TrackViewState
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptListControlBase.RenderControl(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            判断是否只是输出本控件，如果是则进行只输出本控件处理，否则进行正常的控件输出
+            </summary>
+            <param name="writer">接收控件内容的 HtmlTextWriter 对象。</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptListControlBase.ResolveControl(System.String)">
+            <summary>
+            通过controlId，查找相应Control
+            </summary>
+            <param name="controlId">controlId</param>
+            <returns>Control</returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptListControlBase.CheckIfValid(System.Boolean)">
+            <summary>
+            Checks if all properties are valid
+            </summary>
+            <param name="throwException">true iff an exception is to be thrown for invalid parameters</param>
+            <returns>true iff all parameters are valid</returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptListControlBase.EnsureValid">
+            <summary>
+            Called during rendering to give derived classes a chance to validate their properties
+            </summary>
+            <remarks>
+            If the properties aren't valid, an exception of type ArgumentException should be thrown
+            </remarks>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptListControlBase.GetPropertyValue``1(System.String,``0)">
+            <summary>
+            从ViewState中获取某属性值，如果为空则返回默认值nullValue
+            </summary>
+            <typeparam name="V">属性类型</typeparam>
+            <param name="propertyName">属性名称</param>
+            <param name="nullValue">默认值</param>
+            <returns>属性值</returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptListControlBase.SetPropertyValue``1(System.String,``0)">
+            <summary>
+            设置某属性的值
+            </summary>
+            <typeparam name="V">属性类型</typeparam>
+            <param name="propertyName">属性名称</param>
+            <param name="value">属性值</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptListControlBase.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptListControlBase.#ctor(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="enableClientState"></param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptListControlBase.OnItemDataBound(System.Web.UI.WebControls.ListItem,System.Object)">
+            <summary>
+            ListItem数据绑定方法，继承控件可重载此方法，处理本控件的特殊绑定
+            </summary>
+            <param name="item"></param>
+            <param name="data"></param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptListControlBase.PerformDataBinding(System.Collections.IEnumerable)">
+            <summary>
+            进行绑定操作
+            </summary>
+            <param name="dataSource">数据源</param>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptListControlBase.RenderMode">
+            <summary>
+            控件输出模式
+            </summary>        
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptListControlBase.ReadOnly">
+            <summary>
+            是否只读
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptListControlBase.ScriptPath">
+            <summary>
+            For debugging - setting this causes the extender to load the specified script instead of the one out of the resources.  This
+            lets you set breakpoints and modify the script without rebuilding, etc.
+            </summary>
+            <remarks>
+            Note to inheritors: If you do not wish the user to set the script path, override script path and throw a NotSupportedException on set.  Also decorate the ScriptPath attribute with a [Browsable(false)] and [EditorBrowsableState(EditorBrowsableState.Never)]
+            </remarks>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptListControlBase.ClientControlType">
+            <summary>
+            The script type to use for the ScriptControl
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptListControlBase.SupportsClientState">
+            <summary>
+            Whether this control supports ClientState
+            </summary>
+            <remarks>
+            Note to inheritors: You should either pass true to the constructor for enableClientState or override this property to enable client state for inherited controls.
+            </remarks>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptListControlBase.ScriptManager">
+            <summary>
+            Gets the ScriptManager for the page
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptListControlBase.AutoClearClientStateFieldValue">
+            <summary>
+            是否自动清除客户端ClientStateField中的值
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptListControlBase.ClientStateFieldID">
+            <summary>
+            The ID of the ClientState field
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptListControlBase.TagName">
+            <summary>
+            Gets the tag name used when rendering the outer wrapper element for this user control
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptListControlBase.IsRenderScript">
+            <summary>
+            是否输出本控件脚本
+            </summary>
+        </member>
+        <member name="E:MCS.Web.Library.Script.ScriptListControlBase.ItemDataBound">
+            <summary>
+            条目数据绑定事件
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptListControlBase.DataTextFieldList">
+            <summary>
+            提供文本显示的数据源属性集合
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.Script.StaticCallBackProxyControlLoadedEventHandler">
+            <summary>
+            静态回调方法加载控件后的事件
+            </summary>
+            <param name="targetControl"></param>
+        </member>
+        <member name="T:MCS.Web.Library.Script.StaticCallBackProxy">
+            <summary>
+            实现静态回调的代理对象，从ScriptControlBase基类派生
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.StaticCallBackProxy.#ctor">
+            <summary>
+            构造函数
+            </summary>
+            
+        </member>
+        <member name="M:MCS.Web.Library.Script.StaticCallBackProxy.System#Web#UI#ICallbackEventHandler#RaiseCallbackEvent(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="eventArgument"></param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.StaticCallBackProxy.System#Web#UI#ICallbackEventHandler#GetCallbackResult">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="E:MCS.Web.Library.Script.StaticCallBackProxy.TargetControlLoaded">
+            <summary>
+            目标控件被加载
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.StaticCallBackProxy.Instance">
+            <summary>
+            静态实例
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.Script.AnimationsScript">
+            <summary>
+            与资源脚本MCS.Web.Library.Script.Resources.Animations.js相关联的类
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.Script.ControlBaseScript">
+            <summary>
+            与资源脚本MCS.Web.Library.Script.Resources.ControlBase.js相关联的类
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.WebUtility">
+            <summary>
+            Web帮助类
+            </summary>
+            <remarks>Web帮助类</remarks>
+        </member>
+        <member name="F:MCS.Web.Library.WebUtility.PageRenderModeQueryStringName">
+            <summary>
+            沈峥注释，改为常量
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.GetContentTypeByKey(System.String)">
+            <summary>
+            根据ContentTypeKey，得到Response的ContentType
+            </summary>
+            <param name="key">ContentTypeKey</param>
+            <returns>ContentType</returns>
+            <remarks>根据ContentTypeKey，得到Response的ContentType</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.GetContentTypeByKey(System.String,System.String)">
+            <summary>
+            根据ContentTypeKey，得到Response的ContentType，如果值为空则返回默认key的ContentType
+            </summary>
+            <param name="key">ContentTypeKey</param>
+            <param name="defaultKey">默认ContentTypeKey</param>
+            <returns>ContentType</returns>
+            <remarks>根据ContentTypeKey，得到Response的ContentType，如果值为空则返回默认key的ContentType</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.GetContentTypeByKey(MCS.Web.Library.ResponseContentTypeKey)">
+            <summary>
+            根据ContentTypeKey，得到Response的ContentType
+            </summary>
+            <param name="key">ContentTypeKey</param>
+            <returns>ContentType</returns>
+            <remarks>根据ContentTypeKey，得到Response的ContentType</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.GetContentTypeByFileName(System.String)">
+            <summary>
+            根据文件名，得到Response的ContentType
+            </summary>
+            <param name="fileName">文件名</param>
+            <returns>ContentType</returns>
+            <remarks>根据文件名，得到Response的ContentType</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.GetContentTypeByFileExtesionName(System.String)">
+            <summary>
+            根据文件扩展名，得到Response的ContentType
+            </summary>
+            <param name="fileExtesionName">文件扩展名</param>
+            <returns>ContentType</returns>
+            <remarks>根据文件扩展名，得到Response的ContentType</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.GetRequestQueryString(System.String,System.String)">
+            <summary>
+            得到某一项Request的数据，如果不存在该数据项，则用缺省值代替
+            </summary>
+            <param name="strName">所要获取的Request的数据项</param>
+            <param name="strDefault">缺省值</param>
+            <returns>某一项Request的数据，如果不存在该数据项，则用缺省值代替</returns>
+            <remarks>得到某一项Request的数据，如果不存在该数据项，则用缺省值代替</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.GetRequestQueryValue``1(System.String,``0)">
+            <summary>
+            得到某一项Request的数据，如果不存在该数据项，则用缺省值代替
+            </summary>
+            <typeparam name="T">获取值的类型</typeparam>
+            <param name="strName">所要获取的Request的数据项名称</param>
+            <param name="defaultValue">缺省值</param>
+            <returns>某一项Request的数据，如果不存在该数据项，则用缺省值代替</returns>
+            <remarks>得到某一项Request的数据，如果不存在该数据项，则用缺省值代替</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.GetRequestFormValue``1(System.String,``0)">
+            <summary>
+            得到某一项Post提交的数据，如果不存在该数据项，则用缺省值代替
+            </summary>
+            <typeparam name="T">返回的数据类型</typeparam>
+            <param name="strName">所要获取的Form的数据项</param>
+            <param name="defaultValue">缺省值</param>
+            <returns>得到某一项Post提交的数据，如果不存在该数据项，则用缺省值代替</returns>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.GetRequestFormString(System.String,System.String)">
+            <summary>
+            得到某一项Post提交的数据，如果不存在该数据项，则用缺省值代替
+            </summary>
+            <param name="strName">所要获取的Form的数据项</param>
+            <param name="strDefault">缺省值</param>
+            <returns>某一项Post的数据，如果不存在该数据项，则用缺省值代替</returns>
+            <remarks>得到某一项Post提交的数据，如果不存在该数据项，则用缺省值代替</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.GetRequestServerVariable(System.String,System.String)">
+            <summary>
+            得到某一项ServerVariables数据，如果不存在该数据项，则用缺省值代替
+            </summary>
+            <param name="strName">所要获取的ServerVariables的数据项</param>
+            <param name="strDefault">缺省值</param>
+            <returns>某一项Post的数据，如果不存在该数据项，则用缺省值代替</returns>
+            <remarks>得到某一项ServerVariables数据，如果不存在该数据项，则用缺省值代替</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.GetRequestCookieString(System.String,System.String)">
+            <summary>
+            得到某一项Cookies数据，如果不存在该数据项，则用缺省值代替
+            </summary>
+            <param name="strName">所要获取的Cookies的数据项</param>
+            <param name="strDefault">缺省值</param>
+            <returns>某一项Post的数据，如果不存在该数据项，则用缺省值代替</returns>
+            <remarks>得到某一项Cookies数据，如果不存在该数据项，则用缺省值代替</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.GetRequestParamString(System.String,System.String)">
+            <summary>
+            得到某一项Post提交的数据，如果不存在该数据项，则用缺省值代替
+            </summary>
+            <param name="strName">所要获取的Params的数据项</param>
+            <param name="strDefault">缺省值</param>
+            <returns>某一项Post的数据，如果不存在该数据项，则用缺省值代替</returns>
+            <remarks>得到某一项Post提交的数据，如果不存在该数据项，则用缺省值代替</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.GetRequestPageRenderMode">
+            <summary>
+            获取当前请求的PageRenderMode
+            </summary>
+            <returns>PageRenderMode</returns>
+            <remarks>获取当前请求的PageRenderMode</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.GetRequestExecutionUrl(MCS.Web.Library.PageRenderMode,System.String[])">
+            <summary>
+            将PageRenderMode添加到当前请求ExecutionUrl，并返回Url
+            </summary>
+            <param name="pageRenderMode">PageRenderMode</param>
+            <param name="ignoreParamNames">忽略原始的QueryString中参数名称</param>
+            <returns>结果Url</returns>
+            <remarks>将PageRenderMode添加到当前请求ExecutionUrl，并返回Url</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.GetRequestExecutionUrl(System.String,System.String[])">
+            <summary>
+            根据当前的HttpRequest中ExecutionUrl的，增加queryString，并返回新的Url。通常，CurrentExecutionFilePath和Request的页面路径是
+            一样的，但是对于Server.Transfer类型的页面，则是不一样的。
+            </summary>
+            <param name="appendQueryString">Url中的查询串，例如：uid=sz&amp;name=Haha</param>
+            <param name="ignoreParamNames">忽略原始的QueryString中参数名称</param>
+            <returns>结果Url</returns>
+            <remarks>根据当前的HttpRequest中ExecutionUrl的，增加queryString，并返回新的Url。通常，CurrentExecutionFilePath和Request的页面路径是
+            一样的，但是对于Server.Transfer类型的页面，则是不一样的。</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.GetRequestExecutionUrl(System.String,System.String,System.String[])">
+            <summary>
+            根据当前的HttpRequest中ExecutionUrl的，增加参数，并返回新的Url。通常，CurrentExecutionFilePath和Request的页面路径是
+            一样的，但是对于Server.Transfer类型的页面，则是不一样的。
+            </summary>
+            <param name="appendParamName">添加到QueryString中的参数名称</param>
+            <param name="appendParamValue">添加到QueryString中的参数值</param>
+            <param name="ignoreParamNames">忽略原始的QueryString中参数名称</param>
+            <returns>结果Url</returns>
+            <remarks>根据当前的HttpRequest中ExecutionUrl的，增加参数，并返回新的Url。通常，CurrentExecutionFilePath和Request的页面路径是
+            一样的，但是对于Server.Transfer类型的页面，则是不一样的。
+            </remarks>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.GetRequestUrl(System.String,System.String[])">
+            <summary>
+            根据当前的HttpRequest中Url的，增加queryString，并返回新的Url。
+            </summary>
+            <param name="appendQueryString">Url中的查询串，例如：uid=sz&amp;name=Haha</param>
+            <param name="ignoreParamNames">忽略原始的QueryString中参数名称</param>
+            <returns>结果Url</returns>
+            <remarks>根据当前的HttpRequest中Url的，增加queryString，并返回新的Url。</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.IsCurrentHandlerPostBack">
+            <summary>
+            如果当前的HtppHandler是Page，判断它是否是PostBack状态
+            </summary>
+            <returns>是否是PostBack状态</returns>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.IsCurrentHandlerIsCallback">
+            <summary>
+            如果当前的HtppHandler是Page，判断它是否是Callback状态
+            </summary>
+            <returns>是否是Callback状态</returns>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.IsRenderSpecialControlPage(System.Web.UI.Page)">
+            <summary>
+            是否为输出指定控件页面
+            </summary>
+            <param name="page"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.LoadViewStateFromCurrentHandler(System.String)">
+            <summary>
+            如果当前的HtppHandler是Page，那么找到其ViewState属性，获取其中的值
+            </summary>
+            <param name="key">ViewState的key</param>
+            <returns>ViewState中的对象</returns>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.SaveViewStateToCurrentHandler(System.String,System.Object)">
+            <summary>
+            如果当前的HtppHandler是Page，那么将数据存入到ViewState中
+            </summary>
+            <param name="key">ViewState的键值</param>
+            <param name="data">需要存入的数据</param>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.CheckScriptString(System.String)">
+            <summary>
+            检查脚本中的字符串，替换掉双引号和回车
+            </summary>
+            <param name="strData">字符串</param>
+            <returns>替换后的结果</returns>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.CheckScriptString(System.String,System.Boolean)">
+            <summary>
+            检查脚本中的字符串，替换掉双引号和回车
+            </summary>
+            <param name="strData">字符串</param>
+            <param name="changeCRToBR">是否将回车替换成Html的BR</param>
+            <returns>替换后的结果</returns>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.ResponseWithScriptTag(System.Web.HttpResponse,System.Action{System.IO.TextWriter})">
+            <summary>
+            输出带ScriptTag的脚本
+            </summary>
+            <param name="response"></param>
+            <param name="action"></param>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.RegisterClientMessage(System.String,System.String,System.String)">
+            <summary>
+            通过ScriptManager.RegisterClientScriptBlock注册客户端提示信息的脚本
+            </summary>
+            <param name="strMessage"></param>
+            <param name="strDetail"></param>
+            <param name="strTitle"></param>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.RegisterClientErrorMessage(System.Exception)">
+            <summary>
+            通过ScriptManager.RegisterClientScriptBlock注册客户端错误信息的脚本
+            </summary>
+            <param name="ex"></param>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.RegisterClientErrorMessage(System.String,System.String,System.String)">
+            <summary>
+            通过ScriptManager.RegisterClientScriptBlock注册客户端错误信息的脚本
+            </summary>
+            <param name="strMessage"></param>
+            <param name="strDetail"></param>
+            <param name="strTitle"></param>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.ShowClientMessage(System.String,System.String,System.String)">
+            <summary>
+            客户端弹出提示框
+            </summary>
+            <param name="strMessage">提示框消息</param>
+            <param name="strDetail">提示框详细信息</param>
+            <param name="strTitle">提示框Title</param>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.ResponseShowClientMessageScriptBlock(System.String,System.String,System.String)">
+            <summary>
+            Response客户端弹出提示框
+            </summary>
+            <param name="strMessage">提示框消息</param>
+            <param name="strDetail">提示框详细信息</param>
+            <param name="strTitle">提示框Title</param>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.GetShowClientErrorScript(System.String,System.String,System.String)">
+            <summary>
+            得到客户端弹出对话框的脚本
+            </summary>
+            <param name="strMessage"></param>
+            <param name="strDetail"></param>
+            <param name="strTitle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.ShowClientError(System.Exception)">
+            <summary>
+            客户端弹出错误框
+            </summary>
+            <param name="ex"></param>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.ShowClientError(System.String,System.String,System.String)">
+            <summary>
+            客户端弹出错误框
+            </summary>
+            <param name="strMessage">错误框消息</param>
+            <param name="strDetail">错误框详细信息</param>
+            <param name="strTitle">错误框Title</param>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.ResponseShowClientErrorScriptBlock(System.Exception)">
+            <summary>
+            客户端弹出错误框
+            </summary>
+            <param name="ex"></param>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.ResponseShowClientErrorScriptBlock(System.String,System.String,System.String)">
+            <summary>
+            Response客户端弹出错误框
+            </summary>
+            <param name="strMessage">错误框消息</param>
+            <param name="strDetail">错误框详细信息</param>
+            <param name="strTitle">错误框Title</param>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.ShowClientConfirm(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            客户端弹出确认框
+            </summary>
+            <param name="strMessage">提示框消息</param>
+            <param name="strDetail">提示框详细信息</param>
+            <param name="strTitle">提示框Title</param>
+            <param name="okBtnText">确定按钮文本</param>
+            <param name="cancelBtnText">取消按钮文本</param>
+            <param name="onOKClientEventHandler">确认后客户端响应方法</param>
+            <param name="onCancelClientEventHandler">取消后客户端响应方法</param>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.RegisterClientMessageScript">
+            <summary>
+            注册客户端弹出提示框脚本
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.GetCurrentPage">
+            <summary>
+            获取当前页
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.SetCurrentPage(System.Web.UI.Page)">
+            <summary>
+            设置当前页
+            </summary>
+            <param name="page"></param>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.AdjustWindow(MCS.Web.Library.IWindowFeature)">
+            <summary>
+            调整窗口大小和位置
+            </summary>
+            <param name="windowFeature"></param>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.CloseWindow">
+            <summary>
+            关闭窗口
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.ResponseCloseWindowScriptBlock">
+            <summary>
+            直接Response出关闭窗口脚本，然后结束Response
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.ResponseTimeoutScriptBlock(System.String,System.Int32)">
+            <summary>
+            直接Response输出window.setTimeout(script, ms);
+            </summary>
+            <param name="script"></param>
+            <param name="ms"></param>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.RefreshParentWindow">
+            <summary>
+            刷新父页面
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.ResponseRefreshParentWindowScriptBlock">
+            <summary>
+            直接Response出刷新父页面脚本
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.RequiredScript(System.Type)">
+            <summary>
+            向页面中增加与scriptType类型相关的脚本
+            </summary>
+            <param name="scriptType">脚本相关类型</param>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.GetRequiredScriptBlock(System.Type)">
+            <summary>
+            得到某类型对应的脚本块
+            </summary>
+            <param name="scriptType">类型信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.GetRequiredScript(System.Type)">
+            <summary>
+            得到某类型对应的脚本
+            </summary>
+            <param name="scriptType">类型信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.RegisterOnLoadScriptBlock(System.Web.UI.Page,System.String)">
+            <summary>
+            注册响应OnLoad事件的脚本
+            </summary>
+            <param name="page"></param>
+            <param name="script"></param>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.AttachPageModules(System.Web.UI.Page)">
+            <summary>
+            将PageModule和page关联
+            </summary>
+            <param name="page"></param>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.LoadConfigPageContent">
+            <summary>
+            向页面添加配置扩展信息
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.LoadConfigPageContent(System.Boolean)">
+            <summary>
+            向页面添加配置扩展信息
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.AllowResponseExceptionStackTrace">
+            <summary>
+            是否允许向客户端输出异常详细信息
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.SetResponseNoCacheWhenDebug">
+            <summary>
+            在Debug模式下，禁止使用缓存
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.GetClientIP">
+            <summary>
+            获取客户端的IP
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.WebUtility.IsWebApplicationCompilationDebug">
+            <summary>
+            当前Web应用是否运行在Debug状态下
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Web.Library.HtmlStyleOverflowDefine">
+            <summary>
+            样式中的Overflow的枚举值
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.HtmlStyleOverflowDefine.Visible">
+            <summary>
+            visible
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.HtmlStyleOverflowDefine.Scroll">
+            <summary>
+            scroll
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.HtmlStyleOverflowDefine.Hidden">
+            <summary>
+            hidden
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.HtmlStyleOverflowDefine.Auto">
+            <summary>
+            auto
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.ControlRenderMode">
+            <summary>
+            控件输出模式
+            </summary>
+            <remarks>控件输出模式</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.ControlRenderMode.#ctor">
+            <summary>
+            构造函数
+            </summary>
+            <remarks>构造函数</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.ControlRenderMode.#ctor(MCS.Web.Library.PageRenderMode)">
+            <summary>
+            通过页面输出模式，构造出UniqueID为controlUniqueID的控件输出模式
+            </summary>
+            <param name="pageRenderMode">页面输出模式</param>
+            <remarks>通过页面输出模式，构造出UniqueID为controlUniqueID的控件输出模式</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.ControlRenderMode.LoadFromPageRenderMode(MCS.Web.Library.PageRenderMode)">
+            <summary>
+            通过页面输出状态，加载控件的输出状态
+            </summary>
+            <param name="pageRenderMode">页面输出模式</param>
+            <remarks>通过页面输出状态，加载控件的输出状态</remarks>
+        </member>
+        <member name="P:MCS.Web.Library.ControlRenderMode.UseNewPage">
+            <summary>
+            是否使用新页面输出
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.ControlRenderMode.OnlyRenderSelf">
+            <summary>
+            是否只输出本控件
+            </summary>
+            <remarks>是否只输出本控件</remarks>
+        </member>
+        <member name="P:MCS.Web.Library.ControlRenderMode.ContentTypeKey">
+            <summary>
+            输出内容的ContentTypeKey，根据ContentTypeKey可以查到相应的ContentType
+            </summary>
+            <remarks>输出内容的ContentTypeKey，根据ContentTypeKey可以查到相应的ContentType</remarks>
+        </member>
+        <member name="P:MCS.Web.Library.ControlRenderMode.DispositionType">
+            <summary>
+            客户端打开类型
+            </summary>
+            <remarks>客户端打开类型</remarks>
+        </member>
+        <member name="P:MCS.Web.Library.ControlRenderMode.AttachmentFileName">
+            <summary>
+            如果为文件输出则设置文件名称。
+            </summary>
+            <remarks>如果为文件输出则设置文件名称</remarks>
+        </member>
+        <member name="P:MCS.Web.Library.ControlRenderMode.PageCache">
+            <summary>
+            页面缓存
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.ControlRenderMode.RenderArgument">
+            <summary>
+            输出参数
+            </summary>
+            <remarks>输出参数</remarks>
+        </member>
+        <member name="P:MCS.Web.Library.ControlRenderMode.IsHtmlRender">
+            <summary>
+            是否为Html输出状态
+            </summary>
+            <remarks>是否为Html输出状态</remarks>
+        </member>
+        <member name="T:MCS.Web.Library.Script.DataBoundExtenderControl">
+            <summary>
+            可以处理数据源、进行数据绑定的ExtenderControl基类	
+            </summary>
+            <remarks>可绑定数据对象或数据源控件</remarks>
+        </member>
+        <member name="T:MCS.Web.Library.Script.ExtenderControlBase">
+            <summary>
+            ScriptControl is used to define complex custom controls which support ASP.NET AJAX script extensions
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ExtenderControlBase.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ExtenderControlBase.#ctor(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="enableClientState"></param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ExtenderControlBase.FindControl(System.String)">
+            <summary>
+            Finds a control reference by its ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ExtenderControlBase.OnInit(System.EventArgs)">
+            <summary>
+            重载OnInit，增加事件
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ExtenderControlBase.OnPagePreLoad(System.Object,System.EventArgs)">
+            <summary>
+            在页面Load之前，确保ScriptManager加载
+            </summary>
+            <param name="sender">事件触发对象</param>
+            <param name="e">事件参数</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ExtenderControlBase.OnPreRender(System.EventArgs)">
+            <summary>
+            Fires the PreRender event
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ExtenderControlBase.LoadClientState(System.String)">
+            <summary>
+            Loads the client state data
+            </summary>
+            <param name="clientState"></param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ExtenderControlBase.SaveClientState">
+            <summary>
+            Saves the client state data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ExtenderControlBase.LoadPostData(System.String,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Executed when post data is loaded from the request
+            </summary>
+            <param name="postDataKey"></param>
+            <param name="postCollection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ExtenderControlBase.RaisePostDataChangedEvent">
+            <summary>
+            Executed when post data changes should invoke a chagned event
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ExtenderControlBase.GetScriptDescriptors(System.Web.UI.Control)">
+            <summary>
+            Gets the ScriptDescriptors that make up this control
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ExtenderControlBase.GetScriptReferences">
+            <summary>
+            Gets the script references for this control
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ExtenderControlBase.DescribeComponent(System.Web.UI.ScriptComponentDescriptor)">
+            <summary>
+            Describes the settings for this control.
+            </summary>
+            <param name="descriptor"></param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ExtenderControlBase.GetCallbackResult">
+            <summary>
+            Handles a callback event
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ExtenderControlBase.RaiseCallbackEvent(System.String)">
+            <summary>
+            Raises a callback event
+            </summary>
+            <param name="eventArgument"></param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ExtenderControlBase.RaisePostBackEvent(System.String)">
+            <summary>
+            处理将窗体发送到服务器时引发的事件
+            </summary>
+            <param name="eventArgument">表示要传递到事件处理程序的可选事件参数的 String</param>
+            <remarks>处理将窗体发送到服务器时引发的事件</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ExtenderControlBase.LoadViewState(System.Object)">
+             <summary>
+             Restores view-state information from a previous request that was saved with the SaveViewState method.
+             并在LoadViewState之前缓存ViewState中所有IStateManager类型项
+             以及在LoadViewState之后从缓存中恢复将ViewState中ViewSateItemInternal类型项恢复成IStateManager类型项
+             </summary>
+             <param name="savedState">An object that represents the control state to restore.</param>
+             <remarks>		
+             Restores view-state information from a previous request that was saved with the SaveViewState method.
+             并在LoadViewState之前缓存ViewState中所有IStateManager类型项
+             以及在LoadViewState之后从缓存中恢复将ViewState中ViewSateItemInternal类型项恢复成IStateManager类型项
+            </remarks>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ExtenderControlBase.SaveViewState">
+            <summary>
+            Saves any state that was modified after the TrackViewState method was invoked
+            并在SaveViewState之前，将ViewState中所有IStateManager类型项转换为可序列化的ViewSateItemInternal类型项
+            以及在SaveViewState之后，将ViewState中所有ViewSateItemInternal类型项恢复成IStateManager类型项
+            </summary>
+            <returns>返回服务器控件的当前视图状态</returns>
+            <remarks>
+            Saves any state that was modified after the TrackViewState method was invoked
+            并在SaveViewState之前，将ViewState中所有IStateManager类型项转换为可序列化的ViewSateItemInternal类型项
+            以及在SaveViewState之后，将ViewState中所有ViewSateItemInternal类型项恢复成IStateManager类型项
+            </remarks>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ExtenderControlBase.TrackViewState">
+            <summary>
+            Causes the control to track changes to its view state so they can be stored in the object's ViewState property
+            并将ViewState中所有IStateManager类型项标记为TrackViewState
+            </summary>
+            <remarks>
+            Causes the control to track changes to its view state so they can be stored in the object's ViewState property
+            并将ViewState中所有IStateManager类型项标记为TrackViewState
+            </remarks>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ExtenderControlBase.ResolveControl(System.String)">
+            <summary>
+            通过controlId，查找相应Control
+            </summary>
+            <param name="controlId">controlId</param>
+            <returns>Control</returns>
+            <remarks>通过controlId，查找相应Control</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ExtenderControlBase.CheckIfValid(System.Boolean)">
+            <summary>
+            Checks if all properties are valid
+            </summary>
+            <param name="throwException">true iff an exception is to be thrown for invalid parameters</param>
+            <returns>true iff all parameters are valid</returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ExtenderControlBase.EnsureValid">
+            <summary>
+            Called during rendering to give derived classes a chance to validate their properties
+            </summary>
+            <remarks>
+            If the properties aren't valid, an exception of type ArgumentException should be thrown
+            </remarks>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ExtenderControlBase.GetPropertyValue``1(System.String,``0)">
+            <summary>
+            从ViewState中获取某属性值，如果为空则返回默认值nullValue
+            </summary>
+            <typeparam name="V">属性类型</typeparam>
+            <param name="propertyName">属性名称</param>
+            <param name="nullValue">默认值</param>
+            <returns>属性值</returns>
+            <remarks>从ViewState中获取某属性值，如果为空则返回默认值nullValue</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ExtenderControlBase.SetPropertyValue``1(System.String,``0)">
+            <summary>
+            设置某属性的值
+            </summary>
+            <typeparam name="V">属性类型</typeparam>
+            <param name="propertyName">属性名称</param>
+            <param name="value">属性值</param>
+            <remarks>设置某属性的值</remarks>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ExtenderControlBase.ClientID">
+            <summary>
+            将ClientID作为客户端控件ID
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ExtenderControlBase.InvokeWithoutViewState">
+            <summary>
+            Invoke的时候是否需要ViewState
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ExtenderControlBase.ReadOnly">
+            <summary>
+            是否只读
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ExtenderControlBase.ScriptPath">
+            <summary>
+            For debugging - setting this causes the extender to load the specified script instead of the one out of the resources.  This
+            lets you set breakpoints and modify the script without rebuilding, etc.
+            </summary>
+            <remarks>
+            Note to inheritors: If you do not wish the user to set the script path, override script path and throw a NotSupportedException on set.  Also decorate the ScriptPath attribute with a [Browsable(false)] and [EditorBrowsableState(EditorBrowsableState.Never)]
+            </remarks>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ExtenderControlBase.ServerControlType">
+            <summary>
+            控件的具体类型名称
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ExtenderControlBase.StaticCallBackProxyID">
+            <summary>
+            静态回调代理的ID
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ExtenderControlBase.ClientControlType">
+            <summary>
+            The script type to use for the ScriptControl
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ExtenderControlBase.SupportsClientState">
+            <summary>
+            Whether this control supports ClientState
+            </summary>
+            <remarks>
+            Note to inheritors: You should either pass true to the constructor for enableClientState or override this property to enable client state for inherited controls.
+            </remarks>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ExtenderControlBase.ScriptManager">
+            <summary>
+            Gets the ScriptManager for the page
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ExtenderControlBase.AutoClearClientStateFieldValue">
+            <summary>
+            是否自动清除客户端ClientStateField中的值
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ExtenderControlBase.ClientStateFieldID">
+            <summary>
+            The ID of the ClientState field
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.DataBoundExtenderControl.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.DataBoundExtenderControl.#ctor(System.Boolean)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="enableClientState">是否支持clientState</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.DataBoundExtenderControl.PerformDataBinding(System.Collections.IEnumerable)">
+            <summary>
+            执行数据绑定，可重载此方法，对数据源处理结果绑定处理
+            </summary>
+            <param name="data">数据源处理结果</param>
+            <remarks>执行数据绑定，可重载此方法，对数据源处理结果绑定处理</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.Script.DataBoundExtenderControl.DataBind">
+            <summary>
+            将数据源绑定到控件
+            </summary>
+            <remarks>将数据源绑定到控件</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.Script.DataBoundExtenderControl.OnInit(System.EventArgs)">
+            <summary>
+            初始化控件状态
+            </summary>
+            <param name="e">包含事件数据的 EventArgs 对象</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.DataBoundExtenderControl.OnPreRender(System.EventArgs)">
+            <summary>
+            在保存视图状态和呈现内容之前，确认数据源绑定
+            </summary>
+            <param name="e">包含事件数据的 EventArgs 对象</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.DataBoundExtenderControl.EnsureDataBound">
+            <summary>
+            确认绑定
+            </summary>
+            <remarks>如果需要绑定，则进行绑定操作，否则返回</remarks>
+        </member>
+        <member name="P:MCS.Web.Library.Script.DataBoundExtenderControl.DataSourceResult">
+            <summary>
+            根据DataSource或DataSourceID，处理后的数据源结果
+            </summary>
+            <remarks>开发者使用此处理结果进行绑定操作</remarks>
+        </member>
+        <member name="P:MCS.Web.Library.Script.DataBoundExtenderControl.DataSource">
+            <summary>
+            获取或设置数据源对象
+            </summary>
+            <remarks>获取或设置数据源对象</remarks>
+        </member>
+        <member name="P:MCS.Web.Library.Script.DataBoundExtenderControl.DataSourceID">
+            <summary>
+            获取或设置数据源控件ID
+            </summary>
+            <remarks>获取或设置数据源控件ID</remarks>
+        </member>
+        <member name="P:MCS.Web.Library.Script.DataBoundExtenderControl.RequiresDataBinding">
+            <summary>
+            获取设置是否需要执行DataBind进行数据绑定
+            </summary>
+            <remarks>获取设置是否需要执行DataBind进行数据绑定</remarks>
+        </member>
+        <member name="T:MCS.Web.Library.Script.DataBoundScriptControl">
+            <summary>
+            可以处理数据源、进行数据绑定的ScriptControl基类	
+            </summary>
+            <remarks>可绑定数据对象或数据源控件</remarks>
+        </member>
+        <member name="T:MCS.Web.Library.Script.ScriptControlBase">
+            <summary>
+            ScriptControl is used to define complex custom controls which support ASP.NET AJAX script extensions
+            </summary>
+            <summary>
+            ScriptControl is used to define complex custom controls which support ASP.NET AJAX script extensions
+            脚本控件基类，直接从WebControl继承，实现IScriptControl接口
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlBase.EnsureScriptManager">
+            <summary>
+            Ensures a ScriptManager exists on the Page for this Control
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlBase.FindControl(System.String)">
+            <summary>
+            通过ID查找与此控件最相关的控件
+            Finds a control reference by its ID
+            </summary>
+            <param name="id">控件ID</param>
+            <returns>查找出的控件</returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlBase.OnInit(System.EventArgs)">
+            <summary>
+            重载OnInit，增加事件
+            </summary>
+            <param name="e">事件参数</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlBase.OnPagePreLoad(System.Object,System.EventArgs)">
+            <summary>
+            在页面Load之前，确保ScriptManager加载
+            </summary>
+            <param name="sender">事件触发对象</param>
+            <param name="e">事件参数</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlBase.OnPagePreRenderComplete(System.Object,System.EventArgs)">
+            <summary>
+            在页面准备输出之前，确保Control输出
+            </summary>
+            <param name="sender">事件触发对象</param>
+            <param name="e">事件参数</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlBase.OnPreRender(System.EventArgs)">
+            <summary>
+            重载OnPreRender，输出ClientStateField，注册控件，注册Css文件
+            Fires the PreRender event
+            </summary>
+            <param name="e">事件参数</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlBase.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            重载Render，输出控件，注册控件脚本描述
+            </summary>
+            <param name="writer">控件输出HtmlTextWriter</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlBase.LoadClientState(System.String)">
+            <summary>
+            继承控件通过重载此方法，处理客户端传回的clientState
+            Loads the client state data
+            </summary>
+            <param name="clientState">客户端传回的clientState</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlBase.SaveClientState">
+            <summary>
+            继承控件通过重载此方法，返回传回客户端的clientState
+            Saves the client state data
+            </summary>
+            <returns>传回客户端的clientState</returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlBase.LoadPostData(System.String,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            为控件处理回发数据，在此处理了clientState，调用LoadClientState方法
+            Executed when post data is loaded from the request
+            </summary>
+            <param name="postDataKey">控件的主要标识符</param>
+            <param name="postCollection">所有传入名称值的集合。</param>
+            <returns>如果服务器控件的状态在回发发生后更改，则为 true；否则为 false。</returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlBase.RaisePostDataChangedEvent">
+            <summary>
+            当由子类重载时，用信号要求服务器控件对象通知 ASP.NET 应用程序该控件的状态已更改
+            Executed when post data changes should invoke a chagned event
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlBase.GetScriptDescriptors">
+            <summary>
+            获取客户端脚本控件描述，包括脚本控件类型、属性、事件
+            Gets the ScriptDescriptors that make up this control
+            </summary>
+            <returns>控件描述集合</returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlBase.GetScriptReferences">
+            <summary>
+            获取客户端脚本控件所需脚本资源引用集合
+            Gets the script references for this control
+            </summary>
+            <returns>脚本资源引用集合</returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlBase.DescribeComponent(System.Web.UI.ScriptComponentDescriptor)">
+            <summary>
+            产生客户端控件描述，包括客户端脚本控件属性、事件
+            Describes the settings for this control.
+            </summary>
+            <param name="descriptor">控件描述</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlBase.GetCallbackResult">
+            <summary>
+            获取回调函数产生的结果
+            Handles a callback event
+            </summary>
+            <returns>回调函数产生的结果</returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlBase.RaiseCallbackEvent(System.String)">
+            <summary>
+            将回调参数eventArgument放在全局变量中，以便在GetCallbackResult函数中处理
+            Raises a callback event
+            </summary>
+            <param name="eventArgument">回调参数</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlBase.RaisePostBackEvent(System.String)">
+            <summary>
+            处理将窗体发送到服务器时引发的事件
+            </summary>
+            <param name="eventArgument">表示要传递到事件处理程序的可选事件参数的 String</param>
+            <remarks>处理将窗体发送到服务器时引发的事件</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlBase.LoadViewState(System.Object)">
+             <summary>
+             Restores view-state information from a previous request that was saved with the SaveViewState method.
+             并在LoadViewState之前缓存ViewState中所有IStateManager类型项
+             以及在LoadViewState之后从缓存中恢复将ViewState中ViewSateItemInternal类型项恢复成IStateManager类型项
+             </summary>
+             <param name="savedState">表示要还原的控件状态的 Object</param>
+             <remarks>		
+             Restores view-state information from a previous request that was saved with the SaveViewState method.
+             并在LoadViewState之前缓存ViewState中所有IStateManager类型项
+             以及在LoadViewState之后从缓存中恢复将ViewState中ViewSateItemInternal类型项恢复成IStateManager类型项
+            </remarks>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlBase.SaveViewState">
+            <summary>
+            Saves any state that was modified after the TrackViewState method was invoked
+            在SaveViewState之前，将ViewState中所有IStateManager类型项转换为可序列化的ViewSateItemInternal类型项
+            以及在SaveViewState之后，将ViewState中所有ViewSateItemInternal类型项恢复成IStateManager类型项
+            </summary>
+            <returns>返回服务器控件的当前视图状态</returns>
+            <remarks>
+            Saves any state that was modified after the TrackViewState method was invoked
+            并在SaveViewState之前，将ViewState中所有IStateManager类型项转换为可序列化的ViewSateItemInternal类型项
+            以及在SaveViewState之后，将ViewState中所有ViewSateItemInternal类型项恢复成IStateManager类型项
+            </remarks>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlBase.TrackViewState">
+            <summary>
+            Causes the control to track changes to its view state so they can be stored in the object's ViewState property
+            并将ViewState中所有IStateManager类型项标记为TrackViewState
+            </summary>
+            <remarks>
+            Causes the control to track changes to its view state so they can be stored in the object's ViewState property
+            并将ViewState中所有IStateManager类型项标记为TrackViewState
+            </remarks>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlBase.RenderControl(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            判断是否只是输出本控件，如果是则进行只输出本控件处理，否则进行正常的控件输出
+            </summary>
+            <param name="writer">接收控件内容的 HtmlTextWriter 对象。</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlBase.ResolveControl(System.String)">
+            <summary>
+            通过controlId，查找相应Control
+            </summary>
+            <param name="controlId">controlId</param>
+            <returns>Control</returns>
+            <remarks>通过controlId，查找相应Control</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlBase.CheckIfValid(System.Boolean)">
+            <summary>
+            Checks if all properties are valid
+            </summary>
+            <param name="throwException">true iff an exception is to be thrown for invalid parameters</param>
+            <returns>true iff all parameters are valid</returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlBase.EnsureValid">
+            <summary>
+            Called during rendering to give derived classes a chance to validate their properties
+            </summary>
+            <remarks>
+            If the properties aren't valid, an exception of type ArgumentException should be thrown
+            </remarks>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlBase.GetPropertyValue``1(System.String,``0)">
+            <summary>
+            从ViewState中获取某属性值，如果为空则返回默认值nullValue
+            </summary>
+            <typeparam name="V">属性类型</typeparam>
+            <param name="propertyName">属性名称</param>
+            <param name="nullValue">默认值</param>
+            <returns>属性值</returns>
+            <remarks>从ViewState中获取某属性值，如果为空则返回默认值nullValue</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlBase.SetPropertyValue``1(System.String,``0)">
+            <summary>
+            设置某属性的值
+            </summary>
+            <typeparam name="V">属性类型</typeparam>
+            <param name="propertyName">属性名称</param>
+            <param name="value">属性值</param>
+            <remarks>设置某属性的值</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlBase.#ctor(System.Web.UI.HtmlTextWriterTag)">
+            <summary>
+            构造函数
+            Initializes a new ScriptControl
+            </summary>
+            <param name="tag"></param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlBase.#ctor">
+            <summary>
+            构造函数
+            Initializes a new ScriptControl
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlBase.#ctor(System.String)">
+            <summary>
+            构造函数
+            Initializes a new ScriptControl
+            </summary>
+            <param name="tag">控件的tagName</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlBase.#ctor(System.Boolean)">
+            <summary>
+            构造函数
+            Initializes a new ScriptControl
+            </summary>
+            <param name="enableClientState">是否使用ClientState</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlBase.#ctor(System.Boolean,System.Web.UI.HtmlTextWriterTag)">
+            <summary>
+            构造函数
+            Initializes a new ScriptControl
+            </summary>
+            <param name="enableClientState">是否使用ClientState</param>
+            <param name="tag">控件的HtmlTextWriterTag</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlBase.#ctor(System.Boolean,System.String)">
+            <summary>
+            构造函数
+            Initializes a new ScriptControl
+            </summary>
+            <param name="enableClientState">是否使用ClientState</param>
+            <param name="tag">控件的tagName</param>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptControlBase.RenderMode">
+            <summary>
+            控件输出模式
+            </summary>        
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptControlBase.ReadOnly">
+            <summary>
+            是否只读
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptControlBase.ScriptPath">
+            <summary>
+            For debugging - setting this causes the extender to load the specified script instead of the one out of the resources.  This
+            lets you set breakpoints and modify the script without rebuilding, etc.
+            </summary>
+            <remarks>
+            Note to inheritors: If you do not wish the user to set the script path, override script path and throw a NotSupportedException on set.  Also decorate the ScriptPath attribute with a [Browsable(false)] and [EditorBrowsableState(EditorBrowsableState.Never)]
+            </remarks>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptControlBase.InvokeWithoutViewState">
+            <summary>
+            Invoke的时候是否需要ViewState
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptControlBase.ServerControlType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptControlBase.StaticCallBackProxyID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptControlBase.ClientControlType">
+            <summary>
+            对应的客户端控件类型
+            The script type to use for the ScriptControl
+            </summary>        
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptControlBase.SupportsClientState">
+            <summary>
+            获取控件是否支持ClientState
+            Whether this control supports ClientState
+            </summary>
+            <remarks>
+            Note to inheritors: You should either pass true to the constructor for enableClientState or override this property to enable client state for inherited controls.
+            </remarks>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptControlBase.ScriptManager">
+            <summary>
+            获取当前页面的ScriptManager，如果没有则自动生成
+            Gets the ScriptManager for the page
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptControlBase.AutoClearClientStateFieldValue">
+            <summary>
+            是否自动清除客户端ClientStateField中的值
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptControlBase.ClientStateFieldID">
+            <summary>
+            ClientState客户端ID
+            The ID of the ClientState field
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptControlBase.TagKey">
+            <summary>
+            控件HtmlTextWriterTag
+            Gets the tag key used when rendering the outer wrapper element for this user control
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptControlBase.TagName">
+            <summary>
+            Gets the tag name used when rendering the outer wrapper element for this user control
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptControlBase.IsRenderScript">
+            <summary>
+            是否输出本控件脚本
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.DataBoundScriptControl.#ctor(System.Web.UI.HtmlTextWriterTag)">
+            <summary>
+            Initializes a new DataBoundScriptControl
+            </summary>
+            <param name="tag">控件的TagKey</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.DataBoundScriptControl.#ctor">
+            <summary>
+            Initializes a new DataBoundScriptControl
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.DataBoundScriptControl.#ctor(System.String)">
+            <summary>
+            Initializes a new DataBoundScriptControl
+            </summary>
+            <param name="tag">控件的TagKey</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.DataBoundScriptControl.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new DataBoundScriptControl
+            </summary>
+            <param name="enableClientState">是否支持clientState</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.DataBoundScriptControl.#ctor(System.Boolean,System.Web.UI.HtmlTextWriterTag)">
+            <summary>
+            Initializes a new DataBoundScriptControl
+            </summary>
+            <param name="enableClientState">是否支持clientState</param>
+            <param name="tag"></param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.DataBoundScriptControl.#ctor(System.Boolean,System.String)">
+            <summary>
+            Initializes a new DataBoundScriptControl
+            </summary>
+            <param name="enableClientState"></param>
+            <param name="tag">控件的TagKey</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.DataBoundScriptControl.PerformDataBinding(System.Collections.IEnumerable)">
+            <summary>
+            执行数据绑定，可重载此方法，对数据源处理结果绑定处理
+            </summary>
+            <param name="data">数据源处理结果</param>
+            <remarks>执行数据绑定，可重载此方法，对数据源处理结果绑定处理</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.Script.DataBoundScriptControl.DataBind">
+            <summary>
+            将数据源绑定到控件，调用PerformDataBinding
+            </summary>
+            <remarks>将数据源绑定到控件，调用PerformDataBinding</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.Script.DataBoundScriptControl.OnInit(System.EventArgs)">
+            <summary>
+            初始化控件状态
+            </summary>
+            <param name="e">包含事件数据的 EventArgs 对象</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.DataBoundScriptControl.OnPreRender(System.EventArgs)">
+            <summary>
+            在保存视图状态和呈现内容之前，确认数据源绑定
+            </summary>
+            <param name="e">包含事件数据的 EventArgs 对象</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.DataBoundScriptControl.EnsureDataBound">
+            <summary>
+            确认绑定
+            </summary>
+            <remarks>如果需要绑定，则进行绑定操作，否则返回</remarks>
+        </member>
+        <member name="P:MCS.Web.Library.Script.DataBoundScriptControl.InnerDataBoundControl">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.DataBoundScriptControl.DataSourceResult">
+            <summary>
+            根据DataSource或DataSourceID，处理后的数据源结果
+            </summary>
+            <remarks>开发者使用此处理结果进行绑定操作</remarks>
+        </member>
+        <member name="P:MCS.Web.Library.Script.DataBoundScriptControl.DataSource">
+            <summary>
+            获取或设置数据源对象
+            </summary>
+            <remarks>获取或设置数据源对象</remarks>
+        </member>
+        <member name="P:MCS.Web.Library.Script.DataBoundScriptControl.DataSourceID">
+            <summary>
+            获取或设置数据源控件ID
+            </summary>
+            <remarks>获取或设置数据源控件ID</remarks>
+        </member>
+        <member name="P:MCS.Web.Library.Script.DataBoundScriptControl.RequiresDataBinding">
+            <summary>
+            获取设置是否需要执行DataBind进行数据绑定
+            </summary>
+            <remarks>获取设置是否需要执行DataBind进行数据绑定</remarks>
+        </member>
+        <member name="T:MCS.Web.Library.Script.FilterTypeDescriptionProvider`1">
+            <summary>
+            This class allows the filtering/replacement of properties from the default list of properties.
+            
+            We use this to modify the name of the ExtenderProperty on-demand
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:MCS.Web.Library.Script.FilterTypeDescriptionProvider`1.GetTypeDescriptor(System.Type,System.Object)">
+            <summary>
+            Intercept the call to GetTypeDescriptor and return ourselves if appropriate
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.FilterTypeDescriptionProvider`1.GetExtendedTypeDescriptor(System.Object)">
+            <summary>
+            Intercept the call to GetExtendedTypeDescriptor and return ourselves if appropriate
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.FilterTypeDescriptionProvider`1.ProcessProperty(System.ComponentModel.PropertyDescriptor)">
+            <summary>
+            To be handled in derived class - this method takes a given property and modifies
+            it if necessary.  The result will be pushed back into the original property list, 
+            replacing the original PropertyDescriptor.
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.FilterTypeDescriptionProvider`1.Target">
+            <summary>
+            The object we are wrapping.
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.FilterTypeDescriptionProvider`1.BaseDescriptor">
+            <summary>
+            The default type descriptor for this type.  We delegate most calls to this.
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.FilterTypeDescriptionProvider`1.FilterExtendedProperties">
+            <summary>
+            True to filter extender properties, otherwise false.
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.Script.ExtenderPropertiesProxy">
+            <summary>
+            This class allows us to selectively hide properties on an object
+            from the property browser, as well as to delay supplying a target until it's 
+            called for.  This allows us to create the properties object on-demand rather than
+            needing it up front.
+                   
+            </summary>
+                    
+        </member>
+        <member name="T:MCS.Web.Library.Script.ExtenderControlBaseDesigner`1">
+            <summary>
+            The designer here has two main jobs:
+            
+            1) Modifying the properties of the TargetProperties objects to remove the "TargetControlID" property and add the Control converter.
+               We remove "TargetControlID" because the value will be hanging off of the target control's properties already so it's confusing/redundant.
+            2) Modifying the name of the Extender property so it's user-configurable.
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ExtenderControlBaseDesigner`1.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ExtenderControlBaseDesigner`1.CanExtend(System.Object)">
+            <summary>
+            Called to check if we can extend a given control.  We return true if the control has the same ID a
+            our extender control target.
+            </summary>
+            <param name="extendee"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ExtenderControlBaseDesigner`1.Dispose(System.Boolean)">
+            <summary>
+            Disopose Resources
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ExtenderControlBaseDesigner`1.GetExtender(System.Object)">
+            <summary>
+            GetExtender
+            </summary>
+            <param name="control"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ExtenderControlBaseDesigner`1.Initialize(System.ComponentModel.IComponent)">
+            <summary>
+            Initialize component
+            </summary>
+            <param name="component">component</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ExtenderControlBaseDesigner`1.PreFilterProperties(System.Collections.IDictionary)">
+            <summary>
+            
+            </summary>
+            <param name="properties"></param>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ExtenderControlBaseDesigner`1.ExtenderControl">
+            <summary>
+            The ExtenderControl this designer is attached to.
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ExtenderControlBaseDesigner`1.ExtenderPropertyName">
+            <summary>
+            The name of the ExtenderProperty that will appear in the properties of potential target controls.
+            
+            By default this is the name of the Extender (e.g. "TextBoxWatermarkExtender") but can be customized by overriding this property.
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.Script.ExtenderControlBaseDesigner`1.ExtenderPropertyRenameDescProv">
+            <summary>
+            This provider allows us to rename the extender provided property
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.ClientCssManager">
+            <summary>
+            在页面中注册Css文件帮助函数
+            </summary>
+            <remarks>在页面中注册Css文件帮助函数</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.ClientCssManager.RegisterHeaderCss(System.Web.UI.Page,System.String)">
+            <summary>
+            在Head之间注册Css文件
+            </summary>
+            <param name="page">当前页面</param>
+            <param name="cssUrl">css文件url路径</param>
+            <remarks>在Head之间注册Css</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.ClientCssManager.RegisterHeaderEndCss(System.Web.UI.Page,System.String)">
+            <summary>
+            在Head结束前注册Css文件
+            </summary>
+            <param name="page">当前页面</param>
+            <param name="cssUrl">css文件url路径</param>
+            <remarks>在Head之间注册Css</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.ClientCssManager.RegisterBodyStartCss(System.Web.UI.Page,System.String)">
+            <summary>
+            在body开始后注册Css文件
+            </summary>
+            <param name="page">当前页面</param>
+            <param name="cssUrl">css文件url路径</param>
+            <remarks>在body开始后注册Css</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.ClientCssManager.RegisterBodyEndCss(System.Web.UI.Page,System.String)">
+            <summary>
+            在body结束前注册Css文件
+            </summary>
+            <param name="page">当前页面</param>
+            <param name="cssUrl">css文件url路径</param>
+            <remarks>在body结束前注册Css</remarks>
+        </member>
+        <member name="T:MCS.Web.Library.DeluxeClientScriptManager">
+            <summary>
+            在页面中注册Script文件帮助函数
+            </summary>
+            <remarks>在页面中注册Script文件帮助函数</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.DeluxeClientScriptManager.RegisterHeaderScript(System.Web.UI.Page,System.String)">
+            <summary>
+            在Head之间注册Script文件
+            </summary>
+            <param name="page">当前页面</param>
+            <param name="scriptUrl">script文件url路径</param>
+            <remarks>在Head之间注册Script</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.DeluxeClientScriptManager.RegisterHeaderEndScript(System.Web.UI.Page,System.String)">
+            <summary>
+            在Head结束前注册Script文件
+            </summary>
+            <param name="page">当前页面</param>
+            <param name="scriptUrl">script文件url路径</param>
+            <remarks>在Head之间注册Script</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.DeluxeClientScriptManager.RegisterBodyStartScript(System.Web.UI.Page,System.String)">
+            <summary>
+            在body开始后注册Script文件
+            </summary>
+            <param name="page">当前页面</param>
+            <param name="scriptUrl">script文件url路径</param>
+            <remarks>在body开始后注册Script</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.DeluxeClientScriptManager.RegisterScriptManagerScript(System.Web.UI.Page,System.String)">
+            <summary>
+            在body开始后注册Script文件
+            </summary>
+            <param name="page">当前页面</param>
+            <param name="scriptUrl">script文件url路径</param>
+            <remarks>在body开始后注册Script</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.DeluxeClientScriptManager.RegisterBodyEndScript(System.Web.UI.Page,System.String)">
+            <summary>
+            在body结束前注册Script文件
+            </summary>
+            <param name="page">当前页面</param>
+            <param name="scriptUrl">script文件url路径</param>
+            <remarks>在body结束前注册Script</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.DeluxeClientScriptManager.RegisterClientScriptBlock(System.Web.UI.Page,System.String)">
+            <summary>
+            注册脚本
+            </summary>
+            <param name="page"></param>
+            <param name="script"></param>
+        </member>
+        <member name="M:MCS.Web.Library.DeluxeClientScriptManager.RegisterStartupScript(System.Web.UI.Page,System.String)">
+            <summary>
+            注册脚本
+            </summary>
+            <param name="page"></param>
+            <param name="script"></param>
+        </member>
+        <member name="M:MCS.Web.Library.DeluxeClientScriptManager.RegisterOnLoadScriptBlock(System.Web.UI.Page,System.String)">
+            <summary>
+            注册响应onload事件的脚本
+            </summary>
+            <param name="page"></param>
+            <param name="script"></param>
+        </member>
+        <member name="M:MCS.Web.Library.DeluxeClientScriptManager.RegisterAjaxApplicationLoadScriptBlock(System.Web.UI.Page,System.String)">
+            <summary>
+            注册响应Ajax中Application的Load事件
+            </summary>
+            <param name="page"></param>
+            <param name="script"></param>
+        </member>
+        <member name="M:MCS.Web.Library.DeluxeClientScriptManager.AddScriptTags(System.String)">
+            <summary>
+            在脚本外增加<script></script>标签
+            </summary>
+            <param name="script"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.DeluxeClientScriptManager.GetScriptString(System.String)">
+            <summary>
+            获取src为scriptSrc的脚本
+            <script type="text/javascript" src="{0}"></script>
+            </summary>
+            <param name="scriptSrc"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Web.Library.DesignerBase">
+            <summary>
+            控件设计器基类
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.DesignerBase.GetDesignTimeHtml">
+            <summary>
+            获得设计时的HTML
+            </summary>
+            <returns>字符串</returns>
+        </member>
+        <member name="M:MCS.Web.Library.DesignerBase.GetEmptyDesignTimeHtml">
+            <summary>
+            if null,return these markups;
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Web.Library.Script.TypedControlIDConverter`1">
+            <summary>
+            A simple derived class of ControlID converter that lets us filter based on a type.
+            
+            This lets us have drop-downs in the property browser that pick a given Button or TextBox, etc.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:MCS.Web.Library.Script.TypedControlIDConverter`1.FilterControl(System.Web.UI.Control)">
+            <summary>
+            判断control是否类型为T
+            </summary>
+            <param name="control">control实例</param>
+            <returns>是否类型为T</returns>
+        </member>
+        <member name="T:MCS.Web.Library.Script.ElementReferenceAttribute">
+            <summary>
+            Specifies this property is an element reference and should be converted during serialization.
+            The default (e.g. cases without this attribute) will generate the element's ID
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ElementReferenceAttribute.#ctor">
+            <summary>
+            Constructs a new ElementReferenceAttribute
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.Script.ProfilePropertyBinding">
+            <summary>
+            Describes a profile binding to an Extender property.
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ProfilePropertyBinding.ExtenderPropertyName">
+            <summary>
+            The property on the Extender (properties) class to bind to.  This is defined on the Extender's TargetProperties object.
+            </summary>
+            
+        </member>
+        <member name="P:MCS.Web.Library.Script.ProfilePropertyBinding.ProfilePropertyName">
+            <summary>
+            The profile property to bind to.  This is defined in the website's web.config.
+            </summary>
+            
+        </member>
+        <member name="T:MCS.Web.Library.Script.ScriptControlEventAttribute">
+            <summary>
+            标志此属性将输出到客户端控件事件
+            Signifies that this Property should be exposed as a client-side event reference
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlEventAttribute.#ctor">
+            <summary>
+            Initializes a new ScriptControlEventAttribute
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlEventAttribute.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new ScriptControlEventAttribute
+            </summary>
+            <param name="isScriptEvent"></param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlEventAttribute.Equals(System.Object)">
+            <summary>
+            Tests for object equality
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlEventAttribute.GetHashCode">
+            <summary>
+            Gets a hash code for this object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlEventAttribute.IsDefaultAttribute">
+            <summary>
+            Gets whether this is the default value for this attribute
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptControlEventAttribute.IsScriptEvent">
+            <summary>
+            Whether this is a valid ScriptEvent
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.Script.ScriptControlMethodAttribute">
+            <summary>
+            标志此控件方法可以被客户端回调
+            Signifies that this method should be exposed as a client callback 
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlMethodAttribute.#ctor">
+            <summary>
+            Initializes a new ScriptControlMethodAttribute
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlMethodAttribute.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new ScriptControlMethodAttribute
+            </summary>
+            <param name="isScriptMethod"></param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlMethodAttribute.Equals(System.Object)">
+            <summary>
+            Tests for object equality
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlMethodAttribute.GetHashCode">
+            <summary>
+            Gets a hash code for this object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlMethodAttribute.IsDefaultAttribute">
+            <summary>
+            Gets whether this is the default value for this attribute
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptControlMethodAttribute.IsScriptMethod">
+            <summary>
+            Whether this is a valid ScriptMethod
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.Script.ScriptControlPropertyAttribute">
+            <summary>
+            标志控件属性将被映射到客户端控件属性
+            Signifies that this property is to be emitted as a client script property
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlPropertyAttribute.#ctor">
+            <summary>
+            Initializes a new ScriptControlPropertyAttribute
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlPropertyAttribute.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new ScriptControlPropertyAttribute
+            </summary>
+            <param name="isScriptProperty"></param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlPropertyAttribute.Equals(System.Object)">
+            <summary>
+            Tests for object equality
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlPropertyAttribute.GetHashCode">
+            <summary>
+            Gets a hash code for this object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptControlPropertyAttribute.IsDefaultAttribute">
+            <summary>
+            Gets whether this is the default value for this attribute
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ScriptControlPropertyAttribute.IsScriptProperty">
+            <summary>
+            Whether this property should be exposed to the client
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.Script.RequiredPropertyAttribute">
+            <summary>
+            The presence of this attribute on a property of a subclass of
+            TargetControlPropertiesBase indicates that the property value is
+            required and the control can not be used without it. Absence of a
+            required property value causes an exception to be thrown during
+            creation of the control.
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.RequiredPropertyAttribute.#ctor">
+            <summary>
+            Constructs a new RequiredPropertyAttribute
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.Script.RequiredScriptAttribute">
+            <summary>
+            在控件类中标记，表明控件所需的脚本
+            </summary>
+            <remarks>在控件类中标记，表明控件所需的脚本</remarks>
+            <example>[RequiredScript(typeof(ControlBaseScript))]</example>
+        </member>
+        <member name="M:MCS.Web.Library.Script.RequiredScriptAttribute.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.RequiredScriptAttribute.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="scriptName">脚本资源名称</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.RequiredScriptAttribute.#ctor(System.Type)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="extenderType">与脚本资源相关联的类型</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.RequiredScriptAttribute.#ctor(System.Type,System.Int32)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="extenderType">与脚本资源相关联的类型</param>
+            <param name="loadOrder">加载脚本资源顺序</param>
+        </member>
+        <member name="P:MCS.Web.Library.Script.RequiredScriptAttribute.ExtenderType">
+            <summary>
+            与脚本资源相关联的类型
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.RequiredScriptAttribute.ScriptName">
+            <summary>
+            脚本资源名称
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.RequiredScriptAttribute.LoadOrder">
+            <summary>
+            加载脚本资源顺序
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.Script.ListItemDataBoundEventArgs">
+            <summary>
+            ListItem事件参数
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ListItemDataBoundEventArgs.#ctor(System.Web.UI.WebControls.ListItem,System.Object)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="item">ListItem对象</param>
+            <param name="itemData">绑定数据</param>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ListItemDataBoundEventArgs.Item">
+            <summary>
+            ListItem对象
+            </summary>
+        </member>
+        <member name="P:MCS.Web.Library.Script.ListItemDataBoundEventArgs.ItemData">
+            <summary>
+            绑定数据
+            </summary>
+        </member>
+        <member name="T:MCS.Web.Library.Script.ListItemDataBoundEventHanlder">
+            <summary>
+            ListItem数据绑定Handler
+            </summary>
+            <param name="sender">控件对象</param>
+            <param name="args">事件参数</param>
+        </member>
+        <member name="T:MCS.Web.Library.Script.ScriptObjectBuilder">
+            <summary>
+            脚本对象帮助类
+            Gets the script references for a type
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptObjectBuilder.DescribeComponent(System.Object,System.Web.UI.ScriptComponentDescriptor,System.Web.UI.IUrlResolutionService,MCS.Web.Library.Script.IControlResolver)">
+            <summary>
+            根据一个对象属性和方法，将此对象转换到客户端对象描述ScriptComponentDescriptor中
+            Describes an object to a ScriptComponentDescriptor based on its reflected properties and methods
+            </summary>
+            <param name="instance">要转换的对象。The object to be described</param>
+            <param name="descriptor">要填充的脚本描述对象。The script descriptor to fill</param>
+            <param name="urlResolver">Url转换器。The object used to resolve urls</param>
+            <param name="controlResolver">Control转换器。The object used to resolve control references</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptObjectBuilder.GetScriptReferences(System.Type)">
+            <summary>
+            根据控件类型，通过控件Attribute声明获取脚本资源文件引用
+            Gets the script references for a type
+            </summary>
+            <param name="type">控件类型</param>
+            <returns>脚本资源文件引用集合</returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptObjectBuilder.GetScriptReferences(System.Type,System.Boolean)">
+            <summary>
+            根据控件类型，通过控件Attribute声明获取脚本资源文件引用
+            Gets the script references for a type
+            </summary>
+            <param name="type">控件类型</param>
+            <param name="ignoreStartingTypeReferences">是否忽略开始类型的引用</param>
+            <returns>脚本资源文件引用集合</returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptObjectBuilder.GetScriptResourceEntries(System.Type)">
+            <summary>
+            根据控件类型，通过控件Attribute声明获取脚本资源文件引用
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptObjectBuilder.GetScriptResourceEntries(System.Type,System.Boolean)">
+            <summary>
+            根据控件类型，通过控件Attribute声明获取脚本资源文件引用
+            </summary>
+            <param name="type"></param>
+            <param name="ignoreStartingTypeReferences"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptObjectBuilder.GetCssReferences(System.Web.UI.Page,System.Type)">
+            <summary>
+            根据控件，通过控件Attribute声明获取Css资源文件引用
+            Gets the embedded css file references for a type
+            </summary>
+            <param name="page"></param>
+            <param name="controlType"></param>
+            <returns>Css资源文件引用集合</returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptObjectBuilder.RegisterCssReferences(System.Web.UI.Page,System.Type)">
+            <summary>
+            为控件注册Css资源文件引用
+            Register's the Css references for this control
+            </summary>
+            <param name="page"></param>
+            <param name="controlType"></param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptObjectBuilder.RegisterCssReferences(System.Web.UI.Control)">
+            <summary>
+            为控件注册Css资源文件引用
+            Register's the Css references for this control
+            </summary>
+            <param name="control">控件实例</param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptObjectBuilder.ExecuteCallbackMethod(System.Web.UI.Control,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            执行控件的回调方法
+            Executes a callback capable method on a control
+            </summary>
+            <param name="control">控件实例</param>
+            <param name="callInfo">回调参数</param>
+            <returns>方法返回对象的JSON序列化结果</returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptObjectBuilder.TryWriteLog(System.Exception,System.Web.UI.Control)">
+            <summary>
+            写错误日志
+            </summary>
+            <param name="ex"></param>
+            <param name="control"></param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptObjectBuilder.ScriptReferencesFromResourceEntries(System.Collections.Generic.IList{MCS.Web.Library.Script.ResourceEntry})">
+            <summary>
+            ScriptReference objects aren't immutable.  The AJAX core adds context to them, so we cant' reuse them.
+            Therefore, we track only ReferenceEntries internally and then convert them to NEW ScriptReference objects on-demand.        
+            </summary>
+            <param name="entries"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptObjectBuilder.GetScriptReferencesInternal(System.Type,System.Collections.Generic.Stack{System.Type})">
+            <summary>
+            Gets the script references for a type and walks the type's dependencies with circular-reference checking
+            </summary>
+            <param name="type"></param>
+            <param name="typeReferenceStack"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ScriptObjectBuilder.GetCssReferences(System.Web.UI.Page,System.Type,System.Collections.Generic.Stack{System.Type})">
+            <summary>
+            Gets the css references for a type and walks the type's dependencies with circular-reference checking
+            </summary>
+            <param name="page"></param>
+            <param name="type"></param>
+            <param name="typeReferenceStack"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Web.Library.Script.ResourceEntry">
+            <summary>
+            ResourceEntry
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.Script.ResourceEntry.ResourcePath">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.Script.ResourceEntry.ComponentType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MCS.Web.Library.Script.ResourceEntry.Order">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ResourceEntry.#ctor(System.String,System.Type,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="path"></param>
+            <param name="componentType"></param>
+            <param name="order"></param>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ResourceEntry.ToScriptReference">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ResourceEntry.Equals(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ResourceEntry.op_Equality(MCS.Web.Library.Script.ResourceEntry,MCS.Web.Library.Script.ResourceEntry)">
+            <summary>
+            
+            </summary>
+            <param name="obj1"></param>
+            <param name="obj2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ResourceEntry.op_Inequality(MCS.Web.Library.Script.ResourceEntry,MCS.Web.Library.Script.ResourceEntry)">
+            <summary>
+            
+            </summary>
+            <param name="obj1"></param>
+            <param name="obj2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.Script.ResourceEntry.GetHashCode">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MCS.Web.Library.WebControlUtility">
+            <summary>
+            WebControl开发帮助类
+            </summary>
+            <remarks>
+            包含一些在WebControl开发中所需的静态函数
+            </remarks>
+        </member>
+        <member name="M:MCS.Web.Library.WebControlUtility.BindData(System.Web.UI.WebControls.ListControl,System.Object,System.String,System.String)">
+            <summary>
+            绑定数据源到ListControl上
+            </summary>
+            <param name="listCtrl"></param>
+            <param name="dataSource"></param>
+            <param name="valueField"></param>
+            <param name="textField"></param>
+        </member>
+        <member name="M:MCS.Web.Library.WebControlUtility.GetViewStateValue``1(System.Web.UI.StateBag,System.String,``0)">
+            <summary>
+            获取ViewSate中某一项的值
+            </summary>
+            <typeparam name="V">返回值得类型</typeparam>
+            <param name="viewState">ViewSate</param>
+            <param name="key">某一项的Key</param>
+            <param name="nullValue">如果此项的值为空，则返回此默认值</param>
+            <returns>返回值</returns>
+            <remarks>用于控件开发中，获取属性值</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.WebControlUtility.SetViewStateValue``1(System.Web.UI.StateBag,System.String,``0)">
+            <summary>
+            设置ViewSate中某一项的值
+            </summary>
+            <typeparam name="V">设置值得类型</typeparam>
+            <param name="viewState">ViewSate</param>
+            <param name="key">某一项的Key</param>
+            <param name="value">设置的值</param>
+            <remarks>用于控件开发中，设置属性值</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.WebControlUtility.TrackViewState(System.Web.UI.StateBag)">
+            <summary>
+            将ViewState中所有IStateManager类型项，设置TrackViewState
+            </summary>
+            <param name="viewState">ViewState</param>
+            <remarks>
+            在控件的TrackViewState中调用		
+            </remarks>
+        </member>
+        <member name="M:MCS.Web.Library.WebControlUtility.PreLoadViewState(System.Web.UI.StateBag)">
+             <summary>
+             在LoadViewState之前缓存ViewState中所有IStateManager类型项
+             </summary>
+             <param name="viewState">ViewState</param>
+             <returns>缓存结果</returns>		
+             <remarks>
+             在LoadViewState之前调用
+             </remarks>
+             <example>
+             <![CDATA[
+            protected override void LoadViewState(object savedState)
+            {
+                StateBag backState = WebControlUtility.PreLoadViewState(ViewState);
+                base.LoadViewState(savedState);
+                WebControlUtility.AfterLoadViewState(ViewState, backState);
+            }
+             ]]>
+             </example>
+        </member>
+        <member name="M:MCS.Web.Library.WebControlUtility.AfterLoadViewState(System.Web.UI.StateBag,System.Web.UI.StateBag)">
+             <summary>
+             在LoadViewState之后从缓存中恢复将ViewState中ViewSateItemInternal类型项恢复成IStateManager类型项
+             </summary>
+             <param name="viewState">ViewState</param>
+             <param name="backState">PreLoadViewState产生缓存的项</param>
+             <remarks>在LoadViewState之后调用</remarks>
+             <example>
+             <![CDATA[
+            protected override void LoadViewState(object savedState)
+            {
+                StateBag backState = WebControlUtility.PreLoadViewState(ViewState);
+                base.LoadViewState(savedState);
+                WebControlUtility.AfterLoadViewState(ViewState, backState);
+            }
+             ]]>
+             </example>
+        </member>
+        <member name="M:MCS.Web.Library.WebControlUtility.PreSaveViewState(System.Web.UI.StateBag)">
+             <summary>
+             在SaveViewState之前，将ViewState中所有IStateManager类型项转换为可序列化的ViewSateItemInternal类型项
+             </summary>
+             <param name="viewState">ViewState</param>
+             <remarks>在SaveViewState之前调用</remarks>		
+             <example>
+             <![CDATA[
+            protected override object SaveViewState()
+            {
+                WebControlUtility.PreSaveViewState(ViewState);
+                object o = base.SaveViewState();
+                WebControlUtility.AfterSavedViewState(ViewState);
+                return o;
+            }
+             ]]>
+             </example>
+        </member>
+        <member name="M:MCS.Web.Library.WebControlUtility.AfterSavedViewState(System.Web.UI.StateBag)">
+             <summary>
+             在SaveViewState之后，将ViewState中所有ViewSateItemInternal类型项恢复成IStateManager类型项
+             </summary>
+             <param name="viewState">ViewState</param>
+             <remarks>在SaveViewState之后
+             
+             调用</remarks>		
+             <example>
+             <![CDATA[
+            protected override object SaveViewState()
+            {
+                WebControlUtility.PreSaveViewState(ViewState);
+                object o = base.SaveViewState();
+                WebControlUtility.AfterSavedViewState(ViewState);
+                return o;
+            }
+             ]]>
+             </example>
+        </member>
+        <member name="M:MCS.Web.Library.WebControlUtility.FindControl(System.Web.UI.Control,System.Type,System.Boolean)">
+            <summary>
+            在containerControl中查找类型为controlType的控件
+            </summary>
+            <param name="containerControl">父控件</param>
+            <param name="controlType">查找的控件类型</param>
+            <param name="deepFind">是否进行深度查找</param>
+            <returns>找到的控件</returns>
+            <remarks>在containerControl中查找类型为controlType的控件</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.WebControlUtility.FindControl``1(System.Web.UI.Control,System.Boolean)">
+            <summary>
+            在containerControl中查找类型为T的控件
+            </summary>
+            <typeparam name="T">查找的控件类型</typeparam>
+            <param name="containerControl">父控件</param>
+            <param name="deepFind">是否进行深度查找</param>
+            <returns>找到的控件</returns>
+            <remarks>在containerControl中查找类型为controlType的控件</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.WebControlUtility.FindControls``1(System.Web.UI.Control,System.Boolean)">
+            <summary>
+            查找指定类型的所有子控件
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="containerControl"></param>
+            <param name="deepFind"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.WebControlUtility.FindControls(System.Web.UI.Control,System.Type,System.Boolean)">
+            <summary>
+            查找指定类型的所有子控件
+            </summary>
+            <param name="containerControl"></param>
+            <param name="controlType"></param>
+            <param name="deepFind"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.WebControlUtility.FindControlByID(System.Web.UI.Control,System.String,System.Boolean)">
+            <summary>
+            在containerControl中查找ID为controlID的控件
+            </summary>
+            <param name="containerControl">父控件</param>
+            <param name="controlID">子控件的ID</param>
+            <param name="deepFind">是否进行深度查找</param>
+            <returns>找到的控件</returns>
+        </member>
+        <member name="M:MCS.Web.Library.WebControlUtility.FindControl(System.Web.UI.Control,System.Predicate{System.Web.UI.Control},System.Boolean)">
+            <summary>
+            查找子控件
+            </summary>
+            <param name="containerControl"></param>
+            <param name="predicate"></param>
+            <param name="deepFind"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.WebControlUtility.FindControlByHtmlIDProperty(System.Web.UI.Control,System.String,System.Boolean)">
+            <summary>
+            在containerControl中查找html的id为controlID的控件
+            </summary>
+            <param name="containerControl">父控件</param>
+            <param name="controlID">子控件的html id</param>
+            <param name="deepFind">是否进行深度查找</param>
+            <returns>找到的控件</returns>
+        </member>
+        <member name="M:MCS.Web.Library.WebControlUtility.FindParentControl(System.Web.UI.Control,System.Type,System.Boolean)">
+            <summary>
+            查找类型为controlType的父亲及祖先控件
+            </summary>
+            <param name="currentControl">当前的控件</param>
+            <param name="controlType">控件类型</param>
+            <param name="recursively">是否多级查找</param>
+            <returns>符合类型的控件</returns>
+        </member>
+        <member name="M:MCS.Web.Library.WebControlUtility.FindParentControl``1(System.Web.UI.Control,System.Boolean)">
+            <summary>
+            查找类型为T的父亲及祖先控件
+            </summary>
+            <typeparam name="T">控件类型</typeparam>
+            <param name="currentControl">当前的控件</param>
+            <param name="recursively">是否多级查找</param>
+            <returns>符合类型的控件</returns>
+        </member>
+        <member name="M:MCS.Web.Library.WebControlUtility.GetControlHtml(System.Web.UI.Control)">
+            <summary>
+            得到控件的Html描述
+            </summary>
+            <param name="ctrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.WebControlUtility.GetHtml(System.Web.UI.Control)">
+            <summary>
+            得到控件的Html
+            </summary>
+            <param name="ctrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MCS.Web.Library.WebControlUtility.GetDataSourceResult(System.Web.UI.Control,System.Object)">
+            <summary>
+            将数据源dataSource处理成IEnumerable类型的数据源
+            </summary>
+            <param name="ctr">需要处理数据源的控件</param>
+            <param name="dataSource">需要处理的数据源</param>
+            <returns>处理结果</returns>
+            <remarks>将数据源dataSource处理成IEnumerable类型的数据源</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.WebControlUtility.GetDataSourceResult(System.Web.UI.Control,System.String)">
+            <summary>
+            将数据源控件处理成IEnumerable类型的数据源
+            </summary>
+            <param name="ctr">需要处理数据源的控件</param>
+            <param name="dataSourceID">需要处理的数据源控件ID</param>
+            <returns>处理结果</returns>
+            <remarks>将数据源控件处理成IEnumerable类型的数据源</remarks>
+        </member>
+        <member name="M:MCS.Web.Library.WebControlUtility.RenderPageOnlySelf(MCS.Web.Library.PageRenderMode,System.String)">
+            <summary>
+            根据RenderMode输出
+            </summary>
+            <param name="baseRenderString"></param>
+            <param name="renderMode"></param>
+        </member>
+        <member name="M:MCS.Web.Library.WebControlUtility.RenderControlOnlySelf(System.Web.UI.Control,System.String,MCS.Web.Library.ControlRenderMode)">
+            <summary>
+            根据控件输出模式，输出控件
+            </summary>
+            <param name="ctr">要输出的控件</param>
+            <param name="baseRenderString">控件原输出内容</param>
+            <param name="renderMode">输出模式</param>
+            <remarks>根据控件输出模式，输出控件</remarks>
+        </member>
+        <member name="T:MCS.Web.Library.WebControlTranslator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MCS.Web.Library.WebControlTranslator.#ctor(System.Web.UI.WebControls.WebControl)">
+            <summary>
+            
+            </summary>
+            <param name="control"></param>
+        </member>
+        <member name="M:MCS.Web.Library.WebControlTranslator.Translate">
+             <summary>
+            
+             </summary>
+        </member>
+    </members>
+</doc>

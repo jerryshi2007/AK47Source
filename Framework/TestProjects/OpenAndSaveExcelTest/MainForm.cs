@@ -1,5 +1,4 @@
-﻿using MCS.Library.Core;
-using MCS.Library.Office.OpenXml.Excel;
+﻿using MCS.Library.Office.OpenXml.Excel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +7,6 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,8 +17,6 @@ namespace OpenAndSaveExcelTest
         public MainForm()
         {
             InitializeComponent();
-
-            Application.ThreadException += Application_ThreadException;
         }
 
         private void buttonOpenAndSaveFile_Click(object sender, EventArgs e)
@@ -33,12 +29,7 @@ namespace OpenAndSaveExcelTest
                 FillDataTableData(dt, 10);
 
                 WorkSheet sheet = workbook.Sheets["任务单"];
-
-                (sheet != null).FalseThrow("不能找到名称为\"{0}\"工作表", "任务单");
-
-                Table table = sheet.Tables["表1"];
-
-                (table != null).FalseThrow("不能找到名称为\"{0}\"表格", "表");
+                Table table = sheet.Tables[0];
 
                 table.FillData(dt.DefaultView);
                 //table.FillData(dt.DefaultView, (cell, cellParameters) =>
@@ -60,11 +51,15 @@ namespace OpenAndSaveExcelTest
 
         private static DataTable PrepareDataTable()
         {
-            DataTable table = new DataTable("Table1");
+            DataTable table = new DataTable("表1");
 
-            table.Columns.Add(new DataColumn("客户编号", typeof(string)));
-            table.Columns.Add(new DataColumn("任务单编号", typeof(double)));
-            table.Columns.Add(new DataColumn("业务复杂度", typeof(string)));
+            table.Columns.Add(new DataColumn("员工工号", typeof(string)));
+            table.Columns.Add(new DataColumn("考勤项目", typeof(string)));
+            table.Columns.Add(new DataColumn("年度", typeof(string)));
+            table.Columns.Add(new DataColumn("法定假转入", typeof(decimal)));
+            table.Columns.Add(new DataColumn("公司福利假转入", typeof(decimal)));
+            table.Columns.Add(new DataColumn("法定假初始值", typeof(decimal)));
+            table.Columns.Add(new DataColumn("公司福利假初始值", typeof(decimal)));
 
             return table;
         }
@@ -79,17 +74,16 @@ namespace OpenAndSaveExcelTest
             {
                 DataRow row = table.NewRow();
 
-                row["客户编号"] = string.Format("Book: {0}", i);
-                row["任务单编号"] = 50 + rnd.Next(25) - 25;
-                row["业务复杂度"] = complexity[rnd.Next(complexity.Length)];
+                row["员工工号"] = "员工工号" + rnd.Next();
+                row["考勤项目"] ="L14";
+                row["年度"] ="2015";
+                row["法定假转入"] = 0;
+                row["公司福利假转入"] =10;
+                row["法定假初始值"] = 2;
+                row["公司福利假初始值"] = 3;
 
                 table.Rows.Add(row);
             }
-        }
-
-        private void Application_ThreadException(object sender, ThreadExceptionEventArgs e)
-        {
-            MessageBox.Show(this, e.Exception.ToString());
         }
     }
 }

@@ -11,6 +11,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 {
 	[Serializable]
 	[ORTableMapping("WF.PROCESS_DIMENSIONS")]
+    [TenantRelativeObject]
 	public class WfProcessDimension
 	{
 		[ORFieldMapping("PROCESS_ID", PrimaryKey = true)]

@@ -28,6 +28,7 @@ namespace MCS.Library.SOA.DataObjects
     /// </summary>
     [Serializable]
     [ORTableMapping("WF.UPLOAD_FILE_HISTORY")]
+    [TenantRelativeObject]
     public class UploadFileHistory
     {
         [ORFieldMapping("ID", PrimaryKey = true, IsIdentity = true)]

@@ -39,10 +39,15 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 		{
 			processID.CheckStringIsNullOrEmpty("processID");
 
+            WhereSqlClauseBuilder wBuilder = new WhereSqlClauseBuilder();
+
+            wBuilder.AppendItem("PROCESS_ID", processID);
+            wBuilder.AppendTenantCodeSqlClause(typeof(WfProcessCurrentActivity));
+
 			StringBuilder strB = new StringBuilder();
 
-			strB.AppendFormat("DELETE WF.PROCESS_RELATIVE_PARAMS WHERE PROCESS_ID = {0}",
-				TSqlBuilder.Instance.CheckQuotationMark(processID, true));
+			strB.AppendFormat("DELETE WF.PROCESS_RELATIVE_PARAMS WHERE {0}",
+                wBuilder.ToSqlString(TSqlBuilder.Instance));
 
 			foreach (WfProcessRelativeParam rp in relativeParams)
 			{

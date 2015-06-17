@@ -1,14 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MCS.Library.Core;
+using MCS.Library.Data.DataObjects;
 using MCS.Library.Data.Mapping;
 using MCS.Library.SOA.DataObjects.Workflow;
-using MCS.Library.Data.DataObjects;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace MCS.Library.SOA.DataObjects
 {
 	[Serializable]
 	[ORTableMapping("WF.INVALID_ASSIGNEES")]
+    [TenantRelativeObject]
 	public class InvalidAssignee
 	{
 		private string _ID = string.Empty;

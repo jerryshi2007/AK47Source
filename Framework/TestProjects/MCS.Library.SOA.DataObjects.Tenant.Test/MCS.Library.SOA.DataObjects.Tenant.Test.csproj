@@ -49,6 +49,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -64,7 +66,17 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Common\Define.cs" />
+    <Compile Include="DataObjects\AdaptersTest.cs" />
+    <Compile Include="DataObjects\CounterTest.cs" />
+    <Compile Include="DataObjects\LockTest.cs" />
+    <Compile Include="DataObjects\MaterialTest.cs" />
+    <Compile Include="DataObjects\TaskAssigneeTest.cs" />
+    <Compile Include="DataObjects\UploadFileHistoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SysTasks\SysTaskCommon.cs" />
+    <Compile Include="SysTasks\BasicSysTaskTest.cs" />
+    <Compile Include="SysTasks\SysTaskProcessTest.cs" />
+    <Compile Include="Workflow\GlobalParametersTest.cs" />
     <Compile Include="Workflow\Helper\ActivityMatrixHelper.cs" />
     <Compile Include="Workflow\Helper\ApprovalMatrixHelper.cs" />
     <Compile Include="Workflow\Helper\ProcessHelper.cs" />
@@ -77,6 +89,10 @@
     <Compile Include="Workflow\ApprovalMatrixTest.cs" />
     <Compile Include="Workflow\ServiceDefinitionTest.cs" />
     <Compile Include="Workflow\StartWorkflowExecutorTest.cs" />
+    <Compile Include="Workflow\PersistQueueTest.cs" />
+    <Compile Include="Workflow\ProcessRuntimeTest.cs" />
+    <Compile Include="Workflow\WfMatrixTest.cs" />
+    <Compile Include="Workflow\WfApplicationAuthTest.cs" />
     <Compile Include="Workflow\WithdrawAndCancelExecutorTest.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -104,6 +120,7 @@
   <ItemGroup>
     <None Include="App.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="ConfigFiles\connectionManager.config" />
     <None Include="ConfigFiles\oguPermissionSettings.config" />

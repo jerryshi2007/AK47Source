@@ -37,12 +37,17 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 			processID.CheckStringIsNullOrEmpty("processID");
 			relativeProcesses.NullCheck("relativeProcesses");
 
+            WhereSqlClauseBuilder wBuilder = new WhereSqlClauseBuilder();
+
+            wBuilder.AppendItem("PROCESS_ID", processID);
+            wBuilder.AppendTenantCodeSqlClause(typeof(WfProcessCurrentActivity));
+
 			ORMappingItemCollection mapping = ORMapping.GetMappingInfo<WfRelativeProcess>();
 
 			string sqlDelete = string.Format(
-				"DELETE {0} WHERE PROCESS_ID = {1}",
+				"DELETE {0} WHERE {1}",
 				mapping.TableName,
-				TSqlBuilder.Instance.CheckQuotationMark(processID, true));
+                wBuilder.ToSqlString(TSqlBuilder.Instance));
 
 			StringBuilder strB = new StringBuilder();
 
@@ -66,23 +71,30 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 		{
 			ORMappingItemCollection mapping = ORMapping.GetMappingInfo<WfRelativeProcess>();
 
-			string sql = string.Format("DELETE {0} WHERE PROCESS_ID= {1}", mapping.TableName, TSqlBuilder.Instance.CheckQuotationMark(data.ProcessID, true));
+            WhereSqlClauseBuilder wBuilder = new WhereSqlClauseBuilder();
+
+            wBuilder.AppendItem("PROCESS_ID", data.ProcessID);
+            wBuilder.AppendTenantCodeSqlClause(typeof(WfProcessCurrentActivity));
+
+			string sql = string.Format("DELETE {0} WHERE {1}", mapping.TableName, wBuilder.ToSqlString(TSqlBuilder.Instance));
 			DbHelper.RunSql(sql, GetConnectionName());
 		}
 
 		public void Delete(WfProcessCurrentInfoCollection processesInfo)
 		{
 			ORMappingItemCollection mapping = ORMapping.GetMappingInfo<WfRelativeProcess>();
-			InSqlClauseBuilder items = new InSqlClauseBuilder();
+			InSqlClauseBuilder items = new InSqlClauseBuilder("PROCESS_ID");
+
 			foreach (var process in processesInfo)
-			{
-				items.AppendItem(process.InstanceID);
-			}
+                items.AppendItem(process.InstanceID);
 
 			if (items.Count > 0)
 			{
-				string sql = string.Format("DELETE {0} WHERE PROCESS_ID IN ({1})", mapping.TableName, items.ToSqlString(TSqlBuilder.Instance));
-				DbHelper.RunSql(sql, GetConnectionName());
+                string sql = string.Format("DELETE {0} WHERE {1}",
+                    mapping.TableName,
+                    items.AppendTenantCodeSqlClause(typeof(WfRelativeProcess)).ToSqlString(TSqlBuilder.Instance));
+				
+                DbHelper.RunSql(sql, GetConnectionName());
 			}
 		}
 

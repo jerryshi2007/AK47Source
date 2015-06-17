@@ -47,6 +47,7 @@ namespace MCS.Library.SOA.DataObjects
             WhereSqlClauseBuilder builder = new WhereSqlClauseBuilder();
 
             whereAction(builder);
+            builder.AppendTenantCode(typeof(T));
 
             string sql = string.Format("SELECT TOP 1 * FROM {0}", mappings.TableName);
 
@@ -87,15 +88,18 @@ namespace MCS.Library.SOA.DataObjects
 
             PerformanceMonitorHelper.GetDefaultMonitor().WriteExecutionDuration(string.Format("LoadByInBuilder({0})", this.GetType().FullName), () =>
             {
-                InSqlClauseBuilder builder = new InSqlClauseBuilder();
+                InSqlClauseBuilder inBuilder = new InSqlClauseBuilder();
 
-                inAction(builder);
+                inAction(inBuilder);
 
                 string condition = string.Empty;
 
-                if (builder.IsEmpty == false)
+                if (inBuilder.IsEmpty == false)
                 {
-                    condition = builder.ToSqlStringWithInOperator(TSqlBuilder.Instance);
+                    ConnectiveSqlClauseCollection builder = new ConnectiveSqlClauseCollection(LogicOperatorDefine.And,
+                        inBuilder, new WhereSqlClauseBuilder().AppendTenantCode(typeof(T)));
+
+                    condition = builder.ToSqlString(TSqlBuilder.Instance);
 
                     OrderBySqlClauseBuilder orderByBuilder = null;
 
@@ -186,6 +190,8 @@ namespace MCS.Library.SOA.DataObjects
                 WhereSqlClauseBuilder builder = new WhereSqlClauseBuilder();
 
                 whereAction(builder);
+
+                builder.AppendTenantCode(typeof(T));
 
                 OrderBySqlClauseBuilder orderByBuilder = null;
 

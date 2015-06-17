@@ -16,6 +16,7 @@ namespace MCS.Library.SOA.DataObjects
 		[SubClassORFieldMapping("ID", "ASSIGNEE_ID", IsNullable = false)]
 		[SubClassORFieldMapping("ObjectType", "ASSIGNEE_TYPE", IsNullable = false)]
 		[SubClassORFieldMapping("DisplayName", "ASSIGNEE_NAME", IsNullable = false)]
+        [SubClassType(typeof(OguBase))]
 		public override IOguObject Assignee
 		{
 			get

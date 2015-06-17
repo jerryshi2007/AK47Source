@@ -34,6 +34,16 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             return resource;
         }
 
+        public static WfActivityMatrixResourceDescriptor PrepareSameSNActivityMatrixResourceDescriptor()
+        {
+            WfActivityMatrixResourceDescriptor resource = new WfActivityMatrixResourceDescriptor();
+
+            resource.PropertyDefinitions.CopyFrom(PreparePropertiesDefinition());
+            resource.Rows.CopyFrom(PrepareSameActivitySNRows(resource.PropertyDefinitions));
+
+            return resource;
+        }
+
         /// <summary>
         /// 准备一个一行的矩阵
         /// </summary>
@@ -67,6 +77,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             WfActivityMatrixResourceDescriptor resource = new WfActivityMatrixResourceDescriptor();
 
             resource.PropertyDefinitions.CopyFrom(PreparePropertiesDefinition());
+
             resource.Rows.Add(PrepareOneDynamicRow(resource.PropertyDefinitions));
             resource.Rows.Add(PrepareTwoUsersDynamicRow(resource.PropertyDefinitions));
             resource.Rows.Add(PrepareInvalidUserDynamicRow(resource.PropertyDefinitions));
@@ -167,6 +178,39 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.OperatorColumn]) { Value = "fanhy" });
 
             return row1;
+        }
+
+        private static SOARolePropertyRowCollection PrepareSameActivitySNRows(SOARolePropertyDefinitionCollection pds)
+        {
+            SOARolePropertyRowCollection rows = new SOARolePropertyRowCollection();
+
+            SOARolePropertyRow row1 = new SOARolePropertyRow() { RowNumber = 1, OperatorType = SOARoleOperatorType.User, Operator = "fanhy" };
+
+            row1.Values.Add(new SOARolePropertyValue(pds["CostCenter"]) { Value = "1001" });
+            row1.Values.Add(new SOARolePropertyValue(pds["PayMethod"]) { Value = "1" });
+            row1.Values.Add(new SOARolePropertyValue(pds["Age"]) { Value = "30" });
+            row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivitySNColumn]) { Value = "10" });
+            row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivityCodeColumn]) { Value = "Approver1" });
+            row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivityNameColumn]) { Value = "一级审批" });
+            row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.OperatorTypeColumn]) { Value = "User" });
+            row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.OperatorColumn]) { Value = "fanhy" });
+
+            rows.Add(row1);
+
+            SOARolePropertyRow row2 = new SOARolePropertyRow() { RowNumber = 2, OperatorType = SOARoleOperatorType.User, Operator = "quym" };
+
+            row2.Values.Add(new SOARolePropertyValue(pds["CostCenter"]) { Value = "1001" });
+            row2.Values.Add(new SOARolePropertyValue(pds["PayMethod"]) { Value = "1" });
+            row2.Values.Add(new SOARolePropertyValue(pds["Age"]) { Value = "30" });
+            row2.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivitySNColumn]) { Value = "10" });
+            row2.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivityCodeColumn]) { Value = "Approver1" });
+            row2.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivityNameColumn]) { Value = "一级审批" });
+            row2.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.OperatorTypeColumn]) { Value = "User" });
+            row2.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.OperatorColumn]) { Value = "quym" });
+
+            rows.Add(row2);
+
+            return rows;
         }
 
         private static SOARolePropertyRow PrepareOneDynamicRow(SOARolePropertyDefinitionCollection pds)

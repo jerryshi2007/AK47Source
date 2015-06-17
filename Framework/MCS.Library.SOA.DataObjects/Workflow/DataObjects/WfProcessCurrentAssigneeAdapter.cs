@@ -29,9 +29,14 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 		{
 			processID.CheckStringIsNullOrEmpty("processID");
 
+            WhereSqlClauseBuilder wBuilder = new WhereSqlClauseBuilder();
+
+            wBuilder.AppendItem("PROCESS_ID", processID);
+            wBuilder.AppendTenantCodeSqlClause(typeof(WfProcessCurrentActivity));
+
 			string sqlDelete = string.Format(
-				"DELETE WF.PROCESS_CURRENT_ASSIGNEES WHERE PROCESS_ID = {0}",
-				TSqlBuilder.Instance.CheckQuotationMark(processID, true));
+				"DELETE WF.PROCESS_CURRENT_ASSIGNEES WHERE {0}",
+                wBuilder.ToSqlString(TSqlBuilder.Instance));
 
 			StringBuilder strB = new StringBuilder();
 

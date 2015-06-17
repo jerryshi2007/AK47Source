@@ -1,14 +1,16 @@
-﻿using System;
+﻿using MCS.Library.Core;
+using MCS.Library.Data.DataObjects;
+using MCS.Library.Data.Mapping;
+using MCS.Library.SOA.DataObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MCS.Library.Data.Mapping;
-using MCS.Library.Data.DataObjects;
-using MCS.Library.SOA.DataObjects;
 
 namespace MCS.Library.SOA.DataObjects.Workflow
 {
     [ORTableMapping("WF.RELATIVE_PROCESSES")]
+    [TenantRelativeObject]
     public sealed class WfRelativeProcess
     {
 

@@ -23,7 +23,12 @@ namespace MCS.Library.SOA.DataObjects
 
 		public UploadFileHistory Load(int id)
 		{
-			string sql = string.Format("SELECT * FROM WF.UPLOAD_FILE_HISTORY WHERE ID = {0}", id);
+            WhereSqlClauseBuilder builder = new WhereSqlClauseBuilder();
+
+            builder.AppendItem("ID", id);
+            builder.AppendTenantCode(typeof(UploadFileHistory));
+
+            string sql = string.Format("SELECT * FROM WF.UPLOAD_FILE_HISTORY WHERE {0}", builder.ToSqlString(TSqlBuilder.Instance));
 
 			DataTable table = DbHelper.RunSqlReturnDS(sql, AppLogSettings.GetConfig().ConnectionName).Tables[0];
 

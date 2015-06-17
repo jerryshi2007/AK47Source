@@ -10,6 +10,7 @@ using MCS.Library.Data.DataObjects;
 namespace MCS.Library.SOA.DataObjects
 {
 	[Serializable]
+    [TenantRelativeObject]
 	public abstract class TaskAssigneeBase<T> where T : IOguObject
 	{
 		private T assignee = default(T);

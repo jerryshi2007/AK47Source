@@ -9,49 +9,41 @@ using System.Data;
 
 namespace MCS.Library.SOA.DataObjects
 {
-	/// <summary>
-	/// 
-	/// </summary>
-	public sealed class InvalidAssigneeAdapter
-	//: UpdatableAndLoadableAdapterBase<InvalidAssigne,InvalidAssigneCollection>
-	{
-		public static readonly InvalidAssigneeAdapter Instance = new InvalidAssigneeAdapter();
+    /// <summary>
+    /// 
+    /// </summary>
+    public sealed class InvalidAssigneeAdapter
+    //: UpdatableAndLoadableAdapterBase<InvalidAssigne,InvalidAssigneCollection>
+    {
+        public static readonly InvalidAssigneeAdapter Instance = new InvalidAssigneeAdapter();
 
-		internal const string SelectSQL = @"SELECT * FROM WF.INVALID_ASSIGNEES";
+        internal const string SelectSQL = @"SELECT * FROM WF.INVALID_ASSIGNEES";
 
-		public InvalidAssigneeAdapter()
-		{
-		}
+        public InvalidAssigneeAdapter()
+        {
+        }
 
-		public InvalidAssigneeCollection Load(IConnectiveSqlClause builder)
-		{
-			InvalidAssigneeCollection result = new InvalidAssigneeCollection();
+        public InvalidAssigneeCollection Load(IConnectiveSqlClause builder)
+        {
+            InvalidAssigneeCollection result = new InvalidAssigneeCollection();
 
-			string sql = SelectSQL;
+            string sql = SelectSQL;
 
-			if (builder.IsEmpty == false)
-				sql = string.Format("{0} WHERE {1}", SelectSQL, builder.ToSqlString(TSqlBuilder.Instance));
+            if (builder.IsEmpty == false)
+                sql = string.Format("{0} WHERE {1}",
+                    SelectSQL,
+                    builder.AppendTenantCodeSqlClause(typeof(InvalidAssignee)).ToSqlString(TSqlBuilder.Instance));
 
-			DataTable dt = DbHelper.RunSqlReturnDS(sql, this.GetConnectionName()).Tables[0];
+            DataTable dt = DbHelper.RunSqlReturnDS(sql, this.GetConnectionName()).Tables[0];
 
-			ORMapping.DataViewToCollection(result, dt.DefaultView);
+            ORMapping.DataViewToCollection(result, dt.DefaultView);
 
-			/*
-			foreach (DataRow datarow in dt.Rows)
-			{
-				InvalidAssignee item = new InvalidAssignee();
+            return result;
+        }
 
-				ORMapping.DataRowToObject(datarow, item);
-
-				result.Add(item);
-			}*/
-
-			return result;
-		}
-
-		private string GetConnectionName()
-		{
-			return WorkflowSettings.GetConfig().ConnectionName;
-		}
-	}
+        private string GetConnectionName()
+        {
+            return WorkflowSettings.GetConfig().ConnectionName;
+        }
+    }
 }

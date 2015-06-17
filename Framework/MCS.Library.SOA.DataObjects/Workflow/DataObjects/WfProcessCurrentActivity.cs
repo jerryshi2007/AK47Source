@@ -13,6 +13,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 	[Serializable]
 	[XElementSerializable]
 	[ORTableMapping("WF.PROCESS_CURRENT_ACTIVITIES")]
+    [TenantRelativeObject]
 	public class WfProcessCurrentActivity
 	{
 		[ORFieldMapping("PROCESS_ID", PrimaryKey = true)]

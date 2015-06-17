@@ -20,26 +20,28 @@ namespace MCS.Library.SOA.DataObjects
         /// <returns>RELATIVE_LINK_GROUP</returns>
         public RelativeLinkGroup GetRelativeLinkGroupByID(string relativeGroupId)
         {
-            var collection = Load(o => o.AppendItem("RELATIVE_LINK_GROUP_ID", relativeGroupId));
+            RelativeLinkGroupCollection collection = Load(o => o.AppendItem("RELATIVE_LINK_GROUP_ID", relativeGroupId));
+
             return collection.FirstOrDefault();
         }
-		/// <summary>
+        /// <summary>
         /// 根据ID查询所有RELATIVE_LINK_GROUP
         /// </summary>
         /// <param name="groupName">RELATIVE_LINK_GROUP的Code</param>
         /// <returns>RELATIVE_LINK_GROUP集合</returns>
         public RelativeLinkGroupCollection GetRelativeLinkGroups(string groupName)
-		{
+        {
             if (string.IsNullOrEmpty(groupName))
             {
                 return Load(p => p.AppendItem("1", "1", "="));
             }
+
             return Load(p => p.AppendItem("CODE_NAME", groupName, "="));
-		}		
-		/// <summary>
+        }
+        /// <summary>
         /// 获取连接字串
         /// </summary>
-		protected override string GetConnectionName()
+        protected override string GetConnectionName()
         {
             return ConnectionDefine.KBConnectionName;
         }

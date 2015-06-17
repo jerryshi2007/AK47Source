@@ -174,6 +174,9 @@ namespace MCS.Library.SOA.DataObjects.Test
             Assert.AreEqual("Amount >= 5000", ((IWfForwardTransitionDescriptor)transitions[0]).Condition.Expression);
         }
 
+        /// <summary>
+        /// 已经迁移到MCS.Library.SOA.DataObjects.Tenant.Test
+        /// </summary>
         [TestMethod]
         [Description("运行时活动上的条件判断")]
         [TestCategory(ProcessTestHelper.Runtime)]

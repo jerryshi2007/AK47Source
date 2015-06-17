@@ -14,6 +14,7 @@ namespace MCS.Library.SOA.DataObjects
 {
 	[Serializable]
 	[ORTableMapping("WF.IMAGE")]
+    [TenantRelativeObject]
 	public class ImageProperty
 	{
 		private string id = string.Empty;

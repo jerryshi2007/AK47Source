@@ -48,14 +48,14 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 		{
 			pendingActivities.NullCheck("pendingActivities");
 
-			InSqlClauseBuilder builder = new InSqlClauseBuilder();
+			InSqlClauseBuilder builder = new InSqlClauseBuilder("ACTIVITY_ID");
 
 			pendingActivities.ForEach(pai => builder.AppendItem(pai.ActivityID));
 
 			if (builder.Count > 0)
 			{
-				string sql = string.Format("DELETE FROM WF.PENDING_ACTIVITIES WHERE ACTIVITY_ID {0}",
-					builder.ToSqlStringWithInOperator(TSqlBuilder.Instance));
+				string sql = string.Format("DELETE FROM WF.PENDING_ACTIVITIES WHERE {0}",
+					builder.ToSqlString(TSqlBuilder.Instance));
 
 				DbHelper.RunSql(sql);
 			}
@@ -65,14 +65,14 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 		{
 			pendingActivities.NullCheck("pendingActivities");
 
-			InSqlClauseBuilder builder = new InSqlClauseBuilder();
+			InSqlClauseBuilder builder = new InSqlClauseBuilder("ACTIVITY_ID");
 
 			pendingActivities.ForEach(pai => builder.AppendItem(pai.ID));
 
 			if (builder.Count > 0)
 			{
-				string sql = string.Format("DELETE FROM WF.PENDING_ACTIVITIES WHERE ACTIVITY_ID {0}",
-					builder.ToSqlStringWithInOperator(TSqlBuilder.Instance));
+				string sql = string.Format("DELETE FROM WF.PENDING_ACTIVITIES WHERE {0}",
+                    builder.ToSqlString(TSqlBuilder.Instance));
 
 				DbHelper.RunSql(sql);
 			}
@@ -82,15 +82,15 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 		{
 			processes.NullCheck("processes");
 
-			InSqlClauseBuilder builder = new InSqlClauseBuilder();
+			InSqlClauseBuilder builder = new InSqlClauseBuilder("PROCESS_ID");
 
 			foreach (IWfProcess process in processes)
 				builder.AppendItem(process.ID);
 
 			if (builder.Count > 0)
 			{
-				string sql = string.Format("DELETE FROM WF.PENDING_ACTIVITIES WHERE PROCESS_ID {0}",
-					builder.ToSqlStringWithInOperator(TSqlBuilder.Instance));
+				string sql = string.Format("DELETE FROM WF.PENDING_ACTIVITIES WHERE {0}",
+                    builder.ToSqlString(TSqlBuilder.Instance));
 
 				DbHelper.RunSql(sql);
 			}

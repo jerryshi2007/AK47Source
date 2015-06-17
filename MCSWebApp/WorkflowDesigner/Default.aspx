@@ -15,6 +15,8 @@
     <script type="text/javascript" src="js/wfweb.js"></script>
     <script type="text/javascript" src="js/wfdesigner.js"></script>
     <script type="text/javascript">
+        var m_inPostStatus = false;
+
         $.noConflict();
         function onSilverlightError(sender, args) {
             var appSource = "";
@@ -128,6 +130,11 @@
                 content: jQuery.toJSON(WFWeb.Property.CurrentObj)
             };
 
+            if (m_inPostStatus)
+                return;
+
+            m_inPostStatus = true;
+
             jQuery.post(url,
 				postData,
 				function (rtn) {
@@ -147,9 +154,14 @@
 				        userTempArr.push(postObj);
 				        userTempJSON = jQuery.toJSON(userTempArr);
 				        jQuery("#actUserTemplate").val(userTempJSON);
+
+				        m_inPostStatus = false;
+
 				        alert('设置模板成功！');
 				    }
 				    else {
+				        m_inPostStatus = false;
+
 				        alert('设置模板失败！原因：' + rtnObj.Message);
 				    }
 				});
