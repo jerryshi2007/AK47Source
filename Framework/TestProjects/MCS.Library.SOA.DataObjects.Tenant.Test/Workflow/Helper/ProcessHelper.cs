@@ -57,6 +57,11 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             return processDesp;
         }
 
+        public static IWfProcessDescriptor CreateInitAndCompletedProcessDescriptor()
+        {
+            return CreateFreeStepsProcessDescriptor(new IUser[] { });
+        }
+
         public static IWfProcessDescriptor CreateFreeStepsProcessDescriptor(params IUser[] approvers)
         {
             string processKey = UuidHelper.NewUuidString();

@@ -49,6 +49,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.XML" />
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
@@ -91,6 +92,7 @@
     <Compile Include="Workflow\StartWorkflowExecutorTest.cs" />
     <Compile Include="Workflow\PersistQueueTest.cs" />
     <Compile Include="Workflow\ProcessRuntimeTest.cs" />
+    <Compile Include="Workflow\WfCreateTransitionParamTest.cs" />
     <Compile Include="Workflow\WfMatrixTest.cs" />
     <Compile Include="Workflow\WfApplicationAuthTest.cs" />
     <Compile Include="Workflow\WithdrawAndCancelExecutorTest.cs" />

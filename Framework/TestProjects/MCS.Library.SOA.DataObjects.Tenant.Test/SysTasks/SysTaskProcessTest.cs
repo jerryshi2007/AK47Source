@@ -76,11 +76,12 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.SysTasks
             Assert.AreEqual(SysTaskProcessStatus.Completed, process.Status);
         }
 
-
-        //启动流程的逻辑有问题，第一个活动需要执行并且需要执行分支操作
-        //[TestMethod]
-        //[TestCategory("SysTaskProcess")]
-        //[Description("启动带分支流程的任务流程然后执行到底的测试")]
+        /// <summary>
+        /// 启动流程的逻辑有问题，第一个活动需要执行并且需要执行分支操作
+        /// </summary>
+        [TestMethod]
+        [TestCategory("SysTaskProcess")]
+        [Description("启动带分支流程的任务流程然后执行到底的测试")]
         public void StartSysTaskProcessWithBranchesAndMoveToCompleteTest()
         {
             SysTaskAdapter.Instance.ClearAll();
@@ -161,22 +162,18 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.SysTasks
 
             SysTaskProcess branchA1 = PrepareSysTaskProcessData(getTask, string.Format("{0}的分支流程1", process.Activities[0].ID));
             branchA1.OwnerActivityID = process.Activities[0].ID;
-            process.Activities[0].Branches.Add(branchA1);
 
             SysTaskProcess branchA2 = PrepareSysTaskProcessData(getTask, string.Format("{0}的分支流程2", process.Activities[0].ID));
             branchA2.OwnerActivityID = process.Activities[0].ID;
-            process.Activities[0].Branches.Add(branchA2);
 
             SysTaskProcessRuntime.ProcessContext.AffectedProcesses.AddOrReplace(branchA1);
             SysTaskProcessRuntime.ProcessContext.AffectedProcesses.AddOrReplace(branchA2);
 
             SysTaskProcess branchB1 = PrepareSysTaskProcessData(getTask, string.Format("{0}的分支流程1", process.Activities[1].ID));
             branchB1.OwnerActivityID = process.Activities[1].ID;
-            process.Activities[1].Branches.Add(branchB1);
 
             SysTaskProcess branchB2 = PrepareSysTaskProcessData(getTask, string.Format("{0}的分支流程2", process.Activities[1].ID));
             branchB2.OwnerActivityID = process.Activities[1].ID;
-            process.Activities[1].Branches.Add(branchB2);
 
             SysTaskProcessRuntime.ProcessContext.AffectedProcesses.AddOrReplace(branchB1);
             SysTaskProcessRuntime.ProcessContext.AffectedProcesses.AddOrReplace(branchB2);

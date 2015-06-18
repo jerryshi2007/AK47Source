@@ -11,6 +11,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MCS.Library.SOA.DataObjects.Test.WfCreateParams
 {
+    /// <summary>
+    /// 已经迁移到MCS.Library.SOA.DataObjects.Tenant.Test
+    /// </summary>
 	[TestClass]
 	public class WfCreateTransitionParamTest
 	{
@@ -208,7 +211,7 @@ namespace MCS.Library.SOA.DataObjects.Test.WfCreateParams
 		[TestMethod]
 		[Description("非法内置函数的异常测试")]
 		[TestCategory(ProcessTestHelper.CreateActivityParams)]
-		[ExpectedException(typeof(SystemSupportException))]
+		[ExpectedException(typeof(InvalidOperationException))]
 		public void InvalidActivityDescriptionTest()
 		{
 			IWfProcessDescriptor processDesp = WfProcessTestCommon.CreateInitAndCompletedProcessDescriptor();

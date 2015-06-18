@@ -206,7 +206,7 @@ namespace MCS.Library.SOA.DataObjects
 
 				this._CurrentActivityIndex++;
 
-				EnterNextActivity(this.CurrentActivity, now);
+				EnterActivity(this.CurrentActivity, now);
 			}
 			else
 			{
@@ -223,7 +223,7 @@ namespace MCS.Library.SOA.DataObjects
 		/// 处理进入下一个活动的操作
 		/// </summary>
 		/// <param name="nextActivity"></param>
-		internal static void EnterNextActivity(SysTaskActivity nextActivity, DateTime now)
+		internal static void EnterActivity(SysTaskActivity nextActivity, DateTime now)
 		{
 			nextActivity.StartTime = now;
 

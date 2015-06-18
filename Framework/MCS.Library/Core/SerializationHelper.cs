@@ -40,7 +40,6 @@ namespace MCS.Library.Core
         Binary
     }
 
-
     /// <summary>
     /// 帮助对象实现序列化和反序列化。
     /// </summary>

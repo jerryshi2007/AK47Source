@@ -43,6 +43,17 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             Console.WriteLine("Every Step: {0}", strB.ToString());
         }
 
+        public static void OutputEveryActivities(this IWfProcessDescriptor processDesp)
+        {
+            StringBuilder strB = new StringBuilder();
+
+            Dictionary<string, IWfTransitionDescriptor> elapsedTransitions = new Dictionary<string, IWfTransitionDescriptor>();
+
+            OutputActivityInfoRecursively(processDesp.InitialActivity, elapsedTransitions, strB);
+
+            Console.WriteLine("Every Step: {0}", strB.ToString());
+        }
+
         public static void AssertAndOutputMatrixOperators(this IWfMatrixContainer matrix)
         {
             matrix.NullCheck("matrix");
