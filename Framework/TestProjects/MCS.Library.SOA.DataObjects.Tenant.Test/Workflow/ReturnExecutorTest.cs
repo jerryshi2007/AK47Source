@@ -1,24 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using MCS.Library.Core;
-using MCS.Library.OGUPermission;
+﻿using MCS.Library.OGUPermission;
+using MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper;
 using MCS.Library.SOA.DataObjects.Workflow;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Linq;
 
-namespace MCS.Library.SOA.DataObjects.Test.Executor
+namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
 {
-    /// <summary>
-    /// 专门用于退件测试
-    /// 已经迁移到MCS.Library.SOA.DataObjects.Tenant.Test
-    /// </summary>
     [TestClass]
     public class ReturnExecutorTest
     {
         [TestMethod]
-        [TestCategory(ProcessTestHelper.ReturnExecutor)]
         [Description("复制简单流程的测试")]
         public void SimpleCopyMainStreamActivitiesTest()
         {
@@ -26,17 +18,17 @@ namespace MCS.Library.SOA.DataObjects.Test.Executor
 
             IWfProcess process = ReturnExecutorTestHelper.StartSpecialReturnProcess(processDesp);
 
-            WfProcessTestCommon.MoveToNextDefaultActivity(process);	//To B
-            WfProcessTestCommon.MoveToNextDefaultActivity(process);	//To C
+            process.MoveToNextDefaultActivity();	//To B
+            process.MoveToNextDefaultActivity();	//To C
 
             IWfActivity activityB = process.Activities.FindActivityByDescriptorKey("B");
 
             //从B复制到C
             process.Activities.FindActivityByDescriptorKey("C").CopyMainStreamActivities(activityB, null, WfControlOperationType.Return);
 
-            process.Descriptor.Output();
+            process.Descriptor.OutputEveryActivities();
 
-            WfProcessTestCommon.MoveToNextDefaultActivity(process);	//To CopiedB
+            process.MoveToNextDefaultActivity();	//To CopiedB
 
             Assert.AreEqual("B", process.CurrentActivity.Descriptor.AssociatedActivityKey);
 
@@ -47,7 +39,6 @@ namespace MCS.Library.SOA.DataObjects.Test.Executor
         }
 
         [TestMethod]
-        [TestCategory(ProcessTestHelper.ReturnExecutor)]
         [Description("两次复制简单流程的测试。C退回到B，B再退回到A")]
         public void SimpleCopyTwiceMainStreamActivitiesTest()
         {
@@ -55,8 +46,8 @@ namespace MCS.Library.SOA.DataObjects.Test.Executor
 
             IWfProcess process = ReturnExecutorTestHelper.StartSpecialReturnProcess(processDesp);
 
-            WfProcessTestCommon.MoveToNextDefaultActivity(process);	//To B
-            WfProcessTestCommon.MoveToNextDefaultActivity(process);	//To C
+            process.MoveToNextDefaultActivity();	//To B
+            process.MoveToNextDefaultActivity();	//To C
 
             IWfActivity activityB = process.Activities.FindActivityByDescriptorKey("B");
 
@@ -64,9 +55,9 @@ namespace MCS.Library.SOA.DataObjects.Test.Executor
             process.Activities.FindActivityByDescriptorKey("C").CopyMainStreamActivities(activityB, null, WfControlOperationType.Return);
 
             Console.WriteLine("第一次");
-            process.Descriptor.Output();
+            process.Descriptor.OutputEveryActivities();
 
-            WfProcessTestCommon.MoveToNextDefaultActivity(process);	//To CopiedB
+            process.MoveToNextDefaultActivity();	//To CopiedB
 
             Assert.AreEqual("B", process.CurrentActivity.Descriptor.AssociatedActivityKey);
 
@@ -74,7 +65,7 @@ namespace MCS.Library.SOA.DataObjects.Test.Executor
             process.CurrentActivity.CopyMainStreamActivities(process.CurrentActivity, process.InitialActivity, activityB, null, WfControlOperationType.Return);
 
             Console.WriteLine("第二次");
-            process.Descriptor.Output();
+            process.Descriptor.OutputEveryActivities();
 
             IWfActivityDescriptor copiedA = process.CurrentActivity.Descriptor.ToTransitions.First().ToActivity;
 
@@ -90,7 +81,6 @@ namespace MCS.Library.SOA.DataObjects.Test.Executor
         }
 
         [TestMethod]
-        [TestCategory(ProcessTestHelper.ReturnExecutor)]
         [Description("复制流程的部分环节和连线的测试")]
         public void CopyMainStreamActivitiesTest()
         {
@@ -122,7 +112,6 @@ namespace MCS.Library.SOA.DataObjects.Test.Executor
         }
 
         [TestMethod]
-        [TestCategory(ProcessTestHelper.ReturnExecutor)]
         [Description("复制带退回线流程的部分环节和连线的测试")]
         public void CopyMainStreamActivitiesWithReturnLineTest()
         {
@@ -132,8 +121,8 @@ namespace MCS.Library.SOA.DataObjects.Test.Executor
 
             process.Activities.FindActivityByDescriptorKey("B").CopyMainStreamActivities(process.InitialActivity, null, WfControlOperationType.Return);
 
-            Assert.AreEqual(8, process.Activities.Count, "总共有8个活动");
-            IWfActivityDescriptor copiedA = process.Activities.FindActivityByDescriptorKey("B").Descriptor.ToTransitions.First().ToActivity;
+            Assert.AreEqual(8, process.Activities.Count, "总共有8个活动，原始流程有5个活动。复制了A、B、E");
+            IWfActivityDescriptor copiedA = process.Activities.FindActivityByDescriptorKey("B").Descriptor.ToTransitions.GetAllForwardTransitions().First().ToActivity;
 
             Assert.AreEqual("A", copiedA.AssociatedActivityKey);
             Assert.AreEqual(process.InitialActivity.Descriptor.ToTransitions.Count, copiedA.ToTransitions.Count, "复制出来的A和原始的A的出线个数相同");
@@ -156,7 +145,6 @@ namespace MCS.Library.SOA.DataObjects.Test.Executor
         }
 
         [TestMethod]
-        [TestCategory(ProcessTestHelper.ReturnExecutor)]
         [Description("流转复制流程的部分环节和连线的测试")]
         public void MoveToCopiedMainStreamActivitiesTest()
         {
@@ -166,31 +154,31 @@ namespace MCS.Library.SOA.DataObjects.Test.Executor
 
             process.Activities.FindActivityByDescriptorKey("B").CopyMainStreamActivities(process.InitialActivity, null, WfControlOperationType.Return);
 
-            WfProcessTestCommon.MoveToNextDefaultActivity(process);	//To B
+            process.MoveToNextDefaultActivity();	//To B
             Assert.AreEqual("B", process.CurrentActivity.Descriptor.Key);
 
-            WfProcessTestCommon.MoveToNextDefaultActivity(process);	//To A1
+            process.MoveToNextDefaultActivity();	//To A1
             Assert.AreEqual("A", process.CurrentActivity.Descriptor.AssociatedActivityKey);
 
-            WfProcessTestCommon.MoveToNextDefaultActivity(process);	//To B1
+            process.MoveToNextDefaultActivity();	//To B1
             Assert.AreEqual("B", process.CurrentActivity.Descriptor.AssociatedActivityKey);
 
-            WfProcessTestCommon.MoveToNextDefaultActivity(process);	//To C
+            process.MoveToNextDefaultActivity();	//To C
             Assert.AreEqual("C", process.CurrentActivity.Descriptor.Key);
         }
 
         [TestMethod]
-        [TestCategory(ProcessTestHelper.ReturnExecutor)]
         [Description("专用退件流程第一次退件测试")]
         public void ReturnOnceTest()
         {
             IWfActivity activityD = ReturnExecutorTestHelper.PrepareAndMoveToSpecialActivity();
 
             Assert.AreEqual("D", activityD.Descriptor.Key);
-            ReturnExecutorTestHelper.OutputMainStream(activityD.Process);
-            ReturnExecutorTestHelper.OutputEveryActivities(activityD.Process);
 
-            ReturnExecutorTestHelper.ValidateMainStreamActivities(activityD.Process, "A", "B", "C", "D", "F");
+            activityD.Process.OutputMainStream();
+            activityD.Process.OutputEveryActivities();
+
+            activityD.Process.ValidateMainStreamActivities("A", "B", "C", "D", "F");
 
             ReturnExecutorTestHelper.ExecuteReturnOperation(activityD, "A");
 
@@ -200,14 +188,13 @@ namespace MCS.Library.SOA.DataObjects.Test.Executor
             Assert.AreEqual(activityD.ID, returnedActivity.CreatorInstanceID);
             ReturnExecutorTestHelper.ValidateBRelativeActivityOutTransitions(activityD.Process.CurrentActivity);
 
-            ReturnExecutorTestHelper.OutputMainStream(activityD.Process);
-            ReturnExecutorTestHelper.OutputEveryActivities(activityD.Process);
+            activityD.Process.OutputMainStream();
+            activityD.Process.OutputEveryActivities();
 
-            ReturnExecutorTestHelper.ValidateMainStreamActivities(activityD.Process, "A", "B", "C", "D", "F");
+            activityD.Process.ValidateMainStreamActivities("A", "B", "C", "D", "F");
         }
 
         [TestMethod]
-        [TestCategory(ProcessTestHelper.ReturnExecutor)]
         [Description("专用退件流程一次退件加一次撤回测试")]
         public void ReturnOnceThenWithdrawTest()
         {
@@ -216,46 +203,48 @@ namespace MCS.Library.SOA.DataObjects.Test.Executor
             int originalActivityCount = activityD.Process.Activities.Count;
 
             Assert.AreEqual("D", activityD.Descriptor.Key);
-            ReturnExecutorTestHelper.OutputMainStream(activityD.Process);
-            ReturnExecutorTestHelper.OutputEveryActivities(activityD.Process);
+            activityD.Process.OutputMainStream();
+            activityD.Process.OutputEveryActivities();
 
             ReturnExecutorTestHelper.ExecuteReturnOperation(activityD, "A");
 
             Console.WriteLine("退件之后");
-            ReturnExecutorTestHelper.OutputMainStream(activityD.Process);
-            ReturnExecutorTestHelper.OutputEveryActivities(activityD.Process);
+            activityD.Process.OutputMainStream();
+            activityD.Process.OutputEveryActivities();
 
-            IWfProcess process = DoWithdrawExecutor(activityD.Process);
+            IWfProcess process = activityD.Process.WithdrawByExecutor();
 
             Console.WriteLine("撤回之后");
-            ReturnExecutorTestHelper.OutputMainStream(process);
-            ReturnExecutorTestHelper.OutputEveryActivities(process);
+            process.OutputMainStream();
+            process.OutputEveryActivities();
 
             Assert.AreEqual(originalActivityCount, process.Activities.Count, "撤回后与退件前的活动数一样");
             Assert.AreEqual(originalActivityCount, process.Descriptor.Activities.Count, "撤回后与退件前的活动数一样");
         }
 
+        /// <summary>
+        /// 原始测试不通过
+        /// </summary>
         [TestMethod]
-        [TestCategory(ProcessTestHelper.ReturnExecutor)]
         [Description("专用退件流程第二次退件测试")]
         public void ReturnTwiceTest()
         {
             IWfActivity activityD = ReturnExecutorTestHelper.PrepareAndMoveToSpecialActivity();
 
             Assert.AreEqual("D", activityD.Descriptor.Key);
-            ReturnExecutorTestHelper.OutputMainStream(activityD.Process);
-            ReturnExecutorTestHelper.OutputEveryActivities(activityD.Process);
+            activityD.Process.OutputMainStream();
+            activityD.Process.OutputEveryActivities();
 
             //第一次退回
             ReturnExecutorTestHelper.ExecuteReturnOperation(activityD, "A");
 
             Console.WriteLine("第一次退回后");
-            ReturnExecutorTestHelper.OutputMainStream(activityD.Process);
-            ReturnExecutorTestHelper.OutputEveryActivities(activityD.Process);
+            activityD.Process.OutputMainStream();
+            activityD.Process.OutputEveryActivities();
 
-            WfProcessTestCommon.MoveToNextDefaultActivity(activityD.Process);	//B1
-            WfProcessTestCommon.MoveToNextDefaultActivity(activityD.Process);	//C1
-            WfProcessTestCommon.MoveToNextDefaultActivity(activityD.Process);	//D1
+            activityD.Process.MoveToNextDefaultActivity();	//B1
+            activityD.Process.MoveToNextDefaultActivity();	//C1
+            activityD.Process.MoveToNextDefaultActivity();	//D1
 
             Assert.AreEqual("D", activityD.Process.CurrentActivity.Descriptor.AssociatedActivityKey);
 
@@ -266,14 +255,13 @@ namespace MCS.Library.SOA.DataObjects.Test.Executor
             ReturnExecutorTestHelper.ExecuteReturnOperation(activityD, "A");
 
             Console.WriteLine("第二次退回后");
-            ReturnExecutorTestHelper.OutputMainStream(activityD.Process);
-            ReturnExecutorTestHelper.OutputEveryActivities(activityD.Process);
+            activityD.Process.OutputMainStream();
+            activityD.Process.OutputEveryActivities();
 
-            ReturnExecutorTestHelper.ValidateMainStreamActivities(activityD.Process, "A", "B", "E", "D", "F");
+            activityD.Process.ValidateMainStreamActivities("A", "B", "E", "D", "F");
         }
 
         [TestMethod]
-        [TestCategory(ProcessTestHelper.ReturnExecutor)]
         [Description("专用退件流程第二次退件后撤回两次测试")]
         public void ReturnTwiceThenWithdrawTwiceTest()
         {
@@ -282,19 +270,19 @@ namespace MCS.Library.SOA.DataObjects.Test.Executor
             int originalActivityCount = activityD.Process.Activities.Count;
 
             Assert.AreEqual("D", activityD.Descriptor.Key);
-            ReturnExecutorTestHelper.OutputMainStream(activityD.Process);
-            ReturnExecutorTestHelper.OutputEveryActivities(activityD.Process);
+            activityD.Process.OutputMainStream();
+            activityD.Process.OutputEveryActivities();
 
             //第一次退回
             ReturnExecutorTestHelper.ExecuteReturnOperation(activityD, "A");
 
             Console.WriteLine("第一次退回后");
-            ReturnExecutorTestHelper.OutputMainStream(activityD.Process);
-            ReturnExecutorTestHelper.OutputEveryActivities(activityD.Process);
+            activityD.Process.OutputMainStream();
+            activityD.Process.OutputEveryActivities();
 
-            WfProcessTestCommon.MoveToNextDefaultActivity(activityD.Process);	//B1
-            WfProcessTestCommon.MoveToNextDefaultActivity(activityD.Process);	//C1
-            WfProcessTestCommon.MoveToNextDefaultActivity(activityD.Process);	//D1
+            activityD.Process.MoveToNextDefaultActivity();	//B1
+            activityD.Process.MoveToNextDefaultActivity();	//C1
+            activityD.Process.MoveToNextDefaultActivity();	//D1
 
             Assert.AreEqual("D", activityD.Process.CurrentActivity.Descriptor.AssociatedActivityKey);
 
@@ -305,31 +293,33 @@ namespace MCS.Library.SOA.DataObjects.Test.Executor
             ReturnExecutorTestHelper.ExecuteReturnOperation(activityD, "A");
 
             Console.WriteLine("第二次退回后");
-            ReturnExecutorTestHelper.OutputMainStream(activityD.Process);
-            ReturnExecutorTestHelper.OutputEveryActivities(activityD.Process);
+            activityD.Process.OutputMainStream();
+            activityD.Process.OutputEveryActivities();
 
-            IWfProcess process = process = DoWithdrawExecutor(activityD.Process);
+            IWfProcess process = activityD.Process.WithdrawByExecutor();
 
             Console.WriteLine("第一组撤回之后");
-            ReturnExecutorTestHelper.OutputMainStream(process);
-            ReturnExecutorTestHelper.OutputEveryActivities(process);
+            process.OutputMainStream();
+            process.OutputEveryActivities();
 
-            process = DoWithdrawExecutor(activityD.Process);    //C1;
-            process = DoWithdrawExecutor(activityD.Process);    //B1
-            process = DoWithdrawExecutor(activityD.Process);    //A1
+            process = process.WithdrawByExecutor();    //C1;
+            process = process.WithdrawByExecutor();    //B1
+            process = process.WithdrawByExecutor();    //A1
 
-            process = DoWithdrawExecutor(activityD.Process);
+            process = process.WithdrawByExecutor();
 
             Console.WriteLine("第二组撤回之后");
-            ReturnExecutorTestHelper.OutputMainStream(process);
-            ReturnExecutorTestHelper.OutputEveryActivities(process);
+            process.OutputMainStream();
+            process.OutputEveryActivities();
 
             Assert.AreEqual(originalActivityCount, process.Activities.Count, "撤回后与退件前的活动数一样");
             Assert.AreEqual(originalActivityCount, process.Descriptor.Activities.Count, "撤回后与退件前的活动数一样");
         }
 
+        /// <summary>
+        /// 虽然测试通过，但是验证代码被注释掉，需要考虑
+        /// </summary>
         [TestMethod]
-        [TestCategory(ProcessTestHelper.ReturnExecutor)]
         [Description("同意/不同意退件一次后，进行撤回的测试")]
         public void AgreeReturnOnceThenWithdrawTest()
         {
@@ -342,24 +332,23 @@ namespace MCS.Library.SOA.DataObjects.Test.Executor
 
             Console.WriteLine("退回之前");
             Console.WriteLine("当前活动{0}", activityB.Process.CurrentActivity.Descriptor.Key);
-            ReturnExecutorTestHelper.OutputMainStream(activityB.Process);
-            ReturnExecutorTestHelper.OutputEveryActivities((activityB.Process));
+            activityB.Process.OutputMainStream();
+            activityB.Process.OutputEveryActivities();
 
             MoveAgreeProcessOneStepAndValidate(activityB.Process, 1);
 
             Console.WriteLine("撤回之前");
             Console.WriteLine("当前活动{0}", activityB.Process.CurrentActivity.Descriptor.Key);
-            ReturnExecutorTestHelper.OutputMainStream(activityB.Process);
-            ReturnExecutorTestHelper.OutputEveryActivities((activityB.Process));
+            activityB.Process.OutputMainStream();
+            activityB.Process.OutputEveryActivities();
 
-            IWfProcess process = DoWithdrawExecutor(activityB.Process);
-            activityB.Process.Descriptor.Output();
+            IWfProcess process = activityB.Process.WithdrawByExecutor();
+            activityB.Process.OutputEveryActivities();
 
             Console.WriteLine("撤回之后");
             Console.WriteLine("当前活动{0}", process.CurrentActivity.Descriptor.Key);
-            ReturnExecutorTestHelper.OutputMainStream(process);
-            ReturnExecutorTestHelper.OutputEveryActivities(process);
-            activityB.Process.Descriptor.Output();
+            process.OutputMainStream();
+            process.OutputEveryActivities();
 
             //activityB.Process.Descriptor.Output();
 
@@ -367,7 +356,6 @@ namespace MCS.Library.SOA.DataObjects.Test.Executor
         }
 
         [TestMethod]
-        [TestCategory(ProcessTestHelper.ReturnExecutor)]
         [Description("同意/不同意退件两次的测试")]
         public void AgreeReturnTwiceThenWithdrawTest()
         {
@@ -380,17 +368,17 @@ namespace MCS.Library.SOA.DataObjects.Test.Executor
 
             Console.WriteLine("退回之前");
             Console.WriteLine("当前活动{0}", activityB.Process.CurrentActivity.Descriptor.Key);
-            ReturnExecutorTestHelper.OutputMainStream(activityB.Process);
-            ReturnExecutorTestHelper.OutputEveryActivities((activityB.Process));
+            activityB.Process.OutputMainStream();
+            activityB.Process.OutputEveryActivities();
 
             MoveAgreeProcessOneStepAndValidate(activityB.Process, 1);
 
-            WfProcessTestCommon.MoveToNextDefaultActivity(activityB.Process);	//To N2(B)
+            activityB.Process.MoveToNextDefaultActivity();	//To N2(B)
 
             Console.WriteLine("第二次退回之前");
             Console.WriteLine("当前活动{0}", activityB.Process.CurrentActivity.Descriptor.Key);
-            ReturnExecutorTestHelper.OutputMainStream(activityB.Process);
-            ReturnExecutorTestHelper.OutputEveryActivities((activityB.Process));
+            activityB.Process.OutputMainStream();
+            activityB.Process.OutputEveryActivities();
 
             Assert.AreEqual("N2", activityB.Process.CurrentActivity.Descriptor.Key);
 
@@ -398,14 +386,13 @@ namespace MCS.Library.SOA.DataObjects.Test.Executor
 
             Console.WriteLine("第二次退回之后");
             Console.WriteLine("当前活动{0}", activityB.Process.CurrentActivity.Descriptor.Key);
-            ReturnExecutorTestHelper.OutputMainStream(activityB.Process);
-            ReturnExecutorTestHelper.OutputEveryActivities(activityB.Process);
+            activityB.Process.OutputMainStream();
+            activityB.Process.OutputEveryActivities();
 
             Assert.AreEqual("N3", activityB.Process.CurrentActivity.Descriptor.Key);
         }
 
         [TestMethod]
-        [TestCategory(ProcessTestHelper.ReturnExecutor)]
         [Description("同意/不同意退件流程第一次退件测试")]
         public void AgreeReturnOnceTest()
         {
@@ -418,15 +405,13 @@ namespace MCS.Library.SOA.DataObjects.Test.Executor
 
             MoveAgreeProcessAndValidate(activityB.Process, 1);
 
-            ReturnExecutorTestHelper.OutputMainStream(activityB.Process);
-            ReturnExecutorTestHelper.OutputEveryActivities((activityB.Process));
-            activityB.Process.Descriptor.Output();
+            activityB.Process.OutputMainStream();
+            activityB.Process.OutputEveryActivities();
 
-            ReturnExecutorTestHelper.ValidateMainStreamActivities(activityB.Process, "A", "B", "C", "D", "F");
+            activityB.Process.ValidateMainStreamActivities("A", "B", "C", "D", "F");
         }
 
         [TestMethod]
-        [TestCategory(ProcessTestHelper.ReturnExecutor)]
         [Description("同意/不同意退件流程第二次退件测试")]
         public void AgreeReturnTwiceTest()
         {
@@ -438,26 +423,25 @@ namespace MCS.Library.SOA.DataObjects.Test.Executor
             SetToLineAndMSLineSelected(activityB, "A", true);
 
             Console.WriteLine("第一次退回之前，不同意");
-            ReturnExecutorTestHelper.OutputMainStream(activityB.Process);
-            ReturnExecutorTestHelper.OutputEveryActivities(activityB.Process);
+            activityB.Process.OutputMainStream();
+            activityB.Process.OutputEveryActivities();
 
             MoveAgreeProcessAndValidate(activityB.Process, 1);
 
             Console.WriteLine("第二次退回之前，同意");
-            ReturnExecutorTestHelper.OutputMainStream(activityB.Process);
-            ReturnExecutorTestHelper.OutputEveryActivities(activityB.Process);
+            activityB.Process.OutputMainStream();
+            activityB.Process.OutputEveryActivities();
 
             MoveAgreeProcessAndValidate(activityB.Process, 2);
 
             Console.WriteLine("第二次退回之后，同意");
-            ReturnExecutorTestHelper.OutputMainStream(activityB.Process);
-            ReturnExecutorTestHelper.OutputEveryActivities(activityB.Process);
+            activityB.Process.OutputMainStream();
+            activityB.Process.OutputEveryActivities();
 
-            ReturnExecutorTestHelper.ValidateMainStreamActivities(activityB.Process, "A", "B", "C", "D", "F");
+            activityB.Process.ValidateMainStreamActivities("A", "B", "C", "D", "F");
         }
 
         [TestMethod]
-        [TestCategory(ProcessTestHelper.ReturnExecutor)]
         [Description("同意/不同意退件流程第三次退件测试")]
         public void AgreeReturnThriceTest()
         {
@@ -472,14 +456,13 @@ namespace MCS.Library.SOA.DataObjects.Test.Executor
             MoveAgreeProcessAndValidate(activityB.Process, 2);
             MoveAgreeProcessAndValidate(activityB.Process, 3);
 
-            ReturnExecutorTestHelper.OutputMainStream(activityB.Process);
-            ReturnExecutorTestHelper.OutputEveryActivities(activityB.Process);
+            activityB.Process.OutputMainStream();
+            activityB.Process.OutputEveryActivities();
 
-            ReturnExecutorTestHelper.ValidateMainStreamActivities(activityB.Process, "A", "B", "C", "D", "F");
+            activityB.Process.ValidateMainStreamActivities("A", "B", "C", "D", "F");
         }
 
         [TestMethod]
-        [TestCategory(ProcessTestHelper.ReturnExecutor)]
         [Description("加签后再退回的测试")]
         public void AddApproverReturnTest()
         {
@@ -487,7 +470,7 @@ namespace MCS.Library.SOA.DataObjects.Test.Executor
 
             IWfProcess process = ReturnExecutorTestHelper.StartSpecialReturnProcess(processDesp);
 
-            WfProcessTestCommon.MoveToNextDefaultActivity(process);
+            process.MoveToNextDefaultActivity();
 
             Assert.AreEqual("B", process.CurrentActivity.Descriptor.Key);
 
@@ -498,10 +481,10 @@ namespace MCS.Library.SOA.DataObjects.Test.Executor
 
             Assert.AreEqual(6, process.Activities.Count, "加签后变成6个活动");
 
-            WfProcessTestCommon.MoveToNextDefaultActivity(process);	//B的衍生点
+            process.MoveToNextDefaultActivity();	//B的衍生点
             Assert.AreEqual("B", process.CurrentActivity.Descriptor.AssociatedActivityKey);
 
-            WfProcessTestCommon.MoveToNextDefaultActivity(process);	//C的衍生点
+            process.MoveToNextDefaultActivity();	//C的衍生点
             Assert.AreEqual("C", process.CurrentActivity.Descriptor.Key);
 
             ReturnExecutorTestHelper.ExecuteReturnOperation(process.CurrentActivity, "B");
@@ -509,10 +492,10 @@ namespace MCS.Library.SOA.DataObjects.Test.Executor
             Assert.AreEqual(8, process.Activities.Count, "退回后8个活动");
             Assert.AreEqual("B", process.CurrentActivity.Descriptor.AssociatedActivityKey);
 
-            WfProcessTestCommon.MoveToNextDefaultActivity(process);	//C的衍生点
+            process.MoveToNextDefaultActivity();	//C的衍生点
             Assert.AreEqual("C", process.CurrentActivity.Descriptor.AssociatedActivityKey);
 
-            WfProcessTestCommon.MoveToNextDefaultActivity(process);	//D
+            process.MoveToNextDefaultActivity();	//D
             Assert.AreEqual("D", process.CurrentActivity.Descriptor.Key);
         }
 
@@ -524,7 +507,7 @@ namespace MCS.Library.SOA.DataObjects.Test.Executor
         private static void MoveAgreeProcessOneStepAndValidate(IWfProcess process, int count)
         {
             Console.WriteLine("第{0}次退件之前，退件发起点为{1}({2})", count, process.CurrentActivity.Descriptor.Key, process.CurrentActivity.Descriptor.AssociatedActivityKey);
-            IWfActivity returnedActivityA = WfProcessTestCommon.MoveToNextDefaultActivityWithNoPersistExecutor(process);	//Move To A
+            IWfActivity returnedActivityA = process.MoveToDefaultActivityByExecutor(false).CurrentActivity;	//Move To A
             Console.WriteLine("第{0}次退件之后，退件当前点为{1}({2})", count, process.CurrentActivity.Descriptor.Key, process.CurrentActivity.Descriptor.AssociatedActivityKey);
 
             Assert.AreEqual("A", returnedActivityA.Descriptor.AssociatedActivityKey);
@@ -538,12 +521,12 @@ namespace MCS.Library.SOA.DataObjects.Test.Executor
         private static void MoveAgreeProcessAndValidate(IWfProcess process, int count)
         {
             Console.WriteLine("第{0}次退件之前，退件发起点为{1}({2})", count, process.CurrentActivity.Descriptor.Key, process.CurrentActivity.Descriptor.AssociatedActivityKey);
-            IWfActivity returnedActivityA = WfProcessTestCommon.MoveToNextDefaultActivityWithNoPersistExecutor(process);	//Move To A
+            IWfActivity returnedActivityA = process.MoveToDefaultActivityByExecutor(false).CurrentActivity;	//Move To A
             Console.WriteLine("第{0}次退件之后，退件当前点为{1}({2})", count, process.CurrentActivity.Descriptor.Key, process.CurrentActivity.Descriptor.AssociatedActivityKey);
 
             Assert.AreEqual("A", returnedActivityA.Descriptor.AssociatedActivityKey);
 
-            IWfActivity returnedActivityB = WfProcessTestCommon.MoveToNextDefaultActivityWithNoPersistExecutor(process);	//Move To B again
+            IWfActivity returnedActivityB = process.MoveToDefaultActivityByExecutor(false).CurrentActivity;	//Move To B again
 
             Assert.AreEqual("B", returnedActivityB.Descriptor.AssociatedActivityKey);
 
@@ -575,16 +558,6 @@ namespace MCS.Library.SOA.DataObjects.Test.Executor
             Assert.IsNotNull(transitionMS);
 
             transitionMS.DefaultSelect = selected;
-        }
-
-        private static IWfProcess DoWithdrawExecutor(IWfProcess originalProcess)
-        {
-            IWfProcess process = WfRuntime.GetProcessByProcessID(originalProcess.ID);
-            WfWithdrawExecutor withdrawExecutor = new WfWithdrawExecutor(process.CurrentActivity, process.CurrentActivity);
-
-            withdrawExecutor.Execute();
-
-            return WfRuntime.GetProcessByProcessID(originalProcess.ID);
         }
     }
 }

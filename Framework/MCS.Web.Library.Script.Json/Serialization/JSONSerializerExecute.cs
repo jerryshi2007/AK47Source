@@ -54,12 +54,12 @@ namespace MCS.Web.Library.Script
 
             lock (JSONSerializerFactory.S_GlobalConverterTypesCache)
             {
-                if (!JSONSerializerFactory.S_GlobalConverterTypesCache.ContainsKey(converterType))
+                if (JSONSerializerFactory.S_GlobalConverterTypesCache.ContainsKey(converterType) == false)
                 {
                     JavaScriptConverter converter = Activator.CreateInstance(converterType) as JavaScriptConverter;
                     foreach (Type supportType in converter.SupportedTypes)
                     {
-                        if (!JSONSerializerFactory.S_GlobalCheckConverterTypesCache.ContainsKey(supportType))
+                        if (JSONSerializerFactory.S_GlobalCheckConverterTypesCache.ContainsKey(supportType) == false)
                         {
                             JSONSerializerFactory.S_GlobalCheckConverterTypesCache.Add(supportType, converterType);
                         }
@@ -74,6 +74,7 @@ namespace MCS.Web.Library.Script
                                 supportType);
                         }
                     }
+
                     JSONSerializerFactory.S_GlobalConverterTypesCache.Add(converterType, converterType);
                 }
             }
@@ -90,6 +91,31 @@ namespace MCS.Web.Library.Script
             Dictionary<Type, JavaScriptConverter> converters = new Dictionary<Type, JavaScriptConverter>();
 
             ObjectContextCache.Instance.Add(JSONSerializerExecute.ContextConverterTypeCacheKey, converters);
+        }
+
+        /// <summary>
+        /// 注册上下文的Converter，然后执行Action，执行后恢复上下文。
+        /// </summary>
+        /// <param name="action"></param>
+        /// <param name="converterTypes"></param>
+        public static void DoContextConvertersAction(Action action, params Type[] converterTypes)
+        {
+            if (action != null && converterTypes != null)
+            {
+                BeginRegisterContextConverters();
+
+                try
+                {
+                    foreach (Type converterType in converterTypes)
+                        RegisterContextConverter(converterType);
+
+                    action();
+                }
+                finally
+                {
+                    EndRegisterContextConverters();
+                }
+            }
         }
 
         /// <summary>

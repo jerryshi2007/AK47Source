@@ -29,14 +29,18 @@ namespace OpenAndSaveExcelTest
                 FillDataTableData(dt, 10);
 
                 WorkSheet sheet = workbook.Sheets["任务单"];
-                Table table = sheet.Tables[0];
 
-                table.FillData(dt.DefaultView);
-                //table.FillData(dt.DefaultView, (cell, cellParameters) =>
-                //{
-                //    cell.Value = cellParameters.PropertyValue;
-                //    cell.Style.Font.Color.SetColor(Color.Blue);
-                //});
+                if (sheet != null && sheet.Tables.Count > 0)
+                {
+                    Table table = sheet.Tables[0];
+
+                    table.FillData(dt.DefaultView);
+                    //table.FillData(dt.DefaultView, (cell, cellParameters) =>
+                    //{
+                    //    cell.Value = cellParameters.PropertyValue;
+                    //    cell.Style.Font.Color.SetColor(Color.Blue);
+                    //});
+                }
 
                 string dir = Path.GetDirectoryName(Application.ExecutablePath);
 
@@ -75,10 +79,10 @@ namespace OpenAndSaveExcelTest
                 DataRow row = table.NewRow();
 
                 row["员工工号"] = "员工工号" + rnd.Next();
-                row["考勤项目"] ="L14";
-                row["年度"] ="2015";
+                row["考勤项目"] = "L14";
+                row["年度"] = "2015";
                 row["法定假转入"] = 0;
-                row["公司福利假转入"] =10;
+                row["公司福利假转入"] = 10;
                 row["法定假初始值"] = 2;
                 row["公司福利假初始值"] = 3;
 

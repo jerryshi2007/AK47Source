@@ -81,11 +81,16 @@
     <Reference Include="MCS.Library.WF.Contracts">
       <HintPath>..\..\..\Bin\MCS.Library.WF.Contracts.dll</HintPath>
     </Reference>
+    <Reference Include="MCS.Library.WF.Contracts.Common.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\MCS.Library.WF.Contracts.Common.Test.dll</HintPath>
+    </Reference>
     <Reference Include="MCS.Library.WF.Contracts.Json">
       <HintPath>..\..\..\Bin\MCS.Library.WF.Contracts.Json.dll</HintPath>
     </Reference>
-    <Reference Include="MCS.Library.WF.Contracts.Proxies">
-      <HintPath>..\..\MCS.Library.WF.Contracts.Proxies\bin\Debug\MCS.Library.WF.Contracts.Proxies.dll</HintPath>
+    <Reference Include="MCS.Library.WF.Contracts.Proxies, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\MCS.Library.WF.Contracts.Proxies.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -119,12 +124,6 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MCS.Library.WF.Contracts.Common.Test\MCS.Library.WF.Contracts.Common.Test.csproj">
-      <Project>{a423b431-45d1-4de1-af5f-160a3a4c8b19}</Project>
-      <Name>MCS.Library.WF.Contracts.Common.Test</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Choose>

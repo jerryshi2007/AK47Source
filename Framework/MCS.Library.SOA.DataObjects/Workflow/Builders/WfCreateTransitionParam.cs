@@ -184,7 +184,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow.Builders
 		/// <param name="json"></param>
 		public WfCreateTransitionParamCollection(string json)
 		{
-			FromJson(json);
+			this.FromJson(json);
 		}
 
 		/// <summary>

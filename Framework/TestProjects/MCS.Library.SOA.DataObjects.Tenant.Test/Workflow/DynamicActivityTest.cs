@@ -3,29 +3,26 @@ using MCS.Library.Data.DataObjects;
 using MCS.Library.OGUPermission;
 using MCS.Library.Passport;
 using MCS.Library.Principal;
-using MCS.Library.SOA.DataObjects.Test.Executor;
+using MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper;
 using MCS.Library.SOA.DataObjects.Workflow;
-using MCS.Web.Library.Script;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
-namespace MCS.Library.SOA.DataObjects.Test.WorkflowTest
+namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
 {
     /// <summary>
-    /// 已经迁移到MCS.Library.SOA.DataObjects.Tenant.Test
+    /// 动态（模板）活动的单元测试
     /// </summary>
     [TestClass]
     public class DynamicActivityTest
     {
         [TestMethod]
-        [TestCategory(ProcessTestHelper.DynamicActivity)]
         [Description("创建一个只有三个活动（开始-动态模版-结束）的流程，进行测试。动态活动上有一个人员")]
         public void BasicDynamicActivityTest()
         {
-            IWfProcessDescriptor processDesp = WfProcessTestCommon.CreateSimpleProcessDescriptor();
+            IWfProcessDescriptor processDesp = ProcessHelper.CreateSimpleProcessDescriptor();
 
             processDesp.Activities["NormalActivity"].RelativeLinks.Add(new WfRelativeLinkDescriptor("DynLink") { Url = "http://localhost" });
 
@@ -33,7 +30,7 @@ namespace MCS.Library.SOA.DataObjects.Test.WorkflowTest
 
             FillDynamicActivitySimpleResource(templateActDesp, (IUser)OguObjectSettings.GetConfig().Objects["approver1"].Object);
 
-            IWfProcess process = WfProcessTestCommon.StartupProcess(processDesp);
+            IWfProcess process = processDesp.StartupProcess();
 
             IWfActivityDescriptor firstDynamicActDesp = ValidateDynamicActivities(process.InitialActivity.Descriptor, templateActDesp);
 
@@ -47,42 +44,41 @@ namespace MCS.Library.SOA.DataObjects.Test.WorkflowTest
         }
 
         [TestMethod]
-        [TestCategory(ProcessTestHelper.DynamicActivity)]
         [Description("动态模版退件测试。创建一个只有三个活动（开始-动态模版-结束）的流程，进行测试。动态活动上有一个人员")]
         public void BasicDynamicActivityReturnTest()
         {
-            IWfProcessDescriptor processDesp = WfProcessTestCommon.CreateSimpleProcessDescriptor();
+            IWfProcessDescriptor processDesp = ProcessHelper.CreateSimpleProcessDescriptor();
 
             IWfActivityDescriptor templateActDesp = processDesp.Activities["NormalActivity"];
 
             FillDynamicActivitySimpleResource(templateActDesp, (IUser)OguObjectSettings.GetConfig().Objects["approver1"].Object);
 
-            IWfProcess process = WfProcessTestCommon.StartupProcess(processDesp);
+            IWfProcess process = processDesp.StartupProcess();
 
-            ReturnExecutorTestHelper.OutputMainStream(process);
+            process.OutputMainStream();
 
-            ReturnExecutorTestHelper.OutputEveryActivities(process);
+            process.OutputEveryActivities();
 
-            WfProcessTestCommon.MoveToNextDefaultActivity(process);
+            process.MoveToNextDefaultActivity();
             ReturnExecutorTestHelper.ExecuteReturnOperation(process.CurrentActivity, processDesp.InitialActivity.Key);
 
             //N2(Initial)->N1->N4->N5->Completed
-            ReturnExecutorTestHelper.OutputMainStream(process);
+            process.OutputMainStream();
 
             //N1->N2(Initial)->N4->N5->Completed
-            ReturnExecutorTestHelper.OutputEveryActivities(process);
+            process.OutputEveryActivities();
 
             Assert.AreEqual("Initial", process.CurrentActivity.Descriptor.GetAssociatedActivity().Key);
             Assert.AreEqual(2, process.CurrentActivity.Descriptor.ToTransitions.Count);
 
-            WfProcessTestCommon.MoveToNextDefaultActivity(process);
+            process.MoveToNextDefaultActivity();
             //Assert.AreEqual("N4", process.CurrentActivity.Descriptor.Key); //To N4
 
             //N2(Initial)->N1->N4->N5->Completed
-            ReturnExecutorTestHelper.OutputMainStream(process);
+            process.OutputMainStream();
 
             //N1->N2(Initial)->N4->N5->Completed
-            ReturnExecutorTestHelper.OutputEveryActivities(process);
+            process.OutputAndAssertEveryActivities();
 
             //IWfActivityDescriptor firstDynamicActDesp = ValidateDynamicActivities(process.InitialActivity.Descriptor, templateActDesp);
 
@@ -94,19 +90,18 @@ namespace MCS.Library.SOA.DataObjects.Test.WorkflowTest
         }
 
         [TestMethod]
-        [TestCategory(ProcessTestHelper.DynamicActivity)]
         [Description("创建一个只有三个活动（开始-动态模版-结束）的流程，进行测试。动态活动上有两个人员，会生成两个动态活动")]
         public void BasicDynamicActivityWithTwoAssigneesTest()
         {
-            IWfProcessDescriptor processDesp = WfProcessTestCommon.CreateSimpleProcessDescriptor();
+            IWfProcessDescriptor processDesp = ProcessHelper.CreateSimpleProcessDescriptor();
 
             IWfActivityDescriptor templateActDesp = processDesp.Activities["NormalActivity"];
 
             FillDynamicActivitySimpleResource(templateActDesp,
                 (IUser)OguObjectSettings.GetConfig().Objects["approver1"].Object,
-                (IUser)OguObjectSettings.GetConfig().Objects["approver2"].Object);
+                (IUser)OguObjectSettings.GetConfig().Objects["cfo"].Object);
 
-            IWfProcess process = WfProcessTestCommon.StartupProcess(processDesp);
+            IWfProcess process = processDesp.StartupProcess();
 
             IWfActivityDescriptor firstDynamicActDesp = ValidateDynamicActivities(process.InitialActivity.Descriptor, templateActDesp);
 
@@ -120,16 +115,15 @@ namespace MCS.Library.SOA.DataObjects.Test.WorkflowTest
         }
 
         [TestMethod]
-        [TestCategory(ProcessTestHelper.DynamicActivity)]
         [Description("创建一个只有三个活动（开始-动态-结束）的流程，进行测试。动态活动上没有资源")]
         public void BasicDynamicActivityWithoutResourceTest()
         {
-            IWfProcessDescriptor processDesp = WfProcessTestCommon.CreateSimpleProcessDescriptor();
+            IWfProcessDescriptor processDesp = ProcessHelper.CreateSimpleProcessDescriptor();
 
             IWfActivityDescriptor templateActDesp = processDesp.Activities["NormalActivity"];
             FillDynamicActivitySimpleResource(templateActDesp);
 
-            IWfProcess process = WfProcessTestCommon.StartupProcess(processDesp);
+            IWfProcess process = processDesp.StartupProcess();
 
             IWfActivityDescriptor firstDynamicActDesp = ValidateDynamicActivities(process.InitialActivity.Descriptor, templateActDesp);
 
@@ -139,12 +133,11 @@ namespace MCS.Library.SOA.DataObjects.Test.WorkflowTest
         }
 
         [TestMethod]
-        [TestCategory(ProcessTestHelper.DynamicActivity)]
         [Description("创建一个有七个活动（开始-A1~A2-动态-B1~B2-结束）的流程，进行测试。动态活动上没有资源")]
         public void ComplexDynamicActivityWithoutResourceTest()
         {
             IWfProcessDescriptor processDesp = CreateComplexDynamicActivityProcess();
-            IWfProcess process = WfProcessTestCommon.StartupProcess(processDesp);
+            IWfProcess process = processDesp.StartupProcess();
 
             IWfActivityDescriptor templateActDesp = process.Descriptor.Activities["NormalActivity"];
             IWfActivityDescriptor a1Activity = process.Descriptor.Activities["A1"];
@@ -167,15 +160,14 @@ namespace MCS.Library.SOA.DataObjects.Test.WorkflowTest
         }
 
         [TestMethod]
-        [TestCategory(ProcessTestHelper.DynamicActivity)]
         [Description("创建一个有七个活动（开始-A1~A2-动态-B1~B2-结束）的流程，进行测试。动态活动上有两个指派人")]
         public void ComplexDynamicActivityWithTwoAssigneesTest()
         {
             IWfProcessDescriptor processDesp = CreateComplexDynamicActivityProcess(
                 (IUser)OguObjectSettings.GetConfig().Objects["approver1"].Object,
-                (IUser)OguObjectSettings.GetConfig().Objects["approver2"].Object);
+                (IUser)OguObjectSettings.GetConfig().Objects["cfo"].Object);
 
-            IWfProcess process = WfProcessTestCommon.StartupProcess(processDesp);
+            IWfProcess process = processDesp.StartupProcess();
 
             IWfActivityDescriptor templateActDesp = process.Descriptor.Activities["NormalActivity"];
             IWfActivityDescriptor a1Activity = process.Descriptor.Activities["A1"];
@@ -199,20 +191,22 @@ namespace MCS.Library.SOA.DataObjects.Test.WorkflowTest
             ValidateTemplateCandidatesAndDynamicActivityCandidates(firstDynamicActDesp1, templateActDesp);
         }
 
+        /// <summary>
+        /// 原始测试不能通过
+        /// </summary>
         [TestMethod]
-        [TestCategory(ProcessTestHelper.DynamicActivity)]
         [Description("创建一个三个活动（开始-矩阵活动-结束）的流程，进行测试。矩阵活动展开成三个活动")]
         public void DynamicActivityWithActivityMatrixTest()
         {
             IRole role = PrepareSOARole();
 
-            IWfProcessDescriptor processDesp = WfProcessTestCommon.CreateSimpleProcessDescriptor();
+            IWfProcessDescriptor processDesp = ProcessHelper.CreateSimpleProcessDescriptor();
 
             IWfActivityDescriptor templateActDesp = processDesp.Activities["NormalActivity"];
 
             FillDynamicActivitySimpleResource(templateActDesp, new WfResourceDescriptorCollection() { new WfRoleResourceDescriptor(role) });
 
-            IWfProcess process = WfProcessTestCommon.StartupProcess(processDesp, new Dictionary<string, object>() { { "CostCenter", "1001" } });
+            IWfProcess process = processDesp.StartupProcess(new Dictionary<string, object>() { { "CostCenter", "1001" } });
 
             Assert.AreEqual(6, process.Activities.Count);
 
@@ -235,19 +229,18 @@ namespace MCS.Library.SOA.DataObjects.Test.WorkflowTest
         }
 
         [TestMethod]
-        [TestCategory(ProcessTestHelper.DynamicActivity)]
         [Description("创建一个三个活动（开始-矩阵活动-结束）的流程，进行测试。没有流程上下文，矩阵活动0个活动")]
         public void DynamicActivityActivityMatrixWithoutProcessContextTest()
         {
             IRole role = PrepareSOARole();
 
-            IWfProcessDescriptor processDesp = WfProcessTestCommon.CreateSimpleProcessDescriptor();
+            IWfProcessDescriptor processDesp = ProcessHelper.CreateSimpleProcessDescriptor();
 
             IWfActivityDescriptor templateActDesp = processDesp.Activities["NormalActivity"];
 
             FillDynamicActivitySimpleResource(templateActDesp, new WfResourceDescriptorCollection() { new WfRoleResourceDescriptor(role) });
 
-            IWfProcess process = WfProcessTestCommon.StartupProcess(processDesp);
+            IWfProcess process = processDesp.StartupProcess();
 
             Assert.AreEqual(3, process.Activities.Count);
 
@@ -259,80 +252,71 @@ namespace MCS.Library.SOA.DataObjects.Test.WorkflowTest
         }
 
         [TestMethod]
-        [TestCategory(ProcessTestHelper.DynamicActivity)]
         [Description("创建一个三个活动（开始-矩阵活动-结束）的流程，进行测试。矩阵活动展开成三个活动，然后在动态活动内部退回")]
         public void DynamicActivityWithActivityMatrixReturnToInnerTest()
         {
             IRole role = PrepareSOARole();
 
-            IWfProcessDescriptor processDesp = WfProcessTestCommon.CreateSimpleProcessDescriptor();
+            IWfProcessDescriptor processDesp = ProcessHelper.CreateSimpleProcessDescriptor();
 
             IWfActivityDescriptor templateActDesp = processDesp.Activities["NormalActivity"];
 
             FillDynamicActivitySimpleResource(templateActDesp, new WfResourceDescriptorCollection() { new WfRoleResourceDescriptor(role) });
 
-            IWfProcess process = WfProcessTestCommon.StartupProcess(processDesp, new Dictionary<string, object>() { { "CostCenter", "1001" } });
+            IWfProcess process = processDesp.StartupProcess(new Dictionary<string, object>() { { "CostCenter", "1001" } });
 
             //到第一个动态活动
-            WfProcessTestCommon.MoveToNextDefaultActivityWithExecutor(process);
-
-            process = WfRuntime.GetProcessByProcessID(process.ID);
+            process = process.MoveToDefaultActivityByExecutor();
 
             string targetActKey = process.CurrentActivity.Descriptor.Key;
 
             //到第二个动态活动
-            WfProcessTestCommon.MoveToNextDefaultActivityWithExecutor(process);
-
-            process = WfRuntime.GetProcessByProcessID(process.ID);
+            process = process.MoveToDefaultActivityByExecutor();
 
             //退回到第一个动态活动
             ReturnExecutorTestHelper.ExecuteReturnOperation(process.CurrentActivity, targetActKey);
 
             process = WfRuntime.GetProcessByProcessID(process.ID);
 
-            Console.WriteLine(process.CurrentActivity.Descriptor.Key);
+            Console.WriteLine("Current Activity Key: {0}", process.CurrentActivity.Descriptor.Key);
 
-            ReturnExecutorTestHelper.OutputMainStream(process);
-            ReturnExecutorTestHelper.OutputEveryActivities(process);
+            process.OutputMainStream();
+            process.OutputAndAssertEveryActivities();
+
+            Console.WriteLine("Next Default Activity Key: {0}",
+                process.CurrentActivity.Descriptor.ToTransitions.GetAllCanTransitForwardTransitions().First().ToActivity.Key);
 
             Assert.AreEqual(targetActKey, process.CurrentActivity.Descriptor.AssociatedActivityKey);
         }
 
         [TestMethod]
-        [TestCategory(ProcessTestHelper.DynamicActivity)]
         [Description("创建一个三个活动（开始-矩阵活动-结束）的流程，进行测试。矩阵活动展开成三个活动，然后退回到起始点")]
         public void DynamicActivityWithActivityMatrixReturnToInitialTest()
         {
             IRole role = PrepareSOARole();
 
-            IWfProcessDescriptor processDesp = WfProcessTestCommon.CreateSimpleProcessDescriptor();
+            IWfProcessDescriptor processDesp = ProcessHelper.CreateSimpleProcessDescriptor();
 
             IWfActivityDescriptor templateActDesp = processDesp.Activities["NormalActivity"];
 
             FillDynamicActivitySimpleResource(templateActDesp, new WfResourceDescriptorCollection() { new WfRoleResourceDescriptor(role) });
 
-            IWfProcess process = WfProcessTestCommon.StartupProcess(processDesp, new Dictionary<string, object>() { { "CostCenter", "1001" } });
+            IWfProcess process = processDesp.StartupProcess(new Dictionary<string, object>() { { "CostCenter", "1001" } });
 
             //到第一个动态活动
-            WfProcessTestCommon.MoveToNextDefaultActivityWithExecutor(process);
-
-            process = WfRuntime.GetProcessByProcessID(process.ID);
+            process = process.MoveToDefaultActivityByExecutor();
 
             //到第二个动态活动
-            WfProcessTestCommon.MoveToNextDefaultActivityWithExecutor(process);
-
-            process = WfRuntime.GetProcessByProcessID(process.ID);
+            process = process.MoveToDefaultActivityByExecutor();
 
             //退回到起始点
             ReturnExecutorTestHelper.ExecuteReturnOperation(process.CurrentActivity, process.InitialActivity.Descriptor.Key);
 
-            process = WfRuntime.GetProcessByProcessID(process.ID);
-
             Console.WriteLine(process.CurrentActivity.Descriptor.Key);
             Console.WriteLine(process.CompletedActivity.Descriptor.FromTransitions.GetAllCanTransitForwardTransitions().Count);
 
-            ReturnExecutorTestHelper.OutputMainStream(process);
-            ReturnExecutorTestHelper.OutputEveryActivities(process);
+            process.OutputMainStream();
+            process.OutputAndAssertEveryActivities();
 
             Assert.AreEqual(1, process.CompletedActivity.Descriptor.FromTransitions.GetAllCanTransitForwardTransitions().Count,
                 "结束点应该只有一条有效的入线s");
@@ -341,12 +325,176 @@ namespace MCS.Library.SOA.DataObjects.Test.WorkflowTest
         }
 
         [TestMethod]
-        [TestCategory(ProcessTestHelper.DynamicActivity)]
+        [Description("创建一个三个活动（开始-矩阵活动-结束）的流程，进行测试。矩阵活动展开成三个活动，然后退回到起始点两次测试")]
+        public void DynamicActivityWithActivityMatrixReturnToInitialTwiceTest()
+        {
+            IRole role = PrepareSOARole();
+
+            IWfProcessDescriptor processDesp = ProcessHelper.CreateSimpleProcessDescriptor();
+
+            IWfActivityDescriptor templateActDesp = processDesp.Activities["NormalActivity"];
+
+            FillDynamicActivitySimpleResource(templateActDesp, new WfResourceDescriptorCollection() { new WfRoleResourceDescriptor(role) });
+
+            IWfProcess process = processDesp.StartupProcess(new Dictionary<string, object>() { { "CostCenter", "1001" } });
+
+            //到第一个动态活动
+            process = process.MoveToDefaultActivityByExecutor();
+
+            //到第二个动态活动
+            process = process.MoveToDefaultActivityByExecutor();
+
+            //第一次退回到起始点
+            process = OutputAndAssertProcessInfo(process, "第一次退回到起始点",
+                (p) => ReturnExecutorTestHelper.ExecuteReturnOperation(p.CurrentActivity, p.InitialActivity.Descriptor.Key));
+
+            //再到第一个动态活动
+            process = process.MoveToDefaultActivityByExecutor();
+
+            //再到第二个动态活动
+            process = process.MoveToDefaultActivityByExecutor();
+
+            //第二次退回到起始点
+            process = OutputAndAssertProcessInfo(process, "第二次退回到起始点",
+                (p) => ReturnExecutorTestHelper.ExecuteReturnOperation(p.CurrentActivity, p.InitialActivity.Descriptor.Key));
+
+            Assert.AreEqual(1, process.CompletedActivity.Descriptor.FromTransitions.GetAllCanTransitForwardTransitions().Count,
+                "结束点应该只有一条有效的入线s");
+
+            Assert.AreEqual(process.InitialActivity.Descriptor.Key, process.CurrentActivity.Descriptor.AssociatedActivityKey);
+        }
+
+        [TestMethod]
+        [Description("创建一个三个活动（开始-矩阵活动-结束）的流程，进行测试。矩阵活动展开成三个活动，流转到最后一个动态活动，然后退回到起始点")]
+        public void DynamicActivityWithActivityMatrixLastDynamicActivityReturnToInitialTest()
+        {
+            //在最后一个动态活动上添加一个默认的退回线
+            IRole role = PrepareSOARole((row, pds) =>
+            {
+                if (row.Values.GetValue(SOARolePropertyDefinition.ActivitySNColumn, string.Empty) == "30")
+                {
+                    row.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.TransitionsColumn])
+                    {
+                        Value =
+                          "[{\"Name\":\"同意\",\"DefaultSelect\":true}, {\"Name\":\"不同意\",\"ToActivityKey\":\"FirstActivity\",\"DefaultSelect\":false,\"IsReturn\":true}]"
+                    });
+                }
+            });
+
+            IWfProcessDescriptor processDesp = ProcessHelper.CreateSimpleProcessDescriptor();
+
+            IWfActivityDescriptor templateActDesp = processDesp.Activities["NormalActivity"];
+
+            FillDynamicActivitySimpleResource(templateActDesp, new WfResourceDescriptorCollection() { new WfRoleResourceDescriptor(role) });
+
+            IWfProcess process = processDesp.StartupProcess(new Dictionary<string, object>() { { "CostCenter", "1001" } });
+
+            //到第一个动态活动
+            process = process.MoveToDefaultActivityByExecutor();
+
+            //到第二个动态活动
+            process = process.MoveToDefaultActivityByExecutor();
+
+            //到第三个动态活动
+            process = process.MoveToDefaultActivityByExecutor();
+
+            //退回到起始点
+            process = process.MoveToReturnActivityByExecutor();
+
+            Console.WriteLine(process.CurrentActivity.Descriptor.Key);
+            Console.WriteLine(process.CompletedActivity.Descriptor.FromTransitions.GetAllCanTransitForwardTransitions().Count);
+
+            process.OutputMainStream();
+            process.OutputAndAssertEveryActivities();
+
+            Assert.AreEqual(1, process.CompletedActivity.Descriptor.FromTransitions.GetAllCanTransitForwardTransitions().Count,
+                "结束点应该只有一条有效的入线s");
+
+            Assert.AreEqual(process.InitialActivity.Descriptor.Key, process.CurrentActivity.Descriptor.AssociatedActivityKey);
+        }
+
+        [TestMethod]
+        [Description("创建一个三个活动（开始-矩阵活动-结束）的流程，进行测试。矩阵活动展开成三个活动，流转一步，退回，再流转，再退回，流转两步，再退回一步")]
+        public void DynamicActivityWithActivityMatrixLastDynamicActivityReturnThriceTest()
+        {
+            #region 调整线属性
+            //在最后一个动态活动上添加一个默认的退回线
+            IRole role = PrepareSOARole((row, pds) =>
+            {
+                if (row.Values.GetValue(SOARolePropertyDefinition.ActivitySNColumn, string.Empty) == "10")
+                {
+                    row.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.TransitionsColumn])
+                    {
+                        Value =
+                          "[{\"Name\":\"同意\",\"DefaultSelect\":true}, {\"Name\":\"不同意\",\"ToActivityKey\":\"FirstActivity\",\"DefaultSelect\":false,\"IsReturn\":true}]"
+                    });
+                }
+                else
+                    if (row.Values.GetValue(SOARolePropertyDefinition.ActivitySNColumn, string.Empty) == "20")
+                    {
+                        row.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.TransitionsColumn])
+                        {
+                            Value =
+                              "[{\"Name\":\"同意\",\"DefaultSelect\":true}, {\"Name\":\"不同意\",\"ToActivityKey\":\"10\",\"DefaultSelect\":false,\"IsReturn\":true}]"
+                        });
+                    }
+            });
+            #endregion
+
+            IWfProcessDescriptor processDesp = ProcessHelper.CreateSimpleProcessDescriptor();
+
+            IWfActivityDescriptor templateActDesp = processDesp.Activities["NormalActivity"];
+
+            FillDynamicActivitySimpleResource(templateActDesp, new WfResourceDescriptorCollection() { new WfRoleResourceDescriptor(role) });
+
+            IWfProcess process = processDesp.StartupProcess(new Dictionary<string, object>() { { "CostCenter", "1001" } });
+
+            //到第一个动态活动
+            process = process.MoveToDefaultActivityByExecutor();
+
+            process = OutputAndAssertProcessInfo(process, "第一次退回到起始点", (p) => p.MoveToReturnActivityByExecutor());
+
+            //再流转一步，到第一个动态活动的人
+            process = process.MoveToDefaultActivityByExecutor();
+
+            process = OutputAndAssertProcessInfo(process, "第二次退回到起始点", (p) => p.MoveToReturnActivityByExecutor());
+
+            //再流转一步，再回到第一个动态活动的人
+            process = OutputAndAssertProcessInfo(process, "再流转到第一个动态活动的人", (p) => p.MoveToDefaultActivityByExecutor());
+
+            //流转一步，到第二个动态活动的人
+            process = OutputAndAssertProcessInfo(process, "再流转到第二个动态活动的人", (p) => p.MoveToDefaultActivityByExecutor());
+
+            process = OutputAndAssertProcessInfo(process, "退回到第一个动态活动", (p) => p.MoveToReturnActivityByExecutor());
+
+            ////到第二个动态活动
+            //process = process.MoveToDefaultActivityByExecutor();
+
+            ////到第三个动态活动
+            //process = process.MoveToDefaultActivityByExecutor();
+
+            ////退回到起始点
+            ////ReturnExecutorTestHelper.ExecuteReturnOperation(process.CurrentActivity, process.InitialActivity.Descriptor.Key);
+            //process = process.MoveToDefaultActivityByExecutor();
+
+            //Console.WriteLine(process.CurrentActivity.Descriptor.Key);
+            //Console.WriteLine(process.CompletedActivity.Descriptor.FromTransitions.GetAllCanTransitForwardTransitions().Count);
+
+            //process.OutputMainStream();
+            //process.OutputEveryActivities();
+
+            //Assert.AreEqual(1, process.CompletedActivity.Descriptor.FromTransitions.GetAllCanTransitForwardTransitions().Count,
+            //    "结束点应该只有一条有效的入线s");
+
+            //Assert.AreEqual(process.InitialActivity.Descriptor.Key, process.CurrentActivity.Descriptor.AssociatedActivityKey);
+        }
+
+        [TestMethod]
         [Description("资源为活动矩阵的动态活动测试")]
         public void ActiveMatrixResourceTest()
         {
-            IWfProcessDescriptor processDesp = WfProcessTestCommon.GetDynamicProcessDesp();
-            IWfProcess process = WfProcessTestCommon.StartupProcess(processDesp, new Dictionary<string, object>()
+            IWfProcessDescriptor processDesp = ProcessHelper.GetDynamicProcessDesp();
+            IWfProcess process = processDesp.StartupProcess(new Dictionary<string, object>()
 				{
 					{ "CostCenter", "1001" },
 					{ "PayMethod", "1" },
@@ -355,54 +503,16 @@ namespace MCS.Library.SOA.DataObjects.Test.WorkflowTest
 
             Console.WriteLine(process.Activities.Count);
 
-            ReturnExecutorTestHelper.OutputMainStream(process);
-            ReturnExecutorTestHelper.OutputEveryActivities(process);
+            process.OutputMainStream();
+            process.OutputAndAssertEveryActivities();
 
-            Assert.AreEqual(4, process.Activities.Count);
-        }
-
-        [TestMethod]
-        [TestCategory(ProcessTestHelper.DynamicActivity)]
-        [Description("资源为活动矩阵的动态序列化测试")]
-        public void ActiveMatrixResourceSerializationTest()
-        {
-            WfActivityMatrixResourceDescriptor expected = WfProcessTestCommon.PrepareActivityMatrixResourceDescriptor();
-
-            string serializedData = SerializationHelper.SerializeObjectToString(expected, SerializationFormatterType.Binary);
-
-            WfActivityMatrixResourceDescriptor actual = SerializationHelper.DeserializeStringToObject<WfActivityMatrixResourceDescriptor>(serializedData, SerializationFormatterType.Binary);
-
-            Assert.AreEqual(expected.PropertyDefinitions.Count, actual.PropertyDefinitions.Count);
-            Assert.AreEqual(expected.Rows.Count, actual.Rows.Count);
-
-            Assert.AreEqual(expected.PropertyDefinitions.GetAllKeys().Count(), actual.PropertyDefinitions.GetAllKeys().Count());
-        }
-
-        [TestMethod]
-        [TestCategory(ProcessTestHelper.DynamicActivity)]
-        [Description("资源为活动矩阵的Json序列化测试")]
-        public void ActiveMatrixResourceJsonSerializationTest()
-        {
-            WfActivityMatrixResourceDescriptor expected = WfProcessTestCommon.PrepareActivityMatrixResourceDescriptor();
-
-            WfConverterHelper.RegisterConverters();
-
-            string serializedData = JSONSerializerExecute.Serialize(expected);
-
-            Console.WriteLine(serializedData);
-
-            WfActivityMatrixResourceDescriptor actual = JSONSerializerExecute.Deserialize<WfActivityMatrixResourceDescriptor>(serializedData);
-
-            Assert.AreEqual(expected.PropertyDefinitions.Count, actual.PropertyDefinitions.Count);
-            Assert.AreEqual(expected.Rows.Count, actual.Rows.Count);
-
-            Assert.AreEqual(expected.PropertyDefinitions.GetAllKeys().Count(), actual.PropertyDefinitions.GetAllKeys().Count());
+            Assert.AreEqual(5, process.Activities.Count);
         }
 
         #region 辅助方法
         private IWfProcessDescriptor CreateComplexDynamicActivityProcess(params IUser[] users)
         {
-            IWfProcessDescriptor processDesp = WfProcessTestCommon.CreateSimpleProcessDescriptor();
+            IWfProcessDescriptor processDesp = ProcessHelper.CreateSimpleProcessDescriptor();
 
             IWfActivityDescriptor templateActDesp = processDesp.Activities["NormalActivity"];
             FillDynamicActivitySimpleResource(templateActDesp, users);
@@ -412,16 +522,16 @@ namespace MCS.Library.SOA.DataObjects.Test.WorkflowTest
             templateActDesp.ToTransitions.RemoveByToActivity(processDesp.CompletedActivity);
             processDesp.CompletedActivity.FromTransitions.RemoveByFromActivity(templateActDesp);
 
-            IWfActivityDescriptor a1Activity = WfProcessTestCommon.CreateNormalActivity("A1");
+            IWfActivityDescriptor a1Activity = ProcessHelper.CreateNormalActivity("A1");
             processDesp.Activities.Add(a1Activity);
 
-            IWfActivityDescriptor a2Activity = WfProcessTestCommon.CreateNormalActivity("A2");
+            IWfActivityDescriptor a2Activity = ProcessHelper.CreateNormalActivity("A2");
             processDesp.Activities.Add(a2Activity);
 
-            IWfActivityDescriptor b1Activity = WfProcessTestCommon.CreateNormalActivity("B1");
+            IWfActivityDescriptor b1Activity = ProcessHelper.CreateNormalActivity("B1");
             processDesp.Activities.Add(b1Activity);
 
-            IWfActivityDescriptor b2Activity = WfProcessTestCommon.CreateNormalActivity("B2");
+            IWfActivityDescriptor b2Activity = ProcessHelper.CreateNormalActivity("B2");
             processDesp.Activities.Add(b2Activity);
 
             processDesp.InitialActivity.ToTransitions.AddForwardTransition(a1Activity);
@@ -558,10 +668,37 @@ namespace MCS.Library.SOA.DataObjects.Test.WorkflowTest
                 currentActDesp = transition.ToActivity;
             }
         }
+
+        private static IWfProcess OutputAndAssertProcessInfo(IWfProcess process, string description, Func<IWfProcess, IWfProcess> func)
+        {
+            OutputAndAssertProcessInfo(process, description + "之前");
+
+            IWfProcess result = func(process);
+
+            OutputAndAssertProcessInfo(result, description + "之后");
+
+            return result;
+        }
+
+        private static void OutputAndAssertProcessInfo(IWfProcess process, string description)
+        {
+            Console.WriteLine(description);
+            Console.WriteLine("Current Activity: {0}", process.CurrentActivity.Descriptor.Key);
+            Console.WriteLine("Next Default Activity Key: {0}",
+                process.CurrentActivity.Descriptor.ToTransitions.GetAllCanTransitForwardTransitions().First().ToActivity.Key);
+
+            process.OutputMainStream();
+            process.OutputAndAssertEveryActivities();
+        }
+
         #endregion 辅助方法
 
         #region 动态角色方法
-        private static SOARole PrepareSOARole()
+        /// <summary>
+        /// 1001应该匹配出3个活动。其中第一个活动两个人
+        /// </summary>
+        /// <returns></returns>
+        private static SOARole PrepareSOARole(Action<SOARolePropertyRow, SOARolePropertyDefinitionCollection> action = null)
         {
             IRole originalRole = GetTestRole();
 
@@ -573,24 +710,30 @@ namespace MCS.Library.SOA.DataObjects.Test.WorkflowTest
 
             role.Rows.Clear();
 
-            AddSOARoleRow(role, SOARoleOperatorType.User, "fanhy", "1001", "10");
-            AddSOARoleRow(role, SOARoleOperatorType.User, "yangrui1", "1001", "10");
-            AddSOARoleRow(role, SOARoleOperatorType.User, "liming", "1001", "20");
-            AddSOARoleRow(role, SOARoleOperatorType.User, "quym", "1001", "30");
+            AddSOARoleRow(role, SOARoleOperatorType.User, "fanhy", "1001", "10", action);
+            AddSOARoleRow(role, SOARoleOperatorType.User, "yangrui1", "1001", "10", action);
+            AddSOARoleRow(role, SOARoleOperatorType.User, "liming", "1001", "20", action);
+            AddSOARoleRow(role, SOARoleOperatorType.User, "quym", "1001", "30", action);
 
             SOARolePropertiesAdapter.Instance.Update(role);
 
             return role;
         }
 
-        private static SOARolePropertyRow AddSOARoleRow(SOARole role, SOARoleOperatorType operatorType, string opUser, string constCenter, string activitySN)
+        private static SOARolePropertyRow AddSOARoleRow(SOARole role, SOARoleOperatorType operatorType, string opUser, string constCenter, string activitySN, Action<SOARolePropertyRow, SOARolePropertyDefinitionCollection> action = null)
         {
             SOARolePropertyRow row = new SOARolePropertyRow(role) { RowNumber = role.Rows.Count + 1, OperatorType = operatorType, Operator = opUser };
 
             SOARolePropertyDefinitionCollection pds = role.PropertyDefinitions;
 
             row.Values.Add(new SOARolePropertyValue(pds["CostCenter"]) { Value = constCenter });
-            row.Values.Add(new SOARolePropertyValue(pds["ActivitySN"]) { Value = activitySN });
+            row.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivitySNColumn]) { Value = activitySN });
+            row.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.OperatorTypeColumn]) { Value = operatorType.ToString() });
+            row.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.OperatorColumn]) { Value = opUser });
+
+            if (action != null)
+                action(row, pds);
+
             role.Rows.Add(row);
 
             return row;
@@ -609,11 +752,15 @@ namespace MCS.Library.SOA.DataObjects.Test.WorkflowTest
         {
             SOARolePropertyDefinitionCollection propertiesDefinition = new SOARolePropertyDefinitionCollection();
 
-            propertiesDefinition.Add(new SOARolePropertyDefinition(role) { Name = "CostCenter", SortOrder = 0 });
-            propertiesDefinition.Add(new SOARolePropertyDefinition(role) { Name = "Condition", SortOrder = 3 });
-            propertiesDefinition.Add(new SOARolePropertyDefinition(role) { Name = "ActivitySN", SortOrder = 4 });
-            propertiesDefinition.Add(new SOARolePropertyDefinition(role) { Name = "ActivityProperties", SortOrder = 5 });
-            propertiesDefinition.Add(new SOARolePropertyDefinition(role) { Name = "IsMergeable", SortOrder = 6, DataType = ColumnDataType.Boolean });
+            propertiesDefinition.Add(new SOARolePropertyDefinition(role) { Name = "CostCenter", SortOrder = 1 });
+            propertiesDefinition.Add(new SOARolePropertyDefinition(role) { Name = SOARolePropertyDefinition.ConditionColumn, SortOrder = 2 });
+            propertiesDefinition.Add(new SOARolePropertyDefinition(role) { Name = SOARolePropertyDefinition.ActivitySNColumn, SortOrder = 3 });
+            propertiesDefinition.Add(new SOARolePropertyDefinition(role) { Name = SOARolePropertyDefinition.ActivityPropertiesColumn, SortOrder = 4 });
+            propertiesDefinition.Add(new SOARolePropertyDefinition(role) { Name = SOARolePropertyDefinition.IsMergeableColumn, SortOrder = 5, DataType = ColumnDataType.Boolean });
+            propertiesDefinition.Add(new SOARolePropertyDefinition(role) { Name = SOARolePropertyDefinition.TransitionsColumn, SortOrder = 5, DataType = ColumnDataType.String });
+            propertiesDefinition.Add(new SOARolePropertyDefinition(role) { Name = SOARolePropertyDefinition.OperatorTypeColumn, SortOrder = 7, DataType = ColumnDataType.String });
+            propertiesDefinition.Add(new SOARolePropertyDefinition(role) { Name = SOARolePropertyDefinition.OperatorColumn, SortOrder = 8, DataType = ColumnDataType.String });
+
 
             return propertiesDefinition;
         }

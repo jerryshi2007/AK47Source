@@ -39,13 +39,33 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MCS.Library, Version=1.2.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\MCS.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.Data, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\MCS.Library.Data.dll</HintPath>
+    </Reference>
     <Reference Include="MCS.Library.Office.OpenXml.Excel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Bin\MCS.Library.Office.OpenXml.Excel.dll</HintPath>
     </Reference>
+    <Reference Include="MCS.Library.OGUPermission, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\MCS.Library.OGUPermission.dll</HintPath>
+    </Reference>
     <Reference Include="MCS.Library.Passport, Version=1.3.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Bin\MCS.Library.Passport.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Library.SOA.DataObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\MCS.Library.SOA.DataObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="MCS.Web.Library.Script.Json, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\MCS.Web.Library.Script.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -83,6 +103,7 @@
     <Compile Include="Workflow\Helper\ProcessHelper.cs" />
     <Compile Include="Workflow\ActivityMatrixTest.cs" />
     <Compile Include="Workflow\Helper\QueryParamTest.cs" />
+    <Compile Include="Workflow\Helper\ReturnExecutorTestHelper.cs" />
     <Compile Include="Workflow\Helper\ServiceOperationDefinitionHelper.cs" />
     <Compile Include="Workflow\Helper\WfOutputHelper.cs" />
     <Compile Include="Workflow\MatrixQueryParamsTest.cs" />
@@ -92,32 +113,12 @@
     <Compile Include="Workflow\StartWorkflowExecutorTest.cs" />
     <Compile Include="Workflow\PersistQueueTest.cs" />
     <Compile Include="Workflow\ProcessRuntimeTest.cs" />
+    <Compile Include="Workflow\ReturnExecutorTest.cs" />
+    <Compile Include="Workflow\DynamicActivityTest.cs" />
     <Compile Include="Workflow\WfCreateTransitionParamTest.cs" />
     <Compile Include="Workflow\WfMatrixTest.cs" />
     <Compile Include="Workflow\WfApplicationAuthTest.cs" />
     <Compile Include="Workflow\WithdrawAndCancelExecutorTest.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\MCS.Library.Data\MCS.Library.Data.csproj">
-      <Project>{4313de1e-738f-477d-b7fd-b237e9116670}</Project>
-      <Name>MCS.Library.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\MCS.Library.OGUPermission\MCS.Library.OGUPermission.csproj">
-      <Project>{6ea98729-9a07-4d1f-b389-07c6b9d43b1d}</Project>
-      <Name>MCS.Library.OGUPermission</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\MCS.Library.SOA.DataObjects\MCS.Library.SOA.DataObjects.csproj">
-      <Project>{7905642f-4630-4d16-af40-cb1fb70d516f}</Project>
-      <Name>MCS.Library.SOA.DataObjects</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\MCS.Library\MCS.Library.csproj">
-      <Project>{4077b0b7-062a-4f6d-8a45-a180a2ed3215}</Project>
-      <Name>MCS.Library</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\MCS.Web.Library.Script.Json\MCS.Web.Library.Script.Json.csproj">
-      <Project>{78cd90d6-129a-401c-8396-e7ad8996219e}</Project>
-      <Name>MCS.Web.Library.Script.Json</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

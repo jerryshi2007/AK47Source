@@ -90,6 +90,7 @@
     <None Include="创建租户任务单.xlsx" />
     <None Include="创建租户任务单1.xlsx" />
     <None Include="创建租户任务单2.xlsx" />
+    <None Include="批量入职导入模板_0623-1.xlsx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

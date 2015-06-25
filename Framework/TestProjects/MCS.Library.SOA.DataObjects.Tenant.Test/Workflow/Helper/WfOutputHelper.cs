@@ -32,15 +32,22 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             Console.WriteLine("Main Stream: {0}", strB.ToString());
         }
 
-        public static void OutputEveryActivities(this IWfProcess process)
+        public static bool OutputEveryActivities(this IWfProcess process)
         {
             StringBuilder strB = new StringBuilder();
 
             Dictionary<string, IWfTransitionDescriptor> elapsedTransitions = new Dictionary<string, IWfTransitionDescriptor>();
 
-            OutputActivityInfoRecursively(process.Descriptor.InitialActivity, elapsedTransitions, strB);
+            bool result = OutputActivityInfoRecursively(process.Descriptor.InitialActivity, elapsedTransitions, strB);
 
             Console.WriteLine("Every Step: {0}", strB.ToString());
+
+            return result;
+        }
+
+        public static void OutputAndAssertEveryActivities(this IWfProcess process)
+        {
+            Assert.IsTrue(process.OutputEveryActivities(), "流程没有经过结束活动");
         }
 
         public static void OutputEveryActivities(this IWfProcessDescriptor processDesp)
@@ -80,8 +87,17 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             }
         }
 
-        private static void OutputActivityInfoRecursively(IWfActivityDescriptor actDesp, Dictionary<string, IWfTransitionDescriptor> elapsedTransitions, StringBuilder strB)
+        /// <summary>
+        /// 递归输出每一个活动的信息
+        /// </summary>
+        /// <param name="actDesp"></param>
+        /// <param name="elapsedTransitions"></param>
+        /// <param name="strB"></param>
+        /// <returns>是否经历过结束点</returns>
+        private static bool OutputActivityInfoRecursively(IWfActivityDescriptor actDesp, Dictionary<string, IWfTransitionDescriptor> elapsedTransitions, StringBuilder strB)
         {
+            bool result = actDesp.ActivityType == WfActivityType.CompletedActivity;
+
             if (strB.Length > 0)
                 strB.Append("->");
 
@@ -103,9 +119,11 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
                 if (elapsedTransitions.ContainsKey(transition.Key) == false)
                 {
                     elapsedTransitions.Add(transition.Key, transition);
-                    OutputActivityInfoRecursively(transition.ToActivity, elapsedTransitions, strB);
+                    result = result | OutputActivityInfoRecursively(transition.ToActivity, elapsedTransitions, strB);
                 }
             }
+
+            return result;
         }
 
         private static void OutputCandidates(IWfActivityDescriptor actDesp, StringBuilder strB)

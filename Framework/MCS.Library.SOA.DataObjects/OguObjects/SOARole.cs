@@ -164,7 +164,7 @@ namespace MCS.Library.SOA.DataObjects
 
                 matchedRows = matchedRows.ExtractMatrixRows();
 
-                matchedRows.FillCreateActivityParams(capc, definedProperties);
+                matchedRows.FillCreateActivityParams(capc, this.PropertyDefinitions, definedProperties);
             }
         }
 

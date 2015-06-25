@@ -1,0 +1,22 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectItem Include="MCS.Library.WF.Contracts.Common.Test\MCS.Library.WF.Contracts.Common.Test.csproj" />
+    <ProjectItem Include="MCS.Library.Test\MCS.Library.Test.csproj" />
+    <ProjectItem Include="MCS.Library.Data.Test\MCS.Library.Data.Test.csproj" />
+    <ProjectItem Include="MCS.Library.HtmlParser.Test\MCS.Library.HtmlParser.Test.csproj" />
+    <ProjectItem Include="MCS.Web.Library.Script.Json.Test\MCS.Web.Library.Script.Json.Test.csproj" />
+    <ProjectItem Include="MCS.Library.SOA.DataObjects.Tenant.Test\MCS.Library.SOA.DataObjects.Tenant.Test.csproj" />
+    <ProjectItem Include="MCS.Library.WF.Contracts.Converters.Test\MCS.Library.WF.Contracts.Converters.Test.csproj" />
+    <ProjectItem Include="WfOperationServices.Test\WfOperationServices.Test.csproj" />
+  </ItemGroup>
+  <Target Name="BuildOtherProjects">
+    <MSBuild Projects="@(ProjectItem)" RebaseOutputs="True" />
+  </Target>
+</Project>

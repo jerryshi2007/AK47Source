@@ -22,12 +22,7 @@ namespace MCS.Library.Passport
         /// </summary>
         public const string TicketParamName = "t";
 
-        /// <summary>
-        /// 租户代码的参数名称
-        /// </summary>
-        public const string TenantCodeParamName = "tenantCode";
-
-        private static readonly string[] ReservedParams = { PassportManager.TicketParamName, "ru", "to", "aid", "ip", "lou", PassportManager.TenantCodeParamName };
+        private static readonly string[] ReservedParams = { PassportManager.TicketParamName, "ru", "to", "aid", "ip", "lou", TenantExtensions.TenantCodeParamName };
 
         #region 静态方法
         /// <summary>
@@ -98,7 +93,7 @@ namespace MCS.Library.Passport
 
             NameValueCollection uriParams = UriHelper.GetUriParamsCollection(strLouUrl);
 
-            uriParams[TenantCodeParamName] = TenantContext.Current.TenantCode;
+            uriParams[TenantExtensions.TenantCodeParamName] = TenantContext.Current.TenantCode;
 
             return new Uri(UriHelper.CombineUrlParams(strLouUrl, true, uriParams), UriKind.RelativeOrAbsolute);
         }
@@ -235,7 +230,7 @@ namespace MCS.Library.Passport
                 parameters.Add("lu", ticket.SignInInfo.OriginalUserID);
 
                 if (TenantContext.Current.Enabled)
-                    parameters.Add(PassportManager.TenantCodeParamName, TenantContext.Current.TenantCode);
+                    parameters.Add(TenantExtensions.TenantCodeParamName, TenantContext.Current.TenantCode);
 
                 strB.Append("?" + parameters.ToUrlParameters(true));
 
@@ -305,17 +300,10 @@ namespace MCS.Library.Passport
         /// <returns></returns>
         public static string GetTenantCodeFromContext()
         {
-            string tenantCode = HttpContext.Current.GetRouteDataValue(PassportManager.TenantCodeParamName, string.Empty);
+            string tenantCode = HttpContext.Current.GetRouteDataValue(TenantExtensions.TenantCodeParamName, string.Empty);
 
             if (tenantCode.IsNullOrEmpty())
-            {
-                tenantCode = HttpContext.Current.Request.Headers.GetValue(PassportManager.TenantCodeParamName, string.Empty);
-
-                if (tenantCode.IsNullOrEmpty())
-                    tenantCode = Request.GetRequestQueryString(PassportManager.TenantCodeParamName, string.Empty);
-                else
-                    tenantCode = HttpUtility.UrlDecode(tenantCode);
-            }
+                tenantCode = HttpContext.Current.GetTenantCode();
 
             return tenantCode;
         }
@@ -381,7 +369,7 @@ namespace MCS.Library.Passport
 
             NameValueCollection uriParams = uri.GetUriParamsCollection();
 
-            uriParams[TenantCodeParamName] = TenantContext.Current.TenantCode;
+            uriParams[TenantExtensions.TenantCodeParamName] = TenantContext.Current.TenantCode;
 
             uri = new Uri(UriHelper.CombineUrlParams(uri.ToString(), true, uriParams), UriKind.RelativeOrAbsolute);
 
@@ -497,7 +485,7 @@ namespace MCS.Library.Passport
             parameters.Add("m", clientConfig.Method.ToString());
 
             if (TenantContext.Current.Enabled)
-                parameters.Add(PassportManager.TenantCodeParamName, TenantContext.Current.TenantCode);
+                parameters.Add(TenantExtensions.TenantCodeParamName, TenantContext.Current.TenantCode);
             //string result = "?ru=" + HttpUtility.UrlEncode(strReturlUrl)
             //                + "&to=" + HttpUtility.UrlEncode(clientConfig.AppSignInTimeout.ToString())
             //                + "&aid=" + HttpUtility.UrlEncode(clientConfig.AppID)

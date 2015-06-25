@@ -25,27 +25,31 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
             WfForwardTransitionDescriptor transition2 = new WfForwardTransitionDescriptor("T2");
             transition2.Name = "Transition2";
 
-            JSONSerializerExecute.RegisterConverter(typeof(EasyWfForwardTransitionDescriptorConverter));
             JSONSerializerExecute.RegisterConverter(typeof(WfConditionDescriptorConverter));
-            JSONSerializerExecute.RegisterConverter(typeof(EasyWfVariableDescriptorConverter));
 
-            string json = JSONSerializerExecute.Serialize(new WfForwardTransitionDescriptor[] { transition1, transition2 });
+            JSONSerializerExecute.DoContextConvertersAction(() =>
+                {
+                    string json = JSONSerializerExecute.Serialize(new WfForwardTransitionDescriptor[] { transition1, transition2 });
 
-            Console.WriteLine(json);
+                    Console.WriteLine(json);
 
-            WfCreateTransitionParamCollection transitionParams = new WfCreateTransitionParamCollection(json);
+                    WfCreateTransitionParamCollection transitionParams = new WfCreateTransitionParamCollection(json);
 
-            Assert.AreEqual(2, transitionParams.Count);
+                    Assert.AreEqual(2, transitionParams.Count);
 
-            Assert.AreEqual(transition1.Key, transitionParams[0].Parameters["Key"]);
-            Assert.AreEqual(transition1.Name, transitionParams[0].Parameters["Name"]);
-            Assert.AreEqual(transition1.Condition.Expression, transitionParams[0].Parameters["Condition"]);
+                    Assert.AreEqual(transition1.Key, transitionParams[0].Parameters["Key"]);
+                    Assert.AreEqual(transition1.Name, transitionParams[0].Parameters["Name"]);
+                    Assert.AreEqual(transition1.Condition.Expression, transitionParams[0].Parameters["Condition"]);
 
-            Assert.AreEqual(transition2.Key, transitionParams[1].Parameters["Key"]);
-            Assert.AreEqual(transition2.Name, transitionParams[1].Parameters["Name"]);
-            Assert.IsFalse(transitionParams[1].Parameters.ContainsKey("Condition"));
+                    Assert.AreEqual(transition2.Key, transitionParams[1].Parameters["Key"]);
+                    Assert.AreEqual(transition2.Name, transitionParams[1].Parameters["Name"]);
+                    Assert.IsFalse(transitionParams[1].Parameters.ContainsKey("Condition"));
 
-            Assert.AreEqual(transition1.Variables.Count, ((Dictionary<string, object>[])transitionParams[0].Parameters["Variables"]).Length);
+                    Assert.AreEqual(transition1.Variables.Count, ((Dictionary<string, object>[])transitionParams[0].Parameters["Variables"]).Length);
+                },
+                typeof(EasyWfForwardTransitionDescriptorConverter),
+                typeof(EasyWfVariableDescriptorConverter)
+            );
         }
 
         [TestMethod]

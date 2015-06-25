@@ -37,6 +37,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MCS.Library, Version=1.2.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\MCS.Library.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -54,7 +58,6 @@
   <ItemGroup>
     <Compile Include="CoreTest\ArgumentParserTest.cs" />
     <Compile Include="CoreTest\UriTest.cs" />
-    <Compile Include="DataObjects\DataCollectionTest.cs" />
     <Compile Include="DataObjects\ObjectCompareTest.cs" />
     <Compile Include="DataObjects\Order.cs" />
     <Compile Include="DataObjects\OrgTreeNode.cs" />
@@ -97,12 +100,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\MCS.Library\MCS.Library.csproj">
-      <Project>{4077b0b7-062a-4f6d-8a45-a180a2ed3215}</Project>
-      <Name>MCS.Library</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ResourceLoader\Data.xml" />

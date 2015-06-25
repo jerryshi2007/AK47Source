@@ -1,4 +1,5 @@
-﻿using MCS.Library.Passport;
+﻿using MCS.Library.Core;
+using MCS.Library.Passport;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace ResponsivePassportService
                 "TestPages/PrincipalTest/{TenantCode}",
                 "~/TestPages/PrincipalTest.aspx",
                 true,
-                new RouteValueDictionary { { PassportManager.TenantCodeParamName, string.Empty } });
+                new RouteValueDictionary { { TenantExtensions.TenantCodeParamName, string.Empty } });
         }
 
         protected void Session_Start(object sender, EventArgs e)

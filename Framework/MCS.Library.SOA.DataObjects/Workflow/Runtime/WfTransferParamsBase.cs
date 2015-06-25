@@ -186,15 +186,21 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         /// <returns></returns>
         public static WfTransferParams FromNextDefaultActivity(IWfActivityDescriptor currentActDesp)
         {
+            return FromNextActivity(currentActDesp, (toTransitions) => toTransitions.FindDefaultSelectTransition());
+        }
+
+        public static WfTransferParams FromNextActivity(IWfActivityDescriptor currentActDesp, Func<WfTransitionDescriptorCollection, IWfTransitionDescriptor> predicate)
+        {
             currentActDesp.NullCheck("actDesp");
+            predicate.NullCheck("predicate");
 
             WfTransferParams transferParams = null;
 
             WfTransitionDescriptorCollection toTransitions =
                                 currentActDesp.ToTransitions.GetAllCanTransitTransitions();
 
-            //找到缺省的线
-            IWfTransitionDescriptor transition = toTransitions.FindDefaultSelectTransition();
+            //找到匹配的线
+            IWfTransitionDescriptor transition = predicate(toTransitions);
 
             if (transition != null)
             {
@@ -209,7 +215,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                     transferParams.Operator = DeluxeIdentity.CurrentUser;
             }
 
-            (transferParams != null).FalseThrow(Translator.Translate(Define.DefaultCulture, "不能根据活动定义{0}找到默认的下一步环节", currentActDesp.Key));
+            (transferParams != null).FalseThrow(Translator.Translate(Define.DefaultCulture, "不能根据活动定义{0}找到符合条件的下一步环节", currentActDesp.Key));
 
             return transferParams;
         }

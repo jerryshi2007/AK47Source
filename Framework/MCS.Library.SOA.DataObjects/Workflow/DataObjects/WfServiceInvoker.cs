@@ -558,7 +558,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
         private void InitHeaders()
         {
-            this.Headers[PassportManager.TenantCodeParamName] = HttpUtility.UrlEncode(TenantContext.Current.TenantCode);
+            this.Headers[TenantExtensions.TenantCodeParamName] = HttpUtility.UrlEncode(TenantContext.Current.TenantCode);
         }
     }
 }

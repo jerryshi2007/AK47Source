@@ -218,7 +218,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 		/// <returns></returns>
 		public WfCreateActivityParamCollection ToCreateActivityParams()
 		{
-			return ToCreateActivityParams(new PropertyDefineCollection());
+			return this.ToCreateActivityParams(new PropertyDefineCollection());
 		}
 
 		/// <summary>

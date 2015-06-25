@@ -17,9 +17,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
         {
             IWfProcess process = ProcessHelper.CreateFreeStepsProcessDescriptor(OguObjectSettings.GetConfig().Objects["approver1"].User).StartupProcess();
 
-            process.MoveToDefaultActivityByExecutor();
-
-            process = WfRuntime.GetProcessByProcessID(process.ID);
+            process = process.MoveToDefaultActivityByExecutor();
 
             string activityIDBeforeWithdraw = process.CurrentActivity.ID;
 
@@ -43,9 +41,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
         {
             IWfProcess process = ProcessHelper.CreateFreeStepsProcessDescriptor(OguObjectSettings.GetConfig().Objects["approver1"].User).StartupProcess();
 
-            process.MoveToDefaultActivityByExecutor();
-
-            process = WfRuntime.GetProcessByProcessID(process.ID);
+            process = process.MoveToDefaultActivityByExecutor();
 
             string activityIDBeforeWithdraw = process.CurrentActivity.ID;
 

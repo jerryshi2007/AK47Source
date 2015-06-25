@@ -78,9 +78,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
 
             process = WfRuntime.GetProcessByProcessID(process.ID);
 
-            process.MoveToDefaultActivityByExecutor();
-
-            process = WfRuntime.GetProcessByProcessID(process.ID);
+            process = process.MoveToDefaultActivityByExecutor();
 
             string result = process.ApplicationRuntimeParameters.GetValue("Version", string.Empty);
 

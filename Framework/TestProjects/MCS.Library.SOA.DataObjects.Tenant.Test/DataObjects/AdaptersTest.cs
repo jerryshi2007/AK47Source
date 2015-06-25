@@ -69,13 +69,11 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.DataObjects
 
             ((WfProcess)process).ResourceID = "resource2";
 
-            process.MoveToDefaultActivityByExecutor();
+            process = process.MoveToDefaultActivityByExecutor();
 
-            process = WfRuntime.GetProcessByProcessID(process.ID);
-            process.MoveToDefaultActivityByExecutor();
+            process = process.MoveToDefaultActivityByExecutor();
 
-            process = WfRuntime.GetProcessByProcessID(process.ID);
-            process.MoveToDefaultActivityByExecutor();
+            process = process.MoveToDefaultActivityByExecutor();
 
             string userID = process.CurrentActivity.Assignees[0].User.ID;
 

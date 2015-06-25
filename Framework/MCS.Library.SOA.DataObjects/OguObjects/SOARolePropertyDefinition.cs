@@ -26,6 +26,7 @@ namespace MCS.Library.SOA.DataObjects
         public const string ActivitySNColumn = "ActivitySN";
         public const string ActivityNameColumn = "ActivityName";
         public const string ActivityCodeColumn = "ActivityCode";
+        public const string ActivityPropertiesColumn = "ActivityProperties";
         public const string IsMergeableColumn = "IsMergeable";
         public const string AutoExtractColumn = "AutoExtract";
         public const string ConditionColumn = "Condition";

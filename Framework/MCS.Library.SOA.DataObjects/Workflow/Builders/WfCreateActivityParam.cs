@@ -143,7 +143,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow.Builders
         {
             foreach (SOARolePropertyDefinition pd in definitions)
             {
-                if (string.Compare(pd.Name, "ActivityProperties", true) == 0)
+                if (string.Compare(pd.Name, SOARolePropertyDefinition.ActivityPropertiesColumn, true) == 0)
                     ProcessActivityPropertyByRoleJsonProperty(cap, row, pd);
                 else
                     ProcessActivityPropertyByRoleProperty(cap, row, pd);

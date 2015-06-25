@@ -2,6 +2,7 @@
 using MCS.Library.OGUPermission;
 using MCS.Library.SOA.DataObjects.Workflow;
 using MCS.Library.SOA.DataObjects.Workflow.Builders;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,15 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
 {
     public static class ProcessHelper
     {
+        public static IWfActivityDescriptor CreateNormalActivity(string key)
+        {
+            WfActivityDescriptor normalAct = new WfActivityDescriptor(key, WfActivityType.NormalActivity);
+            normalAct.Name = key;
+            normalAct.CodeName = key;
+
+            return normalAct;
+        }
+
         /// <summary>
         /// 创建一个简单的流程定义
         /// </summary>
@@ -151,15 +161,47 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             return startupParams;
         }
 
-        public static IWfProcess MoveToDefaultActivityByExecutor(this IWfProcess process)
+        public static IWfProcess MoveToDefaultActivityByExecutor(this IWfProcess process, bool persist = true)
         {
             WfTransferParams transferParams = WfTransferParams.FromNextDefaultActivity(process);
 
             WfMoveToExecutor executor = new WfMoveToExecutor(process.CurrentActivity, process.CurrentActivity, transferParams);
 
-            executor.Execute();
+            IWfProcess result = process;
 
-            return process;
+            if (persist)
+            {
+                executor.Execute();
+                result = WfRuntime.GetProcessByProcessID(process.ID);
+            }
+            else
+                executor.ExecuteNotPersist();
+
+            return result;
+        }
+
+        public static IWfProcess MoveToReturnActivityByExecutor(this IWfProcess process, bool persist = true)
+        {
+            return MoveToNextActivityByExecutor(process, (toTransitions) => toTransitions.Find(t => t.IsBackward), persist);
+        }
+
+        public static IWfProcess MoveToNextActivityByExecutor(this IWfProcess process, Func<WfTransitionDescriptorCollection, IWfTransitionDescriptor> predicate, bool persist = true)
+        {
+            WfTransferParams transferParams = WfTransferParams.FromNextActivity(process.CurrentActivity.Descriptor, predicate);
+
+            WfMoveToExecutor executor = new WfMoveToExecutor(process.CurrentActivity, process.CurrentActivity, transferParams);
+
+            IWfProcess result = process;
+
+            if (persist)
+            {
+                executor.Execute();
+                result = WfRuntime.GetProcessByProcessID(process.ID);
+            }
+            else
+                executor.ExecuteNotPersist();
+
+            return result;
         }
 
         public static IWfProcess WithdrawByExecutor(this IWfProcess process, bool cancelProcess = false)
@@ -168,7 +210,7 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
 
             executor.Execute();
 
-            return process;
+            return WfRuntime.GetProcessByProcessID(process.ID); ;
         }
 
         public static IWfProcess CancelByExecutor(this IWfProcess process)
@@ -192,6 +234,39 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             DateTime endTime = DateTime.Now;
             Console.WriteLine("结束时间: {0:yyyy-MM-dd HH:mm:ss}", endTime);
             Console.WriteLine("经过时间: {0:#,##0.00}ms", (endTime - startTime).TotalMilliseconds);
+        }
+
+        /// <summary>
+        /// 验证主活动点的Key
+        /// </summary>
+        /// <param name="process"></param>
+        /// <param name="expectedActKeys"></param>
+        public static void ValidateMainStreamActivities(this IWfProcess process, params string[] expectedActKeys)
+        {
+            ValidateMainStreamActivities(process, false, expectedActKeys);
+        }
+
+        /// <summary>
+        /// 验证主活动点的Key
+        /// </summary>
+        /// <param name="activityKeys"></param>
+        public static void ValidateMainStreamActivities(this IWfProcess process, bool includeAllElapsedActivities, params string[] expectedActKeys)
+        {
+            WfMainStreamActivityDescriptorCollection mainStreamActivities = process.GetMainStreamActivities(includeAllElapsedActivities);
+
+            List<string> mainStreamKeys = new List<string>();
+
+            foreach (WfMainStreamActivityDescriptor msActDesp in mainStreamActivities)
+            {
+                string actKey = msActDesp.Activity.Instance.MainStreamActivityKey;
+
+                mainStreamKeys.Add(actKey);
+            }
+
+            Assert.AreEqual(expectedActKeys.Length, mainStreamActivities.Count, "主活动点和预期的个数不符");
+
+            for (int i = 0; i < expectedActKeys.Length; i++)
+                Assert.AreEqual(expectedActKeys[i], mainStreamKeys[i], string.Format("第{0}个主活动的Key不一致", i));
         }
     }
 }

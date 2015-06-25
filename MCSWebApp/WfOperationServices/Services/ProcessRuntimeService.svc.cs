@@ -39,8 +39,9 @@ namespace WfOperationServices.Services
             if (clientStartupParams == null)
                 throw new ApplicationException(Translator.Translate(Define.DefaultCulture, "流程的启动参数不能为空"));
 
-            //设置标准参数
-            clientStartupParams.ApplicationRuntimeParameters["ProcessRequestor"] = clientStartupParams.Creator;
+            //设置标准参数,优先使用外部参数
+            if (!clientStartupParams.ApplicationRuntimeParameters.ContainsKey("ProcessRequestor")) 
+                clientStartupParams.ApplicationRuntimeParameters["ProcessRequestor"] = clientStartupParams.Creator; 
 
             OperationContext.Current.FillContextToOguServiceContext();
 
@@ -91,7 +92,8 @@ namespace WfOperationServices.Services
             if (clientStartupParams == null)
                 throw new ApplicationException(Translator.Translate(Define.DefaultCulture, "流程的启动参数不能为空"));
 
-            //设置标准参数
+            //设置标准参数,优先使用外部参数
+            if (!clientStartupParams.ApplicationRuntimeParameters.ContainsKey("ProcessRequestor")) 
             clientStartupParams.ApplicationRuntimeParameters["ProcessRequestor"] = clientStartupParams.Creator;
 
             OperationContext.Current.FillContextToOguServiceContext();

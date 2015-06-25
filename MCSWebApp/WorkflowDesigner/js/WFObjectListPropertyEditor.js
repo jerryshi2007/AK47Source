@@ -44,19 +44,13 @@ $HGRootNS.ObjectListPropertyEditor.prototype =
 					case "Condition":
 						this._valueInfoElement.innerText += viewObject[i].Expression;
 						break;
-					case "BranchProcessTemplates":
-						this._valueInfoElement.innerText += viewObject[i].Key;
-						break;
-					case "EnterEventExecuteServices":
-						this._valueInfoElement.innerText += viewObject[i].Key;
-						break;
-					case "CancelBeforeExecuteServices":
-						this._valueInfoElement.innerText += viewObject[i].Key;
-						break;
-					case "CancelAfterExecuteServices":
-						this._valueInfoElement.innerText += viewObject[i].Key;
-						break;
-					case "LeaveEventExecuteServices":
+				    case "BranchProcessTemplates":
+				    case "EnterEventExecuteServices":
+				    case "CancelBeforeExecuteServices":
+				    case "CancelAfterExecuteServices":
+				    case "LeaveEventExecuteServices":
+				    case "BeWithdrawnExecuteServices":
+				    case "WithdrawExecuteServices":
 						this._valueInfoElement.innerText += viewObject[i].Key;
 						break;
 					case "ExternalUsers":

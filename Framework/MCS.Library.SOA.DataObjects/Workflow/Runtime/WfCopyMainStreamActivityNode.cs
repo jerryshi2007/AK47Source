@@ -27,6 +27,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             this._IsEndActivity = isEndActivity;
         }
 
+        #region 属性集合
         public WfCopyMainStreamSubActivityNodeCollection ToActivities
         {
             get
@@ -83,6 +84,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                 return this._TemplateActivityDescriptor != null ? this._TemplateActivityDescriptor.Key : string.Empty;
             }
         }
+        #endregion
 
         public void OutputNodeInfo()
         {
@@ -129,9 +131,12 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                     while (templateTransition != null)
                     {
                         IWfActivityDescriptor actDesp = templateTransition.ToActivity;
-                        templateTransition = templateTransition.ToActivity.ToTransitions.Find(t => t.GeneratedByTemplate);
 
-                        actDesp.Instance.Delete();
+                        //如果线的目标活动是动态活动，则删除，否则忽略
+                        if (actDesp.GeneratedByTemplate)
+                            actDesp.Instance.Delete();
+
+                        templateTransition = templateTransition.ToActivity.ToTransitions.Find(t => t.GeneratedByTemplate);
                     }
                 }
 
@@ -172,10 +177,10 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             WfTransitionDescriptor newTransition = (WfTransitionDescriptor)originalActDesp.ToTransitions.AddForwardTransition(clonedActDesp);
 
             //将新添加的线的属性设置为原来线的属性
-            string newKey = newTransition.Key;
+            //string newKey = newTransition.Key;
 
             newTransition.Properties.ReplaceExistedPropertyValues(transitionTemplate.Properties);
-            newTransition.Key = newKey;
+            //newTransition.Key = newKey;
             newTransition.IsBackward = false;
 
             return newTransition;
@@ -232,8 +237,11 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                 {
                     WfTransitionDescriptor clonedTransition = (WfTransitionDescriptor)((WfTransitionDescriptor)subNode.FromTransition).Clone();
 
+                    //沈峥注释，2015-6-25，FindNotUsedTransitionKey应该从实例流程查找
+                    //if (clonedTransition.Key.IsNullOrEmpty())
+                    //    clonedTransition.Key = subNode.ActivityNode.TemplateActivityDescriptor.Process.FindNotUsedTransitionKey();
                     if (clonedTransition.Key.IsNullOrEmpty())
-                        clonedTransition.Key = subNode.ActivityNode.TemplateActivityDescriptor.Process.FindNotUsedTransitionKey();
+                        clonedTransition.Key = endActivity.Process.FindNotUsedTransitionKey();
 
                     if (this.IsEndActivity)
                     {

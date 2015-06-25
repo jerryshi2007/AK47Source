@@ -42,6 +42,10 @@
     <Reference Include="MCS.Library">
       <HintPath>..\..\..\Bin\MCS.Library.dll</HintPath>
     </Reference>
+    <Reference Include="MCS.Library.HtmlParser, Version=0.0.0.0, Culture=neutral, PublicKeyToken=62ea08f894871798, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\MCS.Library.HtmlParser.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Web" />
     <Reference Include="System.XML" />
@@ -65,12 +69,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\basicWithScript.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\MCS.Library.HtmlParser\MCS.Library.HtmlParser.csproj">
-      <Project>{7c4a48d0-dc9d-4f97-ae64-63f7edca4528}</Project>
-      <Name>MCS.Library.HtmlParser</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\basicWithEvents.html" />

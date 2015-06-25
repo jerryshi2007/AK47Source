@@ -308,19 +308,20 @@ namespace MCS.Library.SOA.DataObjects
             }
         }
 
-        public void FillCreateActivityParams(WfCreateActivityParamCollection capc, PropertyDefineCollection definedProperties)
-        {
-            SOARolePropertyDefinitionCollection definitions = null;
+        //沈峥注释掉，2015/6/21.必须提供列定义
+        //public void FillCreateActivityParams(WfCreateActivityParamCollection capc, PropertyDefineCollection definedProperties)
+        //{
+        //    SOARolePropertyDefinitionCollection definitions = null;
 
-            SOARole role = this._Role as SOARole;
+        //    SOARole role = this._Role as SOARole;
 
-            if (role != null)
-                definitions = role.PropertyDefinitions;
-            else
-                definitions = new SOARolePropertyDefinitionCollection();
+        //    if (role != null)
+        //        definitions = role.PropertyDefinitions;
+        //    else
+        //        definitions = new SOARolePropertyDefinitionCollection();
 
-            FillCreateActivityParams(capc, definitions, definedProperties);
-        }
+        //    this.FillCreateActivityParams(capc, definitions, definedProperties);
+        //}
 
         public void FillCreateActivityParams(WfCreateActivityParamCollection capc, SOARolePropertyDefinitionCollection definitions, PropertyDefineCollection definedProperties)
         {
