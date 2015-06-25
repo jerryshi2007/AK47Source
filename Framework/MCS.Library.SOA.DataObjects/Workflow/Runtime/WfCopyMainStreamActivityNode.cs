@@ -150,13 +150,23 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                 if (lastTransition != null)
                     lastActDesp = lastTransition.ToActivity;
 
+                string entryTransitionKey = (lastTransition != null) ? lastTransition.Key : string.Empty;
+
                 //将第一个克隆的活动与原流程的某一个活动关联。
                 //保留退回线
                 IList<IWfTransitionDescriptor> originalBackwardTransitions = activityToAppend.ToTransitions.FindAll(t => t.IsBackward);
 
                 activityToAppend.ToTransitions.Clear();
 
-                activityToAppend.ToTransitions.CopyFrom(originalBackwardTransitions);
+                foreach (WfTransitionDescriptor t in originalBackwardTransitions)
+                {
+                    WfTransitionDescriptor newBackwardTransition = (WfTransitionDescriptor)t.Clone();
+
+                    newBackwardTransition.Key = activityToAppend.Process.FindNotUsedTransitionKey();
+                    activityToAppend.ToTransitions.AddTransition(t.ToActivity, newBackwardTransition);
+                }
+
+                //activityToAppend.ToTransitions.CopyFrom(originalBackwardTransitions);
 
                 IWfTransitionDescriptor newTransition = JoinOriginalActivityToClonedActivity(activityToAppend, clonedActDesp, lastTransition);
 
@@ -178,10 +188,10 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
             //将新添加的线的属性设置为原来线的属性
             //string newKey = newTransition.Key;
-
             newTransition.Properties.ReplaceExistedPropertyValues(transitionTemplate.Properties);
             //newTransition.Key = newKey;
             newTransition.IsBackward = false;
+            newTransition.DefaultSelect = true;
 
             return newTransition;
         }

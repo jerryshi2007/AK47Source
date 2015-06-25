@@ -467,22 +467,6 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
 
             process = OutputAndAssertProcessInfo(process, "退回到第一个动态活动", (p) => p.MoveToReturnActivityByExecutor());
 
-            ////到第二个动态活动
-            //process = process.MoveToDefaultActivityByExecutor();
-
-            ////到第三个动态活动
-            //process = process.MoveToDefaultActivityByExecutor();
-
-            ////退回到起始点
-            ////ReturnExecutorTestHelper.ExecuteReturnOperation(process.CurrentActivity, process.InitialActivity.Descriptor.Key);
-            //process = process.MoveToDefaultActivityByExecutor();
-
-            //Console.WriteLine(process.CurrentActivity.Descriptor.Key);
-            //Console.WriteLine(process.CompletedActivity.Descriptor.FromTransitions.GetAllCanTransitForwardTransitions().Count);
-
-            //process.OutputMainStream();
-            //process.OutputEveryActivities();
-
             //Assert.AreEqual(1, process.CompletedActivity.Descriptor.FromTransitions.GetAllCanTransitForwardTransitions().Count,
             //    "结束点应该只有一条有效的入线s");
 
