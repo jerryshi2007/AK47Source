@@ -878,7 +878,7 @@ namespace MCS.Web.WebControls
 					result = originalActivity.Process.Status == WfProcessStatus.Running &&
 							originalActivity.Status == WfActivityStatus.Running &&
 							string.IsNullOrEmpty(levelName) == false &&
-							(levelName == actDesp.Key || levelName == actDesp.AssociatedActivityKey);
+                            (levelName == actDesp.Key || levelName == actDesp.Instance.MainStreamActivityKey || levelName == actDesp.AssociatedActivityKey);
 
 					if (result)
 						result = WfClientContext.Current.InMoveToMode;

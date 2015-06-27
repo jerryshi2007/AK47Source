@@ -234,12 +234,12 @@ namespace MCS.Web.WebControls
 			return processUl;
 		}
 
-		private List<HtmlGenericControl> GetProcessActivitiesLi(IEnumerable<IWfMainStreamActivityDescriptor> actDescs, string currActKey, bool islastProcess)
+		private List<HtmlGenericControl> GetProcessActivitiesLi(IEnumerable<IWfMainStreamActivityDescriptor> mainActDesps, string currActKey, bool islastProcess)
 		{
 			List<HtmlGenericControl> processActsLi = new List<HtmlGenericControl>();
 			int i = 0;
 
-			foreach (var act in actDescs)
+            foreach (IWfMainStreamActivityDescriptor mainActDesp in mainActDesps)
 			{
 				HtmlGenericControl activityLi = new HtmlGenericControl("li");
 				HtmlGenericControl activityNameSpan = new HtmlGenericControl("span");
@@ -247,37 +247,43 @@ namespace MCS.Web.WebControls
 				activityNameSpan.InnerText = string.Empty;
 				activityNameSpan.Style["vertical-align"] = "middle";
 
-				IWfActivity wfActivity = act.Activity.ProcessInstance.Activities.FindActivityByDescriptorKey(act.Activity.Key);
+				IWfActivity wfActivity = mainActDesp.Activity.ProcessInstance.Activities.FindActivityByDescriptorKey(mainActDesp.Activity.Key);
 
 				activityLi.Attributes["activityId"] = wfActivity.ID;
 
-				if (!(act.Activity.ActivityType == WfActivityType.CompletedActivity))
+				if (mainActDesp.Activity.ActivityType != WfActivityType.CompletedActivity)
 				{
-					Control activityDisplayControl = GetActivityDisplayControl(act);
+					Control activityDisplayControl = GetActivityDisplayControl(mainActDesp);
 
 					if (activityDisplayControl != null)
 						activityNameSpan.Controls.Add(activityDisplayControl);
 
-					activityNameSpan.Attributes["title"] = GetActivityTooltipText(act);
-					if (act.Activity.Key == currActKey || act.Activity.AssociatedActivityKey == currActKey)
+					activityNameSpan.Attributes["title"] = GetActivityTooltipText(mainActDesp);
+
+                    if (mainActDesp.Activity.Key == currActKey || mainActDesp.Activity.Instance.MainStreamActivityKey == currActKey || mainActDesp.Activity.AssociatedActivityKey == currActKey)
 					{
 						activityNameSpan.Attributes["class"] = "currActivity";
 					}
 					else
 					{
-						string actkey = act.Activity.Key;
-						string trueKey = act.Activity.Key;
+                        if (mainActDesp.Elapsed)
+                            activityNameSpan.Style["background-color"] = "yellow";
+                        else
+                            activityNameSpan.Attributes["class"] = "normalAvtivity";
 
-						if (act.Activity.GetAssociatedActivity() != null)
-							actkey = act.Activity.GetAssociatedActivity().Key;
+                        //string actkey = mainActDesp.Activity.Key;
+                        //string trueKey = mainActDesp.Activity.Key;
 
-						if (act.Activity.ProcessInstance.Activities.FindActivityByDescriptorKey(trueKey).Status == WfActivityStatus.Completed
-							|| act.Activity.ProcessInstance.Activities.FindActivityByDescriptorKey(actkey).Status == WfActivityStatus.Completed)
-						{
-							activityNameSpan.Style["background-color"] = "yellow";
-						}
+                        //if (mainActDesp.Activity.GetAssociatedActivity() != null)
+                        //    actkey = mainActDesp.Activity.GetAssociatedActivity().Key;
 
-						activityNameSpan.Attributes["class"] = "normalAvtivity";
+                        //if (mainActDesp.Activity.ProcessInstance.Activities.FindActivityByDescriptorKey(trueKey).Status == WfActivityStatus.Completed
+                        //    || mainActDesp.Activity.ProcessInstance.Activities.FindActivityByDescriptorKey(actkey).Status == WfActivityStatus.Completed)
+                        //{
+                        //    activityNameSpan.Style["background-color"] = "yellow";
+                        //}
+
+                        //activityNameSpan.Attributes["class"] = "normalAvtivity";
 					}
 
 					activityLi.Controls.Add(activityNameSpan);
@@ -288,7 +294,7 @@ namespace MCS.Web.WebControls
 				}
 				else
 				{
-					activityNameSpan.InnerText = act.Activity.Name;
+					activityNameSpan.InnerText = mainActDesp.Activity.Name;
 					HtmlGenericControl imgLi = new HtmlGenericControl("li");
 					HtmlGenericControl imgSpan = new HtmlGenericControl("span");
 					imgSpan.Attributes["class"] = "normalAvtivity";

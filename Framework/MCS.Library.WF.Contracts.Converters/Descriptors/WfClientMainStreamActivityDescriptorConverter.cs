@@ -54,6 +54,7 @@ namespace MCS.Library.WF.Contracts.Converters.Descriptors
             if (actInstance != null)
             {
                 client.Status = actInstance.Status.ToClientActivityStatus();
+                client.Elapsed = server.Elapsed;
                 client.ActivityInstanceID = actInstance.ID;
                 client.Operator = (WfClientUser)actInstance.Operator.ToClientOguObject();
                 client.BranchProcessGroupsCount = actInstance.BranchProcessGroups.Count;

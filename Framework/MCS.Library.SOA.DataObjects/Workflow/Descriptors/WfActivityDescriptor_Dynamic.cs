@@ -114,10 +114,10 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                 cap.Template.Variables.Clear();
                 cap.Template.Variables.CopyFrom(templateActDesp.Variables);
 
-                cap.Template.EnterEventReceivers.Clear();
+                //cap.Template.EnterEventReceivers.Clear();
                 cap.Template.EnterEventReceivers.CopyFrom(templateActDesp.EnterEventReceivers);
 
-                cap.Template.LeaveEventReceivers.Clear();
+                //cap.Template.LeaveEventReceivers.Clear();
                 cap.Template.LeaveEventReceivers.CopyFrom(templateActDesp.LeaveEventReceivers);
 
                 cap.Template.EnterEventExecuteServices.Clear();

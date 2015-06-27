@@ -23,6 +23,7 @@ namespace MCS.Library.WF.Contracts.Json.Converters
             result.Activity = JSONSerializerExecute.Deserialize<WfClientActivityDescriptor>(dictionary.GetValue("activity", (object)null));
             result.ActivityInstanceID = dictionary.GetValue("activityInstanceID", string.Empty);
             result.Level = dictionary.GetValue("level", 0);
+            result.Elapsed = dictionary.GetValue("elapsed", false);
             result.BranchProcessGroupsCount = dictionary.GetValue("branchProcessGroupsCount", 0);
             result.Status = dictionary.GetValue("status", WfClientActivityStatus.NotRunning);
             result.Operator = JSONSerializerExecute.Deserialize<WfClientUser>(dictionary.GetValue("operator", (object)null));
@@ -43,6 +44,7 @@ namespace MCS.Library.WF.Contracts.Json.Converters
 
             dictionary.AddNonDefaultValue("activityInstanceID", clientMSActDesp.ActivityInstanceID);
             dictionary.AddNonDefaultValue("level", clientMSActDesp.Level);
+            dictionary.AddNonDefaultValue("elapsed", clientMSActDesp.Elapsed);
             dictionary.AddNonDefaultValue("activity", clientMSActDesp.Activity);
             dictionary.AddNonDefaultValue("branchProcessGroupsCount", clientMSActDesp.BranchProcessGroupsCount);
             dictionary["status"] = clientMSActDesp.Status;

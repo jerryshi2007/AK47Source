@@ -16,6 +16,8 @@ namespace MCS.Library.SOA.DataObjects
     [Serializable]
     public class SOARolePropertyRowCollection : TableRowCollectionBase<SOARolePropertyRow, SOARolePropertyDefinition, SOARolePropertyValue, SOARolePropertyValueCollection, string>
     {
+        private readonly static List<string> _EmptyStringList = new List<string>();
+
         private IRole _Role = null;
 
         /// <summary>
@@ -201,13 +203,16 @@ namespace MCS.Library.SOA.DataObjects
                 {
                     SOARolePropertyRowUsers rowUsers = new SOARolePropertyRowUsers(row);
 
-                    rowUsers.ObjectIDs = GenerateObjectIDs(row);
+                    rowUsers.ObjectIDs = GenerateObjectIDs(row, (r) => r.Operator);
 
                     result.Add(rowUsers);
                 }
             }
 
-            FillPersonTypeUsers(result);
+            FillPersonTypeUsers(result,
+                (rowUsers) => rowUsers.ObjectIDs,
+                (rowUsers) => rowUsers.Row.OperatorType,
+                (rowUsers, userDicts) => FillMatchedUsers(rowUsers.ObjectIDs, userDicts, rowUsers.Users));
 
             return result;
         }
@@ -258,19 +263,46 @@ namespace MCS.Library.SOA.DataObjects
                 {
                     SOARolePropertyRowUsers rowUsers = new SOARolePropertyRowUsers(row);
 
-                    rowUsers.ObjectIDs = GenerateObjectIDs(row);
+                    rowUsers.ObjectIDs = GenerateObjectIDs(row, r => r.Operator);
+                    rowUsers.EnterNotifyIDs = GenerateObjectIDs(row, r => r.Values.GetValue(SOARolePropertyDefinition.EnterNotifyReceiverColumn, string.Empty));
+                    rowUsers.LeaveNotifyIDs = GenerateObjectIDs(row, r => r.Values.GetValue(SOARolePropertyDefinition.LeaveNotifyReceiverColumn, string.Empty));
 
                     result.Add(rowUsers);
                 }
             }
 
-            FillPersonTypeUsers(result);
-            FillRoleTypeUsers(result);
+            FillPersonTypeUsers(result,
+                (rowUsers) => rowUsers.ObjectIDs,
+                (rowUsers) => rowUsers.Row.OperatorType,
+                (rowUsers, userDicts) => FillMatchedUsers(rowUsers.ObjectIDs, userDicts, rowUsers.Users));
+
+            FillRoleTypeUsers(result,
+                (rowUsers) => rowUsers.Row.OperatorType,
+                (rowUsers) => rowUsers.Row.Operator,
+                (rowUsers, user) => rowUsers.Users.AddNotExistsItem(user, u => string.Compare(u.ID, user.ID, true) == 0));
+
+            FillPersonTypeUsers(result,
+                (rowUsers) => rowUsers.EnterNotifyIDs,
+                (rowUsers) => rowUsers.Row.Values.GetValue(SOARolePropertyDefinition.EnterNotifyReceiverTypeColumn, SOARoleOperatorType.User),
+                (rowUsers, userDicts) => FillMatchedUsers(rowUsers.EnterNotifyIDs, userDicts, rowUsers.EnterNotifyUsers));
+
+            FillRoleTypeUsers(result,
+                (rowUsers) => rowUsers.Row.Values.GetValue(SOARolePropertyDefinition.EnterNotifyReceiverTypeColumn, SOARoleOperatorType.Role),
+                (rowUsers) => rowUsers.Row.Values.GetValue(SOARolePropertyDefinition.EnterNotifyReceiverColumn, string.Empty),
+                (rowUsers, user) => rowUsers.EnterNotifyUsers.AddNotExistsItem(user, u => string.Compare(u.ID, user.ID, true) == 0));
+
+            FillPersonTypeUsers(result,
+                (rowUsers) => rowUsers.LeaveNotifyIDs,
+                (rowUsers) => rowUsers.Row.Values.GetValue(SOARolePropertyDefinition.LeaveNotifyReceiverTypeColumn, SOARoleOperatorType.User),
+                (rowUsers, userDicts) => FillMatchedUsers(rowUsers.LeaveNotifyIDs, userDicts, rowUsers.LeaveNotifyUsers));
+
+            FillRoleTypeUsers(result,
+                (rowUsers) => rowUsers.Row.Values.GetValue(SOARolePropertyDefinition.LeaveNotifyReceiverTypeColumn, SOARoleOperatorType.Role),
+                (rowUsers) => rowUsers.Row.Values.GetValue(SOARolePropertyDefinition.LeaveNotifyReceiverColumn, string.Empty),
+                (rowUsers, user) => rowUsers.LeaveNotifyUsers.AddNotExistsItem(user, u => string.Compare(u.ID, user.ID, true) == 0));
 
             result.SortByActivitySN();
             result.RemoveMergeableRows();
-
-            //this.SortActivitySN();
 
             return result;
         }
@@ -417,77 +449,130 @@ namespace MCS.Library.SOA.DataObjects
                 cap.TransitionTemplates.FromJson(json);
         }
 
+        ///// <summary>
+        ///// 在SOARolePropertyRowUsersCollection中填充人员
+        ///// </summary>
+        ///// <param name="existedRowsUsers"></param>
+        //private static void FillPersonTypeUsers(SOARolePropertyRowUsersCollection existedRowsUsers)
+        //{
+        //    List<string> userLogonNames = new List<string>();
+
+        //    foreach (SOARolePropertyRowUsers rowUsers in existedRowsUsers)
+        //        rowUsers.ObjectIDs.ForEach(logonName => userLogonNames.Add(logonName));
+
+        //    Dictionary<string, IUser> userDicts = GetUsersDictionary(userLogonNames);
+        //    foreach (SOARolePropertyRowUsers rowUsers in existedRowsUsers)
+        //    {
+        //        if (rowUsers.Row.OperatorType == SOARoleOperatorType.User)
+        //        {
+        //            foreach (string id in rowUsers.ObjectIDs)
+        //            {
+        //                IUser user = null;
+        //                if (userDicts.TryGetValue(id, out user))
+        //                    rowUsers.Users.Add((IUser)OguUser.CreateWrapperObject(user));
+        //            }
+        //        }
+        //    }
+        //}
+
         /// <summary>
         /// 在SOARolePropertyRowUsersCollection中填充人员
         /// </summary>
         /// <param name="existedRowsUsers"></param>
-        private static void FillPersonTypeUsers(SOARolePropertyRowUsersCollection existedRowsUsers)
+        /// <param name="getLogonNames"></param>
+        /// <param name="predicate"></param>
+        /// <param name="action"></param>
+        private static void FillPersonTypeUsers(SOARolePropertyRowUsersCollection existedRowsUsers,
+            Func<SOARolePropertyRowUsers,
+            IEnumerable<string>> getLogonNames,
+            Func<SOARolePropertyRowUsers, SOARoleOperatorType> predicate,
+            Action<SOARolePropertyRowUsers, Dictionary<string, IUser>> action)
         {
-            Dictionary<string, string> userIDs = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+            List<string> userLogonNames = new List<string>();
+
+            //foreach (SOARolePropertyRowUsers rowUsers in existedRowsUsers)
+            //    rowUsers.ObjectIDs.ForEach(logonName => userLogonNames.Add(logonName));
+            foreach (SOARolePropertyRowUsers rowUsers in existedRowsUsers)
+                getLogonNames(rowUsers).ForEach(logonName => userLogonNames.Add(logonName));
+
+            Dictionary<string, IUser> userDicts = GetUsersDictionary(userLogonNames);
 
             foreach (SOARolePropertyRowUsers rowUsers in existedRowsUsers)
             {
-                if (rowUsers.Row.OperatorType == SOARoleOperatorType.User)
-                {
-                    foreach (string id in rowUsers.ObjectIDs)
-                        userIDs[id] = id;
-                }
+                if (predicate(rowUsers) == SOARoleOperatorType.User)
+                    action(rowUsers, userDicts);
             }
+        }
 
-            List<string> logonNames = new List<string>();
+        private static void FillMatchedUsers(IEnumerable<string> objectIDs, Dictionary<string, IUser> userDicts, OguDataCollection<IUser> target)
+        {
+            foreach (string id in objectIDs)
+            {
+                IUser user = null;
+                if (userDicts.TryGetValue(id, out user))
+                    target.Add((IUser)OguUser.CreateWrapperObject(user));
+            }
+        }
 
-            foreach (KeyValuePair<string, string> kp in userIDs)
-                logonNames.Add(kp.Key);
+        /// <summary>
+        /// 根据用户的登录名，去除重复的数据，生成登录名和用户对象的字典
+        /// </summary>
+        /// <param name="userLogonNames"></param>
+        /// <returns></returns>
+        private static Dictionary<string, IUser> GetUsersDictionary(IEnumerable<string> userLogonNames)
+        {
+            Dictionary<string, string> userLogonNamesDict = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
 
-            OguObjectCollection<IUser> users = OguMechanismFactory.GetMechanism().GetObjects<IUser>(SearchOUIDType.LogOnName, logonNames.ToArray());
+            foreach (string logonName in userLogonNames)
+                userLogonNamesDict[logonName] = logonName;
+
+            OguObjectCollection<IUser> users = OguMechanismFactory.GetMechanism().GetObjects<IUser>(SearchOUIDType.LogOnName, userLogonNamesDict.Keys.ToArray());
 
             if (WfRuntime.ProcessContext.CurrentProcess != null)
                 users = users.FilterUniqueSidelineUsers(WfRuntime.ProcessContext.CurrentProcess.OwnerDepartment);
 
-            Dictionary<string, IUser> userDicts = GenerateUserDictionary(users);
-
-            foreach (SOARolePropertyRowUsers rowUsers in existedRowsUsers)
-            {
-                if (rowUsers.Row.OperatorType == SOARoleOperatorType.User)
-                {
-                    foreach (string id in rowUsers.ObjectIDs)
-                    {
-                        IUser user = null;
-                        if (userDicts.TryGetValue(id, out user))
-                            rowUsers.Users.Add((IUser)OguUser.CreateWrapperObject(user));
-                    }
-                }
-            }
+            return GenerateUserDictionary(users);
         }
 
         /// <summary>
         /// 在SOARolePropertyRowUsersCollection中填充角色中的人员
         /// </summary>
         /// <param name="existedRowsUsers"></param>
-        private void FillRoleTypeUsers(SOARolePropertyRowUsersCollection existedRowsUsers)
+        /// <param name="getType"></param>
+        /// <param name="getOp"></param>
+        /// <param name="action"></param>
+        private void FillRoleTypeUsers(SOARolePropertyRowUsersCollection existedRowsUsers, Func<SOARolePropertyRowUsers, SOARoleOperatorType> getType, Func<SOARolePropertyRowUsers, string> getOp, Action<SOARolePropertyRowUsers, IUser> action)
         {
             foreach (SOARolePropertyRowUsers rowUsers in existedRowsUsers)
             {
                 OguDataCollection<IUser> users = new OguDataCollection<IUser>();
 
-                switch (rowUsers.Row.OperatorType)
-                {
-                    case SOARoleOperatorType.Role:
-                        if (rowUsers.Row.Operator.IndexOf(":") < 0)
-                            SOARolePropertyRow.FillInternalDynamicRoleUsers(rowUsers.Row.Operator, users);
-                        else
-                            FillRoleUsers(rowUsers.Row.Operator, users);
-                        break;
-                    case SOARoleOperatorType.AURole:
-                        FillAURoleUsers(rowUsers.Row.Operator, users);
-                        break;
-                }
+                FillRoleTypeOperatorToUsers(getType(rowUsers), getOp(rowUsers), users);
 
                 foreach (IUser userInRole in users)
-                {
-                    if (rowUsers.Users.Exists(u => string.Compare(u.ID, userInRole.ID, true) == 0) == false)
-                        rowUsers.Users.Add(userInRole);
-                }
+                    action(rowUsers, userInRole);
+            }
+        }
+
+        /// <summary>
+        /// 将角色类型的操作人填充到用户集合中
+        /// </summary>
+        /// <param name="users"></param>
+        /// <param name="operatorType"></param>
+        /// <param name="operatorDesp"></param>
+        private static void FillRoleTypeOperatorToUsers(SOARoleOperatorType operatorType, string operatorDesp, OguDataCollection<IUser> users)
+        {
+            switch (operatorType)
+            {
+                case SOARoleOperatorType.Role:
+                    if (operatorDesp.IndexOf(":") < 0)
+                        SOARolePropertyRow.FillInternalDynamicRoleUsers(operatorDesp, users);
+                    else
+                        FillRoleUsers(operatorDesp, users);
+                    break;
+                case SOARoleOperatorType.AURole:
+                    FillAURoleUsers(operatorDesp, users);
+                    break;
             }
         }
 
@@ -530,9 +615,16 @@ namespace MCS.Library.SOA.DataObjects
             return result;
         }
 
-        private static List<string> GenerateObjectIDs(SOARolePropertyRow row)
+        private static List<string> GenerateObjectIDs(SOARolePropertyRow row, Func<SOARolePropertyRow, string> getUserID)
         {
-            return SOARolePropertyRow.GenerateObjectIDs(row.Operator);
+            List<string> result = _EmptyStringList;
+
+            string userIDs = getUserID(row);
+
+            if (userIDs.IsNotEmpty())
+                result = SOARolePropertyRow.GenerateObjectIDs(userIDs);
+
+            return result;
         }
 
         protected override void OnInsert(int index, object value)

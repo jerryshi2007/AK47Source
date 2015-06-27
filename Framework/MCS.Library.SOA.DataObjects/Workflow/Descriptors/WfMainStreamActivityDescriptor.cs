@@ -18,6 +18,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 		private WfAssociatedActivitiesDescriptorCollection _AssociatedActivities = null;
 		private readonly IWfActivityDescriptor _SourceActivity = null;
 		private int _Level = 0;
+        private bool _Elapsed = false;
 
 		internal WfMainStreamActivityDescriptor(IWfActivityDescriptor sourceActDesp)
 		{
@@ -45,6 +46,9 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 			}
 		}
 
+        /// <summary>
+        /// 根据连线遍历时的活动的层级
+        /// </summary>
 		public int Level
 		{
 			get
@@ -56,6 +60,21 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 				this._Level = value;
 			}
 		}
+
+        /// <summary>
+        /// 这个活动是否执行过
+        /// </summary>
+        public bool Elapsed
+        {
+            get
+            {
+                return this._Elapsed;
+            }
+            internal set
+            {
+                this._Elapsed = value;
+            }
+        }
 		#endregion
 	}
 

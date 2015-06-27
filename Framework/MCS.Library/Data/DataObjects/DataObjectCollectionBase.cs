@@ -523,6 +523,24 @@ namespace MCS.Library.Data.DataObjects
         }
 
         /// <summary>
+        /// 增加不存在的数据（已经存在的将被忽略）
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="predicate"></param>
+        /// <returns>是否增加了数据</returns>
+        public virtual bool AddNotExistsItem(T data, Predicate<T> predicate)
+        {
+            data.NullCheck("data");
+
+            bool needToAdd = predicate == null || this.Exists(predicate) == false;
+
+            if (needToAdd)
+                this.Add(data);
+
+            return needToAdd;
+        }
+
+        /// <summary>
         /// 读写对象
         /// </summary>
         /// <param name="index"></param>

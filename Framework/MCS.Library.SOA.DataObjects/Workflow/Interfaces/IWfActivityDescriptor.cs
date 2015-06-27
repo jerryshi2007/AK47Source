@@ -489,5 +489,13 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         {
             get;
         }
+
+        /// <summary>
+        /// 这个活动是否经过
+        /// </summary>
+        bool Elapsed
+        {
+            get;
+        }
     }
 }

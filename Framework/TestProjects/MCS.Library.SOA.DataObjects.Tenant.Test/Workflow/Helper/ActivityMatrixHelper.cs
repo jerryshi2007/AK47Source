@@ -159,6 +159,10 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = "Age", SortOrder = 7, DataType = ColumnDataType.Integer });
             propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = SOARolePropertyDefinition.OperatorTypeColumn, SortOrder = 8, DataType = ColumnDataType.String });
             propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = SOARolePropertyDefinition.OperatorColumn, SortOrder = 9, DataType = ColumnDataType.String });
+            propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = SOARolePropertyDefinition.EnterNotifyReceiverTypeColumn, SortOrder = 10, DataType = ColumnDataType.String });
+            propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = SOARolePropertyDefinition.EnterNotifyReceiverColumn, SortOrder = 11, DataType = ColumnDataType.String });
+            propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = SOARolePropertyDefinition.LeaveNotifyReceiverTypeColumn, SortOrder = 12, DataType = ColumnDataType.String });
+            propertiesDefinition.Add(new SOARolePropertyDefinition() { Name = SOARolePropertyDefinition.LeaveNotifyReceiverColumn, SortOrder = 13, DataType = ColumnDataType.String });
 
             return propertiesDefinition;
         }
@@ -282,6 +286,12 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.OperatorTypeColumn]) { Value = "User" });
             row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.OperatorColumn]) { Value = "fanhy" });
 
+            row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.EnterNotifyReceiverTypeColumn]) { Value = "User" });
+            row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.EnterNotifyReceiverColumn]) { Value = "wangli5" });
+
+            row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.LeaveNotifyReceiverTypeColumn]) { Value = "Role" });
+            row1.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.LeaveNotifyReceiverColumn]) { Value = RolesDefineConfig.GetConfig().RolesDefineCollection["notifyRole"].Roles });
+
             //SOARolePropertyRow row2 = new SOARolePropertyRow() { RowNumber = 2, OperatorType = SOARoleOperatorType.User, Operator = "wangli5" };
 
             //row2.Values.Add(new SOARolePropertyValue(pds["CostCenter"]) { Value = "1002" });
@@ -316,6 +326,12 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper
             row4.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.ActivityNameColumn]) { Value = "二级审批" });
             row4.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.OperatorTypeColumn]) { Value = "User" });
             row4.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.OperatorColumn]) { Value = "quym" });
+
+            row4.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.EnterNotifyReceiverTypeColumn]) { Value = "Role" });
+            row4.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.EnterNotifyReceiverColumn]) { Value = RolesDefineConfig.GetConfig().RolesDefineCollection["notifyRole"].Roles });
+
+            row4.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.LeaveNotifyReceiverTypeColumn]) { Value = "User" });
+            row4.Values.Add(new SOARolePropertyValue(pds[SOARolePropertyDefinition.LeaveNotifyReceiverColumn]) { Value = "wangli5" });
 
             SOARolePropertyRow row5 = new SOARolePropertyRow() { RowNumber = 5, OperatorType = SOARoleOperatorType.User, Operator = "invalidUser" };
 

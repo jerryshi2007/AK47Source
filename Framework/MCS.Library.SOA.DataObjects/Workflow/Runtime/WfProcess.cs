@@ -1711,6 +1711,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
                 //当后面有同样的环节后，用后面的环节覆盖前面已经存在的主线活动
                 IWfMainStreamActivityDescriptor existedMSActivity = msActivities[actArgs.ActivityDescriptor.Key];
+
                 if (existedMSActivity != null)
                 {
                     if (existedMSActivity.Level < msActivity.Level)
@@ -1812,7 +1813,14 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                 IWfActivity matchedActivity = FindMatchedInstanceActivity(matchedActivities);
 
                 if (matchedActivity != null)
-                    result.Add(new WfMainStreamActivityDescriptor(matchedActivity.Descriptor));
+                {
+                    WfMainStreamActivityDescriptor resultMSActivity = new WfMainStreamActivityDescriptor(matchedActivity.Descriptor);
+
+                    resultMSActivity.Elapsed = matchedActivities.Exists(activity => activity.Status == WfActivityStatus.Completed ||
+                        activity.Status == WfActivityStatus.Aborted);
+
+                    result.Add(resultMSActivity);
+                }
             }
 
             return result;

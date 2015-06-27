@@ -35,6 +35,30 @@ namespace MCS.Library.SOA.DataObjects
 		}
 
 		internal List<string> ObjectIDs = null;
+
+        internal List<string> EnterNotifyIDs = null;
+
+        internal List<string> LeaveNotifyIDs = null;
+
+        private OguDataCollection<IUser> _EnterNotifyUsers = new OguDataCollection<IUser>();
+
+        public OguDataCollection<IUser> EnterNotifyUsers
+        {
+            get
+            {
+                return this._EnterNotifyUsers;
+            }
+        }
+
+        private OguDataCollection<IUser> _LeaveNotifyUsers = new OguDataCollection<IUser>();
+
+        public OguDataCollection<IUser> LeaveNotifyUsers
+        {
+            get
+            {
+                return this._LeaveNotifyUsers;
+            }
+        }
 	}
 
 	[Serializable]

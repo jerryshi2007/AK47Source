@@ -31,6 +31,10 @@ namespace MCS.Library.SOA.DataObjects
         public const string AutoExtractColumn = "AutoExtract";
         public const string ConditionColumn = "Condition";
         public const string TransitionsColumn = "Transitions";
+        public const string EnterNotifyReceiverTypeColumn = "EnterNotifyReceiverType";
+        public const string EnterNotifyReceiverColumn = "EnterNotifyReceiver";
+        public const string LeaveNotifyReceiverTypeColumn = "LeaveNotifyReceiverType";
+        public const string LeaveNotifyReceiverColumn = "LeaveNotifyReceiver";
 
         private static readonly string[] ActivityMatrixReservedPropertyNames = new string[] {
             SOARolePropertyDefinition.OperatorTypeColumn, 
@@ -41,7 +45,11 @@ namespace MCS.Library.SOA.DataObjects
             SOARolePropertyDefinition.AutoExtractColumn,
             SOARolePropertyDefinition.IsMergeableColumn,
             SOARolePropertyDefinition.ConditionColumn,
-            SOARolePropertyDefinition.TransitionsColumn
+            SOARolePropertyDefinition.TransitionsColumn,
+            SOARolePropertyDefinition.EnterNotifyReceiverTypeColumn,
+            SOARolePropertyDefinition.EnterNotifyReceiverColumn,
+            SOARolePropertyDefinition.LeaveNotifyReceiverTypeColumn,
+            SOARolePropertyDefinition.LeaveNotifyReceiverColumn
         };
 
         private static readonly string[] RoleMatrixReservedPropertyNames = new string[] {

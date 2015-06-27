@@ -39,7 +39,19 @@ namespace MCS.Library.WF.Contracts.Workflow.Descriptors
             set;
         }
 
+        /// <summary>
+        /// 根据连线遍历时的活动的层级
+        /// </summary>
         public int Level
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 这个活动是否执行过
+        /// </summary>
+        public bool Elapsed
         {
             get;
             set;

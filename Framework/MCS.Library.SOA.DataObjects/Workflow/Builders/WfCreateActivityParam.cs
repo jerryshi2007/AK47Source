@@ -46,6 +46,8 @@ namespace MCS.Library.SOA.DataObjects.Workflow.Builders
             InitActivityTemplateProperties(cap, definitions, rowUsers.Row);
 
             rowUsers.Users.ForEach(u => cap.Template.Resources.Add(new WfUserResourceDescriptor(u)));
+            rowUsers.EnterNotifyUsers.ForEach(u => cap.Template.EnterEventReceivers.Add(new WfUserResourceDescriptor(u)));
+            rowUsers.LeaveNotifyUsers.ForEach(u => cap.Template.LeaveEventReceivers.Add(new WfUserResourceDescriptor(u)));
 
             return cap;
         }
