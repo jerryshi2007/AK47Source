@@ -20,13 +20,12 @@ namespace MCS.Library.SOA.DataObjects.Workflow.Actions
 
         public void PersistAction(WfActionParams actionParams)
         {
-            if (null != actionParams.Context.StatusChangedProcesses)
+            if (actionParams.Context.StatusChangedProcesses != null)
             {
                 List<object> result = new List<object>();
+
                 actionParams.Context.StatusChangedProcesses.ForEach(p =>
                 {
-                    string tenantCode = p.ApplicationRuntimeParameters.GetValue(UserTaskServicePlugin._TenantCode, string.Empty);
-                    string mailCollector = p.ApplicationRuntimeParameters.GetValue(UserTaskServicePlugin._MailCollector, string.Empty);
                     result.Add(new
                     {
                         ProcessId = p.ID,
@@ -36,17 +35,13 @@ namespace MCS.Library.SOA.DataObjects.Workflow.Actions
                         CreatorId = p.Creator.ID,
                         CreatorName = p.Creator.DisplayName,
                         Created = p.StartTime,
-                        TenantCode = tenantCode,
-                        EmailCollector = mailCollector
+                        TenantCode = p.ApplicationRuntimeParameters.GetValue(UserTaskServicePlugin._TenantCode, string.Empty),
+                        EmailCollector = p.ApplicationRuntimeParameters.GetValue(UserTaskServicePlugin._MailCollector, string.Empty)
                     });
                 });
 
                 if (result.Count >= 0)
-                {
-                    JavaScriptSerializer serializer = new JavaScriptSerializer();
-                    UserTaskServicePluginBroker.Instance.SyncProcess(serializer.Serialize(result));
-                }
-                    
+                    UserTaskServicePluginBroker.Instance.SyncProcess(JSONSerializerExecute.Serialize(result));
             }
         }
 

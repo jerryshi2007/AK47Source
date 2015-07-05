@@ -35,13 +35,13 @@ namespace MCS.Library.SOA.DataObjects.Workflow.Importers
 
                 WfProcessImporterContext context = new WfProcessImporterContext(packageParts);
 
-                notifyEveryStep.Notify(string.Format("	共发现{0}个矩阵定义，{1}个矩阵数据，{2}个流程模板文件...\n",
+                notifyEveryStep.Notify(string.Format("	共发现{0}个矩阵定义，{1}个流程矩阵数据，{2}个流程模板文件...\n",
                     context.MatrixDefParts.Count, context.MatrixParts.Count, context.ProcessDescParts.Count));
 
                 using (TransactionScope scope = TransactionScopeFactory.Create())
                 {
                     SaveMatrix(context);
-                    notifyEveryStep.Notify("	导入矩阵完成...\n");
+                    notifyEveryStep.Notify("	导入流程矩阵完成...\n");
 
                     result = SaveProcessDescriptor(context);
                     notifyEveryStep.Notify("	导入流程模板完成...\n");

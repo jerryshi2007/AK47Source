@@ -35,11 +35,13 @@ namespace OpenAndSaveExcelTest
                     Table table = sheet.Tables[0];
 
                     table.FillData(dt.DefaultView);
-                    //table.FillData(dt.DefaultView, (cell, cellParameters) =>
-                    //{
-                    //    cell.Value = cellParameters.PropertyValue;
-                    //    cell.Style.Font.Color.SetColor(Color.Blue);
-                    //});
+                    table.FillData(dt.DefaultView, (cell, cellParameters) =>
+                    {
+                        cell.Value = cellParameters.PropertyValue;
+                        //cell.Style.Font.Color.SetColor(Color.Blue);
+                        cell.Style.Font.Color.SetColor(Color.White);
+                        cell.Style.Fill.SetBackgroundColor(Color.Blue, ExcelFillStyle.Solid);
+                    });
                 }
 
                 string dir = Path.GetDirectoryName(Application.ExecutablePath);

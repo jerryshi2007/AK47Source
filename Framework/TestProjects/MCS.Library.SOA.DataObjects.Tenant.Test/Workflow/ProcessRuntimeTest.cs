@@ -1,8 +1,10 @@
-﻿using MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper;
+﻿using MCS.Library.OGUPermission;
+using MCS.Library.SOA.DataObjects.Tenant.Test.Workflow.Helper;
 using MCS.Library.SOA.DataObjects.Workflow;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
 {
@@ -67,6 +69,30 @@ namespace MCS.Library.SOA.DataObjects.Tenant.Test.Workflow
             process = WfRuntime.GetProcessByProcessID(process.ID);
 
             Assert.AreEqual(WfActivityStatus.Completed, process.Activities[activityID].Status);
+        }
+
+        [Description("流程办结时的通知测试")]
+        [TestMethod]
+        public void CompleteProcessNotifyTest()
+        {
+            IWfProcessDescriptor processDesp = ProcessHelper.CreateSimpleProcessDescriptor();
+
+            processDesp.CompleteEventReceivers.Add(new WfUserResourceDescriptor((IUser)OguObjectSettings.GetConfig().Objects["requestor"].Object));
+
+            IWfProcess process = processDesp.StartupProcess();
+
+            process = process.MoveToDefaultActivityByExecutor();
+
+            process = process.MoveToDefaultActivityByExecutor();
+
+            Assert.AreEqual(WfProcessStatus.Completed, process.Status);
+
+            UserTask notify = UserTaskAdapter.Instance.LoadUserTasks(builder => builder.AppendItem("ACTIVITY_ID", process.CompletedActivity.ID)).FirstOrDefault();
+
+            Assert.IsNotNull(notify);
+
+            Assert.AreEqual(TaskStatus.Yue, notify.Status);
+            Assert.AreEqual(OguObjectSettings.GetConfig().Objects["requestor"].Object.ID, notify.SendToUserID);
         }
 
         private object ProcessContext_EvaluateTransition(string funcName, Expression.ParamObjectCollection arrParams, object callerContext)

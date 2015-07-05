@@ -205,9 +205,17 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         IWfTransitionDescriptor FindTransitionByKey(string transitionKey);
 
         /// <summary>
-        /// 取消流程时需要通知的人
+        /// 作废流程时需要通知的人
         /// </summary>
         WfResourceDescriptorCollection CancelEventReceivers
+        {
+            get;
+        }
+
+        /// <summary>
+        /// 办结流程时需要通知的人
+        /// </summary>
+        WfResourceDescriptorCollection CompleteEventReceivers
         {
             get;
         }

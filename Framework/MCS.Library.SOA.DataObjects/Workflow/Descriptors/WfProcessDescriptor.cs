@@ -20,6 +20,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         private WfActivityDescriptorCollection _Activities = null;
         private WfRelativeLinkDescriptorCollection _RelativeLinks = null;
         private WfResourceDescriptorCollection _CancelEventReceivers = null;
+        private WfResourceDescriptorCollection _CompleteEventReceivers = null;
         private WfResourceDescriptorCollection _InternalRelativeUsers = null;
         private WfExternalUserCollection _ExternalUsers = null;
 
@@ -111,7 +112,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
         public bool DefaultReturnValue
         {
-            get { return Properties.GetValue("DefaultReturnValue", false); }
+            get { return Properties.GetValue("DefaultReturnValue", true); }
             set { Properties.SetValue("DefaultReturnValue", value); }
         }
 
@@ -126,7 +127,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         }
 
         /// <summary>
-        /// 取消流程时的事件通知人
+        /// 作废流程时的事件通知人
         /// </summary>
         public WfResourceDescriptorCollection CancelEventReceivers
         {
@@ -136,6 +137,20 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                     this._CancelEventReceivers = new WfResourceDescriptorCollection(this);
 
                 return this._CancelEventReceivers;
+            }
+        }
+
+        /// <summary>
+        /// 办结流程时的事件通知人
+        /// </summary>
+        public WfResourceDescriptorCollection CompleteEventReceivers
+        {
+            get
+            {
+                if (this._CompleteEventReceivers == null)
+                    this._CompleteEventReceivers = new WfResourceDescriptorCollection(this);
+
+                return this._CompleteEventReceivers;
             }
         }
 
@@ -307,7 +322,8 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             Activities.ForEach(activity => ((WfActivityDescriptor)activity).SetProcessInstance(process));
 
             //2011-8-2 徐磊修改  ..流程撤销时,撤销资源没有流程实例.
-            this.CancelEventReceivers.ForEach(receive => receive.SetProcessInstance(process));
+            this.CancelEventReceivers.ForEach(r => r.SetProcessInstance(process));
+            this.CompleteEventReceivers.ForEach(r => r.SetProcessInstance(process));
         }
 
         /// <summary>
@@ -409,6 +425,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             int result = 0;
 
             result += this.CancelEventReceivers.ReplaceAllUserResourceDescriptors(originalUser, replaceUsers);
+            result += this.CompleteEventReceivers.ReplaceAllUserResourceDescriptors(originalUser, replaceUsers);
             result += this.InternalRelativeUsers.ReplaceAllUserResourceDescriptors(originalUser, replaceUsers);
 
             result += this.Activities.ReplaceAllUserResourceDescriptors(originalUser, replaceUsers);
@@ -501,6 +518,9 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
             targetProcessDesp.CancelEventReceivers.Clear();
             targetProcessDesp.CancelEventReceivers.CopyFrom(this.CancelEventReceivers);
+
+            targetProcessDesp.CompleteEventReceivers.Clear();
+            targetProcessDesp.CompleteEventReceivers.CopyFrom(this.CompleteEventReceivers);
 
             targetProcessDesp.ExternalUsers.Clear();
             targetProcessDesp.ExternalUsers.CopyFrom(this.ExternalUsers);
@@ -658,6 +678,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             this.CancelAfterExecuteServices.SyncPropertiesToFields(this.Properties["CancelAfterExecuteServices"]);
 
             this.CancelEventReceivers.SyncPropertiesToFields(this.Properties["CancelEventReceivers"]);
+            this.CompleteEventReceivers.SyncPropertiesToFields(this.Properties["CompleteEventReceivers"]);
 
             this.InternalRelativeUsers.SyncPropertiesToFields(this.Properties["InternalRelativeUsers"]);
             this.ExternalUsers.SyncPropertiesToFields(this.Properties["ExternalUsers"]);
@@ -678,6 +699,9 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
             if (this.CancelEventReceivers.Count > 0)
                 ((ISimpleXmlSerializer)this.CancelEventReceivers).ToXElement(element, "CancelEventReceivers");
+
+            if (this.CompleteEventReceivers.Count > 0)
+                ((ISimpleXmlSerializer)this.CompleteEventReceivers).ToXElement(element, "CompleteEventReceivers");
 
             if (this.CancelBeforeExecuteServices.Count > 0)
                 ((ISimpleXmlSerializer)this.CancelBeforeExecuteServices).ToXElement(element, "CancelBeforeExecuteServices");

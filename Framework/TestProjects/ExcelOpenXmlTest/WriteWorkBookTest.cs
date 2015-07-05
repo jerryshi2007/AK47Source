@@ -51,6 +51,32 @@ namespace ExcelOpenXmlTest
         }
 
         [TestMethod]
+        public void WriteSimpleValidationRangeToWorkBook()
+        {
+            WorkBook wb = WorkBook.CreateNew();
+
+            WorkSheet sheet = wb.Sheets["sheet1"];
+
+            sheet.Name = "FirstSheet";
+
+            for (int r = 1; r <= 2000; r++)
+            {
+                for (int c = 1; c <= 50; c++)
+                {
+                    sheet.Cells[r, c].Value = CellAddress.Parse(c, r).ToString();
+                }
+            }
+
+            IDataValidationList validationList = sheet.Validations.AddListValidation("A$1:A$10");
+
+            validationList.Formula.Values.Add("简单");
+            validationList.Formula.Values.Add("标准");
+            validationList.Formula.Values.Add("复杂");
+
+            wb.Save("WriteValidationRangeToWorkBook.xlsx");
+        }
+
+        [TestMethod]
         public void WriteDataTableToCells()
         {
             WorkBook wb = WorkBook.CreateNew();

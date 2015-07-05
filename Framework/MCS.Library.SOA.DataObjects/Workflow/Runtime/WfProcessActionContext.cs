@@ -188,6 +188,12 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 			set;
 		}
 
+        public WfControlOperationType OperationType
+        {
+            get;
+            set;
+        }
+
 		/// <summary>
 		/// 被解除Pending状态的Activity
 		/// </summary>

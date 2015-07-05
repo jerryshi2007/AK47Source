@@ -325,6 +325,14 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         }
 
         /// <summary>
+        /// 作废流程的相关动作
+        /// </summary>
+        WfActionCollection CompleteProcessActions
+        {
+            get;
+        }
+
+        /// <summary>
         /// 撤回流程的相关动作
         /// </summary>
         WfActionCollection WithdrawActions

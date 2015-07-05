@@ -423,6 +423,7 @@
     <Compile Include="Workflow\Actions\ActivityInvokeServiceActionBase.cs" />
     <Compile Include="Workflow\Actions\BeWithdrawnInvokeServiceAction.cs" />
     <Compile Include="Workflow\Actions\CancelExecuteInvokeServiceAction.cs" />
+    <Compile Include="Workflow\Actions\CompleteProcessUserTaskAction.cs" />
     <Compile Include="Workflow\Actions\EnterActivityInvokeServiceAction.cs" />
     <Compile Include="Workflow\Actions\InvokeServiceActionBase.cs" />
     <Compile Include="Workflow\Actions\LeaveActivityInvokeServiceAction.cs" />

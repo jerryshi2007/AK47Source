@@ -23,6 +23,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 			Dictionary<string, Type> constKey = new Dictionary<string, Type>();
 			constKey.Add("RelativeLinks", typeof(WfRelativeLinkDescriptorCollection));
 			constKey.Add("CancelEventReceivers", typeof(WfResourceDescriptorCollection));
+            constKey.Add("CompleteEventReceivers", typeof(WfResourceDescriptorCollection));
 			constKey.Add("InternalRelativeUsers", typeof(WfResourceDescriptorCollection));
 			constKey.Add("ExternalUsers", typeof(WfExternalUserCollection));
 			constKey.Add("Variables", typeof(WfVariableDescriptorCollection));
@@ -92,9 +93,19 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 			}
 			else if (dictionary.ContainsKey("CancelEventReceivers"))
 			{
-				WfResourceDescriptorCollection relativeLinks = JSONSerializerExecute.Deserialize<WfResourceDescriptorCollection>(dictionary["CancelEventReceivers"]);
-				processDesp.CancelEventReceivers.CopyFrom(relativeLinks);
+				WfResourceDescriptorCollection cancelEventReceivers = JSONSerializerExecute.Deserialize<WfResourceDescriptorCollection>(dictionary["CancelEventReceivers"]);
+				processDesp.CancelEventReceivers.CopyFrom(cancelEventReceivers);
 			}
+
+            if (processProperties.ContainsKey("CompleteEventReceivers"))
+            {
+                processDesp.CompleteEventReceivers.CopyFrom((WfResourceDescriptorCollection)processProperties["CompleteEventReceivers"]);
+            }
+            else if (dictionary.ContainsKey("CompleteEventReceivers"))
+            {
+                WfResourceDescriptorCollection completeEventReceivers = JSONSerializerExecute.Deserialize<WfResourceDescriptorCollection>(dictionary["CompleteEventReceivers"]);
+                processDesp.CompleteEventReceivers.CopyFrom(completeEventReceivers);
+            }
 
 			if (processProperties.ContainsKey("CancelBeforeExecuteServices"))
 			{
@@ -102,8 +113,8 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 			}
 			else if (dictionary.ContainsKey("CancelBeforeExecuteServices"))
 			{
-				WfServiceOperationDefinitionCollection canceBeforeExecuteServices = JSONSerializerExecute.Deserialize<WfServiceOperationDefinitionCollection>(dictionary["CancelBeforeExecuteServices"]);
-				processDesp.CancelBeforeExecuteServices.CopyFrom(canceBeforeExecuteServices);
+				WfServiceOperationDefinitionCollection cancelBeforeExecuteServices = JSONSerializerExecute.Deserialize<WfServiceOperationDefinitionCollection>(dictionary["CancelBeforeExecuteServices"]);
+				processDesp.CancelBeforeExecuteServices.CopyFrom(cancelBeforeExecuteServices);
 			}
 
 			if (processProperties.ContainsKey("CancelAfterExecuteServices"))
@@ -187,6 +198,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 			SetPropertiesValue(processDesp, "Variables", processDesp.Variables);
 			SetPropertiesValue(processDesp, "RelativeLinks", processDesp.RelativeLinks);
 			SetPropertiesValue(processDesp, "CancelEventReceivers", processDesp.CancelEventReceivers);
+            SetPropertiesValue(processDesp, "CompleteEventReceivers", processDesp.CompleteEventReceivers);
 			SetPropertiesValue(processDesp, "InternalRelativeUsers", processDesp.InternalRelativeUsers);
 			SetPropertiesValue(processDesp, "ExternalUsers", processDesp.ExternalUsers);
 			SetPropertiesValue(processDesp, "ParametersNeedToBeCollected", processDesp.ParametersNeedToBeCollected);

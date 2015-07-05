@@ -80,12 +80,21 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         }
 
         /// <summary>
-        /// 中止流程的操作类
+        /// 作废流程的操作类
         /// </summary>
         /// <returns></returns>
         public WfActionCollection GetCancelProcessActions()
         {
             return WfActivityConfigurationElement.GetActions(this.CancelProcessActionsString);
+        }
+
+        /// <summary>
+        /// 办结流程的操作类
+        /// </summary>
+        /// <returns></returns>
+        public WfActionCollection GetCompleteProcessActions()
+        {
+            return WfActivityConfigurationElement.GetActions(this.CompleteProcessActionsString);
         }
 
         /// <summary>
@@ -121,6 +130,15 @@ namespace MCS.Library.SOA.DataObjects.Workflow
             get
             {
                 return (string)this["cancelProcessActions"];
+            }
+        }
+
+        [ConfigurationProperty("completeProcessActions", IsRequired = false, DefaultValue = "CompleteProcessUserTaskAction")]
+        private string CompleteProcessActionsString
+        {
+            get
+            {
+                return (string)this["completeProcessActions"];
             }
         }
 

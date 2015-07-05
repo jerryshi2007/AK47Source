@@ -90,8 +90,26 @@
     <DefineTrace>true</DefineTrace>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DefineConstants>FullTextSearch</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <SuppressTSqlWarnings>71502</SuppressTSqlWarnings>
+    <DefineConstants>FullTextSearch</DefineConstants>
+    <NoWarn>
+    </NoWarn>
+  </PropertyGroup>
+  <!-- VS10 without SP1 will not have VisualStudioVersion set, so do that here -->
+  <PropertyGroup />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug Without Fulltext Search|AnyCPU' ">
     <OutputPath>bin\Debug\</OutputPath>
     <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
@@ -103,9 +121,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <SuppressTSqlWarnings>71502</SuppressTSqlWarnings>
+    <DefineConstants>
+    </DefineConstants>
+    <NoWarn>
+    </NoWarn>
   </PropertyGroup>
-  <!-- VS10 without SP1 will not have VisualStudioVersion set, so do that here -->
-  <PropertyGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
@@ -191,7 +211,9 @@
     <Build Include="WF\Views\PROCESS_CURRENT_INFO_VIEW.sql" />
     <Build Include="WF\Views\BATCH_APPROVE_VIEW.sql" />
     <Build Include="Storage\MCS_WORKFLOW.sql" />
-    <Build Include="FullTextIndexes.sql" />
+    <Build Include="FullTextIndexes.sql">
+      <ApplicationScope>Auto</ApplicationScope>
+    </Build>
     <Build Include="Security\RoleMemberships.sql" />
     <Build Include="dbo\Stored Procedures\CommonSplitPageQuery.sql" />
     <Build Include="WF\Stored Procedures\ImportInvalidAssignees.sql" />

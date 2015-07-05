@@ -147,10 +147,14 @@ namespace MCS.Library.SOA.DataObjects.Workflow
 
             WfExecutorDataContext dataContext = new WfExecutorDataContext(this, OperationType);
             this._DataContext = dataContext;
+
             try
             {
                 //准备数据阶段
                 dataContext.CurrentProcess = OnGetCurrentProcess();
+
+                if (WfRuntime.ProcessContext != null)
+                    WfRuntime.ProcessContext.OperationType = this.OperationType;
 
                 ExecuteAction("BeforeExecute", dataContext);
 

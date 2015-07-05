@@ -293,45 +293,63 @@
             });
         },
         Resource: function () {
-            var url = _DeluxeApplicationPath + "/modaldialog/WfResourceEditor.aspx";
-            var commonFeature = "dialogWidth:800px; dialogHeight:500px;center:yes;help:no;resizable:yes;scroll:no;status:no";
+            this.callResourceEditor("Resources");
+            //var url = _DeluxeApplicationPath + "/modaldialog/WfResourceEditor.aspx";
+            //var commonFeature = "dialogWidth:800px; dialogHeight:500px;center:yes;help:no;resizable:yes;scroll:no;status:no";
 
-            var result = WFWeb.GetCurrentPropertiesItem.GetValueByName("Resources");
-            var obj = {
-                jsonStr: WFWeb.GetCurrentPropertiesItem.ItemToJson(result),
-                Activities: WFWeb.GlobalProcList.Get(WFWeb.Property.CurrentProcessKey).Activities
-            }
-            WFWeb.Dialog(url, "", commonFeature, obj, function (result, arg) {
-                WFWeb.GetCurrentPropertiesItem.SetValueByName("Resources", result.jsonStr);
-            });
+            //var result = WFWeb.GetCurrentPropertiesItem.GetValueByName("Resources");
+            //var obj = {
+            //    jsonStr: WFWeb.GetCurrentPropertiesItem.ItemToJson(result),
+            //    Activities: WFWeb.GlobalProcList.Get(WFWeb.Property.CurrentProcessKey).Activities
+            //}
+            //WFWeb.Dialog(url, "", commonFeature, obj, function (result, arg) {
+            //    WFWeb.GetCurrentPropertiesItem.SetValueByName("Resources", result.jsonStr);
+            //});
         },
         CancelReceivers: function () {
-            var url = _DeluxeApplicationPath + "/modaldialog/WfResourceEditor.aspx";
-            var commonFeature = "dialogWidth:600px; dialogHeight:460px;center:yes;help:no;resizable:yes;scroll:no;status:no";
+            this.callResourceEditor("CancelEventReceivers");
+            //var url = _DeluxeApplicationPath + "/modaldialog/WfResourceEditor.aspx";
+            //var commonFeature = "dialogWidth:600px; dialogHeight:460px;center:yes;help:no;resizable:yes;scroll:no;status:no";
 
-            var strcancelEventReceivers = WFWeb.GetCurrentPropertiesItem.ItemToJson(WFWeb.GetCurrentPropertiesItem.GetValueByName("CancelEventReceivers"));
+            //var strcancelEventReceivers = WFWeb.GetCurrentPropertiesItem.ItemToJson(WFWeb.GetCurrentPropertiesItem.GetValueByName("CancelEventReceivers"));
 
-            var obj = {
-                jsonStr: strcancelEventReceivers,
-                Activities: WFWeb.GlobalProcList.Get(WFWeb.Property.CurrentProcessKey).Activities
-            }
-            WFWeb.Dialog(url, "", commonFeature, obj, function (result, arg) {
-                WFWeb.GetCurrentPropertiesItem.SetValueByName("CancelEventReceivers", result.jsonStr);
-            });
+            //var obj = {
+            //    jsonStr: strcancelEventReceivers,
+            //    Activities: WFWeb.GlobalProcList.Get(WFWeb.Property.CurrentProcessKey).Activities
+            //}
+            //WFWeb.Dialog(url, "", commonFeature, obj, function (result, arg) {
+            //    WFWeb.GetCurrentPropertiesItem.SetValueByName("CancelEventReceivers", result.jsonStr);
+            //});
+        },
+        CompleteReceivers: function () {
+            this.callResourceEditor("CompleteEventReceivers");
+            //var url = _DeluxeApplicationPath + "/modaldialog/WfResourceEditor.aspx";
+            //var commonFeature = "dialogWidth:600px; dialogHeight:460px;center:yes;help:no;resizable:yes;scroll:no;status:no";
+
+            //var strcancelEventReceivers = WFWeb.GetCurrentPropertiesItem.ItemToJson(WFWeb.GetCurrentPropertiesItem.GetValueByName("CompleteEventReceivers"));
+
+            //var obj = {
+            //    jsonStr: strcancelEventReceivers,
+            //    Activities: WFWeb.GlobalProcList.Get(WFWeb.Property.CurrentProcessKey).Activities
+            //}
+            //WFWeb.Dialog(url, "", commonFeature, obj, function (result, arg) {
+            //    WFWeb.GetCurrentPropertiesItem.SetValueByName("CompleteEventReceivers", result.jsonStr);
+            //});
         },
         ProcessStarters: function () {
-            var url = _DeluxeApplicationPath + "/modaldialog/WfResourceEditor.aspx";
-            var commonFeature = "dialogWidth:600px; dialogHeight:460px;center:yes;help:no;resizable:yes;scroll:no;status:no";
+            this.callResourceEditor("ProcessStarters");
+            //var url = _DeluxeApplicationPath + "/modaldialog/WfResourceEditor.aspx";
+            //var commonFeature = "dialogWidth:600px; dialogHeight:460px;center:yes;help:no;resizable:yes;scroll:no;status:no";
 
-            var strProcessStarters = WFWeb.GetCurrentPropertiesItem.ItemToJson(WFWeb.GetCurrentPropertiesItem.GetValueByName("ProcessStarters"));
+            //var strProcessStarters = WFWeb.GetCurrentPropertiesItem.ItemToJson(WFWeb.GetCurrentPropertiesItem.GetValueByName("ProcessStarters"));
 
-            var obj = {
-                jsonStr: strProcessStarters,
-                Activities: WFWeb.GlobalProcList.Get(WFWeb.Property.CurrentProcessKey).Activities
-            }
-            WFWeb.Dialog(url, "", commonFeature, obj, function (result, arg) {
-                WFWeb.GetCurrentPropertiesItem.SetValueByName("ProcessStarters", result.jsonStr);
-            });
+            //var obj = {
+            //    jsonStr: strProcessStarters,
+            //    Activities: WFWeb.GlobalProcList.Get(WFWeb.Property.CurrentProcessKey).Activities
+            //}
+            //WFWeb.Dialog(url, "", commonFeature, obj, function (result, arg) {
+            //    WFWeb.GetCurrentPropertiesItem.SetValueByName("ProcessStarters", result.jsonStr);
+            //});
         },
         _getSimulationWindowFeature: function () {
             var width = 900;
@@ -349,28 +367,30 @@
             window.open(url, "wfSimulation", commonFeature);
         },
         EnterReceivers: function () {
-            var url = _DeluxeApplicationPath + "/modaldialog/WfResourceEditor.aspx";
-            var commonFeature = "dialogWidth:800px; dialogHeight:600px;center:yes;help:no;resizable:yes;scroll:no;status:no";
+            this.callResourceEditor("EnterEventReceivers");
+            //var url = _DeluxeApplicationPath + "/modaldialog/WfResourceEditor.aspx";
+            //var commonFeature = "dialogWidth:800px; dialogHeight:600px;center:yes;help:no;resizable:yes;scroll:no;status:no";
 
-            var obj = {
-                jsonStr: WFWeb.GetCurrentPropertiesItem.GetValueByName("EnterEventReceivers"),
-                Activities: WFWeb.GlobalProcList.Get(WFWeb.Property.CurrentProcessKey).Activities
-            }
-            WFWeb.Dialog(url, "", commonFeature, obj, function (result, arg) {
-                WFWeb.GetCurrentPropertiesItem.SetValueByName("EnterEventReceivers", result.jsonStr);
-            });
+            //var obj = {
+            //    jsonStr: WFWeb.GetCurrentPropertiesItem.GetValueByName("EnterEventReceivers"),
+            //    Activities: WFWeb.GlobalProcList.Get(WFWeb.Property.CurrentProcessKey).Activities
+            //}
+            //WFWeb.Dialog(url, "", commonFeature, obj, function (result, arg) {
+            //    WFWeb.GetCurrentPropertiesItem.SetValueByName("EnterEventReceivers", result.jsonStr);
+            //});
         },
         LeaveReceivers: function () {
-            var url = _DeluxeApplicationPath + "/modaldialog/WfResourceEditor.aspx";
-            var commonFeature = "dialogWidth:800px; dialogHeight:600px;center:yes;help:no;resizable:yes;scroll:no;status:no";
+            this.callResourceEditor("LeaveEventReceivers");
+            //var url = _DeluxeApplicationPath + "/modaldialog/WfResourceEditor.aspx";
+            //var commonFeature = "dialogWidth:800px; dialogHeight:600px;center:yes;help:no;resizable:yes;scroll:no;status:no";
 
-            var obj = {
-                jsonStr: WFWeb.GetCurrentPropertiesItem.GetValueByName("LeaveEventReceivers"),
-                Activities: WFWeb.GlobalProcList.Get(WFWeb.Property.CurrentProcessKey).Activities
-            }
-            WFWeb.Dialog(url, "", commonFeature, obj, function (result, arg) {
-                WFWeb.GetCurrentPropertiesItem.SetValueByName("LeaveEventReceivers", result.jsonStr);
-            });
+            //var obj = {
+            //    jsonStr: WFWeb.GetCurrentPropertiesItem.GetValueByName("LeaveEventReceivers"),
+            //    Activities: WFWeb.GlobalProcList.Get(WFWeb.Property.CurrentProcessKey).Activities
+            //}
+            //WFWeb.Dialog(url, "", commonFeature, obj, function (result, arg) {
+            //    WFWeb.GetCurrentPropertiesItem.SetValueByName("LeaveEventReceivers", result.jsonStr);
+            //});
         },
         RelativeLink: function () {
             var url = _DeluxeApplicationPath + "/modaldialog/WfRelativeLinkEditor.aspx";
@@ -493,6 +513,18 @@
             WFWeb.Dialog(url, "", commonFeature, obj, function (result, arg) {
                 WFWeb.GetCurrentPropertiesItem.SetValueByName("LeaveEventExecuteServices", result.jsonStr);
             });
+        },
+        callResourceEditor: function (propertyName) {
+            var url = _DeluxeApplicationPath + "/modaldialog/WfResourceEditor.aspx";
+            var commonFeature = "dialogWidth:800px; dialogHeight:600px;center:yes;help:no;resizable:yes;scroll:no;status:no";
+
+            var obj = {
+                jsonStr: WFWeb.GetCurrentPropertiesItem.GetValueByName(propertyName),
+                Activities: WFWeb.GlobalProcList.Get(WFWeb.Property.CurrentProcessKey).Activities
+            }
+            WFWeb.Dialog(url, "", commonFeature, obj, function (result, arg) {
+                WFWeb.GetCurrentPropertiesItem.SetValueByName(propertyName, result.jsonStr);
+            });
         }
     };
 
@@ -601,71 +633,21 @@
         },
         ProcessStarters: function (activeEditor) {
             this.callResourceEditor(activeEditor);
-            //var url = _DeluxeApplicationPath + "/modaldialog/WfResourceEditor.aspx";
-            //var commonFeature = "dialogWidth:600px; dialogHeight:460px;center:yes;help:no;resizable:yes;scroll:no;status:no";
-
-            //var result = WFWeb.GetCurrentPropertiesItem.GetValueByName("ProcessStarters");
-            //var obj = {
-            //    jsonStr: WFWeb.GetCurrentPropertiesItem.ItemToJson(result),
-            //    Activities: WFWeb.GlobalProcList.Get(WFWeb.Property.CurrentProcessKey).Activities
-            //};
-
-            //WFWeb.Dialog(url, "", commonFeature, obj, function (result, arg) {
-            //    activeEditor.commitValue(result.jsonStr);
-            //});
         },
         Resources: function (activeEditor) {
             this.callResourceEditor(activeEditor);
-            //var url = _DeluxeApplicationPath + "/modaldialog/WfResourceEditor.aspx";
-            //var commonFeature = "dialogWidth:800px; dialogHeight:500px;center:yes;help:no;resizable:yes;scroll:no;status:no";
-            //var obj = {
-            //    jsonStr: WFWeb.GetCurrentPropertiesItem.ItemToJson(activeEditor.get_property().value),
-            //    Activities: WFWeb.GlobalProcList.Get(WFWeb.Property.CurrentProcessKey).Activities
-            //}
-            //WFWeb.Dialog(url, "", commonFeature, obj, function (result, arg) {
-            //    activeEditor.commitValue(result.jsonStr);;
-            //});
         },
         CancelReceivers: function (activeEditor) {
             this.callResourceEditor(activeEditor);
-            //var url = _DeluxeApplicationPath + "/modaldialog/WfResourceEditor.aspx";
-            //var commonFeature = "dialogWidth:600px; dialogHeight:460px;center:yes;help:no;resizable:yes;scroll:no;status:no";
-
-            //var result = WFWeb.GetCurrentPropertiesItem.GetValueByName("CancelEventReceivers");
-            //var obj = {
-            //    jsonStr: WFWeb.GetCurrentPropertiesItem.ItemToJson(result),
-            //    Activities: WFWeb.GlobalProcList.Get(WFWeb.Property.CurrentProcessKey).Activities
-            //};
-
-            //WFWeb.Dialog(url, "", commonFeature, obj, function (result, arg) {
-            //    activeEditor.commitValue(result.jsonStr);
-            //});
+        },
+        CompleteReceivers: function (activeEditor) {
+            this.callResourceEditor(activeEditor);
         },
         EnterReceivers: function (activeEditor) {
             this.callResourceEditor(activeEditor);
-            //var url = _DeluxeApplicationPath + "/modaldialog/WfResourceEditor.aspx";
-            //var commonFeature = "dialogWidth:800px; dialogHeight:600px;center:yes;help:no;resizable:yes;scroll:no;status:no";
-
-            //var obj = {
-            //    jsonStr: activeEditor.get_property().value,
-            //    Activities: WFWeb.GlobalProcList.Get(WFWeb.Property.CurrentProcessKey).Activities
-            //}
-            //WFWeb.Dialog(url, "", commonFeature, obj, function (result, arg) {
-            //    activeEditor.commitValue(result.jsonStr);
-            //});
         },
         LeaveReceivers: function (activeEditor) {
             this.callResourceEditor(activeEditor);
-            //var url = _DeluxeApplicationPath + "/modaldialog/WfResourceEditor.aspx";
-            //var commonFeature = "dialogWidth:800px; dialogHeight:600px;center:yes;help:no;resizable:yes;scroll:no;status:no";
-
-            //var obj = {
-            //    jsonStr: activeEditor.get_property().value,
-            //    Activities: WFWeb.GlobalProcList.Get(WFWeb.Property.CurrentProcessKey).Activities
-            //}
-            //WFWeb.Dialog(url, "", commonFeature, obj, function (result, arg) {
-            //    activeEditor.commitValue(result.jsonStr);
-            //});
         },
         RelativeLink: function (activeEditor) {
             var url = _DeluxeApplicationPath + "/modaldialog/WfRelativeLinkEditor.aspx";

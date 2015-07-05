@@ -56,6 +56,9 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         private WfActionCollection _CancelProcessActions = new WfActionCollection();
 
         [NonSerialized]
+        private WfActionCollection _CompleteProcessActions = new WfActionCollection();
+
+        [NonSerialized]
         private WfActionCollection _RestoreProcessctions = new WfActionCollection();
 
         [NonSerialized]
@@ -111,6 +114,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         private void LoadActions()
         {
             this.CancelProcessActions.CopyFrom(WfActivitySettings.GetConfig().GetCancelProcessActions());
+            this.CompleteProcessActions.CopyFrom(WfActivitySettings.GetConfig().GetCompleteProcessActions());
             this.RestoreProcessActions.CopyFrom(WfActivitySettings.GetConfig().GetRestoreProcessActions());
             this.WithdrawActions.CopyFrom(WfActivitySettings.GetConfig().GetWithdrawActions());
             this.ProcessStatusChangeActions.CopyFrom(WfActivitySettings.GetConfig().GetProcessStatusChangeActions());
@@ -509,13 +513,24 @@ namespace MCS.Library.SOA.DataObjects.Workflow
         }
 
         /// <summary>
-        /// 取消流程的相关动作
+        /// 作废流程的相关动作
         /// </summary>
         public WfActionCollection CancelProcessActions
         {
             get
             {
                 return this._CancelProcessActions;
+            }
+        }
+
+        /// <summary>
+        /// 办结流程的相关动作
+        /// </summary>
+        public WfActionCollection CompleteProcessActions
+        {
+            get
+            {
+                return this._CompleteProcessActions;
             }
         }
 
@@ -928,6 +943,14 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                     }
                 }
 
+                if (this.CurrentActivity != null)
+                {
+                    this.ApplicationRuntimeParameters["PreviousActivityID"] = this.CurrentActivity.ID;
+                    this.ApplicationRuntimeParameters["PreviousActivityName"] = GetActivityName(this.CurrentActivity);
+                }
+
+                this.ApplicationRuntimeParameters["CurrentTransitionName"] = string.Empty;
+
                 this.CurrentActivity = Activities[destinationActivity.ID];
 
                 RegisterAndPrepareActions(this.CurrentActivity.WithdrawActions);
@@ -1108,9 +1131,20 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                 //Set Original Activity Status
                 if (this.CurrentActivity != null)
                 {
+                    this.ApplicationRuntimeParameters["PreviousActivityID"] = this.CurrentActivity.ID;
+                    this.ApplicationRuntimeParameters["PreviousActivityName"] = GetActivityName(this.CurrentActivity);
+
                     ((WfActivityBase)this.CurrentActivity).ToTransitionDescriptor = transferParams.FromTransitionDescriptor;
                     ExecuteOriginalActivityActionsAndSetStatus(this.CurrentActivity, transferParams.Operator);
                 }
+
+                this.ApplicationRuntimeParameters["CurrentActivityID"] = nextActivity.ID;
+                this.ApplicationRuntimeParameters["CurrentActivityName"] = GetActivityName(nextActivity);
+
+                if (transferParams.FromTransitionDescriptor != null)
+                    this.ApplicationRuntimeParameters["CurrentTransitionName"] = GetTransitionName(transferParams.FromTransitionDescriptor);
+                else
+                    this.ApplicationRuntimeParameters["CurrentTransitionName"] = string.Empty;
 
                 WfMoveToEventArgs movetoEventArgs = new WfMoveToEventArgs(this.CurrentActivity, nextActivity, transferParams);
 
@@ -1124,13 +1158,15 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                 if (IfIntoMaintainingStatus(nextActivity) == false)
                 {
                     //设置下一个节点的状态，包括启动分支流程、启动同类型的串行子流程
-                    ExecuteNextActivityActionsAndSetStatus(nextActivity, transferParams);
+                    this.ExecuteNextActivityActionsAndSetStatus(nextActivity, transferParams);
                 }
 
                 //设置流程结束返回状态
                 if (transferParams.FromTransitionDescriptor != null)
                     if (transferParams.FromTransitionDescriptor.AffectProcessReturnValue)
                         this.Descriptor.DefaultReturnValue = transferParams.FromTransitionDescriptor.AffectedProcessReturnValue;
+
+                this.ApplicationRuntimeParameters["CurrentProcessReturnValue"] = this.Descriptor.DefaultReturnValue;
 
                 //自动生成每一个点候选人
                 if (this.Descriptor.AutoGenerateResourceUsers)
@@ -1419,6 +1455,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                 this._ElapsedActivities.Add(nextActivity);
 
                 RegisterAndPrepareActions(nextActivity.LeaveActions);
+                RegisterAndPrepareActions(this.CompleteProcessActions);
 
                 ExecuteNextSerialProcess(this.EntryInfo);
             }
@@ -1888,11 +1925,61 @@ namespace MCS.Library.SOA.DataObjects.Workflow
                         WfRuntime.ProcessContext.AffectedProcesses.AddOrReplace(this.EntryInfo.OwnerActivity.Process);
                 }
 
+                this.ApplicationRuntimeParameters["PreviousProcessStatus"] = this._Status.ToString();
+
                 this._Status = status;
+
+                this.RefreshApplicationRuntimeParameters();
 
                 WfRuntime.ProcessContext.StatusChangedProcesses.AddOrReplace(this);
                 RegisterAndPrepareActions(this.ProcessStatusChangeActions);
             }
+        }
+
+        private void RefreshApplicationRuntimeParameters()
+        {
+            this.ApplicationRuntimeParameters["CurrentProcessID"] = this.ID;
+            this.ApplicationRuntimeParameters["CurrentResourceID"] = this.ResourceID;
+
+            if (this.CurrentActivity != null)
+            {
+                this.ApplicationRuntimeParameters["CurrentActivityID"] = this.CurrentActivity.ID;
+                this.ApplicationRuntimeParameters["CurrentActivityName"] = GetActivityName(this.CurrentActivity);
+            }
+            else
+            {
+                this.ApplicationRuntimeParameters["CurrentActivityID"] = string.Empty;
+            }
+
+            this.ApplicationRuntimeParameters["CurrentProcessStatus"] = this.Status.ToString();
+
+            if (DeluxePrincipal.IsAuthenticated)
+            {
+                this.ApplicationRuntimeParameters["CurrentUserID"] = DeluxeIdentity.CurrentUser.ID;
+                this.ApplicationRuntimeParameters["CurrentUserName"] = DeluxeIdentity.CurrentUser.DisplayName;
+                this.ApplicationRuntimeParameters["CurrentRealUserID"] = DeluxeIdentity.CurrentRealUser.ID;
+                this.ApplicationRuntimeParameters["CurrentRealUserName"] = DeluxeIdentity.CurrentRealUser.DisplayName;
+            }
+        }
+
+        private static string GetActivityName(IWfActivity activity)
+        {
+            string result = activity.Descriptor.Name;
+
+            if (result.IsNullOrEmpty())
+                result = activity.Descriptor.Description;
+
+            return result;
+        }
+
+        private static string GetTransitionName(IWfTransitionDescriptor transition)
+        {
+            string result = transition.Name;
+
+            if (result.IsNullOrEmpty())
+                result = transition.Description;
+
+            return result;
         }
     }
 }

@@ -29,6 +29,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow.Actions
 					{
 						task.Status = TaskStatus.Yue;
 						task.TaskTitle = task.TaskTitle;
+                        task.Context["ExtraOperationType"] = WfControlSubOperationType.Enter;
 					}
 
 					WfRuntime.ProcessContext.Acl.CopyFrom(notifyTasks.ToAcl());

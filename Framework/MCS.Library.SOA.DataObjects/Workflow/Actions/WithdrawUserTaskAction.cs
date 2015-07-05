@@ -50,7 +50,7 @@ namespace MCS.Library.SOA.DataObjects.Workflow.Actions
 
             AppCommonInfoAdapter.Instance.UpdateProcessStatus(WfRuntime.ProcessContext.AffectedProcesses.FindAll(p => p.IsApprovalRootProcess));
 
-            ClearCache();
+            this.ClearCache();
         }
 
         public override void ClearCache()

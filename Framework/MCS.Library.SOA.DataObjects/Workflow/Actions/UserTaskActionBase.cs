@@ -47,6 +47,8 @@ namespace MCS.Library.SOA.DataObjects.Workflow.Actions
                 task.Emergency = WfRuntime.ProcessContext.Emergency;
                 task.Purpose = WfRuntime.ProcessContext.Purpose;
 
+                task.Context["OperationType"] = WfRuntime.ProcessContext.OperationType;
+
                 tasks.Add(task);
             }
 
@@ -98,12 +100,12 @@ namespace MCS.Library.SOA.DataObjects.Workflow.Actions
             return UriHelper.CombineUrlParams(task.Url, false, uriParams);
         }
 
-        internal static UserTask BuildOneUserTaskFromActivity(IWfActivity activity)
+        private static UserTask BuildOneUserTaskFromActivity(IWfActivity activity)
         {
             return BuildOneUserTaskFromActivity(activity, TaskStatus.Ban);
         }
 
-        internal static UserTask BuildOneUserTaskFromActivity(IWfActivity activity, TaskStatus status)
+        private static UserTask BuildOneUserTaskFromActivity(IWfActivity activity, TaskStatus status)
         {
             UserTask task = new UserTask();
 
