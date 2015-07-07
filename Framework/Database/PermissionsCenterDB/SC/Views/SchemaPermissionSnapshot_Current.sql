@@ -14,7 +14,7 @@ CREATE UNIQUE CLUSTERED INDEX [SchemaPermissionSnapshot_Current_ClusteredIndex] 
 (
 	[ID] ASC,
 	[VersionStartTime] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
 
 CREATE UNIQUE INDEX [IX_SchemaPermissionSnapshot_Current_RowID] ON [SC].[SchemaPermissionSnapshot_Current] ([RowUniqueID])
@@ -25,7 +25,3 @@ CREATE INDEX [IX_SchemaPermissionSnapshot_Current_CodeName] ON [SC].[SchemaPermi
 
 GO
 
-CREATE FULLTEXT INDEX ON [SC].[SchemaPermissionSnapshot_Current]
-    ([SearchContent] LANGUAGE 2052)
-    KEY INDEX [IX_SchemaPermissionSnapshot_Current_RowID]
-    ON [SCFullTextIndex] WITH CHANGE_TRACKING AUTO

@@ -23,6 +23,13 @@ BEGIN
 	TRUNCATE TABLE SC.ADReverseSynchronizeLog
 	TRUNCATE TABLE SC.ADReverseSynchronizeLogDetail
 	TRUNCATE TABLE SC.[Locks]
+	TRUNCATE TABLE SC.ConditionCalculateResult
+	TRUNCATE TABLE SC.ADReverseSynchronizeLog
+	TRUNCATE TABLE SC.ADReverseSynchronizeLogDetail
+	TRUNCATE TABLE SC.ADSynchronizeLog
+	TRUNCATE TABLE SC.ADSynchronizeLogDetail
+
+	TRUNCATE TABLE SC.SCOperationSnapshot
 
 	DELETE SC.SchemaOrganizationSnapshot
 	DELETE SC.SchemaRelationObjectsSnapshot

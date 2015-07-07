@@ -15,7 +15,7 @@ CREATE UNIQUE CLUSTERED INDEX [SchemaRelationObjectsSnapshot_Current_ClusteredIn
 	[ParentID] ASC,
 	[ObjectID] ASC,
 	[VersionStartTime] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
 
 CREATE UNIQUE INDEX [IX_SchemaRelationObjectsSnapshot_Current_RowID] ON [SC].[SchemaRelationObjectsSnapshot_Current] ([RowUniqueID])
@@ -34,7 +34,3 @@ CREATE INDEX [IX_SchemaRelationObjectsSnapshot_Current__V_GlobalSort] ON [SC].[S
 
 GO
 
-CREATE FULLTEXT INDEX ON [SC].[SchemaRelationObjectsSnapshot_Current]
-    ([SearchContent] LANGUAGE 2052)
-    KEY INDEX [IX_SchemaRelationObjectsSnapshot_Current_RowID]
-    ON [SCFullTextIndex] WITH CHANGE_TRACKING AUTO

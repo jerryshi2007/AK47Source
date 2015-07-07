@@ -1,8 +1,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "PermissionsCenterDB", "PermissionsCenterDB.sqlproj", "{79CD5E2A-DAB6-468B-8DB6-A3C41AA05847}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "PermissionsCenterDB_Azure", "..\PermissionsCenterDB_Azure\PermissionsCenterDB_Azure.sqlproj", "{17BC5009-3F49-4670-B2AB-0536CE7C64EA}"
 EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
@@ -24,6 +26,12 @@ Global
 		{79CD5E2A-DAB6-468B-8DB6-A3C41AA05847}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79CD5E2A-DAB6-468B-8DB6-A3C41AA05847}.Release|Any CPU.Build.0 = Release|Any CPU
 		{79CD5E2A-DAB6-468B-8DB6-A3C41AA05847}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{17BC5009-3F49-4670-B2AB-0536CE7C64EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17BC5009-3F49-4670-B2AB-0536CE7C64EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17BC5009-3F49-4670-B2AB-0536CE7C64EA}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{17BC5009-3F49-4670-B2AB-0536CE7C64EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17BC5009-3F49-4670-B2AB-0536CE7C64EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17BC5009-3F49-4670-B2AB-0536CE7C64EA}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

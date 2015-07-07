@@ -49,6 +49,23 @@ namespace MCS.Library.SOA.DataObjects.Workflow.Actions
 
                 task.Context["OperationType"] = WfRuntime.ProcessContext.OperationType;
 
+                string opName = WfRuntime.ProcessContext.OperationType.ToDescription();
+
+                switch (WfRuntime.ProcessContext.OperationType)
+                {
+                    case WfControlOperationType.MoveTo:
+                    case WfControlOperationType.ObligeEnd:
+                    case WfControlOperationType.Return:
+                    case WfControlOperationType.AddApprover:
+                    case WfControlOperationType.ChangeApprover:
+                    case WfControlOperationType.Circulate:
+                    case WfControlOperationType.Consign:
+                        opName = WfRuntime.ProcessContext.CurrentProcess.ApplicationRuntimeParameters.GetValue("CurrentTransitionName", opName);
+                        break;
+                }
+
+                task.Context["OperationName"] = opName;
+
                 tasks.Add(task);
             }
 

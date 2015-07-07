@@ -146,6 +146,33 @@
     <Build Include="SC\Tables\IncomeSynchronizeLogDetail.sql" />
     <PostDeploy Include="PostDeployment\PostDeployment.sql" />
     <Build Include="SC\Procedures\InitPinYinTable.sql" />
+    <Build Include="SC\Tables\Acl_Properties.sql" />
+    <Build Include="SC\Tables\ADReverseSynchronizeLogDetail_Properties.sql" />
+    <Build Include="SC\Tables\ADSynchronizeLogDetail_Properties.sql" />
+    <Build Include="SC\Tables\CompletedJobList_Properties.sql" />
+    <Build Include="SC\Tables\ConditionCalculateResult_Properties.sql" />
+    <Build Include="SC\Tables\Conditions_Properties.sql" />
+    <Build Include="SC\Tables\IncomeSynchronizeLogDetail_Properties.sql" />
+    <Build Include="SC\Tables\Locks_Properties.sql" />
+    <Build Include="SC\Tables\OperationLog_Properties.sql" />
+    <Build Include="SC\Tables\PinYin_Properties.sql" />
+    <Build Include="SC\Tables\SchemaDefine_Properties.sql" />
+    <Build Include="SC\Tables\SchemaGroupSnapshot_Properties.sql" />
+    <Build Include="SC\Tables\SchemaMembersSnapshot_Properties.sql" />
+    <Build Include="SC\Tables\SchemaObjectSnapshot_Properties.sql" />
+    <Build Include="SC\Tables\SchemaPermissionSnapshot_Properties.sql" />
+    <Build Include="SC\Tables\SchemaPropertyDefine_Properties.sql" />
+    <Build Include="SC\Tables\SchemaRelationObjects_Properties.sql" />
+    <Build Include="SC\Tables\SchemaRelationObjectsSnapshot_Properties.sql" />
+    <Build Include="SC\Tables\SchemaUserSnapshot_Properties.sql" />
+    <Build Include="SC\Tables\SCOperationSnapshot_Properties.sql" />
+    <Build Include="SC\Tables\TempForAD_Properties.sql" />
+    <Build Include="SC\Tables\ToDoJobList_Properties.sql" />
+    <Build Include="SC\Tables\UserAndContainerSnapshot_Properties.sql" />
+    <Build Include="SC\Tables\UserPassword_Properties.sql" />
+    <Build Include="SC\Tables\ADSynchronizeLog_Properties.sql" />
+    <Build Include="SC\Tables\IncomeSynchronizeLog_Properties.sql" />
+    <Build Include="SC\Tables\ADReverseSynchronizeLog_Properties.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PermissionsCenterDB.publish.xml" />
@@ -155,6 +182,12 @@
     <None Include="PermissionsCenterDB_DevTestForAD.publish.xml" />
     <None Include="PermissionsCenterDB_Local.publish.xml" />
     <None Include="SqlPackageDemo.txt" />
+    <Build Include="SC\Tables\PermissionCenter_AD_IDMapping_Properties.sql" />
+    <None Include="SC\Tables\SchemaApplicationSnapshot_Properties.sql" />
+    <Build Include="SC\Tables\SchemaMembers_Properties.sql" />
+    <Build Include="SC\Tables\SchemaObject_Properties.sql" />
+    <Build Include="SC\Tables\SchemaOrganizationSnapshot_Properties.sql" />
+    <Build Include="SC\Tables\SchemaRoleSnapshot_Properties.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="PermissionsCenterDB.refactorlog" />

@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>PermissionsCenterDB_Azure</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{17bc5009-3f49-4670-b2ab-0536ce7c64ea}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.SqlAzureDatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>PermissionsCenterDB_Azure</RootNamespace>
+    <AssemblyName>PermissionsCenterDB_Azure</AssemblyName>
+    <ModelCollation>2052,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultSchema>SC</DefaultSchema>
+    <DefaultCollation>Chinese_PRC_CI_AS</DefaultCollation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <SuppressTSqlWarnings>71502</SuppressTSqlWarnings>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="SC" />
+    <Folder Include="SC\Tables" />
+    <Folder Include="Security" />
+    <Folder Include="SC\Types" />
+    <Folder Include="SC\Functions" />
+    <Folder Include="SC\Procedures" />
+    <Folder Include="SC\Views" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="..\PermissionsCenterDB\Security\msuser.sql">
+      <Link>Security\msuser.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\Security\SC.sql">
+      <Link>Security\SC.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Tables\Acl.sql">
+      <Link>SC\Tables\Acl.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Tables\ADReverseSynchronizeLog.sql">
+      <Link>SC\Tables\ADReverseSynchronizeLog.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Tables\ADReverseSynchronizeLogDetail.sql">
+      <Link>SC\Tables\ADReverseSynchronizeLogDetail.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Tables\ADSynchronizeLog.sql">
+      <Link>SC\Tables\ADSynchronizeLog.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Tables\ADSynchronizeLogDetail.sql">
+      <Link>SC\Tables\ADSynchronizeLogDetail.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Tables\CompletedJobList.sql">
+      <Link>SC\Tables\CompletedJobList.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Tables\ConditionCalculateResult.sql">
+      <Link>SC\Tables\ConditionCalculateResult.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Tables\Conditions.sql">
+      <Link>SC\Tables\Conditions.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Tables\IncomeSynchronizeLog.sql">
+      <Link>SC\Tables\IncomeSynchronizeLog.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Tables\IncomeSynchronizeLogDetail.sql">
+      <Link>SC\Tables\IncomeSynchronizeLogDetail.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Tables\Locks.sql">
+      <Link>SC\Tables\Locks.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Tables\OperationLog.sql">
+      <Link>SC\Tables\OperationLog.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Tables\PermissionCenter_AD_IDMapping.sql">
+      <Link>SC\Tables\PermissionCenter_AD_IDMapping.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Tables\PinYin.sql">
+      <Link>SC\Tables\PinYin.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Tables\SchemaApplicationSnapshot.sql">
+      <Link>SC\Tables\SchemaApplicationSnapshot.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Tables\SchemaDefine.sql">
+      <Link>SC\Tables\SchemaDefine.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Tables\SchemaGroupSnapshot.sql">
+      <Link>SC\Tables\SchemaGroupSnapshot.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Tables\SchemaMembers.sql">
+      <Link>SC\Tables\SchemaMembers.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Tables\SchemaMembersSnapshot.sql">
+      <Link>SC\Tables\SchemaMembersSnapshot.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Tables\SchemaObject.sql">
+      <Link>SC\Tables\SchemaObject.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Tables\SchemaObjectSnapshot.sql">
+      <Link>SC\Tables\SchemaObjectSnapshot.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Tables\SchemaOrganizationSnapshot.sql">
+      <Link>SC\Tables\SchemaOrganizationSnapshot.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Tables\SchemaPermissionSnapshot.sql">
+      <Link>SC\Tables\SchemaPermissionSnapshot.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Tables\SchemaPropertyDefine.sql">
+      <Link>SC\Tables\SchemaPropertyDefine.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Tables\SchemaRelationObjects.sql">
+      <Link>SC\Tables\SchemaRelationObjects.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Tables\SchemaRelationObjectsSnapshot.sql">
+      <Link>SC\Tables\SchemaRelationObjectsSnapshot.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Tables\SchemaRoleSnapshot.sql">
+      <Link>SC\Tables\SchemaRoleSnapshot.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Tables\SchemaUserSnapshot.sql">
+      <Link>SC\Tables\SchemaUserSnapshot.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Tables\SCOperationSnapshot.sql">
+      <Link>SC\Tables\SCOperationSnapshot.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Tables\TempForAD.sql">
+      <Link>SC\Tables\TempForAD.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Tables\ToDoJobList.sql">
+      <Link>SC\Tables\ToDoJobList.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Tables\UserAndContainerSnapshot.sql">
+      <Link>SC\Tables\UserAndContainerSnapshot.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Tables\UserPassword.sql">
+      <Link>SC\Tables\UserPassword.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Types\ObjectWithParentTable.sql">
+      <Link>SC\Types\ObjectWithParentTable.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Procedures\ClearAllData.sql">
+      <Link>SC\Procedures\ClearAllData.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Functions\ConvertPropertyValue.sql">
+      <Link>SC\Functions\ConvertPropertyValue.sql</Link>
+    </Build>
+    <None Include="..\PermissionsCenterDB\SC\Procedures\ExecuteJobList.sql">
+      <Link>SC\Procedures\ExecuteJobList.sql</Link>
+    </None>
+    <Build Include="..\PermissionsCenterDB\SC\Functions\FormatInteger.sql">
+      <Link>SC\Functions\FormatInteger.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Procedures\GenerateAllSchemaSnapshot.sql">
+      <Link>SC\Procedures\GenerateAllSchemaSnapshot.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Procedures\GenerateFullPaths.sql">
+      <Link>SC\Procedures\GenerateFullPaths.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Procedures\GenerateInsertSql.sql">
+      <Link>SC\Procedures\GenerateInsertSql.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Procedures\GenerateSchemaSnapshot.sql">
+      <Link>SC\Procedures\GenerateSchemaSnapshot.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Procedures\GenerateSchemaTableSnapshot.sql">
+      <Link>SC\Procedures\GenerateSchemaTableSnapshot.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Procedures\GenerateUserAndContainerSnapshot.sql">
+      <Link>SC\Procedures\GenerateUserAndContainerSnapshot.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Functions\GetSchemaPropertyValueSnapshotFields.sql">
+      <Link>SC\Functions\GetSchemaPropertyValueSnapshotFields.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Functions\GetSchemaPropertySearchSnapshotFields.sql">
+      <Link>SC\Functions\GetSchemaPropertySearchSnapshotFields.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Functions\GetSchemaPropertySnapshotFields.sql">
+      <Link>SC\Functions\GetSchemaPropertySnapshotFields.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Procedures\InitData.sql">
+      <Link>SC\Procedures\InitData.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Procedures\QueryObjectsByMultiFullPath.sql">
+      <Link>SC\Procedures\QueryObjectsByMultiFullPath.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Procedures\QueryObjectsByFullPath.sql">
+      <Link>SC\Procedures\QueryObjectsByFullPath.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Procedures\UpdateFullPaths.sql">
+      <Link>SC\Procedures\UpdateFullPaths.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Views\Acl_Current.sql">
+      <Link>SC\Views\Acl_Current.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Views\Conditions_Current.sql">
+      <Link>SC\Views\Conditions_Current.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Views\SchemaApplicationSnapshot_Current.sql">
+      <Link>SC\Views\SchemaApplicationSnapshot_Current.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Views\SchemaGroupSnapshot_Current.sql">
+      <Link>SC\Views\SchemaGroupSnapshot_Current.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Views\SchemaMembersSnapshot_Current.sql">
+      <Link>SC\Views\SchemaMembersSnapshot_Current.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Views\SchemaObject_Current.sql">
+      <Link>SC\Views\SchemaObject_Current.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Views\SchemaObjectAndParentView.sql">
+      <Link>SC\Views\SchemaObjectAndParentView.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Views\SchemaObjectSnapshot_Current.sql">
+      <Link>SC\Views\SchemaObjectSnapshot_Current.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Views\SchemaOrganizationSnapshot_Current.sql">
+      <Link>SC\Views\SchemaOrganizationSnapshot_Current.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Views\SchemaPermissionSnapshot_Current.sql">
+      <Link>SC\Views\SchemaPermissionSnapshot_Current.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Views\SchemaRelationObjectsSnapshot_Current.sql">
+      <Link>SC\Views\SchemaRelationObjectsSnapshot_Current.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Views\SchemaRoleSnapshot_Current.sql">
+      <Link>SC\Views\SchemaRoleSnapshot_Current.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Views\SchemaUserSnapshot_Current.sql">
+      <Link>SC\Views\SchemaUserSnapshot_Current.sql</Link>
+    </Build>
+    <Build Include="..\PermissionsCenterDB\SC\Views\UserAndContainerSnapshot_Current.sql">
+      <Link>SC\Views\UserAndContainerSnapshot_Current.sql</Link>
+    </Build>
+    <Build Include="SC\Procedures\InitPinYinTable.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PermissionsCenterDB_Azure.local.publish.xml" />
+    <None Include="PermissionsCenterDB_Azure.local.azure.zhshen.publish.xml" />
+  </ItemGroup>
+</Project>
